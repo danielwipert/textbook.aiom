@@ -94,13 +94,15 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_book.css` | The locked design system. |
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `AIOM_Design_QA_Spec_v1.md` | Gate-by-gate spec. Moves with `AIOM_build.py`. |
-| `AIOM_Consolidated_Spec_v1.pdf` | The full pre-drafting specification. Authoritative. |
+| `AIOM_Consolidated_Spec_v1.md` | The full pre-drafting specification. Authoritative. Markdown despite the earlier `.pdf` reference. |
+| `AIOM_Specification_Addendum_v1.0.docx` | Decisions 1 through 21 and the Addendum rulings. |
 | `AIOM_Structure_v1.md` | Chapter structure and structural devices. |
 | `AIOM_Exit_Competencies_v1.md` | The twenty-four competencies. Backward-design root. |
 | `AIOM_Maturity_Model_v1.md` | Stage definitions. Ch13 craft. |
 | `AIOM_Case_Bank_v1.md` | Cited cases with reuse policy. |
 | `AIOM_Northmoor_Dataset_v1.md` | Capstone dataset design. |
-| `AIOM_Workplan_v4.md` | Current workplan and per-chapter tracker. |
+| `AIOM_Workplan_v5.md` | Current workplan and per-chapter tracker. Supersedes v4, which is retired. |
+| `AIOM_Validation_Matrix_v1.xlsx` | The 28-row Appendix A trace matrix. Working artifact, never book content. Distinct from the full 228-object registry, which lives in Drive. |
 | `chapters/` | Chapter HTML sources. |
 | `fonts/use/` | Staged fonts. Generated, not committed. |
 
@@ -173,18 +175,37 @@ figures and theorem callouts by eye.
 
 ## 8. Chapter lifecycle
 
-A chapter is not Locked until every prior stage is complete. `(C)` is Claude,
-`(D)` is Dan working outside the Claude system.
+Twelve steps, gates separated from passes (confirmed 2026-07-28, per Workplan
+v5). This supersedes the earlier seven-stage list. The shape is nine stages
+(0 through 8) plus three gates. Lock is Stage 8, a pass, not a gate. There is
+no G4. `(C)` is Claude, `(D)` is Dan working outside the Claude system.
 
-1. Draft (C)
-2. Fact check 1 (D, external)
-3. Voice check (C)
-4. Design review (C)
-5. Copy edit (D, external)
-6. Final fact check 2 (D, external)
-7. Locked (C)
+| Step | Name | Owner |
+|------|------|-------|
+| Stage 0 | Draft | C |
+| G1 | Structural gate | C |
+| Stage 1 | Content review | D |
+| Stage 2 | Source and fact check 1 | D |
+| Stage 3 | Voice check | C |
+| Stage 4 | Design review | C |
+| G2 | Production gate | C |
+| Stage 5 | Copy edit | D |
+| Stage 6 | Final fact check 2 | D |
+| G3 | Continuity gate | C |
+| Stage 7 | Final read | D |
+| Stage 8 | Locked | C |
 
-Stages 5 and 6 may run together in one editorial round.
+Sequencing rules:
+
+- **Gates are not passes.** A gate is a mechanical pass-or-fail check run by
+  Claude against a stated standard, and it stops the chapter where it stands.
+  A pass is editorial judgment. They are tracked separately.
+- **Stages 4 and G2 re-run after any prose edit.** A render that passed against
+  older prose has not passed.
+- Stages 5, 6, and 7 are all external and may run in one sitting. Stage 1 may
+  not be batched with them: it runs early or it is worthless.
+- A reopen after Stage 8 re-runs every stage from the one that owns the change.
+- No chapter is Locked until every step is complete.
 
 ---
 
@@ -206,21 +227,36 @@ Stages 5 and 6 may run together in one editorial round.
 
 ## 10. Current state
 
-Chapter 1 ("The Category Error") is drafted and confirmed in the locked voice.
-The design system is built and the six-page design proof is approved. The
-registry is validated: 228 objects load, eight book-mapped theorem IDs resolve,
-zero dangling references in the dependency graph.
+Chapter 1 ("The Category Error") renders complete at 18 pages with all ten QA
+gates passing. It is drafted and confirmed in the locked voice (Stage 0 and
+Stage 3 passed). It is not Locked: G1 is blocked on source archiving only, and
+Stage 4 plus G2 reverted to not-run after the Stage 3 prose edits. Stages 1, 2,
+5, 6, 7, 8 and G3 have not started.
 
-Chapter 2 ("The Flow") is the immediate next drafting target. Chapters 3 through
-15 follow in sequence. Front and back matter come after the manuscript.
+Design finalization is complete (D0 closed, 2026-07-28). The design system is
+locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is
+validated: 228 objects load (200 propositions, 20 lemmas, 8 theorems), eight
+book-mapped theorem IDs resolve, zero dangling references in the dependency
+graph.
 
-Registry flags to carry into the appendix build (M19):
+Chapter 2 ("The Flow") is the immediate next drafting target and is unblocked.
+Chapters 3 through 15 follow in sequence. Front and back matter come after the
+manuscript.
+
+One decision still open: **Decision 28**, the Northmoor property gap. The M3
+build asserts properties A through F; Decision 18 in the Addendum extended the
+list to A through I. G, H, and I remain unbuilt. This gates the Ch9, Ch12, and
+Ch13 problem sets, not Ch2.
+
+Registry flags to carry into the appendix build (Phase 3, Appendix A):
 
 - LEM-015 is retired. Skip it explicitly. IDs run LEM-001 through LEM-021 with
   LEM-015 absent.
 - The "20 lemmas" count is correct as an object count. The ID range runs to 21.
-- The registry ships a pre-built trace for THM-005, not THM-004. Chapter 3 uses
-  the THM-005 trace as a set piece.
+- The registry ships a pre-built trace for THM-005, which is a Ch6 asset, not
+  THM-004. Chapter 3's trace set piece uses THM-004 and must be built
+  separately. Traces are generable mechanically from the dependency graph, so
+  Figure 3.1 is buildable from data.
 
 Appendix A reproduces the 28 theorems and lemmas only. The 200 propositions are
 cited by ID and not reproduced in full.
