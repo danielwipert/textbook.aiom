@@ -12,4 +12,9 @@ Drafts tree.
 - `AIOM_Ch1_draft_v2_editing_variant.md`: a second, leaner revision of Chapter 1
   draft v2 found in the Editing folder. It differs from the canonical draft v2 in
   `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/`, which carries more complete
-  citations. Kept pending a ruling on which revision is authoritative.
+  citations. The more developed version is authoritative; this variant is kept
+  for provenance only.
+- `AIOM_ch01_markdown_noncanonical.md`: the enriched-markdown form of Chapter 1
+  from the Web Version folder. HTML is the source of truth for every chapter on
+  both the book path and the web path, never markdown, so this file is not a
+  source of record. Kept for reference only.
