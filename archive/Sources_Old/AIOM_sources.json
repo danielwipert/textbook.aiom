@@ -1,0 +1,201 @@
+{
+  "_README": [
+    "Book-wide source register for AI Operations Management.",
+    "One entry per source, keyed. Chapters cite by key; footnotes and chapter",
+    "source registers are both generated from this file, so a source cited in",
+    "two chapters cannot appear two different ways.",
+    "",
+    "Add entries with: python3 sources.py add",
+    "Capture with:     python3 sources.py capture",
+    "Check status:     python3 sources.py check",
+    "Resolve chapters: python3 sources.py build AIOM_ch01.html",
+    "",
+    "FIELDS",
+    "  type       article | blog | web | social | report",
+    "  authors    [{family, given}] or [{org}]",
+    "  title      title of the piece",
+    "  container  journal, blog, or site name; omit for report",
+    "  date       ISO. Use YYYY-MM-DD, or YYYY-MM, or YYYY",
+    "  url        canonical URL, after any source upgrade",
+    "  volume/issue/pages/doi   articles only",
+    "  perishable true if the page can change or vanish. Drives G1.",
+    "  wayback    archive link. Filled by: sources.py capture",
+    "  local      local dark-archive filename. Filled by: sources.py capture",
+    "  accessed   ISO date of actual capture, not of verification",
+    "  upgrade    note on a more durable form to chase, or null when settled"
+  ],
+  "altman-2025-pro": {
+    "type": "social",
+    "authors": [
+      {
+        "family": "Altman",
+        "given": "Sam",
+        "handle": "@sama"
+      }
+    ],
+    "title": "Post on X on ChatGPT Pro subscription economics",
+    "date": "2025-01-05",
+    "url": "https://x.com/sama/status/1876104315296968813",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null,
+    "note": "Posted 2025-01-05 19:11 US Pacific, which is 2025-01-06 03:11 UTC. X displays 'January 6, 2025' to viewers outside the Americas. The book dates it January 5, 2025, matching US time and TechCrunch's same-day 'on Sunday' report. Flag for fact check so the UTC display is not read as an error. Second path: techcrunch-2025-altman-pro."
+  },
+  "anthropic-2025-limits": {
+    "type": "social",
+    "authors": [
+      {
+        "org": "Anthropic",
+        "handle": "@AnthropicAI"
+      }
+    ],
+    "title": "post on X announcing new weekly rate limits for Claude Pro and Max",
+    "date": "2025-07-28",
+    "url": "https://x.com/AnthropicAI/status/1949898502688903593",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null,
+    "note": "Announced 2025-07-28 by email to subscribers and by this post; effective 2025-08-28. The X post is the canonical public form. The chapter's clause about limits introduced quietly earlier in July rests on techcrunch-2025-anthropic-limits, not on this post."
+  },
+  "brynjolfsson-2025-genai": {
+    "type": "article",
+    "authors": [
+      {
+        "family": "Brynjolfsson",
+        "given": "Erik"
+      },
+      {
+        "family": "Li",
+        "given": "Danielle"
+      },
+      {
+        "family": "Raymond",
+        "given": "Lindsey"
+      }
+    ],
+    "title": "Generative AI at Work",
+    "container": "Quarterly Journal of Economics",
+    "volume": "140",
+    "issue": "2",
+    "pages": "889-942",
+    "date": "2025",
+    "doi": "10.1093/qje/qjae044",
+    "url": "https://doi.org/10.1093/qje/qjae044",
+    "perishable": false,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null
+  },
+  "github-2025-premium": {
+    "type": "blog",
+    "authors": [
+      {
+        "org": "GitHub"
+      }
+    ],
+    "title": "Update to GitHub Copilot Consumptive Billing Experience",
+    "container": "GitHub Changelog",
+    "date": "2025-06-18",
+    "url": "https://github.blog/changelog/2025-06-18-update-to-github-copilot-consumptive-billing-experience/",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null,
+    "note": "Upgrade RESOLVED differently from the worksheet. The worksheet called for a permalinked docs.github.com revision. A dated changelog entry is the better artifact for a dated claim: a docs page describes the current state, a changelog records the change on the day it happened. This also matches the chapter's own footnote wording, 'premium-request billing changelog'."
+  },
+  "github-2026-usage": {
+    "type": "blog",
+    "authors": [
+      {
+        "org": "GitHub"
+      }
+    ],
+    "title": "GitHub Copilot Is Moving to Usage-Based Billing",
+    "container": "The GitHub Blog",
+    "date": "2026-04-27",
+    "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null,
+    "note": "Announced 2026-04-27, effective 2026-06-01. Confirms the chapter's claim: premium request units replaced by GitHub AI Credits consumed on token usage, including input, output, and cached tokens, at each model's published API rate. No repo revision exists for this one; it is a github.blog post, not a docs page."
+  },
+  "microsoft-2026-q2": {
+    "type": "report",
+    "authors": [
+      {
+        "org": "Microsoft Corporation"
+      }
+    ],
+    "title": "FY26 Second Quarter Earnings Call",
+    "date": "2026-01-28",
+    "url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null,
+    "note": "DECISION 46 (2026-07-28): Microsoft's own IR transcript is accepted as the primary source. The figure is a first-party disclosure by the party that holds the data, published by that party. A filing upgrade is not available: the 4.7 million figure appears only in spoken remarks, the FY26 Q2 press release carries no Copilot subscriber count, and Microsoft does not break out product-level subscriber counts in the 10-Q. Perishable, so capture governs durability. Verified wording, Nadella: 'all up now we have over 4.7 million paid Copilot subscribers, up 75% year-over-year', stated in the coding paragraph, so GitHub Copilot. FLAG FOR FACT CHECK: he said 'over 4.7 million'; the chapter says 'reported at 4.7 million', which understates. Quarter ended 2025-12-31, four months before the 2026-06-01 billing transition the chapter attaches it to."
+  },
+  "truell-2025-pricing": {
+    "type": "blog",
+    "authors": [
+      {
+        "family": "Truell",
+        "given": "Michael"
+      }
+    ],
+    "title": "Clarifying Our Pricing",
+    "container": "Cursor",
+    "date": "2025-07-04",
+    "url": "https://cursor.com/blog/june-2025-pricing",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null
+  },
+  "techcrunch-2025-altman-pro": {
+    "type": "blog",
+    "authors": [
+      {
+        "org": "TechCrunch"
+      }
+    ],
+    "title": "OpenAI Is Losing Money on Its Pricey ChatGPT Pro Plan, CEO Sam Altman Says",
+    "container": "TechCrunch",
+    "date": "2025-01-05",
+    "url": "https://techcrunch.com/2025/01/05/openai-is-losing-money-on-its-pricey-chatgpt-pro-plan-ceo-sam-altman-says",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null,
+    "note": "Second independent path for altman-2025-pro, per the Decision 40 two-path standard for load-bearing perishable sources. Reproduces both statements: the loss on Pro subscriptions and 'I personally chose the price.' BYLINE NOT VERIFIED. Filed to the publication rather than a person. Fill in the author at capture; do not guess it."
+  },
+  "techcrunch-2025-anthropic-limits": {
+    "type": "blog",
+    "authors": [
+      {
+        "org": "TechCrunch"
+      }
+    ],
+    "title": "Anthropic Unveils New Rate Limits to Curb Claude Code Power Users",
+    "container": "TechCrunch",
+    "date": "2025-07-28",
+    "url": "https://techcrunch.com/2025/07/28/anthropic-unveils-new-rate-limits-to-curb-claude-code-power-users/",
+    "perishable": true,
+    "wayback": "",
+    "local": "",
+    "accessed": "",
+    "upgrade": null,
+    "note": "Carries the fact the X post does not: Anthropic had quietly introduced Claude Code rate limits weeks earlier. The chapter's 'introduced usage limits and then announced weekly caps stacked on top' needs this source. BYLINE NOT VERIFIED. Fill in the author at capture; do not guess it."
+  }
+}

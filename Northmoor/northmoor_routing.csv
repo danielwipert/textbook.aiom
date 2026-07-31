@@ -1,0 +1,7 @@
+task_class,policy_tier,annual_Mtokens,policy_cost,frontier_baseline_cost,saving_vs_frontier
+simple_triage,bulk,2761.5,1380.75,55230.0,53849.25
+structured_qa,standard,2897.9,11591.52,57957.6,46366.08
+long_doc_review,frontier,5904.0,118080.0,118080.0,0.0
+drafting_copilot,standard,5070.0,20280.0,101400.0,81120.0
+creative_generation,frontier,8974.0,179480.14,179480.14,0.0
+TOTAL,-,25607.4,330812.41,512147.74,181335.33

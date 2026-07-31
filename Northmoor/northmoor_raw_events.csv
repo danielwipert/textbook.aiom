@@ -1,0 +1,76 @@
+month,cal,quarter,workflow,wf_name,provider,tier,task_class,seats,requests,input_tokens,output_tokens,total_tokens,cost,kind
+1,Jul,Q1,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,306693,161013825,53671275,214685100,107.34,workflow
+2,Aug,Q1,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,298329,156622725,52207575,208830300,104.42,workflow
+3,Sep,Q1,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,318694,167314350,55771450,223085800,111.54,workflow
+4,Oct,Q2,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,327665,172024125,57341375,229365500,114.68,workflow
+5,Nov,Q2,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,342625,179878125,59959375,239837500,119.92,workflow
+6,Dec,Q2,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,357434,187652850,62550950,250203800,125.1,workflow
+7,Jan,Q3,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,417425,219148125,73049375,292197500,146.1,workflow
+8,Feb,Q3,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,345229,181245225,60415075,241660300,120.83,workflow
+9,Mar,Q3,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,313461,164567025,54855675,219422700,109.71,workflow
+10,Apr,Q4,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,305325,160295625,53431875,213727500,106.86,workflow
+11,May,Q4,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,287462,150917550,50305850,201223400,100.61,workflow
+12,Jun,Q4,wf1_triage,Inquiry and Returns Triage,gateway,bulk,simple_triage,40,305717,160501425,53500475,214001900,107.0,workflow
+1,Jul,Q1,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,82791,149023800,99349200,248373000,993.49,workflow
+2,Aug,Q1,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,75734,136321200,90880800,227202000,908.81,workflow
+3,Sep,Q1,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,79707,143472600,95648400,239121000,956.48,workflow
+4,Oct,Q2,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,88351,159031800,106021200,265053000,1060.21,workflow
+5,Nov,Q2,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,96141,173053800,115369200,288423000,1153.69,workflow
+6,Dec,Q2,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,100713,181283400,120855600,302139000,1208.56,workflow
+7,Jan,Q3,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,107100,192780000,128520000,321300000,1285.2,workflow
+8,Feb,Q3,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,71186,128134800,85423200,213558000,854.23,workflow
+9,Mar,Q3,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,66958,120524400,80349600,200874000,803.5,workflow
+10,Apr,Q4,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,69878,125780400,83853600,209634000,838.54,workflow
+11,May,Q4,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,64376,115876800,77251200,193128000,772.51,workflow
+12,Jun,Q4,wf2_service_assist,Customer Service Assist,provider_a,standard,structured_qa,60,65962,118731600,79154400,197886000,791.54,workflow
+1,Jul,Q1,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,4048,582912000,64768000,647680000,12953.6,workflow
+2,Aug,Q1,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,4290,617760000,68640000,686400000,13728.0,workflow
+3,Sep,Q1,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2776,399744000,44416000,444160000,8883.2,workflow
+4,Oct,Q2,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2305,331920000,36880000,368800000,7376.0,workflow
+5,Nov,Q2,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2341,337104000,37456000,374560000,7491.2,workflow
+6,Dec,Q2,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2610,375840000,41760000,417600000,8352.0,workflow
+7,Jan,Q3,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,4075,586800000,65200000,652000000,13040.0,workflow
+8,Feb,Q3,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,4014,578016000,64224000,642240000,12844.8,workflow
+9,Mar,Q3,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2860,411840000,45760000,457600000,9152.0,workflow
+10,Apr,Q4,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2465,354960000,39440000,394400000,7888.0,workflow
+11,May,Q4,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2653,382032000,42448000,424480000,8489.6,workflow
+12,Jun,Q4,wf3_supplier_review,Supplier Contract and Compliance Review,provider_b,frontier,long_doc_review,6,2755,396720000,44080000,440800000,8816.0,workflow
+1,Jul,Q1,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,40,51205,112651000,92169000,204820000,819.28,workflow
+2,Aug,Q1,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,43,54164,119160800,97495200,216656000,866.62,workflow
+3,Sep,Q1,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,45,58945,129679000,106101000,235780000,943.12,workflow
+4,Oct,Q2,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,48,60237,132521400,108426600,240948000,963.79,workflow
+5,Nov,Q2,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,51,71502,157304400,128703600,286008000,1144.03,workflow
+6,Dec,Q2,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,54,71194,156626800,128149200,284776000,1139.1,workflow
+7,Jan,Q3,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,56,193116,424855200,347608800,772464000,3089.86,workflow
+8,Feb,Q3,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,59,204776,450507200,368596800,819104000,3276.42,workflow
+9,Mar,Q3,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,62,227339,500145800,409210200,909356000,3637.42,workflow
+10,Apr,Q4,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,65,88524,194752800,159343200,354096000,1416.38,workflow
+11,May,Q4,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,67,98468,216629600,177242400,393872000,1575.49,workflow
+12,Jun,Q4,wf4_wholesale_copilot,Wholesale Sales Copilot,provider_b,standard,drafting_copilot,70,97154,213738800,174877200,388616000,1554.46,workflow
+1,Jul,Q1,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,7071,127278000,296982000,424260000,8485.2,workflow
+2,Aug,Q1,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,8683,156294000,364686000,520980000,10419.6,workflow
+3,Sep,Q1,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,14172,255096000,595224000,850320000,17006.4,workflow
+4,Oct,Q2,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,12232,220176000,513744000,733920000,14678.4,workflow
+5,Nov,Q2,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,12515,225270000,525630000,750900000,15018.0,workflow
+6,Dec,Q2,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,9161,164898000,384762000,549660000,10993.2,workflow
+7,Jan,Q3,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,10775,351628982,820467625,1172096607,23441.93,workflow
+8,Feb,Q3,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,9925,323890269,755743960,1079634229,21592.68,workflow
+9,Mar,Q3,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,13798,450280900,1050655432,1500936332,30018.73,workflow
+10,Apr,Q4,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,8265,148770000,347130000,495900000,9918.0,workflow
+11,May,Q4,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,7559,136062000,317478000,453540000,9070.8,workflow
+12,Jun,Q4,wf5_marketing_studio,Marketing Content Studio,provider_b,frontier,creative_generation,8,8224,148032000,345408000,493440000,9868.8,workflow
+7,Jan,Q3,strand_control_failure,Eng test loop on production key,provider_a,standard,structured_qa,0,0,500000000,500000000,1000000000,4000.0,control_failure
+8,Feb,Q3,strand_control_failure,Eng test loop on production key,provider_a,standard,structured_qa,0,0,500000000,500000000,1000000000,4000.0,control_failure
+9,Mar,Q3,strand_control_failure,Eng test loop on production key,provider_a,standard,structured_qa,0,0,500000000,500000000,1000000000,4000.0,control_failure
+1,Jul,Q1,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+2,Aug,Q1,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+3,Sep,Q1,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+4,Oct,Q2,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+5,Nov,Q2,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+6,Dec,Q2,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+7,Jan,Q3,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+8,Feb,Q3,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+9,Mar,Q3,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+10,Apr,Q4,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+11,May,Q4,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage
+12,Jun,Q4,strand_shadow_usage,Personal-account creative work (unmetered),unmetered,frontier,creative_generation,0,0,2400000,5600000,8000000,0.0,shadow_usage

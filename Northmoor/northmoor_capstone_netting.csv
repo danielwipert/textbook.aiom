@@ -1,0 +1,10 @@
+line,pct,amount
+Vendor claim: 30% productivity,30%,990000.0
+"less: size-guide overhaul (demand drop, not AI)",-15.0%,-495000.0
+"less: agent attrition (headcount, not AI)",-3.3%,-108900.0
+= TRUE gross value (defensible),11.7%,386100.0
+less: AI usage cost,,-11626.76
+less: review labor,,-40000
+less: error incidents,,-25000
+less: governance overhead,,-15000
+= NET realized value,,294473.24

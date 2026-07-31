@@ -1,0 +1,3 @@
+scenario,displaced_Mtokens,option_A,option_B_cost
+provider_b rate-limit -40% for 2 weeks,332.5,"defer to backlog (0 extra cost, SLA risk)",8311.67
+budget ceiling 85% of peak month (Mar),1500.9,downgrade creative_generation to standard tier,23706.38
