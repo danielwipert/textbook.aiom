@@ -488,39 +488,37 @@ with gate 6, per the figure fill rule.
 lack exact permalinks. Both must close before the chapter locks, and neither can
 be done from inside the build.
 
-## 14. Addendum, 2026-07-28, third entry
+## 14. Addendum, 2026-07-28, third entry, as amended 2026-07-29
 
-**Decision 40: archival standard for cited sources.**
+**Decision 40: source standard for cited sources.** Amended by Decision 48
+(2026-07-29): the archival capture requirement is repealed. The source-upgrade
+standard below survives; the triple-capture requirement does not.
 
-Two parts, in order. Upgrade before archiving, because upgrading changes what
-gets archived.
-
-**Part one, source upgrade.** Cite the most durable available form of the claim.
+**Source upgrade (survives).** Cite the most durable available form of the claim.
 A number disclosed in an earnings call and also filed with the SEC is cited to
 the filing, because EDGAR outlives every vendor link. Documentation published
 from a public repository is cited to a permalinked revision rather than to the
 live page, which pins the exact text relied on. A claim carried only by a social
 post gets a second independent path, cited with Chicago's "quoted in"
-construction. A DOI needs nothing further.
+construction. A DOI needs nothing further. An aggregator or vendor page is never
+cited, only the primary it points to.
 
-**Part two, triple capture.** Perma.cc, built at Harvard Law Library for citation
-rot and used by law reviews and university presses. The Wayback Machine, free
-and universally recognized. And a local dark archive under the author's control,
-named to match the citation. One archive is a single point of failure for a book
-aiming at fifty years, and the local copy is the one that lets a press verify a
-claim without chasing links.
+**Triple capture (repealed by Decision 48).** The prior requirement to capture
+every perishable source to Perma.cc, to the Wayback Machine, and to a local dark
+archive is withdrawn. A source is sufficiently sourced when it is cited to a
+primary, verified live on the accessed date, and cleared by two independent fact
+checks against that source. No snapshot is filed.
 
-**Register entry format.** Original URL, then archive link, then access date. The
-access date records actual capture, not verification against the live record.
+**Register entry format.** Original URL and access date. The access date records
+verification against the live record on that day.
 
-**This is enforced at G1 and it is blocking.** The prior wording, "every source
-archived," was too vague to fail on. It now reads as four separate checks: source
-upgrade considered, both public captures made, local copy filed, register entry
-carrying all three fields.
+**Enforcement at G1.** Decision 48 reduced Gate G1 from fourteen checks to ten.
+The four archiving checks are gone. What remains blocking on a source is the
+access date: a cited source must carry the date it was verified live.
 
-**Why this book in particular.** The design already quarantines perishable
-specifics inside dated cases and provenance lines, on the reasoning that a reader
-in 2032 must be able to tell time-stamped material from timeless argument. That
-commitment only pays off if the quarantined material is still retrievable. A
-dated case pointing at a dead link is worse than no case, because it looks like
-evidence and is not.
+**Known cost, accepted.** Accessed dates now carry the whole durability burden. A
+reader in 2040 holding a citation to a perishable web page may find a dead link,
+which is normal for academic books and faulted by no reviewer. The method note
+records plainly that web sources were verified live at drafting and were not
+archived. This is the deliberate reversal of the archival reasoning that Decision
+40 first adopted.

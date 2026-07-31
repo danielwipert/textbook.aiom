@@ -229,9 +229,11 @@ Sequencing rules:
 
 Chapter 1 ("The Category Error") renders complete at 18 pages with all ten QA
 gates passing. It is drafted and confirmed in the locked voice (Stage 0 and
-Stage 3 passed). It is not Locked: G1 is blocked on source archiving only, and
-Stage 4 plus G2 reverted to not-run after the Stage 3 prose edits. Stages 1, 2,
-5, 6, 7, 8 and G3 have not started.
+Stage 3 passed). It is not Locked: G1's only open item was source archiving,
+which Decision 48 (2026-07-29) repealed, cutting G1 from fourteen checks to ten
+and leaving access dates as the one remaining source requirement, so G1 needs a
+re-run against the reduced standard. Stage 4 plus G2 reverted to not-run after
+the Stage 3 prose edits. Stages 1, 2, 5, 6, 7, 8 and G3 have not started.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is

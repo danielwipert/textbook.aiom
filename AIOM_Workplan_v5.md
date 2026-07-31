@@ -23,7 +23,8 @@ Added or changed in v5:
 3. **Decisions 29 through 41 recorded**, plus 40a. Decision 24 closed.
    Decisions 34 and 35 recorded as moot.
 4. Chapter 1 status updated: renders complete at 18 pages, all ten QA gates
-   passing, G1 failed on source archiving only.
+   passing. G1 had failed on source archiving only; Decision 48 later repealed
+   the archival checks, so that blocker is retired.
 5. Source handling recorded as built: one book-wide register, scripted capture,
    generated citations, Chicago 17 notes and bibliography.
 6. Two manuscript fact corrections logged.
@@ -74,9 +75,9 @@ property coverage: see Decision 28.
 ## Immediate queue (in order)
 1. **Rule the G1 contradiction on Chapter 1.** The marker says failed, the
    findings text says closed. See the Ch1 checklist chapter notes.
-2. **Run `sources.py capture` on Dan's machine.** All upgrades are resolved and
-   all URLs are filled as of 2026-07-28; capture is the only remaining G1 work.
-   The Claude container cannot reach web.archive.org. Expect 9 ready after.
+2. **Source capture retired (Decision 48).** Capture is no longer required; the
+   archival checks are gone and G1 drops to ten checks. A source now needs a
+   verified primary, an access date, and two independent fact checks.
 3. **Chapter 1, stages 1 and 2.** External passes, Dan's.
 4. **Chapter 2 drafting.** Runs in parallel with items 2 and 3.
 5. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -216,10 +217,18 @@ Decisions 22 onward live here.
 - **Decision 38.** The chapter source register is classed as apparatus, not a
   seventh slot. The six-slot skeleton is intact.
 - **Decision 39.** Chicago 17, notes and bibliography, with access dates.
-- **Decision 40.** Archival standard: capture plus a local copy, enforced at G1.
-- **Decision 40a.** Perma.cc is out.
-- **Decision 41.** One book-wide source register, scripted capture, generated
-  citations.
+- **Decision 40.** Source standard: upgrade to the most durable primary; a
+  social-post-only claim gets a second independent path. The source-upgrade half
+  survives; the archival-capture half is repealed by Decision 48.
+- **Decision 40a.** Perma.cc is out. Moot under Decision 48, which drops capture
+  entirely.
+- **Decision 41.** One book-wide source register, generated citations. The
+  scripted-capture step is retired by Decision 48.
+- **Decision 48 (2026-07-29).** No capture. A source is sufficiently sourced when
+  cited to a verified primary, checked live on the access date, and cleared by
+  two independent fact checks. Repeals the archival capture of Decisions 39, 40,
+  and 40a; the Decision 40 source-upgrade standard survives. Gate G1 drops from
+  fourteen checks to ten.
 
 - **Decision 42.** Voiced material. Body prose is third person. First or second
   person is permitted only in material marked as voiced, either by a block class
@@ -273,10 +282,12 @@ Standing design rules carried out of D0:
 
 - One book-wide source register: `AIOM_sources.json`.
 - Citations are generated, not hand-written.
-- Capture is scripted: `sources.py capture`.
+- Capture: retired by Decision 48. No snapshots are filed.
 - Style: Chicago 17, notes and bibliography, with access dates (Decision 39).
-- Archival standard: capture plus a local copy, enforced at G1 (Decision 40).
-  Perma.cc is out (Decision 40a).
+- Archival standard: repealed by Decision 48. A source is sufficiently sourced
+  when cited to a verified primary with an access date and cleared by two
+  independent fact checks. The capture requirement of Decisions 40 and 40a is
+  withdrawn; the Decision 40 source-upgrade standard survives.
 
 Chapter 1 source state, blocking G1:
 - Six of seven sources are blocked.

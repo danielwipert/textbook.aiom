@@ -40,7 +40,7 @@ CHAPTERS = [
 STAGES = [
     ("0", "Draft", "Claude",
      "Against the chapter outline and the fixed six-slot skeleton. "
-     "Sources archived at drafting time.", []),
+     "Sources verified live with an access date; no archival (Decision 48).", []),
 
     ("G1", "Structural gate", "Claude",
      "Mechanical. Runs before Dan sees the chapter, so no reading time is "
@@ -50,7 +50,7 @@ STAGES = [
          "Every exit competency assigned to this chapter is addressed",
          "Every registry ID cited resolves against Locked Registry v1.3",
          "Tier rules hold: one theorem callout, lemmas by ID, propositions by ID",
-         "Every empirical claim carries a citation; every source archived",
+         "Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)",
          "Every Slot 5 key term appears defined in the body",
          "Zero em dashes",
          "Word count inside the chapter target band",
