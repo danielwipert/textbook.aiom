@@ -1,11 +1,11 @@
-# The Northland Dataset v1.0 (LOCKED DESIGN)
+# The Northmoor Dataset v1.0 (LOCKED DESIGN)
 
 Textbook: *AI Operations Management*. The book's single recurring constructed dataset, threaded through the problem sets of Chapters 8-12 and 15, and supplying the Chapter 13 diagnostic packet.
 Approved by Dan, July 19, 2026. Design locked; numerical build deferred to a dedicated session when outlining reaches Part III.
 
 ## The company
 
-NORTHLAND APPAREL: a mid-size apparel brand, roughly 4,000 employees (matching the Ch14 org-design problem), selling through direct-to-consumer e-commerce and a wholesale account channel. Mature, conventional supply chain function (sourcing, inventory, freight) already in place.
+NORTHMOOR APPAREL: a mid-size apparel brand, roughly 4,000 employees (matching the Ch14 org-design problem), selling through direct-to-consumer e-commerce and a wholesale account channel. Mature, conventional supply chain function (sourcing, inventory, freight) already in place.
 
 Why apparel (Dan's selection, ratified): universally understood; nobody needs the industry explained; rich layered seasonality (SS/FW drops, holiday peak, campaign spikes); real complications (returns, sizing, SKU breadth, channel mix); physical goods; and decisively, apparel is the canonical supply chain teaching industry (Zara et al.), so the manifesto's central analogy (the mature goods-flow discipline vs the absent AI-flow discipline) is mirrored inside an industry where MBA readers already learned what a mature flow discipline looks like.
 
@@ -14,8 +14,8 @@ Name diligence: run a trade-name collision check before print; include the stand
 ## Structural ruling: one company, two moments
 
 The Ch13 diagnostic packet and the Part III dataset are the SAME company at two points in time.
-- T0: Northland is Unmanaged (maturity model Stage 1). This state IS the Ch13 diagnostic packet (org chart, budget lines, dashboard screenshots, three stakeholder transcripts).
-- The Ch15 final exam (the ninety-day plan) is the plan that stood up Northland's metering.
+- T0: Northmoor is Unmanaged (maturity model Stage 1). This state IS the Ch13 diagnostic packet (org chart, budget lines, dashboard screenshots, three stakeholder transcripts).
+- The Ch15 final exam (the ninety-day plan) is the plan that stood up Northmoor's metering.
 - Part III's dataset is the twelve months of records that resulted.
 No narrative, no characters, no story (per Dan's ruling against a running case): one dataset with a timestamp axis. Payoff: the reader's final exam produces the plan that explains where the numbers they have worked all book came from; the Ch15 CFO briefing compresses a year they personally analyzed.
 

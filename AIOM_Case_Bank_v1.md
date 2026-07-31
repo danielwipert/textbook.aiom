@@ -38,7 +38,7 @@ Rule: before print, every case cites its Grade A primary source directly.
 ### CASE 6.1: Klarna: the claim and the correction (February 2024 - May 2025)
 - The claim: In February 2024, Klarna, jointly with OpenAI, announced its AI assistant handled 2.3M conversations in month one, two-thirds of customer-service chats, equivalent (by Klarna's estimate) to the work of 700 full-time agents, resolution time down from 11 minutes to under 2, projected $40M profit improvement for 2024. Company-reported figures announced jointly with the vendor supplying the model.
 - The correction: In May 2025, CEO Sebastian Siemiatkowski told Bloomberg the cost-cutting drive had gone too far, produced "lower quality," and Klarna began recruiting human agents (an "Uber-type" flexible model) so customers could always reach a human. Headcount decline (roughly 5,000 toward 3,000-3,500 across the period) came substantially through attrition and a hiring freeze, complicating the "700 replaced" framing.
-- What it documents: nearly every distinction Ch6 teaches in one episode: claimed vs realized value; vendor-joint self-reported figures; the boundary problem (what period, what outcomes, which confounds); productivity claim vs ROI; and the netting that was never published. Deliberate design echo: the Northland capstone (C18) is structurally a miniature Klarna with the netting actually performed.
+- What it documents: nearly every distinction Ch6 teaches in one episode: claimed vs realized value; vendor-joint self-reported figures; the boundary problem (what period, what outcomes, which confounds); productivity claim vs ROI; and the netting that was never published. Deliberate design echo: the Northmoor capstone (C18) is structurally a miniature Klarna with the netting actually performed.
 - Sources: Klarna/OpenAI announcement Feb 2024 (primary); Bloomberg interview May 2025 (primary); CNBC on headcount; Forbes. Grade A. (Note: many secondary retellings are sloppy; cite primaries only.)
 - Placement: Ch6 opening case (strongest option); referenced again in Ch12.
 
@@ -62,7 +62,7 @@ Rule: before print, every case cites its Grade A primary source directly.
 
 ### CASE 5.2: Shadow AI and the invisible flow (2023-2026 pattern, multiple sources)
 - Documented pattern: IBM's 2025 Cost of a Data Breach Report found breaches involving shadow AI averaged $670,000 MORE than other incidents, with 97% of breached organizations lacking AI access controls; an IDC 2025 survey found 56% of employees using unauthorized AI tools vs 23% using organization-governed tools; the Samsung 2023 episode (engineers pasting source code and internal material into a public chatbot within a month, prompting a ban, later reversed toward an internal tool) is the canonical incident.
-- What it documents: the record flow's absence has a price; unmetered activity is invisible to the management boundary (THM-010 territory); motivates Ch8's coverage test and shadow-usage estimate. Northland's designer/marketer shadow usage mirrors this pattern.
+- What it documents: the record flow's absence has a price; unmetered activity is invisible to the management boundary (THM-010 territory); motivates Ch8's coverage test and shadow-usage estimate. Northmoor's designer/marketer shadow usage mirrors this pattern.
 - Sources: IBM Cost of a Data Breach 2025 (primary; obtain report); IDC survey (chase primary); Samsung episode (contemporaneous 2023 reporting; chase primary). Grade A for IBM; B pending primaries for the rest.
 - Placement: Ch8 opening case or teaching body.
 
@@ -80,7 +80,7 @@ Rule: before print, every case cites its Grade A primary source directly.
 4. FinOps Foundation: current framework text and State of FinOps survey data on AI spend (Ch14 boundary treaty; engage by name).
 5. Token-price volatility evidence (OpenRouter or equivalent) to support or replace the manifesto's PMT claim.
 6. Model deprecation/forced-migration episodes for Ch7 switching economics.
-7. Verify the "Northland" trade-name collision check (logged from dataset session).
+7. Verify the "Northmoor" trade-name collision check (logged from dataset session).
 
 ## Status
 
