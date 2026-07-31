@@ -1,0 +1,364 @@
+/* ============================================================
+   AIOM_book.css
+   VERSION: 6.6
+   DATE:    2026-07-25
+   CHANGES: Rebuilt from AIOM_Ch1_DesignProof_v5_FINAL.pdf.
+            Key Terms slot restyled to Option B (ruled register).
+            All other values reverse-engineered to match v5 exactly.
+   RULE:    This file is the sole control of appearance.
+            Chapter HTML files carry content only. No scoped
+            <style> blocks in any chapter, ever.
+   ============================================================ */
+
+/* ---------- 1. FONTS ---------- */
+@font-face { font-family: "Jost"; src: url("fonts/use/Jost-Medium.ttf");   font-weight: 500; }
+@font-face { font-family: "Jost"; src: url("fonts/use/Jost-SemiBold.ttf"); font-weight: 600; }
+/* Body family is IBM Plex SANS, roman weight "Text" (450), confirmed by
+   metric fingerprint against the v5 PDF's embedded font. Not the serif. */
+@font-face { font-family: "Plex"; src: url("fonts/use/IBMPlexSans-Text.ttf");     font-weight: 400; font-style: normal; }
+@font-face { font-family: "Plex"; src: url("fonts/use/IBMPlexSans-Italic.ttf");   font-weight: 400; font-style: italic; }
+@font-face { font-family: "Plex"; src: url("fonts/use/IBMPlexSans-Medium.ttf");   font-weight: 500; font-style: normal; }
+@font-face { font-family: "Plex"; src: url("fonts/use/IBMPlexSans-SemiBold.ttf"); font-weight: 600; font-style: normal; }
+
+/* ---------- 2. DESIGN TOKENS ---------- */
+:root {
+  --paper:       #F4ECDD;
+  --navy:        #16314F;
+  --amber:       #B4551F;
+  --amber-fig:   #C0521A;
+  --teal:        #0E7A72;
+  --ink:         #2B2620;
+  --folio:       #9B8F7C;
+  --axis:        #6E6353;
+  --tint-def:    #EDE3D0;
+  --tint-thm:    #F7EDE2;
+  --hairline:    #DCCFB4;
+  --kt-head:     #DCCFB4;  /* key term header band, the hairline value as a field */
+}
+
+/* ---------- 3. PAGE ---------- */
+@page {
+  size: 486pt 684pt;
+  background: var(--paper);
+  @bottom-center {
+    content: counter(page);
+    font-family: "Plex"; font-size: 9pt; color: var(--folio);
+    vertical-align: top; padding-top: 23pt;
+  }
+}
+@page :right {
+  margin: 61.2pt 57.6pt 57.6pt 68.4pt;
+  @top-right {
+    content: string(chaptitle);
+    font-family: "Jost"; font-weight: 500; font-size: 8pt;
+    color: var(--amber); letter-spacing: 0.196em; text-transform: uppercase;
+    vertical-align: bottom; padding-bottom: 24.8pt;
+  }
+}
+@page :left {
+  margin: 61.2pt 68.4pt 57.6pt 57.6pt;
+  @top-left {
+    content: "AI Operations Management";
+    font-family: "Jost"; font-weight: 500; font-size: 8pt;
+    color: var(--amber); letter-spacing: 0.196em; text-transform: uppercase;
+    vertical-align: bottom; padding-bottom: 24.8pt;
+  }
+}
+@page :first { @top-right { content: none; } @top-left { content: none; } }
+
+/* ---------- 3b. FOOTNOTES ---------- */
+/* Full source citations sit at the foot of the page carrying the claim. The
+   back-of-book bibliography remains as the aggregated list. */
+@page {
+  @footnote {
+    border-top: 0.5pt solid var(--axis);
+    margin-top: 11pt;
+    padding-top: 5.5pt;
+  }
+}
+.fn {
+  float: footnote;
+  font-family: "Plex"; font-size: 8pt; line-height: 11pt;
+  color: var(--ink); text-align: left; hyphens: none;
+  /* keep the note on the page that carries its call: if the note will not fit,
+     move the calling line to the next page rather than orphaning the note */
+  footnote-policy: line;
+}
+::footnote-call {
+  font-family: "Plex"; font-size: 7pt; font-weight: 400;
+  color: var(--amber); vertical-align: super;
+}
+::footnote-marker {
+  font-family: "Plex"; font-size: 7pt; font-weight: 400;
+  color: var(--amber); vertical-align: super;
+  padding-right: 2.5pt;
+}
+
+/* ---------- 4. BODY TEXT ---------- */
+html { font-family: "Plex"; font-size: 11pt; color: var(--ink); }
+body { margin: 0; }
+p {
+  margin: 0 0 6.8pt 0;
+  line-height: 16.5pt;
+  text-align: justify;
+  hyphens: auto;
+  -weasy-hyphens: auto;
+}
+b, strong { font-weight: 600; }
+
+/* ---------- 5. CHAPTER OPENER ---------- */
+.part-label {
+  font-family: "Jost"; font-weight: 500; font-size: 9pt;
+  color: var(--amber); letter-spacing: 0.238em; text-transform: uppercase;
+  margin: 15.7pt 0 7.6pt 0; line-height: 11pt;
+}
+h1.chapter-title {
+  string-set: chaptitle content();
+  font-family: "Jost"; font-weight: 600; font-size: 27pt;
+  color: var(--navy); letter-spacing: -0.009em;
+  margin: 0 0 15.2pt 0; line-height: 30pt;
+  border-bottom: 1pt solid var(--amber); padding-bottom: 9.6pt;
+}
+.slot-label {
+  font-family: "Jost"; font-weight: 600; font-size: 8.5pt;
+  color: var(--amber); letter-spacing: 0.215em; text-transform: uppercase;
+  margin: 0 0 11.4pt 0; line-height: 10pt;
+}
+h2.case-title {
+  font-family: "Jost"; font-weight: 600; font-size: 15pt;
+  color: var(--navy); margin: 0 0 5pt 0; line-height: 17pt;
+}
+
+/* Provenance line. Sits under every opening case title and carries either the
+   date range of the episode or the constructed-data label. Serves the fifty-year
+   rule and the constructed-material rule with one device. */
+p.provenance {
+  font-family: "Plex"; font-weight: 600; font-size: 7pt;
+  color: var(--amber); letter-spacing: 0.14em; text-transform: uppercase;
+  margin: 0 0 12.5pt 0; line-height: 9pt;
+  text-align: left; hyphens: none;
+}
+
+/* ---------- 6b. DATED EVIDENCE BOX ---------- */
+/* Single-paragraph dated reference inside the teaching body. Not a featured
+   slot; does not count against the case reuse ceiling. Distinguished from the
+   theorem panel by having no fill and a neutral rule rather than an amber one. */
+.dated {
+  border-left: 1.5pt solid var(--axis);
+  padding: 0 0 0 12pt;
+  margin: 12.5pt 0 12.5pt 0;
+  break-inside: avoid;
+}
+.dated + .dated { margin-top: 9.5pt; }
+.dated .date {
+  font-family: "Plex"; font-weight: 600; font-size: 7pt;
+  color: var(--amber); letter-spacing: 0.14em; text-transform: uppercase;
+  margin: 0 0 3.5pt 0; line-height: 9pt;
+  text-align: left; hyphens: none;
+}
+.dated p { font-size: 10pt; line-height: 14.6pt; margin: 0; }
+
+/* ---------- 6. SECTION HEADINGS ---------- */
+h3.section {
+  font-family: "Jost"; font-weight: 600; font-size: 14pt;
+  color: var(--navy); margin: 19.7pt 0 9pt 0; line-height: 17pt;
+  padding-top: 2pt; break-after: avoid;
+}
+h3.section .num { color: var(--amber); margin-right: 6pt; }
+
+/* ---------- 7. DEFINITION CALLOUT ---------- */
+.definition {
+  float: right; clear: right;
+  box-sizing: border-box;
+  width: 154.1pt; margin: 3pt 0 12pt 15.8pt;
+  background: var(--tint-def); border-top: 2pt solid var(--amber);
+  padding: 8pt 8.6pt 7.7pt 8.6pt;
+  break-inside: avoid;
+}
+.definition .lab {
+  font-family: "Plex"; font-weight: 600; font-size: 7pt;
+  color: var(--amber); letter-spacing: 0.14em; text-transform: uppercase;
+  margin: 0 0 4pt 0; line-height: 9pt; text-align: left;
+}
+.definition .term {
+  font-family: "Plex"; font-weight: 600; font-size: 11pt;
+  color: var(--navy); margin: 0 0 3pt 0; line-height: 13pt; text-align: left;
+}
+.definition p {
+  font-size: 9pt; line-height: 12.85pt; margin: 0;
+  text-align: left; hyphens: none;
+}
+
+/* ---------- 8. THEOREM PANEL ---------- */
+.theorem {
+  background: var(--tint-thm); border-left: 3pt solid var(--amber);
+  padding: 12.9pt 16pt 11.9pt 16pt; margin: 17.3pt 0 17.2pt 0;
+  break-inside: avoid;
+}
+.theorem .lab {
+  font-family: "Jost"; font-weight: 600; font-size: 8.5pt;
+  color: var(--amber); letter-spacing: 0.16em; text-transform: uppercase;
+  margin: 0 0 4.7pt 0; line-height: 10pt;
+}
+.theorem .stmt {
+  font-family: "Jost"; font-weight: 600; font-size: 12.5pt;
+  color: var(--navy); margin: 0 0 6.1pt 0; line-height: 15pt;
+}
+.theorem p { font-size: 10.5pt; line-height: 15.5pt; margin: 0; }
+
+/* ---------- 9. FIGURE ---------- */
+figure { margin: 14pt 0 17.5pt 0; break-inside: avoid; break-after: avoid; }
+figure svg { display: block; width: 100%; }
+figcaption {
+  font-size: 9pt; line-height: 12.2pt; margin-top: 9pt;
+  text-align: left; font-style: italic;
+}
+figcaption .fignum {
+  font-family: "Jost"; font-weight: 600; font-style: normal;
+  color: var(--amber); letter-spacing: 0.04em; margin-right: 4pt;
+}
+
+/* ============================================================
+   10. KEY TERMS  ---  OPTION C: TINTED ROW REGISTER  (v6.2)
+   Each entry is a full-measure echo of the definition callout,
+   with a headed band carrying the term above the definition.
+   Unnumbered: the register is a reference list, not a sequence.
+   Each entry is its own block, so a long register breaks at
+   entry level and flows across pages.
+   ============================================================ */
+.keyterms { margin-top: 6.5pt; }
+h3.keyterms-head {
+  font-family: "Jost"; font-weight: 600; font-size: 14pt;
+  color: var(--navy); margin: 0 0 9pt 0; line-height: 17pt;
+  padding-top: 2pt; break-after: avoid;
+}
+.kt-list { break-inside: auto; }
+.kt {
+  box-sizing: border-box;
+  background: var(--tint-def);
+  border-top: 2pt solid var(--amber);
+  margin: 0 0 6.5pt 0;
+  break-inside: avoid;
+}
+.kt-h {
+  background: var(--kt-head);
+  padding: 5.4pt 9pt 5pt 9pt;
+  line-height: 13pt;
+}
+.kt-t {
+  font-family: "Plex"; font-weight: 600; font-size: 11pt;
+  color: var(--navy); letter-spacing: 0;
+}
+.kt p {
+  font-size: 9.5pt; line-height: 13.4pt; margin: 0;
+  padding: 7pt 9pt 8pt 9pt;
+  text-align: left; hyphens: none;
+}
+
+/* ============================================================
+   11. CHAPTER TAIL: SUMMARY, DISCUSSION QUESTIONS, PROBLEMS
+   Slots 4 and 6. The tail heads share one style with the key
+   terms head so the three closing sections read as a family.
+   ============================================================ */
+h3.tail-head {
+  font-family: "Jost"; font-weight: 600; font-size: 14pt;
+  color: var(--navy); margin: 0 0 9pt 0; line-height: 17pt;
+  padding-top: 2pt; break-after: avoid;
+}
+.summary-sec { margin-top: 19.7pt; }
+.summary { border-top: 2pt solid var(--amber); padding-top: 9pt; }
+.summary p { font-size: 10.5pt; line-height: 15.5pt; margin: 0; }
+
+/* ---------- discussion questions ---------- */
+.problems-sec { margin-top: 19.7pt; }
+.problems-sec .slot-label {
+  border-bottom: 2pt solid var(--amber);
+  padding-bottom: 5.5pt; margin: 15pt 0 8pt 0;
+  break-after: avoid;
+}
+.problems-sec .slot-label:first-of-type { margin-top: 0; }
+.dq-list { padding-top: 2pt; break-inside: auto; }
+.dq {
+  display: table; width: 100%;
+  padding: 4.5pt 0 4.5pt 0;
+  break-inside: avoid;
+}
+.dq-n {
+  display: table-cell; width: 22pt; vertical-align: top;
+  font-family: "Jost"; font-weight: 500; font-size: 11pt;
+  color: var(--amber); line-height: 15pt;
+}
+.dq-b { display: table-cell; vertical-align: top; }
+.dq-b p { font-size: 10pt; line-height: 15pt; margin: 0; text-align: left; hyphens: none; }
+
+/* ---------- problems ---------- */
+/* The guidance level is a word in the label, not a graphic. The pedagogy
+   commitments forbid decorative apparatus, and the fading policy is
+   information, so it is set as information. */
+.problem { margin: 0 0 15pt 0; }
+.problem .plab {
+  font-family: "Jost"; font-weight: 600; font-size: 8.5pt;
+  color: var(--amber); letter-spacing: 0.215em; text-transform: uppercase;
+  margin: 0 0 3.5pt 0; line-height: 10pt; text-align: left; hyphens: none;
+  break-after: avoid;
+}
+.problem .ptitle {
+  font-family: "Jost"; font-weight: 600; font-size: 11.5pt;
+  color: var(--navy); margin: 0 0 5pt 0; line-height: 14pt;
+  text-align: left; break-after: avoid;
+}
+.problem > p { font-size: 10pt; line-height: 15pt; margin: 0 0 6pt 0; }
+.problem .pnote {
+  font-size: 9pt; line-height: 12.5pt; font-style: italic;
+  color: var(--axis); margin: 7pt 0 0 0; text-align: left; hyphens: none;
+}
+
+/* ---------- model answers ---------- */
+/* Ruled top and bottom, no fill: distinct from the definition callout
+   (tinted float), the theorem panel (tinted, amber left) and the dated
+   evidence box (neutral left rule). Reused by the craft section. */
+.model {
+  border-top: 0.5pt solid var(--amber);
+  border-bottom: 0.5pt solid var(--amber);
+  padding: 7.5pt 0 8pt 0;
+  margin: 9pt 0 0 0;
+  break-inside: auto;
+}
+.model .mlab {
+  font-family: "Plex"; font-weight: 600; font-size: 7pt;
+  color: var(--amber); letter-spacing: 0.14em; text-transform: uppercase;
+  margin: 0 0 4pt 0; line-height: 9pt; text-align: left; hyphens: none;
+  break-after: avoid;
+}
+.model p + .mlab { margin-top: 9pt; }
+.model p { font-size: 9.5pt; line-height: 13.8pt; margin: 0; }
+
+/* ---------- tables ---------- */
+table.inv {
+  width: 100%; border-collapse: collapse;
+  margin: 10pt 0 0 0; break-inside: auto;
+}
+table.inv th {
+  font-family: "Jost"; font-weight: 600; font-size: 7.5pt;
+  color: var(--amber); letter-spacing: 0.09em; text-transform: uppercase;
+  text-align: left; vertical-align: bottom;
+  padding: 0 6pt 4pt 0; line-height: 9.5pt;
+  border-bottom: 1pt solid var(--amber);
+}
+table.inv td {
+  font-size: 8.5pt; line-height: 11.8pt; vertical-align: top;
+  padding: 5pt 6pt 5.5pt 0;
+  border-bottom: 0.5pt solid var(--hairline);
+  text-align: left; hyphens: none;
+}
+table.inv tr { break-inside: avoid; }
+table.inv th:nth-child(1), table.inv td:nth-child(1) { width: 21%; }
+table.inv th:nth-child(2), table.inv td:nth-child(2) { width: 32%; }
+table.inv th:nth-child(3), table.inv td:nth-child(3) { width: 20%; }
+table.inv th:nth-child(4), table.inv td:nth-child(4) { width: 27%; }
+td.blank::after {
+  content: "";
+  display: block;
+  border-bottom: 0.5pt solid var(--axis);
+  width: 58pt; height: 10pt;
+}
