@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-AIOM_build.py  |  version 6.0  |  2026-07-25
+AIOM_build.py  |  version 6.2  |  2026-07-30
 
 One command to stage fonts, render a chapter, and run every QA gate.
 
 Usage:
     python3 AIOM_build.py --fonts            # stage fonts (run once per session)
-    python3 AIOM_build.py AIOM_ch01.html     # render + QA
+    python3 AIOM_build.py AIOM_ch01.html     # footnotes + render + QA
     python3 AIOM_build.py AIOM_ch01.html --out /mnt/user-data/outputs/Ch1.pdf
 """
 
@@ -51,8 +51,27 @@ def render(html, out):
     print(f"Rendered {out}")
 
 
-def qa(path):
-    """Every gate from section 8 of AIOM_DESIGN_SPEC.md. Returns True if all pass."""
+def build(html_path, out, url_policy="none"):
+    """Generate footnotes from the chapter source block, then render.
+
+    Returns the number of footnotes injected, for gate 8 to check against.
+    URL policy is "none" by ruling: URLs live in the source block and the
+    back-of-book bibliography, not in page footnotes.
+    """
+    import footnotes
+    injected, rep = footnotes.inject(open(html_path).read(),
+                                     url_policy=url_policy)
+    print_html = html_path.replace(".html", ".print.html")
+    open(print_html, "w").write(injected)
+    print(f"{len(rep)} footnote(s) generated from the source block "
+          f"(url_policy={url_policy})")
+    render(print_html, out)
+    return len(rep)
+
+
+def qa(path, expected_footnotes=None):
+    """Every gate from section 8 of AIOM_Design_QA_Spec_v1.md (11 gates).
+    Returns True if all pass."""
     import pdfplumber
 
     def hexc(c):
@@ -152,6 +171,11 @@ def qa(path):
           if not orphans else f"8. footnotes .............. {total} called, MISPLACED {orphans}")
     if orphans:
         fails.append(f"footnotes not on the page of their call: {orphans}")
+    # Closes gap G-H. Without this a chapter whose footnote apparatus is not
+    # wired renders zero footnotes and gate 8 reports success.
+    if expected_footnotes is not None and total != expected_footnotes:
+        fails.append(f"footnotes: {expected_footnotes} expected from the source "
+                     f"block, {total} rendered")
 
     dated_pages = {}
     for i, p in enumerate(pdf.pages):
@@ -219,6 +243,64 @@ def qa(path):
     else:
         print("10. problem labels ........ none in this chapter")
 
+    # Gate 11: theorem panel integrity. Closes gap G-A.
+    # .theorem is a block with break-inside: avoid, so the WeasyPrint float
+    # bug does not apply. This gate catches the two failures the property
+    # cannot prevent: WeasyPrint ignoring it, and a panel forced to break
+    # because it does not fit the space remaining on the page.
+    BOTTOM_EDGE = 684 - 57.6          # 626.4pt, bottom of the text block
+    panels = [(i + 1, r) for i, p in enumerate(pdf.pages) for r in p.rects
+              if hexc(r.get("non_stroking_color")) == "#F7EDE2"]
+    amber = [(i + 1, r) for i, p in enumerate(pdf.pages) for r in p.rects
+             if hexc(r.get("non_stroking_color")) == "#B4551F"]
+    # WeasyPrint paints a border as a filled rect covering the whole border
+    # box, then paints the background over it. A 3pt left border therefore
+    # never appears as a 3pt sliver. Match the border box instead: same page,
+    # same top and height, starting at or left of the tint rect.
+    def has_rule(pg, t):
+        return any(apg == pg and abs(a["top"] - t["top"]) < 0.6
+                   and abs((a["bottom"] - a["top"]) - (t["bottom"] - t["top"])) < 0.6
+                   and a["x0"] <= t["x0"] + 0.1
+                   for apg, a in amber)
+    # A panel legitimately beginning at the top of a page is indistinguishable
+    # from a continuation by position alone, so position is not used as a
+    # failure signal. A split is proved by either of two facts: a panel
+    # truncated at the bottom text edge, or more tinted fields than labels
+    # (a continuation carries no label of its own).
+    labels = set()
+    for i, p in enumerate(pdf.pages):
+        rows = {}
+        for c in p.chars:
+            if (round(c["size"], 1) == 8.5 and "Jost" in c["fontname"]
+                    and hexc(c.get("non_stroking_color")) == "#B4551F"):
+                rows.setdefault(round(c["top"], 0), []).append(c)
+        for t, cs in rows.items():
+            txt = "".join(c["text"] for c in sorted(cs, key=lambda c: c["x0"]))
+            if txt.strip().upper().startswith("THEOREM"):
+                labels.add((i + 1, t))
+    truncated = [pg for pg, r in panels if abs(r["bottom"] - BOTTOM_EDGE) < 0.5]
+    unruled = [pg for pg, r in panels if not has_rule(pg, r)]
+    if not panels:
+        print("11. theorem panel ......... none in this chapter")
+    else:
+        state = "intact"
+        if truncated or len(panels) > len(labels):
+            state = "SPLIT"
+        elif unruled:
+            state = "RULE MISSING"
+        print(f"11. theorem panel ......... {len(panels)} panel(s), "
+              f"{len(labels)} label(s), {state}")
+        if truncated:
+            fails.append(f"theorem panel truncated at the bottom text edge on "
+                         f"page(s) {truncated}; it split across a page break")
+        if len(panels) > len(labels):
+            fails.append(f"theorem panels: {len(panels)} tinted field(s) but "
+                         f"only {len(labels)} label(s); a panel split and its "
+                         f"continuation carries no label")
+        if unruled:
+            fails.append(f"theorem panel on page(s) {unruled} has no amber "
+                         f"left rule")
+
     print("\nQA " + ("PASSED" if not fails else "FAILED"))
     for f in fails:
         print("   " + f)
@@ -230,6 +312,9 @@ if __name__ == "__main__":
     ap.add_argument("html", nargs="?")
     ap.add_argument("--fonts", action="store_true", help="stage fonts and exit")
     ap.add_argument("--out", default=None)
+    ap.add_argument("--url-policy", dest="url_policy", default="none",
+                    choices=["none", "full"],
+                    help="URLs in footnotes. Ruled: none.")
     a = ap.parse_args()
     if a.fonts:
         stage_fonts()
@@ -237,5 +322,5 @@ if __name__ == "__main__":
     if not a.html:
         ap.error("give a chapter HTML file, or --fonts")
     out = a.out or a.html.replace(".html", ".pdf")
-    render(a.html, out)
-    sys.exit(0 if qa(out) else 1)
+    n = build(a.html, out, url_policy=a.url_policy)
+    sys.exit(0 if qa(out, expected_footnotes=n) else 1)

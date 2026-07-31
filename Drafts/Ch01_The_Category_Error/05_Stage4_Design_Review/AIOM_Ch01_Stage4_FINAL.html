@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI Operations Management, Chapter 1</title>
+<link rel="stylesheet" href="AIOM_book.css">
+</head>
+<body>
+
+<p class="part-label">Part I · The Argument</p>
+<h1 class="chapter-title">The Category Error</h1>
+
+<p class="slot-label">Opening case</p>
+<h2 class="case-title">Two subscriptions, one correction</h2>
+<p class="provenance">Dated: June 2025 to June 2026. Vendor actions, dates, and figures are sourced. The buying organization is a composite.</p>
+
+<p>In the spring of 2025, a software team at a mid-size company was doing what thousands of teams were doing: paying twenty dollars per developer per month for an AI coding assistant called Cursor, and treating that line on the budget the way it treated every other software line. The tool was useful. The price was small. The arrangement was, on its face, a subscription like any other, filed next to the ticketing system and the design software and the password manager. Nobody in finance thought about it again after signature, because nothing about a twenty-dollar seat asks to be thought about.</p>
+
+<p>Then, on June 16, 2025, the arrangement changed underneath them. Cursor revised its Pro plan so that the previous monthly allotment of five hundred requests against external models, with Sonnet models counting as two, became a twenty-dollar monthly pool of frontier-model usage billed at the underlying API rates. Use of Cursor's own Tab model and of models in Auto became unlimited. For light users the change was invisible. For the team's heaviest users, the people getting the most value, the monthly allowance was consumed in a matter of prompts, after which usage continued to bill against real rates. Charges arrived that no one had planned for. On July 4, after three weeks of complaint, Anysphere's chief executive, Michael Truell, published an apology, promised refunds for the intervening period, and explained the change. The explanation was not an excuse. It was an account of arithmetic: the newest models consumed far more tokens per request on long-horizon tasks than the flat price had been built to absorb, and Cursor had been absorbing the difference.<cite src="truell-2025-pricing; techcrunch-2025-cursor-apology"><span class="ckey">[truell-2025-pricing + techcrunch-2025-cursor-apology]</span> The Cursor post describes the change of June 16 and the clarification of June 30. The TechCrunch report carries Truell's role and title.</cite></p>
+
+<p>The same pattern, in the same window, played out at a far larger scale. GitHub Copilot spent the year from June 2025 to June 2026 dismantling its own flat model in two acts. First, on June 18, 2025, it began billing premium requests that had previously carried no separate charge. Then, on June 1, 2026, it moved standard billing from premium requests to credits denominated in tokens, priced at each model's published rate. The transition carried exceptions: annual Pro and Pro+ subscribers remained on premium-request pricing until their terms expired, completions and Next Edit Suggestions stayed included without consuming credits, and every plan retained a monthly credit allowance. Base subscription prices did not change. On its January 28, 2026 earnings call, four months before the change, Microsoft reported the paid Copilot base at over 4.7 million subscribers, up 75 percent year over year.<cite src="github-2025-premium; github-2026-usage; microsoft-2026-q2"><span class="ckey">[github-2025-premium + github-2026-usage + microsoft-2026-q2]</span> The Microsoft earnings call carries the subscriber figure and the growth rate.</cite> One vendor corrected its pricing under public pressure, retroactively, with an apology and refunds. The other corrected its pricing on a published schedule, announced in advance and supported by tooling, across all of its plans.<cite src="github-2025-premium; github-2026-usage"><span class="ckey">[github-2025-premium + github-2026-usage]</span> Act one sits on the GitHub Changelog, dated June 18, 2025. Act two was announced April 27, 2026, with a preview bill experience launched in early May ahead of the June 1 transition.</cite> The correction was the same.</p>
+
+<p>Set the two episodes side by side and the shared feature is not the apology, the timing, or the size of the vendor. The shared feature is what broke. In both cases a product had been sold, and bought, as software: a seat, a flat price, a cost fixed at signature. In both cases the thing underneath the seat turned out to obey a different law. It consumed a resource on every use, the resource had a real and variable cost, and heavy use ran that cost past the flat price. When the gap grew large enough, the arrangement changed. It changed on the provider's schedule, not the buyer's. It changed whether or not the buyer had ever looked at a meter. And in both cases it changed in the same direction, toward an entitlement indexed to consumption.</p>
+
+<p>The buyers in these stories did not make an error of vendor selection. Cursor and Copilot were, and are, excellent tools. The buyers made an error of category. They filed a metered resource under the mental model they use for licensed software, and the mental model held right up until the moment it did not.</p>
+
+<h3 class="section"><span class="num">1.1</span>The purchase that is not one</h3>
+
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">Access price</p>
+<p>The stated price of access to an AI capability, per seat or per subscription, distinct from the total cost of consuming the resource behind it.</p>
+</aside>
+
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">Software access model</p>
+<p>The economic model, inherited from licensed software, in which cost is fixed at signature and the marginal cost of additional use is approximately zero; management is management of access.</p>
+</aside>
+
+<p>The buyer brought a model to the transaction, and it was a good model, refined over three decades of enterprise software procurement. In that model, software is a license. The organization buys the right for a defined number of people to use a program. The marginal cost of an additional use, once the seat is paid for, is approximately zero: a licensed user who runs the program a thousand times a day costs the buyer the same as one who runs it once a week. Cost is therefore fixed at signature. The negotiation that matters happens once, at purchase, over the number of seats and the price per seat. That per-seat figure is the <b>access price</b>. After that, management of the software is management of access: who has a login, how many seats are active, when the contract renews.</p>
+
+<p>This model, the <b>software access model</b>, is not wrong about licensed software. It is wrong about the thing now being sold under the same packaging. What the organization operates when it deploys an AI assistant is not a program that people are licensed to run. It is work that consumes a metered resource on every task. Each use sends a request to a model, the model performs computation to answer it, and that computation has a cost that scales with the size of the request and the size of the answer. The marginal cost of an additional use is not approximately zero. It is the central fact.</p>
+
+<p>The consequence is a mismatch between what the organization manages and what the organization operates. Access management asks how many people may use the tool. Resource management asks how much of the resource the work consumes, at what cost, for what return. An organization that manages access while operating a metered resource is managing the wrong quantity. It counts seats while the bill is written in tokens, requests, and credits. The mental model determines what gets managed, and the wrong model manages the wrong thing.</p>
+
+<h3 class="section"><span class="num">1.2</span>The consumption event</h3>
+
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">Consumption event</p>
+<p>A request that consumes computational resource, metered in tokens or their equivalents, at a per-event cost greater than zero. The atomic unit of the discipline.</p>
+</aside>
+
+<p>The discipline that follows in this book is built on a single atomic unit. That unit is the <b>consumption event</b>. Every deployed use of AI, at bottom, is a stream of these events. They are the thing the meter counts, the thing the invoice sums, and the thing every later chapter learns to source, record, attribute, budget, allocate, and hold accountable.</p>
+
+<p>The anatomy of one event is simple. Something goes in: a prompt, a document, a conversation history, retrieved reference material. The model performs computation. Something comes back: a completion, a suggestion, an answer, a tool call. A meter records what was consumed, typically the count of input tokens and output tokens, the units into which a model divides the text it reads and writes, and sometimes the calls to retrieval or tools that the event triggered. And a record of that consumption is held somewhere. In the ordinary case, it is held by the provider, and the buyer sees only its monthly summation on an invoice.</p>
+
+<figure>
+<svg viewBox="0 0 360 132" xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Plex" font-size="6" fill="#6E6353" letter-spacing="1.1">
+    <text x="48" y="10">SEAT MODEL</text>
+    <text x="225" y="10">EVENT MODEL</text>
+  </g>
+  <g stroke="#6E6353" stroke-width="0.7" fill="none">
+    <path d="M48 22 L48 100 L170 100"/>
+    <path d="M225 22 L225 100 L350 100"/>
+  </g>
+  <path d="M225 100 C280 99 320 76 350 24 L350 100 Z" fill="#C0521A" fill-opacity="0.16"/>
+  <g stroke="#C0521A" stroke-width="0.5">
+    <path d="M283 98.5 L283 100"/><path d="M303 94 L303 100"/>
+    <path d="M320 85 L320 100"/><path d="M335 68 L335 100"/>
+  </g>
+  <path d="M48 55 L170 55" stroke="#0E7A72" stroke-width="1.4" fill="none"/>
+  <path d="M225 100 C280 99 320 76 350 24" stroke="#C0521A" stroke-width="1.4" fill="none"/>
+  <g font-family="Plex" font-size="6.5">
+    <text x="60" y="50" fill="#0E7A72">cost fixed at signature</text>
+    <text x="240" y="52" fill="#C0521A">cost = area under use</text>
+  </g>
+  <g font-family="Plex" font-size="5.6" fill="#6E6353" letter-spacing="0.8">
+    <text x="42" y="66" transform="rotate(-90 42 66)">COST</text>
+    <text x="219" y="66" transform="rotate(-90 219 66)">COST</text>
+    <text x="97" y="113">USAGE</text>
+    <text x="275" y="113">USAGE</text>
+  </g>
+</svg>
+<figcaption><span class="fignum">Figure 1.1</span>Two purchase models. Under the seat model, cost is flat against rising usage. Under the event model, cost is the accumulating sum of consumption events. The same usage produces a flat cost on the left and a rising cost on the right.</figcaption>
+</figure>
+
+<figure>
+<svg viewBox="0 0 360 158" xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Plex" font-size="6" fill="#6E6353" letter-spacing="1.1">
+    <text x="0" y="9">INPUTS</text>
+    <text x="146" y="9">MODEL</text>
+    <text x="268" y="9">OUTPUT</text>
+  </g>
+  <g fill="none" stroke="#6E6353" stroke-width="0.7">
+    <rect x="0" y="16" width="112" height="52"/>
+    <rect x="146" y="16" width="68" height="52"/>
+    <rect x="248" y="16" width="112" height="52"/>
+  </g>
+  <g stroke="#6E6353" stroke-width="0.7" fill="none">
+    <path d="M112 42 L144 42"/><path d="M138 39 L144 42 L138 45"/>
+    <path d="M214 42 L246 42"/><path d="M240 39 L246 42 L240 45"/>
+  </g>
+  <g font-family="Plex" font-size="6.8" fill="#2B2620">
+    <text x="8" y="31">prompt</text>
+    <text x="8" y="44">conversation history</text>
+    <text x="8" y="57">retrieved material</text>
+    <text x="256" y="31">completion or answer</text>
+    <text x="256" y="44">suggestion</text>
+    <text x="256" y="57">tool call</text>
+  </g>
+  <text x="180" y="46" font-family="Plex" font-size="7.5" fill="#2B2620" text-anchor="middle">computation</text>
+  <g stroke="#6E6353" stroke-width="0.5" stroke-dasharray="2 2" fill="none">
+    <path d="M56 68 L56 88"/><path d="M180 68 L180 88"/><path d="M304 68 L304 88"/>
+  </g>
+  <rect x="0" y="88" width="360" height="30" fill="#E7DECB"/>
+  <rect x="0" y="88" width="360" height="1.6" fill="#B4551F"/>
+  <text x="8" y="101" font-family="Plex" font-size="6" fill="#B4551F" letter-spacing="1.1">METER</text>
+  <g font-family="Plex" font-size="6.8" fill="#2B2620">
+    <text x="8" y="112">input tokens · output tokens · calls · retrieval · tool invocations</text>
+  </g>
+  <path d="M180 118 L180 132" stroke="#6E6353" stroke-width="0.5" stroke-dasharray="2 2" fill="none"/>
+  <text x="180" y="143" font-family="Plex" font-size="6.8" fill="#2B2620" text-anchor="middle">The provider holds the record.</text>
+  <text x="180" y="153" font-family="Plex" font-size="6.8" fill="#2B2620" text-anchor="middle">The buyer receives an invoice.</text>
+</svg>
+<figcaption><span class="fignum">Figure 1.2</span>Anatomy of a consumption event. Input is assembled, the model computes, output returns, and a meter records the resource drivers beneath. In the ordinary case the record stays on the provider's side, and what reaches the buyer is a summation rather than a record.</figcaption>
+</figure>
+
+<p>The seat model and the event model are not two views of the same economics. They are two different economics, and Figure 1.1 draws the difference the invoice hides. Under the seat model, cost is a horizontal line: usage rises and cost does not follow. Under the event model, cost is the area under the usage curve: every event adds to the total, and heavy use is expensive by construction. A buyer operating on the left panel while the right panel governs the bill will be surprised, and the surprise will arrive as a number, on a schedule the buyer did not set.</p>
+
+<h3 class="section"><span class="num">1.3</span>The flat-rate objection, answered</h3>
+
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">Meter relocation</p>
+<p>A flat rate does not abolish the meter but moves it to the provider's side, where the provider prices the flat rate against assumed consumption and corrects it on its own schedule when usage is skewed.</p>
+</aside>
+
+<p>There is a strong objection to everything said so far, and it deserves to be stated at full strength rather than in a weakened form built to be knocked down. The objection is this: "We pay thirty dollars per seat per month, the price is flat, we are never billed by the token, and for us this simply is software."</p>
+
+<p>The objection is not confused, and the answer is not that the buyer is billed by the token after all. The answer is <b>meter relocation</b>: a flat rate moves the meter, it does not abolish it. When a provider offers a flat price for a metered resource, the provider does not stop metering. The provider meters exactly what the buyer has declined to see, and prices the flat rate against an assumption about how much the average buyer will consume. That assumption is a bet. It holds while usage stays near the average the price assumed. It fails when usage is skewed, when a minority of heavy users consume a majority of the resource, because the flat price collected from everyone no longer covers the resource consumed by the few. At that point the arrangement is unstable, and the instability resolves in one direction. The provider re-indexes what the buyer receives to what the buyer consumes. It may do so by changing the price, by metering usage above an allowance, by changing the unit the allowance is denominated in, or by capping consumption outright. The instrument varies, and Chapter 4 sets out the full menu. What does not vary is the direction, or who chooses the moment. The correction arrives on the provider's schedule, because the provider holds the meter and the buyer does not.</p>
+
+<p>This is not a claim about badly run vendors. It is a structural result, and the registry states it as a theorem.</p>
+
+<div class="theorem">
+<p class="lab">Theorem 1 · THM-009</p>
+<p class="stmt">AI Use Is Resource Consumption, Not Merely Software Access</p>
+<p>If an AI activity requires compute and executing that activity consumes resources, production scaling expands the usage surface of AI deployment, buyer total cost extends beyond access price, and measurement enables visibility into resource use or cost-bearing activity, then AI use in a deployed business context is resource-consuming operating activity, not merely software access, within the relevant deployment and cost boundary.</p>
+</div>
+
+<p>The word carries a precise sense here. A theorem in this book is a statement proved within a stated system, from lemmas and propositions established in that system. Chapter 3 sets out the registry and traces one theorem to its foundations. A theorem in this sense is not an empirical generalization drawn from the episodes above, and it binds only where its antecedents hold. The theorem does not say that a flat rate is impossible or that every subscription will be repriced tomorrow. It says something narrower and more durable: that in a deployed business context, where the activity requires compute, where scaling expands the surface of use, and where total cost runs past the access price, the thing being operated is a resource-consuming activity rather than software access. The flat rate is a way of packaging that activity for sale. It is not evidence that the activity is something else. The buyer who reads the flat rate as proof of software access has mistaken the packaging for the contents.</p>
+
+<p>The public record already contains the pattern running its course, in more than one form.</p>
+
+<div class="dated">
+<p class="date">Dated: January 2025</p>
+<p>The chief executive of the largest provider stated publicly that the company was losing money on its two-hundred-dollar Pro subscriptions because subscribers used them more than the price had assumed, and added that he had set the price himself.<cite src="altman-2025-pro; techcrunch-2025-altman-pro"><span class="ckey">[altman-2025-pro + techcrunch-2025-altman-pro]</span> The TechCrunch report reproduces both statements.</cite></p>
+</div>
+
+<div class="dated">
+<p class="date">Dated: July 2025</p>
+<p>Claude Code subscribers found the usage limits already governing their plans abruptly tightened, with no announcement, many of them unaware that limits applied at all, and Anthropic acknowledged the reports without confirming a change. Eleven days later the company announced two weekly caps stacked on top of the existing five-hour limits, with the new constraints taking effect the following month rather than at any subscriber's renewal. Subscribers on the highest tier could buy additional usage at standard API rates.<cite src="anthropic-2025-limits; techcrunch-2025-anthropic-limits; techcrunch-2025-anthropic-tightening"><span class="ckey">[anthropic-2025-limits + techcrunch-2025-anthropic-limits + techcrunch-2025-anthropic-tightening]</span> The announcement set two weekly caps effective August 28, 2025, added to five-hour limits already in force and tightened on July 17, 2025.</cite></p>
+</div>
+
+<p>And the two episodes that opened this chapter, Cursor and GitHub Copilot, are the same direction reached by different means across two widely used AI coding subscriptions inside twelve months. The flat rate did not make the meter disappear. It moved the meter to the provider's side of the table and moved the correction to the provider's calendar.</p>
+
+<h3 class="section"><span class="num">1.4</span>What follows if this is true</h3>
+
+<p>Accept the category, and a great deal follows without further argument. Resources that flow through an organization have long been the object of a mature management discipline, and the reader already knows its shape, because every organization that handles physical goods practices it daily. A manufacturer does not manage its steel by counting the people licensed to touch it. It sources the steel against stated requirements rather than accepting whatever the incumbent supplier offers. It plans and budgets the tonnage it expects to consume, and it notices when consumption departs from the plan. It records where the material goes as it moves through the plant, so that the quantity consumed by one product line can be distinguished from the quantity consumed by another. It allocates the material under a stated rule when supply is short, rather than letting the loudest line take what it wants. And it holds the finished output accountable for the material it consumed, so that a product whose margin cannot survive its own input cost is identified as such.</p>
+
+<p>Stated in that timeless form, the discipline is not a set of techniques belonging to manufacturing. It is a set of questions that any organization must be able to answer about anything that flows through it and costs money as it flows. What is being bought, and against what requirement. How much the organization expects to consume, and how it will know when the expectation fails. Where the resource actually went. Who decides when there is not enough. What the consumption returned. An organization that cannot answer those questions about a material flow is not managing that flow, whatever its org chart says. It is receiving invoices and paying them.</p>
+
+<p>Deployed AI is such a resource. It flows through the organization as a stream of consumption events. It costs money as it flows. Its volume is driven by the volume of the work, which is to say by the very success of the deployment. Yet no equivalent discipline exists for it in assembled form. Parts of the work are being done, and done well. Cloud financial management, practiced as FinOps, has turned its attention to AI spend. Observability tooling reports token consumption by model, by team, and by workload. Chargeback conventions borrowed from cloud allocate some of that cost to the units that incur it. Each of these answers one of the five questions. None answers all five. No practice yet sources the resource against a stated requirement, plans its consumption, records where it went, allocates it under scarcity, and holds the output accountable for what it consumed, under one vocabulary and one owner. Chapter 14 draws the border between this book's subject and the nearest of those neighbors. What is absent is not attention. It is assembly.</p>
+
+<p>Organizations that would never let a material flow through the plant unrecorded let the AI flow through the work unrecorded, and the reason is the packaging. The resource arrived labeled as software, and licensed software does not flow.</p>
+
+<p>The absence is not abstract. It appears in three specific places, and the reader can look for all three in any organization, including the reader's own. The first is the quantity managed. An organization operating on the seat model tracks headcount, license utilization, and renewal dates, and none of those three quantities moves with the bill. The second is the record. Under the seat model there is little worth recording, because a licensed use costs nothing at the margin. Under the event model every use has a resource footprint, but the buyer who never built a meter holds no record of it. An invoice is not that record; an invoice is its summation. It reports a total without reporting what produced it. The third is the anchor for accountability. A cost that cannot be traced to the work that incurred it cannot be assigned to anyone, and a cost assigned to no one is defended by no one.</p>
+
+<p>It would be a mistake to read those absences as negligence. They are inheritance. The organization did not decide to stop metering. It never began, because the thing it had been buying for three decades never required it. Enterprise software procurement produced a management apparatus tuned precisely to the economics of the license, and that apparatus worked. It was then carried across to a purchase that arrived in the same packaging, through the same channel, at a price small enough to clear approval without argument. The apparatus did not fail. It was applied to a resource it was never built to govern, and it went on reporting faithfully about a quantity that had stopped governing anything.</p>
+
+<p>What ends the arrangement is scale. A category error is affordable while the sums are small, and the sums stayed small for as long as deployment meant a pilot: one team, a few licenses, a bill that rounded to nothing against the software budget. The error becomes expensive at the moment the pilot becomes production, because production multiplies consumption events by the volume of the work itself, and the work is not small. The contact-center deployment inventoried later in this chapter does not generate five thousand consumption events. It generates them in proportion to customer messages, conversation turns, and retrieved context, quantities that run to the millions. At pilot scale, the seat count is a harmless simplification. At production scale, it is a blindfold.</p>
+
+<p>The stakes of this chapter are therefore the stakes of the book. If deployed AI is a resource that flows, the organization needs a discipline for it, and no such discipline yet exists in assembled form. Building it is the work of the remaining chapters. The next chapter takes the atomic unit defined here and asks what becomes visible when many events are seen together, which is the first step from an event to something an organization can manage.</p>
+
+<h3 class="section"><span class="num">1.5</span>What this book is not</h3>
+
+<p>A word on the borders of the subject. This book is not about the internals of models, and the reader will find no account here of architectures, training, or weights. It is not about prompt engineering, and it offers no techniques for extracting better outputs from a given model. It is not about use-case ideation, and it will not help the reader decide which problems to point AI at. Those are real subjects with their own literatures. This book is about the economics of the resource once the decision to deploy has been made: what it consumes, what it costs, and how an organization governs both. The neighbors of that subject, and the exact line this book draws against each of them, are the business of Chapter 3.</p>
+
+<p class="slot-label">Craft section</p>
+<h2 class="case-title">The consumption-event inventory</h2>
+<p class="provenance">Worked example setting drawn from the cited study. Event architecture stipulated for this exercise.</p>
+
+<p>The reader has now met the consumption event as a definition. The first craft artifact of the book turns the definition into a procedure the reader can run against any deployment. The <b>consumption-event inventory</b> takes a description of an AI deployment and produces a structured account of what that deployment consumes, where the meter sits, and what the organization's seat count conceals. It is the first artifact the reader produces, and every later artifact in the book assumes it.</p>
+
+<p>The procedure has four steps. <b>Step 1, enumerate the event types.</b> Given a deployment description, list the distinct kinds of consumption event the deployment generates. A deployment rarely produces one kind of event; it produces several, each with its own trigger and its own resource profile. <b>Step 2, identify each type's resource drivers.</b> For each event type, name what actually consumes resource: input tokens, output tokens, the number of calls, retrieval operations, and tool invocations. The driver is what the bill scales with, and it is almost never the number of people. <b>Step 3, locate the meter.</b> State where the metering happens and who holds the record. In the ordinary case the meter is on the provider's side, and what the buyer receives instead of a meter is an invoice. <b>Step 4, state what the inventory reveals that the seat count conceals.</b> Name the quantity that actually drives cost, and contrast it with the quantity the organization currently tracks.</p>
+
+<p>Consider a customer-support organization that has deployed a generative AI assistant across its contact center. For each incoming customer message, the assistant drafts a suggested reply that the agent may edit and send; the assistant draws on a knowledge base and on the conversation so far. The deployment covers a large agent population, on the order of five thousand agents, and the organization currently accounts for it as a per-seat tool.<cite src="brynjolfsson-2025-genai"><span class="ckey">[brynjolfsson-2025-genai]</span> The study supplies the setting and the scale of the agent population. It returns in Chapter 6 as the book's anchor case on realized value.</cite></p>
+
+<div class="model">
+<p class="mlab">Model inventory</p>
+<p><b>Step 1. Event types.</b> The deployment generates at least three: (a) a suggested-reply generation, triggered each time an agent asks the assistant to draft a response to a customer message; (b) a knowledge retrieval, triggered when the assistant pulls reference material to ground a suggestion; and (c) a conversation-close operation, where the deployment summarizes or tags the resolved conversation.</p>
+<p class="mlab">Step 2. Resource drivers</p>
+<p>For suggested-reply generation, the drivers are input tokens (the system instructions, the retrieved knowledge, and the conversation history assembled into the prompt) and output tokens (the drafted reply). The volume driver is the number of customer messages that receive a drafted reply, which scales with contacts multiplied by the number of turns per contact. For knowledge retrieval, the drivers are the number of retrieval calls and the tokens those calls embed and return. For the conversation-close operation, the drivers are input tokens (the full conversation) and output tokens (the summary or tags), scaling with the number of resolved conversations.</p>
+<p class="mlab">Step 3. The meter</p>
+<p>The generation and close operations are metered on the provider's side, by token. Retrieval is metered wherever the retrieval service runs. In the architecture stipulated here that is the provider's managed index, metered by call and by token; an organization that operates its own vector store meters that step itself. Meter location is a property of the architecture rather than of the event type, which is why Step 3 directs the reader to locate the meter instead of assuming it. What the organization receives is a monthly invoice, and beneath its per-seat plan, a seat count.</p>
+<p class="mlab">Step 4. What the seat count conceals</p>
+<p>The seat count treats the agent population as a set of equal units, five thousand seats at one price. The bill does not behave that way. Cost scales with the number of customer messages drafted, the length of the conversations, and the token footprint assembled per turn, none of which the seat count records. Two agents on identical seats can consume very different amounts of resource: a high-volume agent handling long, reference-heavy conversations generates many times the consumption of a low-volume agent, at the same seat cost. The quantity that drives the bill is tokens per resolved contact. It does not appear on the seat line, and until the inventory names it, the organization is managing a number that does not govern its cost.</p>
+</div>
+
+<p>The inventory has done its work when the organization can see, for the first time, the shape of what it is buying: not five thousand seats, but a flow of consumption events whose volume and intensity, not whose headcount, determine the bill.</p>
+
+<section class="summary-sec">
+<h3 class="tail-head">Chapter summary</h3>
+<div class="summary">
+<p>The reader can now name the category error at the root of AI cost surprise, distinguishing the software access model, in which cost is fixed at signature and management is management of seats, from the resource consumption model, in which cost is the accumulating sum of metered events and management is management of a flow. The reader can define the consumption event as the discipline's atomic unit, answer the flat-rate objection by showing that a flat price relocates the meter to the provider rather than abolishing it, and cite the structural result, THM-009, that a deployed AI activity is resource-consuming operating activity rather than software access. And the reader can run the consumption-event inventory against a deployment description, producing the event types, their resource drivers, the location of the meter, and the cost driver the seat count conceals. What the reader cannot yet do is manage the flow the inventory reveals. That requires seeing the deployment as flows rather than events, which is the work of Chapter 2.</p>
+</div>
+</section>
+
+<section class="keyterms">
+<h3 class="keyterms-head">Key terms</h3>
+<div class="kt-list">
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Consumption event</span></div>
+<p>A request that consumes computational resource, metered in tokens or their equivalents, at a per-event cost greater than zero. The atomic unit of the discipline.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Resource consumption model</span></div>
+<p>The economic model in which deployed AI is a metered resource consumed on every task, with cost accruing per event; contrasted with the software access model.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Software access model</span></div>
+<p>The economic model, inherited from licensed software, in which cost is fixed at signature and the marginal cost of additional use is approximately zero; management is management of access.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Access price</span></div>
+<p>The stated price of access to an AI capability, per seat or per subscription, distinct from the total cost of consuming the resource behind it.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Metered resource</span></div>
+<p>A resource whose consumption is measured per unit of use, here in tokens or their equivalents.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Flat-rate objection</span></div>
+<p>The claim that a flat per-seat price makes AI equivalent to licensed software; answered by meter relocation.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Meter relocation</span></div>
+<p>The principle that a flat rate does not abolish the meter but moves it to the provider's side, where the provider prices the flat rate against assumed consumption and corrects it on its own schedule when usage is skewed.</p></div>
+
+</div>
+</section>
+
+<section class="problems-sec">
+<h3 class="tail-head">Discussion questions and problems</h3>
+<p class="slot-label">Discussion questions</p>
+<div class="dq-list">
+<div class="dq"><div class="dq-n">1</div><div class="dq-b"><p>A colleague argues that because your organization pays a flat per-seat price and never sees a token bill, AI is a seat-priced good for you and the consumption framing does not apply. Explain, without appealing to any specific vendor's future behavior, why the per-seat contract does not make AI a seat-priced good.</p></div></div>
+<div class="dq"><div class="dq-n">2</div><div class="dq-b"><p>The Cursor and GitHub Copilot episodes are often read as stories about two particular companies changing their prices. Explain what the two episodes, taken together, reveal about where the meter was all along, and why the pairing is harder to dismiss than either episode alone.</p></div></div>
+<div class="dq"><div class="dq-n">3</div><div class="dq-b"><p>Construct the strongest version of the flat-rate objection yourself, in the voice of a capable skeptic who has read this chapter. Then answer it. Your answer should not depend on predicting that any particular subscription will be repriced.</p></div></div>
+</div>
+
+<p class="slot-label">Problems</p>
+
+<div class="problem">
+<p class="plab">P1 · Worked</p>
+<p class="ptitle">The CIO memo</p>
+<p>A board member has written to the chief information officer arguing that the company is overcomplicating a simple software purchase and should stop tracking AI usage as if it were a utility. Write the CIO's one-page reply defending consumption economics against the flat-rate objection.</p>
+<div class="model">
+<p class="mlab">Model reply</p>
+<p>Thank you for the note. I want to agree with the part of it that is right and then explain the part that will cost us if we accept it. You are right that our current AI tools are billed to us at a flat per-seat price, and that this looks exactly like the software we have always bought. The reason I am tracking usage anyway is that the flat price is not a statement about our costs; it is a bet the vendor has made about our consumption. Behind the flat price, every use of these tools consumes a metered resource that costs the vendor real money, and the vendor prices the flat rate against an assumption about how much we will use. While our usage stays near that assumption, nothing happens. When our heaviest teams pull usage above it, the vendor's arrangement stops covering its costs, and the vendor corrects it. Sometimes that means a higher price, sometimes a cap on how much we may consume, sometimes a change to what the plan includes. We have watched this happen across two widely used AI coding subscriptions inside a single year. Tracking our own usage is not utility theater. It is how we see the correction coming before it arrives as a number we did not plan for, and how we keep the timing of that correction from being entirely the vendor's to choose. I am not asking us to manage AI like plumbing. I am asking us to stop managing a metered resource as if it were a license, because the two behave differently exactly when the stakes are highest.</p>
+<p class="mlab">Annotated reasoning</p>
+<p>The reply concedes the true premise, that the price is flat and looks like software, before contesting the inference, which disarms the objection rather than dodging it. It relocates the meter, treating the flat price as a bet against assumed consumption, rather than claiming a token bill the reader knows does not exist. It grounds the structural claim in the documented pattern rather than in a prediction about a specific vendor, satisfying the evidence standard. And it closes on the buyer's actual interest, the timing of the correction, which is the concrete thing consumption tracking buys.</p>
+</div>
+</div>
+
+<div class="problem">
+<p class="plab">P2 · Worked</p>
+<p class="ptitle">Inventory a coding-assistant deployment</p>
+<p>A software organization has deployed an AI coding assistant to three hundred developers. The assistant offers inline code completions as developers type, answers chat questions in the editor, and runs multi-step agentic tasks on request. Produce the consumption-event inventory.</p>
+<div class="model">
+<p class="mlab">Model inventory</p>
+<p><b>Event types:</b> (a) inline completion, triggered continuously as developers type; (b) editor chat query, triggered when a developer asks a question; (c) agentic task run, triggered when a developer delegates a multi-step task.</p>
+<p><b>Resource drivers:</b> inline completion is driven by input tokens (the surrounding code context sent for each completion) and output tokens (the suggested code), with a very high call count because completions fire constantly; chat query is driven by input tokens (the question plus code context) and output tokens (the answer); agentic task run is driven by input and output tokens across many model calls per task, plus tool invocations, and is the highest-intensity event by a wide margin.</p>
+<p><b>Meter:</b> provider side, per token, with agentic runs additionally consuming tool calls; the buyer receives an invoice, and under a seat plan, a seat count.</p>
+<p><b>What the seat count conceals:</b> cost is driven by completion frequency and, above all, by agentic run volume and length, not by the number of developer seats. A single developer who leans on agentic runs can consume more resource than a dozen who use only inline completion, at the same seat cost. The cost driver is tokens per developer per day, concentrated in agentic runs, and the seat line shows none of it.</p>
+</div>
+</div>
+
+<div class="problem">
+<p class="plab">P3 · Completion</p>
+<p class="ptitle">Inventory a document-review deployment</p>
+<p>A legal operations team has deployed an AI assistant that, for each contract submitted, extracts key clauses, compares them against a policy playbook, and drafts a redline memo. Complete the inventory below by filling the blank column.</p>
+<table class="inv">
+<thead><tr><th>Event type</th><th>Resource drivers</th><th>Meter location</th><th>What the seat count conceals</th></tr></thead>
+<tbody>
+<tr><td class="blank"></td><td>Input tokens (full contract text), output tokens (extracted clauses); scales with contract length</td><td>Provider side, per token</td><td>Cost scales with document length, not reviewer headcount</td></tr>
+<tr><td class="blank"></td><td>Input tokens (extracted clauses plus playbook), output tokens (comparison result); retrieval calls against the playbook</td><td>Provider side, per token and per call</td><td>A long playbook inflates every comparison regardless of seat count</td></tr>
+<tr><td class="blank"></td><td>Input tokens (clauses, comparison, contract context), output tokens (the drafted memo); highest output-token event</td><td>Provider side, per token</td><td>The drafting step, not the reviewer, is the dominant cost driver</td></tr>
+</tbody>
+</table>
+<p class="pnote">Interleaving: none. This is the first chapter; problem sets begin reaching back to earlier chapters in Chapter 2.</p>
+</div>
+
+</section>
+
+<section id="aiom-sources">
+<p class="slot-label">Sources for this chapter</p>
+<p>Every claim in this chapter cites a key listed below. This block travels with the draft so the chapter can be read and audited as a single file (Decision 51). It is replaced by numbered footnotes and a formatted source list when the chapter is built for print.</p>
+<pre id="aiom-sources-data">
+{
+  "_README": [
+    "SOURCES FOR THIS CHAPTER. Decision 51: sources live with the draft, never",
+    "separate. This block is the chapter's complete source register. Nothing",
+    "external is needed to read, audit, or build this chapter.",
+    "",
+    "HOW TO READ IT. Each claim in the prose carries a marker naming a key below,",
+    "for example truell-2025-pricing. Find that key here for the author, title,",
+    "publisher, date, and URL behind the claim.",
+    "",
+    "FIELDS  type authors title container date url volume issue pages doi",
+    "        perishable  true if the page can change or vanish",
+    "        accessed    ISO date the URL was last loaded and read",
+    "        upgrade     more durable form to chase, or null when settled",
+    "        note        verification history and cautions for the fact checker",
+    "",
+    "This block is source-side only. sources.py build turns it into numbered",
+    "footnotes and a formatted source list, and removes this block from the",
+    "rendered output. Decision 48 repealed archive capture; durability rests on",
+    "the access date."
+  ],
+  "altman-2025-pro": {
+    "type": "social",
+    "authors": [
+      {
+        "family": "Altman",
+        "given": "Sam",
+        "handle": "@sama"
+      }
+    ],
+    "title": "Post on X on ChatGPT Pro subscription economics",
+    "date": "2025-01-05",
+    "url": "https://x.com/sama/status/1876104315296968813",
+    "perishable": true,
+    "accessed": "2026-07-28",
+    "upgrade": null,
+    "note": "Posted 2025-01-05 19:11 US Pacific, which is 2025-01-06 03:11 UTC. X displays 'January 6, 2025' to viewers outside the Americas. The book dates it January 5, 2025, matching US time and TechCrunch's same-day 'on Sunday' report. Flag for fact check so the UTC display is not read as an error. Second path: techcrunch-2025-altman-pro."
+  },
+  "anthropic-2025-limits": {
+    "type": "social",
+    "authors": [
+      {
+        "org": "Anthropic",
+        "handle": "@AnthropicAI"
+      }
+    ],
+    "title": "post on X announcing new weekly rate limits for Claude Pro and Max",
+    "date": "2025-07-28",
+    "url": "https://x.com/AnthropicAI/status/1949898502688903593",
+    "perishable": true,
+    "accessed": "2026-07-28",
+    "upgrade": null,
+    "note": "Announced 2025-07-28 by email to subscribers and by this post; effective 2025-08-28. The X post is the canonical public form. The chapter's clause about limits already in force and tightened earlier in July rests on techcrunch-2025-anthropic-tightening, added 2026-07-29, and secondarily on techcrunch-2025-anthropic-limits, not on this post."
+  },
+  "brynjolfsson-2025-genai": {
+    "type": "article",
+    "authors": [
+      {
+        "family": "Brynjolfsson",
+        "given": "Erik"
+      },
+      {
+        "family": "Li",
+        "given": "Danielle"
+      },
+      {
+        "family": "Raymond",
+        "given": "Lindsey"
+      }
+    ],
+    "title": "Generative AI at Work",
+    "container": "Quarterly Journal of Economics",
+    "volume": "140",
+    "issue": "2",
+    "pages": "889-942",
+    "date": "2025",
+    "doi": "10.1093/qje/qjae044",
+    "url": "https://doi.org/10.1093/qje/qjae044",
+    "perishable": false,
+    "accessed": "",
+    "upgrade": null,
+    "note": "NOTE ADDED 2026-07-29 (Stage 2, contact-center misattribution). This entry previously carried no note despite drawing four raises across three fact-check rounds. WHAT THE STUDY SUPPLIES to Chapter 1: the setting, a customer-support contact center with a generative AI assistant, and the scale of the agent population. WHAT IT DOES NOT SUPPLY: the event architecture. The retrieval calls, the conversation-close tagging, and the per-token metering in the worked inventory are stipulated for the exercise and are not described by the study. Ruled 2026-07-29: the worked example is labelled a stylized application by a provenance line under the craft-section title rather than bound to the study's parameters, on the reasoning that a precise agent count above a stipulated inventory would falsely signal that the whole inventory is reported. Chapter 1 therefore says on the order of five thousand agents and states no productivity figure at all. FIGURES, FOR CHAPTER 6 WHERE THE STUDY IS REPORTED RATHER THAN ADAPTED: use the published QJE figures, 5,172 agents and a 15 percent average increase in issues resolved per hour. The widely circulated 14 percent and 5,179 figures come from the 2023 NBER working paper and must not be used anywhere in the book. Non-perishable: cited by DOI, so no access date is required."
+  },
+  "github-2025-premium": {
+    "type": "blog",
+    "authors": [
+      {
+        "org": "GitHub"
+      }
+    ],
+    "title": "Update to GitHub Copilot Consumptive Billing Experience",
+    "container": "GitHub Changelog",
+    "date": "2025-06-18",
+    "url": "https://github.blog/changelog/2025-06-18-update-to-github-copilot-consumptive-billing-experience/",
+    "perishable": true,
+    "accessed": "2026-07-28",
+    "upgrade": null,
+    "note": "Upgrade RESOLVED differently from the worksheet. The worksheet called for a permalinked docs.github.com revision. A dated changelog entry is the better artifact for a dated claim: a docs page describes the current state, a changelog records the change on the day it happened. This also matches the chapter's own footnote wording, 'premium-request billing changelog'."
+  },
+  "github-2026-usage": {
+    "type": "blog",
+    "authors": [
+      {
+        "org": "GitHub"
+      }
+    ],
+    "title": "GitHub Copilot Is Moving to Usage-Based Billing",
+    "container": "The GitHub Blog",
+    "date": "2026-04-27",
+    "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "Announced 2026-04-27, effective 2026-06-01. Confirms the chapter's claim: premium request units replaced by GitHub AI Credits consumed on token usage, including input, output, and cached tokens, at each model's published API rate. No repo revision exists for this one; it is a github.blog post, not a docs page. EXCEPTIONS VERIFIED 2026-07-29 against the same post, in answer to five independent fact-check raises: annual Pro and Pro+ subscribers remain on premium-request pricing until their terms expire; code completions and Next Edit Suggestions remain included and consume no credits; every plan retains a monthly credit allowance; base subscription prices are unchanged. The chapter therefore does not claim premium requests were retired entirely, and any raise to that effect has already been answered. ADVANCE NOTICE VERIFIED 2026-07-29 (Stage 2, item A4): the post is dated 2026-04-27 for a 2026-06-01 effective date, roughly five weeks ahead, and states that to help customers prepare GitHub was launching a preview bill experience in early May, giving users and admins visibility into projected costs before the transition, reachable from the Billing Overview page. Act one carries its own advance record in github-2025-premium, a dated GitHub Changelog entry. The chapter therefore does not describe either step as quiet. ALL PLANS VERIFIED 2026-07-29 (Stage 2, item B2): the post states that all GitHub Copilot plans transition to usage-based billing on June 1, 2026, which is the basis for the chapter's phrase across all of its plans. That phrase replaced an inferred claim about millions of accounts. The breadth contrast the chapter draws is sourced on both sides: Cursor's own timeline records that the June 16 change altered the Pro plan and left Teams plans unchanged, while this transition covered every Copilot plan. Separately noted for later chapters: the transition did draw substantial developer backlash in late May and early June 2026, so advance notice should not be read as smooth reception."
+  },
+  "microsoft-2026-q2": {
+    "type": "report",
+    "authors": [
+      {
+        "org": "Microsoft Corporation"
+      }
+    ],
+    "title": "FY26 Second Quarter Earnings Call",
+    "date": "2026-01-28",
+    "url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "DECISION 46 (2026-07-28): Microsoft's own IR transcript is accepted as the primary source. The figure is a first-party disclosure by the party that holds the data, published by that party. A filing upgrade is not available: the 4.7 million figure appears only in spoken remarks, the FY26 Q2 press release carries no Copilot subscriber count, and Microsoft does not break out product-level subscriber counts in the 10-Q. Perishable, so capture governs durability. Verified wording, Nadella: 'all up now we have over 4.7 million paid Copilot subscribers, up 75% year-over-year', stated in the coding paragraph, so GitHub Copilot. FLAG CLEARED 2026-07-29 (Stage 2, item A2): the chapter now reads 'over 4.7 million', attributes the figure to the January 28, 2026 call, and states that it precedes the 2026-06-01 billing transition by four months. The figure measures the quarter ended 2025-12-31 and is not a measurement of the paid base at transition. The prose no longer asserts otherwise. GROWTH RATE PROMOTED 2026-07-29 (Stage 2, item B1): the chapter now also carries the 75 percent year-over-year figure from the same verbatim sentence, which replaced an unsourceable claim that Copilot was the most widely adopted AI coding assistant in the world. That rank claim had no adoption metric and no comparative source; it has been cut and must not return. Both the 4.7 million and the 75 percent come from the one Nadella sentence recorded above, so they stand or fall together."
+  },
+  "techcrunch-2025-altman-pro": {
+    "type": "web",
+    "authors": [
+      {
+        "family": "Wiggers",
+        "given": "Kyle"
+      }
+    ],
+    "title": "OpenAI Is Losing Money on Its Pricey ChatGPT Pro Plan, CEO Sam Altman Says",
+    "container": "TechCrunch",
+    "date": "2025-01-05",
+    "url": "https://techcrunch.com/2025/01/05/openai-is-losing-money-on-its-pricey-chatgpt-pro-plan-ceo-sam-altman-says",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "Second independent path for altman-2025-pro, per the Decision 40 two-path standard. BYLINE VERIFIED 2026-07-29 by direct fetch: Kyle Wiggers, then TechCrunch AI Editor; article:published_time 2025-01-06T04:39:16Z, displayed 8:39 PM PST January 5, 2025. Reproduces both statements and links the exact status URL used in altman-2025-pro. Quotes Altman: 'I personally chose the price, and thought we would make some money.' Frames the remark as made 'on Sunday', corroborating the January 5 US dating."
+  },
+  "techcrunch-2025-anthropic-limits": {
+    "type": "web",
+    "authors": [
+      {
+        "family": "Zeff",
+        "given": "Maxwell"
+      }
+    ],
+    "title": "Anthropic Unveils New Rate Limits to Curb Claude Code Power Users",
+    "container": "TechCrunch",
+    "date": "2025-07-28",
+    "url": "https://techcrunch.com/2025/07/28/anthropic-unveils-new-rate-limits-to-curb-claude-code-power-users/",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "Carries the fact the X post does not: Anthropic had quietly introduced Claude Code rate limits weeks earlier, linking its own report of 2025-07-17. CAUTION on that wording: Zeff writes 'quietly introduced', but the linked July 17 report, now carried here as techcrunch-2025-anthropic-tightening, establishes that tiered limits already existed and were tightened. The chapter says tightened for that reason. Do not restore 'introduced' on the strength of this note. BYLINE VERIFIED 2026-07-29 by direct fetch: Maxwell Zeff, Senior AI Reporter; published 2025-07-28T19:21:15Z, 12:21 PM PDT. Also confirms the existing five-hour limits remained in force, that two new weekly limits were added (one overall, one specific to Opus 4), effective August 28, and that Max subscribers could buy additional usage at standard API rates."
+  },
+  "techcrunch-2025-anthropic-tightening": {
+    "type": "web",
+    "authors": [
+      {
+        "family": "Brandom",
+        "given": "Russell"
+      }
+    ],
+    "title": "Anthropic Tightens Usage Limits for Claude Code Without Telling Users",
+    "container": "TechCrunch",
+    "date": "2025-07-17",
+    "url": "https://techcrunch.com/2025/07/17/anthropic-tightens-usage-limits-for-claude-code-without-telling-users/",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "Added 2026-07-29 (Stage 2, item A3) to remove a second-hand dependency: the July 17 tightening previously reached the chapter only through techcrunch-2025-anthropic-limits linking back to this report, which is second-hand inside a single outlet. VERIFIED 2026-07-29 by direct fetch. Byline Russell Brandom, AI Editor, confirmed in the visible byline and in meta-author and parsely-author; published 2025-07-17T21:04:34Z, displayed 2:04 PM PDT July 17, 2025. CAUTION: the page also carries a stale sailthru.author field naming Connie Loizos, a CMS artifact; do not cite her. Establishes that tiered limits already existed before July (Max at twenty times Pro, Pro at five times free), that resets came within hours, that subscribers received no advance notice, and that many were unaware limits applied at all. Anthropic's representative confirmed the reports but spoke only of slower response times and declined to confirm a change in limits, which is why the chapter attributes the tightening to what subscribers encountered rather than to a company action the company acknowledged. Source title normalized: the published headline carries an em dash before the word Without, removed here to satisfy the voice gate."
+  },
+  "techcrunch-2025-cursor-apology": {
+    "type": "web",
+    "authors": [
+      {
+        "family": "Zeff",
+        "given": "Maxwell"
+      }
+    ],
+    "title": "Cursor Apologizes for Unclear Pricing Changes That Upset Users",
+    "container": "TechCrunch",
+    "date": "2025-07-07",
+    "url": "https://techcrunch.com/2025/07/07/cursor-apologizes-for-unclear-pricing-changes-that-upset-users/",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "Added 2026-07-29 (Stage 2, item A7). Carries the one fact truell-2025-pricing does not: Truell's role. The piece describes him as the CEO of Anysphere, the company behind Cursor, and quotes him as Anysphere CEO Michael Truell. VERIFIED 2026-07-29 by direct fetch. Byline Maxwell Zeff, Senior AI Reporter, confirmed in the visible byline and in meta-author, parsely-author, and sailthru.author; published 2025-07-07T22:57:09Z, 3:57 PM PDT July 7, 2025. Independently corroborates the June 16 change and the apology from outside the vendor, and places the apology on a Friday, consistent with July 4, 2025. TWO DISCREPANCIES RECORDED SO THEY ARE NOT MISTAKEN FOR CORRECTIONS. First, this piece glosses the old allotment as 500 fast responses; that phrase is TechCrunch's, not Cursor's, and the chapter follows the primary, which says 500 requests per month against external models with Sonnet models costing two. Do not reintroduce 'fast requests' from this source. Second, this piece states that only auto mode offers unlimited usage, whereas Cursor's own post lists unlimited usage of Tab and of models in Auto. The primary governs, so the chapter says Tab and Auto. Do not narrow it to Auto on the strength of this source. Also supports the chapter's depletion sentence directly: it reports that many users ran out of requests quickly under the new plan, in some cases after just a few prompts when using Anthropic's newer Claude models, which is reportage rather than inference."
+  },
+  "truell-2025-pricing": {
+    "type": "blog",
+    "authors": [
+      {
+        "family": "Truell",
+        "given": "Michael"
+      }
+    ],
+    "title": "Clarifying Our Pricing",
+    "container": "Cursor",
+    "date": "2025-07-04",
+    "url": "https://cursor.com/blog/june-2025-pricing",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "NOTE ADDED 2026-07-29 (Stage 2, items A5, A6, A7). This entry previously carried no note despite being the most load-bearing source in the chapter. Verified by direct reading on the access date. DATE: July 4, 2025, stated on the page and corroborated by the post's own timeline, which reads June 16 for the original change, June 30 for a clarity revision to that post and the pricing page, and July 4 for the apology. Three fact-check rounds have proposed July 3; all three are wrong. Do not change it. REQUEST ARITHMETIC: for external models Cursor had previously charged by request count, with a limit of 500 requests per month and Sonnet models costing two requests, which is why the chapter says five hundred requests against external models rather than 'fast requests'. The phrase 'fast requests' is TechCrunch's gloss, not Cursor's term, and must not be reintroduced. NEW PLAN TERMS: unlimited use of Tab and of models in Auto, 20 dollars of frontier model usage per month at API pricing, and the option to purchase more at cost. ORDER OF MAGNITUDE: the post states verbatim that although most users' costs stayed fairly constant, the hardest requests cost an order of magnitude more than simple ones. A raise calling this unsupported has been rejected once and should be rejected again. COVERAGE: the post gives median Pro coverage as roughly 225 Sonnet 4 requests and states that the vast majority of Pro users do not exhaust the allowance, so the chapter's depletion sentence is scoped to a labelled composite team's heaviest users on long-horizon frontier work, not to Pro users generally. REFUNDS: offered for unexpected usage between June 16 and July 4, 2025. BYLINE: the post is bylined Michael Truell with no role stated on the page; his role as chief executive of Anysphere rests on techcrunch-2025-cursor-apology, not on this post."
+  }
+}
+</pre>
+</section>
+
+</body>
+</html>

@@ -1,8 +1,9 @@
 /* ============================================================
    AIOM_book.css
-   VERSION: 6.6
+   VERSION: 6.7
    DATE:    2026-07-25
-   CHANGES: Rebuilt from AIOM_Ch1_DesignProof_v5_FINAL.pdf.
+   CHANGES: v6.7 (2026-07-28) adds --tint-fig per Decision 37.
+            Rebuilt from AIOM_Ch1_DesignProof_v5_FINAL.pdf.
             Key Terms slot restyled to Option B (ruled register).
             All other values reverse-engineered to match v5 exactly.
    RULE:    This file is the sole control of appearance.
@@ -32,9 +33,19 @@
   --axis:        #6E6353;
   --tint-def:    #EDE3D0;
   --tint-thm:    #F7EDE2;
+  --tint-fig:    #E7DECB;  /* figure fills only. see the rule below */
   --hairline:    #DCCFB4;
   --kt-head:     #DCCFB4;  /* key term header band, the hairline value as a field */
 }
+
+/* FIGURE FILL RULE (Decision 37, 2026-07-28).
+   Filled areas inside figures use --tint-fig and never an apparatus tint.
+   --tint-def and --tint-thm identify the definition callout and the theorem
+   panel to the rect-based QA gates, and a full-measure figure rect filled
+   --tint-def is indistinguishable from a key term field to gate 6. One step
+   deeper than --tint-def so a filled figure band reads as recessed.
+   Figures carry literal hex, as they already do for --amber-fig, --teal and
+   --axis; this token is the value of record. */
 
 /* ---------- 3. PAGE ---------- */
 @page {
@@ -361,4 +372,33 @@ td.blank::after {
   display: block;
   border-bottom: 0.5pt solid var(--axis);
   width: 58pt; height: 10pt;
+}
+
+/* ============================================================
+   12. CHAPTER SOURCE REGISTER  (apparatus, Decision 38)
+   Not a seventh slot. This amends the no-sources-block rule in
+   section 5 of the design spec. The test: apparatus carries no
+   pedagogical content and could be stripped without changing
+   what the chapter teaches. Running heads, folios and footnotes
+   already sit outside the six slots on that basis; a source
+   register is the same category. A worked example fails the
+   test, so the exemption has a stated boundary.
+
+   Chicago 17, notes and bibliography, with access dates on
+   perishable web sources (Decision 39). Hanging indent, no
+   fill: a filled full-measure block would collide with the
+   key term gate, see the figure fill rule above.
+   ============================================================ */
+.sources { margin-top: 19.7pt; break-inside: auto; }
+.sources .slot-label {
+  border-bottom: 0.5pt solid var(--axis);
+  padding-bottom: 5.5pt; margin: 0 0 8.5pt 0;
+  break-after: avoid;
+}
+.sources p {
+  font-size: 8.5pt; line-height: 12.2pt;
+  margin: 0 0 5.5pt 0;
+  padding-left: 14pt; text-indent: -14pt;
+  text-align: left; hyphens: none;
+  break-inside: avoid;
 }

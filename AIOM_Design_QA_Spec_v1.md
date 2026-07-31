@@ -1,6 +1,6 @@
-# AIOM Design QA Specification, Section 8: The Ten Gates
+# AIOM Design QA Specification, Section 8: The Eleven Gates
 
-Version 1.0 · 2026-07-30 · Reconstructed from `AIOM_build.py` v6.0 `qa()`
+Version 1.3 · 2026-07-30 · Documents `AIOM_build.py` v6.2 `qa()`
 and verified against `AIOM_book.css` v6.6.
 
 Status: documentation of the suite as implemented. Where the implementation
@@ -11,7 +11,7 @@ ruling rather than resolving it silently.
 
 ## 0. Why this document exists
 
-`AIOM_build.py` runs ten gates after every render and prints PASS or FAIL.
+`AIOM_build.py` runs eleven gates after every render and prints PASS or FAIL.
 The gates are correct and thorough, but their constants were embedded in code
 with no stated derivation. An unenumerated suite cannot be audited, extended
 with confidence, or handed to anyone else. This document states, for each gate:
@@ -22,10 +22,27 @@ Invocation:
 
 ```
 python3 AIOM_build.py --fonts                 # once per session
-python3 AIOM_build.py AIOM_ch01.html          # render, then run all ten gates
+python3 AIOM_build.py AIOM_ch01.html          # footnotes, render, eleven gates
 ```
 
-Exit code is 0 only if all ten gates pass.
+The build has three steps. `footnotes.inject()` reads the chapter's own
+`<pre id="aiom-sources-data">` block, formats each entry through
+`cite_format.py`, and replaces every authored `<cite src="...">` with a
+`<span class="fn">`. WeasyPrint renders the result. The gates then run against
+the PDF, with the injected footnote count passed to gate 8.
+
+Citation style: Chicago notes-bibliography, note form. Full citation at the
+foot of the page carrying the claim, per the ruling recorded in
+`AIOM_book.css` section 3.
+
+**URL policy: `none` (ruled 2026-07-30).** URLs do not appear in footnotes.
+They live in the source block, which travels with every draft under Decision
+51, and in the back-of-book bibliography. The accessed date does appear in the
+footnote, which is what the evidence policy requires for perishable web
+content. Rendering with `--url-policy full` pushes footnote 5 of Ch1 to 876
+characters, which cannot fit one page and trips gate 8.
+
+Exit code is 0 only if all eleven gates pass.
 
 ---
 
@@ -66,7 +83,7 @@ palette value without updating the suite silently disables the gates keyed to it
 
 ---
 
-## 3. The ten gates
+## 3. The eleven gates
 
 ### Gate 1. Right-margin overflow
 
@@ -168,6 +185,15 @@ set of note numbers.
 Fails if the sets differ on any page, meaning a footnote rendered on a
 different page from its call.
 
+Amended v6.2 to close gap G-H. `qa()` accepts `expected_footnotes`, which the
+build passes from the injection step. The gate now also fails when the
+rendered count differs from the count the source block should have produced.
+Before this, a chapter whose footnote apparatus was not wired rendered zero
+footnotes and the gate reported success. That is exactly what happened on the
+first Ch1 Stage 4 render: the CSS put `float: footnote` on `.fn` while the
+chapter HTML used `<cite>`, all six citations fell into the body text as
+inline italic, and gate 8 passed.
+
 ### Gate 9. Dated evidence boxes
 
 Two-part gate, the only one that rasterizes.
@@ -197,6 +223,36 @@ it on the same page.
 Fails if a label has no title beneath it, meaning the label was stranded at a
 page bottom and its title pushed to the following page.
 
+### Gate 11. Theorem panel integrity
+
+Added v6.1 to close gap G-A.
+
+`.theorem` is a normal block with `break-inside: avoid`, so the WeasyPrint
+float bug that necessitates gate 4 does not apply to it. This gate catches the
+two failures the property cannot prevent: WeasyPrint ignoring it, and a panel
+forced to break because it does not fit the space remaining.
+
+- Panels: rectangles filled `--tint-thm` (`#F7EDE2`)
+- Labels: rows of 8.5pt Jost characters filled `--amber` whose text begins
+  `THEOREM`
+- Left rule: matched as a **border box**, not a sliver. WeasyPrint paints a
+  border as a filled rect covering the whole border box and then paints the
+  background over it, so a 3pt left border never appears as a 3pt rect. The
+  gate requires an amber rect on the same page with matching `top` and height
+  whose `x0` sits at or left of the panel's `x0`.
+
+Three failure conditions:
+
+1. A panel truncated at the bottom text edge (626.4pt), which proves a break
+2. More panels than labels, since a continuation carries no label of its own
+3. A panel with no matching amber border box
+
+**Position is deliberately not a failure signal.** A panel that legitimately
+begins at the top of a page is indistinguishable by position from a
+continuation. The first draft of this gate used flush-at-top as a split
+signal and produced a false positive on Ch1, whose theorem panel opens page 8
+legitimately. Gate 4 still uses that discarded heuristic. See gap G-G.
+
 ---
 
 ## 4. Known coverage gaps
@@ -205,12 +261,14 @@ The suite covers apparatus and typography well. These are the holes.
 
 | ID | Gap | Risk |
 |---|---|---|
-| **G-A** | **Theorem callout splits are not checked.** Gate 4 keys on `--tint-def`; the theorem uses `--tint-thm` (`#F7EDE2`) and is unguarded. | **High.** THM-009's statement is a single 74-word sentence that cannot break. Ch1's highest-risk object is the one object with no gate. |
+| ~~G-A~~ | ~~Theorem callout splits are not checked.~~ **Closed in v6.1 by gate 11.** | resolved |
 | **G-B** | **No figure validation at all.** Nothing confirms a figure rendered, sits inside its frame, or kept its geometry. Gate 5 catches fallback fonts in SVG text and gate 1 catches horizontal overflow; everything else fails silently. | **High.** Ch1 carries two hand-built SVG figures. |
 | G-C | Gate 1 checks the right edge only. No bottom-margin baseline check. | Medium |
 | G-D | No widow or orphan detection. | Medium |
 | G-E | Gate 6 counts Key Terms rows but does not verify identity, or reconcile them against the body definition callouts. | Low |
 | G-F | No check that a part's assigned colour is the colour in use. | Low, until Part II |
+| **G-G** | **Gate 4 uses the flush-at-top split heuristic that gate 11 discarded.** A definition callout legitimately landing at the top of a page will be reported as split. The failure mode is false positives, not false negatives, so a passing result is trustworthy. | Medium |
+| ~~G-H~~ | ~~Gate 8 passes vacuously.~~ **Closed in v6.2** by passing the expected footnote count from the build into gate 8. | resolved |
 
 ## 5. Open questions for D0
 
@@ -219,6 +277,12 @@ The suite covers apparatus and typography well. These are the holes.
 - **Q2.** En dashes: banned outright as gate 2 implements, or permitted in
   numeric ranges as the standing rule implies? The Stage 3 voice gate currently
   permits them in ranges, so the two suites disagree.
+- ~~**Q5.** Gloss form.~~ **Ruled 2026-07-30.** A gloss is one or more
+  complete sentences naming which source carries what. All six Ch1 glosses
+  were rewritten to this convention. The formatter does not auto-capitalise,
+  by design: capitalisation is an editorial property of the gloss, and
+  auto-capitalising a continuation produces "Which reproduces both
+  statements." Convention applies from Chapter 2 onward.
 - **Q3.** Part palette. `--teal` is declared and never used (zero `var(--teal)`
   references). Part III and Part IV colours do not exist in the CSS. Not
   blocking for Ch1; blocking for Ch4.
@@ -229,7 +293,23 @@ The suite covers apparatus and typography well. These are the holes.
 
 ---
 
-## 6. Standing rule for this file
+## 6. Files in the pipeline
+
+| File | Role |
+|---|---|
+| `AIOM_build.py` v6.2 | fonts, footnote injection, render, eleven gates |
+| `AIOM_book.css` v6.6 | sole control of appearance; chapters carry content only |
+| `cite_format.py` | source entry to Chicago note-form citation |
+| `footnotes.py` | build step; `<cite>` to `<span class="fn">` |
+| `place.py` | floated callout placement, gate 4 remedy |
+
+The chapter HTML keeps `<cite src="...">` with its `.ckey` span as the authored
+form. It carries the source keys and the editorial gloss, and it is what the
+audit draft shows. `.audit-only` hides the source block from the render.
+
+---
+
+## 7. Standing rule for this file
 
 This document and `AIOM_build.py` must move together. A gate added, removed,
 or retuned in code without a matching entry here reopens the audit hole this
