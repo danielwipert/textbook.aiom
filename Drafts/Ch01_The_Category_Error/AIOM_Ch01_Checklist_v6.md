@@ -354,7 +354,7 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-07-31
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
@@ -363,6 +363,11 @@ Findings:
 Passed provisionally 2026-07-28. REVERTED to not run on the same date, because
 Stage 3 made prose edits in sections 1.2 and 1.3. A design review that passed
 against superseded prose has not passed. Re-run after the render.
+
+Re-run 2026-07-31 on the Stage 4 render (AIOM_Ch01_Stage4), per Dan: design
+review complete. G2 is not yet confirmed and stays at not run. The Figure 1.2
+reference defect recorded under G2 below is a G2 item and remains open until
+G2 runs.
 
 ---
 

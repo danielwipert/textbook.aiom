@@ -121,8 +121,9 @@ Sequencing rules from the checklist itself:
 - **Gates are not passes.** A gate is a pass or fail check run by Claude against
   a stated standard. A pass is editorial work. They are tracked separately.
 - **Stages 4 and G2 re-run after any prose edit.** A render that passed against
-  older prose has not passed. This is why Chapter 1's stage 4 and G2 are
-  provisional rather than done.
+  older prose has not passed. Chapter 1's stage 4 and G2 reverted after the
+  Stage 3 edits; stage 4 has since re-run and passed on the current render, and
+  G2 remains to be confirmed.
 - Stage 5 placement is revisited at Chapter 4 (Decision 24). If line edits are
   being churned by structural changes, move it earlier then, not before.
 - Fifteen self-contained checklists exist, one per chapter (Decision 32).
@@ -140,7 +141,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | G1, capture  | Stage 0 and Stage 3 passed. G1 blocked on capture only. Stage 4 and G2 reverted to not run after Stage 3 prose edits. Stages 1, 2, 5, 6, 7, 8 and G3 not started. |
+| 1   | The Category Error             | G1, G2       | Stage 0 and Stage 3 passed. G1's archival block repealed by Decision 48; G1 needs a re-run against the ten-check standard. Stage 4 passed on the current render; G2 not yet confirmed. Stages 1, 2, 5, 6, 7, 8 and G3 not started. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
