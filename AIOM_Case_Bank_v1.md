@@ -1,0 +1,87 @@
+# AIOM Case Bank v1.0 (WORKING DOCUMENT)
+
+Textbook: *AI Operations Management*. Documented, citable real-world material per the evidence policy (every empirical claim cited, formalized, or cut).
+Compiled July 19, 2026 from first research pass. Status: working; gaps listed at end.
+
+Source grades: A = primary/official document or top-tier press (TechCrunch, Fortune, CBC, Forbes staff, official provider docs). B = reliable trade press. C = vendor/SEO content (pointer only; never cite; chase to primary before use).
+Rule: before print, every case cites its Grade A primary source directly.
+
+## Chapter 4 shopping list: provider mechanism episodes (the playing field)
+
+### CASE 4.1: OpenAI loses money on flat-rate Pro subscriptions (January 2025)
+- What happened: CEO Sam Altman publicly stated OpenAI was losing money on its $200/month ChatGPT Pro plan because "people use it much more than we expected," adding "I personally chose the price and thought we would make some money." Pro had launched in December 2024 with near-unlimited access.
+- What it documents: fixed revenue against variable cost, mispriced by the provider itself; the usage distribution problem under flat rates. This is the C5 stylized-model assessment made real: the provider's own CEO conceding the mismatch.
+- Sources: Altman post on X (primary, Jan 5-6 2025); Fortune; ITPro. Grade A.
+- Placement: Ch4 opening case candidate (strongest option); also cited in Ch1 (flat-rate objection).
+
+### CASE 4.2: Anthropic imposes weekly rate limits on Claude Code (July-August 2025)
+- What happened: After Claude Code users ran the tool "continuously in the background, 24/7" and some resold account access, Anthropic announced weekly rate limits effective August 28, 2025 for Pro ($20) and Max ($100/$200) subscribers, on top of existing 5-hour rolling limits; overall weekly cap plus a separate cap for the top model; overflow purchasable at standard API rates; company said <5% of subscribers affected.
+- Precursor mini-episode: on ~July 17, 2025, Anthropic tightened limits WITHOUT announcement; users discovered via "Claude usage limit reached" errors and suspected downgrades (TechCrunch, July 17, 2025).
+- What it documents: the full mechanism menu live in one episode: limits, tiers, per-model caps, priority-by-plan, metered overflow; and (precursor) that corrections arrive on the provider's terms, sometimes without notice. The precursor empirically grounds Ch11's constraint scenario (mid-quarter limit change).
+- Sources: TechCrunch (July 28, 2025); TechCrunch (July 17, 2025); Anthropic email/X announcement (primary). Grade A.
+- Placement: Ch4 teaching body; Ch11 constraint-scenario grounding.
+
+### CASE 4.3: Cursor repricing: flat allotment to usage-based, and the apology (June-July 2025)
+- What happened: On June 16, 2025 Anysphere changed Cursor Pro from 500 fast requests + unlimited slow requests to $20 of usage billed at API rates; users exhausted allowances in a few prompts on expensive models and incurred surprise overage charges; CEO Michael Truell apologized ("we didn't handle this pricing rollout well") and refunded surprised users. Stated cause: newer models cost more to serve; company signed multi-year deals with OpenAI, Anthropic, Google, xAI.
+- What it documents: the middle of the value chain (an AI application vendor) forced to convert flat pricing to metered pricing by its own upstream variable costs; cost pass-through cascading down the AI supply chain; the buyer-side planning failure when the correction arrives mid-subscription.
+- Sources: TechCrunch (July 7, 2025); Truell blog post (primary). Grade A.
+- Placement: Ch4 teaching body; also Ch1 (the flat-rate objection's real-world refutation).
+
+### CASE 4.4: The priced mechanism menu: OpenAI service tiers (documented current state)
+- What happened / state: OpenAI operates four processing tiers: Standard (default), Priority (premium per-token price for faster, more consistent performance, invoked per-request via service_tier="priority"), Flex (~50% discount, variable latency, may return 429 Resource Unavailable), Batch (~50% discount, 24-hour turnaround), plus Scale (committed throughput, 30-day minimum, 99.9% SLA).
+- What it documents: allocation and priority pricing as a shipped product surface, not a prediction; and, for Ch11, the buyer's side of tier economics (routing work classes across price/latency tiers is literally supported by the provider's own API parameter).
+- Sources: OpenAI official pricing/docs pages (primary). Grade A. Perishable: re-verify all specifics at drafting time; quarantine in dated case per fifty-year rule.
+- Placement: Ch4 (mechanism menu evidence); Ch11 craft section (routing against real tier structures).
+
+## Chapter 6 shopping list: value, productivity, ROI statements
+
+### CASE 6.1: Klarna: the claim and the correction (February 2024 - May 2025)
+- The claim: In February 2024, Klarna, jointly with OpenAI, announced its AI assistant handled 2.3M conversations in month one, two-thirds of customer-service chats, equivalent (by Klarna's estimate) to the work of 700 full-time agents, resolution time down from 11 minutes to under 2, projected $40M profit improvement for 2024. Company-reported figures announced jointly with the vendor supplying the model.
+- The correction: In May 2025, CEO Sebastian Siemiatkowski told Bloomberg the cost-cutting drive had gone too far, produced "lower quality," and Klarna began recruiting human agents (an "Uber-type" flexible model) so customers could always reach a human. Headcount decline (roughly 5,000 toward 3,000-3,500 across the period) came substantially through attrition and a hiring freeze, complicating the "700 replaced" framing.
+- What it documents: nearly every distinction Ch6 teaches in one episode: claimed vs realized value; vendor-joint self-reported figures; the boundary problem (what period, what outcomes, which confounds); productivity claim vs ROI; and the netting that was never published. Deliberate design echo: the Northland capstone (C18) is structurally a miniature Klarna with the netting actually performed.
+- Sources: Klarna/OpenAI announcement Feb 2024 (primary); Bloomberg interview May 2025 (primary); CNBC on headcount; Forbes. Grade A. (Note: many secondary retellings are sloppy; cite primaries only.)
+- Placement: Ch6 opening case (strongest option); referenced again in Ch12.
+
+### CASE 6.2: MIT NANDA "The GenAI Divide: State of AI in Business 2025" (August 2025)
+- What it says: Based on interviews with executives, employee surveys, and analysis of ~300 public AI deployments, the report found 95% of enterprise GenAI pilots delivered no measurable P&L impact; ~5% achieved rapid value; >80% of organizations had piloted tools while ~40% reported deployment, mainly boosting individual productivity rather than measurable enterprise outcomes; budgets skewed to sales/marketing while better returns sat in back-office functions; and a "shadow AI economy" with personal-tool use in the large majority of firms.
+- Handle with care: the 95% figure went viral and drew methodological criticism; reported methodology descriptions vary across outlets (52 vs 150 interviews). Use the report's own text, state its method plainly, and cite the criticism's existence per the straight-spine policy (state limitation once, no hedging).
+- What it documents: the unknown-value-fraction claim (C3) at market scale: high adoption, unmeasured transformation; also budget misallocation and shadow usage.
+- Sources: MIT NANDA report (primary; obtain the PDF); Fortune interview with lead author Aditya Challapally. Grade A with noted caveats.
+- Placement: Ch2 or Ch6 teaching body; candidate for Ch3 discussion questions (have students critique the study's boundary discipline: a beautiful self-referential exercise).
+
+### CASE 6.3: [GAP] Six more classifiable value statements needed
+- The C6 sort-and-repair assessment needs ~8 short real statements spanning the classification set (claimed value, realized value, productivity claim, productivity measurement, ROI claim). Have: Klarna (multiple statements), MIT-quoted executive lines. Need: earnings-call and press-release specimens from large deployers. Research pass 2 targets: major-bank AI value claims, big-tech Copilot seat claims, consultancy ROI multipliers (e.g., IDC/Microsoft "$3.7x" genre), retailer/airline deployment claims.
+
+## Chapter 5 shopping list: cost anatomy episodes
+
+### CASE 5.1: Air Canada chatbot liability: Moffatt v. Air Canada (February 2024)
+- What happened: Air Canada's website chatbot told a passenger he could apply for bereavement fares retroactively within 90 days; actual policy forbade retroactive claims. The BC Civil Resolution Tribunal found negligent misrepresentation, rejected Air Canada's argument that the chatbot was "a separate legal entity responsible for its own actions" ("a remarkable submission"), found the airline "did not take reasonable care to ensure its chatbot was accurate," and awarded C$812.02 (C$650.88 fare difference + interest + fees).
+- What it documents: the error-cost category of the TCO ledger with a court-quantified number; error exposure scales with deployment (PROP-156-160 territory); also governance cost rationale.
+- Sources: CBC News (Feb 2024); Tribunal decision text (primary); American Bar Association note; Forbes. Grade A.
+- Placement: Ch5 teaching body (error and governance cost categories); alternative Ch5 opening case.
+
+### CASE 5.2: Shadow AI and the invisible flow (2023-2026 pattern, multiple sources)
+- Documented pattern: IBM's 2025 Cost of a Data Breach Report found breaches involving shadow AI averaged $670,000 MORE than other incidents, with 97% of breached organizations lacking AI access controls; an IDC 2025 survey found 56% of employees using unauthorized AI tools vs 23% using organization-governed tools; the Samsung 2023 episode (engineers pasting source code and internal material into a public chatbot within a month, prompting a ban, later reversed toward an internal tool) is the canonical incident.
+- What it documents: the record flow's absence has a price; unmetered activity is invisible to the management boundary (THM-010 territory); motivates Ch8's coverage test and shadow-usage estimate. Northland's designer/marketer shadow usage mirrors this pattern.
+- Sources: IBM Cost of a Data Breach 2025 (primary; obtain report); IDC survey (chase primary); Samsung episode (contemporaneous 2023 reporting; chase primary). Grade A for IBM; B pending primaries for the rest.
+- Placement: Ch8 opening case or teaching body.
+
+## Cross-cutting notes
+
+- PERISHABILITY: every price, tier name, and limit above is perishable. Per the fifty-year rule, all appear only inside dated case studies ("In July 2025, ..."), never in body prose.
+- PRIMARY-SOURCE CHASE LIST before print: Altman X post; Anthropic announcement; Truell blog post; Klarna Feb 2024 press release; Bloomberg May 2025 interview; MIT NANDA report PDF; BC CRT decision text (2024 BCCRT 149); IBM CoDB 2025 report; IDC survey; Samsung 2023 contemporaneous reporting; OpenAI docs snapshots (archive on capture date).
+- BALANCE FLAG: current bank skews cautionary. The book needs at least one well-documented POSITIVE value-realization case (a deployment with an honest published boundary and surviving number) or reviewers will read the discipline as pessimism rather than measurement. Research pass 2 priority.
+
+## Research pass 2 targets (open)
+
+1. Six more classifiable value statements for the C6 sort-and-repair set (earnings calls, press releases).
+2. One or more documented positive ROI/value cases with real boundaries.
+3. Opening-case candidates for chapters without one: Ch1, Ch2, Ch3, Ch7, Ch9, Ch10, Ch13, Ch14, Ch15.
+4. FinOps Foundation: current framework text and State of FinOps survey data on AI spend (Ch14 boundary treaty; engage by name).
+5. Token-price volatility evidence (OpenRouter or equivalent) to support or replace the manifesto's PMT claim.
+6. Model deprecation/forced-migration episodes for Ch7 switching economics.
+7. Verify the "Northland" trade-name collision check (logged from dataset session).
+
+## Status
+
+Structure document open item 4: IN PROGRESS (pass 1 complete, pass 2 targets defined).
