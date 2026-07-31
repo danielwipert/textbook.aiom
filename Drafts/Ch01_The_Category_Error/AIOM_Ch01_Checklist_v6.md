@@ -354,7 +354,7 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-07-31
+Status: [ ]        Date cleared: 
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
@@ -365,9 +365,12 @@ Stage 3 made prose edits in sections 1.2 and 1.3. A design review that passed
 against superseded prose has not passed. Re-run after the render.
 
 Re-run 2026-07-31 on the Stage 4 render (AIOM_Ch01_Stage4), per Dan: design
-review complete. G2 is not yet confirmed and stays at not run. The Figure 1.2
-reference defect recorded under G2 below is a G2 item and remains open until
-G2 runs.
+review passed.
+
+REVERTED again 2026-07-31, same day, by the Figure 1.2 reference fix. The two
+section 1.2 figures were reordered (anatomy becomes Figure 1.1, seat and event
+becomes Figure 1.2) so both are referenced in figure order. That is a figure and
+prose edit, so Stage 4 and G2 revert and must re-run against the next render.
 
 ---
 
@@ -402,6 +405,13 @@ referenced correctly in the closing paragraph of 1.2. The checkbox "All figures
 present, numbered, captioned, referenced in text" was marked passed on the
 provisional run and should not have been. Fix: add a reference to Figure 1.2,
 most naturally in the anatomy paragraph of 1.2 that the figure illustrates.
+
+RESOLVED IN SOURCE 2026-07-31, pending re-render. Rather than only add a
+reference, the two section 1.2 figures were reordered so they appear and are
+referenced in figure order. The anatomy figure is now Figure 1.1, referenced in
+the anatomy paragraph it illustrates; the seat-and-event figure is now Figure
+1.2, referenced in the closing paragraph of 1.2. Both figures are now referenced
+in body prose, in order. G2 confirms this against the next render.
 
 ---
 

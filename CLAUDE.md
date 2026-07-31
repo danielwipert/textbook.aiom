@@ -232,10 +232,11 @@ gates passing. It is drafted and confirmed in the locked voice (Stage 0 and
 Stage 3 passed). It is not Locked: G1's only open item was source archiving,
 which Decision 48 (2026-07-29) repealed, cutting G1 from fourteen checks to ten
 and leaving access dates as the one remaining source requirement, so G1 needs a
-re-run against the reduced standard. Stage 4 (design review) reverted to not-run
-after the Stage 3 prose edits and has since re-run and passed on the current
-render; G2 (production gate) is not yet confirmed. Stages 1, 2, 5, 6, 7, 8 and
-G3 have not started.
+re-run against the reduced standard. Stage 4 (design review) passed on the
+post-Stage-3 render, then reverted again, together with G2, when the Figure 1.2
+in-text reference defect was fixed by reordering the two section 1.2 figures;
+both need a re-render and re-run. Stages 1, 2, 5, 6, 7, 8 and G3 have not
+started.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is
