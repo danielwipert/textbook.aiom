@@ -1,4 +1,4 @@
-# The Northmoor Dataset v1.0 (LOCKED DESIGN)
+# The Northmoor Dataset v1.1 (LOCKED DESIGN)
 
 Textbook: *AI Operations Management*. The book's single recurring constructed dataset, threaded through the problem sets of Chapters 8-12 and 15, and supplying the Chapter 13 diagnostic packet.
 Approved by Dan, July 19, 2026. Design locked; numerical build deferred to a dedicated session when outlining reaches Part III.

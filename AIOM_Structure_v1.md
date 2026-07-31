@@ -72,7 +72,7 @@ Purpose: the discipline in a real organization. Integrative, unguided assessment
 13. Diagnosis and Maturity
     - Big idea: the Founding Questions are a measurement instrument; maturity is which of them an organization can answer with records rather than opinions.
     - Competency: C20.
-    - Craft: the maturity model (five stages, proposed: Unmanaged, Visible, Attributed, Governed, Optimized). NOTE: requires deliberate design session.
+    - Craft: the maturity model (five stages, proposed: Unmanaged, Visible, Attributed, Governed, Accountable). NOTE: requires deliberate design session.
 14. The Organized Buyer
     - Big idea: institutionalization has an inside (the function) and an outside (the market posture); leverage is records.
     - Competencies: C21, C22.
