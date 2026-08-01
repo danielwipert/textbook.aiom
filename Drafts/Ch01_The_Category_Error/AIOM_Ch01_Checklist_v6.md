@@ -373,9 +373,9 @@ DOWNSTREAM RE-RUNS (scoped re-run matrix, body prose edit):
   seated.
 - G2 production: RE-RAN 2026-08-01, PASS. Full eleven-check suite green on the
   19-page re-render (page count unchanged).
-- Stage 3 fact check (Dan): body prose changed but no empirical claim, citation,
-  number, or figure changed, so the fact-checkable surface is untouched. Flagged
-  for Dan's confirmation; there is no re-verification content.
+- Stage 3 fact check (Dan): RULED PASS 2026-08-01 by Dan. Body prose changed but
+  no empirical claim, citation, number, or figure changed, so the fact-checkable
+  surface is untouched and the 2026-07-29 pass holds.
 
 Stage 2 remains in progress: D2 through D6 await ruling.
 
