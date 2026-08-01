@@ -236,9 +236,11 @@ re-run against the reduced standard. Stage 4 (design review) and G2 (production
 gate) both passed on 2026-08-01 on the render carrying the Figure 1.2 reference
 fix, with AIOM_build.py's full eleven-check suite green. Reaching that pass
 required adding an audit-only hide rule to the CSS, since the committed v6.7 CSS
-predated the Decision 51 source-block apparatus; the figure-geometry, widow, and
-page-visual checks are outside the automated suite and await an eyeball. Stages
-1, 2, 5, 6, 7, 8 and G3 have not started.
+predated the Decision 51 source-block apparatus; that committed CSS plus the rule
+is ruled the working version of record. The figure-geometry, widow, and
+page-visual checks, outside the automated suite, passed a first-pass visual
+review and await Dan's final sign-off. Stages 1, 2, 5, 6, 7, 8 and G3 have not
+started.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is

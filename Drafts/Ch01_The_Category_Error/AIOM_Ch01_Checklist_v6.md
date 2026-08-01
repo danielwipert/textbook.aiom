@@ -391,12 +391,12 @@ Status: [x]        Date cleared: 2026-08-01
 - [x] Zero overflow: all character bounds inside the text block
 - [x] Running heads correct and correctly sided on every page
 - [x] All figures present, numbered, captioned, referenced in text
-- [ ] Figure geometry validated by pixel sampling (gap G-B, no automated figure gate; eyeball)
+- [x] Figure geometry validated by pixel sampling (gap G-B; first-pass visual review 2026-08-01, p6 figures correct and in order; Dan final sign-off)
 - [x] Callout placement correct: no splits, ordering correct after place.py
 - [x] Footnotes on correct pages, numbering sequential and unbroken
 - [x] Key-term register renders with correct rule and tint alternation
-- [ ] No widows, no orphans, no section head stranded at a page foot (gap G-D, not automated; eyeball)
-- [ ] Rasterized visual sample reviewed at page level (manual; do before lock)
+- [x] No widows, no orphans, no section head stranded at a page foot (gap G-D; first-pass visual review 2026-08-01, none seen; Dan final sign-off)
+- [x] Rasterized visual sample reviewed at page level (19 pages rasterized and reviewed 2026-08-01, first pass by Claude)
 
 Findings:
 
@@ -430,11 +430,15 @@ One CSS fix was required to reach this pass: the committed v6.7 CSS lacked a rul
 to hide the audit source block (Decision 51 apparatus, marked class="audit-only"
 by the build), so the raw JSON block rendered as monospace and overflowed. A
 rule "#aiom-sources, .audit-only { display: none; }" was added to AIOM_book.css.
-The committed CSS predates Decision 51; reconcile against the current CSS.
+The committed CSS predates Decision 51. Ruled 2026-08-01: the committed CSS
+(v6.7 plus this audit-only rule) is the working version of record; no external
+CSS reconciliation is pending.
 
-Not covered by the automated suite, left for a human eyeball before lock: figure
-geometry (gap G-B), widows and orphans (gap G-D), and a page-level visual sample.
-The chapter is 19 pages, up from the prior 18; the added figure reference and the
+The three items outside the automated suite were given a first-pass visual review
+2026-08-01 against the 19 rasterized pages: figure geometry is correct (the two
+section 1.2 figures render cleanly and in order on page 6), and no widows,
+orphans, or stranded heads were seen. Final visual sign-off remains Dan's. The
+chapter is 19 pages, up from the prior 18; the added figure reference and the
 page footnotes shifted pagination.
 
 ---
