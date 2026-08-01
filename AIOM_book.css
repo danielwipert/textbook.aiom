@@ -402,3 +402,12 @@ td.blank::after {
   text-align: left; hyphens: none;
   break-inside: avoid;
 }
+
+/* ---------- 12. AUDIT-ONLY SOURCE APPARATUS (Decision 51) ---------- */
+/* The chapter source block (<section id="aiom-sources">, with the JSON data in
+   <pre id="aiom-sources-data">) travels with the draft so the chapter reads and
+   audits as one file. The build (footnotes.py) turns each <cite> into a page
+   footnote and marks the data block class="audit-only"; the audit apparatus is
+   hidden here so it never renders into the typeset PDF. */
+#aiom-sources,
+.audit-only { display: none; }

@@ -104,7 +104,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_Workplan_v5.md` | Current workplan and per-chapter tracker. Supersedes v4, which is retired. |
 | `AIOM_Validation_Matrix_v1.xlsx` | The 28-row Appendix A trace matrix. Working artifact, never book content. Distinct from the full 228-object registry, which lives in Drive. |
 | `chapters/` | Chapter HTML sources. |
-| `fonts/use/` | Staged fonts. Generated, not committed. |
+| `fonts/` | Committed fonts (IBM Plex Sans, Jost) plus their OFL licenses. `fonts/use/` holds the six faces the CSS loads, so rendering needs no network staging. |
 
 When spec placeholders conflict with operative content, trust the operative
 content: the maturity model, Stage definitions, and chapter assignments win over
@@ -232,11 +232,13 @@ gates passing. It is drafted and confirmed in the locked voice (Stage 0 and
 Stage 3 passed). It is not Locked: G1's only open item was source archiving,
 which Decision 48 (2026-07-29) repealed, cutting G1 from fourteen checks to ten
 and leaving access dates as the one remaining source requirement, so G1 needs a
-re-run against the reduced standard. Stage 4 (design review) passed on the
-post-Stage-3 render, then reverted again, together with G2, when the Figure 1.2
-in-text reference defect was fixed by reordering the two section 1.2 figures;
-both need a re-render and re-run. Stages 1, 2, 5, 6, 7, 8 and G3 have not
-started.
+re-run against the reduced standard. Stage 4 (design review) and G2 (production
+gate) both passed on 2026-08-01 on the render carrying the Figure 1.2 reference
+fix, with AIOM_build.py's full eleven-check suite green. Reaching that pass
+required adding an audit-only hide rule to the CSS, since the committed v6.7 CSS
+predated the Decision 51 source-block apparatus; the figure-geometry, widow, and
+page-visual checks are outside the automated suite and await an eyeball. Stages
+1, 2, 5, 6, 7, 8 and G3 have not started.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is

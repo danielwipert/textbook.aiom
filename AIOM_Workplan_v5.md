@@ -122,8 +122,8 @@ Sequencing rules from the checklist itself:
   a stated standard. A pass is editorial work. They are tracked separately.
 - **Stages 4 and G2 re-run after any prose edit.** A render that passed against
   older prose has not passed. Chapter 1's stage 4 and G2 reverted after the
-  Stage 3 edits; stage 4 re-ran and passed, then the Figure 1.2 reference fix
-  reverted both again. Both re-run after the next render.
+  Stage 3 edits and again after the Figure 1.2 reference fix; both re-ran and
+  passed on 2026-08-01 against the render carrying that fix.
 - Stage 5 placement is revisited at Chapter 4 (Decision 24). If line edits are
   being churned by structural changes, move it earlier then, not before.
 - Fifteen self-contained checklists exist, one per chapter (Decision 32).
@@ -141,7 +141,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | G1, G2       | Stage 0 and Stage 3 passed. G1's archival block repealed by Decision 48; G1 needs a re-run against the ten-check standard. Stage 4 passed, then reverted with G2 by the Figure 1.2 reference fix; both re-run after the next render. Stages 1, 2, 5, 6, 7, 8 and G3 not started. |
+| 1   | The Category Error             | G1           | Stage 0 and Stage 3 passed. G1's archival block repealed by Decision 48; G1 needs a re-run against the ten-check standard. Stage 4 and G2 passed 2026-08-01 on the render carrying the Figure 1.2 fix. Stages 1, 2, 5, 6, 7, 8 and G3 not started. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |

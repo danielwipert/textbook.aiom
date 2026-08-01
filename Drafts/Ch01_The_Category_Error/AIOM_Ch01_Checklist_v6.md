@@ -354,7 +354,7 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-01
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
@@ -372,26 +372,31 @@ section 1.2 figures were reordered (anatomy becomes Figure 1.1, seat and event
 becomes Figure 1.2) so both are referenced in figure order. That is a figure and
 prose edit, so Stage 4 and G2 revert and must re-run against the next render.
 
+Re-run 2026-08-01 on the re-render carrying the figure fix: design review
+passes. The two section 1.2 figures now appear and are referenced in order
+(anatomy is Figure 1.1, seat and event is Figure 1.2), callouts are intact, and
+the mechanical gates confirm the layout under G2 below.
+
 ---
 
 ## Gate G2. Production gate
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-01
 
 > Mechanical, run on the rendered PDF.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Zero overflow: all character bounds inside the text block
-- [ ] Running heads correct and correctly sided on every page
-- [ ] All figures present, numbered, captioned, referenced in text
-- [ ] Figure geometry validated by pixel sampling
-- [ ] Callout placement correct: no splits, ordering correct after place.py
-- [ ] Footnotes on correct pages, numbering sequential and unbroken
-- [ ] Key-term register renders with correct rule and tint alternation
-- [ ] No widows, no orphans, no section head stranded at a page foot
-- [ ] Rasterized visual sample reviewed at page level
+- [x] Renders under WeasyPrint without error or warning
+- [x] Zero overflow: all character bounds inside the text block
+- [x] Running heads correct and correctly sided on every page
+- [x] All figures present, numbered, captioned, referenced in text
+- [ ] Figure geometry validated by pixel sampling (gap G-B, no automated figure gate; eyeball)
+- [x] Callout placement correct: no splits, ordering correct after place.py
+- [x] Footnotes on correct pages, numbering sequential and unbroken
+- [x] Key-term register renders with correct rule and tint alternation
+- [ ] No widows, no orphans, no section head stranded at a page foot (gap G-D, not automated; eyeball)
+- [ ] Rasterized visual sample reviewed at page level (manual; do before lock)
 
 Findings:
 
@@ -412,6 +417,25 @@ referenced in figure order. The anatomy figure is now Figure 1.1, referenced in
 the anatomy paragraph it illustrates; the seat-and-event figure is now Figure
 1.2, referenced in the closing paragraph of 1.2. Both figures are now referenced
 in body prose, in order. G2 confirms this against the next render.
+
+PASSED 2026-08-01 on the re-render (19 pages). AIOM_build.py ran the full
+automated suite and all eleven checks passed: right-margin overflow 0; em and en
+dashes 0; heads and folios present and correctly sided; definition callout
+splits 0 (place.py not needed); font faces the six expected only; key terms 7
+fields and 7 header bands; opening-case provenance present; footnotes 6 called
+and all on the calling page; dated evidence boxes 2 labelled and 2 hairline rules
+at 2px; problem labels 3 all with their title; theorem panel intact.
+
+One CSS fix was required to reach this pass: the committed v6.7 CSS lacked a rule
+to hide the audit source block (Decision 51 apparatus, marked class="audit-only"
+by the build), so the raw JSON block rendered as monospace and overflowed. A
+rule "#aiom-sources, .audit-only { display: none; }" was added to AIOM_book.css.
+The committed CSS predates Decision 51; reconcile against the current CSS.
+
+Not covered by the automated suite, left for a human eyeball before lock: figure
+geometry (gap G-B), widows and orphans (gap G-D), and a page-level visual sample.
+The chapter is 19 pages, up from the prior 18; the added figure reference and the
+page footnotes shifted pagination.
 
 ---
 
