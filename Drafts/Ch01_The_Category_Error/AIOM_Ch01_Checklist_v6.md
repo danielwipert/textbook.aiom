@@ -387,7 +387,12 @@ forward-reference an undefined term in the caption, gut the 1.2 closing crescend
 and reopen the figure order deliberately set 2026-07-31. No prose or figure change,
 so no downstream re-runs.
 
-Stage 2 remains in progress: D3 through D6 await ruling.
+D3 RULED AND CLOSED 2026-08-01, no action. Dan ruled to leave the opener as
+drafted. The opening case is a dated case, where granular specifics (request
+counts, Sonnet counting as two, the twenty-dollar pool, exact dates) are allowed,
+and Ch4 carries the granular numbers by design. No change, no downstream re-runs.
+
+Stage 2 remains in progress: D4 through D6 await ruling.
 
 ---
 
