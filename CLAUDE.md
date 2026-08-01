@@ -173,39 +173,71 @@ figures and theorem callouts by eye.
 
 ---
 
-## 8. Chapter lifecycle
+## 8. Chapter lifecycle (Process v2)
 
-Twelve steps, gates separated from passes (confirmed 2026-07-28, per Workplan
-v5). This supersedes the earlier seven-stage list. The shape is nine stages
-(0 through 8) plus three gates. Lock is Stage 8, a pass, not a gate. There is
-no G4. `(C)` is Claude, `(D)` is Dan working outside the Claude system.
+Thirteen steps, gates separated from passes. Process v2 (2026-08-01) inserts a
+developmental edit as Stage 2 and renumbers the stages that follow. The shape is
+ten stages (0 through 9) plus three gates. Lock is Stage 9, a pass, not a gate.
+There is no G4. `(C)` is Claude, `(D)` is Dan working outside the Claude system.
 
 | Step | Name | Owner |
 |------|------|-------|
 | Stage 0 | Draft | C |
 | G1 | Structural gate | C |
 | Stage 1 | Content review | D |
-| Stage 2 | Source and fact check 1 | D |
-| Stage 3 | Voice check | C |
-| Stage 4 | Design review | C |
+| Stage 2 | Developmental edit | C; Dan gut-checks with a second model |
+| Stage 3 | Source and fact check 1 | D |
+| Stage 4 | Voice check | C |
+| Stage 5 | Design review | C |
 | G2 | Production gate | C |
-| Stage 5 | Copy edit | D |
-| Stage 6 | Final fact check 2 | D |
+| Stage 6 | Copy edit | D |
+| Stage 7 | Final fact check 2 | D |
 | G3 | Continuity gate | C |
-| Stage 7 | Final read | D |
-| Stage 8 | Locked | C |
+| Stage 8 | Final read | D |
+| Stage 9 | Locked | C |
+
+**Stage 2, developmental edit.** The teaching-quality pass, held early so its
+line edits land before fact check, voice, design, and production, and do not
+churn them. It interrogates clarity, pacing, cognitive load, example fitness,
+transitions, and whether the argument carries the target reader without a stall.
+Claude runs it as a fresh critical pass; Dan gut-checks with a different model
+and rules, the same independence he applies to fact checking.
+
+**Process v1 to v2 mapping**, for reading records written before 2026-08-01:
+Stages 0 and 1 and gates G1, G2, G3 are unchanged. v1 Stage 2 (source and fact
+check 1) is now Stage 3; v1 Stage 3 (voice) is now Stage 4; v1 Stage 4 (design)
+is now Stage 5; v1 Stage 5 (copy edit) is now Stage 6; v1 Stage 6 (final fact
+check 2) is now Stage 7; v1 Stage 7 (final read) is now Stage 8; v1 Stage 8
+(locked) is now Stage 9. Dated records keep their original v1 numbers.
 
 Sequencing rules:
 
 - **Gates are not passes.** A gate is a mechanical pass-or-fail check run by
   Claude against a stated standard, and it stops the chapter where it stands.
   A pass is editorial judgment. They are tracked separately.
-- **Stages 4 and G2 re-run after any prose edit.** A render that passed against
-  older prose has not passed.
-- Stages 5, 6, and 7 are all external and may run in one sitting. Stage 1 may
+- **Edits re-run only what they can break, per the scoped re-run matrix below.**
+  A render that passed against older prose has not passed, but a figure move need
+  not re-run the voice check.
+- Stages 6, 7, and 8 are all external and may run in one sitting. Stage 1 may
   not be batched with them: it runs early or it is worthless.
-- A reopen after Stage 8 re-runs every stage from the one that owns the change.
+- A reopen after Stage 9 re-runs every step from the one that owns the change.
 - No chapter is Locked until every step is complete.
+
+**Scoped re-run matrix.** After a step passes, an edit re-runs only the steps it
+can invalidate:
+
+| Edit class | Re-runs | Leaves intact |
+|---|---|---|
+| Body prose (claim or teaching change) | Stage 2 dev, Stage 3 fact, Stage 4 voice, Stage 5 design, G2 | G1, unless a slot moves |
+| Citation or source only | Stage 3 or Stage 7 fact check, G2 | dev, voice, design |
+| Figure order, geometry, or number (caption text unchanged) | Stage 5 design, G2 | dev, fact, voice |
+| Copy edit (typo, punctuation, no meaning change) | G2 | dev, fact, voice, design |
+| CSS or design system | Stage 5 design and G2, every chapter | dev, fact, voice |
+| Structural (slot added, removed, reordered) | G1, then every downstream step | nothing |
+
+Status is single-sourced: the per-chapter checklist checkbox is authoritative,
+and `status_check.py` prints and validates it. CLAUDE.md section 10 and the
+Workplan tracker must mirror what it prints.
 
 ---
 

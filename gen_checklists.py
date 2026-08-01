@@ -61,17 +61,24 @@ STAGES = [
      "Is this the right chapter, not is it true. Read against the outline and "
      "the competency map. Structural findings only, no line edits.", []),
 
-    ("2", "Source and fact check 1", "Dan",
-     "Every empirical claim traced to primary source. Runs before voice and "
-     "design so corrections do not churn later polish.", []),
+    ("2", "Developmental edit", "Claude",
+     "Teaching quality, held early so its line edits do not churn fact check, "
+     "voice, design, and production. Clarity, pacing, cognitive load, example "
+     "fitness, transitions, and whether the argument carries the target reader "
+     "without a stall. Claude runs a fresh critical pass; Dan gut-checks with a "
+     "second model and rules.", []),
 
-    ("3", "Voice check", "Claude",
+    ("3", "Source and fact check 1", "Dan",
+     "Every empirical claim traced to primary source. Runs after the "
+     "developmental edit, so it checks prose that has stopped moving.", []),
+
+    ("4", "Voice check", "Claude",
      "Magisterial register: third person, no contractions, no em dashes, no "
      "rhetorical questions outside discussion prompts, no hedging. Also checks "
      "over-explanation below the reader baseline and under-explanation above it.",
      []),
 
-    ("4", "Design review", "Claude",
+    ("5", "Design review", "Claude",
      "Blocked until D0 closes. Layout, figures, typography, running heads, "
      "callout placement, key-term register, against the locked design system.",
      []),
@@ -90,11 +97,11 @@ STAGES = [
          "Rasterized visual sample reviewed at page level",
      ]),
 
-    ("5", "Copy edit", "Dan",
+    ("6", "Copy edit", "Dan",
      "Line level, on prose that has stopped moving. Decision 24 places this "
      "late. Revisit the placement after Chapter 4.", []),
 
-    ("6", "Final fact check 2", "Dan",
+    ("7", "Final fact check 2", "Dan",
      "Narrower than stage 2. Targets what changed since it, confirming nothing "
      "broke in revision.", []),
 
@@ -112,13 +119,13 @@ STAGES = [
          "Ledger updated on lock",
      ]),
 
-    ("7", "Final read", "Dan",
+    ("8", "Final read", "Dan",
      "The chapter read whole, typeset, at reading pace, in one sitting. Pass or "
      "fail on the whole, per Decision 30. No lists of small fixes. A failure "
      "names one structural reason and the chapter returns to the stage that "
      "owns it.", []),
 
-    ("8", "Locked", "Claude",
+    ("9", "Locked", "Claude",
      "Frozen. Continuity ledger committed. No change without an explicit "
      "reopen, which re-runs every stage from the one that owns the change.", []),
 ]
@@ -126,7 +133,7 @@ STAGES = [
 PREAMBLE = """Markers: `[ ]` not started, `[~]` in progress, `[x]` passed, `[!]` failed.
 
 Stages run in order. A chapter is not Locked until every stage above has
-passed. Stages 5, 6, and 7 are all external and may be run in one sitting.
+passed. Stages 6, 7, and 8 are all external and may be run in one sitting.
 Stage 1 may not be batched with them: it runs early or it is worthless.
 
 Gates are mechanical and stop the chapter where it stands. Passes are judgment.

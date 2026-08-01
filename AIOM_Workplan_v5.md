@@ -87,46 +87,21 @@ property coverage: see Decision 28.
 
 ---
 
-## Chapter lifecycle (twelve steps, gates separated from passes)
+## Chapter lifecycle
 
-### Confirmed 2026-07-28
-The reconstruction that stood here has been replaced with the actual process,
-read off `AIOM_Ch01_Checklist.md`. It was wrong in one respect: the shape is
-nine stages (0 through 8) plus three gates, not eight stages plus four gates.
-Lock is Stage 8, a pass, not a gate. There is no G4.
+The authoritative lifecycle is CLAUDE.md section 8 (Process v2, 2026-08-01): ten
+stages (0 through 9) plus three gates, with the developmental edit at Stage 2,
+the scoped re-run matrix, and the v1-to-v2 stage mapping. This file does not keep
+a second copy; that duplication is what drifts. Status is single-sourced in each
+chapter's checklist and printed by `status_check.py`.
 
-Ownership: (C) = Claude, (D) = Dan, external to the Claude system.
+Chapter 1 is through the production gate as of 2026-08-01 (the render carrying
+the Figure 1.2 fix). It was drafted under v1 and predates the developmental
+stage; whether that stage runs on Chapter 1 retroactively is an open item.
+Remaining are Dan's copy edit, final fact check, and final read, with the
+continuity gate between and lock last.
 
-| Step | Name | Owner |
-|------|------|-------|
-| Stage 0 | Draft | C |
-| G1 | Structural gate | C |
-| Stage 1 | Content review | D |
-| Stage 2 | Source and fact check 1 | D |
-| Stage 3 | Voice check | C |
-| Stage 4 | Design review | C |
-| G2 | Production gate | C |
-| Stage 5 | Copy edit | D |
-| Stage 6 | Final fact check 2 | D |
-| G3 | Continuity gate | C |
-| Stage 7 | Final read | D |
-| Stage 8 | Locked | C |
-
-Sequencing rules from the checklist itself:
-- Stages 5, 6, and 7 are all external and may be run in one sitting.
-- Stage 1 may not be batched with them. It runs early or it is worthless.
-- Gates are mechanical and stop the chapter where it stands. Passes are
-  judgment.
-- A reopen after Stage 8 re-runs every stage from the one that owns the change.
-
-### Rules that hold regardless of labels
-- **Gates are not passes.** A gate is a pass or fail check run by Claude against
-  a stated standard. A pass is editorial work. They are tracked separately.
-- **Stages 4 and G2 re-run after any prose edit.** A render that passed against
-  older prose has not passed. Chapter 1's stage 4 and G2 reverted after the
-  Stage 3 edits and again after the Figure 1.2 reference fix; both re-ran and
-  passed on 2026-08-01 against the render carrying that fix.
-- Stage 5 placement is revisited at Chapter 4 (Decision 24). If line edits are
+- Copy-edit placement is revisited at Chapter 4 (Decision 24). If line edits are
   being churned by structural changes, move it earlier then, not before.
 - Fifteen self-contained checklists exist, one per chapter (Decision 32).
 - No process document and no book-wide rollup (Decision 32).
