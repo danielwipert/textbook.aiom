@@ -1,14 +1,20 @@
 # Session handoff
 
-Last updated: 2026-08-01. Read this plus CLAUDE.md before starting work.
+Last updated: 2026-08-01. Read this plus CLAUDE.md before starting work, and
+update this file before ending the session. The protocol is CLAUDE.md section 11.
+A SessionStart hook (`.claude/settings.json`) prints this file into context
+automatically at the start of every session.
 
 ## Repository state
 
-Everything is committed and pushed. `main` and the working branch
-`claude/branch-commits-pushes-bw8rs1` are synced at the same commit. Working tree
-is clean. Verify status any time with:
+Active working branch: `claude/handoff-markdown-workflow-p3ce5c`. All manuscript
+and tooling work lives here; the branch is 26 commits ahead of `origin/main`,
+which still holds only the initial CLAUDE.md commit. `main` is not a mirror of
+the work, so do not treat it as synced. Verify state any time with:
 
 ```
+git status                         # working tree and branch
+git rev-list --left-right --count origin/main...HEAD   # how far ahead of main
 python3 status_check.py            # authoritative lifecycle status per chapter
 ```
 
@@ -22,16 +28,17 @@ v6.2, place.py, cite_format.py, footnotes.py, voicecheck.py), the fonts
 (committed under `fonts/`, so rendering needs no network staging), the Northmoor
 capstone dataset (`Northmoor/`), the Chapter 1 artifacts under
 `Drafts/Ch01_The_Category_Error/`, and `archive/` for superseded and variant
-files.
+files. New this session: `.claude/settings.json` (the SessionStart hook) and
+CLAUDE.md section 11 (the handoff protocol).
 
 ## Chapter 1 status (Process v2 numbering)
 
-Through the production gate. Passed: Stage 0 draft, G1, Stage 1 content review,
-Stage 3 source and fact check 1, Stage 4 voice, Stage 5 design, G2 (all eleven
-automated gates green on the 19-page render). Stage 2 developmental edit is
-in-progress (see below). Remaining to Lock: Stage 6 copy edit, Stage 7 final fact
-check 2, G3 continuity, Stage 8 final read, Stage 9 lock. Dan's final visual
-sign-off on the rendered pages is still open.
+Through the production gate: 7 of 13 steps passed. Passed: Stage 0 draft, G1,
+Stage 1 content review, Stage 3 source and fact check 1, Stage 4 voice, Stage 5
+design, G2 (all eleven automated gates green on the 19-page render). Stage 2
+developmental edit is in-progress (see thread 1). Remaining to Lock: Stage 6 copy
+edit, Stage 7 final fact check 2, G3 continuity, Stage 8 final read, Stage 9
+lock. Dan's final visual sign-off on the rendered pages is still open.
 
 ## Open threads, in priority order
 
@@ -70,4 +77,5 @@ sign-off on the rendered pages is still open.
 - Build Chapter 1 from a clean checkout: copy the stage HTML to repo root, run
   `python3 AIOM_build.py <copy>.html --out <stage>/AIOM_Ch01_Stage4.pdf`, remove
   the copy. Rasterize pages with `pdftoppm -png -r 150`.
-- Develop on `claude/branch-commits-pushes-bw8rs1`; keep `main` synced.
+- Develop on `claude/handoff-markdown-workflow-p3ce5c`. Do not assume `main` is
+  up to date; it trails the working branch.

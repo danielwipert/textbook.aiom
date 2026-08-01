@@ -304,3 +304,27 @@ Registry flags to carry into the appendix build (Phase 3, Appendix A):
 
 Appendix A reproduces the 28 theorems and lemmas only. The 200 propositions are
 cited by ID and not reproduced in full.
+
+---
+
+## 11. Session handoff protocol
+
+`HANDOFF.md` is the running session-to-session log. It carries the working state
+that does not belong in this file: the active branch, what is committed and
+pushed, the live open threads, and the standing reminders learned in recent
+sessions. CLAUDE.md holds the durable rules; HANDOFF.md holds the perishable
+state.
+
+1. **At the start of every session, read `HANDOFF.md` before doing any work,**
+   alongside this file. A SessionStart hook in `.claude/settings.json` prints it
+   into context automatically, so it is in front of you already; read it rather
+   than skipping past it.
+2. **Before ending a session, update `HANDOFF.md` so it is accurate.** Refresh
+   the last-updated date, the repository state (branch, what is pushed, whether
+   `main` is behind), the chapter status, the open threads in priority order, and
+   any standing reminder that changed. Then commit it. A handoff that lies about
+   the branch or the sync state is worse than none, so verify the facts against
+   `git status` and `status_check.py` rather than copying the previous entry.
+3. **Keep the division of labor clean.** A durable rule or a closed decision
+   graduates into CLAUDE.md or the decision log. Do not let HANDOFF.md accumulate
+   settled rulings, and do not let CLAUDE.md drift into session bookkeeping.
