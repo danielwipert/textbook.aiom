@@ -338,6 +338,47 @@ NEXT: Dan gut-checks with a second model, rules which findings to action. D1 and
 D2 most affect how well the chapter teaches. On a ruling, Claude drafts the
 specific edits for approval, then re-runs the downstream steps each edit touches.
 
+D1 RULED AND RESOLVED 2026-08-01. Dan ruled: signpost and tighten, no split. The
+section is correct and in band on length; the defect is enumeration blur and move
+density, not length. Three edits applied to AIOM_Ch01_Stage4_FINAL.html, the
+authoritative source:
+
+- EDIT 1 (signpost), 1.4 paragraph 2. The five questions are now named as the
+  same five practices recast, so the reader reads a concrete-then-abstract pairing
+  rather than two independent lists. "The same five practices, stated in timeless
+  form, are not techniques belonging to manufacturing. They are the questions ..."
+- EDIT 2 (tighten), 1.4 paragraph 3. The third full re-enumeration of the five
+  ("no practice yet sources ... plans ... records ... allocates ... holds") is
+  compressed to "no practice yet assembles them under one vocabulary and one
+  owner." The assembly and one-owner payoff is preserved; about 25 words drop.
+- EDIT 3 (signpost), 1.4 paragraph 5. The three absences now open with "The
+  failure to answer those questions is not abstract," bridging the five-to-three
+  count shift as symptom of cause rather than a fresh list.
+
+The five is now enumerated once in full (as practices), recast once as questions
+with the link made explicit, and referred back to thereafter. The steel texture
+in paragraph 1 is untouched.
+
+D4 TOUCH NOTED. EDIT 1 moves the numeral "five" one paragraph earlier than it
+previously appeared (paragraph 3 already said "the five questions"). This lightly
+sharpens the tie to Ch3's five Founding Questions, which is D4's territory. If D4
+is later ruled accidental, revisit this word.
+
+DOWNSTREAM RE-RUNS (scoped re-run matrix, body prose edit):
+- Stage 4 voice: RE-RAN 2026-08-01, PASS. voicecheck.py clean (0 em dashes, 0
+  contractions, 0 stray question marks, 0 first or second person in body prose).
+- Stage 5 design: RE-RAN 2026-08-01 on the post-D1 render, PASS. Callouts intact,
+  figures on page 6 (section 1.2) untouched; first-pass visual review of pages 9
+  to 11 shows no widows, orphans, or stranded heads, and the 1.4 head is well
+  seated.
+- G2 production: RE-RAN 2026-08-01, PASS. Full eleven-check suite green on the
+  19-page re-render (page count unchanged).
+- Stage 3 fact check (Dan): body prose changed but no empirical claim, citation,
+  number, or figure changed, so the fact-checkable surface is untouched. Flagged
+  for Dan's confirmation; there is no re-verification content.
+
+Stage 2 remains in progress: D2 through D6 await ruling.
+
 ---
 
 ## Stage 3. Source and fact check 1
