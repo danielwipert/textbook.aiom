@@ -7,14 +7,15 @@ automatically at the start of every session.
 
 ## Repository state
 
-Active working branch: `claude/handoff-markdown-workflow-p3ce5c`. All manuscript
-and tooling work lives here; the branch is 26 commits ahead of `origin/main`,
-which still holds only the initial CLAUDE.md commit. `main` is not a mirror of
-the work, so do not treat it as synced. Verify state any time with:
+Active working branch: `claude/handoff-markdown-workflow-p3ce5c`. As of this
+update `origin/main` is fast-forwarded to the same commit as this branch, so the
+two are synced and `main` reflects the full body of work. Keep them that way:
+when this branch advances, fast-forward `main` to match before ending the
+session. Verify state any time with:
 
 ```
 git status                         # working tree and branch
-git rev-list --left-right --count origin/main...HEAD   # how far ahead of main
+git rev-list --left-right --count origin/main...HEAD   # 0 0 means synced
 python3 status_check.py            # authoritative lifecycle status per chapter
 ```
 
@@ -77,5 +78,5 @@ lock. Dan's final visual sign-off on the rendered pages is still open.
 - Build Chapter 1 from a clean checkout: copy the stage HTML to repo root, run
   `python3 AIOM_build.py <copy>.html --out <stage>/AIOM_Ch01_Stage4.pdf`, remove
   the copy. Rasterize pages with `pdftoppm -png -r 150`.
-- Develop on `claude/handoff-markdown-workflow-p3ce5c`. Do not assume `main` is
-  up to date; it trails the working branch.
+- Develop on `claude/handoff-markdown-workflow-p3ce5c`, then fast-forward `main`
+  to match before ending the session so `main` stays current.
