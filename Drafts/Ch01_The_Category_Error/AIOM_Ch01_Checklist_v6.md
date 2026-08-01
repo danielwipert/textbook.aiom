@@ -400,7 +400,32 @@ dilute the foreshadow (protect pedagogical surprises, CLAUDE.md section 9). The
 D1 EDIT 1 "five" numeral now reinforces the intended foreshadow and stays. No
 change, no downstream re-runs.
 
-Stage 2 remains in progress: D5 and D6 await ruling.
+D5 RULED AND RESOLVED 2026-08-01. Dan ruled: tighten in place. The theorem aside
+in 1.3 (paragraph after the THM-009 callout) did two things, and only the first
+braked momentum: a methodological aside defining "theorem," then the application
+of the theorem to the flat-rate objection. The application also translates the
+dense formal THM-009 statement into plain antecedents, teaching work, so it is
+left intact. One edit applied to AIOM_Ch01_Stage4_FINAL.html:
+
+- The methodological aside is compressed from four sentences to two. The qualifiers
+  ("not an empirical generalization ... binds only where its antecedents hold") are
+  folded into the definition sentence, and the standalone Chapter 3 pointer
+  ("Chapter 3 sets out the registry and traces one theorem to its foundations") is
+  dropped as the most aside-like part; Ch3's trace set piece stands on its own.
+  About 22 words drop and the reader returns to the argument at "The theorem does
+  not say ..." without the two detours.
+
+DOWNSTREAM RE-RUNS (scoped re-run matrix, body prose edit):
+- Stage 4 voice: RE-RAN 2026-08-01, PASS. voicecheck.py clean.
+- Stage 5 design: RE-RAN 2026-08-01 on the post-D5 render, PASS. THM-009 panel
+  intact, page 8 visual review shows no widows, orphans, or stranded heads.
+- G2 production: RE-RAN 2026-08-01, PASS. Eleven checks green on the 19-page
+  re-render (page count unchanged).
+- Stage 3 fact check (Dan): no empirical claim, citation, number, or figure
+  changed, so the fact surface is untouched and the pass holds (Dan's standing
+  ruling of 2026-08-01 for this kind of edit).
+
+Stage 2 remains in progress: D6 awaits ruling.
 
 ---
 
