@@ -392,7 +392,15 @@ drafted. The opening case is a dated case, where granular specifics (request
 counts, Sonnet counting as two, the twenty-dollar pool, exact dates) are allowed,
 and Ch4 carries the granular numbers by design. No change, no downstream re-runs.
 
-Stage 2 remains in progress: D4 through D6 await ruling.
+D4 RULED AND CLOSED 2026-08-01, no action. Dan ruled the near-duplicate
+intentional: the informal five questions in 1.4 foreshadow the formal Founding
+Questions in Ch3. Left as drafted, and deliberately with no "this book will
+return to these" signal, since a forward flag would telegraph the Ch3 payoff and
+dilute the foreshadow (protect pedagogical surprises, CLAUDE.md section 9). The
+D1 EDIT 1 "five" numeral now reinforces the intended foreshadow and stays. No
+change, no downstream re-runs.
+
+Stage 2 remains in progress: D5 and D6 await ruling.
 
 ---
 
