@@ -16,6 +16,17 @@ anchoring callouts.
 
 ---
 
+## Process v2 numbering
+
+This chapter was drafted under Process v1 and renumbered to Process v2 on
+2026-08-01. The section headers below use v2 numbers. Dated findings and the
+chapter's HTML source block keep their original v1 labels; read them through the
+CLAUDE.md section 8 mapping (v1 Stage 2 fact check is v2 Stage 3, v1 Stage 3
+voice is v2 Stage 4, v1 Stage 4 design is v2 Stage 5, and so on). The
+developmental edit, new in v2, is Stage 2.
+
+---
+
 ## Stage 0. Draft
 
 Owner: Claude
@@ -269,7 +280,23 @@ belong to Stage 2 and are carried, not counted against this stage.
 
 ---
 
-## Stage 2. Source and fact check 1
+## Stage 2. Developmental edit
+
+Owner: Claude
+
+Status: [~]        Date cleared: 
+
+> Teaching quality, held early so its line edits do not churn fact check, voice, design, and production. Clarity, pacing, cognitive load, example fitness, transitions, and whether the argument carries the target reader without a stall. Claude runs a fresh critical pass; Dan gut-checks with a second model and rules.
+
+Findings:
+
+Added under Process v2 (2026-08-01). Chapter 1 predates this stage and is being
+run retroactively. The developmental pass is in progress; edits, if any, will be
+ruled by Dan and re-run the downstream steps per the scoped re-run matrix.
+
+---
+
+## Stage 3. Source and fact check 1
 
 Owner: Dan
 
@@ -295,7 +322,7 @@ version.
 
 ---
 
-## Stage 3. Voice check
+## Stage 4. Voice check
 
 Owner: Claude
 
@@ -364,7 +391,7 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 ---
 
-## Stage 4. Design review
+## Stage 5. Design review
 
 Owner: Claude
 
@@ -457,7 +484,7 @@ page footnotes shifted pagination.
 
 ---
 
-## Stage 5. Copy edit
+## Stage 6. Copy edit
 
 Owner: Dan
 
@@ -469,7 +496,7 @@ Findings:
 
 ---
 
-## Stage 6. Final fact check 2
+## Stage 7. Final fact check 2
 
 Owner: Dan
 
@@ -502,7 +529,7 @@ Findings:
 
 ---
 
-## Stage 7. Final read
+## Stage 8. Final read
 
 Owner: Dan
 
@@ -514,7 +541,7 @@ Findings:
 
 ---
 
-## Stage 8. Locked
+## Stage 9. Locked
 
 Owner: Claude
 

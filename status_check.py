@@ -29,7 +29,8 @@ import re
 import sys
 
 STEP_RE = re.compile(r"^## (Stage \d+|Gate G\d+)\.\s*(.+)$")
-STATUS_RE = re.compile(r"^Status:\s*\[( |x)\]\s*Date cleared:\s*(.*)$")
+STATUS_RE = re.compile(r"^Status:\s*\[( |x|~|!)\]\s*Date cleared:\s*(.*)$")
+MARK = {" ": "open", "x": "passed", "~": "in-prog", "!": "FAILED"}
 SUBBOX_RE = re.compile(r"^- \[( |x)\]\s*(.+)$")
 # a sub-item may be left open on a passed step only if it is labelled a known
 # exception: a coverage gap, a manual eyeball, or a first-pass note
@@ -50,7 +51,9 @@ def parse(path):
             continue
         s = STATUS_RE.match(ln)
         if s and cur["status"] is None:
-            cur["status"], cur["date"] = (s.group(1) == "x"), s.group(2).strip()
+            cur["mark"] = s.group(1)
+            cur["status"] = (s.group(1) == "x")
+            cur["date"] = s.group(2).strip()
             continue
         b = SUBBOX_RE.match(ln)
         if b:
@@ -69,7 +72,7 @@ def check(path):
     for st in steps:
         passed = st["status"]
         print(f"{st['id']:<9} {st['name'][:26]:<26} "
-              f"{'passed' if passed else 'open':<8} {st['date']}")
+              f"{MARK.get(st.get('mark', ' '), '?'):<8} {st['date']}")
         findings = "\n".join(st["findings"]).strip()
         if passed:
             for done, label in st["subboxes"]:
@@ -80,9 +83,8 @@ def check(path):
                 warns.append(f"{st['id']}: marked passed but has no date")
             if not findings:
                 warns.append(f"{st['id']}: marked passed with no findings")
-        else:
-            if st["date"]:
-                warns.append(f"{st['id']}: not passed but carries a date")
+        elif st.get("mark") == " " and st["date"]:
+            warns.append(f"{st['id']}: not started but carries a date")
     for w in warns:
         print("  WARN  " + w)
     for f in fails:

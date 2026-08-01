@@ -261,19 +261,21 @@ Workplan tracker must mirror what it prints.
 
 Chapter 1 ("The Category Error") renders complete at 19 pages with all eleven QA
 gates passing. It is not Locked, but the Claude-owned production path is green and
-Dan's early passes are done. Passed so far: Stage 0 (draft); G1 (structural gate,
-cleared 2026-07-29 after Decision 48 repealed the archival checks); Stage 1
-(content review, 2026-07-29); Stage 2 (source and fact check 1, 2026-07-29, whose
-record is carried in the chapter's own source block); Stage 3 (voice check,
-2026-07-28); and Stage 4 (design review) with G2 (production gate), both
-2026-08-01 on the render carrying the Figure 1.2 reference fix, with
-AIOM_build.py's full eleven-check suite green. Reaching the G2 pass required
-adding an audit-only hide rule to the CSS, since the committed v6.7 CSS predated
-the Decision 51 source-block apparatus; that committed CSS plus the rule is the
-working version of record. The figure-geometry, widow, and page-visual checks,
-outside the automated suite, passed a first-pass visual review and await Dan's
-final sign-off. Remaining to Lock: Stage 5 (copy edit), Stage 6 (final fact check
-2), G3 (continuity gate), Stage 7 (final read), and Stage 8 (lock).
+Dan's early passes are done. Passed so far (Process v2 numbering): Stage 0
+(draft); G1 (structural gate, cleared 2026-07-29 after Decision 48 repealed the
+archival checks); Stage 1 (content review, 2026-07-29); Stage 3 (source and fact
+check 1, 2026-07-29, whose record is carried in the chapter's own source block);
+Stage 4 (voice check, 2026-07-28); and Stage 5 (design review) with G2
+(production gate), both 2026-08-01 on the render carrying the Figure 1.2
+reference fix, with AIOM_build.py's full eleven-check suite green. Stage 2
+(developmental edit, new in Process v2) is running retroactively on Chapter 1.
+Reaching the G2 pass required adding an audit-only hide rule to the CSS, since
+the committed v6.7 CSS predated the Decision 51 source-block apparatus; that
+committed CSS plus the rule is the working version of record. The
+figure-geometry, widow, and page-visual checks, outside the automated suite,
+passed a first-pass visual review and await Dan's final sign-off. Remaining to
+Lock: Stage 6 (copy edit), Stage 7 (final fact check 2), G3 (continuity gate),
+Stage 8 (final read), and Stage 9 (lock).
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is
