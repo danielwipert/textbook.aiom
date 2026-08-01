@@ -377,7 +377,17 @@ DOWNSTREAM RE-RUNS (scoped re-run matrix, body prose edit):
   no empirical claim, citation, number, or figure changed, so the fact-checkable
   surface is untouched and the 2026-07-29 pass holds.
 
-Stage 2 remains in progress: D2 through D6 await ruling.
+D2 RULED AND CLOSED 2026-08-01, no action. Dan ruled to keep the seat-versus-event
+figure (Figure 1.2) at the end of 1.2. Reasoning: first exposure to the big idea
+is already delivered verbally in 1.1 ("the marginal cost of an additional use is
+not approximately zero. It is the central fact."); the figure reinforces it one
+section later, where its own vocabulary ("event model," "consumption event") is
+defined; build-then-visualize is a legitimate teaching order; moving it would
+forward-reference an undefined term in the caption, gut the 1.2 closing crescendo,
+and reopen the figure order deliberately set 2026-07-31. No prose or figure change,
+so no downstream re-runs.
+
+Stage 2 remains in progress: D3 through D6 await ruling.
 
 ---
 
