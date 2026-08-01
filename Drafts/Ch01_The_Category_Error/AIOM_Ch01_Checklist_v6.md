@@ -291,8 +291,52 @@ Status: [~]        Date cleared:
 Findings:
 
 Added under Process v2 (2026-08-01). Chapter 1 predates this stage and is being
-run retroactively. The developmental pass is in progress; edits, if any, will be
-ruled by Dan and re-run the downstream steps per the scoped re-run matrix.
+run retroactively. Claude ran the developmental pass 2026-08-01; findings below
+AWAIT Dan's second-model gut-check and ruling. Nothing is applied. Any edit Dan
+approves re-runs only its downstream steps per the scoped re-run matrix.
+
+WHAT IS STRONG. The argument arc is clean (two vendors, category error, the two
+economic models, the objection answered, what follows, borders). The steel and
+goods-flow analogy is apt and on brand. Worked examples earn their place,
+especially the CIO memo reply. Backward design is met: 1.1 to 1.3 plus P1 deliver
+C1. The notes below lift the chapter from correct to maximally well taught.
+
+FINDINGS, PRIORITIZED (for Dan to rule item by item):
+
+D1 (HIGH). Section 1.4 carries too many distinct moves in about eight
+paragraphs: the steel analogy, an informal five questions, the absent-discipline
+point, three absences, inheritance not negligence, scale, and stakes. Two
+enumerated lists (five questions, three absences) sit two paragraphs apart and
+can blur. Recommend signposting the through-line or splitting 1.4.
+
+D2 (HIGH). The seat-versus-event cost curves (now Figure 1.2) are the chapter's
+big-idea visual (cost flat versus cost as area under use), but they land at the
+end of 1.2 after the anatomy, while the big idea is stated in 1.1. Pedagogy
+commitment is one strong figure per big idea at first exposure. Consider
+anchoring the seat-versus-event contrast nearer 1.1. Interacts with the figure
+order set 2026-08-01, so a judgment call, not a redo.
+
+D3 (MEDIUM). The opening front-loads vendor mechanics (request counts, Sonnet
+counting as two, the twenty-dollar pool, exact dates) before the reader has the
+consumption-event frame. Consider lightening the opener to the shape of the
+correction and letting Ch4 carry the granular numbers. Tension: the opener is a
+dated case, where specifics are allowed, so a judgment call.
+
+D4 (MEDIUM). The informal five questions in 1.4 are the same five posed formally
+as the Founding Questions in Ch3. This may be deliberate withholding, which the
+standing rules protect, or an accidental near-duplicate. Dan rules which; if
+intentional, leave it, if not, a light this-book-will-return signal helps.
+
+D5 (MEDIUM). The what-a-theorem-means aside in 1.3 interrupts the meter-relocation
+momentum (necessary, first theorem in the book). Consider tightening it or
+repositioning so the argument does not brake for a definitional aside.
+
+D6 (LOW). Seven key terms is a heavy vocabulary load for a first chapter; confirm
+each is load-bearing (likely locked by spec).
+
+NEXT: Dan gut-checks with a second model, rules which findings to action. D1 and
+D2 most affect how well the chapter teaches. On a ruling, Claude drafts the
+specific edits for approval, then re-runs the downstream steps each edit touches.
 
 ---
 
