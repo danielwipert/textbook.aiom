@@ -273,11 +273,25 @@ belong to Stage 2 and are carried, not counted against this stage.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-07-29
 
 > Every empirical claim traced to primary source. Runs before voice and design so corrections do not churn later polish.
 
 Findings:
+
+STAGE 2 PASSED 2026-07-29, run by Dan against AIOM_ch01.html. The fact-check
+record lives in the chapter's own source block (Decision 51): every source
+verified live on its access date, bylines and dates confirmed by direct fetch,
+and the raises resolved are logged there as items A2 to A7 and B1, B2 (for
+example the Microsoft 4.7 million and 75 percent figures pinned to the Nadella
+sentence, the Anthropic July 17 tightening given its own primary, the Cursor
+date held at July 4, and the GitHub exceptions and all-plans scope verified).
+
+The current Stage 4 render differs from that fact-checked draft only by the
+Figure 1.1 and 1.2 reorder and reference fix, which is layout and touches no
+prose, citation, or fact. Verified by diff 2026-08-01: the two files are
+byte-identical outside those figure lines, so Stage 2 holds against the current
+version.
 
 ---
 
@@ -285,7 +299,7 @@ Findings:
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-07-28
 
 > Magisterial register: third person, no contractions, no em dashes, no rhetorical questions outside discussion prompts, no hedging. Also checks over-explanation below the reader baseline and under-explanation above it.
 

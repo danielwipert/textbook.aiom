@@ -73,12 +73,14 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Rule the G1 contradiction on Chapter 1.** The marker says failed, the
-   findings text says closed. See the Ch1 checklist chapter notes.
+1. **G1 contradiction on Chapter 1 resolved.** The marker now agrees with the
+   findings: G1 cleared 2026-07-29 after Decision 48 repealed the archival checks.
 2. **Source capture retired (Decision 48).** Capture is no longer required; the
    archival checks are gone and G1 drops to ten checks. A source now needs a
    verified primary, an access date, and two independent fact checks.
-3. **Chapter 1, stages 1 and 2.** External passes, Dan's.
+3. **Chapter 1, Dan's remaining external passes.** Stage 5 (copy edit), Stage 6
+   (final fact check 2), and Stage 7 (final read), with G3 between and Stage 8 to
+   lock. Stages 1 and 2 are done.
 4. **Chapter 2 drafting.** Runs in parallel with items 2 and 3.
 5. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
    Ch9, Ch12, and Ch13 problem sets, not Ch2.
@@ -141,7 +143,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | G1           | Stage 0 and Stage 3 passed. G1's archival block repealed by Decision 48; G1 needs a re-run against the ten-check standard. Stage 4 and G2 passed 2026-08-01 on the render carrying the Figure 1.2 fix. Stages 1, 2, 5, 6, 7, 8 and G3 not started. |
+| 1   | The Category Error             | Stage 5      | Stages 0, 1, 2, 3, 4 and gates G1, G2 all passed. G1 cleared 2026-07-29 (Decision 48 repealed the archival checks); Stage 2 record carried in the chapter source block; Stage 4 and G2 passed 2026-08-01 on the render with the Figure 1.2 fix. Remaining: Stage 5, Stage 6, G3, Stage 7, Stage 8. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
@@ -457,7 +459,7 @@ Protocol: one editorial decision at a time, ruled before proceeding. Every
 chapter uses the fixed six-slot skeleton, no exceptions, and runs the full
 lifecycle above. Per-chapter registry grounding is in the validation matrix.
 Word band: 5,000 to 6,000 for Ch1 and Ch2 (Decision 33).
-- [~] Ch1  The Category Error        (renders at 18 pages; G1 failed)
+- [~] Ch1  The Category Error        (renders at 19 pages; through G2, Dan's Stage 5 to 7 remain)
 - [ ] Ch2  The Flow                  (next; unblocked)
 - [ ] Ch3  A Science and Its Discipline   (M2 ready; build THM-004 trace)
 - [ ] Part I cumulative case
