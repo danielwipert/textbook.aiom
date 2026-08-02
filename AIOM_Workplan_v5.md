@@ -1,6 +1,6 @@
 # AI Operations Management: Textbook Workplan
 Owner: Dan (Chorus AI Systems)
-Last updated: 2026-07-28 (v5)
+Last updated: 2026-08-02 (v5; currency sweep to Process v2 status)
 Status legend: [x] done · [~] in progress · [ ] not started
 
 ---
@@ -43,9 +43,11 @@ had never been tested on: Figure 1.2 renders, the craft section typesets using
 the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
-Chapter 1 renders complete for the first time at 18 pages with all ten QA gates
-passing. It is not Locked. Its draft stage passed, its source gate failed, and
-most of its editorial passes have not started.
+Chapter 1 renders complete at 19 pages with all eleven QA gates passing, and is
+through the production gate (Process v2: Stages 0 through 5 and gates G1, G2
+passed, 8 of 13). It is not Locked; Dan's copy edit, final fact check, and final
+read remain, with the continuity gate between and lock last. The source gate (G1)
+cleared 2026-07-29.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -73,17 +75,18 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **G1 contradiction on Chapter 1 resolved.** The marker now agrees with the
-   findings: G1 cleared 2026-07-29 after Decision 48 repealed the archival checks.
-2. **Source capture retired (Decision 48).** Capture is no longer required; the
-   archival checks are gone and G1 drops to ten checks. A source now needs a
-   verified primary, an access date, and two independent fact checks.
-3. **Chapter 1, Dan's remaining external passes.** Stage 5 (copy edit), Stage 6
-   (final fact check 2), and Stage 7 (final read), with G3 between and Stage 8 to
-   lock. Stages 1 and 2 are done.
-4. **Chapter 2 drafting.** Runs in parallel with items 2 and 3.
-5. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
+1. **Chapter 1, Dan's remaining external passes.** Stage 6 (copy edit), Stage 7
+   (final fact check 2), and Stage 8 (final read), with G3 (continuity gate)
+   between and Stage 9 to lock. Stages 0 through 5 and gates G1, G2 are done; the
+   Stage 2 developmental edit completed 2026-08-01.
+2. **Chapter 2 drafting.** Runs in parallel with item 1.
+3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
    Ch9, Ch12, and Ch13 problem sets, not Ch2.
+
+Closed since v5: the G1 contradiction on Chapter 1 (cleared 2026-07-29 after
+Decision 48 repealed the archival checks) and source capture (retired by Decision
+48; G1 dropped to ten checks, a source now needs a verified primary, an access
+date, and two independent fact checks).
 
 ---
 
@@ -267,13 +270,13 @@ Standing design rules carried out of D0:
   independent fact checks. The capture requirement of Decisions 40 and 40a is
   withdrawn; the Decision 40 source-upgrade standard survives.
 
-Chapter 1 source state, blocking G1:
-- Six of seven sources are blocked.
-- Five have no canonical URL.
-- Three need upgrading before capture:
-  - the Microsoft 4.7 million figure, into an SEC filing;
-  - the GitHub documentation, into a permalinked revision;
-  - the Altman post, which needs a second independent path.
+Chapter 1 source state (resolved 2026-07-29, G1 cleared):
+- The register carries nine sources, each cited to a verified primary and checked
+  live on its access date.
+- The three upgrades are done: the Microsoft 4.7 million figure is sourced to the
+  FY26 Q2 earnings call (Decision 46, no filing carries it), the GitHub claim to
+  the dated changelog entry, and the Altman post carries a second independent path.
+- Capture is retired (Decision 48), so no snapshots are filed.
 
 ---
 
@@ -434,7 +437,7 @@ Protocol: one editorial decision at a time, ruled before proceeding. Every
 chapter uses the fixed six-slot skeleton, no exceptions, and runs the full
 lifecycle above. Per-chapter registry grounding is in the validation matrix.
 Word band: 5,000 to 6,000 for Ch1 and Ch2 (Decision 33).
-- [~] Ch1  The Category Error        (renders at 19 pages; through G2, Dan's Stage 5 to 7 remain)
+- [~] Ch1  The Category Error        (renders at 19 pages; through G2, Dan's Stage 6 to 8 remain)
 - [ ] Ch2  The Flow                  (next; unblocked)
 - [ ] Ch3  A Science and Its Discipline   (M2 ready; build THM-004 trace)
 - [ ] Part I cumulative case
@@ -479,7 +482,7 @@ Front and back matter clear the same lifecycle where a fact check applies
 
 ## Phase 4: Production, QA, delivery
 - [x] Render pipeline built (WeasyPrint, AIOM_book.css, AIOM_build.py, place.py
-  for callout placement, ten-gate QA suite)
+  for callout placement, eleven-check QA suite)
 - [x] Design system locked (D0)
 - [ ] Validate all figures before render
 - [ ] Programmatic QA (pdfplumber overflow and header checks; zero em dashes)
@@ -491,29 +494,24 @@ Front and back matter clear the same lifecycle where a fact check applies
 
 ## Working files and restart procedure
 
-The container does not persist. Files must be downloaded from the outputs panel
-before a session closes, and re-uploaded to restart.
+The repository is version-controlled and is the source of truth. Work is
+committed and pushed to the working branch each session, with `main` kept in
+sync; nothing is downloaded or re-uploaded by hand. A fresh session clones the
+repo, so the file set is already present.
 
-Files to upload at the start of a session:
-- `AIOM_book.css`
-- `AIOM_build.py`
-- `place.py`
-- `sources.py`
-- `voicecheck.py`
-- `AIOM_sources.json`
-- `AIOM_ch01.html`
-- `AIOM_DESIGN_SPEC.md`
-
-Then:
-```
-pip install weasyprint==69.0 fonttools
-python3 AIOM_build.py --fonts
-```
+Build environment and commands live in CLAUDE.md section 5; the perishable
+per-session state (active branch, what is pushed, and the standing environment
+reminders) lives in HANDOFF.md. This file keeps no second copy of either, since
+duplication is what drifts. In particular: the fonts are committed under
+`fonts/`, so `AIOM_build.py --fonts` is not run; poppler-utils installs per
+session for gate 9; and a chapter builds from a repo-root copy of its stage HTML
+because of the CSS-adjacency wrinkle.
 
 File handling rules:
-- Edit `AIOM_ch01.html`. Never edit `AIOM_ch01.built.html`, which is generated.
-- `AIOM_Ch1_draft_v2.md` is to be deleted. Two divergent texts is the exact
-  failure the v14 episode produced.
+- The chapter HTML is the single source of truth (Decision 50). Edit it directly;
+  the built HTML and PDF are generated. Do not write chapter prose to markdown,
+  and never fork a chapter into a second live text. Two divergent texts is the
+  exact failure the v14 episode produced.
 
 ---
 
