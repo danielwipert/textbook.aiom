@@ -268,8 +268,11 @@ check 1, 2026-07-29, whose record is carried in the chapter's own source block);
 Stage 4 (voice check, 2026-07-28); and Stage 5 (design review) with G2
 (production gate), both 2026-08-01 on the render carrying the Figure 1.2
 reference fix, with AIOM_build.py's full eleven-check suite green. Stage 2
-(developmental edit, new in Process v2) is running retroactively on Chapter 1.
-Reaching the G2 pass required adding an audit-only hide rule to the CSS, since
+(developmental edit, new in Process v2, run retroactively on Chapter 1) passed
+2026-08-01: all six developmental findings were ruled, with D1 (Section 1.4
+signpost and tighten) and D5 (theorem aside tightened) applied and their Stage 4,
+Stage 5, and G2 re-runs green on the 19-page render, and D2, D3, D4, and D6 closed
+with no action. Reaching the G2 pass required adding an audit-only hide rule to the CSS, since
 the committed v6.7 CSS predated the Decision 51 source-block apparatus; that
 committed CSS plus the rule is the working version of record. The
 figure-geometry, widow, and page-visual checks, outside the automated suite,

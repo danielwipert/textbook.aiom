@@ -284,7 +284,7 @@ belong to Stage 2 and are carried, not counted against this stage.
 
 Owner: Claude
 
-Status: [~]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-01
 
 > Teaching quality, held early so its line edits do not churn fact check, voice, design, and production. Clarity, pacing, cognitive load, example fitness, transitions, and whether the argument carries the target reader without a stall. Claude runs a fresh critical pass; Dan gut-checks with a second model and rules.
 
@@ -425,7 +425,20 @@ DOWNSTREAM RE-RUNS (scoped re-run matrix, body prose edit):
   changed, so the fact surface is untouched and the pass holds (Dan's standing
   ruling of 2026-08-01 for this kind of edit).
 
-Stage 2 remains in progress: D6 awaits ruling.
+D6 RULED AND CLOSED 2026-08-01, no action. Dan ruled to keep all seven key terms.
+Confirmed load-bearing against the body: consumption event (12 body uses, the
+atomic unit), software access model (3, the wrong model) and resource consumption
+model (1, its named counterpart, set against it in the chapter summary as the C1
+payoff), access price (4), metered resource (4), flat-rate objection (2), and
+meter relocation (2). All seven are exactly the terms the spec names (Stage 1),
+so they are spec-locked. Nothing cut. No change, no downstream re-runs.
+
+STAGE 2 COMPLETE 2026-08-01. All six developmental findings ruled: D1 resolved
+(1.4 signpost and tighten), D2 closed (figure placement kept), D3 closed (opener
+kept), D4 closed (five questions are intentional Ch3 foreshadowing), D5 resolved
+(theorem aside tightened), D6 closed (seven key terms confirmed load-bearing).
+The two applied edits (D1, D5) re-ran Stage 4 voice, Stage 5 design, and G2, all
+green on the 19-page render; the Stage 3 fact surface was untouched throughout.
 
 ---
 

@@ -96,10 +96,10 @@ a second copy; that duplication is what drifts. Status is single-sourced in each
 chapter's checklist and printed by `status_check.py`.
 
 Chapter 1 is through the production gate as of 2026-08-01 (the render carrying
-the Figure 1.2 fix). It was drafted under v1 and predates the developmental
-stage; whether that stage runs on Chapter 1 retroactively is an open item.
-Remaining are Dan's copy edit, final fact check, and final read, with the
-continuity gate between and lock last.
+the Figure 1.2 fix). Drafted under v1, it had the Process v2 developmental edit
+(Stage 2) run retroactively, and that stage passed 2026-08-01. Remaining are
+Dan's copy edit, final fact check, and final read, with the continuity gate
+between and lock last.
 
 - Copy-edit placement is revisited at Chapter 4 (Decision 24). If line edits are
   being churned by structural changes, move it earlier then, not before.
@@ -118,7 +118,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 5      | Stages 0, 1, 2, 3, 4 and gates G1, G2 all passed. G1 cleared 2026-07-29 (Decision 48 repealed the archival checks); Stage 2 record carried in the chapter source block; Stage 4 and G2 passed 2026-08-01 on the render with the Figure 1.2 fix. Remaining: Stage 5, Stage 6, G3, Stage 7, Stage 8. |
+| 1   | The Category Error             | Stage 6      | Process v2 numbering. Stages 0, 1, 2, 3, 4, 5 and gates G1, G2 all passed (8 of 13). G1 cleared 2026-07-29 (Decision 48 repealed the archival checks); Stage 2 developmental edit completed 2026-08-01 (D1 and D5 applied, D2, D3, D4, D6 closed no action); Stage 5 design and G2 passed 2026-08-01 on the 19-page render with the Figure 1.2 fix, eleven-check suite green. Remaining: Stage 6 copy edit, Stage 7 final fact check 2, G3 continuity gate, Stage 8 final read, Stage 9 lock. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
