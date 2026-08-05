@@ -62,13 +62,7 @@ differently.
    is a live requirement now. Carry CD1 to CD5. Then run the thirteen steps in
    order.
 
-2. **Build the continuity ledger and wire G3 to it.** THIS BLOCKS LOCK FOR EVERY
-   CHAPTER. G3 checks "against the running continuity ledger" and "Ledger updated
-   on lock," and no such file exists. Chapter 1 makes six forward references
-   (Chapter 2 twice, plus 3, 4, 6, 14) that must be logged and later paid. Needed
-   before Chapter 1 reaches G3, not before Stage 2.
-
-3. **Remaining process hardening** (Dan approved, still to build):
+2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan
      tracker agree with the checklist table. Those three were hand-mirrored three
      times in two sessions; the check would have caught any drift automatically.
@@ -78,10 +72,10 @@ differently.
    - Gate 4 still keys on `--tint-def` and does not guard the theorem callout,
      though gate 11 now checks the panel directly.
 
-4. **Chapter 2 (The Flow)** after the Chapter 1 re-draft has settled the craft
+3. **Chapter 2 (The Flow)** after the Chapter 1 re-draft has settled the craft
    standard in practice.
 
-5. **Decision 28**, Northmoor properties G, H, I. Gates Ch9, Ch12, Ch13 problem
+4. **Decision 28**, Northmoor properties G, H, I. Gates Ch9, Ch12, Ch13 problem
    sets only.
 
 ## Standing reminders
@@ -115,6 +109,12 @@ differently.
   exits 2, rather than tracebacking partway through the gates. A gate that did
   not run is not a gate that passed. The 403s from unrelated third-party PPAs
   during that apt-get are harmless.
+- The continuity ledger EXISTS as of 2026-08-05: `AIOM_Continuity_Ledger.md`
+  plus `continuity.py` (gate G3, seven checks). It holds no entries yet, which
+  is correct: entries are appended at Stage 9 by `continuity.py --update` and no
+  chapter has locked. The ledger is the authority; never edit it to make a gate
+  pass. Registry glosses are written by hand, and the placeholder deliberately
+  fails the gate.
 - The QA suite is FOURTEEN gates, not eleven. Gates 12 (figures), 13 (bottom
   margin), and 14 (widows, orphans, stranded heads) were added 2026-08-05,
   closing three checks the G2 checklist had claimed for months while

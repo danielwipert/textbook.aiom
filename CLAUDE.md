@@ -125,6 +125,8 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_build.py` | Font staging, WeasyPrint render, fourteen QA gates, toolchain preflight. One command. |
 | `AIOM_book.css` | The locked design system. |
 | `place.py` | Definition-callout placement pass. See section 6. |
+| `AIOM_Continuity_Ledger.md` | The G3 record: terms owned per chapter, forward references and whether paid, registry glosses, Northmoor figures, and the canonical Founding Questions and maturity stages. Appended at lock, never edited to make a gate pass. |
+| `continuity.py` | Gate G3. Seven checks against the ledger. `--update` appends at Stage 9; `--pay N` marks promises kept. |
 | `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
 | `renumber_stage_folders.py` | One-time Process v1 to v2 stage-folder migration. Run 2026-08-05 across all eighteen units. |
 | `requirements.txt` | Pinned build toolchain. WeasyPrint line breaking and float placement move between releases, and gates 4 and 14 are sensitive to exactly that. |
@@ -359,12 +361,14 @@ gates 12, 13, and 14; the toolchain preflight and `requirements.txt`; and a G2
 checklist that now mirrors the fourteen printed gates one for one, with the two
 genuinely manual checks labelled as manual.
 
-**Still outstanding, and it blocks Lock rather than drafting: the continuity
-ledger does not exist.** G3 checks "against the running continuity ledger" and
-"Ledger updated on lock," and there is no such file. Chapter 1 already makes six
-forward references (Chapter 2 twice, plus 3, 4, 6, and 14) that must be logged
-and later paid. No chapter can reach Stage 9 until the ledger is built and G3 is
-wired to it. It is not needed before Stage 2.
+**The continuity ledger is built (2026-08-05).** `AIOM_Continuity_Ledger.md`
+holds the record and `continuity.py` is gate G3, running all seven checks the
+checklist names. Verified end to end against the superseded Chapter 1 render: it
+found the six forward references, detected unpaid promises when run as a later
+chapter, recognised a term restated verbatim as not a redefinition, and failed on
+a placeholder registry gloss rather than passing it. The ledger currently holds
+no entries, which is correct: entries are appended at Stage 9, and no chapter has
+locked. Lock is no longer blocked.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is

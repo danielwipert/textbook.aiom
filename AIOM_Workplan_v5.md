@@ -78,12 +78,9 @@ property coverage: see Decision 28.
 1. **Chapter 1 Stage 0 re-draft**, against the craft standard, carrying CD1 to
    CD5 from the checklist. Then the full thirteen steps in order, as the proving
    run for Process v2.
-2. **Build the continuity ledger** and wire G3 to it. Blocks Lock for every
-   chapter, not just Chapter 1. Needed before Chapter 1 reaches G3, not before
-   Stage 2.
-3. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
+2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
-4. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
+3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
    Ch9, Ch12, and Ch13 problem sets, not Ch2.
 
 Closed since v5: the G1 contradiction on Chapter 1 (cleared 2026-07-29 after
@@ -264,6 +261,17 @@ Decisions 22 onward live here.
   a G2 checklist mirroring the fourteen printed gates one for one, with the two
   genuinely manual checks labelled manual. Gate 14 found a real defect on its
   first run that the eleven-gate suite had passed.
+
+- **Decision 54. BUILT 2026-08-05.** The continuity ledger exists:
+  `AIOM_Continuity_Ledger.md` as the record and `continuity.py` as gate G3, with
+  all seven checks the checklist names. The ledger carries terms owned per
+  chapter, forward references and whether paid, registry glosses, Northmoor
+  figures, and the canonical Founding Questions and maturity stages parsed from
+  the ledger itself rather than hard-coded. Policy: entries are appended at
+  Stage 9 on lock, never at draft time; the ledger is the authority and is never
+  edited to make a gate pass; registry glosses are written by hand, and the
+  placeholder fails the gate deliberately. Verified end to end against the
+  superseded Chapter 1 render. Lock is no longer blocked for any chapter.
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.

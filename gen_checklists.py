@@ -156,15 +156,21 @@ STAGES = [
     ("G3", "Continuity gate", "Claude",
      "Mechanical, against the running continuity ledger. Catches chapter to "
      "chapter drift here rather than at manuscript integration, where the fix "
-     "would mean reopening a locked chapter.", [
-         "No term redefined that an earlier chapter already owns",
-         "Every forward reference assigned to this chapter is paid",
-         "Every forward reference this chapter makes is logged",
-         "Northmoor figures diffed against generator output",
-         "Registry IDs logged; recurring glosses worded identically",
-         "Maturity ladder language consistent with the locked five-stage model",
-         "Founding Question references match the canonical table exactly",
-         "Ledger updated on lock",
+     "would mean reopening a locked chapter. Run "
+     "`python3 continuity.py <chapter.html> --chapter N`. The ledger is the "
+     "authority: when a chapter and the ledger disagree the gate fails and Dan "
+     "rules, and the gate never edits the ledger to make itself pass. At Stage "
+     "9, and only then, `--update` appends this chapter's terms, forward "
+     "references, and registry objects, and `--pay N` marks promises the "
+     "chapter has now kept.", [
+         "Check 1, no term redefined that an earlier chapter already owns",
+         "Check 2, every forward reference this chapter makes is logged",
+         "Check 3, every forward reference assigned to this chapter is paid",
+         "Check 4, registry IDs logged; recurring glosses worded identically",
+         "Check 5, Founding Question references match the canonical table exactly",
+         "Check 6, maturity ladder language consistent with the locked five stages",
+         "Check 7, Northmoor figures diffed against generator output",
+         "Ledger updated at lock (continuity.py --update), glosses written by hand",
      ]),
 
     ("8", "Final read", "Dan",
