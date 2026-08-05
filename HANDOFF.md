@@ -57,10 +57,19 @@ differently.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 0 re-draft.** The immediate work. Read
-   `AIOM_Voice_and_Craft_v1.md` BEFORE drafting; the Stage 0 acknowledgment box
-   is a live requirement now. Carry CD1 to CD5. Then run the thirteen steps in
-   order.
+1. **Chapter 1 is re-drafted; G1 is next.** Stage 0 passed 2026-08-05.
+   `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html` is the
+   LIVE TEXT and supersedes the Stage 4 render. 5,922 words, 1/13 steps, STATUS
+   CONSISTENT. The next step is G1 (structural gate, Claude), then Stage 1
+   content review, which is Dan's.
+
+   ONE CONTENT QUESTION FOR STAGE 1: the F1 fix removed the name "FinOps" from
+   section 1.4, because the three claims around it were unsourced empirical
+   statements about the current state of practice and the evidence policy allows
+   only cite, conditionalize, or cut. The passage is now a structural account of
+   why no practice owns the resource. The Consolidated Spec says the book engages
+   FinOps by name, and Chapter 14 holds the boundary treaty and the cited CB2
+   material. Flagged for Dan, not decided.
 
 2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan

@@ -57,17 +57,77 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-05
 
-> Against the chapter outline and the fixed six-slot skeleton. Sources archived at drafting time.
+> Against the chapter outline and the fixed six-slot skeleton. The craft standard binds here, not only at Stage 4.
 
-- [ ] Drafted against the six craft criteria (AIOM_Voice_and_Craft_v1.md), read before drafting rather than after. Criterion postdates this draft by eight days and cannot be satisfied retroactively; craft for Chapter 1 is assessed at Stage 4 instead. Binding from Chapter 2 forward.
+- [x] Drafted against the six craft criteria (AIOM_Voice_and_Craft_v1.md), read before drafting rather than after
 
 Findings:
 
 ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 Draft complete, 4,557 words, 167 lines.
+
+RE-DRAFT COMPLETE 2026-08-05. `00_Stage0_Draft/AIOM_Ch01_redraft.html` is the
+live text for Chapter 1 and supersedes the Stage 4 render, which is now history.
+5,922 words, inside the 5,000 to 6,000 band (Decision 33) with 78 words of
+headroom deliberately left for Stage 2 and Stage 4. Six slots present and in
+order. Sources unchanged: the same nine cleared keys, spliced verbatim with the
+Decision 51 source block, so no citation is new and none was invented.
+
+DRAFTED AGAINST THE CRAFT STANDARD, which is what makes this a re-draft rather
+than a patch. Changes answering the archived Stage 4 findings:
+
+- F1 (C1, the FinOps passage). The three unanchored empirical claims about the
+  current state of practice are GONE, replaced by a structural account: each of
+  the five questions falls inside some existing practice's scope, every one of
+  those scopes was bounded before this resource existed, and a resource crossing
+  all five boundaries is owned by none of them. This satisfies the evidence
+  policy by conditionalizing rather than by citing. IT ALSO DROPS THE NAME
+  "FinOps" FROM CHAPTER 1, which is a content question for Dan at Stage 1: the
+  Consolidated Spec says the book engages FinOps by name, and Chapter 14 is where
+  the boundary treaty and the cited CB2 material live. Flagged, not decided.
+- F2 (C1, no arithmetic in the craft artifact). Step 4 now works the numbers.
+  Against 5,172 seats, with stipulated and labelled volumes, the deployment bills
+  roughly 56.5 million consumption events a month, about 10,900 behind every
+  seat. The paragraph then states that changing any stipulated figure moves the
+  total while the seat count moves for none of them, which is the actual point.
+  The published agent count 5,172 replaces "on the order of five thousand"
+  throughout, per the S-003 ledger note.
+- F3 (C3). "A word on the borders of the subject" is cut. 1.5 opens on the
+  finding. Throat-clearing openers: 1 to 0.
+- F4 (C5, systematic). All four cross-reference closes are gone: 0 of 44.
+  CORRECTION TO THE ARCHIVED FINDING: one of the four (the Chapter 6 reference)
+  sat inside a <cite>, which becomes a footnote at build, so it was never body
+  prose. voicecheck.py now strips cite content before measuring, a tooling fix
+  this re-draft surfaced.
+- F5 (C4, the summary). Rewritten. Mean sentence length 33.6 to 17.9, stdev 17.1
+  to 8.5, short sentences 0 percent to 20 percent.
+- F6 (C2). "What is absent is not attention. It is assembly." now arrives after
+  the explanation of what produced the fragmentation, not instead of it.
+- F7 (C2). 1.2 now ARGUES the atomic unit rather than asserting it, ruling out
+  the user (two identical seats differ by an order of magnitude) and the task
+  (right for value, does not track cost), and stating the decisive criterion:
+  the event is the only candidate the meter records, and a unit the meter does
+  not record cannot be reconciled against a bill. A fourth discussion question
+  makes the reader argue the other side.
+- W1, W2 (C6). Both left as drafted. The vendor comparison is recast so the
+  structural point closes the passage rather than the characterization.
+
+Metrics after: mean 17.5, stdev 10.6, 33 percent short, 0 throat-clears, 0
+cross-reference closes, no section flagged uniform-and-long. Chapter 1 no longer
+sets a baseline that contains a known C4 failure and a systematic C5 failure.
+
+REGRESSION CAUGHT AND FIXED IN-PASS. The first version of the F3 fix collapsed
+1.5 into one uniform paragraph, mean 23.8 words with zero short sentences, which
+the per-section table flagged immediately. The chapter average never moved. This
+is the second time the section table caught something the chapter total hid.
+
+CARRIED, NOT FIXED HERE. Gate 14 still reports the CD1 stranded "Craft section"
+slot label at the foot of page 12. That is break control, so it belongs to Stage
+5, and fixing it at Stage 0 would be doing design work in a drafting stage.
+Everything else in the fourteen-gate suite is green on the re-draft.
 
 CRAFT STANDARD ADOPTED 2026-08-05, after this stage cleared. The criterion above
 is recorded open with a stated reason rather than ticked, because a chapter

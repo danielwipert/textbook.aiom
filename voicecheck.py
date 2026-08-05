@@ -192,6 +192,10 @@ def body_paragraphs(path):
     kept = [ln for i, ln in enumerate(lines, 1) if not inside[i]]
     doc = "\n".join(kept)
     doc = re.sub(r"(?s)<(script|style|svg)\b.*?</\1>", " ", doc)
+    # Footnote apparatus. A <cite> body becomes a numbered footnote at build
+    # time, so it is not body prose and must not be measured as such: left in,
+    # it reports a paragraph as closing on whatever the footnote closes on.
+    doc = re.sub(r"(?s)<cite\b[^>]*>.*?</cite>", " ", doc)
 
     paras = []
     section = "(chapter opening)"
