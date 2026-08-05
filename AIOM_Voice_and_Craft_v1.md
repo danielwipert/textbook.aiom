@@ -150,6 +150,27 @@ marked passed with one of them left open and unexplained.
 C2 has no mechanical proxy and never will. It is assessed by reading, and it is
 the criterion most worth the reading time.
 
+**How the criteria are read at Stage 4.** Not by asking whether the chapter meets
+each one. That question returns yes, every time, from any reader who has just
+finished admiring the prose. The Stage 4 read is adversarial and sectioned:
+
+1. For each criterion, find and quote the WEAKEST passage in the chapter against
+   it, by section. Naming the worst instance is the deliverable, not a verdict.
+2. Quote the strongest passage too, so the calibration is visible and can be
+   argued with.
+3. Rule each weakest instance as a defect, a deliberate choice, or noise.
+4. Read the per-section metrics, never the chapter average alone. A chapter mean
+   hides a weak section: Chapter 1's summary ran at twice the chapter's mean
+   sentence length with no short sentences at all, and the chapter total showed
+   healthy variance throughout.
+5. Record a finding per criterion. "Met" is not a finding.
+
+**Independence.** The model that drafted a chapter cannot be the only judge of
+its craft, for the same reason it cannot be the only fact checker. Dan
+gut-checks the Stage 4 craft read with a second model and rules, exactly as he
+does the Stage 2 developmental edit. A reusable verification prompt is kept in
+the Chapter 1 checklist under Stage 4 and travels to later chapters.
+
 ---
 
 ## 4. Mechanical proxies and their limits
@@ -177,9 +198,24 @@ chapter and a proof-heavy chapter are not the same.
 
 ## 5. Worked exemplars
 
-Drawn from the Chapter 1 Stage 4 render. Each pair shows a real passage and the
-flat version it could have been. The flat versions are constructed for contrast
-and are not drafts that existed.
+**Read this warning before using them.** The passages below come from Chapter 1,
+which was drafted before this standard existed. They are ILLUSTRATIONS of the
+criteria, not the definitions of them. The criteria are anchored to the named
+exemplars in section 1; Chapter 1 shows what they look like in this book's
+register.
+
+The distinction is not pedantic, and it has already cost one wasted pass. The
+first Chapter 1 craft read, 2026-08-05, graded the chapter against a standard
+generalized from that same chapter and returned "meets all six criteria, no
+findings." The verdict was withdrawn the same day. An adversarial re-read found
+seven findings and two watch items, including a systematic C5 failure and the
+weakest C4 unit in the book. A standard calibrated to a text cannot fail that
+text. When judging any chapter, including this one, judge against the exemplars
+and against the criteria as stated, never against how closely the prose resembles
+Chapter 1.
+
+Each pair below shows a real passage and the flat version it could have been. The
+flat versions are constructed for contrast and are not drafts that existed.
 
 **C1, the concrete particular.**
 
@@ -231,3 +267,9 @@ The flat version ends on a qualifier and runs one length throughout.
 - v1, 2026-08-05. Adopted following Dan's ruling on the voice enforcement
   decision. Process change: Stage 4 becomes the voice and craft check, and the
   six criteria enter the generated checklists.
+- v1.1, 2026-08-05. Hardened after the first Chapter 1 craft read failed as
+  verification. Adds the adversarial read protocol in section 3, the
+  independence requirement, and the circularity warning in section 5. The
+  Chapter 1 passages are relabelled illustrations rather than definitions.
+  `voicecheck.py` gained per-section reporting and cross-reference close
+  detection in the same pass, both blind spots the re-read exposed.

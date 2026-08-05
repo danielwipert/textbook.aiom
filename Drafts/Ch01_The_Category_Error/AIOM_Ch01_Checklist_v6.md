@@ -506,58 +506,113 @@ stated "postdates" exception, as Stage 0 above is marked.
 
 CRAFT READ, 2026-08-05, against AIOM_Ch01_Stage4_FINAL.html.
 
+METHOD NOTE, AND A CORRECTION. A first read the same day returned "meets all six
+criteria, no finding." That read was not adequate verification and its verdict is
+withdrawn. Two defects in it. It was CIRCULAR: the craft standard was extracted
+partly from this chapter's prose, so grading this chapter against it was a test
+that could not fail. And it was CONFIRMATORY: it asked whether each criterion was
+met rather than hunting the worst instance of each. The read below is adversarial
+and section-by-section, and it found five criteria carrying real findings. The
+chapter-level metrics did not change. The conclusion drawn from them did.
+
 Metrics (advisory): 43 paragraphs, 225 sentences, 3,992 words of teaching prose.
 Sentence words mean 17.7, median 15, stdev 10.5, range 3 to 61. Short sentences
 under twelve words 32 percent, long over thirty-five 6 percent. Longest uniform
 run 4 sentences. Throat-clearing openers 1. Copulas 4.0 per 100 words.
 Nominalizations 50.6 per 1,000. Numerals 9.5 per 1,000, proper nouns 12.3 per
-1,000. Paragraphs closing on a trailing qualifier 4 of 43. THIS IS THE BASELINE
-BAND. Chapters 2 through 15 are read against these numbers.
+1,000. Trailing-qualifier closes 4 of 43, cross-reference closes 4 of 43. THIS IS
+THE BASELINE BAND. Chapters 2 through 15 are read against these numbers.
 
-C1, concrete particular. MET, and strongly. The opening case anchors the mental
-model claim in "filed next to the ticketing system and the design software and
-the password manager" rather than asserting it. The steel analogy in 1.4 gives
-the five practices a physical referent. Particular density is high and correctly
-distributed: the numerals cluster in the dated cases and the craft artifact, and
-the teaching body carries its particulars structurally, which is what the
-fifty-year rule requires.
+TOOLING HARDENED BY THIS AUDIT. Two blind spots the audit found in voicecheck.py
+are now closed: it reports per section, because the chapter average concealed the
+summary entirely, and it detects cross-reference closes, which the
+trailing-qualifier proxy cannot see because a cross-reference is not a
+subordinate clause. Both changes are committed. A proxy that misses a whole class
+of defect is worth more once the miss is known than a proxy nobody has tested.
 
-C2, context and stakes. MET, and this is the chapter's strongest craft feature.
-"It would be a mistake to read those absences as negligence. They are
-inheritance." The passage explains the mechanism, states the condition that
-produced it (three decades of licensed-software procurement), forecloses the
-wrong reading, and says what the finding settles. Section 1.4's transition from
-category to discipline does the same at chapter scale. No finding.
+FINDINGS. Seven, plus two watch items. None is a chapter-level failure of a
+criterion. All are Dan's to rule.
 
-C3, front-loaded sentences. MET with one judgment item. The single flagged
-opener is "There is a strong objection to everything said so far, and it deserves
-to be stated at full strength rather than in a weakened form built to be knocked
-down." It is a genuine throat-clear by the letter of the metric, and it is also
-doing deliberate work: it is the sentence that commits the book to steelmanning
-before the objection arrives. RECOMMEND NO CHANGE. Recorded so the metric's one
-hit is explained rather than silently tolerated.
+F1 (C1, section 1.4). The FinOps, observability, and chargeback passage makes
+three claims about the current state of practice with no named instance, no
+number, and no citation key: "Cloud financial management, practiced as FinOps,
+has turned its attention to AI spend. Observability tooling reports token
+consumption by model, by team, and by workload. Chargeback conventions borrowed
+from cloud allocate some of that cost to the units that incur it." This is the
+weakest C1 stretch in the chapter, and it also brushes the evidence policy, since
+all three are empirical claims about the world. Note the Workplan records CB2
+FinOps data as ready for Chapter 14.
 
-C4, deliberate rhythm. MET. A stdev of 10.5 against a mean of 17.7, with a third
-of sentences under twelve words and a longest uniform run of four, is varied
-prose. "The shared feature is what broke." lands at six words after a
-thirty-word setup. No finding.
+F2 (C1, craft section). The consumption-event inventory contains no arithmetic
+anywhere. The chapter asserts the gap between "five thousand seats" and
+quantities "that run to the millions" but never shows one number doing the work.
+For the book's first craft artifact, whose stated purpose is revealing what the
+seat count conceals, a single worked multiplication would demonstrate what four
+paragraphs currently assert. This is the largest craft opportunity in the
+chapter, and it is a Stage 2 developmental question as much as a Stage 4 one.
 
-C5, paragraph close. MET. Four flags, and on inspection all four are proxy false
-positives: each closing clause is the load-bearing one, not a qualifier letting
-the air out. "because nothing about a twenty-dollar seat asks to be thought
-about" is the point of the paragraph, not a hedge on it. Recorded as evidence
-that the C5 proxy over-reports on causal closes, which the next chapters should
-expect.
+F3 (C3, section 1.5). "A word on the borders of the subject." is a
+throat-clearing opener: a sentence announcing that a statement is coming. The
+metric missed it because the regex does not cover the construction. It also
+brushes standing rule 5, no decorative apparatus, since it signposts in prose
+what the section heading already says.
 
-C6, the guard holds. MET. "The buyers in these stories did not make an error of
-vendor selection. Cursor and Copilot were, and are, excellent tools. The buyers
-made an error of category." No provider is characterized as exploitative, no
-buyer as careless, and the causation is structural throughout. No finding.
+F4 (C5, systematic). Four paragraphs close on a cross-reference rather than on
+argument: 1.2 ends on "Figure 1.1 sets out that anatomy, from the assembled input
+through the computation to the meter beneath"; 1.5 ends on "are the business of
+Chapter 3"; the craft-section case ends on "It returns in Chapter 6 as the book's
+anchor case on realized value"; the summary ends on "which is the work of Chapter
+2." Each hands the reader a pointer where the load-bearing clause belongs. This
+is the clearest systematic C5 pattern in the chapter and the original proxy was
+blind to all four.
 
-CRAFT READ VERDICT: Chapter 1 meets all six criteria as drafted. No prose change
-is required to adopt the standard. This was expected, since the standard was
-extracted partly from this chapter's own prose, and it means adoption costs
-nothing here. Ticking the boxes is the whole of the work, pending the ruling.
+F5 (C4, chapter summary). The weakest C4 unit in the chapter, by the chapter's
+own baseline. One 168-word paragraph, five sentences, mean 33.6 words against a
+chapter mean of 17.7, stdev 17.1, and ZERO sentences under twelve words. Nothing
+lands because nothing is short. Invisible in the chapter average, which is why
+the per-section table now exists.
+
+F6 (C2, section 1.4). "What is absent is not attention. It is assembly." asserts
+the gap without explaining what conditions produced the fragmentation. It sits
+two paragraphs from the inheritance passage, which is the chapter's strongest C2
+work, so the standard it falls short of is its own local one.
+
+F7 (C2, section 1.2). Why the consumption event is the atomic unit, rather than
+the request, the task, or the conversation, is asserted and not argued. C2 asks
+for the conditions that make a choice available and what it settles. Possibly
+deliberate, since Chapter 2 takes up flows; recorded so the deferral is a
+decision rather than an omission.
+
+W1 (C6 watch, opening case). "One vendor corrected its pricing under public
+pressure, retroactively, with an apology and refunds. The other corrected its
+pricing on a published schedule, announced in advance and supported by tooling."
+The comparison characterizes conduct before "The correction was the same" pulls
+it back to structure. Defensible and the closest approach to the guard in the
+chapter.
+
+W2 (C6 watch, section 1.3). "added that he had set the price himself" is
+character-flavored. It earns its place, because it establishes that the provider
+mispriced its own product knowingly, which is a structural point. Recorded so the
+line is deliberate.
+
+WHAT HELD. C6 is clean: no provider is characterized as exploitative, no buyer as
+careless, and causation is structural throughout. C1 and C2 are strong wherever
+the chapter is doing its central work, and the inheritance passage and the steel
+analogy are the standard's own reference examples. C4 is strong everywhere except
+the summary. The findings above are concentrated in apparatus, transitions, and
+the one section nobody reads slowly.
+
+CRAFT READ VERDICT: no criterion fails at chapter level. Five of six carry
+specific findings. F4 and F5 are the two worth fixing before Lock, because both
+are mechanical to fix, both are now caught by tooling, and both would otherwise
+set the wrong baseline for fourteen chapters drafted against this one. F1 and F2
+are judgment calls with real cost. F3, F6, F7, W1, W2 are recordable as no
+action if Dan rules that way.
+
+INDEPENDENT VERIFICATION STILL OWED. Every word above was written by the same
+model that drafted the chapter and wrote the standard it is graded against. Per
+the Stage 2 precedent, Dan gut-checks this class of judgment with a second model
+before it is accepted. The verification prompt is in the chapter notes.
 
 ---
 
@@ -968,3 +1023,46 @@ the source pass of 2026-07-28. Consequences:
   - A re-render is required before Stage 4 and G2 can run. Next render is v19.
   - The v18 footnotes also lack the second paths, so footnote numbering and
     content will change at re-render.
+
+---
+
+## Stage 4 craft read: independent verification prompt
+
+Added 2026-08-05. The Stage 4 craft read was written by the same model that
+drafted this chapter and wrote the standard it grades against. Dan runs this
+prompt on a different model, per the Stage 2 precedent, and rules on the result.
+Give the second model the chapter HTML and AIOM_Voice_and_Craft_v1.md, and
+nothing else. Do NOT give it the findings above: the point is an independent
+read, and showing it the answer key destroys that.
+
+> You are reviewing one chapter of an academic textbook against a written craft
+> standard. Both are attached. The standard lists six criteria, C1 through C6.
+>
+> Two warnings about this task. First, the standard was written partly by
+> generalizing from this chapter's own prose, so it is calibrated to flatter the
+> chapter. Correct for that: judge against the named exemplars the standard cites
+> (Michael Lewis, James Lardner, the Financial Times, The New Yorker), not
+> against how closely the chapter resembles itself. Second, the previous review
+> of this chapter returned "meets all six criteria, no findings," and that
+> verdict was withdrawn as confirmatory.
+>
+> For each criterion, do not report whether the chapter meets it. Instead:
+>
+> 1. Quote the WEAKEST passage in the chapter against that criterion, by
+>    section, and say precisely what is wrong with it.
+> 2. Quote the STRONGEST passage, so your calibration is visible.
+> 3. State whether the weakest passage is a defect worth fixing, a deliberate
+>    choice serving something else, or noise.
+>
+> Then answer three questions directly. Which single change would most improve
+> the chapter's prose? Which criterion, if any, does the chapter fail outright at
+> chapter level? And is there any defect the six criteria do not cover, which a
+> serious reader would notice?
+>
+> Assume the chapter is good. Your job is not to praise it. Your job is to find
+> what a hostile reviewer at a university press would find.
+
+Compare the second model's findings against F1 through F7 and W1 and W2 in Stage
+4 above. Agreement on a finding raises confidence. A finding the second model
+raises that Stage 4 missed is the more valuable output, and it goes in as F8
+onward. Disagreement is Dan's to rule.

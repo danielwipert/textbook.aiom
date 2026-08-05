@@ -148,6 +148,25 @@ TRAILING_QUALIFIER = re.compile(
     re.I,
 )
 
+# A paragraph closing on apparatus rather than argument: a figure, chapter, or
+# part cross-reference in the final sentence. Found by the Chapter 1 craft audit
+# of 2026-08-05, which the TRAILING_QUALIFIER proxy was blind to because a
+# cross-reference is not a subordinate clause. Cross-references are legitimate;
+# ending a paragraph on one usually is not, because the reader is handed a
+# pointer instead of the point.
+XREF_CLOSE = re.compile(
+    r"\b(Figure\s+\d+(\.\d+)?|Chapter\s+\d+|Part\s+[IVX]+)\b"
+    r"[^.!?]*(\.\d+[^.!?]*)?[.!?]?$",
+    re.I,
+)
+
+# Apparatus paragraph classes: labels, terms, provenance lines, and the like.
+# Measured prose excludes them.
+SKIP_CLASSES = {
+    "lab", "term", "stmt", "date", "provenance", "slot-label", "part-label",
+    "mlab", "plab", "ptitle", "pnote", "caption", "figcap",
+}
+
 COPULA = re.compile(r"\b(is|are|was|were|be|been|being)\b", re.I)
 NOMINAL = re.compile(r"\b\w{4,}(tion|tions|ment|ments|ance|ence|ity|ities)\b",
                      re.I)
@@ -160,7 +179,13 @@ ABBREV = re.compile(r"\b(No|Dr|Mr|Ms|Mrs|Prof|St|vs|etc|Fig|Ch|pp|Inc|Co|Ltd"
 
 
 def body_paragraphs(path):
-    """Teaching-prose paragraphs, with voiced blocks and apparatus removed."""
+    """Teaching-prose paragraphs as (section, text), apparatus removed.
+
+    Sectioned, because a chapter-level average hides a weak section. The
+    Chapter 1 audit of 2026-08-05 found a summary running at twice the
+    chapter's mean sentence length with no short sentences at all, invisible
+    in the chapter total.
+    """
     raw = open(path, encoding="utf-8").read()
     lines = raw.split("\n")
     inside = voiced_lines(lines)
@@ -169,13 +194,24 @@ def body_paragraphs(path):
     doc = re.sub(r"(?s)<(script|style|svg)\b.*?</\1>", " ", doc)
 
     paras = []
-    for m in re.finditer(r"(?s)<p\b[^>]*>(.*?)</p>", doc):
-        text = re.sub(r"(?s)<[^>]+>", " ", m.group(1))
+    section = "(chapter opening)"
+    for m in re.finditer(r"(?s)<(h[1-4]|p)\b([^>]*)>(.*?)</\1>", doc):
+        tag, attrs, inner = m.group(1), m.group(2), m.group(3)
+        text = re.sub(r"(?s)<[^>]+>", " ", inner)
         text = html.unescape(text)
         text = re.sub(r"\[[a-z0-9\-+ ]+\]", " ", text)   # citation keys
         text = re.sub(r"\s+", " ", text).strip()
+        if not text:
+            continue
+        if tag != "p":
+            section = text[:34]
+            continue
+        cls = re.search(r'class="([^"]*)"', attrs)
+        cls = cls.group(1).strip() if cls else ""
+        if cls in SKIP_CLASSES:
+            continue
         if len(text.split()) >= MIN_PARA_WORDS:
-            paras.append(text)
+            paras.append((section, text))
     return paras
 
 
@@ -212,6 +248,31 @@ def longest_uniform_run(lengths, spread=4):
     return best, best_at
 
 
+def section_table(paras):
+    """Per-section rhythm, so a weak section cannot hide in a chapter average."""
+    order, groups = [], {}
+    for section, text in paras:
+        if section not in groups:
+            order.append(section)
+            groups[section] = []
+        groups[section].append(text)
+
+    print("  [by section] a chapter average hides a weak section")
+    print(f"         {'section':<34}{'par':>4}{'sent':>5}{'mean':>6}"
+          f"{'stdev':>7}{'short%':>8}")
+    for section in order:
+        lens = [len(s.split()) for t in groups[section] for s in sentences(t)]
+        if not lens:
+            continue
+        short = 100.0 * sum(1 for n in lens if n < 12) / len(lens)
+        flag = ""
+        if statistics.mean(lens) >= 28 or (short == 0 and len(lens) >= 4):
+            flag = "  <- uniform and long"
+        print(f"         {section[:34]:<34}{len(groups[section]):>4}"
+              f"{len(lens):>5}{statistics.mean(lens):>6.1f}"
+              f"{statistics.pstdev(lens):>7.1f}{short:>7.0f}%{flag}")
+
+
 def craft_metrics(path):
     paras = body_paragraphs(path)
     if not paras:
@@ -219,7 +280,7 @@ def craft_metrics(path):
         return
 
     sents, lengths = [], []
-    for p in paras:
+    for _, p in paras:
         for s in sentences(p):
             sents.append(s)
             lengths.append(len(s.split()))
@@ -265,18 +326,29 @@ def craft_metrics(path):
     print(f"         numerals per 1,000 words: {per_k(numerals)}")
     print(f"         proper nouns per 1,000 words: {per_k(propers)}")
 
-    # C5, paragraph close.
-    weak = []
-    for i, p in enumerate(paras):
+    # C5, paragraph close. Two proxies: a trailing qualifier, and a close on
+    # apparatus (a figure or chapter cross-reference) instead of on argument.
+    weak, xref = [], []
+    for i, (_, p) in enumerate(paras):
         ss = sentences(p)
-        if ss and TRAILING_QUALIFIER.search(ss[-1]):
+        if not ss:
+            continue
+        if TRAILING_QUALIFIER.search(ss[-1]):
             weak.append((i, ss[-1]))
+        if XREF_CLOSE.search(ss[-1]):
+            xref.append((i, ss[-1]))
     print("  [C5 close]")
-    print(f"         paragraphs closing on a trailing qualifier: "
-          f"{len(weak)} of {len(paras)}")
-    for i, s in weak[:5]:
-        tail = s[-70:]
-        print(f"           P{i}  ...{tail}")
+    print(f"         closing on a trailing qualifier: {len(weak)} of "
+          f"{len(paras)}   (over-reports on causal closes)")
+    for i, s in weak[:4]:
+        print(f"           P{i}  ...{s[-66:]}")
+    print(f"         closing on a cross-reference: {len(xref)} of {len(paras)}"
+          f"   (hands the reader a pointer, not the point)")
+    for i, s in xref[:4]:
+        print(f"           P{i}  ...{s[-66:]}")
+
+    print()
+    section_table(paras)
 
     print("  [C2 context and stakes] no proxy exists. Read for it.")
     print("  [C6 the guard]          no proxy exists. Read for it.")

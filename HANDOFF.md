@@ -59,12 +59,16 @@ lock. Dan's final visual sign-off on the rendered pages is still open.
    2026-08-05 (Decision 52), after Chapter 1's Stage 4 had already passed. Its six
    criteria are now sub-checkboxes under Stage 4 and are recorded OPEN, so the
    gate correctly reports a step marked passed with unaddressed sub-items. The
-   craft read has been run against `AIOM_Ch01_Stage4_FINAL.html` and Chapter 1
-   meets all six criteria as drafted, with NO prose change required, so adoption
-   is free. Adopt: tick the six boxes in the Chapter 1 checklist. Grandfather:
-   mark the six with a stated "postdates" exception, as Stage 0 in that file
-   already is. Chapter 1's Stage 4 metrics are the baseline band for Chapters 2
-   through 15, so adopting is the recommendation.
+   craft read has been run against `AIOM_Ch01_Stage4_FINAL.html`. NOTE: a first
+   read returned "meets all six, no findings" and that verdict was WITHDRAWN the
+   same day as circular and confirmatory, since the standard was generalized
+   from this chapter's own prose. The adversarial re-read found seven findings
+   (F1 to F7) and two watch items, recorded under Stage 4. No criterion fails at
+   chapter level. F4 (four paragraphs closing on a cross-reference) and F5 (the
+   chapter summary at twice the chapter's mean sentence length with zero short
+   sentences) are the two worth fixing before Lock: both are mechanical, both
+   are now caught by tooling, and Chapter 1 sets the baseline fourteen chapters
+   are drafted against. Rule the findings, then adopt or grandfather.
 
 2. **Chapter 1 to Lock, Dan's remaining passes.** With the developmental edit
    done, the front is Dan's external work: Stage 6 copy edit, Stage 7 final fact
@@ -102,10 +106,20 @@ lock. Dan's final visual sign-off on the rendered pages is still open.
 - The craft standard binds at Stage 0, at drafting time, not at Stage 4. Craft
   caught at Stage 4 is a rewrite; craft applied at Stage 0 is free. A SessionStart
   hook prints the six-criterion card into context alongside this file.
-- `voicecheck.py` now prints advisory craft metrics after the mechanical result.
-  They are proxies and permanently advisory. Do not turn them into thresholds:
-  C5 in particular over-reports, flagging four strong causal closes in Chapter 1
-  as weak. C2 and C6 have no proxy at all and are enforced by reading.
+- `voicecheck.py` now prints advisory craft metrics after the mechanical result,
+  PER SECTION as well as per chapter. They are proxies and permanently advisory.
+  Do not turn them into thresholds: the trailing-qualifier proxy over-reports,
+  flagging four strong causal closes in Chapter 1 as weak. C2 and C6 have no
+  proxy at all and are enforced by reading.
+- Read Stage 4 ADVERSARIALLY: quote the weakest passage per criterion rather
+  than asking whether the criterion is met. The confirmatory version of that
+  read produced a false all-clear on Chapter 1. Read the per-section table, not
+  the chapter average: the chapter average concealed the summary completely.
+- The craft standard was generalized partly from Chapter 1, so it cannot fail
+  Chapter 1 on its own. Judge chapters against the named exemplars and the
+  criteria as stated, never against how closely prose resembles Chapter 1.
+  A reusable second-model verification prompt sits in the Chapter 1 checklist
+  under the Stage 4 craft read; Dan runs it, per the Stage 2 precedent.
 - Do NOT run `gen_checklists.py` in the repo root without cleaning up after it.
   It writes fifteen fresh checklists to `checklists/`, including a stub Ch01 that
   would fork against the live Chapter 1 checklist under

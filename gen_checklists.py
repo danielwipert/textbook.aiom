@@ -86,8 +86,13 @@ STAGES = [
      "six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. "
      "voicecheck.py also prints advisory craft metrics proxying C1, C3, C4, and "
      "C5; the metrics inform the read and never decide it. C2 and C6 have no "
-     "proxy and are enforced by reading alone. Record a finding per criterion, "
-     "not a single verdict.", [
+     "proxy and are enforced by reading alone. Read ADVERSARIALLY and by "
+     "section: for each criterion quote the WEAKEST passage in the chapter "
+     "and rule it, rather than asking whether the criterion is met. Read the "
+     "per-section table, never the chapter average alone. Record a finding "
+     "per criterion; 'met' is not a finding. Dan gut-checks the craft read "
+     "with a second model and rules, as at Stage 2; the reusable verification "
+     "prompt travels in the Chapter 1 checklist.", [
          "C1 concrete particular: every abstraction carrying argumentative "
          "weight is anchored to a named, specific instance",
          "C2 context and stakes: every mechanism states the conditions that "
