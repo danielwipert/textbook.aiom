@@ -86,9 +86,9 @@ than a patch. Changes answering the archived Stage 4 findings:
   those scopes was bounded before this resource existed, and a resource crossing
   all five boundaries is owned by none of them. This satisfies the evidence
   policy by conditionalizing rather than by citing. IT ALSO DROPS THE NAME
-  "FinOps" FROM CHAPTER 1, which is a content question for Dan at Stage 1: the
-  Consolidated Spec says the book engages FinOps by name, and Chapter 14 is where
-  the boundary treaty and the cited CB2 material live. Flagged, not decided.
+  "FinOps" FROM CHAPTER 1. RULED at Stage 1 as finding S6, 2026-08-05: fine as
+  drafted. Chapter 14 remains where the book engages FinOps by name, with the
+  cited CB2 material and the boundary treaty.
 - F2 (C1, no arithmetic in the craft artifact). Step 4 now works the numbers.
   Against a stipulated five thousand seats, the deployment bills roughly 54.6
   million consumption events a month, about 10,900 behind every seat. The
@@ -225,43 +225,84 @@ now safe in Chapter 1. Until he rules, the ruling stands as written.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-05
 
 > Is this the right chapter, not is it true. Read against the outline and the competency map. Structural findings only, no line edits.
 
 Findings:
 
-ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+STAGE 1 PASSED 2026-08-05, on the re-draft. Owner: Dan. Read against the
+Consolidated Spec Ch1 outline, the competency map, and the assessment list.
+Structural findings only, no line edits.
 
-STAGE 1 PASSED 2026-07-29, against AIOM_ch01.html, read against Consolidated
-Spec Part D.1 and the competency map. Run jointly, Dan ruling.
+WHAT MATCHED. All six slots present and in order. Teaching body 1.1 to 1.5 as
+outlined. THM-009 anchoring callout in 1.3, verbatim against Locked Registry
+v1.3. Both dated evidence boxes where the spec puts them: OpenAI January 2025
+(Case 4.1), Anthropic July 2025 (Case 4.2). Competency C1 covered end to end.
+Assessment 1 is P1, matching the assessment text word for word. Assessment 7 is
+seeded, since P1 is framed as a board member writing in.
 
-CONFORMS. All ten spec obligations for Chapter 1 are met:
-- Six slots present and correctly ordered.
-- Slot 1 pairs Cases 4.3 and 4.6 from the buyer's seat, opens on the surprise
-  bill, closes on the purchase question. The pairing does the work Decision 1
-  assigned it, preempting the "one badly run startup" dismissal.
-- 1.1 delivers the software access model and the manages-versus-operates
-  mismatch. 1.2 defines the consumption event and runs the anatomy, with
-  Figures 1.1 and 1.2 at first exposure. 1.3 states the objection at full
-  strength, answers it by meter relocation, and carries the THM-009 callout.
-  1.4 delivers the supply-chain analogy, the absent discipline, and the stakes.
-  1.5 is one paragraph, borders deferred to Ch3.
-- Slot 3 runs the four-step inventory worked on the QJE contact-center
-  deployment, planting the Ch6 anchor two chapters early as designed.
-- Slot 4 is one paragraph in can-now-do form, not a recap.
-- Slot 5 carries exactly the seven terms the spec names.
-- Slot 6 carries three discussion questions in self-explanation register, plus
-  P1 worked memo, P2 worked inventory, P3 completion.
-- Competency C1 served. THM-009 is the only chapter-anchoring callout.
-  Assessment 1 prepared by 1.1 to 1.3 plus P1; assessment 7 seeded.
+SEVEN STRUCTURAL FINDINGS RAISED. All seven ruled by Dan the same day.
 
-ONE ITEM RULED. See Decision 49.
+S1. THE CASE BANK HELD NO ENTRY 4.6 AND NO ENTRY 6.4, both of which the spec
+assigns to this chapter: 4.6 is the GitHub Copilot episode, half the opening
+case, and 6.4 is the QJE contact-center deployment, the whole craft section. The
+bank ran 4.1 to 4.4, 6.1 to 6.3, 5.1, 5.2. The chapter was never defective:
+both bodies of material are carried and fully sourced through its own Decision
+51 register, all eleven keys resolving under G1. The BANK was out of sync with
+the spec, and fourteen further chapters reference bank IDs.
+RULED: add both entries from the chapter's already-cleared sources. DONE
+2026-08-05. CASE 4.6 and CASE 6.4 are written into AIOM_Case_Bank_v1.md from
+sources already cleared through the Ch1 register and its fact check, with no new
+research and no new claim. Each carries a provenance line saying so. CASE 6.4
+carries the figure discipline (published QJE figures only, never the 2023 NBER
+14 percent or 5,179) and the 2026-07-29 stipulation ruling, so the next chapter
+to use the study meets both rules in the bank rather than having to find them in
+Chapter 1's source register, which is how G1 caught the breach in the first
+place.
 
-NO STRUCTURAL DEFECT FOUND. Stage 1 raised no rework. Three findings arose that
-belong to Stage 2 and are carried, not counted against this stage.
+S2. FIGURE NUMBERING WAS REVERSED against the spec: the spec made 1.1 the two
+purchase models and 1.2 the anatomy; the chapter has the anatomy first. The
+chapter's order was ruled during the original run so figures appear in document
+order.
+RULED: the chapter stands and the spec is amended. DONE.
 
----
+S3. THE OPENING CASE DID NOT CLOSE ON THE SPEC'S QUESTION, "what did these
+organizations actually purchase?", because the standing rule forbids rhetorical
+questions in body prose. The chapter closes on the category error stated.
+RULED: whatever is more effective inside the chapter wins, on educational and
+style grounds. The chapter stands and the spec is amended to direct a stated
+close rather than a question the standing rules forbid. DONE.
+
+S4. FOUR DISCUSSION QUESTIONS, NOT THREE. The fourth was added at Stage 0 to
+answer craft finding F7, asking the reader to argue for the task as the atomic
+unit instead of the event.
+RULED: accepted. Spec amended to four. DONE.
+
+S5. P2 USED A CONSTRUCTED DEPLOYMENT where the spec said "second cited
+deployment."
+RULED: relax the spec. The evidence policy governs empirical claims, not
+exercise scaffolding, and P3 is constructed for the same reason. Spec amended.
+DONE.
+
+S6. FINOPS NO LONGER APPEARS IN 1.4, carried from Stage 0. The three claims
+around the name were unsourced empirical statements about the current state of
+practice, and the evidence policy allows only cite, conditionalize, or cut. The
+passage is now a structural account of why no practice owns the resource.
+RULED: fine as drafted. Chapter 14 remains where the book engages FinOps by
+name, with the cited CB2 material and the boundary treaty.
+
+S7. THE AGENT-COUNT RULING of 2026-07-29, carried from G1. It reserves the
+published 5,172 for Chapter 6 and requires "on the order of five thousand" here.
+RULED: fine as written. The ruling stands unchanged. The re-draft's three
+stipulation labels do not reopen it.
+
+RE-RUN CONSEQUENCE: NONE. Under the scoped re-run matrix, no downstream step is
+invalidated. Every ruling either confirmed the chapter as drafted (S2 to S7) or
+changed an artifact outside the chapter text (S1, the case bank). Not one word
+of the chapter changed at Stage 1, so Stage 0 and G1 stand and Stage 2 may
+proceed against the same text. This is the outcome the matrix is for: a
+content review that ruled seven findings and cost zero re-runs.
 
 ## Stage 2. Developmental edit
 

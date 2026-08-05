@@ -33,6 +33,13 @@ Rule: before print, every case cites its Grade A primary source directly.
 - Sources: OpenAI official pricing/docs pages (primary). Grade A. Perishable: re-verify all specifics at drafting time; quarantine in dated case per fifty-year rule.
 - Placement: Ch4 (mechanism menu evidence); Ch11 craft section (routing against real tier structures).
 
+### CASE 4.6: GitHub Copilot dismantles flat pricing in two acts (June 2025 - June 2026)
+- What happened: Act one, June 18, 2025: GitHub began billing premium requests that had previously carried no separate charge. Act two, announced April 27, 2026 and effective June 1, 2026: standard billing moved from premium requests to GitHub AI Credits denominated in tokens (input, output, and cached), priced at each model's published API rate. The transition carried stated exceptions: annual Pro and Pro+ subscribers remained on premium-request pricing until their terms expired, code completions and Next Edit Suggestions stayed included and consumed no credits, every plan retained a monthly credit allowance, and base subscription prices did not change. A preview bill experience launched in early May 2026 ahead of the transition. On its January 28, 2026 earnings call, four months before act two, Microsoft reported over 4.7 million paid Copilot subscribers, up 75 percent year over year.
+- What it documents: the same correction as Case 4.3 reached by the opposite method and at far larger scale. Where Cursor corrected retroactively under public pressure with an apology and refunds, GitHub corrected on a published schedule, announced in advance, supported by tooling, across every plan. Paired with 4.3 the two convert anecdote into pattern and preempt the "one badly run startup" dismissal, which is exactly the work Ch1's opening case needs. The stated exceptions matter pedagogically: they show a repricing that is neither punitive nor disguised, so the structural account survives without any villain.
+- Sources: GitHub Changelog, June 18, 2025 (primary, dated to the day of the change); The GitHub Blog, April 27, 2026 (primary); Microsoft FY26 Q2 earnings call, January 28, 2026 (primary, first-party disclosure per Decision 46). Grade A. Perishable: all three carry access dates in the Ch1 source register.
+- Placement: Ch1 opening case, paired with 4.3 (in use). Candidate for Ch4 teaching body.
+- Provenance: added 2026-08-05 at Chapter 1 Stage 1, on Dan's ruling. The Consolidated Spec assigned "Case 4.6" to Ch1 Slot 1 but the bank held no such entry. Written from sources already cleared through the Ch1 register and its fact check, not from new research.
+
 ## Chapter 6 shopping list: value, productivity, ROI statements
 
 ### CASE 6.1: Klarna: the claim and the correction (February 2024 - May 2025)
@@ -51,6 +58,15 @@ Rule: before print, every case cites its Grade A primary source directly.
 
 ### CASE 6.3: [GAP] Six more classifiable value statements needed
 - The C6 sort-and-repair assessment needs ~8 short real statements spanning the classification set (claimed value, realized value, productivity claim, productivity measurement, ROI claim). Have: Klarna (multiple statements), MIT-quoted executive lines. Need: earnings-call and press-release specimens from large deployers. Research pass 2 targets: major-bank AI value claims, big-tech Copilot seat claims, consultancy ROI multipliers (e.g., IDC/Microsoft "$3.7x" genre), retailer/airline deployment claims.
+
+### CASE 6.4: Generative AI at work: the contact-center deployment (QJE, 2025)
+- What it is: Brynjolfsson, Li, and Raymond, "Generative AI at Work," Quarterly Journal of Economics 140(2), 889-942, DOI 10.1093/qje/qjae044. A customer-support contact center deploying a generative AI assistant that drafts suggested replies for agents, drawing on a knowledge base and the conversation so far. Published figures: 5,172 agents, and a 15 percent average increase in issues resolved per hour.
+- FIGURE DISCIPLINE, LOAD-BEARING: the widely circulated 14 percent and 5,179 figures come from the 2023 NBER working paper and must not be used anywhere in the book. Cite the published QJE figures only.
+- What it documents: for Ch1, a real described deployment whose shape carries the consumption-event inventory, at a scale where the seat count and the event count visibly separate. For Ch6, realized value with a stated boundary, where the study is reported rather than adapted.
+- WHAT IT DOES NOT SUPPLY: the event architecture. Retrieval calls, conversation-close tagging, per-token metering, and all volume assumptions in the Ch1 worked inventory are stipulated for that exercise and are not described by the study. Ruled 2026-07-29: Ch1 labels the worked example a stylized application by a provenance line rather than binding it to the study's parameters, says "on the order of five thousand agents," and states no productivity figure at all, on the reasoning that a precise count above a stipulated inventory would falsely signal that the whole inventory is reported. The precise 5,172 belongs to Ch6, where the study is reported. Re-affirmed at Ch1 Stage 1, 2026-08-05.
+- Sources: QJE 140(2), 889-942, cited by DOI (primary). Grade A. Non-perishable: cited by DOI, so no access date is required.
+- Placement: Ch1 craft section, the consumption-event inventory (in use). Ch6 anchor case on realized value.
+- Provenance: added 2026-08-05 at Chapter 1 Stage 1, on Dan's ruling. The Consolidated Spec assigned "Case 6.4" to Ch1 Slot 3 but the bank held no such entry. Written from the source already cleared through the Ch1 register and its fact check, not from new research.
 
 ## Chapter 5 shopping list: cost anatomy episodes
 

@@ -37,53 +37,45 @@ had a currency sweep 2026-08-02: its live sections now carry Process v2 numberin
 and current Chapter 1 state; its dated changelog and decisions log keep their
 original v1 numbers.
 
-## Chapter 1 status: REOPENED at Stage 0
+## Chapter 1 status: 3 of 13, re-drafted and through Stage 1
 
-Reopened 2026-08-05 on Dan's ruling (Decision 53). `status_check.py` reports
-0/13 steps passed, STATUS CONSISTENT. Every step's prior findings are archived
-in place in the checklist, marked superseded, not destroyed.
+Reopened at Stage 0 on 2026-08-05 (Decision 53), re-drafted the same day against
+the craft standard. Passed since: Stage 0, G1, Stage 1, all 2026-08-05.
+`status_check.py` reports 3/13, STATUS CONSISTENT. The live text is
+`Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`, 5,949
+words, and it supersedes the old Stage 4 render.
 
-Why: Chapter 1 was drafted before the voice and craft standard existed, so its
-prose was never written against C1 through C6, and the Stage 4 craft read found
-seven findings. Chapter 1 is the exemplar fourteen further chapters are drafted
-against, so it is re-drafted rather than patched. The re-draft is the proving run
-for Process v2 end to end.
+G1 caught a real breach: the re-draft had put the published QJE agent count
+5,172 into prose, where a 2026-07-29 ruling reserves it for Chapter 6 and
+requires "on the order of five thousand" in Chapter 1. Fixed. The fuller ruling
+lives in the chapter's own Decision 51 register, NOT in the shorter
+`AIOM_Source_Ledger.md` note.
 
-Carried into the re-draft, recorded as CD1 to CD5 at the end of the checklist:
-the production defect gate 14 found (a stranded slot label at the foot of page
-12, which the eleven-gate suite passed), the seven craft findings, the nine
-verified sources, the rulings that survive a reopen, and what must be done
-differently.
+Stage 1 raised seven structural findings, all ruled by Dan (Decision 55). Only
+one changed an artifact: the case bank held no CASE 4.6 (GitHub Copilot) and no
+CASE 6.4 (QJE contact center) although the spec assigned both to Chapter 1, and
+both are now written into `AIOM_Case_Bank_v1.md` from already-cleared sources.
+Four rulings amended the Consolidated Spec's Ch1 outline instead of the chapter
+(figure numbering, the case close, a fourth discussion question, P2 need not
+cite). Two confirmed the chapter as drafted (FinOps stays out of Ch1; the
+agent-count ruling stands). NOT ONE WORD OF THE CHAPTER CHANGED at Stage 1, so
+no downstream step was invalidated.
+
+Carried items CD1 to CD5 remain live in the checklist. CD1, the gate-14 stranded
+"Craft section" slot label at the foot of page 12, is Stage 5 work.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 is re-drafted and through G1. STAGE 1 IS NEXT AND IT IS DAN'S.**
-   Stage 0 and G1 both passed 2026-08-05.
-   `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html` is the
-   LIVE TEXT and supersedes the Stage 4 render. 5,949 words, 2/13 steps, STATUS
-   CONSISTENT. Stage 1 is the content review: is this the right chapter, not is
-   it true. Structural findings only, no line edits.
+1. **Chapter 1 Stage 2, the developmental edit. Claude runs it; Dan gut-checks
+   with a second model and rules.** Teaching quality: clarity, pacing, cognitive
+   load, example fitness, transitions, and whether the argument carries the
+   target reader without a stall. Held early so its line edits land before fact
+   check, voice, design, and production, and do not churn them. After it: Stage 3
+   fact check (Dan), Stage 4 voice and craft (Claude, read adversarially and by
+   section).
 
-   G1 CAUGHT A REAL FAILURE, now fixed: the re-draft had put the published agent
-   count 5,172 into the prose, breaking a 2026-07-29 ruling that reserves the
-   precise figure for Chapter 6 and requires Chapter 1 to say "on the order of
-   five thousand agents." The fuller ruling lives in the chapter's own source
-   register, not in AIOM_Source_Ledger.md, whose summary note carries only "CITE
-   THE PUBLISHED FIGURES" without the Chapter 1 restriction. READ THE IN-CHAPTER
-   REGISTER NOTES, not just the ledger summary. The F2 arithmetic gain survives
-   on a stipulated round five thousand.
-
-   TWO QUESTIONS FOR STAGE 1. First, the F1 fix removed the name "FinOps" from
-   section 1.4, because the three claims around it were unsourced empirical
-   statements about the current state of practice and the evidence policy allows
-   only cite, conditionalize, or cut. The passage is now a structural account of
-   why no practice owns the resource. The Consolidated Spec says the book engages
-   FinOps by name, and Chapter 14 holds the boundary treaty and the cited CB2
-   material. Flagged for Dan, not decided. Second, whether the 2026-07-29
-   ruling on the agent count should be revisited: its reasoning was that a
-   precise count above a stipulated inventory would falsely signal the whole
-   inventory is reported, and the re-draft now labels the stipulation three
-   times over. Until Dan rules, the ruling stands as written.
+   WORD BUDGET IS TIGHT: 5,949 against a 6,000 ceiling (Decision 33), 51 words of
+   headroom. A Stage 2 finding that adds prose has to take words out somewhere.
 
 2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan

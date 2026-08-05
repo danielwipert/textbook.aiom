@@ -43,11 +43,11 @@ had never been tested on: Figure 1.2 renders, the craft section typesets using
 the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
-Chapter 1 rendered complete at 19 pages and reached 8 of 13 steps under the
-eleven-gate suite. It is now REOPENED at Stage 0 (2026-08-05, Decision 53), all
-thirteen steps reset, and is being fully re-drafted against the voice and craft
-standard that postdates its original draft. The fourteen-gate suite fails that
-render on a stranded slot label, a defect the eleven-gate suite passed.
+Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), re-drafted against
+the voice and craft standard, and is now 3 of 13: Stage 0, G1, and Stage 1 all
+passed 2026-08-05. Next is Stage 2, the developmental edit. The fourteen-gate
+suite is green on the re-draft except one carried defect, a stranded slot label,
+which the eleven-gate suite had passed and which belongs to Stage 5.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -75,9 +75,10 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stage 0 re-draft**, against the craft standard, carrying CD1 to
-   CD5 from the checklist. Then the full thirteen steps in order, as the proving
-   run for Process v2.
+1. **Chapter 1 Stage 2, the developmental edit.** Stage 0, G1, and Stage 1 are
+   done. Claude runs Stage 2 as a fresh critical pass; Dan gut-checks with a
+   second model and rules. Then Stage 3 (fact check, Dan) and Stage 4 (voice and
+   craft, Claude, read adversarially and by section).
 2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
 3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -98,11 +99,11 @@ the scoped re-run matrix, and the v1-to-v2 stage mapping. This file does not kee
 a second copy; that duplication is what drifts. Status is single-sourced in each
 chapter's checklist and printed by `status_check.py`.
 
-Chapter 1 is reopened at Stage 0 (2026-08-05, Decision 53) and runs the full
-thirteen steps from the top. `reopen.py` performed the reset, archiving each
-step's findings in place rather than destroying them. Stage folders across all
-eighteen units were migrated to Process v2 numbering the same day, so a folder
-name no longer disagrees with the live process.
+Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53) and is running the
+full thirteen steps from the top; 3 are passed. `reopen.py` performed the reset,
+archiving each step's findings in place rather than destroying them. Stage
+folders across all eighteen units were migrated to Process v2 numbering the same
+day, so a folder name no longer disagrees with the live process.
 
 - Copy-edit placement is revisited at Chapter 4 (Decision 24). If line edits are
   being churned by structural changes, move it earlier then, not before.
@@ -121,7 +122,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | REOPENED at Stage 0 | Reopened 2026-08-05 on Dan's ruling: drafted before the craft standard existed, and the Stage 4 craft read found seven findings. All 13 steps reset to not-run, `status_check.py` 0/13 CONSISTENT, prior findings archived in place. Carried items CD1 to CD5 are recorded in the checklist, including a real production defect gate 14 found on its first run (slot label stranded at the foot of page 12, which the eleven-gate suite had passed). The re-draft is the proving run for Process v2 end to end. |
+| 1   | The Category Error             | Stage 2 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard. Now 3 of 13: Stage 0 draft, G1 structural gate, Stage 1 content review, all passed 2026-08-05, `status_check.py` CONSISTENT. G1 caught a real breach of a standing source ruling in the re-draft (the published agent count in prose) and it was fixed. Stage 1 raised seven structural findings, all ruled (Decision 55), none of which changed the chapter text, so no downstream step was invalidated. Carried items CD1 to CD5 remain in the checklist, including the gate-14 stranded slot label, which is Stage 5 work. Next: Stage 2 developmental edit. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
@@ -272,6 +273,24 @@ Decisions 22 onward live here.
   edited to make a gate pass; registry glosses are written by hand, and the
   placeholder fails the gate deliberately. Verified end to end against the
   superseded Chapter 1 render. Lock is no longer blocked for any chapter.
+
+- **Decision 55. RULED 2026-08-05, Chapter 1 Stage 1.** Seven structural
+  findings ruled, four of which amend the Consolidated Spec's Ch1 outline rather
+  than the chapter. (S1) The case bank held no CASE 4.6 and no CASE 6.4 although
+  the spec assigned both to Ch1; both are now written into AIOM_Case_Bank_v1.md
+  from sources already cleared through the Ch1 register, with provenance lines
+  saying so and no new research. CASE 6.4 carries the QJE figure discipline and
+  the 2026-07-29 stipulation ruling, so a later chapter meets both rules from the
+  bank. (S2) Figure numbering stands as the chapter has it, anatomy at 1.1, and
+  the spec is amended. (S3) The opening case closes on the category error stated
+  rather than the spec's question, since the standing rule forbids rhetorical
+  questions in body prose; general principle ruled, whatever is more effective
+  inside the chapter wins on educational and style grounds. (S4) A fourth
+  discussion question is accepted, added to answer craft finding F7. (S5) P2 no
+  longer needs a CITED deployment: the evidence policy governs empirical claims,
+  not exercise scaffolding. (S6) FinOps stays out of Ch1; Ch14 owns the named
+  engagement. (S7) The 2026-07-29 agent-count ruling stands unchanged. No word of
+  the chapter changed, so no downstream step was invalidated.
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.

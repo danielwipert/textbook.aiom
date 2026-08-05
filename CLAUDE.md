@@ -326,9 +326,10 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 is REOPENED at Stage 0 as of 2026-08-05, on Dan's ruling.** All
-thirteen steps are reset to not-run and `status_check.py` reports 0/13 with
-STATUS CONSISTENT. The prior record is not lost: every step's findings are
+**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 3 of 13.** Stage 0
+(re-draft), G1 (structural gate), and Stage 1 (content review) all passed
+2026-08-05; `status_check.py` reports 3/13 with STATUS CONSISTENT. Stage 2, the
+developmental edit, is next. The prior record is not lost: every step's findings are
 archived in place in the checklist, marked superseded, because they state what
 was examined and how it was ruled and the re-run should not have to rediscover
 that.
@@ -353,6 +354,15 @@ What the reopen inherits, as carried items for the re-draft:
   reuse rather than re-verify, subject to Dan's Stage 3 re-run.
 - The Stage 2 developmental rulings D1 through D6 and the four voice rulings
   (Decisions 42 to 45), all still standing as rules even though the steps reset.
+
+Two things the re-run has already proved. G1 caught a real breach of a standing
+source ruling in the re-draft: the published QJE agent count had been put into
+prose, where a 2026-07-29 ruling reserves it for Chapter 6. The fuller ruling
+lives in the chapter's own Decision 51 register, not in the shorter
+`AIOM_Source_Ledger.md` note, so read the in-chapter register before using a
+figure from a cited study. And Stage 1 ruled seven structural findings without
+changing one word of the chapter, so no downstream step was invalidated, which is
+what the scoped re-run matrix exists to produce.
 
 Process built 2026-08-05 to make the re-run safe and repeatable across fifteen
 chapters: `reopen.py`; the Process v1 to v2 stage-folder migration across all
