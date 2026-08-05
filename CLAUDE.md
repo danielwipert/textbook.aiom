@@ -64,6 +64,38 @@ These have all been explicitly ruled and re-affirmed. Do not relitigate them.
 - **Fifty-year rule:** body prose is timeless. Perishable specifics are
   quarantined in dated cases.
 
+### Craft, the positive half of the voice standard
+
+The rules above are prohibitions. Prose can break none of them and still be dead
+on the page. `AIOM_Voice_and_Craft_v1.md` is the positive standard, and it is
+binding at drafting time, not only at check time. Read it before drafting a
+chapter, not after.
+
+Six criteria, each drawn from a named exemplar. They appear verbatim as
+sub-checkboxes under Stage 4 in every chapter checklist, and `status_check.py`
+fails a Stage 4 marked passed with one of them left open.
+
+- **C1. Concrete particular.** Every abstraction carrying argumentative weight is
+  anchored to a named, specific instance. Constrained by the fifty-year rule, so
+  it lives mostly in cases, worked examples, and craft artifacts.
+- **C2. Context and stakes.** Every mechanism states the conditions that made it
+  available and what it settles, not only what it does. The highest-value
+  criterion, and the only one with no mechanical proxy.
+- **C3. Front-loaded sentences.** Findings lead, qualifications subordinate, no
+  throat clearing.
+- **C4. Deliberate rhythm.** Sentence length varies. No long stretch at a uniform
+  length.
+- **C5. Paragraph close.** Paragraphs end on the load-bearing clause, not a
+  trailing qualifier.
+- **C6. The guard holds.** No hero or villain framing, no populist register, no
+  character-driven causation where a structural account is available. This guard
+  is what keeps the borrowed techniques from reimporting a register already ruled
+  out.
+
+`voicecheck.py` prints advisory craft metrics alongside the mechanical bans. They
+are proxies, permanently advisory, and never a pass-or-fail threshold. C2 and C6
+have no proxy at all and are enforced only by reading.
+
 ---
 
 ## 3. The fixed six-slot skeleton
@@ -95,6 +127,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `AIOM_Design_QA_Spec_v1.md` | Gate-by-gate spec. Moves with `AIOM_build.py`. |
 | `AIOM_Consolidated_Spec_v1.md` | The full pre-drafting specification. Authoritative. Markdown despite the earlier `.pdf` reference. |
+| `AIOM_Voice_and_Craft_v1.md` | The positive voice standard: the four borrowed techniques, the guard, and the six craft criteria. Binds from Stage 0. Read before drafting. |
 | `AIOM_Specification_Addendum_v1.0.docx` | Decisions 1 through 21 and the Addendum rulings. |
 | `AIOM_Structure_v1.md` | Chapter structure and structural devices. |
 | `AIOM_Exit_Competencies_v1.md` | The twenty-four competencies. Backward-design root. |
@@ -187,7 +220,7 @@ There is no G4. `(C)` is Claude, `(D)` is Dan working outside the Claude system.
 | Stage 1 | Content review | D |
 | Stage 2 | Developmental edit | C; Dan gut-checks with a second model |
 | Stage 3 | Source and fact check 1 | D |
-| Stage 4 | Voice check | C |
+| Stage 4 | Voice and craft check | C |
 | Stage 5 | Design review | C |
 | G2 | Production gate | C |
 | Stage 6 | Copy edit | D |
@@ -202,6 +235,15 @@ churn them. It interrogates clarity, pacing, cognitive load, example fitness,
 transitions, and whether the argument carries the target reader without a stall.
 Claude runs it as a fresh critical pass; Dan gut-checks with a different model
 and rules, the same independence he applies to fact checking.
+
+**Stage 4, voice and craft check.** Two halves. The mechanical half is
+`voicecheck.py`, which fails on the prohibitions. The judgment half reads the
+chapter against the six craft criteria in `AIOM_Voice_and_Craft_v1.md` and
+records a finding per criterion, not a single verdict. The criteria appear as
+sub-checkboxes in the generated checklist, so `status_check.py` fails a Stage 4
+marked passed with one left open and unexplained. The craft standard binds from
+Stage 0, at drafting time; Stage 4 is where it is verified, not where it is first
+consulted.
 
 **Process v1 to v2 mapping**, for reading records written before 2026-08-01:
 Stages 0 and 1 and gates G1, G2, G3 are unchanged. v1 Stage 2 (source and fact
@@ -233,6 +275,7 @@ can invalidate:
 | Figure order, geometry, or number (caption text unchanged) | Stage 5 design, G2 | dev, fact, voice |
 | Copy edit (typo, punctuation, no meaning change) | G2 | dev, fact, voice, design |
 | CSS or design system | Stage 5 design and G2, every chapter | dev, fact, voice |
+| Voice or craft standard change | Stage 4, every chapter not yet Locked | fact, design, G2, unless the re-run changes prose |
 | Structural (slot added, removed, reordered) | G1, then every downstream step | nothing |
 
 Status is single-sourced: the per-chapter checklist checkbox is authoritative,
@@ -279,6 +322,19 @@ figure-geometry, widow, and page-visual checks, outside the automated suite,
 passed a first-pass visual review and await Dan's final sign-off. Remaining to
 Lock: Stage 6 (copy edit), Stage 7 (final fact check 2), G3 (continuity gate),
 Stage 8 (final read), and Stage 9 (lock).
+
+**Chapter 1 Stage 4 is currently INCONSISTENT in `status_check.py`, by design and
+pending one ruling.** The voice and craft standard was adopted 2026-08-05, after
+Stage 4 cleared. Its six criteria are now sub-checkboxes under Stage 4 in the
+Chapter 1 checklist, and they are recorded open, so the gate reports a step
+marked passed with open sub-items. That report is accurate: the 2026-07-28 pass
+tested the prohibitions only. The craft read has been run against
+`AIOM_Ch01_Stage4_FINAL.html` and the chapter meets all six criteria as drafted,
+with no prose change required, so adoption costs nothing here. What is open is
+whether Chapter 1 adopts the standard (tick the six) or is grandfathered (mark
+the six with a stated "postdates" exception, as Stage 0 already is). Either
+resolution is a one-line edit and clears the gate. Chapter 1's Stage 4 metrics
+are the baseline band that Chapters 2 through 15 are read against.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is

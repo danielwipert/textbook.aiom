@@ -121,7 +121,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 6      | Process v2 numbering. Stages 0, 1, 2, 3, 4, 5 and gates G1, G2 all passed (8 of 13). G1 cleared 2026-07-29 (Decision 48 repealed the archival checks); Stage 2 developmental edit completed 2026-08-01 (D1 and D5 applied, D2, D3, D4, D6 closed no action); Stage 5 design and G2 passed 2026-08-01 on the 19-page render with the Figure 1.2 fix, eleven-check suite green. Remaining: Stage 6 copy edit, Stage 7 final fact check 2, G3 continuity gate, Stage 8 final read, Stage 9 lock. |
+| 1   | The Category Error             | Stage 6      | Process v2 numbering. Stages 0, 1, 2, 3, 4, 5 and gates G1, G2 all passed (8 of 13). G1 cleared 2026-07-29 (Decision 48 repealed the archival checks); Stage 2 developmental edit completed 2026-08-01 (D1 and D5 applied, D2, D3, D4, D6 closed no action); Stage 5 design and G2 passed 2026-08-01 on the 19-page render with the Figure 1.2 fix, eleven-check suite green. Stage 4 reports INCONSISTENT since 2026-08-05: the craft criteria postdate its pass and sit open pending one ruling (adopt or grandfather). The craft read is run and the chapter meets all six as drafted. Remaining: Stage 6 copy edit, Stage 7 final fact check 2, G3 continuity gate, Stage 8 final read, Stage 9 lock. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
@@ -230,6 +230,23 @@ Decisions 22 onward live here.
   subscriber counts in the 10-Q. Standing principle: a first-party disclosure
   published by the party that holds the data is a primary source, and where no
   filing carries it, capture governs durability rather than a stronger form.
+
+- **Decision 52. RULED 2026-08-05.** The voice standard gains a positive half.
+  `AIOM_Voice_and_Craft_v1.md` extracts four transferable techniques from named
+  exemplars (the concrete particular from Michael Lewis, context and stakes from
+  James Lardner, sentence economy from the Financial Times, paragraph
+  architecture from The New Yorker), carries an explicit guard against the
+  registers those exemplars arrive with, and reduces to six criteria C1 through
+  C6. Enforcement is four-layered, all four ruled together: the criteria are
+  sub-checkboxes under Stage 4 so `status_check.py` fails a Stage 4 marked passed
+  with one left open; the standard binds from Stage 0 at drafting time, with a
+  Stage 0 acknowledgment box; `voicecheck.py` prints advisory craft metrics
+  proxying C1, C3, C4, and C5, permanently advisory and never a threshold; and
+  worked before-and-after exemplars are carried in the standard file, drawn from
+  Chapter 1. Stage 4 is renamed the voice and craft check. Rationale: the
+  standing rules were entirely prohibitive, and prose can break none of them and
+  still be dead on the page. C2 and C6 have no mechanical proxy and are enforced
+  by reading alone, which is stated rather than papered over.
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
@@ -518,6 +535,8 @@ File handling rules:
 ## Standing rules (do not violate)
 - No em dashes anywhere. Rewrite with commas, colons, periods, parentheses.
 - Every empirical claim cited or cut.
+- The six craft criteria in AIOM_Voice_and_Craft_v1.md bind from Stage 0, at
+  drafting time, and are verified at Stage 4. Read the file before drafting.
 - Fixed six-slot skeleton in all 15 chapters, no exceptions. The source
   register is apparatus, not a slot.
 - Registry justifies the book; it does not organize it.

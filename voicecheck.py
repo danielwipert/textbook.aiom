@@ -1,20 +1,41 @@
 #!/usr/bin/env python3
 """
-Stage 3 voice check. AIOM.
+Stage 4 voice and craft check. AIOM.
 
-Magisterial register, mechanically testable parts:
+Two halves, and only the first decides anything.
+
+MECHANICAL (pass or fail). Magisterial register, testable parts:
   - zero em dashes
   - zero contractions
   - zero question marks outside discussion prompts
   - third person in body prose; first or second person only inside
     marked voiced material (Decision 42)
 
+CRAFT METRICS (advisory, always). Proxies for four of the six craft criteria
+in AIOM_Voice_and_Craft_v1.md:
+  - sentence length distribution and longest uniform run   -> C4 rhythm
+  - throat-clearing openers                                -> C3 economy
+  - concrete-particular density                            -> C1 particulars
+  - copula rate and nominalization density                 -> C3 economy
+  - paragraphs closing on a trailing qualifier             -> C5 close
+
+These numbers never fail a run and never will. They are proxies, and a proxy
+optimized against has stopped measuring. They inform the Stage 4 read; the
+checklist criteria decide it. C2 (context and stakes) and C6 (the guard) have
+no proxy here and are enforced by reading alone.
+
+Chapter 1 sets the baseline band. Later chapters are read against it rather
+than against an absolute threshold, because a craft-heavy chapter and a
+proof-heavy chapter do not carry the same numbers.
+
 Voiced material is marked either by a block class (model, dq, problem)
-or by enclosing quotation marks.
+or by enclosing quotation marks. It is excluded from the craft metrics.
 
 Usage: python3 voicecheck.py AIOM_ch01.html
 """
+import html
 import re
+import statistics
 import sys
 
 VOICED_CLASSES = ("model", "dq", "dq-b", "dq-n", "dq-list", "problem")
@@ -45,11 +66,8 @@ def in_span(pos, spans):
     return any(a <= pos <= b for a, b in spans)
 
 
-def analyse(path):
-    raw = open(path, encoding="utf-8").read()
-    lines = raw.split("\n")
-
-    # Track whether each line sits inside a voiced block, by div depth.
+def voiced_lines(lines):
+    """Which lines sit inside a voiced block, tracked by div depth."""
     inside = [False] * (len(lines) + 1)
     depth = 0
     voiced_at = None
@@ -65,6 +83,13 @@ def analyse(path):
         depth -= closes
         if voiced_at is not None and depth < voiced_at:
             voiced_at = None
+    return inside
+
+
+def analyse(path):
+    raw = open(path, encoding="utf-8").read()
+    lines = raw.split("\n")
+    inside = voiced_lines(lines)
 
     findings = {"emdash": [], "contraction": [], "question": [], "person": []}
 
@@ -96,6 +121,167 @@ def analyse(path):
     return findings
 
 
+# --------------------------------------------------------------------------
+# Craft metrics. Advisory only. See the module docstring.
+# --------------------------------------------------------------------------
+
+# Paragraphs shorter than this are apparatus (definition asides, captions,
+# key-term glosses, stubs) rather than teaching prose, and are not measured.
+MIN_PARA_WORDS = 20
+
+THROAT = re.compile(
+    r"^(it is (important|worth) (to note|noting)|it should be noted"
+    r"|it is worth noting|note that|it is clear that|it is interesting"
+    r"|in this (section|chapter)|this (section|chapter) (will|examines|looks)"
+    r"|as (we|the reader) (will|shall) see|before (we|turning)"
+    r"|there (is|are) (a|an|no|some|several|many)\b"
+    r"|one (might|could|may) (say|argue|note))",
+    re.I,
+)
+
+# A closing clause that lets the air out of the paragraph: the final
+# comma-clause opens on a subordinator, a concessive, or a participle.
+TRAILING_QUALIFIER = re.compile(
+    r",\s+(which|although|though|while|since|because|unless|whereas|albeit"
+    r"|however|except|given that|rather than|if\s|assuming|depending"
+    r"|\w+ing)\b[^,]*[.!?]?$",
+    re.I,
+)
+
+COPULA = re.compile(r"\b(is|are|was|were|be|been|being)\b", re.I)
+NOMINAL = re.compile(r"\b\w{4,}(tion|tions|ment|ments|ance|ence|ity|ities)\b",
+                     re.I)
+NUMERAL = re.compile(r"\b\d[\d,.]*\b")
+# Capitalized word not opening a sentence: a proper-noun proxy.
+PROPER = re.compile(r"(?<![.!?]\s)(?<!^)\b[A-Z][a-z]{2,}\b")
+
+ABBREV = re.compile(r"\b(No|Dr|Mr|Ms|Mrs|Prof|St|vs|etc|Fig|Ch|pp|Inc|Co|Ltd"
+                    r"|e\.g|i\.e)\.$")
+
+
+def body_paragraphs(path):
+    """Teaching-prose paragraphs, with voiced blocks and apparatus removed."""
+    raw = open(path, encoding="utf-8").read()
+    lines = raw.split("\n")
+    inside = voiced_lines(lines)
+    kept = [ln for i, ln in enumerate(lines, 1) if not inside[i]]
+    doc = "\n".join(kept)
+    doc = re.sub(r"(?s)<(script|style|svg)\b.*?</\1>", " ", doc)
+
+    paras = []
+    for m in re.finditer(r"(?s)<p\b[^>]*>(.*?)</p>", doc):
+        text = re.sub(r"(?s)<[^>]+>", " ", m.group(1))
+        text = html.unescape(text)
+        text = re.sub(r"\[[a-z0-9\-+ ]+\]", " ", text)   # citation keys
+        text = re.sub(r"\s+", " ", text).strip()
+        if len(text.split()) >= MIN_PARA_WORDS:
+            paras.append(text)
+    return paras
+
+
+def sentences(text):
+    """Split on terminal punctuation, protecting decimals and abbreviations."""
+    t = re.sub(r"(\d)\.(\d)", lambda m: m.group(1) + "\x00" + m.group(2), text)
+    parts = re.split(r"(?<=[.!?])\s+", t)
+    out, buf = [], ""
+    for part in parts:
+        cand = (buf + " " + part).strip() if buf else part
+        if ABBREV.search(part.rstrip()):
+            buf = cand
+            continue
+        buf = ""
+        out.append(cand.replace("\x00", "."))
+    if buf:
+        out.append(buf.replace("\x00", "."))
+    return [s.strip() for s in out if s.strip()]
+
+
+def longest_uniform_run(lengths, spread=4):
+    """Longest stretch of consecutive sentences within `spread` words."""
+    best = best_at = 0
+    start = 0
+    for i in range(1, len(lengths) + 1):
+        window = lengths[start:i]
+        if max(window) - min(window) > spread:
+            start += 1
+            while max(lengths[start:i]) - min(lengths[start:i]) > spread:
+                start += 1
+        run = i - start
+        if run > best:
+            best, best_at = run, start
+    return best, best_at
+
+
+def craft_metrics(path):
+    paras = body_paragraphs(path)
+    if not paras:
+        print("CRAFT METRICS: no teaching-prose paragraphs found; skipped.")
+        return
+
+    sents, lengths = [], []
+    for p in paras:
+        for s in sentences(p):
+            sents.append(s)
+            lengths.append(len(s.split()))
+
+    words = sum(lengths)
+    per_k = lambda n: round(1000.0 * n / words, 1) if words else 0.0
+
+    print("CRAFT METRICS (advisory, never a pass or fail)")
+    print(f"  corpus: {len(paras)} paragraphs, {len(sents)} sentences, "
+          f"{words} words")
+
+    # C4, rhythm.
+    run, at = longest_uniform_run(lengths)
+    print("  [C4 rhythm]")
+    print(f"         sentence words  mean {statistics.mean(lengths):.1f}  "
+          f"median {statistics.median(lengths):.0f}  "
+          f"stdev {statistics.pstdev(lengths):.1f}  "
+          f"min {min(lengths)}  max {max(lengths)}")
+    short = sum(1 for n in lengths if n < 12)
+    long_ = sum(1 for n in lengths if n > 35)
+    print(f"         short (<12w) {100.0*short/len(lengths):.0f}%   "
+          f"long (>35w) {100.0*long_/len(lengths):.0f}%")
+    print(f"         longest uniform run: {run} consecutive sentences "
+          f"within 4 words")
+    if run >= 6:
+        print(f"           starts: {sents[at][:70]}")
+
+    # C3, economy.
+    throat = [s for s in sents if THROAT.match(s)]
+    copulas = sum(len(COPULA.findall(s)) for s in sents)
+    nominals = sum(len(NOMINAL.findall(s)) for s in sents)
+    print("  [C3 economy]")
+    print(f"         throat-clearing openers: {len(throat)}")
+    for s in throat[:5]:
+        print(f"           {s[:70]}")
+    print(f"         copulas per 100 words: {100.0*copulas/words:.1f}")
+    print(f"         nominalizations per 1,000 words: {per_k(nominals)}")
+
+    # C1, concrete particulars.
+    numerals = sum(len(NUMERAL.findall(s)) for s in sents)
+    propers = sum(len(PROPER.findall(s)) for s in sents)
+    print("  [C1 particulars]")
+    print(f"         numerals per 1,000 words: {per_k(numerals)}")
+    print(f"         proper nouns per 1,000 words: {per_k(propers)}")
+
+    # C5, paragraph close.
+    weak = []
+    for i, p in enumerate(paras):
+        ss = sentences(p)
+        if ss and TRAILING_QUALIFIER.search(ss[-1]):
+            weak.append((i, ss[-1]))
+    print("  [C5 close]")
+    print(f"         paragraphs closing on a trailing qualifier: "
+          f"{len(weak)} of {len(paras)}")
+    for i, s in weak[:5]:
+        tail = s[-70:]
+        print(f"           P{i}  ...{tail}")
+
+    print("  [C2 context and stakes] no proxy exists. Read for it.")
+    print("  [C6 the guard]          no proxy exists. Read for it.")
+
+
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else "AIOM_ch01.html"
     f = analyse(path)
@@ -115,7 +301,12 @@ def main():
         for line_no, token, ctx in hits:
             print(f"         L{line_no}  [{token}]  {ctx}")
     print()
-    print("STAGE 3 MECHANICAL:", "FAIL" if failed else "PASS")
+    print("STAGE 4 MECHANICAL:", "FAIL" if failed else "PASS")
+    print()
+    craft_metrics(path)
+    print()
+    print("Craft criteria C1 to C6 are ruled on the Stage 4 checklist, not "
+          "here.")
     return 1 if failed else 0
 
 

@@ -33,9 +33,14 @@ STATUS_RE = re.compile(r"^Status:\s*\[( |x|~|!)\]\s*Date cleared:\s*(.*)$")
 MARK = {" ": "open", "x": "passed", "~": "in-prog", "!": "FAILED"}
 SUBBOX_RE = re.compile(r"^- \[( |x)\]\s*(.+)$")
 # a sub-item may be left open on a passed step only if it is labelled a known
-# exception: a coverage gap, a manual eyeball, or a first-pass note
+# exception: a coverage gap, a manual eyeball, a first-pass note, or a criterion
+# that postdates the step it sits under. The last case exists because a standard
+# adopted after a step passed cannot be retroactively satisfied by that step: a
+# chapter already drafted cannot be re-drafted against a later craft standard.
+# It is an exception with a stated reason, not a waiver, and it must name where
+# the criterion is picked up instead.
 EXCEPTION_RE = re.compile(r"\b(gap|manual|eyeball|first-pass|do before|"
-                          r"not automated|sign-off)\b", re.I)
+                          r"not automated|sign-off|postdates|predates)\b", re.I)
 
 
 def parse(path):

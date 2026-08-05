@@ -35,9 +35,16 @@ Status: [x]        Date cleared: 2026-07-28
 
 > Against the chapter outline and the fixed six-slot skeleton. Sources archived at drafting time.
 
+- [ ] Drafted against the six craft criteria (AIOM_Voice_and_Craft_v1.md), read before drafting rather than after. Criterion postdates this draft by eight days and cannot be satisfied retroactively; craft for Chapter 1 is assessed at Stage 4 instead. Binding from Chapter 2 forward.
+
 Findings:
 
 Draft complete, 4,557 words, 167 lines.
+
+CRAFT STANDARD ADOPTED 2026-08-05, after this stage cleared. The criterion above
+is recorded open with a stated reason rather than ticked, because a chapter
+already drafted cannot be re-drafted against a later standard. Chapter 2 is the
+first chapter for which this box is a live drafting requirement.
 
 ---
 
@@ -468,17 +475,95 @@ version.
 
 ---
 
-## Stage 4. Voice check
+## Stage 4. Voice and craft check
 
 Owner: Claude
 
 Status: [x]        Date cleared: 2026-07-28
 
-> Magisterial register: third person, no contractions, no em dashes, no rhetorical questions outside discussion prompts, no hedging. Also checks over-explanation below the reader baseline and under-explanation above it.
+> Two halves. The mechanical half is voicecheck.py. The judgment half is the six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. voicecheck.py prints advisory craft metrics proxying C1, C3, C4, and C5; the metrics inform the read and never decide it. C2 and C6 have no proxy and are enforced by reading alone.
+
+- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [ ] C3 front-loaded sentences: findings lead, qualifications subordinate, no throat-clearing openers
+- [ ] C4 deliberate rhythm: sentence length varies, no long stretch at a uniform length
+- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier
+- [ ] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
 
 Findings:
 
-STAGE 3 PASSED 2026-07-28, against AIOM_ch01.html. Run with voicecheck.py.
+CRAFT HALF ADDED 2026-08-05. The six criteria above postdate the 2026-07-28
+pass, which tested the prohibitions only. The craft read below has been RUN but
+the boxes are deliberately left OPEN, because whether Chapter 1 adopts the new
+standard or is grandfathered is Dan's ruling and it is not yet made.
+status_check.py will report Stage 4 as FAILED until that ruling lands. The
+failure is accurate, not a defect: this step is marked passed against a standard
+that has since changed.
+
+Resolution is one action either way. Adopt: tick the six boxes on the strength
+of the read below, no prose change required. Grandfather: mark the six with a
+stated "postdates" exception, as Stage 0 above is marked.
+
+CRAFT READ, 2026-08-05, against AIOM_Ch01_Stage4_FINAL.html.
+
+Metrics (advisory): 43 paragraphs, 225 sentences, 3,992 words of teaching prose.
+Sentence words mean 17.7, median 15, stdev 10.5, range 3 to 61. Short sentences
+under twelve words 32 percent, long over thirty-five 6 percent. Longest uniform
+run 4 sentences. Throat-clearing openers 1. Copulas 4.0 per 100 words.
+Nominalizations 50.6 per 1,000. Numerals 9.5 per 1,000, proper nouns 12.3 per
+1,000. Paragraphs closing on a trailing qualifier 4 of 43. THIS IS THE BASELINE
+BAND. Chapters 2 through 15 are read against these numbers.
+
+C1, concrete particular. MET, and strongly. The opening case anchors the mental
+model claim in "filed next to the ticketing system and the design software and
+the password manager" rather than asserting it. The steel analogy in 1.4 gives
+the five practices a physical referent. Particular density is high and correctly
+distributed: the numerals cluster in the dated cases and the craft artifact, and
+the teaching body carries its particulars structurally, which is what the
+fifty-year rule requires.
+
+C2, context and stakes. MET, and this is the chapter's strongest craft feature.
+"It would be a mistake to read those absences as negligence. They are
+inheritance." The passage explains the mechanism, states the condition that
+produced it (three decades of licensed-software procurement), forecloses the
+wrong reading, and says what the finding settles. Section 1.4's transition from
+category to discipline does the same at chapter scale. No finding.
+
+C3, front-loaded sentences. MET with one judgment item. The single flagged
+opener is "There is a strong objection to everything said so far, and it deserves
+to be stated at full strength rather than in a weakened form built to be knocked
+down." It is a genuine throat-clear by the letter of the metric, and it is also
+doing deliberate work: it is the sentence that commits the book to steelmanning
+before the objection arrives. RECOMMEND NO CHANGE. Recorded so the metric's one
+hit is explained rather than silently tolerated.
+
+C4, deliberate rhythm. MET. A stdev of 10.5 against a mean of 17.7, with a third
+of sentences under twelve words and a longest uniform run of four, is varied
+prose. "The shared feature is what broke." lands at six words after a
+thirty-word setup. No finding.
+
+C5, paragraph close. MET. Four flags, and on inspection all four are proxy false
+positives: each closing clause is the load-bearing one, not a qualifier letting
+the air out. "because nothing about a twenty-dollar seat asks to be thought
+about" is the point of the paragraph, not a hedge on it. Recorded as evidence
+that the C5 proxy over-reports on causal closes, which the next chapters should
+expect.
+
+C6, the guard holds. MET. "The buyers in these stories did not make an error of
+vendor selection. Cursor and Copilot were, and are, excellent tools. The buyers
+made an error of category." No provider is characterized as exploitative, no
+buyer as careless, and the causation is structural throughout. No finding.
+
+CRAFT READ VERDICT: Chapter 1 meets all six criteria as drafted. No prose change
+is required to adopt the standard. This was expected, since the standard was
+extracted partly from this chapter's own prose, and it means adoption costs
+nothing here. Ticking the boxes is the whole of the work, pending the ruling.
+
+---
+
+MECHANICAL HALF, PASSED 2026-07-28, against AIOM_ch01.html. Run with
+voicecheck.py. Re-run 2026-08-05 against AIOM_Ch01_Stage4_FINAL.html: all four
+still clean.
 
 MECHANICAL, all clean on re-run after edits:
 - Em dashes: 0.

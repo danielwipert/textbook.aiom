@@ -6,6 +6,10 @@
           {
             "type": "command",
             "command": "printf '===== SESSION HANDOFF (HANDOFF.md) =====\\nRead this plus CLAUDE.md before starting work. Update HANDOFF.md before ending the session.\\n\\n'; cat \"$CLAUDE_PROJECT_DIR/HANDOFF.md\" 2>/dev/null || echo '(HANDOFF.md not found)'"
+          },
+          {
+            "type": "command",
+            "command": "printf '\\n===== VOICE AND CRAFT CARD (AIOM_Voice_and_Craft_v1.md) =====\\nThe standing voice rules are prohibitions. These six are the positive half, and\\nthey bind from Stage 0, at drafting time, not from Stage 4. Read the full file\\nbefore drafting a chapter.\\n\\n  C1 Concrete particular. Abstractions carrying argumentative weight are\\n     anchored to a named, specific instance. Bounded by the fifty-year rule.\\n  C2 Context and stakes. State the conditions that made a mechanism available\\n     and what it settles, not only what it does. No mechanical proxy exists.\\n  C3 Front-loaded sentences. Findings lead, qualifications subordinate, no\\n     throat clearing.\\n  C4 Deliberate rhythm. Sentence length varies. No long stretch at one length.\\n  C5 Paragraph close. End on the load-bearing clause, not a trailing qualifier.\\n  C6 The guard holds. No hero or villain framing, no populist register, no\\n     character-driven causation where a structural account is available.\\n\\nBorrowed from Lewis, Lardner, the FT, and The New Yorker: the techniques only,\\nnever the registers. C6 is what keeps the registers out.\\n\\n'"
           }
         ]
       }

@@ -128,6 +128,10 @@ These are the exclusions because they either exist as fully served territories a
 
 **On the reader:** the book assumes an intelligent, busy, sceptical MBA-level reader who has read business books before and can tell when one is padded. The book does not condescend, does not repeat itself for reassurance, does not tell the reader what the chapter is about to say before saying it. Signposting is done through the fixed skeleton, not through prose.
 
+**Craft standard (added 2026-08-05):** the standing linguistic rules above are prohibitions, and prohibitions alone can produce prose that breaks no rule and is dead on the page. The positive standard lives in `AIOM_Voice_and_Craft_v1.md` and is binding at drafting time. It extracts four transferable techniques from named exemplars: the concrete particular (Michael Lewis), context and stakes (James Lardner), sentence economy (the Financial Times), and paragraph architecture (The New Yorker). It borrows the techniques and not the registers, and it carries an explicit guard against what those exemplars bring with them: no populism, no hero-and-villain framing, no character-driven causation where a structural account is available. The guard is load-bearing, because character-driven explanation is precisely what the standing rule against scolding providers already forbids.
+
+The standard reduces to six criteria (C1 concrete particular, C2 context and stakes, C3 front-loaded sentences, C4 deliberate rhythm, C5 paragraph close, C6 the guard holds). They appear verbatim as sub-checkboxes under Stage 4 of every chapter checklist, which makes an unaddressed criterion a mechanical failure in `status_check.py` rather than a silent omission. `voicecheck.py` prints advisory metrics that proxy C1, C3, C4, and C5. C2 and C6 have no proxy and are enforced by reading alone.
+
 ## B.3 The evidence policy (locked)
 
 Every empirical claim in the book must be one of:

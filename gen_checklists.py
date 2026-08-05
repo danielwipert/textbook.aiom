@@ -40,7 +40,13 @@ CHAPTERS = [
 STAGES = [
     ("0", "Draft", "Claude",
      "Against the chapter outline and the fixed six-slot skeleton. "
-     "Sources verified live with an access date; no archival (Decision 48).", []),
+     "Sources verified live with an access date; no archival (Decision 48). "
+     "The craft standard binds here, not only at Stage 4: read "
+     "AIOM_Voice_and_Craft_v1.md before drafting. Craft caught at Stage 4 is "
+     "a rewrite; craft applied at Stage 0 is free.", [
+         "Drafted against the six craft criteria "
+         "(AIOM_Voice_and_Craft_v1.md), read before drafting rather than after",
+     ]),
 
     ("G1", "Structural gate", "Claude",
      "Mechanical. Runs before Dan sees the chapter, so no reading time is "
@@ -72,11 +78,30 @@ STAGES = [
      "Every empirical claim traced to primary source. Runs after the "
      "developmental edit, so it checks prose that has stopped moving.", []),
 
-    ("4", "Voice check", "Claude",
-     "Magisterial register: third person, no contractions, no em dashes, no "
-     "rhetorical questions outside discussion prompts, no hedging. Also checks "
-     "over-explanation below the reader baseline and under-explanation above it.",
-     []),
+    ("4", "Voice and craft check", "Claude",
+     "Two halves. The mechanical half is voicecheck.py: magisterial register, "
+     "third person, no contractions, no em dashes, no rhetorical questions "
+     "outside discussion prompts, no hedging, plus over-explanation below the "
+     "reader baseline and under-explanation above it. The judgment half is the "
+     "six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. "
+     "voicecheck.py also prints advisory craft metrics proxying C1, C3, C4, and "
+     "C5; the metrics inform the read and never decide it. C2 and C6 have no "
+     "proxy and are enforced by reading alone. Record a finding per criterion, "
+     "not a single verdict.", [
+         "C1 concrete particular: every abstraction carrying argumentative "
+         "weight is anchored to a named, specific instance",
+         "C2 context and stakes: every mechanism states the conditions that "
+         "made it available and what it settles, not only what it does",
+         "C3 front-loaded sentences: findings lead, qualifications "
+         "subordinate, no throat-clearing openers",
+         "C4 deliberate rhythm: sentence length varies, no long stretch at a "
+         "uniform length",
+         "C5 paragraph close: paragraphs end on the load-bearing clause, not a "
+         "trailing qualifier",
+         "C6 the guard holds: no hero or villain framing, no populist "
+         "register, no character-driven causation where a structural account "
+         "is available",
+     ]),
 
     ("5", "Design review", "Claude",
      "Blocked until D0 closes. Layout, figures, typography, running heads, "
@@ -140,7 +165,8 @@ Gates are mechanical and stop the chapter where it stands. Passes are judgment.
 
 Standing rules at every stage: no em dashes; every empirical claim cited or
 cut; six-slot skeleton without exception; theorems are the only chapter
-anchoring callouts."""
+anchoring callouts; the six craft criteria in AIOM_Voice_and_Craft_v1.md bind
+from Stage 0 forward, not from Stage 4."""
 
 
 def render(number, title):

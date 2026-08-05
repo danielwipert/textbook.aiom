@@ -1,17 +1,18 @@
 # Session handoff
 
-Last updated: 2026-08-02. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-05. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session.
 
 ## Repository state
 
-Active working branch: `claude/handoff-markdown-workflow-p3ce5c`. As of this
-update `origin/main` is fast-forwarded to the same commit as this branch, so the
-two are synced and `main` reflects the full body of work. Keep them that way:
-when this branch advances, fast-forward `main` to match before ending the
-session. Verify state any time with:
+Active working branch: `claude/prose-voice-style-gxjkgj`. The previous branch,
+`claude/handoff-markdown-workflow-p3ce5c`, is fully merged into `main` and is
+done. This session's voice and craft work is committed and pushed to the new
+branch. `main` has NOT been fast-forwarded to it: the branch carries one open
+ruling (see thread 1), so it is held for Dan rather than merged. Verify state any
+time with:
 
 ```
 git status                         # working tree and branch
@@ -25,7 +26,8 @@ The whole documented file set is present: the specs (Consolidated, Addendum,
 Structure, Exit Competencies, Maturity Model, Case Bank, Northmoor Dataset design,
 Workplan v5, Validation Matrix), the design layer (AIOM_book.css v6.7 plus the
 audit-only rule, AIOM_DESIGN_SPEC v6.8, AIOM_Design_QA_Spec v1.3, AIOM_build.py
-v6.2, place.py, cite_format.py, footnotes.py, voicecheck.py), the fonts
+v6.2, place.py, cite_format.py, footnotes.py, voicecheck.py), the voice and craft
+standard (`AIOM_Voice_and_Craft_v1.md`, new 2026-08-05), the fonts
 (committed under `fonts/`, so rendering needs no network staging), the Northmoor
 capstone dataset (`Northmoor/`), the Chapter 1 artifacts under
 `Drafts/Ch01_The_Category_Error/`, and `archive/` for superseded and variant
@@ -40,7 +42,8 @@ original v1 numbers.
 Through the production gate: 8 of 13 steps passed. Passed: Stage 0 draft, G1,
 Stage 1 content review, Stage 2 developmental edit, Stage 3 source and fact check
 1, Stage 4 voice, Stage 5 design, G2 (all eleven automated gates green on the
-19-page render). Stage 2 completed 2026-08-01: all six developmental findings
+19-page render). Stage 4 now reports INCONSISTENT in `status_check.py`, by design
+and pending one ruling: see thread 1. Stage 2 completed 2026-08-01: all six developmental findings
 ruled. D1 (1.4 signpost and tighten) and D5 (theorem aside tightened) were
 applied, and their Stage 4, Stage 5, and G2 re-runs are green; D2, D3, D4, and D6
 closed with no action. No empirical claim changed, so the Stage 3 fact surface
@@ -50,13 +53,26 @@ lock. Dan's final visual sign-off on the rendered pages is still open.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 to Lock, Dan's remaining passes.** With the developmental edit
+1. **RULING OPEN: does Chapter 1 adopt the craft standard, or is it
+   grandfathered?** This is the one thing blocking a clean `status_check.py`, and
+   it is a one-line edit either way. The voice and craft standard was adopted
+   2026-08-05 (Decision 52), after Chapter 1's Stage 4 had already passed. Its six
+   criteria are now sub-checkboxes under Stage 4 and are recorded OPEN, so the
+   gate correctly reports a step marked passed with unaddressed sub-items. The
+   craft read has been run against `AIOM_Ch01_Stage4_FINAL.html` and Chapter 1
+   meets all six criteria as drafted, with NO prose change required, so adoption
+   is free. Adopt: tick the six boxes in the Chapter 1 checklist. Grandfather:
+   mark the six with a stated "postdates" exception, as Stage 0 in that file
+   already is. Chapter 1's Stage 4 metrics are the baseline band for Chapters 2
+   through 15, so adopting is the recommendation.
+
+2. **Chapter 1 to Lock, Dan's remaining passes.** With the developmental edit
    done, the front is Dan's external work: Stage 6 copy edit, Stage 7 final fact
    check 2, and Stage 8 final read, with G3 (continuity gate, Claude-owned)
    between and Stage 9 lock last. Dan's final visual sign-off on the 19-page
    render is also still open. Stages 6 through 8 may run in one sitting.
 
-2. **Process-hardening items still to build** (Dan approved these):
+3. **Process-hardening items still to build** (Dan approved these):
    - Item 4: close the automated-gate holes (figure validation, widow and orphan
      detection, bottom-margin check) in AIOM_build.py, and finish the hermetic
      build. Fonts are done, but a fresh session confirmed that the Python build
@@ -75,11 +91,26 @@ lock. Dan's final visual sign-off on the rendered pages is still open.
    - Item 6 (scoped re-run matrix) and the developmental stage are DONE in
      CLAUDE.md section 8.
 
-3. **Chapter 2 (The Flow)** is the next drafting target and is unblocked.
+4. **Chapter 2 (The Flow)** is the next drafting target and is unblocked. It is
+   the first chapter drafted under the craft standard: read
+   `AIOM_Voice_and_Craft_v1.md` BEFORE drafting, not after. Its Stage 0
+   acknowledgment box is a live requirement, unlike Chapter 1's.
 
 ## Standing reminders
 
 - No em dashes anywhere, including commit messages. A build gate enforces it.
+- The craft standard binds at Stage 0, at drafting time, not at Stage 4. Craft
+  caught at Stage 4 is a rewrite; craft applied at Stage 0 is free. A SessionStart
+  hook prints the six-criterion card into context alongside this file.
+- `voicecheck.py` now prints advisory craft metrics after the mechanical result.
+  They are proxies and permanently advisory. Do not turn them into thresholds:
+  C5 in particular over-reports, flagging four strong causal closes in Chapter 1
+  as weak. C2 and C6 have no proxy at all and are enforced by reading.
+- Do NOT run `gen_checklists.py` in the repo root without cleaning up after it.
+  It writes fifteen fresh checklists to `checklists/`, including a stub Ch01 that
+  would fork against the live Chapter 1 checklist under
+  `Drafts/Ch01_The_Category_Error/`. Generate to a scratch directory to inspect
+  its output.
 - A fresh session has neither the Python build deps nor poppler installed. Before
   building, run `pip install weasyprint pdfplumber pdf2image pillow openpyxl
   fonttools` and `apt-get update -qq && apt-get install -y poppler-utils`
@@ -96,5 +127,5 @@ lock. Dan's final visual sign-off on the rendered pages is still open.
 - The chapter HTML is the single source of truth (Decision 50). Edit it directly;
   do not write chapter prose to markdown and never fork a chapter into a second
   live text.
-- Develop on `claude/handoff-markdown-workflow-p3ce5c`, then fast-forward `main`
-  to match before ending the session so `main` stays current.
+- Develop on `claude/prose-voice-style-gxjkgj`. Fast-forward `main` to match once
+  thread 1 is ruled and `status_check.py` is clean, not before.
