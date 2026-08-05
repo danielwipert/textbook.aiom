@@ -57,19 +57,33 @@ differently.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 is re-drafted; G1 is next.** Stage 0 passed 2026-08-05.
+1. **Chapter 1 is re-drafted and through G1. STAGE 1 IS NEXT AND IT IS DAN'S.**
+   Stage 0 and G1 both passed 2026-08-05.
    `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html` is the
-   LIVE TEXT and supersedes the Stage 4 render. 5,922 words, 1/13 steps, STATUS
-   CONSISTENT. The next step is G1 (structural gate, Claude), then Stage 1
-   content review, which is Dan's.
+   LIVE TEXT and supersedes the Stage 4 render. 5,949 words, 2/13 steps, STATUS
+   CONSISTENT. Stage 1 is the content review: is this the right chapter, not is
+   it true. Structural findings only, no line edits.
 
-   ONE CONTENT QUESTION FOR STAGE 1: the F1 fix removed the name "FinOps" from
+   G1 CAUGHT A REAL FAILURE, now fixed: the re-draft had put the published agent
+   count 5,172 into the prose, breaking a 2026-07-29 ruling that reserves the
+   precise figure for Chapter 6 and requires Chapter 1 to say "on the order of
+   five thousand agents." The fuller ruling lives in the chapter's own source
+   register, not in AIOM_Source_Ledger.md, whose summary note carries only "CITE
+   THE PUBLISHED FIGURES" without the Chapter 1 restriction. READ THE IN-CHAPTER
+   REGISTER NOTES, not just the ledger summary. The F2 arithmetic gain survives
+   on a stipulated round five thousand.
+
+   TWO QUESTIONS FOR STAGE 1. First, the F1 fix removed the name "FinOps" from
    section 1.4, because the three claims around it were unsourced empirical
    statements about the current state of practice and the evidence policy allows
    only cite, conditionalize, or cut. The passage is now a structural account of
    why no practice owns the resource. The Consolidated Spec says the book engages
    FinOps by name, and Chapter 14 holds the boundary treaty and the cited CB2
-   material. Flagged for Dan, not decided.
+   material. Flagged for Dan, not decided. Second, whether the 2026-07-29
+   ruling on the agent count should be revisited: its reasoning was that a
+   precise count above a stipulated inventory would falsely signal the whole
+   inventory is reported, and the re-draft now labels the stipulation three
+   times over. Until Dan rules, the ruling stands as written.
 
 2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan
@@ -118,6 +132,9 @@ differently.
   exits 2, rather than tracebacking partway through the gates. A gate that did
   not run is not a gate that passed. The 403s from unrelated third-party PPAs
   during that apt-get are harmless.
+- Source register notes inside a chapter's own Decision 51 block can carry
+  rulings that AIOM_Source_Ledger.md's summary does not. G1 found one this way.
+  Read the in-chapter note before using a figure from a cited study.
 - The continuity ledger EXISTS as of 2026-08-05: `AIOM_Continuity_Ledger.md`
   plus `continuity.py` (gate G3, seven checks). It holds no entries yet, which
   is correct: entries are appended at Stage 9 by `continuity.py --update` and no

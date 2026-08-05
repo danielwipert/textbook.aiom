@@ -5,14 +5,15 @@ Editorial checklist.
 Markers: `[ ]` not started, `[~]` in progress, `[x]` passed, `[!]` failed.
 
 Stages run in order. A chapter is not Locked until every stage above has
-passed. Stages 5, 6, and 7 are all external and may be run in one sitting.
+passed. Stages 6, 7, and 8 are all external and may be run in one sitting.
 Stage 1 may not be batched with them: it runs early or it is worthless.
 
 Gates are mechanical and stop the chapter where it stands. Passes are judgment.
 
 Standing rules at every stage: no em dashes; every empirical claim cited or
 cut; six-slot skeleton without exception; theorems are the only chapter
-anchoring callouts.
+anchoring callouts; the six craft criteria in AIOM_Voice_and_Craft_v1.md bind
+from Stage 0 forward, not from Stage 4.
 
 ---
 
@@ -71,8 +72,8 @@ Draft complete, 4,557 words, 167 lines.
 
 RE-DRAFT COMPLETE 2026-08-05. `00_Stage0_Draft/AIOM_Ch01_redraft.html` is the
 live text for Chapter 1 and supersedes the Stage 4 render, which is now history.
-5,922 words, inside the 5,000 to 6,000 band (Decision 33) with 78 words of
-headroom deliberately left for Stage 2 and Stage 4. Six slots present and in
+5,949 words after the G1 fix below, inside the 5,000 to 6,000 band (Decision 33)
+with 51 words of headroom left for Stage 2 and Stage 4. Six slots present and in
 order. Sources unchanged: the same nine cleared keys, spliced verbatim with the
 Decision 51 source block, so no citation is new and none was invented.
 
@@ -89,12 +90,13 @@ than a patch. Changes answering the archived Stage 4 findings:
   Consolidated Spec says the book engages FinOps by name, and Chapter 14 is where
   the boundary treaty and the cited CB2 material live. Flagged, not decided.
 - F2 (C1, no arithmetic in the craft artifact). Step 4 now works the numbers.
-  Against 5,172 seats, with stipulated and labelled volumes, the deployment bills
-  roughly 56.5 million consumption events a month, about 10,900 behind every
-  seat. The paragraph then states that changing any stipulated figure moves the
-  total while the seat count moves for none of them, which is the actual point.
-  The published agent count 5,172 replaces "on the order of five thousand"
-  throughout, per the S-003 ledger note.
+  Against a stipulated five thousand seats, the deployment bills roughly 54.6
+  million consumption events a month, about 10,900 behind every seat. The
+  paragraph then states that changing any stipulated figure moves the total while
+  the seat count moves for none of them, which is the actual point.
+  SUPERSEDED WITHIN THIS STAGE: this draft first used the published count 5,172,
+  which broke a standing source ruling. G1 caught it. See the G1 findings; the
+  arithmetic gain survives, the precise figure does not.
 - F3 (C3). "A word on the borders of the subject" is cut. 1.5 opens on the
   finding. Throat-clearing openers: 1 to 0.
 - F4 (C5, systematic). All four cross-reference closes are gone: 0 of 44.
@@ -129,10 +131,9 @@ slot label at the foot of page 12. That is break control, so it belongs to Stage
 5, and fixing it at Stage 0 would be doing design work in a drafting stage.
 Everything else in the fourteen-gate suite is green on the re-draft.
 
-CRAFT STANDARD ADOPTED 2026-08-05, after this stage cleared. The criterion above
-is recorded open with a stated reason rather than ticked, because a chapter
-already drafted cannot be re-drafted against a later standard. Chapter 2 is the
-first chapter for which this box is a live drafting requirement.
+The craft-criteria box above is ticked on the strength of this re-draft, which
+is the first Chapter 1 draft written with the standard in hand rather than
+audited against it afterwards.
 
 ---
 
@@ -140,202 +141,85 @@ first chapter for which this box is a live drafting requirement.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-05
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
-- [ ] All six slots present, in order, correctly headed
-- [ ] Opening case carries a provenance line under its title
-- [ ] Every exit competency assigned to this chapter is addressed
-- [ ] Every registry ID cited resolves against Locked Registry v1.3
-- [ ] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
-- [ ] Every empirical claim carries a citation
-- [ ] Source upgrade checked: most durable available form selected
-- ~~Every perishable source captured to the Wayback Machine~~ REPEALED, D48
-- ~~Every source filed in the local dark archive, named to the citation~~ REPEALED, D48
-- [ ] Every register entry carries original URL and access date
-- [ ] Every Slot 5 key term appears defined in the body
-- [ ] Zero em dashes
-- [ ] Word count inside the chapter target band
-- [ ] Gloss-less lemmas carry a book-authored gloss, marked as such
+- [x] All six slots present, in order, correctly headed
+- [x] Opening case carries a provenance line under its title
+- [x] Every exit competency assigned to this chapter is addressed
+- [x] Every registry ID cited resolves against Locked Registry v1.3
+- [x] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
+- [x] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
+- [x] Every Slot 5 key term appears defined in the body
+- [x] Zero em dashes
+- [x] Word count inside the chapter target band
+- [x] Gloss-less lemmas carry a book-authored gloss, marked as such
 
 Findings:
 
-ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+G1 PASSED 2026-08-05 on the re-draft, after one real failure was found and
+fixed. Run mechanically against
+`00_Stage0_Draft/AIOM_Ch01_redraft.html`. All ten checks green on re-run.
 
-G1 FAILED on 3 of 10. Verified 2026-07-28 against the draft and Registry v1.3.
+    1.  six slots, in order ......... PASS   5 teaching sections, 1.1 to 1.5
+    2.  opening-case provenance .... PASS
+    3.  competency C1 addressed .... PASS   3/3 markers
+    4.  registry IDs resolve ....... PASS   THM-009, statement verbatim vs v1.3
+    5.  tier rules ................. PASS   1 theorem callout, 0 lemmas, 0 props
+    6.  citations and access dates . PASS   11 keys cited, all in register
+    7.  key terms named in body .... PASS   7 of 7
+    8.  em and en dashes ........... PASS   0
+    9.  word count ................. PASS   5,949 (band 5,000 to 6,000)
+    10. gloss-less lemma glosses ... PASS   no lemma cited, none required
 
-PASS
-- Six slots present and correctly ordered, plus a working sources appendix.
-- Competency C1 addressed: 1.1, 1.2, and 1.3 map to it directly.
-- THM-009 resolves. Quoted text matches the registry formal_statement verbatim.
-- Tier rules hold: exactly one theorem callout, no lemmas or propositions cited.
-- Zero em dashes across the whole file.
-- No gloss-less lemma cited, so no gloss required.
+FAILURE FOUND AND FIXED: the re-draft violated a standing source ruling.
 
-FAIL 1. No provenance line under the opening case title. The draft carries a
-status note under the chapter title instead. Provenance lines under opening case
-titles are a locked design element.
+Check 6 surfaced brynjolfsson-2025-genai, and reading its register note to
+settle the question turned up a ruling of 2026-07-29 that the Stage 0 re-draft
+had broken. The note reads: the worked example is labelled a stylized
+application rather than bound to the study's parameters, "on the reasoning that
+a precise agent count above a stipulated inventory would falsely signal that the
+whole inventory is reported. Chapter 1 therefore says on the order of five
+thousand agents and states no productivity figure at all." The published figure
+5,172 is reserved for Chapter 6, where the study is reported rather than adapted.
 
-FAIL 2. Sources cited but not archived. All five carry the marker "Primary
-source to be archived at citation pass; chase-list item." Archiving was
-explicitly deferred at drafting. It has to close before stage 2.
+The re-draft had put 5,172 into the prose in four places, on the strength of the
+shorter summary note in AIOM_Source_Ledger.md, which says only "CITE THE
+PUBLISHED FIGURES" without carrying the Chapter 1 restriction. The fuller ruling
+lives in the chapter's own source register. CD4 states that a reopen resets
+steps, not rules, so the ruling stood and the re-draft was wrong.
 
-FAIL 3. Key term "Meter relocation" is defined in Slot 5 but the phrase never
-appears in the body. Section 1.3 argues the concept without naming it. Either
-name it in 1.3 or drop it from the register.
+Fixed: the prose returns to "on the order of five thousand agents," the Step 4
+arithmetic now stipulates a round five thousand and says so, and the citation
+footnote states explicitly that the event architecture and volumes are
+stipulated and not reported by the study. Body prose now contains zero
+occurrences of 5,172; the only one left is the Chapter 6 instruction inside the
+source register, which is where it belongs. The F2 craft gain survives intact:
+25.2 million suggested-reply generations, 25.2 million retrievals, 4.2 million
+close operations, roughly 54.6 million consumption events a month, about 10,900
+behind every seat. Arithmetic verified: 5,000 x 40 x 6 x 21 = 25,200,000;
+5,000 x 40 x 21 = 4,200,000; total 54,600,000; 54,600,000 / 5,000 = 10,920.
 
-RESOLVED 2026-07-28 in draft v2 (AIOM_Ch1_draft_v2.md):
-- Provenance line added under the opening case title.
-- "Meter relocation" now named in 1.3; key term no longer orphaned.
-- Section 1.4 expanded to the spec outline: supply-chain analogy in its timeless
-  form, the three absences, absence as inheritance rather than negligence, scale
-  as what ends the arrangement, and the stakes. Word count 4,557 to 5,216.
-- Decision 33 sets Ch1 and Ch2 at 5,000 to 6,000 words. 5,216 is in band.
-- Re-verified: zero em dashes, all seven key terms present in body.
+Word count moved 5,922 to 5,949 with the fix. Still in band, 51 words of
+headroom.
 
-~~G1 CLOSED 2026-07-28. All ten checks pass. Draft v2, 5,669 words.~~
+CORRECTION TO THE GATE, NOT THE CHAPTER. Check 6 first reported a failure
+because it required an access date on every cited source. Decision 48 rests
+durability on the access date for PERISHABLE sources; brynjolfsson-2025-genai
+carries `"perishable": false` and a DOI, and its note says plainly "Non-
+perishable: cited by DOI, so no access date is required." The check now tests
+perishable sources only and names the exempt ones in its output, so the
+exemption is visible rather than assumed. The checkbox wording is unchanged and
+still accurate.
 
-STRUCK 2026-07-28. That line was true against a ten-item gate. The gate now has
-fourteen items: Decisions 39, 40, 40a, and 41 appended four archiving checks
-after the line was written. Chapter 1 has never been run against those four.
-The Perma.cc wording in the checkbox above was also superseded by Decision 40a
-and has been reworded. G1 remains FAILED, on archiving only.
-
-VERIFIED 2026-07-28 by `python3 sources.py check` against AIOM_sources.json:
-
-    7 sources in the register
-    1 ready, 6 blocked
-    G1 cannot pass for any chapter citing a blocked source
-
-Nothing has been captured. The `sources_archive/` directory does not exist. The
-only ready source is brynjolfsson-2025-genai, which is marked non-perishable
-and carries a DOI, so it needs no capture. Every other source is blocked:
-
-- Five have no canonical URL at all: altman-2025-pro, anthropic-2025-limits,
-  github-2025-premium, github-2026-usage, microsoft-2026-q2. All five also carry
-  a pending upgrade note.
-- truell-2025-pricing has its URL but no Wayback link, no local copy, and no
-  access date.
-
-FURTHER DEFECT FOUND 2026-07-28, larger than the checkbox contradiction. The
-chapter is not wired to the register. AIOM_ch01.html contains zero
-`<cite src="...">` tags. It carries five hand-written `<span class="fn">`
-footnotes and one hand-written `<section class="sources">`, which are the output
-form that `sources.py build` generates, not the input form it consumes.
-Consequences:
-
-1. Decision 41, generated citations, is not in force for this chapter. The
-   apparatus was built but Chapter 1 never adopted it.
-2. Running `sources.py build AIOM_ch01.html` now would resolve zero citations
-   and append a second sources section, duplicating the one already there.
-3. The citations are a divergent second copy of the register. This is the same
-   failure mode as proof v14 against draft v2, and it will produce the same
-   result if left.
-4. The chapter asserts "Accessed July 28, 2026" six times. Per the capture
-   worksheet, those dates record verification against the live record, not
-   capture. The register overstates what has been done.
-
-SOURCE WORK COMPLETED 2026-07-28. Wiring done and upgrades resolved.
-
-Wiring: the chapter now carries five `<cite src="...">` tags resolving nine
-citations. The hand-written footnotes and the hand-written sources section are
-deleted. `sources.py build` generates both. The six false "Accessed July 28,
-2026" claims disappeared on their own, because the register holds no access
-dates. Nothing had to be remembered.
-
-Register grew from 7 sources to 9. Two second paths were added under the
-Decision 40 two-path standard.
-
-Upgrades, all resolved:
-
-- altman-2025-pro. Canonical post found. Snowflake ID decoded to settle the
-  date: posted 2025-01-05 19:11 US Pacific, which is 2025-01-06 03:11 UTC. The
-  book's January 5 is correct in US time and matches TechCrunch's same-day "on
-  Sunday" report, but X displays January 6 outside the Americas. Recorded in the
-  register so a fact checker explains it rather than "corrects" it. Second path
-  added.
-- anthropic-2025-limits. Canonical form is the X post, not a web page. Type
-  changed from web to social, which also removes the duplicated "Anthropic,
-  ... Anthropic" in the rendered note. Second path added, and it is not
-  optional: the chapter's clause about limits introduced quietly earlier in July
-  rests on it, not on the X post. That clause was previously uncited.
-- github-2025-premium. Resolved differently from the worksheet, which called
-  for a permalinked docs.github.com revision. A docs page describes the current
-  state; the claim is about a change on a date. The GitHub Changelog entry of
-  June 18, 2025 is the right artifact, and it matches the chapter's original
-  footnote wording, "premium-request billing changelog".
-- github-2026-usage. Canonical github.blog permalink found. No repo revision
-  exists, since it is a blog post rather than a docs page. The worksheet's
-  permalink advice applies to neither GitHub entry.
-- microsoft-2026-q2. See Decision 46.
-
-DECISION 46 (2026-07-28). Microsoft's IR transcript is accepted as the primary
-source for the 4.7 million figure. The filing upgrade is not available: the
-figure appears only in spoken remarks, the FY26 Q2 press release carries no
-Copilot subscriber count, so the 8-K exhibit will not either, and Microsoft does
-not break out product-level subscriber counts in the 10-Q. The transcript is a
-first-party disclosure published by the party holding the data. Perishable, so
-capture governs durability.
-
-CORRECTION TO MY OWN WORK. The TechCrunch Altman piece was initially filed under
-a byline inferred from TechCrunch's usual AI author. It was not verified. Both
-TechCrunch entries are now filed to the publication, with a register note to
-fill the author in at capture and not to guess it.
-
-CARRIED TO STAGE 2. Nadella said "over 4.7 million"; the chapter says "reported
-at 4.7 million", which understates.
-
-CARRIED TO THE sources.py FIX LIST. Footnotes 3 and 4 render "post on x" and
-"chatgpt pro" in lowercase. `note()` calls `ttl.lower()` on social titles. The
-bug is in the code and cannot be fixed from the register.
-
-~~REMAINING FOR G1: capture only.~~ STRUCK 2026-07-29 by Decision 48. Capture
-is repealed. The `sources.py capture` step is retired and the blocking
-condition in `sources.py check` must be narrowed accordingly. See the fix list.
-
-G1 CLOSED 2026-07-29 against the ten-check gate as amended by Decision 48.
-The gate was failed on the four archiving checks and on nothing else. Two of
-those checks are repealed, one is satisfied already (upgrades were resolved
-2026-07-28), and the fourth is satisfied once the access-date field alone is
-required. No prose or structural defect remains outstanding at this gate.
-
-Source pass completed. All five sources verified against the live record and
-replaced with full citations. Three corrections were required:
-
-CORRECTION 1 (fact error). The opening case attributed Cursor's repricing to the
-upstream cost of serving heavy users. Truell's stated reason was different:
-newer models spend more tokens per request on longer-horizon tasks, and Cursor
-had been absorbing the difference. Corrected. The chapter's argument is
-unaffected and arguably strengthened, since per-request intensity is a cleaner
-instance of consumption economics than user skew.
-
-CORRECTION 2 (attribution). The 4.7 million subscriber figure was cited to
-GitHub. It is a Microsoft disclosure, from the FY26 Q2 earnings call of
-January 28, 2026, four months before the June 1, 2026 billing transition.
-Reattributed, with the gap noted in the bibliography.
-
-CORRECTION 3 (dates). Vague dates pinned throughout: Cursor June 16 and July 4,
-2025; Copilot June 18, 2025 and June 1, 2026; Altman January 5, 2025; Anthropic
-announced July 28, 2025, effective August 28, 2025.
-
-FLAG FOR STAGE 2. The QJE paper reports 5,172 agents and a 15 percent
-productivity gain in the published version, against 5,179 and 14 percent in the
-NBER working paper. The book must cite the published figures consistently. This
-matters most at Ch6, where the study is the anchor case.
-
-CARRIED TO STAGE 1 (Dan). Spec 1.3 calls for the OpenAI Pro and Anthropic
-episodes as dated case boxes (Cases 4.1 and 4.2). Draft runs both as inline
-prose. Case-box treatment is formally introduced in Ch6, so whether Ch1 uses the
-device is a content and design question, not a G1 failure.
-
-CARRIED TO STAGE 3 (voice). One contraction survives at line 149, inside quoted
-speech attributed to a board member. Quoted speech is arguably outside the
-body-prose rule. Needs a voice-check ruling.
-
-
-
----
+NOTE FOR STAGE 1, not decided here. The 2026-07-29 ruling reasoned that a
+precise count above a stipulated inventory would falsely signal that the whole
+inventory is reported. The re-draft mitigates that reasoning: the provenance
+line now says volume assumptions are stipulated and labelled where used, Step 4
+opens by stipulating them in the prose, and the citation footnote states what
+the study does not supply. Dan may wish to revisit whether the precise figure is
+now safe in Chapter 1. Until he rules, the ruling stands as written.
 
 ## Stage 1. Content review
 
