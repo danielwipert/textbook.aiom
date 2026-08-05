@@ -8,14 +8,16 @@ automatically at the start of every session, alongside the voice and craft card.
 ## Repository state
 
 Active working branch: `claude/prose-voice-style-gxjkgj`. Working tree clean, and
-the branch is fully pushed to origin as of this update.
+the branch is fully pushed to origin.
 
-**`main` is nine commits behind this branch and was deliberately not
-fast-forwarded.** The branch is the designated development branch for this work,
-and merging to `main` is Dan's call, not an automatic step. Nothing blocks the
-merge on quality grounds: the tree is clean, `status_check.py` is CONSISTENT, and
-every ruling raised in this session was made and recorded. Fast-forward when Dan
-says so.
+**`main` is merged and synced as of 2026-08-05.** Dan approved the merge and the
+branch was fast-forwarded into `main`, which carried no commits of its own, so
+the merge was a clean fast-forward with nothing to reconcile. `main` now reflects
+the whole body of work: the voice and craft standard, the re-run process, the
+continuity ledger, and Chapter 1 through Stage 2.
+
+Keep them synced. When this branch advances, fast-forward `main` again before
+ending the session.
 
 Verify state any time with:
 
@@ -25,11 +27,11 @@ git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
 python3 status_check.py                                 # authoritative status
 ```
 
-The nine commits, oldest first: the voice and craft standard (Decision 52); the
+The session's work, oldest first: the voice and craft standard (Decision 52); the
 craft-check hardening after the first read failed as verification; the re-run
 process plus the reopen of Chapter 1 (Decision 53); the continuity ledger
 (Decision 54); the Chapter 1 Stage 0 re-draft; G1; Stage 1 (Decision 55); the
-Stage 2 pass; and the Stage 2 rulings applied.
+Stage 2 pass; the Stage 2 rulings applied; and this handoff.
 
 ## What now lives in the repo
 
@@ -198,5 +200,6 @@ work and are listed under thread 1 below.
 - Fonts are committed; do not run `AIOM_build.py --fonts`.
 - The proxy blocks `raw.githubusercontent.com` and the Google Fonts CDN; do not
   route around policy denials, report them.
-- Develop on `claude/prose-voice-style-gxjkgj`. Do not push to another branch
-  without Dan's explicit say-so.
+- Develop on `claude/prose-voice-style-gxjkgj`, then fast-forward `main` to match
+  before ending the session. Do not push to any other branch without Dan's
+  explicit say-so.
