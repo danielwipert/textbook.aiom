@@ -308,11 +308,168 @@ content review that ruled seven findings and cost zero re-runs.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [~]        Date cleared: 
 
 > Teaching quality, held early so its line edits do not churn fact check, voice, design, and production. Clarity, pacing, cognitive load, example fitness, transitions, and whether the argument carries the target reader without a stall. Claude runs a fresh critical pass; Dan gut-checks with a second model and rules.
 
 Findings:
+
+DEVELOPMENTAL PASS RUN 2026-08-05 on the re-draft. Claude. NOTHING IS APPLIED.
+Six findings below AWAIT Dan's second-model gut-check and ruling, per the Stage 2
+protocol. Status is [~], in progress, not passed: the pass is run, the ruling is
+not made.
+
+INDEPENDENCE CAVEAT, STATED UP FRONT. I drafted this chapter at Stage 0 four
+steps ago. The same circularity that spoiled the first Chapter 1 craft read
+applies here, and it is the reason the process requires Dan's second model. I
+read for where the reader stalls rather than for confirmation, and every finding
+below is traceable to something the re-draft itself changed. That does not make
+the read independent. It makes it honest about not being independent.
+
+SETTLED GROUND NOT RE-RAISED. The archived Stage 2 of 2026-08-01 ruled six
+findings. Old D1 (1.4 carries too many moves) and old D5 (the theorem aside) were
+applied, and the re-draft inherits both fixes. Old D2 (figure placement), old D3
+(the opener's vendor mechanics), and old D4 (the informal five questions
+foreshadowing the Founding Questions) were closed with no action, and nothing in
+the re-draft changes the situation that produced those rulings. None is reopened
+here.
+
+WHAT IS STRONGER THAN THE SUPERSEDED VERSION. The atomic unit is argued rather
+than asserted. The absence of an assembled discipline now has a stated cause. The
+craft artifact demonstrates the seat-versus-event gap arithmetically instead of
+claiming it. The summary lands. Those were the Stage 4 findings and they are
+answered.
+
+FINDINGS, PRIORITIZED. Each names what the re-draft changed to cause it.
+
+ND1 (HIGH). THE ATOMIC-UNIT ARGUMENT ARRIVES BEFORE THE ANATOMY IT DEPENDS ON.
+In 1.2 the order runs: name the unit, argue the unit, then anatomize the event.
+The argument's decisive criterion is that the event "is the only candidate the
+provider's meter actually records," and that "a unit the meter does not record
+cannot be reconciled against a bill." But the meter's role as recorder is not
+established until the next paragraph, where the anatomy introduces it. The reader
+has met "metered resource" in 1.1 and in the opening case; the reader has not yet
+met the meter as the thing that writes down what was consumed. So the paragraph
+asks for a judgment on evidence the reader does not have yet.
+CAUSE: the F7 fix at Stage 0 inserted this argument, correctly, and placed it
+where the skeptical reader first asks the question rather than where the answer
+becomes evaluable.
+RECOMMEND: move the argument to after the two figures, so it follows the anatomy
+and the seat-versus-event contrast. Costs zero words. The reader then weighs the
+three candidate units holding the picture of the meter that decides between them.
+COUNTER-ARGUMENT DAN SHOULD WEIGH: a reader who is told "this is the atomic unit"
+and made to wait three paragraphs for the justification may feel handled. The
+current order answers immediately. This is a genuine trade, not an obvious fix.
+
+ND2 (HIGH). THE ABSENCE OF A DISCIPLINE IS EXPLAINED TWICE, TWO PARAGRAPHS
+APART, AND THE TWO EXPLANATIONS ARE NEVER RECONCILED. The first is structural:
+each of the five questions falls inside some existing practice's scope, every one
+of those scopes was bounded before this resource existed, and a resource crossing
+all five is owned by none of them. The second, three paragraphs later, is
+historical: the absences are inheritance, because enterprise software procurement
+built an apparatus tuned to the license and it was carried across unchanged. Both
+are correct and they are complementary, not competing: one says no owner, the
+other says no instrument. The reader is never told that. A careful reader hits
+the second and wonders whether the chapter has changed its mind.
+CAUSE: the F6 fix at Stage 0 added the structural account, where the superseded
+version merely asserted "what is absent is not attention, it is assembly." The
+fix created a second explanation without positioning it against the first.
+RECOMMEND: a short bridge at the head of the inheritance paragraph naming the two
+as complementary, roughly fifteen to twenty words, which the word budget can
+absorb. The alternative, moving the paragraphs adjacent, disturbs the three-
+absences enumeration that old D1 was applied to protect.
+
+ND3 (MEDIUM). STEP 4 OF THE WORKED INVENTORY IS 233 WORDS, THE LONGEST PARAGRAPH
+IN THE CHAPTER, and it sits at the artifact's payoff. It carries the stipulation,
+five multiplications, the invariance point, the two-agents contrast, and the
+naming of the cost driver. That is five distinct moves in one block, at exactly
+the moment the reader is supposed to see the seat count fail.
+CAUSE: the F2 fix at Stage 0 added the arithmetic into an already-loaded step.
+RECOMMEND: split at "Change any stipulated figure and the total moves." Costs
+zero words and halves the load at the payoff.
+
+ND4 (MEDIUM). THE CRAFT SECTION MISDESCRIBES THE READER'S DISTANCE FROM THE
+DEFINITION. It opens "turns the definition just given into a procedure." The
+definition was given in 1.2, with 1.3, 1.4, and 1.5 between. "Just given" is
+false and, worse, it tells a reader who has lost the thread that they should not
+have.
+CAUSE: my own Stage 0 trim, which cut the sentence that had oriented the reader
+and left a phrase that assumed the orientation.
+RECOMMEND: replace "just given" with a locating phrase such as "given in 1.2."
+Costs zero words and is arguably a copy edit, but it changes what the reader is
+told about their own position in the argument, so it is recorded here.
+
+ND5 (MEDIUM). THE CHAPTER GIVES THE READER NO SENSE OF MAGNITUDE FOR COST. The
+craft artifact ends on 54.6 million consumption events a month, and the reader
+has no rate to multiply it by. Nothing in the chapter says what an event costs,
+so "tens of millions of events" cannot be converted into "this matters" or "this
+is noise." The chapter teaches the reader to count the right quantity while
+leaving them unable to size it.
+CAUSE: nothing in the re-draft. This is a property of the chapter's scope.
+RECOMMEND NO ACTION, raised so the omission is on the record as a decision rather
+than an oversight. Two rules argue against fixing it. The fifty-year rule
+quarantines prices, which move constantly, and Chapter 5, The Anatomy of Cost,
+owns exactly this question. A single sentence pointing forward would resolve the
+reader's question, and would also be the decorative signposting standing rule 5
+forbids. Dan may rule otherwise; if so, the natural home is the craft section's
+closing paragraph, not the teaching body.
+
+ND6 (LOW). "FLOW" CARRIES TECHNICAL WEIGHT IN 1.4 AND THE SUMMARY BUT BELONGS TO
+CHAPTER 2. The chapter says management is "management of a flow," that deployed
+AI "flows through the organization," and that "a resource that flows needs a
+discipline." Chapter 2 is titled The Flow and defines the term properly. Chapter
+1 is using it in its ordinary English sense, which is legitimate, but a reader
+meeting the technical definition in Chapter 2 may not notice the promotion.
+CAUSE: nothing in the re-draft; the usage is inherited.
+RECOMMEND NO ACTION on the chapter, but LOG IT: when Chapter 1 locks,
+`continuity.py --update` records terms this chapter owns, and "flow" should not
+be among them. Chapter 2 owns it. This is exactly the drift G3 exists to catch,
+and recording it now means Chapter 2's definition gets checked against Chapter
+1's informal use rather than colliding with it at manuscript integration.
+
+WORD BUDGET. The chapter stands at 5,949 against a 6,000 ceiling, 51 words of
+headroom. ND1, ND3, and ND4 cost zero words. ND2 costs fifteen to twenty. ND5 and
+ND6 recommend no action. If Dan applies ND1 through ND4 the chapter lands near
+5,969, still in band. No finding here requires cutting prose to fund it.
+
+RE-RUN CONSEQUENCE IF APPLIED. ND1, ND2, and ND3 are body-prose changes and pull
+Stage 3 fact, Stage 4 voice and craft, Stage 5 design, and G2. No claim or
+citation changes under any of them, so the fact surface is a re-confirmation
+rather than a re-check, which is Dan's call at Stage 3. ND4 is a copy edit by the
+matrix and pulls G2 only. G1 is untouched: no slot moves.
+
+SECOND-MODEL GUT-CHECK PROMPT for Dan, per the Stage 2 protocol. Give the second
+model the chapter HTML and this instruction, and do NOT give it the findings
+above.
+
+> You are reviewing one chapter of an academic textbook for TEACHING QUALITY, not
+> for correctness and not for style. The reader is an intelligent, busy, sceptical
+> MBA-level graduate student who has read business books before and can tell when
+> one is padded.
+>
+> Read it once at reading pace. Then answer, with quotations:
+>
+> 1. Name every place you had to re-read a sentence or paragraph to follow it, and
+>    say what caused the stall.
+> 2. Name every place where the chapter asks you to accept or judge something
+>    before it has given you what you need to judge it.
+> 3. Name every place where the same point is made twice, and say whether the
+>    repetition earns its place.
+> 4. Where does the chapter drag, and where does it move too fast for the load it
+>    is carrying?
+> 5. Does any worked example fail to earn its space?
+> 6. At the end, what can you actually do that you could not do before? Answer
+>    concretely; if the answer is thin, say so.
+>
+> Do not comment on prose style, word choice, or punctuation. Another pass owns
+> those. Assume every fact is correct. Your only question is whether this teaches.
+
+Compare the second model's answers against ND1 to ND6. Agreement raises
+confidence. A stall it names that this pass missed is the more valuable output
+and goes in as ND7 onward. Disagreement is Dan's to rule.
+
+ARCHIVED RECORD OF THE SUPERSEDED PASS FOLLOWS.
+
 
 ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

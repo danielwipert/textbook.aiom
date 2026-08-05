@@ -66,16 +66,24 @@ Carried items CD1 to CD5 remain live in the checklist. CD1, the gate-14 stranded
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 2, the developmental edit. Claude runs it; Dan gut-checks
-   with a second model and rules.** Teaching quality: clarity, pacing, cognitive
-   load, example fitness, transitions, and whether the argument carries the
-   target reader without a stall. Held early so its line edits land before fact
-   check, voice, design, and production, and do not churn them. After it: Stage 3
-   fact check (Dan), Stage 4 voice and craft (Claude, read adversarially and by
-   section).
+1. **Chapter 1 Stage 2 is RUN but NOT RULED. Dan's second-model gut-check and
+   rulings are the next action.** Status is [~], in progress; 3/13 passed. Six
+   findings ND1 to ND6 are recorded in the checklist and NOTHING IS APPLIED. A
+   ready second-model prompt sits with them, written to withhold the findings so
+   the check is independent.
 
-   WORD BUDGET IS TIGHT: 5,949 against a 6,000 ceiling (Decision 33), 51 words of
-   headroom. A Stage 2 finding that adds prose has to take words out somewhere.
+   ND1 and ND2 are the two that matter. ND1: the atomic-unit argument in 1.2
+   arrives before the anatomy whose meter is its decisive criterion, so the reader
+   is asked to judge on evidence they do not have yet. It carries a real
+   counter-argument Dan should weigh, so it is a trade rather than an obvious fix.
+   ND2: the absence of a discipline is explained twice, structurally and
+   historically, two paragraphs apart, and the two are never reconciled. ND3 and
+   ND4 are cheap and low-risk. ND5 (no sense of cost magnitude) and ND6 ("flow"
+   belongs to Chapter 2) recommend no action; ND6 must be logged so `continuity.py
+   --update` does NOT record "flow" as a term Chapter 1 owns.
+
+   If ND1 to ND4 are applied the chapter lands near 5,969 words, still inside the
+   band. No finding needs prose cut to fund it.
 
 2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan
