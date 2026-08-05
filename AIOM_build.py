@@ -11,6 +11,7 @@ Usage:
 """
 
 import argparse, io, os, re, shutil, subprocess, sys, urllib.request, zipfile
+from collections import Counter
 
 FONT_DIR = "fonts/use"
 PLEX_ZIP = ("https://github.com/IBM/plex/releases/download/"
@@ -315,8 +316,8 @@ def qa(path, expected_footnotes=None):
     # floated into a narrow right column, so their lines are legitimately
     # short and must never be measured as body lines.
     BOTTOM = 640.0
-    MAIN_X0 = 60.0          # main column left edge, callouts sit far right
     BODY_SIZE = 11.0
+    X_TOL = 2.0
 
     def lines_of(page):
         rows = {}
@@ -325,9 +326,25 @@ def qa(path, expected_footnotes=None):
                 rows.setdefault(round(c["top"], 0), []).append(c)
         return [(k, rows[k]) for k in sorted(rows)]
 
-    def is_body(row):
+    # The design mirrors its margins for binding, so the main column starts at
+    # a different x on recto and verso. A single hard-coded left edge silently
+    # excludes every line on half the book: it made gate 14 analyse only even
+    # pages, and it hid Figure 1.1's caption from gate 12 the moment the figure
+    # moved to an odd page. Derive the edge per page instead of assuming it.
+    page_left = {}
+    for i, p in enumerate(pdf.pages):
+        xs = [round(c["x0"], 1) for c in p.chars
+              if round(c["size"], 1) == BODY_SIZE and 60 < c["top"] < BOTTOM]
+        if xs:
+            page_left[i] = min(Counter(xs).most_common(1)[0][0], min(xs))
+
+    def in_main_column(page_no, row):
+        left = page_left.get(page_no)
+        return left is not None and abs(row[0]["x0"] - left) <= X_TOL
+
+    def is_body(page_no, row):
         return (round(row[0]["size"], 1) == BODY_SIZE
-                and row[0]["x0"] < MAIN_X0
+                and in_main_column(page_no, row)
                 and "Jost" not in row[0]["fontname"])
 
     def width(row):
@@ -345,7 +362,7 @@ def qa(path, expected_footnotes=None):
             text = "".join(c["text"] for c in row)
             m = re.match(r"\s*Figure\s*(\d+\.\d+)", text)
             if m and round(row[0]["size"], 1) == CAP_SIZE \
-                    and row[0]["x0"] < MAIN_X0:
+                    and in_main_column(i, row):
                 caps.append((m.group(1), i + 1))
             for r in re.finditer(r"Figure\s*(\d+\.\d+)", text):
                 if not (m and r.start() == m.start()):
@@ -398,7 +415,7 @@ def qa(path, expected_footnotes=None):
     # A short line at the foot of a page is NOT an orphan; it is an ordinary
     # paragraph ending where a page happens to end.
     body_rows = [(i, k, r) for i, p in enumerate(pdf.pages)
-                 for k, r in lines_of(p) if is_body(r) and 60 < k < BOTTOM]
+                 for k, r in lines_of(p) if is_body(i, r) and 60 < k < BOTTOM]
     widows, orphans, stranded = [], [], []
     if body_rows:
         measure = max(width(r) for _, _, r in body_rows)
