@@ -1,0 +1,25 @@
+# AIOM build toolchain. Pinned so a chapter rendered in one session renders
+# identically in the next: WeasyPrint's line breaking and float placement move
+# between releases, and gate 4 (callout splits) plus gate 14 (widows, orphans,
+# stranded heads) are sensitive to exactly that.
+#
+#     pip install -r requirements.txt
+#     apt-get update -qq && apt-get install -y poppler-utils
+#
+# System libraries WeasyPrint needs, per CLAUDE.md section 5:
+#   libpango-1.0-0 libpangoft2-1.0-0 libcairo2 libgdk-pixbuf-2.0-0
+#   libffi-dev shared-mime-info
+#
+# poppler-utils supplies pdftoppm, used by gate 9 and by raster review.
+# Fonts are committed under fonts/, so no network staging is required.
+
+# Versions recorded 2026-08-05 from the environment that produced the
+# fourteen-gate result on Chapter 1. Note CLAUDE.md section 6 refers to
+# "WeasyPrint 69" ignoring break-inside on floats, which is why place.py
+# exists; that behaviour is present in 69.0.
+weasyprint==69.0
+pdfplumber==0.11.10
+pdf2image==1.17.0
+pillow==12.3.0
+openpyxl==3.1.5
+fonttools==4.63.0

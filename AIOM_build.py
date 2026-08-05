@@ -10,7 +10,7 @@ Usage:
     python3 AIOM_build.py AIOM_ch01.html --out /mnt/user-data/outputs/Ch1.pdf
 """
 
-import argparse, io, os, shutil, subprocess, sys, urllib.request, zipfile
+import argparse, io, os, re, shutil, subprocess, sys, urllib.request, zipfile
 
 FONT_DIR = "fonts/use"
 PLEX_ZIP = ("https://github.com/IBM/plex/releases/download/"
@@ -301,10 +301,197 @@ def qa(path, expected_footnotes=None):
             fails.append(f"theorem panel on page(s) {unruled} has no amber "
                          f"left rule")
 
+    # ----------------------------------------------------------------------
+    # Gates 12 to 14. Added 2026-08-05. The G2 checklist claimed figure
+    # validation, widow and orphan detection, and a bottom-margin check for
+    # months while AIOM_build.py performed none of them, so those sub-boxes
+    # were ticked by hand and status_check.py accepted the tick. A gate that
+    # reads green while nothing checked is worse than a gate that does not
+    # exist, because it is trusted.
+    # ----------------------------------------------------------------------
+
+    # Shared line model. Characters grouped into lines by rounded baseline.
+    # The main text column starts at the left margin; definition callouts are
+    # floated into a narrow right column, so their lines are legitimately
+    # short and must never be measured as body lines.
+    BOTTOM = 640.0
+    MAIN_X0 = 60.0          # main column left edge, callouts sit far right
+    BODY_SIZE = 11.0
+
+    def lines_of(page):
+        rows = {}
+        for c in page.chars:
+            if c["text"].strip():
+                rows.setdefault(round(c["top"], 0), []).append(c)
+        return [(k, rows[k]) for k in sorted(rows)]
+
+    def is_body(row):
+        return (round(row[0]["size"], 1) == BODY_SIZE
+                and row[0]["x0"] < MAIN_X0
+                and "Jost" not in row[0]["fontname"])
+
+    def width(row):
+        return sum(c["width"] for c in row)
+
+    # 12. Figures: captioned, numbered in order, each referenced in the text.
+    # A caption is a caption-size line that OPENS with the figure label at the
+    # left margin. An in-text reference is body size and mid-line. Matching on
+    # the string alone counts every reference as a caption, which reads as a
+    # duplicate figure number.
+    CAP_SIZE = 9.0
+    caps, refs = [], []
+    for i, p in enumerate(pdf.pages):
+        for _, row in lines_of(p):
+            text = "".join(c["text"] for c in row)
+            m = re.match(r"\s*Figure\s*(\d+\.\d+)", text)
+            if m and round(row[0]["size"], 1) == CAP_SIZE \
+                    and row[0]["x0"] < MAIN_X0:
+                caps.append((m.group(1), i + 1))
+            for r in re.finditer(r"Figure\s*(\d+\.\d+)", text):
+                if not (m and r.start() == m.start()):
+                    refs.append((r.group(1), i + 1))
+    cap_nums = [n for n, _ in caps]
+    ref_nums = {n for n, _ in refs}
+    if not cap_nums:
+        print("12. figures ............... none in this chapter")
+    else:
+        key = lambda s: [int(x) for x in s.split(".")]
+        order_ok = cap_nums == sorted(cap_nums, key=key)
+        dupes = sorted({n for n in cap_nums if cap_nums.count(n) > 1})
+        unref = [n for n in cap_nums if n not in ref_nums]
+        print(f"12. figures ............... {len(cap_nums)} captioned, "
+              f"{'in order' if order_ok else 'OUT OF ORDER'}, "
+              f"{len(refs)} in-text reference(s), {len(unref)} unreferenced")
+        if not order_ok:
+            fails.append(f"figure captions out of document order: {cap_nums}")
+        if dupes:
+            fails.append(f"figure number captioned more than once: {dupes}")
+        if unref:
+            fails.append(f"figure(s) captioned but never referenced in the "
+                         f"text: {unref}")
+    dangling = sorted(ref_nums - set(cap_nums))
+    if dangling:
+        fails.append(f"text references a figure that has no caption: "
+                     f"{dangling}")
+
+    # 13. Bottom margin. The folio sits below the text block by design, in its
+    # own colour, so it is excluded by that signature rather than by position.
+    FOLIO_COLOR = "#9B8F7C"
+    below = []
+    for i, p in enumerate(pdf.pages):
+        for c in p.chars:
+            if not c["text"].strip() or c["top"] <= BOTTOM + 1.5:
+                continue
+            if hexc(c.get("non_stroking_color")) == FOLIO_COLOR:
+                continue                      # folio, legitimately below
+            below.append((i + 1, round(c["top"], 1), c["text"]))
+    print(f"13. bottom margin ......... {len(below)} character(s) below the "
+          f"text block, folio excluded")
+    if below:
+        fails.append(f"text below the bottom margin: {below[:5]}")
+
+    # 14. Widows, orphans, stranded heads. Body prose here is not indented, so
+    # a paragraph start is marked by a larger-than-leading gap above the line,
+    # and a paragraph end by a line that does not fill the measure.
+    #   orphan  = a paragraph's FIRST line alone at the foot of a page
+    #   widow   = a paragraph's LAST line alone at the head of a page
+    # A short line at the foot of a page is NOT an orphan; it is an ordinary
+    # paragraph ending where a page happens to end.
+    body_rows = [(i, k, r) for i, p in enumerate(pdf.pages)
+                 for k, r in lines_of(p) if is_body(r) and 60 < k < BOTTOM]
+    widows, orphans, stranded = [], [], []
+    if body_rows:
+        measure = max(width(r) for _, _, r in body_rows)
+        gaps = sorted(body_rows[n + 1][1] - body_rows[n][1]
+                      for n in range(len(body_rows) - 1)
+                      if body_rows[n + 1][0] == body_rows[n][0])
+        leading = gaps[len(gaps) // 2] if gaps else 16.0
+
+        by_page = {}
+        for n, (pg, k, r) in enumerate(body_rows):
+            by_page.setdefault(pg, []).append(n)
+
+        def starts_para(n):
+            if n == 0 or body_rows[n - 1][0] != body_rows[n][0]:
+                return False        # first body line on its page: undecidable
+            return (body_rows[n][1] - body_rows[n - 1][1]) > leading * 1.35
+
+        def ends_para(n):
+            """The line does not fill the measure, so it closes a paragraph."""
+            return width(body_rows[n][2]) < measure * 0.98
+
+        for pg, idxs in by_page.items():
+            if len(idxs) < 2:
+                continue
+            if starts_para(idxs[-1]):
+                orphans.append(pg + 1)
+            # A widow needs the page's first line to be the LAST line of its
+            # paragraph, which means the line after it opens a new paragraph.
+            # A first line whose paragraph simply continues down the page is
+            # ordinary carryover, not a widow.
+            first, nxt = idxs[0], idxs[0] + 1
+            para_ends_here = (nxt >= len(body_rows)
+                              or body_rows[nxt][0] != pg
+                              or starts_para(nxt))
+            if pg > 0 and ends_para(first) and para_ends_here:
+                widows.append(pg + 1)
+
+    for i, p in enumerate(pdf.pages):
+        rows = [(k, r) for k, r in lines_of(p) if 60 < k < BOTTOM]
+        if rows and any("Jost" in c["fontname"] for c in rows[-1][1]):
+            stranded.append(i + 1)
+
+    print(f"14. widows and orphans .... {len(widows)} widow(s), "
+          f"{len(orphans)} orphan(s), {len(stranded)} stranded head(s)")
+    if stranded:
+        fails.append(f"section head stranded at the foot of page(s): "
+                     f"{stranded}")
+    if widows:
+        fails.append(f"widow: a paragraph's last line alone at the head of "
+                     f"page(s) {widows}")
+    if orphans:
+        fails.append(f"orphan: a paragraph's first line alone at the foot of "
+                     f"page(s) {orphans}")
+
     print("\nQA " + ("PASSED" if not fails else "FAILED"))
     for f in fails:
         print("   " + f)
     return not fails
+
+
+def preflight():
+    """Fail loudly and usefully when the toolchain is absent.
+
+    A fresh session has none of these. Without the check, a missing module
+    surfaces as a traceback partway through the gate run, which reads as a
+    broken build rather than a missing dependency, and a gate that never ran
+    is indistinguishable from a gate that passed.
+    """
+    missing = []
+    for mod, pkg in [("weasyprint", "weasyprint"), ("pdfplumber", "pdfplumber"),
+                     ("pdf2image", "pdf2image"), ("PIL", "pillow"),
+                     ("fontTools", "fonttools")]:
+        try:
+            __import__(mod)
+        except ImportError:
+            missing.append(pkg)
+    if not shutil.which("pdftoppm"):
+        missing.append("poppler-utils (system)")
+
+    if not missing:
+        return True
+
+    print("BUILD CANNOT RUN. Missing: " + ", ".join(missing))
+    print()
+    pips = [m for m in missing if "system" not in m]
+    if pips:
+        print("    pip install " + " ".join(pips))
+    if any("system" in m for m in missing):
+        print("    apt-get update -qq && apt-get install -y poppler-utils")
+    print()
+    print("Gates 9 and 14 need poppler; every gate needs pdfplumber. Do not")
+    print("report a chapter as passing gates that did not run.")
+    return False
 
 
 if __name__ == "__main__":
@@ -321,6 +508,8 @@ if __name__ == "__main__":
         sys.exit(0)
     if not a.html:
         ap.error("give a chapter HTML file, or --fonts")
+    if not preflight():
+        sys.exit(2)
     out = a.out or a.html.replace(".html", ".pdf")
     n = build(a.html, out, url_policy=a.url_policy)
     sys.exit(0 if qa(out, expected_footnotes=n) else 1)

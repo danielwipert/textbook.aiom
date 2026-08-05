@@ -27,17 +27,45 @@ developmental edit, new in v2, is Stage 2.
 
 ---
 
+
+## REOPENED 2026-08-05: Stage 0 and everything after it
+
+Grounds: Full re-draft ruled by Dan 2026-08-05. Chapter 1 was drafted before the voice and craft standard existed (Decision 52), so its prose was never written against C1 through C6, and the Stage 4 craft read found seven findings including a systematic C5 failure and the weakest C4 unit in the book. Chapter 1 is the exemplar fourteen further chapters are drafted against, so it is re-drafted from Stage 0 with the craft standard binding, rather than patched. The re-draft is also the proving run for Process v2 end to end.
+
+Every step from Stage 0 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Stage 0 | Draft | passed | 0 |
+| Gate G1 | Structural gate | passed | 12 |
+| Stage 1 | Content review | passed | 0 |
+| Stage 2 | Developmental edit | passed | 0 |
+| Stage 3 | Source and fact check 1 | passed | 0 |
+| Stage 4 | Voice and craft check | passed | 0 |
+| Stage 5 | Design review | passed | 0 |
+| Gate G2 | Production gate | passed | 10 |
+| Stage 6 | Copy edit | not run | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-07-28
+Status: [ ]        Date cleared: 
 
 > Against the chapter outline and the fixed six-slot skeleton. Sources archived at drafting time.
 
 - [ ] Drafted against the six craft criteria (AIOM_Voice_and_Craft_v1.md), read before drafting rather than after. Criterion postdates this draft by eight days and cannot be satisfied retroactively; craft for Chapter 1 is assessed at Stage 4 instead. Binding from Chapter 2 forward.
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 Draft complete, 4,557 words, 167 lines.
 
@@ -52,26 +80,28 @@ first chapter for which this box is a live drafting requirement.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-07-29
+Status: [ ]        Date cleared: 
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
-- [x] All six slots present, in order, correctly headed
-- [x] Opening case carries a provenance line under its title
-- [x] Every exit competency assigned to this chapter is addressed
-- [x] Every registry ID cited resolves against Locked Registry v1.3
-- [x] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
-- [x] Every empirical claim carries a citation
-- [x] Source upgrade checked: most durable available form selected
+- [ ] All six slots present, in order, correctly headed
+- [ ] Opening case carries a provenance line under its title
+- [ ] Every exit competency assigned to this chapter is addressed
+- [ ] Every registry ID cited resolves against Locked Registry v1.3
+- [ ] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
+- [ ] Every empirical claim carries a citation
+- [ ] Source upgrade checked: most durable available form selected
 - ~~Every perishable source captured to the Wayback Machine~~ REPEALED, D48
 - ~~Every source filed in the local dark archive, named to the citation~~ REPEALED, D48
-- [x] Every register entry carries original URL and access date
-- [x] Every Slot 5 key term appears defined in the body
-- [x] Zero em dashes
-- [x] Word count inside the chapter target band
-- [x] Gloss-less lemmas carry a book-authored gloss, marked as such
+- [ ] Every register entry carries original URL and access date
+- [ ] Every Slot 5 key term appears defined in the body
+- [ ] Zero em dashes
+- [ ] Word count inside the chapter target band
+- [ ] Gloss-less lemmas carry a book-authored gloss, marked as such
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 G1 FAILED on 3 of 10. Verified 2026-07-28 against the draft and Registry v1.3.
 
@@ -251,11 +281,13 @@ body-prose rule. Needs a voice-check ruling.
 
 Owner: Dan
 
-Status: [x]        Date cleared: 2026-07-29
+Status: [ ]        Date cleared: 
 
 > Is this the right chapter, not is it true. Read against the outline and the competency map. Structural findings only, no line edits.
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 1 PASSED 2026-07-29, against AIOM_ch01.html, read against Consolidated
 Spec Part D.1 and the competency map. Run jointly, Dan ruling.
@@ -291,11 +323,13 @@ belong to Stage 2 and are carried, not counted against this stage.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-01
+Status: [ ]        Date cleared: 
 
 > Teaching quality, held early so its line edits do not churn fact check, voice, design, and production. Clarity, pacing, cognitive load, example fitness, transitions, and whether the argument carries the target reader without a stall. Claude runs a fresh critical pass; Dan gut-checks with a second model and rules.
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 Added under Process v2 (2026-08-01). Chapter 1 predates this stage and is being
 run retroactively. Claude ran the developmental pass 2026-08-01; findings below
@@ -453,11 +487,13 @@ green on the 19-page render; the Stage 3 fact surface was untouched throughout.
 
 Owner: Dan
 
-Status: [x]        Date cleared: 2026-07-29
+Status: [ ]        Date cleared: 
 
 > Every empirical claim traced to primary source. Runs before voice and design so corrections do not churn later polish.
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 2 PASSED 2026-07-29, run by Dan against AIOM_ch01.html. The fact-check
 record lives in the chapter's own source block (Decision 51): every source
@@ -479,7 +515,7 @@ version.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-07-28
+Status: [ ]        Date cleared: 
 
 > Two halves. The mechanical half is voicecheck.py. The judgment half is the six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. voicecheck.py prints advisory craft metrics proxying C1, C3, C4, and C5; the metrics inform the read and never decide it. C2 and C6 have no proxy and are enforced by reading alone.
 
@@ -491,6 +527,8 @@ Status: [x]        Date cleared: 2026-07-28
 - [ ] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 CRAFT HALF ADDED 2026-08-05. The six criteria above postdate the 2026-07-28
 pass, which tested the prohibitions only. The craft read below has been RUN but
@@ -681,11 +719,13 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-01
+Status: [ ]        Date cleared: 
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 Passed provisionally 2026-07-28. REVERTED to not run on the same date, because
 Stage 3 made prose edits in sections 1.2 and 1.3. A design review that passed
@@ -710,22 +750,24 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-01
+Status: [ ]        Date cleared: 
 
 > Mechanical, run on the rendered PDF.
 
-- [x] Renders under WeasyPrint without error or warning
-- [x] Zero overflow: all character bounds inside the text block
-- [x] Running heads correct and correctly sided on every page
-- [x] All figures present, numbered, captioned, referenced in text
-- [x] Figure geometry validated by pixel sampling (gap G-B; first-pass visual review 2026-08-01, p6 figures correct and in order; Dan final sign-off)
-- [x] Callout placement correct: no splits, ordering correct after place.py
-- [x] Footnotes on correct pages, numbering sequential and unbroken
-- [x] Key-term register renders with correct rule and tint alternation
-- [x] No widows, no orphans, no section head stranded at a page foot (gap G-D; first-pass visual review 2026-08-01, none seen; Dan final sign-off)
-- [x] Rasterized visual sample reviewed at page level (19 pages rasterized and reviewed 2026-08-01, first pass by Claude)
+- [ ] Renders under WeasyPrint without error or warning
+- [ ] Zero overflow: all character bounds inside the text block
+- [ ] Running heads correct and correctly sided on every page
+- [ ] All figures present, numbered, captioned, referenced in text
+- [ ] Figure geometry validated by pixel sampling (gap G-B; first-pass visual review 2026-08-01, p6 figures correct and in order; Dan final sign-off)
+- [ ] Callout placement correct: no splits, ordering correct after place.py
+- [ ] Footnotes on correct pages, numbering sequential and unbroken
+- [ ] Key-term register renders with correct rule and tint alternation
+- [ ] No widows, no orphans, no section head stranded at a page foot (gap G-D; first-pass visual review 2026-08-01, none seen; Dan final sign-off)
+- [ ] Rasterized visual sample reviewed at page level (19 pages rasterized and reviewed 2026-08-01, first pass by Claude)
 
 Findings:
+
+ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 Passed provisionally 2026-07-28. REVERTED to not run on the same date, for the
 same reason as Stage 4.
@@ -1066,3 +1108,40 @@ Compare the second model's findings against F1 through F7 and W1 and W2 in Stage
 4 above. Agreement on a finding raises confidence. A finding the second model
 raises that Stage 4 missed is the more valuable output, and it goes in as F8
 onward. Disagreement is Dan's to rule.
+
+---
+
+## Carried into the re-draft (reopen of 2026-08-05)
+
+Reset to not-run does not mean these were not learned. The re-draft inherits:
+
+**CD1. Production defect, found by gate 14 on its first run.** The "Craft
+section" slot label sits alone at the foot of page 12, with the section it
+labels opening on page 13. This render PASSED the eleven-gate suite on
+2026-08-01. It FAILS the fourteen-gate suite. Fix at Stage 5 design, not at
+Stage 0: it is a break-control problem in the CSS or a place.py concern, not a
+prose problem. Recorded here so it is not rediscovered.
+
+**CD2. The seven craft findings and two watch items** from the Stage 4 craft
+read, archived above. F4 (four paragraphs closing on a cross-reference) and F5
+(the summary at twice the chapter mean sentence length, zero short sentences)
+are prose defects the re-draft should not reproduce. F1 (the unanchored FinOps,
+observability, and chargeback passage) and F2 (a craft artifact containing no
+arithmetic) are the two substantive opportunities.
+
+**CD3. Nine verified sources** in `AIOM_Source_Ledger.md`, cleared at the
+original Stage 3. The re-draft should reuse them rather than re-verify, subject
+to Dan's Stage 3 re-run. The sequence note on S-002 still applies: the
+unannounced July 17 2025 tightening is a separate and earlier event from the
+July 28 announcement, which carried thirty days notice.
+
+**CD4. Rulings that survive the reopen.** Decisions 42 to 45 (voiced material,
+reader address, definition restatement, the token gloss), the Stage 2
+developmental rulings D1 through D6, Decision 33 (5,000 to 6,000 words for Ch1
+and Ch2), Decision 50 (the chapter HTML is the single live text), and Decision
+51 (the audit source block). A reopen resets steps, not rules.
+
+**CD5. What the re-draft must do differently.** The craft standard binds from
+Stage 0 this time. Read `AIOM_Voice_and_Craft_v1.md` before drafting, tick the
+Stage 0 acknowledgment box on the strength of having done so, and expect Stage 4
+to be read adversarially and by section against C1 through C6.

@@ -122,9 +122,12 @@ sources are dated. Constructed material is labelled as constructed.
 
 | Path | What it is |
 |---|---|
-| `AIOM_build.py` | Font staging, WeasyPrint render, ten QA gates. One command. |
+| `AIOM_build.py` | Font staging, WeasyPrint render, fourteen QA gates, toolchain preflight. One command. |
 | `AIOM_book.css` | The locked design system. |
 | `place.py` | Definition-callout placement pass. See section 6. |
+| `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
+| `renumber_stage_folders.py` | One-time Process v1 to v2 stage-folder migration. Run 2026-08-05 across all eighteen units. |
+| `requirements.txt` | Pinned build toolchain. WeasyPrint line breaking and float placement move between releases, and gates 4 and 14 are sensitive to exactly that. |
 | `AIOM_Design_QA_Spec_v1.md` | Gate-by-gate spec. Moves with `AIOM_build.py`. |
 | `AIOM_Consolidated_Spec_v1.md` | The full pre-drafting specification. Authoritative. Markdown despite the earlier `.pdf` reference. |
 | `AIOM_Voice_and_Craft_v1.md` | The positive voice standard: the four borrowed techniques, the guard, and the six craft criteria. Binds from Stage 0. Read before drafting. |
@@ -148,15 +151,19 @@ placeholder glosses.
 ## 5. Build commands
 
 ```bash
-python3 AIOM_build.py --fonts                    # once per session
+pip install -r requirements.txt                  # once per session, first
+apt-get update -qq && apt-get install -y poppler-utils
 python3 AIOM_build.py chapters/AIOM_ch01.html    # render plus all QA gates
 python3 AIOM_build.py chapters/AIOM_ch01.html --out build/Ch1.pdf
 python3 place.py chapters/AIOM_ch01.html         # callout placement pass
+python3 voicecheck.py chapters/AIOM_ch01.html    # Stage 4 mechanical plus craft metrics
+python3 status_check.py                          # lifecycle status, authoritative
+python3 reopen.py <checklist.md> --from "Stage 2" --reason "..."   # reopen
 ```
 
-Font staging reaches out to `github.com` and `raw.githubusercontent.com` for IBM
-Plex Sans and the Jost variable font. The environment needs network access for
-that step.
+Fonts are committed under `fonts/`, so `--fonts` is not needed and the render
+requires no network. The build exits 2 without running any gate if its toolchain
+is missing.
 
 System dependencies WeasyPrint requires: `libpango-1.0-0`, `libpangoft2-1.0-0`,
 `libcairo2`, `libgdk-pixbuf-2.0-0`, `libffi-dev`, `shared-mime-info`.
@@ -166,7 +173,7 @@ Python: `weasyprint`, `pdfplumber`, `pdf2image`, `pillow`, `openpyxl`, `fonttool
 
 ## 6. QA gates and their remedies
 
-The suite is ten gates. Full detail in `AIOM_Design_QA_Spec_v1.md`. The ones
+The suite is fourteen gates. Full detail in `AIOM_Design_QA_Spec_v1.md`. The ones
 that fail most often:
 
 - **Gate 1, horizontal overflow.** 428.4pt odd pages, 417.6pt even, 1.5pt
@@ -183,10 +190,25 @@ that fail most often:
 - **Gate 7, provenance line.** Page 1 must carry the 7pt amber semibold line
   beneath the opening case title.
 
-Known gaps, do not assume the suite catches these: the theorem callout is
-unguarded (it uses `--tint-thm`, gate 4 keys on `--tint-def`); there is no figure
-validation at all; there is no bottom-margin or widow-orphan check. Inspect
-figures and theorem callouts by eye.
+- **Gates 12, 13, 14, added 2026-08-05.** Figure captioning, numbering, order,
+  and in-text reference; bottom margin with the folio excluded by colour; and
+  widows, orphans, and stranded heads. These three were claimed by the G2
+  checklist for months while `AIOM_build.py` performed none of them, so the
+  boxes were ticked by hand and the gate read green. On first run gate 14 found
+  a real defect the eleven-gate suite had passed: the "Craft section" slot label
+  stranded alone at the foot of page 12, with the section it labels opening on
+  page 13.
+
+Remaining known gap: the theorem callout is unguarded by gate 4 (it uses
+`--tint-thm`, gate 4 keys on `--tint-def`), though gate 11 now checks the panel
+directly. Figure GEOMETRY is still not validated, because SVG `rx` renders as
+curve paths that do not appear in `pdfplumber`'s `.rects`; that check and the
+page-level raster review are the two items marked MANUAL in the G2 checklist.
+Inspect both by eye.
+
+The build refuses to start without its toolchain (`pip install -r
+requirements.txt`, plus `poppler-utils`) and exits 2. A gate that did not run is
+not a gate that passed.
 
 ---
 
@@ -302,39 +324,47 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-Chapter 1 ("The Category Error") renders complete at 19 pages with all eleven QA
-gates passing. It is not Locked, but the Claude-owned production path is green and
-Dan's early passes are done. Passed so far (Process v2 numbering): Stage 0
-(draft); G1 (structural gate, cleared 2026-07-29 after Decision 48 repealed the
-archival checks); Stage 1 (content review, 2026-07-29); Stage 3 (source and fact
-check 1, 2026-07-29, whose record is carried in the chapter's own source block);
-Stage 4 (voice check, 2026-07-28); and Stage 5 (design review) with G2
-(production gate), both 2026-08-01 on the render carrying the Figure 1.2
-reference fix, with AIOM_build.py's full eleven-check suite green. Stage 2
-(developmental edit, new in Process v2, run retroactively on Chapter 1) passed
-2026-08-01: all six developmental findings were ruled, with D1 (Section 1.4
-signpost and tighten) and D5 (theorem aside tightened) applied and their Stage 4,
-Stage 5, and G2 re-runs green on the 19-page render, and D2, D3, D4, and D6 closed
-with no action. Reaching the G2 pass required adding an audit-only hide rule to the CSS, since
-the committed v6.7 CSS predated the Decision 51 source-block apparatus; that
-committed CSS plus the rule is the working version of record. The
-figure-geometry, widow, and page-visual checks, outside the automated suite,
-passed a first-pass visual review and await Dan's final sign-off. Remaining to
-Lock: Stage 6 (copy edit), Stage 7 (final fact check 2), G3 (continuity gate),
-Stage 8 (final read), and Stage 9 (lock).
+**Chapter 1 is REOPENED at Stage 0 as of 2026-08-05, on Dan's ruling.** All
+thirteen steps are reset to not-run and `status_check.py` reports 0/13 with
+STATUS CONSISTENT. The prior record is not lost: every step's findings are
+archived in place in the checklist, marked superseded, because they state what
+was examined and how it was ruled and the re-run should not have to rediscover
+that.
 
-**Chapter 1 Stage 4 is currently INCONSISTENT in `status_check.py`, by design and
-pending one ruling.** The voice and craft standard was adopted 2026-08-05, after
-Stage 4 cleared. Its six criteria are now sub-checkboxes under Stage 4 in the
-Chapter 1 checklist, and they are recorded open, so the gate reports a step
-marked passed with open sub-items. That report is accurate: the 2026-07-28 pass
-tested the prohibitions only. The craft read has been run against
-`AIOM_Ch01_Stage4_FINAL.html` and the chapter meets all six criteria as drafted,
-with no prose change required, so adoption costs nothing here. What is open is
-whether Chapter 1 adopts the standard (tick the six) or is grandfathered (mark
-the six with a stated "postdates" exception, as Stage 0 already is). Either
-resolution is a one-line edit and clears the gate. Chapter 1's Stage 4 metrics
-are the baseline band that Chapters 2 through 15 are read against.
+Grounds for the reopen. Chapter 1 was drafted before the voice and craft standard
+existed (Decision 52), so its prose was never written against C1 through C6. The
+Stage 4 craft read found seven findings, including a systematic C5 failure (four
+paragraphs closing on a cross-reference) and the weakest C4 unit in the book (the
+summary, at twice the chapter's mean sentence length with zero short sentences).
+Chapter 1 is the exemplar the other fourteen chapters are drafted against, so it
+is re-drafted rather than patched, and the re-draft doubles as the proving run for
+Process v2 end to end.
+
+What the reopen inherits, as carried items for the re-draft:
+
+- The seven craft findings and two watch items, archived under Stage 4.
+- **A real production defect found by new gate 14 on its first run**: the "Craft
+  section" slot label stranded alone at the foot of page 12, with the section it
+  labels opening on page 13. The eleven-gate suite passed this render. The
+  fourteen-gate suite fails it.
+- The nine verified sources in `AIOM_Source_Ledger.md`, which the re-draft should
+  reuse rather than re-verify, subject to Dan's Stage 3 re-run.
+- The Stage 2 developmental rulings D1 through D6 and the four voice rulings
+  (Decisions 42 to 45), all still standing as rules even though the steps reset.
+
+Process built 2026-08-05 to make the re-run safe and repeatable across fifteen
+chapters: `reopen.py`; the Process v1 to v2 stage-folder migration across all
+eighteen units (162 folders renamed, 18 developmental-edit folders created);
+gates 12, 13, and 14; the toolchain preflight and `requirements.txt`; and a G2
+checklist that now mirrors the fourteen printed gates one for one, with the two
+genuinely manual checks labelled as manual.
+
+**Still outstanding, and it blocks Lock rather than drafting: the continuity
+ledger does not exist.** G3 checks "against the running continuity ledger" and
+"Ledger updated on lock," and there is no such file. Chapter 1 already makes six
+forward references (Chapter 2 twice, plus 3, 4, 6, and 14) that must be logged
+and later paid. No chapter can reach Stage 9 until the ledger is built and G3 is
+wired to it. It is not needed before Stage 2.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
 locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is

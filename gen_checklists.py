@@ -114,17 +114,35 @@ STAGES = [
      []),
 
     ("G2", "Production gate", "Claude",
-     "Mechanical, run on the rendered PDF.", [
+     "Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below "
+     "mirror the fourteen numbered gates the tool prints, one for one, so a "
+     "box cannot claim a check the tool does not perform. That drift is real: "
+     "until 2026-08-05 this list claimed figure validation, widow and orphan "
+     "detection, and a bottom-margin check that AIOM_build.py never ran, and "
+     "those boxes were ticked by hand. Run `pip install -r requirements.txt` "
+     "first; the build refuses to start without its toolchain. Two boxes are "
+     "marked MANUAL: they are not automated, a human must look, and they are "
+     "labelled so an open box is recorded rather than silently accepted.", [
          "Renders under WeasyPrint without error or warning",
-         "Zero overflow: all character bounds inside the text block",
-         "Running heads correct and correctly sided on every page",
-         "All figures present, numbered, captioned, referenced in text",
-         "Figure geometry validated by pixel sampling",
-         "Callout placement correct: no splits, ordering correct after place.py",
-         "Footnotes on correct pages, numbering sequential and unbroken",
-         "Key-term register renders with correct rule and tint alternation",
-         "No widows, no orphans, no section head stranded at a page foot",
-         "Rasterized visual sample reviewed at page level",
+         "Gate 1, zero right-margin overflow",
+         "Gate 2, zero em and en dashes in the rendered text",
+         "Gate 3, running heads and folios correct and correctly sided",
+         "Gate 4, callout placement: no splits, ordering correct after place.py",
+         "Gate 5, font faces: expected set only, none stray inside SVG",
+         "Gate 6, key-term register renders with correct rule and tint alternation",
+         "Gate 7, opening-case provenance line present on page 1",
+         "Gate 8, footnotes on the calling page, numbering sequential",
+         "Gate 9, dated evidence boxes labelled and ruled",
+         "Gate 10, problem labels present with their titles",
+         "Gate 11, theorem panel intact, labelled, ruled, not split",
+         "Gate 12, figures captioned, numbered in order, each referenced in text",
+         "Gate 13, no text below the bottom margin, folio excluded",
+         "Gate 14, no widows, no orphans, no section head stranded at a page foot",
+         "MANUAL, not automated: figure geometry checked by eyeball against a "
+         "raster, since SVG rx renders as curve paths and does not appear in "
+         "pdfplumber rects",
+         "MANUAL, not automated: rasterized page-level visual review "
+         "(pdftoppm -png -r 150), read by a human",
      ]),
 
     ("6", "Copy edit", "Dan",

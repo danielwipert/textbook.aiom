@@ -11,7 +11,7 @@ ruling rather than resolving it silently.
 
 ## 0. Why this document exists
 
-`AIOM_build.py` runs eleven gates after every render and prints PASS or FAIL.
+`AIOM_build.py` runs fourteen gates after every render and prints PASS or FAIL.
 The gates are correct and thorough, but their constants were embedded in code
 with no stated derivation. An unenumerated suite cannot be audited, extended
 with confidence, or handed to anyone else. This document states, for each gate:
@@ -22,7 +22,7 @@ Invocation:
 
 ```
 python3 AIOM_build.py --fonts                 # once per session
-python3 AIOM_build.py AIOM_ch01.html          # footnotes, render, eleven gates
+python3 AIOM_build.py AIOM_ch01.html          # footnotes, render, fourteen gates
 ```
 
 The build has three steps. `footnotes.inject()` reads the chapter's own
@@ -42,7 +42,8 @@ footnote, which is what the evidence policy requires for perishable web
 content. Rendering with `--url-policy full` pushes footnote 5 of Ch1 to 876
 characters, which cannot fit one page and trips gate 8.
 
-Exit code is 0 only if all eleven gates pass.
+Exit code is 0 only if all fourteen gates pass. Exit code 2 means the
+toolchain is missing and NO gate ran; see requirements.txt.
 
 ---
 
@@ -83,7 +84,7 @@ palette value without updating the suite silently disables the gates keyed to it
 
 ---
 
-## 3. The eleven gates
+## 3. The fourteen gates
 
 ### Gate 1. Right-margin overflow
 
@@ -297,7 +298,7 @@ The suite covers apparatus and typography well. These are the holes.
 
 | File | Role |
 |---|---|
-| `AIOM_build.py` v6.2 | fonts, footnote injection, render, eleven gates |
+| `AIOM_build.py` v6.3 | fonts, footnote injection, render, fourteen gates, toolchain preflight |
 | `AIOM_book.css` v6.6 | sole control of appearance; chapters carry content only |
 | `cite_format.py` | source entry to Chicago note-form citation |
 | `footnotes.py` | build step; `<cite>` to `<span class="fn">` |

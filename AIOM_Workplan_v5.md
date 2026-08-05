@@ -43,11 +43,11 @@ had never been tested on: Figure 1.2 renders, the craft section typesets using
 the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
-Chapter 1 renders complete at 19 pages with all eleven QA gates passing, and is
-through the production gate (Process v2: Stages 0 through 5 and gates G1, G2
-passed, 8 of 13). It is not Locked; Dan's copy edit, final fact check, and final
-read remain, with the continuity gate between and lock last. The source gate (G1)
-cleared 2026-07-29.
+Chapter 1 rendered complete at 19 pages and reached 8 of 13 steps under the
+eleven-gate suite. It is now REOPENED at Stage 0 (2026-08-05, Decision 53), all
+thirteen steps reset, and is being fully re-drafted against the voice and craft
+standard that postdates its original draft. The fourteen-gate suite fails that
+render on a stranded slot label, a defect the eleven-gate suite passed.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -75,12 +75,15 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1, Dan's remaining external passes.** Stage 6 (copy edit), Stage 7
-   (final fact check 2), and Stage 8 (final read), with G3 (continuity gate)
-   between and Stage 9 to lock. Stages 0 through 5 and gates G1, G2 are done; the
-   Stage 2 developmental edit completed 2026-08-01.
-2. **Chapter 2 drafting.** Runs in parallel with item 1.
-3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
+1. **Chapter 1 Stage 0 re-draft**, against the craft standard, carrying CD1 to
+   CD5 from the checklist. Then the full thirteen steps in order, as the proving
+   run for Process v2.
+2. **Build the continuity ledger** and wire G3 to it. Blocks Lock for every
+   chapter, not just Chapter 1. Needed before Chapter 1 reaches G3, not before
+   Stage 2.
+3. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
+   settled the craft standard in practice.
+4. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
    Ch9, Ch12, and Ch13 problem sets, not Ch2.
 
 Closed since v5: the G1 contradiction on Chapter 1 (cleared 2026-07-29 after
@@ -98,11 +101,11 @@ the scoped re-run matrix, and the v1-to-v2 stage mapping. This file does not kee
 a second copy; that duplication is what drifts. Status is single-sourced in each
 chapter's checklist and printed by `status_check.py`.
 
-Chapter 1 is through the production gate as of 2026-08-01 (the render carrying
-the Figure 1.2 fix). Drafted under v1, it had the Process v2 developmental edit
-(Stage 2) run retroactively, and that stage passed 2026-08-01. Remaining are
-Dan's copy edit, final fact check, and final read, with the continuity gate
-between and lock last.
+Chapter 1 is reopened at Stage 0 (2026-08-05, Decision 53) and runs the full
+thirteen steps from the top. `reopen.py` performed the reset, archiving each
+step's findings in place rather than destroying them. Stage folders across all
+eighteen units were migrated to Process v2 numbering the same day, so a folder
+name no longer disagrees with the live process.
 
 - Copy-edit placement is revisited at Chapter 4 (Decision 24). If line edits are
   being churned by structural changes, move it earlier then, not before.
@@ -121,7 +124,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 6      | Process v2 numbering. Stages 0, 1, 2, 3, 4, 5 and gates G1, G2 all passed (8 of 13). G1 cleared 2026-07-29 (Decision 48 repealed the archival checks); Stage 2 developmental edit completed 2026-08-01 (D1 and D5 applied, D2, D3, D4, D6 closed no action); Stage 5 design and G2 passed 2026-08-01 on the 19-page render with the Figure 1.2 fix, eleven-check suite green. Stage 4 reports INCONSISTENT since 2026-08-05: the craft criteria postdate its pass and sit open pending one ruling (adopt or grandfather). The craft read is run and the chapter meets all six as drafted. Remaining: Stage 6 copy edit, Stage 7 final fact check 2, G3 continuity gate, Stage 8 final read, Stage 9 lock. |
+| 1   | The Category Error             | REOPENED at Stage 0 | Reopened 2026-08-05 on Dan's ruling: drafted before the craft standard existed, and the Stage 4 craft read found seven findings. All 13 steps reset to not-run, `status_check.py` 0/13 CONSISTENT, prior findings archived in place. Carried items CD1 to CD5 are recorded in the checklist, including a real production defect gate 14 found on its first run (slot label stranded at the foot of page 12, which the eleven-gate suite had passed). The re-draft is the proving run for Process v2 end to end. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
@@ -247,6 +250,20 @@ Decisions 22 onward live here.
   standing rules were entirely prohibitive, and prose can break none of them and
   still be dead on the page. C2 and C6 have no mechanical proxy and are enforced
   by reading alone, which is stated rather than papered over.
+
+- **Decision 53. RULED 2026-08-05.** Chapter 1 is reopened at Stage 0 and fully
+  re-drafted, rather than patched, because it was drafted before the craft
+  standard existed and is the exemplar fourteen further chapters are drafted
+  against. The re-draft is also the proving run for Process v2 end to end.
+  Supporting process, built the same day: `reopen.py`, so a reopen resets steps
+  and archives findings instead of destroying them; the Process v1 to v2
+  stage-folder migration across all eighteen units; gates 12, 13, and 14 in
+  AIOM_build.py, closing the three checks the G2 checklist had claimed for
+  months while performing none of them; a toolchain preflight and pinned
+  requirements.txt, since a gate that did not run is not a gate that passed; and
+  a G2 checklist mirroring the fourteen printed gates one for one, with the two
+  genuinely manual checks labelled manual. Gate 14 found a real defect on its
+  first run that the eleven-gate suite had passed.
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
@@ -499,7 +516,7 @@ Front and back matter clear the same lifecycle where a fact check applies
 
 ## Phase 4: Production, QA, delivery
 - [x] Render pipeline built (WeasyPrint, AIOM_book.css, AIOM_build.py, place.py
-  for callout placement, eleven-check QA suite)
+  for callout placement, fourteen-check QA suite, toolchain preflight)
 - [x] Design system locked (D0)
 - [ ] Validate all figures before render
 - [ ] Programmatic QA (pdfplumber overflow and header checks; zero em dashes)
