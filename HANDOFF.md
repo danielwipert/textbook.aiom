@@ -35,8 +35,14 @@ text rendered as the Stage 3 fact-check input; CLAUDE.md section 10, this file,
 and the Workplan brought back into line with the checklist, which all three had
 lagged; both external fact checks received, filed, and reconciled; all six Stage
 3 findings ruled, three of them applied, and the record written; the input
-re-rendered; Stage 3 marked passed by Dan; and the three records mirrored again
-at 5/13. Chapter 1 moved from 4/13 to 5/13.
+re-rendered; Stage 3 marked passed by Dan; the three records mirrored again at
+5/13; and Stage 4 run, with five of its six findings applied and the
+second-model check outstanding. Chapter 1 moved from 4/13 to 5/13, and Stage 4
+is one action from 6/13.
+
+Seven prose edits landed on the chapter this session: SF1, SF2, SF3 at Stage 3,
+and NC1, NC2, NC3, NC5 at Stage 4. Nothing downstream was invalidated, because
+Stage 5 and G2 have not run since the reopen.
 
 The 2026-08-05 session, oldest first: the voice and craft standard (Decision 52);
 the craft-check hardening after the first read failed as verification; the re-run
@@ -105,18 +111,37 @@ work and are listed under thread 1 below.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 4, the voice and craft check. CLAUDE'S STEP. Next up.**
+1. **Chapter 1 Stage 4, the voice and craft check. CLAUDE'S STEP. Run, findings
+   applied, ONE THING LEFT: Dan's second-model gut-check.**
 
-   Read ADVERSARIALLY and BY SECTION. Quote the weakest passage per criterion
-   rather than asking whether the criterion is met, and read the per-section
-   table rather than the chapter average. Both constraints exist because the
-   confirmatory version produced a false all-clear on this very chapter, which is
-   what caused the reopen. A reusable second-model prompt sits in the checklist
-   under Stage 4. Record a finding per criterion, not a single verdict:
-   `status_check.py` fails a Stage 4 marked passed with a C-box left open.
+   The read was run 2026-08-06, adversarially and by section. Mechanical half
+   PASS. Six findings, NC1 to NC6, one per criterion, none failing at chapter
+   level. NC1 to NC5 are applied; NC6 needed only the record.
 
-   `voicecheck.py` mechanical is currently PASS on the live text. That is the
-   easy half. C2 and C6 have no proxy at all and are found only by reading.
+   **The six criterion boxes are still OPEN and should stay open until the
+   second-model check lands.** They are not open because a criterion fails. They
+   are open because this read was written by the model that drafted the chapter
+   and wrote the standard it grades against, and the previous read in that
+   position returned a false all-clear. The prompt is at the end of the
+   checklist. DO NOT show the second model NC1 to NC6: it is testing for what
+   this read missed, and anything it raises goes in as NC7. Ticking the six boxes
+   after that closes Stage 4 and moves the chapter to 6 of 13.
+
+   The headline result: **all seven carried craft findings from the superseded
+   read are resolved**, which is the first evidence that the standard does its
+   work at drafting time rather than as a repair pass. The summary went from the
+   weakest C4 unit in the book to chapter band, all four cross-reference closes
+   are gone, the atomic unit is argued instead of asserted, and the craft section
+   carries arithmetic it used to only assert. That arithmetic was verified at
+   Stage 4 and neither external fact check had examined it.
+
+   Two things came out of Stage 4 that outlive Chapter 1. **`voicecheck.py` was
+   counting a theorem's formal conditional as running prose**, so any section
+   holding a theorem read as rhythmically heavy; fixed via `block_lines` and a
+   named `APPARATUS_BLOCKS` set. And **the baseline band was recomputed** and now
+   supersedes both earlier versions: 43 paragraphs, 224 sentences, 3,870 words,
+   mean 17.3, range 3 to 49, short 33 percent, trailing-qualifier closes 2 of 43,
+   cross-reference closes 0 of 43.
 
    Then **Stage 5** design, then **G2**, then Dan's Stages 6 to 8, then **G3**
    and lock.
