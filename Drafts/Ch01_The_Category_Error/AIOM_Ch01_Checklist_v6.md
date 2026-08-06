@@ -1488,12 +1488,20 @@ the source pass of 2026-07-28. Consequences:
 
 ## Stage 4 craft read: independent verification prompt
 
-Added 2026-08-05. The Stage 4 craft read was written by the same model that
-drafted this chapter and wrote the standard it grades against. Dan runs this
-prompt on a different model, per the Stage 2 precedent, and rules on the result.
-Give the second model the chapter HTML and AIOM_Voice_and_Craft_v1.md, and
-nothing else. Do NOT give it the findings above: the point is an independent
-read, and showing it the answer key destroys that.
+Added 2026-08-05, refreshed 2026-08-06 after the craft read ran. The Stage 4
+craft read was written by the same model that drafted this chapter and wrote the
+standard it grades against. Dan runs this prompt on a different model, per the
+Stage 2 precedent, and rules on the result.
+
+ATTACH EXACTLY TWO FILES:
+
+  Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html
+  AIOM_Voice_and_Craft_v1.md
+
+Do NOT attach this checklist, and do not paste NC1 to NC6 into the conversation.
+The point is an independent read, and showing it the answer key destroys that.
+Note the chapter has moved since the read: NC1 to NC5 are already applied, so the
+second model is reading the corrected text and anything it finds is new.
 
 > You are reviewing one chapter of an academic textbook against a written craft
 > standard. Both are attached. The standard lists six criteria, C1 through C6.
@@ -1522,10 +1530,18 @@ read, and showing it the answer key destroys that.
 > Assume the chapter is good. Your job is not to praise it. Your job is to find
 > what a hostile reviewer at a university press would find.
 
-Compare the second model's findings against F1 through F7 and W1 and W2 in Stage
-4 above. Agreement on a finding raises confidence. A finding the second model
-raises that Stage 4 missed is the more valuable output, and it goes in as F8
-onward. Disagreement is Dan's to rule.
+Compare the second model's findings against NC1 to NC6 in Stage 4 above, and
+against F1 to F7 and W1 and W2 in the archived read below them. Agreement raises
+confidence. A finding the second model raises that Stage 4 missed is the more
+valuable output, and it goes in as NC7 onward. Disagreement is Dan's to rule.
+
+Two things to expect, so they are not mistaken for new findings. The second model
+is reading text from which NC1 to NC5 have already been cut, so it should NOT
+reproduce them; if it does, the edit did not land. And it will likely raise the
+craft-section footnote that ends "It returns in Chapter 6 as the book's anchor
+case on realized value", which prints at the foot of the craft-section opening
+and reads like a cross-reference close. That is footnote apparatus, already
+examined under F4, and is not a paragraph close.
 
 ---
 
@@ -1533,12 +1549,16 @@ onward. Disagreement is Dan's to rule.
 
 Reset to not-run does not mean these were not learned. The re-draft inherits:
 
-**CD1. Production defect, found by gate 14 on its first run.** The "Craft
-section" slot label sits alone at the foot of page 12, with the section it
-labels opening on page 13. This render PASSED the eleven-gate suite on
-2026-08-01. It FAILS the fourteen-gate suite. Fix at Stage 5 design, not at
-Stage 0: it is a break-control problem in the CSS or a place.py concern, not a
-prose problem. Recorded here so it is not rediscovered.
+**CD1. CLOSED 2026-08-06. Production defect, found by gate 14 on its first
+run.** The "Craft section" slot label sat alone at the foot of page 12, with the
+section it labels opening on page 13. That render PASSED the eleven-gate suite on
+2026-08-01 and FAILED the fourteen-gate suite. It was booked as Stage 5 work on
+the reasoning that a break-control problem is not a prose problem. It was closed
+at Stage 4 instead, by applying craft finding NC2: cutting two sentences from 1.4
+moved the pagination, and gate 14 now reports zero stranded heads on a 19-page
+chapter. The reasoning that sent it to Stage 5 was sound and the outcome still
+contradicted it, which is worth remembering the next time a layout defect looks
+purely mechanical.
 
 **CD2. The seven craft findings and two watch items** from the Stage 4 craft
 read, archived above. F4 (four paragraphs closing on a cross-reference) and F5
