@@ -127,6 +127,35 @@ positioned immediately before the paragraph in which its term is first used.
 **Theorem panel.** Full measure, background `--tint-thm`, 3 pt `--amber` left border,
 padding 12.9 / 16 / 11.9 / 16, margins 17.3 above and 17.2 below.
 
+**Theorem statement form (ruled 2026-08-06, Decision 56).** A conditional carrying more
+than two antecedents is set as a structured conditional, never as running prose. The order
+is fixed and admits no variation:
+
+1. **Scope first.** The boundary within which the theorem binds opens the statement, before
+   the word "if". A boundary clause set at the end forces the reader to finish the sentence
+   and then retroactively re-scope everything already read, which is the single largest
+   source of unreadability in the registry's own phrasing.
+2. **Antecedents enumerated**, lower-case roman, one per line, each closed by a semicolon,
+   with "and" before the last. One condition per numeral. A registry antecedent that is
+   internally compound stays one numeral and keeps its internal conjunction.
+3. **Consequent on its own line**, opening with "then", carrying the negation ("not merely
+   software access") where the registry carries it.
+
+Antecedents are set in parallel grammar and in full English. Registry shorthand is rendered,
+not reproduced: articles elided in the registry are restored, and a dangling disjunct is
+attached to the noun it modifies. What may not change is the logic. No antecedent may be
+added, dropped, merged, split, weakened, or strengthened, and the consequent may not be
+restated in the chapter's own vocabulary. The registry statement is the authority and the
+panel is a faithful rendering of it; the ID printed in the panel label is what a reader
+follows to the verbatim form.
+
+Rendering: the scope clause is `p.cond`, the antecedents an `ol.ante`, the consequent
+`p.conseq`. Markers are literal in the source, because `list-style` counters in WeasyPrint
+do not inherit the panel's face reliably.
+
+The dependency chain beneath a theorem is not shown in the panel. Chapter 3 owns the trace
+set piece and showing supports earlier front-runs it.
+
 **Provenance line.** 7 pt Plex Sans SemiBold, amber, uppercase, letter-spacing 0.14em, set
 flush left directly under the opening case title, 5 pt below it and 12.5 pt above the first
 paragraph. It carries either the date range of the episode ("Dated: June 2025 to June 2026")

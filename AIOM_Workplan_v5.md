@@ -15,7 +15,7 @@ to be wrong. Items were closed, not corrected.
 
 Added or changed in v5:
 1. **D0 is closed.** Design finalization is complete. Chapter locks are
-   unblocked on the design side. CSS at v6.7, design spec at v6.8 plus three
+   unblocked on the design side. CSS at v6.8, design spec at v6.8 plus three
    addenda.
 2. **The chapter lifecycle is replaced.** v4's seven-stage lifecycle is
    superseded by the twelve-step process ruled on 2026-07-27, which separates
@@ -299,6 +299,34 @@ Decisions 22 onward live here.
   engagement. (S7) The 2026-07-29 agent-count ruling stands unchanged. No word of
   the chapter changed, so no downstream step was invalidated.
 
+- **Decision 56. RULED 2026-08-06.** Theorem statement form. A registry
+  conditional carrying more than two antecedents is set as a structured
+  conditional in the panel, never as running prose: scope boundary first, before
+  the word "if"; antecedents enumerated in lower-case roman, one per line,
+  semicolon-closed, "and" before the last; consequent on its own line opening
+  with "then" and carrying the registry's negation. Antecedents are set in
+  parallel grammar and full English, so elided articles are restored and a
+  dangling disjunct is attached to the noun it modifies. The logic is untouchable:
+  no antecedent may be added, dropped, merged, split, weakened, or strengthened,
+  and the consequent may not be restated in the chapter's vocabulary. The registry
+  statement is the authority, the panel is a faithful rendering, and the ID in the
+  panel label is what a reader follows to the verbatim form. Rationale: THM-009 as
+  drafted was a single sixty-word sentence with four conjoined antecedents and its
+  scope clause trailing the negation, so the reader had to finish the statement and
+  then retroactively re-scope it. The form is ruled now, at one theorem, rather than
+  after the remaining seven are set. Spec: AIOM_DESIGN_SPEC.md section 5. CSS to
+  v6.8: `.theorem .cond`, `ol.ante`, `li .mk`, `.conseq`. The dependency chain stays
+  out of the panel, because Chapter 3 owns the trace set piece.
+
+- **Decision 56a. RULED 2026-08-06.** `.slot-label` gains `break-after: avoid`.
+  `h3.section` and `.problems-sec .slot-label` already carried the rule and the
+  base slot label did not, which is why the craft-section label could strand at a
+  page foot. It stranded once at Ch1 gate 14's first run, was cleared by cutting
+  two sentences of prose at Stage 4, and returned the moment the theorem panel
+  changed height. A defect whose only remedy is shaving prose until the page breaks
+  elsewhere is a CSS defect, not a prose defect. Ch1 now reports zero stranded heads
+  with the prose untouched.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
@@ -306,7 +334,7 @@ cites registry IDs.
 
 ## Design system of record (D0 closed)
 
-State: CSS at v6.7. Design spec at v6.8 plus three addenda.
+State: CSS at v6.8. Design spec at v6.8 plus three addenda.
 
 What D0 proved, being the three things the system had never been tested on:
 1. Figure 1.2 renders.
@@ -593,6 +621,9 @@ File handling rules:
 - Registry justifies the book; it does not organize it.
 - Theorems are the only chapter-anchoring callouts. Eight, one-to-one.
   Lemmas are prose-cited by ID. Propositions are cited by ID only.
+- Theorem statement form (Decision 56): more than two antecedents means scope
+  first, antecedents enumerated, consequent on its own line. Render the registry
+  into readable English; never change its logic.
 - No chapter is Locked until it clears the full lifecycle.
 - One live workplan at a time. Supersede and delete; never fork.
 - One live text per chapter. Supersede and delete; never fork.

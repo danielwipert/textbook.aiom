@@ -44,6 +44,14 @@ These have all been explicitly ruled and re-affirmed. Do not relitigate them.
 5. **No decorative apparatus.** Signposting is done through the skeleton, not
    through prose. Do not tell the reader what the chapter is about to say before
    saying it.
+6. **Theorem statement form.** A registry conditional carrying more than two
+   antecedents is set as a structured conditional, never as running prose: scope
+   boundary first, before the word "if"; antecedents enumerated in lower-case
+   roman, one per line; consequent on its own line opening with "then". Render
+   registry shorthand into full parallel English, and never change the logic. No
+   antecedent added, dropped, merged, split, weakened, or strengthened. The
+   registry statement is the authority and the panel is a rendering of it. Full
+   rule in `AIOM_DESIGN_SPEC.md` section 5; ruled as Decision 56.
 
 ### Voice
 
@@ -461,7 +469,7 @@ no entries, which is correct: entries are appended at Stage 9, and no chapter ha
 locked. Lock is no longer blocked.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
-locked: CSS at v6.7, design spec at v6.8 plus three addenda. The registry is
+locked: CSS at v6.8, design spec at v6.8 plus three addenda. The registry is
 validated: 228 objects load (200 propositions, 20 lemmas, 8 theorems), eight
 book-mapped theorem IDs resolve, zero dangling references in the dependency
 graph.

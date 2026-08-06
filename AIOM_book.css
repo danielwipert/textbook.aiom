@@ -134,6 +134,12 @@ h1.chapter-title {
   font-family: "Jost"; font-weight: 600; font-size: 8.5pt;
   color: var(--amber); letter-spacing: 0.215em; text-transform: uppercase;
   margin: 0 0 11.4pt 0; line-height: 10pt;
+  /* v6.8. A slot label is a head and must not separate from the slot it names.
+     Without this, gate 14 reports a stranded head whenever pagination moves a
+     label to the foot of a page, and the only remedy is to shave prose until the
+     page breaks elsewhere. h3.section and .problems-sec .slot-label already
+     carried the rule; the base slot label did not. */
+  break-after: avoid;
 }
 h2.case-title {
   font-family: "Jost"; font-weight: 600; font-size: 15pt;
@@ -216,6 +222,30 @@ h3.section .num { color: var(--amber); margin-right: 6pt; }
   color: var(--navy); margin: 0 0 6.1pt 0; line-height: 15pt;
 }
 .theorem p { font-size: 10.5pt; line-height: 15.5pt; margin: 0; }
+
+/* Structured conditional, v6.8 (Decision 56). A theorem carrying more than two
+   antecedents is set scope-first, antecedents enumerated, consequent on its own
+   line. Markers are literal in the source: WeasyPrint does not inherit the panel
+   face into generated list counters reliably, and a marker falling back to a
+   system face trips gate 5. list-style is therefore off and the ol carries no
+   padding, so the antecedent block sits flush with the scope and consequent
+   lines rather than indenting away from the panel's left rule. */
+.theorem .cond { margin: 0 0 4.4pt 0; }
+.theorem ol.ante {
+  list-style: none; margin: 0 0 4.4pt 0; padding: 0;
+}
+.theorem ol.ante li {
+  font-size: 10.5pt; line-height: 15.5pt; margin: 0 0 1.6pt 0;
+  padding-left: 20pt; text-indent: -20pt;
+  text-align: left; hyphens: none;
+}
+/* The marker sits in a fixed-width inline-block so that (i) and (iii) start
+   their text at the same x. Without it the hanging indent aligns wrapped lines
+   to 20pt while first lines start wherever the marker happens to end, and the
+   four antecedents step raggedly against each other. */
+.theorem ol.ante li .mk { display: inline-block; width: 20pt; text-indent: 0; }
+.theorem ol.ante li:last-child { margin-bottom: 0; }
+.theorem .conseq { margin: 0; }
 
 /* ---------- 9. FIGURE ---------- */
 figure { margin: 14pt 0 17.5pt 0; break-inside: avoid; break-after: avoid; }
