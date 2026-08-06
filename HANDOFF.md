@@ -12,10 +12,12 @@ replacing `claude/prose-voice-style-gxjkgj`, which is fully merged into `main` a
 is finished. Working tree clean, and the branch is pushed to origin.
 
 **`main` is merged and synced as of 2026-08-06.** Dan approved the merge and
-`main` was fast-forwarded to `50f93d9`, seven commits, with nothing to reconcile
-because `main` still carries no commits of its own. It now reflects the whole
-body of work through Chapter 1 Stage 3 in progress: both external fact checks,
-the five closed findings, the two applied rulings, and the v2 render.
+`main` was fast-forwarded to match this branch, with nothing to reconcile because
+`main` still carries no commits of its own. It now reflects the whole body of
+work through Chapter 1 Stage 3 passed: both external fact checks, all six
+findings ruled, the three applied rulings, and the current render. A specific SHA
+is deliberately not recorded here, because it goes stale on the next commit and a
+handoff that lies about sync state is worse than none. Check it instead.
 
 Keep them synced. When this branch advances, fast-forward `main` again before
 ending the session.
