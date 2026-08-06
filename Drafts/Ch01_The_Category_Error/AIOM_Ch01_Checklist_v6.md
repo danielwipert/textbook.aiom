@@ -1428,6 +1428,66 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+PROOF ISSUED 2026-08-06 for Dan's copy edit, with the return path built and
+tested before it was sent.
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit.manifest.json
+
+155 blocks, every word of the chapter, verified by an audit that compares the
+export against the HTML and requires the difference to be empty. Each block
+carries a grey bracketed type tag, so the editor can see what a line is and the
+importer can verify the structure before importing a single edit. Both figures
+travel as images cropped from the G2 PDF, with their captions and, separately,
+all 22 text strings set inside them: nothing else in the pipeline puts those in
+front of a human, and a typo in one would ship.
+
+THE SOURCE REGISTER DOES NOT TRAVEL, deliberately. It is machine-read apparatus
+under Decision 51, and an edit inside it would change what a citation claims
+without changing anything the page says. Recorded in the manifest as an
+exclusion so the omission is a decision rather than an oversight.
+
+TOOLING BUILT AND COMMITTED, because fourteen more chapters need it:
+`copyedit_export.py` and `copyedit_import.py`. The importer maps the returned
+file back block by block using the span each block records in the source, applies
+what is unambiguous, and REFUSES anything else rather than writing a plausible
+guess into a chapter about to lock. Nothing downstream would catch a wrong word:
+Stage 7 checks sources and G3 checks continuity, and neither reads for meaning.
+
+VERIFIED END TO END BEFORE ISSUE, on four checks:
+  1. An UNEDITED round trip reports zero changes. This is the check that matters
+     most and it failed twice while being built. It caught the exporter adding a
+     double space to every section head, which made all eight report a phantom
+     edit, and it caught the figure strings being in the document but not the
+     manifest, which reported a structure change on a file nobody had touched.
+  2. Every span in the manifest resolves to exactly the text it claims: 155 of
+     155, zero mismatches.
+  3. Five simulated edits across four different block types, body prose, a
+     footnote gloss, a string inside a figure, and a key-term name, all applied
+     cleanly with zero refusals.
+  4. The imported HTML was rebuilt and passes all fourteen gates, which is what
+     proves the importer edits inside inline markup rather than through it.
+
+A COMPLETENESS AUDIT IS PART OF THE EXPORT, not an afterthought. It found the
+seven key-term names being dropped: the register sets them in a span rather than
+a paragraph, and a paragraph-only sweep missed all seven. They are prose, they
+must match the definition callouts word for word, and no other pass shows them to
+an editor.
+
+WHAT DAN NEEDS TO KNOW. Edit freely, in place or with track changes; tracked
+insertions are read in their accepted form. Leave the grey bracketed tags alone.
+Splitting or merging a paragraph is allowed and is detected rather than silently
+mis-applied. The chapter is 19 pages and passing every gate, so anything found
+here is a line-level improvement rather than a repair.
+
+NOT VERIFIED, and stated rather than glossed: the .docx could not be rendered to
+PDF in this environment for a visual check, because LibreOffice cannot start
+without Java here. The file was validated by reading it back instead, 160
+paragraphs and both images present. If it looks wrong when opened, that is the
+first thing to suspect.
+
+
+
 ---
 
 ## Stage 7. Final fact check 2

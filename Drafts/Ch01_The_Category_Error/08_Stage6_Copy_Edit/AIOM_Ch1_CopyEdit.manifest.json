@@ -1,0 +1,2339 @@
+{
+ "source_html": "Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html",
+ "source_pdf": "Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf",
+ "block_count": 155,
+ "excluded": [
+  "<section id=\"aiom-sources\">, the Decision 51 source register: machine-read apparatus, deliberately not exposed to a copy edit"
+ ],
+ "figure_text_counts": [
+  14,
+  8
+ ],
+ "blocks": [
+  {
+   "i": 0,
+   "kind": "PART LABEL",
+   "class": "part-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    197,
+    218
+   ],
+   "sha1": "d1f306603f8d9170137939c56cc45f28956b0946",
+   "text": "Part I · The Argument"
+  },
+  {
+   "i": 1,
+   "kind": "CHAPTER TITLE",
+   "class": "chapter-title",
+   "tag": "h1",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    249,
+    267
+   ],
+   "sha1": "cebb52e7e59e787a250f93304e687e8f5b3a16cf",
+   "text": "The Category Error"
+  },
+  {
+   "i": 2,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    296,
+    308
+   ],
+   "sha1": "180538463d11c0f7ea1903cf657cb1a084bcfbd6",
+   "text": "Opening case"
+  },
+  {
+   "i": 3,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    336,
+    369
+   ],
+   "sha1": "88d353aabc463c951fd9791b758ffdb57551315f",
+   "text": "Two subscriptions, one correction"
+  },
+  {
+   "i": 4,
+   "kind": "PROVENANCE",
+   "class": "provenance",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    397,
+    515
+   ],
+   "sha1": "43e5a5d0501a74cb3a77285698e003805e887038",
+   "text": "Dated: June 2025 to June 2026. Vendor actions, dates, and figures are sourced. The buying organization is a composite."
+  },
+  {
+   "i": 5,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    524,
+    1120
+   ],
+   "sha1": "3ca38f6850b3fdd53f47f1724272e9db0223a2f3",
+   "text": "In the spring of 2025, a software team at a mid-size company was doing what thousands of teams were doing: paying twenty dollars per developer per month for an AI coding assistant called Cursor, and treating that line on the budget the way it treated every other software line. The tool was useful. The price was small. The arrangement was, on its face, a subscription like any other, filed next to the ticketing system and the design software and the password manager. Nobody in finance thought about it again after signature, because nothing about a twenty-dollar seat asks to be thought about."
+  },
+  {
+   "i": 6,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    1129,
+    2489
+   ],
+   "sha1": "663cf0f25af9f098a75cd4a9b2af4491f9233b4d",
+   "text": "Then, on June 16, 2025, the arrangement changed underneath them. Cursor revised its Pro plan so that the previous monthly allotment of five hundred requests against external models, with Sonnet models counting as two, became a twenty-dollar monthly pool of frontier-model usage billed at the underlying API rates. Use of Cursor's own Tab model and of models in Auto became unlimited. For light users the change was invisible. For the team's heaviest users, the people getting the most value, the monthly allowance was consumed in a matter of prompts, after which additional usage was priced at the same rates. Charges arrived that no one had planned for. On July 4, after three weeks of complaint, Anysphere's chief executive, Michael Truell, published an apology, promised refunds for the intervening period, and explained the change. The explanation was not an excuse. It was an account of arithmetic: the newest models consumed far more tokens per request on long-horizon tasks than the flat price had been built to absorb, and Cursor had been absorbing the difference."
+  },
+  {
+   "i": 7,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "truell-2025-pricing + techcrunch-2025-cursor-apology",
+   "figure": null,
+   "string": null,
+   "span": [
+    2265,
+    2482
+   ],
+   "sha1": "b6bfdd51aec67051f8b1b66d96fd4e062e71f84a",
+   "text": "The Cursor post describes the change of June 16 and the clarification of June 30. The TechCrunch report carries Truell's role and title."
+  },
+  {
+   "i": 8,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2498,
+    3664
+   ],
+   "sha1": "3db50a9ad0f0f742bee1e4323d82bfdacbbc5ab7",
+   "text": "The same pattern, in the same window, played out at a far larger scale. GitHub Copilot spent the year from June 2025 to June 2026 dismantling its own flat model in two acts. First, on June 18, 2025, it began enforcing monthly premium-request allowances and letting customers pay for usage beyond them. Then, on June 1, 2026, it moved standard billing from premium requests to credits denominated in tokens, priced at each model's published rate. The transition carried exceptions: annual Pro and Pro+ subscribers remained on premium-request pricing until their terms expired, completions and Next Edit Suggestions stayed included without consuming credits, and every plan retained a monthly credit allowance. Base subscription prices did not change. On its January 28, 2026 earnings call, four months before the change, Microsoft reported the paid Copilot base at over 4.7 million subscribers, up 75 percent year over year."
+  },
+  {
+   "i": 9,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "github-2025-premium + github-2026-usage + microsoft-2026-q2",
+   "figure": null,
+   "string": null,
+   "span": [
+    3491,
+    3657
+   ],
+   "sha1": "83501cad2c90544a648160abf445ef77ba31d530",
+   "text": "The Microsoft earnings call carries the subscriber figure and the growth rate."
+  },
+  {
+   "i": 10,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3673,
+    4847
+   ],
+   "sha1": "da008eb8c7d08ec769e2d9f99fc557d65cd4cbbf",
+   "text": "The two corrections did not look alike from the buyer's seat. One arrived retroactively, under public pressure, with an apology and refunds. The other arrived on a published schedule, announced in advance, supported by tooling, across every plan. Set the difference aside and what remains is the same event twice. A product had been sold, and bought, as software: a seat, a flat price, a cost fixed at signature. The thing underneath the seat turned out to obey a different law. It consumed a resource on every use, the resource had a real and variable cost, and heavy use ran that cost past the flat price. When the gap grew wide enough, the arrangement changed. It changed on the provider's schedule, not the buyer's. It changed whether or not the buyer had ever looked at a meter. And it changed in one direction only, toward an entitlement indexed to consumption."
+  },
+  {
+   "i": 11,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "github-2025-premium + github-2026-usage",
+   "figure": null,
+   "string": null,
+   "span": [
+    3970,
+    4219
+   ],
+   "sha1": "6217fb188f7291d1c4004f7d9e4456e7de22a75b",
+   "text": "Act one sits on the GitHub Changelog, dated June 18, 2025. Act two was announced April 27, 2026, with a preview bill experience launched in early May ahead of the June 1 transition."
+  },
+  {
+   "i": 12,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    4856,
+    5164
+   ],
+   "sha1": "898513e6326c33786a96bac7f08b3fd0ad244cdd",
+   "text": "The buyers in these stories did not make an error of vendor selection. Cursor and Copilot were, and are, excellent tools. The buyers made an error of category. They filed a metered resource under the mental model they use for licensed software, and the mental model held right up until the moment it did not."
+  },
+  {
+   "i": 13,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5190,
+    5246
+   ],
+   "sha1": "15b1848a616766fdf6fa1e08f227f635de11dd7c",
+   "text": "1.1 The purchase that is not one"
+  },
+  {
+   "i": 14,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5295,
+    5305
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 15,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5326,
+    5338
+   ],
+   "sha1": "5fadcf19a7041d483051778244fb99ea4f652ddc",
+   "text": "Access price"
+  },
+  {
+   "i": 16,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5346,
+    5489
+   ],
+   "sha1": "a273f9f858dc315f40ed761892771b7480e0dfef",
+   "text": "The stated price of access to an AI capability, per seat or per subscription, distinct from the total cost of consuming the resource behind it."
+  },
+  {
+   "i": 17,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5546,
+    5556
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 18,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5577,
+    5598
+   ],
+   "sha1": "375931a59f2e9cc0af09746d60d0d08eee66e91e",
+   "text": "Software access model"
+  },
+  {
+   "i": 19,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5606,
+    5794
+   ],
+   "sha1": "488f85af919d2c1df592ba2f0c68f2e9d4d8cf1b",
+   "text": "The economic model, inherited from licensed software, in which cost is fixed at signature and the marginal cost of additional use is approximately zero; management is management of access."
+  },
+  {
+   "i": 20,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5812,
+    6597
+   ],
+   "sha1": "f8b7950784d4ce81d009dd0b077876d23e8573fb",
+   "text": "The buyer brought a model to the transaction, and it was a good model, refined over three decades of enterprise software procurement. In that model, software is a license. The organization buys the right for a defined number of people to use a program. The marginal cost of an additional use, once the seat is paid for, is approximately zero: a licensed user who runs the program a thousand times a day costs the buyer the same as one who runs it once a week. Cost is therefore fixed at signature. The negotiation that matters happens once, at purchase, over the number of seats and the price per seat. That per-seat figure is the access price . After that, management of the software is management of access: who has a login, how many seats are active, when the contract renews."
+  },
+  {
+   "i": 21,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    6606,
+    7203
+   ],
+   "sha1": "58ae320e9c31585ec0e9cecd0e8c6857fe7cf965",
+   "text": "This model, the software access model , is not wrong about licensed software. It is wrong about the thing now being sold under the same packaging. What the organization operates when it deploys an AI assistant is not a program that people are licensed to run. It is work that consumes a metered resource on every task. Each use sends a request to a model, the model performs computation to answer it, and that computation has a cost that scales with the size of the request and the size of the answer. The marginal cost of an additional use is not approximately zero. It is the central fact."
+  },
+  {
+   "i": 22,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7212,
+    7743
+   ],
+   "sha1": "c0825d478abe9f997e22ceccd88005459ce67b4a",
+   "text": "The consequence is a mismatch between what the organization manages and what the organization operates. Access management asks how many people may use the tool. Resource management asks how much of the resource the work consumes, at what cost, for what return. An organization that manages access while operating a metered resource is managing the wrong quantity. It counts seats while the bill is written in tokens, requests, and credits. The mental model determines what gets managed, and the wrong model manages the wrong thing."
+  },
+  {
+   "i": 23,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7769,
+    7818
+   ],
+   "sha1": "b512688217f49652376571a2c1c05dbc612800fe",
+   "text": "1.2 The consumption event"
+  },
+  {
+   "i": 24,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7867,
+    7877
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 25,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7898,
+    7915
+   ],
+   "sha1": "b709827badf2a52eec1069a0ab8f1f20cfc87461",
+   "text": "Consumption event"
+  },
+  {
+   "i": 26,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7923,
+    8084
+   ],
+   "sha1": "b6a21a75181be3bf9490fdc221bc2c66ea30afb4",
+   "text": "A request that consumes computational resource, metered in tokens or their equivalents, at a per-event cost greater than zero. The atomic unit of the discipline."
+  },
+  {
+   "i": 27,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8102,
+    8461
+   ],
+   "sha1": "5e6a6851349ef6df99f22b36f5cdaabfba91ac85",
+   "text": "The discipline that follows in this book is built on a single atomic unit. That unit is the consumption event . Every deployed use of AI, at bottom, is a stream of these events. They are the thing the meter counts, the thing the invoice sums, and the thing every later chapter learns to source, record, attribute, budget, allocate, and hold accountable."
+  },
+  {
+   "i": 28,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8470,
+    9139
+   ],
+   "sha1": "1ea2814a835ce759882def225e4b7e1eaa219dae",
+   "text": "The anatomy of one event is simple, and Figure 1.1 sets it out. Something goes in: a prompt, a document, a conversation history, retrieved reference material. The model performs computation. Something comes back: a completion, a suggestion, an answer, a tool call. A meter records what was consumed, typically the count of input tokens and output tokens, the units into which a model divides the text it reads and writes, and sometimes the calls to retrieval or tools that the event triggered. And a record of that consumption is held somewhere. In the ordinary case it is held by the provider, and the buyer never sees it at all. What reaches the buyer is a summation."
+  },
+  {
+   "i": 29,
+   "kind": "FIGURE CAPTION",
+   "class": "",
+   "tag": "figcaption",
+   "sources": null,
+   "figure": 1,
+   "string": null,
+   "span": [
+    11214,
+    11515
+   ],
+   "sha1": "16dedf356c55ab63bd6e4dbf4391f1a0c4ff26a4",
+   "text": "Figure 1.1 Anatomy of a consumption event. Input is assembled, the model computes, output returns, and a meter records the resource drivers beneath. In the ordinary case the record stays on the provider's side, and what reaches the buyer is a summation rather than a record."
+  },
+  {
+   "i": 30,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 0,
+   "span": [
+    9314,
+    9320
+   ],
+   "sha1": "83c83f688e5b473037f5f7b5c3b2b6e11fde9cef",
+   "text": "INPUTS"
+  },
+  {
+   "i": 31,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 1,
+   "span": [
+    9352,
+    9357
+   ],
+   "sha1": "aac8c7708485810560bb2eb26d6214616594fa9f",
+   "text": "MODEL"
+  },
+  {
+   "i": 32,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 2,
+   "span": [
+    9389,
+    9395
+   ],
+   "sha1": "feb3522a4038f71f091c69d4b18145fccb3da91a",
+   "text": "OUTPUT"
+  },
+  {
+   "i": 33,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 3,
+   "span": [
+    9895,
+    9901
+   ],
+   "sha1": "9c7e05e5868afcf303ae4d1b7982921411378f96",
+   "text": "prompt"
+  },
+  {
+   "i": 34,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 4,
+   "span": [
+    9932,
+    9952
+   ],
+   "sha1": "eeffc2e7c8be9f9cf3d0bc8051a0a57de512c3c3",
+   "text": "conversation history"
+  },
+  {
+   "i": 35,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 5,
+   "span": [
+    9983,
+    10001
+   ],
+   "sha1": "d6ab3c7f5c9354d7c56b1446151aa268c02fe59c",
+   "text": "retrieved material"
+  },
+  {
+   "i": 36,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 6,
+   "span": [
+    10034,
+    10054
+   ],
+   "sha1": "9b6ee74b60c15283b8dad730c0925e5d2c5a5e89",
+   "text": "completion or answer"
+  },
+  {
+   "i": 37,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 7,
+   "span": [
+    10087,
+    10097
+   ],
+   "sha1": "97e9422ac449710d62b99c252d89dbbe72ffac39",
+   "text": "suggestion"
+  },
+  {
+   "i": 38,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 8,
+   "span": [
+    10130,
+    10139
+   ],
+   "sha1": "98edbf6a9b55c52ed2c9dfea7049975655037026",
+   "text": "tool call"
+  },
+  {
+   "i": 39,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 9,
+   "span": [
+    10248,
+    10259
+   ],
+   "sha1": "b3ce1e6c61013449eef07bc7c4a45b0c16f84ece",
+   "text": "computation"
+  },
+  {
+   "i": 40,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 10,
+   "span": [
+    10651,
+    10656
+   ],
+   "sha1": "425110474dfd8ecbeb0373b4dc0eb7b5ec66e93a",
+   "text": "METER"
+  },
+  {
+   "i": 41,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 11,
+   "span": [
+    10744,
+    10811
+   ],
+   "sha1": "a004ce51aef50de34b18d9dc8d7af262163e44fb",
+   "text": "input tokens · output tokens · calls · retrieval · tool invocations"
+  },
+  {
+   "i": 42,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 12,
+   "span": [
+    11024,
+    11054
+   ],
+   "sha1": "c63db5b233452dd6f88234416343e5429f24d399",
+   "text": "The provider holds the record."
+  },
+  {
+   "i": 43,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 13,
+   "span": [
+    11157,
+    11187
+   ],
+   "sha1": "aafe9c5ec4fd6f5af5ff55d47b0eaea724db0555",
+   "text": "The buyer receives an invoice."
+  },
+  {
+   "i": 44,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11543,
+    12521
+   ],
+   "sha1": "e0728c20434b64fb3bf0938a471f55b71c343e41",
+   "text": "The choice of unit is not arbitrary, and a different choice would produce a different discipline. Three candidates present themselves. The user is the unit the seat model already counts, and it fails immediately, because two users on identical seats can consume resource that differs by an order of magnitude. The task is the unit the business cares about, and it is the right unit for measuring value, but a single task may trigger one model call or four hundred, so it does not track cost. The event is what remains. It is the smallest thing that has a cost, and it is the only candidate the provider's meter actually records. A unit the meter does not record cannot be reconciled against a bill, and a discipline whose unit cannot be reconciled against the bill is a discipline of assertions. Later chapters aggregate events upward into flows, workloads, and workflows, and they can do so precisely because the aggregation starts from something counted rather than estimated."
+  },
+  {
+   "i": 45,
+   "kind": "FIGURE CAPTION",
+   "class": "",
+   "tag": "figcaption",
+   "sources": null,
+   "figure": 2,
+   "string": null,
+   "span": [
+    13845,
+    14115
+   ],
+   "sha1": "e825ddf193a52ff3d1f75e8b8b39db6c56fdeb54",
+   "text": "Figure 1.2 Two purchase models. Under the seat model, cost is flat against rising usage. Under the event model, cost is the accumulating sum of consumption events. The same usage produces a flat cost on the left and a rising cost on the right."
+  },
+  {
+   "i": 46,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 0,
+   "span": [
+    12698,
+    12708
+   ],
+   "sha1": "b746453fabfaa7f00a12faf73cd8c8c7359d59b1",
+   "text": "SEAT MODEL"
+  },
+  {
+   "i": 47,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 1,
+   "span": [
+    12741,
+    12752
+   ],
+   "sha1": "3b5d733cace819416bafad810fc0e362c89f910d",
+   "text": "EVENT MODEL"
+  },
+  {
+   "i": 48,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 2,
+   "span": [
+    13424,
+    13447
+   ],
+   "sha1": "b800a078def71c37b7b152b19bd9f59272500263",
+   "text": "cost fixed at signature"
+  },
+  {
+   "i": 49,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 3,
+   "span": [
+    13495,
+    13516
+   ],
+   "sha1": "4e4534b12fa9162d51d5f0a80067e381d5dd90ef",
+   "text": "cost = area under use"
+  },
+  {
+   "i": 50,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 4,
+   "span": [
+    13662,
+    13666
+   ],
+   "sha1": "75fde9afb2c5a969514fe5721d4fb3ff986312cd",
+   "text": "COST"
+  },
+  {
+   "i": 51,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 5,
+   "span": [
+    13730,
+    13734
+   ],
+   "sha1": "75fde9afb2c5a969514fe5721d4fb3ff986312cd",
+   "text": "COST"
+  },
+  {
+   "i": 52,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 6,
+   "span": [
+    13767,
+    13772
+   ],
+   "sha1": "cf3bfa9a159c5a5ddc20da1eccd6bbddbdc037e4",
+   "text": "USAGE"
+  },
+  {
+   "i": 53,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 7,
+   "span": [
+    13806,
+    13811
+   ],
+   "sha1": "cf3bfa9a159c5a5ddc20da1eccd6bbddbdc037e4",
+   "text": "USAGE"
+  },
+  {
+   "i": 54,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14143,
+    14566
+   ],
+   "sha1": "c86b1da9b9eb797c4949a9d4d87ef0871112666f",
+   "text": "The seat model and the event model are not two views of the same economics. They are two different economics, and Figure 1.2 draws the difference the invoice hides. A horizontal line does not become an accumulating area because the contract calls it one. A buyer operating on the left panel while the right panel governs the bill will be surprised, and the surprise arrives as a number, on a schedule the buyer did not set."
+  },
+  {
+   "i": 55,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14592,
+    14653
+   ],
+   "sha1": "3e4ef7c1e82c6b34e7ca3b26e3d2c176aefd867f",
+   "text": "1.3 The flat-rate objection, answered"
+  },
+  {
+   "i": 56,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14664,
+    14849
+   ],
+   "sha1": "67a906df89a94bc267578d7edacc07f48ae4f80a",
+   "text": "One objection stands against everything said so far: \"We pay thirty dollars per seat per month, the price is flat, we are never billed by the token, and for us this simply is software.\""
+  },
+  {
+   "i": 57,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14858,
+    16146
+   ],
+   "sha1": "7f0bc8d34d4c5c10ec8033d84133bf18de3ab056",
+   "text": "The objection is not confused, and the answer is not that the buyer is billed by the token after all. The answer is meter relocation : a flat rate moves the meter, it does not abolish it. When a provider offers a flat price for a metered resource, the provider does not stop metering. The provider meters exactly what the buyer has declined to see, and prices the flat rate against an assumption about how much the average buyer will consume. That assumption is a bet. It holds while usage stays near the average the price assumed. It fails when usage is skewed, when a minority of heavy users consume a majority of the resource, because the flat price collected from everyone no longer covers the resource consumed by the few. At that point the arrangement is unstable, and the instability resolves in one direction. The provider re-indexes what the buyer receives to what the buyer consumes. It may do so by changing the price, by metering usage above an allowance, by changing the unit the allowance is denominated in, or by capping consumption outright. Chapter 4 sets out the full menu of instruments. What does not vary is the direction, or who chooses the moment: the correction arrives on the provider's schedule, because the provider holds the meter and the buyer does not."
+  },
+  {
+   "i": 58,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16155,
+    16267
+   ],
+   "sha1": "6ffec7261a65962d24dbc57564660d6ea2a929bc",
+   "text": "This is not a claim about badly run vendors. It is a structural result, and the registry states it as a theorem."
+  },
+  {
+   "i": 59,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16310,
+    16329
+   ],
+   "sha1": "ff0642d6049c40542ec16adf4dc72c142f0c396e",
+   "text": "Theorem 1 · THM-009"
+  },
+  {
+   "i": 60,
+   "kind": "THEOREM STATEMENT",
+   "class": "stmt",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16350,
+    16408
+   ],
+   "sha1": "373ec9dde27ebc0557fbaee5a387bf2aedfaefae",
+   "text": "AI Use Is Resource Consumption, Not Merely Software Access"
+  },
+  {
+   "i": 61,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16416,
+    16849
+   ],
+   "sha1": "d081988d13220ca10206ae25c00401bb1bf77ec2",
+   "text": "If an AI activity requires compute and executing that activity consumes resources, production scaling expands the usage surface of AI deployment, buyer total cost extends beyond access price, and measurement enables visibility into resource use or cost-bearing activity, then AI use in a deployed business context is resource-consuming operating activity, not merely software access, within the relevant deployment and cost boundary."
+  },
+  {
+   "i": 62,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16865,
+    17719
+   ],
+   "sha1": "08a82bb0672efe2bd1f45d017d1d62cce812e334",
+   "text": "The word carries a precise sense here. A theorem in this book is a statement proved within a stated system, from lemmas and propositions, not an empirical generalization drawn from the episodes above, and it binds only where its antecedents hold. The theorem does not say that a flat rate is impossible or that every subscription will be repriced tomorrow. It says something narrower and more durable: that in a deployed business context, where the activity requires compute, where scaling expands the surface of use, and where total cost runs past the access price, the thing being operated is a resource-consuming activity rather than software access. A flat rate packages that activity for sale. It is not evidence that the activity is something else, and the buyer who reads it as proof of software access has mistaken the packaging for the contents."
+  },
+  {
+   "i": 63,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17728,
+    17817
+   ],
+   "sha1": "f369546bed54a4c325a42dc2d32c674094d3f027",
+   "text": "The public record already contains the pattern running its course, in more than one form."
+  },
+  {
+   "i": 64,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17859,
+    17878
+   ],
+   "sha1": "3972215e111ea6483923809bef5a1987ba6b944e",
+   "text": "Dated: January 2025"
+  },
+  {
+   "i": 65,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17886,
+    18310
+   ],
+   "sha1": "ffd466d396bb62542d461ebbacf1638513e51170",
+   "text": "OpenAI's chief executive, Sam Altman, stated publicly that the company was losing money on its two-hundred-dollar Pro subscriptions because subscribers used them more than the price had assumed, and added that he had set the price himself."
+  },
+  {
+   "i": 66,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "altman-2025-pro + techcrunch-2025-altman-pro",
+   "figure": null,
+   "string": null,
+   "span": [
+    18181,
+    18303
+   ],
+   "sha1": "87de652b23d4211a59064cae1eea254ed0e23eb6",
+   "text": "The TechCrunch report reproduces both statements."
+  },
+  {
+   "i": 67,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    18359,
+    18375
+   ],
+   "sha1": "331da526faf3f669964cd971b18ef4785047928c",
+   "text": "Dated: July 2025"
+  },
+  {
+   "i": 68,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    18383,
+    19280
+   ],
+   "sha1": "95b4d66a8765e9cc0cba4f8777af079987b0e7f2",
+   "text": "Claude Code subscribers found the usage limits already governing their plans abruptly tightened, with no announcement, many of them unaware that limits applied at all, and Anthropic acknowledged the reports without confirming a change. Eleven days later the company announced two weekly caps stacked on top of the existing five-hour limits, with the new constraints taking effect the following month rather than at any subscriber's renewal. Subscribers on the highest tier could buy additional usage at standard API rates."
+  },
+  {
+   "i": 69,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "anthropic-2025-limits + techcrunch-2025-anthropic-limits + techcrunch-2025-anthropic-tightening",
+   "figure": null,
+   "string": null,
+   "span": [
+    19011,
+    19273
+   ],
+   "sha1": "e3d17c9dfb15eea3cfb7a3fa4558433ec76fcea2",
+   "text": "The announcement set two weekly caps effective August 28, 2025, added to five-hour limits already in force and tightened on July 17, 2025."
+  },
+  {
+   "i": 70,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19335,
+    19345
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 71,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19366,
+    19382
+   ],
+   "sha1": "12117262dabbf26035064369ca2b5355ffe725c1",
+   "text": "Meter relocation"
+  },
+  {
+   "i": 72,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19390,
+    19591
+   ],
+   "sha1": "1a268cc2ab691df7277bfd0592c7500068224c37",
+   "text": "A flat rate does not abolish the meter but moves it to the provider's side, where the provider prices the flat rate against assumed consumption and corrects it on its own schedule when usage is skewed."
+  },
+  {
+   "i": 73,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19608,
+    19977
+   ],
+   "sha1": "eef7485a99e878e5781e3c88b3a1bcb91989208b",
+   "text": "The two episodes that opened this chapter belong to the same record. Cursor and GitHub Copilot reached the same destination by different means, across two widely used AI coding subscriptions, inside twelve months. The flat rate did not make the meter disappear. It moved the meter to the provider's side of the table and moved the correction to the provider's calendar."
+  },
+  {
+   "i": 74,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20003,
+    20059
+   ],
+   "sha1": "d90a465bd3103e26a84f70a37ebb2561dd5cda20",
+   "text": "1.4 What follows if this is true"
+  },
+  {
+   "i": 75,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20069,
+    21132
+   ],
+   "sha1": "1fe84c2120aa1312e32abe3a022e9373b43a3114",
+   "text": "Accept the category, and a great deal follows without further argument. Resources that flow through an organization have long been the object of a mature management discipline, and the reader already knows its shape, because every organization that handles physical goods practices it daily. A manufacturer does not manage its steel by counting the people licensed to touch it. It sources the steel against stated requirements rather than accepting whatever the incumbent supplier offers. It plans and budgets the tonnage it expects to consume, and it notices when consumption departs from the plan. It records where the material goes as it moves through the plant, so that the quantity consumed by one product line can be distinguished from the quantity consumed by another. It allocates the material under a stated rule when supply is short, rather than letting the loudest line take what it wants. And it holds the finished output accountable for the material it consumed, so that a product whose margin cannot survive its own input cost is identified as such."
+  },
+  {
+   "i": 76,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21141,
+    21792
+   ],
+   "sha1": "267e2c0e173be553e3652958f34df472d0edffdc",
+   "text": "The same five practices, stated in timeless form, are not techniques belonging to manufacturing. They are the questions that any organization must be able to answer about anything that flows through it and costs money as it flows. What is being bought, and against what requirement. How much the organization expects to consume, and how it will know when the expectation fails. Where the resource actually went. Who decides when there is not enough. What the consumption returned. An organization that cannot answer those questions about a material flow is not managing that flow, whatever its org chart says. It is receiving invoices and paying them."
+  },
+  {
+   "i": 77,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21801,
+    22728
+   ],
+   "sha1": "2e49ca3978da0f8021afff4bceba40e6fcb8018f",
+   "text": "Deployed AI is such a resource. It flows through the organization as a stream of consumption events. It costs money as it flows. Its volume is driven by the volume of the work, which is to say by the very success of the deployment. Yet no assembled discipline governs it, and the reason is worth stating precisely, because it is not indifference. Each of the five questions falls inside the scope of some practice the organization already has. Procurement buys the contract. Cloud cost management owns the infrastructure bill. Engineering instruments what it operates. Finance allocates what it can trace. Every one of those practices was built around a boundary drawn before this resource existed, and a resource that crosses all five boundaries is owned, in practice, by none of them. Chapter 14 draws the border between this book's subject and the nearest of those neighbors. What is absent is not attention. It is assembly."
+  },
+  {
+   "i": 78,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22737,
+    22861
+   ],
+   "sha1": "859f981fcbfa40daaa145515f5f1b4d47624b66c",
+   "text": "Organizations that would never let a material flow through the plant unrecorded let the AI flow through the work unrecorded."
+  },
+  {
+   "i": 79,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22870,
+    23784
+   ],
+   "sha1": "9af996bcf7722d14af64a8158bf21e92524f921f",
+   "text": "The failure to answer those questions is not abstract. It shows up in three places, and the reader can look for all three in any organization, including the reader's own. The first is the quantity managed. An organization operating on the seat model tracks headcount, license utilization, and renewal dates, and none of those three quantities moves with the bill. The second is the record. Under the seat model there is little worth recording, because a licensed use costs nothing at the margin. Under the event model every use has a resource footprint, but the buyer who never built a meter holds no record of it. An invoice is not that record; an invoice is its summation. It reports a total without reporting what produced it. The third is the anchor for accountability. A cost that cannot be traced to the work that incurred it cannot be assigned to anyone, and a cost assigned to no one is defended by no one."
+  },
+  {
+   "i": 80,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23793,
+    24557
+   ],
+   "sha1": "46251bf6ed6f31fac7e3e86e7553cc872408e000",
+   "text": "It would be a mistake to read those absences as negligence. They are inheritance, and it is the same inheritance that left the resource unowned. The organization did not decide to stop metering. It never began, because the thing it had been buying for three decades never required it. Enterprise software procurement produced a management apparatus tuned precisely to the economics of the license, and that apparatus worked. It was then carried across to a purchase that arrived in the same packaging, through the same channel, at a price small enough to clear approval without argument. The apparatus did not fail. It was applied to a resource it was never built to govern, and it went on reporting faithfully about a quantity that had stopped governing anything."
+  },
+  {
+   "i": 81,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    24566,
+    25301
+   ],
+   "sha1": "443d07672f2bc5d25a28c19f53cca5d18a57bc75",
+   "text": "What ends the arrangement is scale. A category error is affordable while the sums are small, and the sums stayed small for as long as deployment meant a pilot: one team, a few licenses, a bill that rounded to nothing against the software budget. The error becomes expensive at the moment the pilot becomes production, because production multiplies consumption events by the volume of the work itself, and the work is not small. The contact-center deployment inventoried later in this chapter runs on roughly five thousand seats and generates tens of millions of consumption events a month, a ratio the craft section works out in full. At pilot scale, the seat count is a harmless simplification. At production scale, it is a blindfold."
+  },
+  {
+   "i": 82,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25310,
+    25706
+   ],
+   "sha1": "09e08975a820c95b428c9790f7392b5157dc434a",
+   "text": "The stakes of this chapter are therefore the stakes of the book. A resource that flows needs a discipline, and none exists in assembled form, so building it is the work of the remaining chapters. The next of them takes the atomic unit defined here and asks what becomes visible when many events are seen at once. That is the first step from a unit of cost to something an organization can manage."
+  },
+  {
+   "i": 83,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25732,
+    25781
+   ],
+   "sha1": "6dc2793da8d571d59c41bb8a7adcba80349753ff",
+   "text": "1.5 What this book is not"
+  },
+  {
+   "i": 84,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25791,
+    26550
+   ],
+   "sha1": "4f802a2d5a06d4b06ca71a772c1a3d6c904825e8",
+   "text": "Three subjects sit close enough to this one to be mistaken for it, and none of them is it. This book is not about the internals of models. The reader will find no account here of architectures, training, or weights. It is not about prompt engineering, and it offers no techniques for extracting better outputs from a given model. It is not about use-case ideation. It will not help the reader decide which problems to point AI at. Those are real subjects with their own literatures, and Chapter 3 draws the exact line between each of them and this one. What remains after the exclusions is the whole of the subject: the economics of the resource once the decision to deploy has been made, what it consumes, what it costs, and how an organization governs both."
+  },
+  {
+   "i": 85,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26578,
+    26591
+   ],
+   "sha1": "d487cd15437494b45d1fc396dd6ebc686ab6428c",
+   "text": "Craft section"
+  },
+  {
+   "i": 86,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26619,
+    26650
+   ],
+   "sha1": "7bf0b388a9fd3652ea60f35fa738eadbb0b86ada",
+   "text": "The consumption-event inventory"
+  },
+  {
+   "i": 87,
+   "kind": "PROVENANCE",
+   "class": "provenance",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26678,
+    26824
+   ],
+   "sha1": "4f8236866850fe622e4d3b942bfeef6bca1b5863",
+   "text": "Worked example setting drawn from the cited study. Event architecture and volume assumptions stipulated for this exercise and labelled where used."
+  },
+  {
+   "i": 88,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26833,
+    27185
+   ],
+   "sha1": "c597652c2fbff64c61cea2b672fdd8f69daa67fa",
+   "text": "The consumption-event inventory turns the definition given in 1.2 into a procedure. It takes a description of an AI deployment and produces a structured account of what the deployment consumes, where the meter sits, and what the seat count conceals. It is the first artifact the reader produces, and every later artifact in this book assumes it."
+  },
+  {
+   "i": 89,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27194,
+    28188
+   ],
+   "sha1": "fef9ed7413283793d435e2907f1cd82a3f500717",
+   "text": "The procedure has four steps. Step 1, enumerate the event types. Given a deployment description, list the distinct kinds of consumption event the deployment generates. A deployment rarely produces one kind of event; it produces several, each with its own trigger and its own resource profile. Step 2, identify each type's resource drivers. For each event type, name what actually consumes resource: input tokens, output tokens, the number of calls, retrieval operations, and tool invocations. The driver is what the bill scales with, and it is almost never the number of people. Step 3, locate the meter. State where the metering happens and who holds the record. In the ordinary case the meter is on the provider's side, and what the buyer receives instead of a meter is an invoice. Step 4, state what the inventory reveals that the seat count conceals. Name the quantity that actually drives cost, and set it against the quantity the organization currently tracks."
+  },
+  {
+   "i": 90,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28197,
+    28993
+   ],
+   "sha1": "df4936d1af91e0b1d75bbd9ecb8e113eac4e6eae",
+   "text": "Consider a customer-support organization that has deployed a generative AI assistant across its contact center. For each incoming customer message, the assistant drafts a suggested reply that the agent may edit and send; the assistant draws on a knowledge base and on the conversation so far. The deployment covers a large agent population, on the order of five thousand agents, and the organization currently accounts for it as a per-seat tool."
+  },
+  {
+   "i": 91,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "brynjolfsson-2025-genai",
+   "figure": null,
+   "string": null,
+   "span": [
+    28678,
+    28986
+   ],
+   "sha1": "4716896474929ae9a2d1b3fa273962019c2ee301",
+   "text": "The study supplies the setting and the scale of the agent population. The event architecture and the volumes used below are stipulated for this exercise and are not reported by the study. It returns in Chapter 6 as the book's anchor case on realized value."
+  },
+  {
+   "i": 92,
+   "kind": "SUBHEAD",
+   "class": "mlab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29035,
+    29050
+   ],
+   "sha1": "7682ed9af469f7854b7c6811db4ec3ffc452269a",
+   "text": "Model inventory"
+  },
+  {
+   "i": 93,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29058,
+    29463
+   ],
+   "sha1": "f69eac1b7b88525444699c3fd649adc81fde3b82",
+   "text": "Step 1. Event types. The deployment generates at least three: (a) a suggested-reply generation, triggered each time an agent asks the assistant to draft a response to a customer message; (b) a knowledge retrieval, triggered when the assistant pulls reference material to ground a suggestion; and (c) a conversation-close operation, where the deployment summarizes or tags the resolved conversation."
+  },
+  {
+   "i": 94,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29471,
+    30166
+   ],
+   "sha1": "c6380b5c8f29e2c9b642627c23f71cb2f2b35d5c",
+   "text": "Step 2. Resource drivers. For suggested-reply generation, the drivers are input tokens (the system instructions, the retrieved knowledge, and the conversation history assembled into the prompt) and output tokens (the drafted reply). The volume driver is the number of customer messages that receive a drafted reply, which scales with contacts multiplied by the number of turns per contact. For knowledge retrieval, the drivers are the number of retrieval calls and the tokens those calls embed and return. For the conversation-close operation, the drivers are input tokens (the full conversation) and output tokens (the summary or tags), scaling with the number of resolved conversations."
+  },
+  {
+   "i": 95,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30174,
+    30780
+   ],
+   "sha1": "594e90aa6c1f579bbf294731074ba8896729090b",
+   "text": "Step 3. The meter. The generation and close operations are metered on the provider's side, by token. Retrieval is metered wherever the retrieval service runs. In the architecture stipulated here that is the provider's managed index, metered by call and by token; an organization that operates its own vector store meters that step itself. Meter location is a property of the architecture rather than of the event type, which is why Step 3 directs the reader to locate the meter instead of assuming it. What the organization receives is a monthly invoice, and beneath its per-seat plan, a seat count."
+  },
+  {
+   "i": 96,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30788,
+    31586
+   ],
+   "sha1": "50cb91c2006e73e7fc38d3473ecfd9bb1248b1ca",
+   "text": "Step 4. What the seat count conceals. The seat count treats the agent population as a set of equal units: five thousand seats at one price. Put the volume drivers from Step 2 against it and the two quantities separate immediately. Stipulate, for this exercise, a round five thousand agents, each handling 40 contacts on a working day, with 6 turns per contact receiving a drafted reply, one retrieval per drafted reply, and 21 working days in the month. Suggested-reply generations then run at 5,000 × 40 × 6 × 21, or 25.2 million events a month. Retrievals match them one for one at 25.2 million. Conversation-close operations run once per contact, at 4.2 million. The deployment bills against roughly 54.6 million consumption events a month, which is about 10,900 events behind every seat."
+  },
+  {
+   "i": 97,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31594,
+    32216
+   ],
+   "sha1": "c22e760dc48485cf2b23aebbe783e1c5c3fdb519",
+   "text": "Change any stipulated figure and the total moves; change none of them and the seat count still does not move, because the seat count is not a function of any of these quantities. Two agents on identical seats can consume resource that differs by an order of magnitude: a high-volume agent handling long, reference-heavy conversations generates many times the consumption of a low-volume agent, at the same seat cost. The quantity that drives the bill is tokens per resolved contact. It does not appear on the seat line, and until the inventory names it, the organization is managing a number that does not govern its cost."
+  },
+  {
+   "i": 98,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32232,
+    32490
+   ],
+   "sha1": "a6bc99df924bf3eb415a05ec4e669241d73784d6",
+   "text": "The inventory has done its work when the organization can see, for the first time, the shape of what it is buying. Not five thousand seats. A flow of tens of millions of consumption events, whose volume and intensity, not whose headcount, determine the bill."
+  },
+  {
+   "i": 99,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32548,
+    32563
+   ],
+   "sha1": "95c5839deff5a70961a66d3289da93102d108a3f",
+   "text": "Chapter summary"
+  },
+  {
+   "i": 100,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32594,
+    33689
+   ],
+   "sha1": "8283426a9695de44d5df796bdde9ac87453a1412",
+   "text": "The category error has a name and a shape. Under the software access model, cost is fixed at signature and management is management of seats. Under the resource consumption model, cost is the accumulating sum of metered events and management is management of a flow. The reader can now tell the two apart, and can define the consumption event as the discipline's atomic unit: the smallest thing that has a cost, and the only candidate the meter records. The flat-rate objection has an answer that does not depend on predicting any vendor's behavior. A flat price relocates the meter to the provider; it does not abolish it. Behind that answer stands a structural result, THM-009, that a deployed AI activity is resource-consuming operating activity rather than software access. And the reader can run the consumption-event inventory against a deployment description, producing the event types, their resource drivers, the location of the meter, and the cost driver the seat count conceals. One thing the reader cannot yet do is manage the flow the inventory reveals. Seeing it whole comes first."
+  },
+  {
+   "i": 101,
+   "kind": "SECTION HEAD",
+   "class": "keyterms-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33766,
+    33775
+   ],
+   "sha1": "b1fd76d6a6f39d6b99354a8017678be77dbfab6d",
+   "text": "Key terms"
+  },
+  {
+   "i": 102,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33857,
+    33874
+   ],
+   "sha1": "b709827badf2a52eec1069a0ab8f1f20cfc87461",
+   "text": "Consumption event"
+  },
+  {
+   "i": 103,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33891,
+    34052
+   ],
+   "sha1": "b6a21a75181be3bf9490fdc221bc2c66ea30afb4",
+   "text": "A request that consumes computational resource, metered in tokens or their equivalents, at a per-event cost greater than zero. The atomic unit of the discipline."
+  },
+  {
+   "i": 104,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34117,
+    34143
+   ],
+   "sha1": "6f5129a895c87d8f18e4ca31ec64721ec34192fe",
+   "text": "Resource consumption model"
+  },
+  {
+   "i": 105,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34160,
+    34318
+   ],
+   "sha1": "07f391dcbe15b7b310a7f7060f8bb767a9ecef44",
+   "text": "The economic model in which deployed AI is a metered resource consumed on every task, with cost accruing per event; contrasted with the software access model."
+  },
+  {
+   "i": 106,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34383,
+    34404
+   ],
+   "sha1": "375931a59f2e9cc0af09746d60d0d08eee66e91e",
+   "text": "Software access model"
+  },
+  {
+   "i": 107,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34421,
+    34609
+   ],
+   "sha1": "488f85af919d2c1df592ba2f0c68f2e9d4d8cf1b",
+   "text": "The economic model, inherited from licensed software, in which cost is fixed at signature and the marginal cost of additional use is approximately zero; management is management of access."
+  },
+  {
+   "i": 108,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34674,
+    34686
+   ],
+   "sha1": "5fadcf19a7041d483051778244fb99ea4f652ddc",
+   "text": "Access price"
+  },
+  {
+   "i": 109,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34703,
+    34846
+   ],
+   "sha1": "a273f9f858dc315f40ed761892771b7480e0dfef",
+   "text": "The stated price of access to an AI capability, per seat or per subscription, distinct from the total cost of consuming the resource behind it."
+  },
+  {
+   "i": 110,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34911,
+    34927
+   ],
+   "sha1": "e459d884ad463ef1149297353e356105eb3da68a",
+   "text": "Metered resource"
+  },
+  {
+   "i": 111,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34944,
+    35038
+   ],
+   "sha1": "219f326312c371385d8bd82186ff9bc4f05930c8",
+   "text": "A resource whose consumption is measured per unit of use, here in tokens or their equivalents."
+  },
+  {
+   "i": 112,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35103,
+    35122
+   ],
+   "sha1": "09b6775e268beeb12917c5bfe744641a4431e491",
+   "text": "Flat-rate objection"
+  },
+  {
+   "i": 113,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35139,
+    35247
+   ],
+   "sha1": "bb7987a93ac0211a5779251f8d7e3dcd78768418",
+   "text": "The claim that a flat per-seat price makes AI equivalent to licensed software; answered by meter relocation."
+  },
+  {
+   "i": 114,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35312,
+    35328
+   ],
+   "sha1": "12117262dabbf26035064369ca2b5355ffe725c1",
+   "text": "Meter relocation"
+  },
+  {
+   "i": 115,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35345,
+    35565
+   ],
+   "sha1": "469b081fd379886136459e310b04e13c2a3d46e2",
+   "text": "The principle that a flat rate does not abolish the meter but moves it to the provider's side, where the provider prices the flat rate against assumed consumption and corrects it on its own schedule when usage is skewed."
+  },
+  {
+   "i": 116,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35649,
+    35682
+   ],
+   "sha1": "305252cb9f52bfd7e3ee3d0ed69183a8aa48861c",
+   "text": "Discussion questions and problems"
+  },
+  {
+   "i": 117,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35710,
+    35730
+   ],
+   "sha1": "ce7ea53b301fdc341bca7534134faebfa159a2e3",
+   "text": "Discussion questions"
+  },
+  {
+   "i": 118,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35819,
+    36133
+   ],
+   "sha1": "5a5a3496b04c75970d67924a29481322b4493a07",
+   "text": "A colleague argues that because your organization pays a flat per-seat price and never sees a token bill, AI is a seat-priced good for you and the consumption framing does not apply. Explain, without appealing to any specific vendor's future behavior, why the per-seat contract does not make AI a seat-priced good."
+  },
+  {
+   "i": 119,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36212,
+    36489
+   ],
+   "sha1": "48ab2356b989250001d3845f406f28d52ddb4c5a",
+   "text": "The Cursor and GitHub Copilot episodes are often read as stories about two particular companies changing their prices. Explain what the two episodes, taken together, reveal about where the meter was all along, and why the pairing is harder to dismiss than either episode alone."
+  },
+  {
+   "i": 120,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36568,
+    36858
+   ],
+   "sha1": "9082214b657811f0b7119004b9dad3993e71cb12",
+   "text": "Section 1.2 argues that the event, rather than the user or the task, is the right atomic unit for this discipline. Construct the best case you can for the task as the unit instead. What would a discipline built on tasks be able to say that an event-based one cannot, and what would it lose?"
+  },
+  {
+   "i": 121,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36937,
+    37177
+   ],
+   "sha1": "e2c274156e1f85bbe4788c9c9a5960f85b83d9a4",
+   "text": "Construct the strongest version of the flat-rate objection yourself, in the voice of a capable skeptic who has read this chapter. Then answer it. Your answer should not depend on predicting that any particular subscription will be repriced."
+  },
+  {
+   "i": 122,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37224,
+    37232
+   ],
+   "sha1": "8e6b86dce8c4fbace004e330925fe8345d92db90",
+   "text": "Problems"
+  },
+  {
+   "i": 123,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37276,
+    37287
+   ],
+   "sha1": "b138f859e3298a6caa319cc358057940b0dfdb22",
+   "text": "P1 · Worked"
+  },
+  {
+   "i": 124,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37310,
+    37322
+   ],
+   "sha1": "c2e2fe1e89e168a0fa857de58b61e98a92cc8180",
+   "text": "The CIO memo"
+  },
+  {
+   "i": 125,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37330,
+    37616
+   ],
+   "sha1": "d9963bc88b7dd584687c2df6b0145405def5bd89",
+   "text": "A board member has written to the chief information officer arguing that the company is overcomplicating a simple software purchase and should stop tracking AI usage as if it were a utility. Write the CIO's one-page reply defending consumption economics against the flat-rate objection."
+  },
+  {
+   "i": 126,
+   "kind": "SUBHEAD",
+   "class": "mlab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37657,
+    37668
+   ],
+   "sha1": "d21402dc96723f206ce92625e33ea3d2febfee18",
+   "text": "Model reply"
+  },
+  {
+   "i": 127,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37676,
+    39141
+   ],
+   "sha1": "44ee46f9095d0c70624c908fd0eb98f8c7ea6d20",
+   "text": "Thank you for the note. I want to agree with the part of it that is right and then explain the part that will cost us if we accept it. You are right that our current AI tools are billed to us at a flat per-seat price, and that this looks exactly like the software we have always bought. The reason I am tracking usage anyway is that the flat price is not a statement about our costs; it is a bet the vendor has made about our consumption. Behind the flat price, every use of these tools consumes a metered resource that costs the vendor real money, and the vendor prices the flat rate against an assumption about how much we will use. While our usage stays near that assumption, nothing happens. When our heaviest teams pull usage above it, the vendor's arrangement stops covering its costs, and the vendor corrects it. Sometimes that means a higher price, sometimes a cap on how much we may consume, sometimes a change to what the plan includes. We have watched this happen across two widely used AI coding subscriptions inside a single year. Tracking our own usage is not utility theater. It is how we see the correction coming before it arrives as a number we did not plan for, and how we keep the timing of that correction from being entirely the vendor's to choose. I am not asking us to manage AI like plumbing. I am asking us to stop managing a metered resource as if it were a license, because the two behave differently exactly when the stakes are highest."
+  },
+  {
+   "i": 128,
+   "kind": "SUBHEAD",
+   "class": "mlab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39162,
+    39181
+   ],
+   "sha1": "0208695a111961e801c793c54a02528bb5aec1c4",
+   "text": "Annotated reasoning"
+  },
+  {
+   "i": 129,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39189,
+    39787
+   ],
+   "sha1": "b5fac0209b15188ac4efcc77357366233e66c91b",
+   "text": "The reply concedes the true premise, that the price is flat and looks like software, before contesting the inference, which disarms the objection rather than dodging it. It relocates the meter, treating the flat price as a bet against assumed consumption, rather than claiming a token bill the reader knows does not exist. It grounds the structural claim in the documented pattern rather than in a prediction about a specific vendor, satisfying the evidence standard. And it closes on the buyer's actual interest, the timing of the correction, which is the concrete thing consumption tracking buys."
+  },
+  {
+   "i": 130,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39845,
+    39856
+   ],
+   "sha1": "7933ff5063714213d9a58c2e1eebdc67925d6f28",
+   "text": "P2 · Worked"
+  },
+  {
+   "i": 131,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39879,
+    39918
+   ],
+   "sha1": "4ced828eb7260f9700483167db5a5fe3a6ddcafe",
+   "text": "Inventory a coding-assistant deployment"
+  },
+  {
+   "i": 132,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39926,
+    40204
+   ],
+   "sha1": "81a71c44801ce7d99bd0c4cc34bb1c872cb8f6cf",
+   "text": "A software organization has deployed an AI coding assistant to three hundred developers. The assistant offers inline code completions as developers type, answers chat questions in the editor, and runs multi-step agentic tasks on request. Produce the consumption-event inventory."
+  },
+  {
+   "i": 133,
+   "kind": "SUBHEAD",
+   "class": "mlab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40245,
+    40260
+   ],
+   "sha1": "7682ed9af469f7854b7c6811db4ec3ffc452269a",
+   "text": "Model inventory"
+  },
+  {
+   "i": 134,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40268,
+    40498
+   ],
+   "sha1": "934d512f610d9fdef2d1348e2668e6109c6cb729",
+   "text": "Event types: (a) inline completion, triggered continuously as developers type; (b) editor chat query, triggered when a developer asks a question; (c) agentic task run, triggered when a developer delegates a multi-step task."
+  },
+  {
+   "i": 135,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40506,
+    41001
+   ],
+   "sha1": "65bad533e489aceaac10a5453deb91e5d44dc435",
+   "text": "Resource drivers: inline completion is driven by input tokens (the surrounding code context sent for each completion) and output tokens (the suggested code), with a very high call count because completions fire constantly; chat query is driven by input tokens (the question plus code context) and output tokens (the answer); agentic task run is driven by input and output tokens across many model calls per task, plus tool invocations, and is the highest-intensity event by a wide margin."
+  },
+  {
+   "i": 136,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41009,
+    41169
+   ],
+   "sha1": "17081a9b26a33c7c7834c9cc0d102c85444dc2dc",
+   "text": "Meter: provider side, per token, with agentic runs additionally consuming tool calls; the buyer receives an invoice, and under a seat plan, a seat count."
+  },
+  {
+   "i": 137,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41177,
+    41594
+   ],
+   "sha1": "95b419ee81094cb6632bfbbddd0c367865fdcfad",
+   "text": "What the seat count conceals: cost is driven by completion frequency and, above all, by agentic run volume and length, not by the number of developer seats. A single developer who leans on agentic runs can consume more resource than a dozen who use only inline completion, at the same seat cost. The cost driver is tokens per developer per day, concentrated in agentic runs, and the seat line shows none of it."
+  },
+  {
+   "i": 138,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41652,
+    41667
+   ],
+   "sha1": "0080e4c1cec38751dcdbeb07e408875b3dee163a",
+   "text": "P3 · Completion"
+  },
+  {
+   "i": 139,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41690,
+    41728
+   ],
+   "sha1": "e27dadd0028bf1f8cc4ded63e74fd9ce43e2eaf9",
+   "text": "Inventory a document-review deployment"
+  },
+  {
+   "i": 140,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41736,
+    41971
+   ],
+   "sha1": "d353e5469cc32989755a91b352d1050987f80ba8",
+   "text": "A legal operations team has deployed an AI assistant that, for each contract submitted, extracts key clauses, compares them against a policy playbook, and drafts a redline memo. Complete the inventory below by filling the blank column."
+  },
+  {
+   "i": 141,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42011,
+    42021
+   ],
+   "sha1": "23f657cb1808bbd1809ee6f087ace27b821719e2",
+   "text": "Event type"
+  },
+  {
+   "i": 142,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42030,
+    42046
+   ],
+   "sha1": "f8b9b650cc964421c2dde6fc00434fd4dc8f4966",
+   "text": "Resource drivers"
+  },
+  {
+   "i": 143,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42055,
+    42069
+   ],
+   "sha1": "f1b5229c6a292cbdd281061c36ed756cb7bded1b",
+   "text": "Meter location"
+  },
+  {
+   "i": 144,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42078,
+    42106
+   ],
+   "sha1": "a673f8bc9585d436c75075f76035212c5635b742",
+   "text": "What the seat count conceals"
+  },
+  {
+   "i": 145,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42164,
+    42261
+   ],
+   "sha1": "f4eb9753c4e161659c86b6a848b55caf08c71ad4",
+   "text": "Input tokens (full contract text), output tokens (extracted clauses); scales with contract length"
+  },
+  {
+   "i": 146,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42270,
+    42294
+   ],
+   "sha1": "24d59fb982f47594b09cde805e82c9c8c2126865",
+   "text": "Provider side, per token"
+  },
+  {
+   "i": 147,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42303,
+    42359
+   ],
+   "sha1": "eb0ae45960972aea74defe8e9a612b6a48f9b7d7",
+   "text": "Cost scales with document length, not reviewer headcount"
+  },
+  {
+   "i": 148,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42401,
+    42520
+   ],
+   "sha1": "0d4234c3ea51f64684e6a363e3e7f00fbe4fc21e",
+   "text": "Input tokens (extracted clauses plus playbook), output tokens (comparison result); retrieval calls against the playbook"
+  },
+  {
+   "i": 149,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42529,
+    42566
+   ],
+   "sha1": "97e9106298a7254dca620c9aa9272939dac1f013",
+   "text": "Provider side, per token and per call"
+  },
+  {
+   "i": 150,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42575,
+    42641
+   ],
+   "sha1": "428f7d5f2330fdfe2fd2cb42ebd886af5c467d3b",
+   "text": "A long playbook inflates every comparison regardless of seat count"
+  },
+  {
+   "i": 151,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42683,
+    42797
+   ],
+   "sha1": "1cdce80b8c10282ea737e392f9fd2bcd5ffd2b87",
+   "text": "Input tokens (clauses, comparison, contract context), output tokens (the drafted memo); highest output-token event"
+  },
+  {
+   "i": 152,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42806,
+    42830
+   ],
+   "sha1": "24d59fb982f47594b09cde805e82c9c8c2126865",
+   "text": "Provider side, per token"
+  },
+  {
+   "i": 153,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42839,
+    42903
+   ],
+   "sha1": "e605e6ac3dba0cd6f5d88fbec1cd7dd6be8185ac",
+   "text": "The drafting step, not the reviewer, is the dominant cost driver"
+  },
+  {
+   "i": 154,
+   "kind": "PROBLEM NOTE",
+   "class": "pnote",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42949,
+    43062
+   ],
+   "sha1": "fb744cee3781e1fc6e638dc3d9b8c72b6091e36d",
+   "text": "Interleaving: none. This is the first chapter; problem sets begin reaching back to earlier chapters in Chapter 2."
+  }
+ ]
+}
