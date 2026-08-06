@@ -326,16 +326,30 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 4 of 13.** Stage 0
+**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 5 of 13.** Stage 0
 (re-draft), G1 (structural gate), Stage 1 (content review), and Stage 2
-(developmental edit) all passed 2026-08-05; `status_check.py` reports 4/13 with
-STATUS CONSISTENT. Stage 3, source and fact check 1, is next and is Dan's, run
-outside the Claude system. Its input is rendered and committed:
-`Drafts/Ch01_The_Category_Error/04_Stage3_Source_Fact_Check_1/AIOM_Ch1_Stage3_FactCheck_Input.pdf`,
-twenty pages, built 2026-08-06 from the live text after the Stage 2 rulings. The
-prior record is not lost: every step's findings are archived in place in the
-checklist, marked superseded, because they state what was examined and how it was
-ruled and the re-run should not have to rediscover that.
+(developmental edit) all passed 2026-08-05, and Stage 3 (source and fact check 1)
+passed 2026-08-06; `status_check.py` reports 5/13 with STATUS CONSISTENT. Stage
+4, the voice and craft check, is next and is Claude's. The prior record is not
+lost: every step's findings are archived in place in the checklist, marked
+superseded, because they state what was examined and how it was ruled and the
+re-run should not have to rediscover that.
+
+**Stage 3 established two things worth carrying to every later chapter.** First,
+run two external checks on different prompts rather than one thorough check. The
+2026-08-06 pair agreed on one finding out of six: check 2 confirmed a passage
+check 1 had raised, and check 1 caught a sourcing gap check 2 restated as sound.
+The disagreement is the value. Second, judge a proposed remedy separately from
+the finding it answers. Check 1 was right that a superlative was unsourced and
+proposed hedging language the voice rules prohibit; check 2 was right that
+durability rests on access dates and proposed second source paths below the floor
+already in force. Both findings survived and neither fix did.
+
+**No source host is reachable from the Claude environment**, verified 2026-08-06
+against six of them, so Stages 3 and 7 are structurally external rather than
+external by preference. Claude can rule on whether prose stays inside what a
+register note says. Claude cannot verify the note against the source, and must
+not offer to.
 
 Grounds for the reopen. Chapter 1 was drafted before the voice and craft standard
 existed (Decision 52), so its prose was never written against C1 through C6. The

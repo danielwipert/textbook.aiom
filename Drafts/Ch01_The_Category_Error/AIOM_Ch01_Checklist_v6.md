@@ -586,15 +586,15 @@ green on the 19-page render; the Stage 3 fact surface was untouched throughout.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-06
 
 > Every empirical claim traced to primary source. Runs before voice and design so corrections do not churn later polish.
 
 Findings:
 
-COMPLETE 2026-08-06, awaiting Dan's mark. Two external checks are in and
-filed. All six findings are ruled: SF1, SF2, and SF3 applied to the chapter,
-SF4, SF5, and SF6 closed with no chapter change.
+STAGE 3 PASSED 2026-08-06, ruled by Dan. Two external checks were run outside
+the Claude system and are filed here. All six findings are ruled: SF1, SF2, and
+SF3 applied to the chapter, SF4, SF5, and SF6 closed with no chapter change.
 
 INPUTS. Both checks ran against the twenty-page Stage 3 render built 2026-08-06
 from the live text, and both are stored in this folder:

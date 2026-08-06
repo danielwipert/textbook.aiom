@@ -31,10 +31,10 @@ python3 status_check.py                                 # authoritative status
 The 2026-08-06 session, in full: Chapter 1 status confirmed at 4/13; the Stage 2
 text rendered as the Stage 3 fact-check input; CLAUDE.md section 10, this file,
 and the Workplan brought back into line with the checklist, which all three had
-lagged; both external fact checks received, filed, and reconciled; five of the
-six Stage 3 findings ruled and the record written; and the input re-rendered
-after the two applied rulings. Status is unmoved at 4/13 because Stage 3 is not
-passed: SF2 is open and cannot be closed from inside a Claude session.
+lagged; both external fact checks received, filed, and reconciled; all six Stage
+3 findings ruled, three of them applied, and the record written; the input
+re-rendered; Stage 3 marked passed by Dan; and the three records mirrored again
+at 5/13. Chapter 1 moved from 4/13 to 5/13.
 
 The 2026-08-05 session, oldest first: the voice and craft standard (Decision 52);
 the craft-check hardening after the first read failed as verification; the re-run
@@ -66,17 +66,17 @@ one-time, already run).
 `Northmoor/`, Chapter 1 artifacts under `Drafts/Ch01_The_Category_Error/`, and
 `archive/` for superseded files.
 
-## Chapter 1 status: 4 of 13, through Stage 2
+## Chapter 1 status: 5 of 13, through Stage 3
 
 Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day
 against the craft standard. Passed: Stage 0, G1, Stage 1, Stage 2, all
-2026-08-05. `status_check.py` reports 4/13, STATUS CONSISTENT.
+2026-08-05, and Stage 3 on 2026-08-06. `status_check.py` reports 5/13, STATUS
+CONSISTENT.
 
 **The live text is
 `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`**, 5,961
 words against a 6,000 ceiling, 39 words of headroom. It supersedes the old Stage
-4 render, which is history. Stage 3 is under way against it and has changed two
-sentences; see thread 1.
+4 render, which is history. Stage 3 changed three sentences in it; see thread 1.
 
 What each step produced:
 
@@ -93,53 +93,59 @@ What each step produced:
 - **Stage 2** raised six findings. ND1 to ND4 were ruled and applied; ND5 and ND6
   closed with no action. Applying ND1 exposed a latent defect in gates 12 and 14,
   now fixed (see standing reminders).
+- **Stage 3** ran two independent external checks on different prompts, which
+  agreed on one finding out of six. SF1 to SF3 were applied, SF4 to SF6 closed
+  with no chapter change. Every ruling is written into the chapter's own register
+  note with the condition that would reverse it.
 
 Carried items CD1 to CD7 are live in the checklist. CD1, CD6, and CD7 are Stage 5
 work and are listed under thread 1 below.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 3, source and fact check 1. DAN'S STEP. Under way, one
-   finding open, and that finding is what blocks the pass.**
+1. **Chapter 1 Stage 4, the voice and craft check. CLAUDE'S STEP. Next up.**
 
-   Two independent external checks ran 2026-08-06 and are filed in
-   `04_Stage3_Source_Fact_Check_1/` as `AIOM_Ch1_Stage3_FactCheck_1_External.md`
-   and `_2_External.md`. Six findings, SF1 to SF6, all recorded in the checklist
-   with their rulings. Five are closed:
+   Read ADVERSARIALLY and BY SECTION. Quote the weakest passage per criterion
+   rather than asking whether the criterion is met, and read the per-section
+   table rather than the chapter average. Both constraints exist because the
+   confirmatory version produced a false all-clear on this very chapter, which is
+   what caused the reopen. A reusable second-model prompt sits in the checklist
+   under Stage 4. Record a finding per criterion, not a single verdict:
+   `status_check.py` fails a Stage 4 marked passed with a C-box left open.
+
+   `voicecheck.py` mechanical is currently PASS on the live text. That is the
+   easy half. C2 and C6 have no proxy at all and are found only by reading.
+
+   Then **Stage 5** design, then **G2**, then Dan's Stages 6 to 8, then **G3**
+   and lock.
+
+   **Stage 3 closed 2026-08-06**, ruled by Dan. Two independent external checks
+   on different prompts, filed in `04_Stage3_Source_Fact_Check_1/` as
+   `AIOM_Ch1_Stage3_FactCheck_1_External.md` and `_2_External.md`. Six findings:
 
    - **SF1 APPLIED.** "The chief executive of the largest provider" ranked a firm
      on no stated metric. Now "OpenAI's chief executive, Sam Altman".
+   - **SF2 APPLIED.** The Cursor sentence asserted automatic billing the primary
+     does not establish. Now "after which additional usage was priced at the same
+     rates", which states the price and asserts no mechanism.
    - **SF3 APPLIED.** GitHub "premium requests that had previously carried no
      separate charge" rested on a changelog that documents the change, not the
      arrangement before it. Narrowed to what the artifact carries.
    - **SF4, SF5, SF6 CLOSED**, no chapter change. Reasons in the checklist.
 
-   **SF2 IS OPEN AND IS DAN'S TO CLOSE.** The chapter says the Cursor allowance
-   was consumed "after which usage continued to bill against real rates", while
-   the register records "the option to purchase more at cost", which is not the
-   same thing. Neither check settled it. The question is narrow: on exhausting
-   the twenty-dollar frontier pool, did usage continue to bill at API rates by
-   default, or did further charges require usage-based pricing or a spend limit
-   to have been enabled? No Claude session can answer it; see the network policy
-   note under standing reminders.
+   Every ruling is written into the chapter's own register note along with the
+   condition that would reverse it, which is what makes a repeat raise cheap to
+   close rather than a fresh argument.
 
    Two renders sit in the folder and they are not interchangeable.
    `AIOM_Ch1_Stage3_FactCheck_Input.pdf` is the artifact both checks audited and
    is kept for that reason. `AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf` is the
-   current one, rebuilt after SF1 and SF3. Both are twenty pages with identical
-   pagination, twelve of fourteen gates passing, and the same four layout defects
-   (CD1, CD6, CD7 below) held for Stage 5.
+   current one, rebuilt after all three applied edits. Both are twenty pages with
+   identical pagination, twelve of fourteen gates passing, and the same four
+   layout defects (CD1, CD6, CD7 below) held for Stage 5.
 
-   When SF2 closes, rebuild once more if it changes prose, then Dan marks the
-   pass. Nothing downstream is invalidated by SF1 and SF3: Stage 4, Stage 5, and
-   G2 have not run since the reopen, and neither edit touches teaching structure,
-   so Stage 2 stands.
-
-   After Stage 3: **Stage 4** voice and craft (Claude; read ADVERSARIALLY and BY
-   SECTION, with the second-model check per the prompt in the checklist), then
-   **Stage 5** design, then **G2**, then Dan's Stages 6 to 8, then **G3** and lock.
-
-   **Stage 5 inherits three layout items**, all recorded in the checklist:
+   **Stage 5 inherits three carried items, which gate 14 and gate 4 report as
+   four defects**, all recorded in the checklist:
    - **CD1**, the "Craft section" slot label stranded at the foot of page 12.
    - **CD6**, one definition callout split across a page break, caused by
      applying ND1. Remedy is `place.py`, never CSS: WeasyPrint 69 ignores
