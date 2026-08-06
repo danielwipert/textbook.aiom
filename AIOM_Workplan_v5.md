@@ -44,14 +44,18 @@ the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
 Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), re-drafted against
-the voice and craft standard, and is now 8 of 13: Stage 0, G1, Stage 1, and
-Stage 2 all passed 2026-08-05, and Stages 3, 4, 5 and G2 passed 2026-08-06. Next
-are Dan's Stages 6, 7, and 8, which may run in one sitting. The chapter is 19
-pages and ALL FOURTEEN GATES PASS, with both manual production checks performed
-at 150dpi. Every step Claude owns before lock is done. Stage 5 and G2 between
-them found five tooling defects and one new coverage gap, each of which had made
-a check report success on a chapter that was not in the state the check
-described.
+the voice and craft standard, and reopened again at Stage 5 (2026-08-06,
+Decision 56). It is now 6 of 13: Stage 0, G1, Stage 1, and Stage 2 all passed
+2026-08-05, and Stages 3 and 4 passed 2026-08-06 and survive the second reopen.
+Stage 5 and G2 had passed and are reset, because the theorem statement form
+re-set THM-009 and the CSS moved to v6.8, so the design review ran against a
+panel that no longer exists. The theorem's logic did not change, which is why
+Stage 3 stands and the reopen point is Stage 5. The current render is 19 pages
+and ALL FOURTEEN GATES PASS, with page 7 read at 150dpi; both manual production
+checks owe a full-document pass in the re-run. Stage 5 and G2 are Claude's and
+are the next work. The superseded Stage 5 and G2 between them found five tooling
+defects and one new coverage gap, each of which had made a check report success
+on a chapter that was not in the state the check described.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -79,13 +83,16 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stages 6, 7, and 8.** Dan's steps, and they may run in one
-   sitting: copy edit, final fact check 2, final read. Everything Claude owns
-   before lock is done. Then G3 and Stage 9 lock, both Claude's. Note Stage 4
-   passed without its second-model gut-check, so the craft verdict and the
-   baseline band the remaining chapters are read against are not independently
-   verified, and Stage 7 is structurally external because no source host is
-   reachable from a Claude session.
+1. **Chapter 1 Stage 5 and G2, re-run.** Claude's steps, reset by the 2026-08-06
+   reopen at Stage 5 (Decision 56). The design review must be performed against
+   the re-set THM-009 panel and CSS v6.8, and G2's two MANUAL checks owe a
+   full-document raster pass rather than the single page already read. Then Dan's
+   Stages 6, 7, and 8, which may run in one sitting: copy edit, final fact check
+   2, final read. Then G3 and Stage 9 lock, both Claude's. Note Stage 4 passed
+   without its second-model gut-check, so the craft verdict and the baseline band
+   the remaining chapters are read against are not independently verified, and
+   Stage 7 is structurally external because no source host is reachable from a
+   Claude session.
 2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
 3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -106,17 +113,25 @@ the scoped re-run matrix, and the v1-to-v2 stage mapping. This file does not kee
 a second copy; that duplication is what drifts. Status is single-sourced in each
 chapter's checklist and printed by `status_check.py`.
 
-Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53) and is running the
-full thirteen steps from the top; 8 are passed. `reopen.py` performed the reset,
-archiving each step's findings in place rather than destroying them. Stage
-folders across all eighteen units were migrated to Process v2 numbering the same
-day, so a folder name no longer disagrees with the live process.
+Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53) and again at Stage 5
+(2026-08-06, Decision 56); 6 of the thirteen steps are passed. `reopen.py`
+performed both resets, archiving each step's findings in place rather than
+destroying them. Stage folders across all eighteen units were migrated to
+Process v2 numbering on 2026-08-05, so a folder name no longer disagrees with
+the live process.
 
 - Copy-edit placement is revisited at Chapter 4 (Decision 24). If line edits are
   being churned by structural changes, move it earlier then, not before.
 - Fifteen self-contained checklists exist, one per chapter (Decision 32).
 - No process document and no book-wide rollup (Decision 32).
 - Chapter 1 is not Locked until every step above is complete.
+- **Chapter 1's live text is
+  `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`.** A
+  superseded fork, `06_Stage5_Design_Review/AIOM_Ch01_Stage4_FINAL.html`, is still
+  in the tree and has diverged by roughly 150 lines. Decision 56 was applied to
+  the fork first and had to be reverted and re-applied. "One live text per
+  chapter, supersede and delete, never fork" is the standing rule; the delete has
+  not happened and is Dan's call.
 
 ---
 
@@ -129,7 +144,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 6 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard. Now 8 of 13: Stages 0 to 2 and G1 passed 2026-08-05; Stages 3, 4, 5 and G2 passed 2026-08-06. `status_check.py` CONSISTENT. 19 pages, all fourteen gates passing, both manual production checks performed at 150dpi. Every step Claude owns before lock is done. Stage 3 ran two independent external checks which agreed on one finding of six. Stage 4 resolved all seven carried craft findings and raised six new, five applied, but passed without its second-model gut-check. Stage 5 closed CD6 and found CD7 was never real. G2 found the box list stale, fixed a craft-section labelling inconsistency Stage 5 missed, and opened gap G-I. Next: Dan's Stages 6, 7, 8. |
+| 1   | The Category Error             | Stage 5 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard, then reopened again at Stage 5 on 2026-08-06 (Decision 56). Now 6 of 13: Stages 0 to 2 and G1 passed 2026-08-05; Stages 3 and 4 passed 2026-08-06 and survive the second reopen. Stage 5 and G2 had passed and are reset, because the theorem statement form changed THM-009 and the CSS moved to v6.8, so the design review ran on a panel that no longer exists. The theorem logic is unchanged, so Stage 3 stands. Current render is 19 pages with all fourteen gates passing and page 7 read at 150dpi; both MANUAL checks still owe a full-document pass. Earlier record: Stage 3 ran two independent external checks which agreed on one finding of six. Stage 4 resolved all seven carried craft findings and raised six new, five applied, but passed without its second-model gut-check. The superseded Stage 5 closed CD6 and found CD7 was never real; the superseded G2 found the box list stale, fixed a craft-section labelling inconsistency, and opened gap G-I. Next: Claude re-runs Stage 5 and G2, then Dan takes Stages 6, 7, 8. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |

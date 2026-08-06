@@ -374,15 +374,39 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 8 of 13.** Stage 0
+**Chapter 1 was reopened at Stage 5 on 2026-08-06 and is now 6 of 13.** Stage 0
 (re-draft), G1 (structural gate), Stage 1 (content review), and Stage 2
-(developmental edit) all passed 2026-08-05; Stage 3 (source and fact check 1),
-Stage 4 (voice and craft check), Stage 5 (design review), and G2 (production
-gate) passed 2026-08-06. `status_check.py` reports 8/13 with STATUS CONSISTENT. Stage 5 (design review) and G2 (production gate) also passed
-2026-08-06, taking the chapter to 8 of 13 on a fully green render: all fourteen
-gates pass on 19 pages, with both manual checks performed at 150dpi. Stage 6,
-the copy edit, is next and is Dan's, and Stages 6, 7, and 8 may run in one
-sitting.
+(developmental edit) all passed 2026-08-05; Stage 3 (source and fact check 1)
+and Stage 4 (voice and craft check) passed 2026-08-06 and are untouched by the
+reopen. Stage 5 (design review) and G2 (production gate) had passed 2026-08-06
+and are now reset, along with everything after them. `status_check.py` reports
+6/13 with STATUS CONSISTENT.
+
+Grounds for the Stage 5 reopen: Decision 56 rules the theorem statement form and
+Decision 56a adds `break-after: avoid` to `.slot-label`, so THM-009 is re-set as
+a structured conditional and the CSS moves to v6.8. The theorem's logic is
+unchanged, which is why Stage 3 stands and the reopen point is Stage 5 rather
+than Stage 3, but the design review was performed on a panel that no longer
+exists and the production gate ran against the older stylesheet. The G2 box text
+was checked against `gen_checklists.py` after the reopen and is current, which is
+the check the 2026-08-05 staleness lesson exists to force.
+
+Evidence already in hand for the re-run, not a substitute for it: the current
+render is 19 pages with all fourteen gates passing, and page 7 was read at 150dpi
+to confirm the panel keeps its measure and the four antecedent markers align.
+Both MANUAL checks still owe a full-document pass. Stage 5 and G2 are Claude's
+and are the next work; Stage 6, the copy edit, is Dan's and follows them.
+
+**The live text is
+`Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`.** Check
+this before editing, every time. A superseded fork,
+`06_Stage5_Design_Review/AIOM_Ch01_Stage4_FINAL.html`, is still in the tree and
+has diverged from the live text by roughly 150 lines: it lacks the unit-choice
+paragraph in 1.2 and carries a meter-relocation definition callout the live text
+does not. Decision 56 was applied to the fork first and had to be reverted and
+re-applied, which is exactly the failure the "one live text per chapter" rule
+exists to prevent. The rule says supersede and delete. The fork is still
+undeleted, and deleting it is Dan's call.
 
 **Stage 4 passed without its second-model gut-check**, which Dan ruled complete
 without it. The craft verdict on Chapter 1 therefore rests on one read by the

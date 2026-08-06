@@ -54,6 +54,26 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 | Stage 9 | Locked | not run | 0 |
 
 ---
+
+## REOPENED 2026-08-06: Stage 5 and everything after it
+
+Grounds: Decision 56 rules the theorem statement form and Decision 56a adds break-after to .slot-label. THM-009 is re-set as a structured conditional (scope first, four antecedents enumerated, consequent on its own line) and CSS moves to v6.8. The logic of the theorem is unchanged, so Stage 3 stands, but the design review was performed on a panel that no longer exists and the production gate ran against the older stylesheet.
+
+Every step from Stage 5 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Stage 5 | Design review | passed | 0 |
+| Gate G2 | Production gate | passed | 17 |
+| Stage 6 | Copy edit | not run | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
@@ -1152,11 +1172,13 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-06
+Status: [ ]        Date cleared: 
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
 Findings:
+
+ARCHIVED 2026-08-06, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 5 PASSED 2026-08-06. ALL FOURTEEN GATES PASS on a 19-page render, the
 first fully green render this chapter has produced. Both inherited defects are
@@ -1273,29 +1295,31 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-06
+Status: [ ]        Date cleared: 
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [x] Renders under WeasyPrint without error or warning
-- [x] Gate 1, zero right-margin overflow
-- [x] Gate 2, zero em and en dashes in the rendered text
-- [x] Gate 3, running heads and folios correct and correctly sided
-- [x] Gate 4, callout placement: no splits, ordering correct after place.py
-- [x] Gate 5, font faces: expected set only, none stray inside SVG
-- [x] Gate 6, key-term register renders with correct rule and tint alternation
-- [x] Gate 7, opening-case provenance line present on page 1
-- [x] Gate 8, footnotes on the calling page, numbering sequential
-- [x] Gate 9, dated evidence boxes labelled and ruled
-- [x] Gate 10, problem labels present with their titles
-- [x] Gate 11, theorem panel intact, labelled, ruled, not split
-- [x] Gate 12, figures captioned, numbered in order, each referenced in text
-- [x] Gate 13, no text below the bottom margin, folio excluded
-- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [ ] Renders under WeasyPrint without error or warning
+- [ ] Gate 1, zero right-margin overflow
+- [ ] Gate 2, zero em and en dashes in the rendered text
+- [ ] Gate 3, running heads and folios correct and correctly sided
+- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
+- [ ] Gate 5, font faces: expected set only, none stray inside SVG
+- [ ] Gate 6, key-term register renders with correct rule and tint alternation
+- [ ] Gate 7, opening-case provenance line present on page 1
+- [ ] Gate 8, footnotes on the calling page, numbering sequential
+- [ ] Gate 9, dated evidence boxes labelled and ruled
+- [ ] Gate 10, problem labels present with their titles
+- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
+- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
+- [ ] Gate 13, no text below the bottom margin, folio excluded
+- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+ARCHIVED 2026-08-06, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 G2 PASSED 2026-08-06 on a fresh build, not against the Stage 5 numbers. All
 fourteen printed gates pass and both MANUAL boxes were performed rather than
