@@ -374,39 +374,49 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 5 on 2026-08-06 and is now 6 of 13.** Stage 0
-(re-draft), G1 (structural gate), Stage 1 (content review), and Stage 2
-(developmental edit) all passed 2026-08-05; Stage 3 (source and fact check 1)
-and Stage 4 (voice and craft check) passed 2026-08-06 and are untouched by the
-reopen. Stage 5 (design review) and G2 (production gate) had passed 2026-08-06
-and are now reset, along with everything after them. `status_check.py` reports
-6/13 with STATUS CONSISTENT.
+**Chapter 1 was reopened at Stage 5 on 2026-08-06 and is now 8 of 13.** Stage 0
+(re-draft), G1, Stage 1, and Stage 2 passed 2026-08-05; Stage 3 and Stage 4
+passed 2026-08-06 and were untouched by the reopen; Stage 5 and G2 were reset by
+the reopen and re-run and re-passed the same day. `status_check.py` reports 8/13
+with STATUS CONSISTENT. The chapter is 20 pages, up from 19, and all fourteen
+gates pass. Stage 6, the copy edit, is next and is Dan's; Stages 6, 7, and 8 may
+run in one sitting.
 
-Grounds for the Stage 5 reopen: Decision 56 rules the theorem statement form and
-Decision 56a adds `break-after: avoid` to `.slot-label`, so THM-009 is re-set as
-a structured conditional and the CSS moves to v6.8. The theorem's logic is
-unchanged, which is why Stage 3 stands and the reopen point is Stage 5 rather
-than Stage 3, but the design review was performed on a panel that no longer
-exists and the production gate ran against the older stylesheet. The G2 box text
-was checked against `gen_checklists.py` after the reopen and is current, which is
-the check the 2026-08-05 staleness lesson exists to force.
+**The Stage 5 re-run found five things, and the fourteen gates found none of
+them.** Two are fixed: the craft-section head group stranded at the foot of page
+12 (DR1), and Figure 1.1 using `--amber` where the spec requires `--amber-fig`
+(DR5). Two are open and need Dan's ruling because both are locked-design-system
+changes that would touch every chapter: `.model p` sets `margin: 0`, so
+model-answer paragraphs run together with no separation (DR2), and `table.inv`
+carries `break-inside: auto`, so the P3 table spills one row onto an otherwise
+empty final page (DR3). One is an observation with no action: four pages carry
+three consecutive hyphenated line ends, which is at Chicago's limit, not past it
+(DR4).
 
-Evidence already in hand for the re-run, not a substitute for it: the current
-render is 19 pages with all fourteen gates passing, and page 7 was read at 150dpi
-to confirm the panel keeps its measure and the four antecedent markers align.
-Both MANUAL checks still owe a full-document pass. Stage 5 and G2 are Claude's
-and are the next work; Stage 6, the copy edit, is Dan's and follows them.
+**Gap G-II, opened 2026-08-06: gate 14 cannot see a stranded head GROUP.** It
+tests whether a HEAD is the last block on a page, so any non-head block trailing
+the group hides the defect. Decision 56a put `break-after: avoid` on
+`.slot-label` alone, which bound the label to its title and left the provenance
+line last, and gate 14 then reported zero stranded heads while all three lines
+sat orphaned at the foot of page 12. The fix chains the rule through
+`h2.case-title` and `p.provenance`, so the chapter is held off this defect by
+CSS rather than by the check. Until gate 14 treats a run of head-like blocks as
+one unit, a chapter whose pagination moves must have its slot openings read, not
+merely gated. This is the same shape as the gates that were claimed but never
+performed before 2026-08-05.
 
 **The live text is
 `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`.** Check
-this before editing, every time. A superseded fork,
-`06_Stage5_Design_Review/AIOM_Ch01_Stage4_FINAL.html`, is still in the tree and
-has diverged from the live text by roughly 150 lines: it lacks the unit-choice
-paragraph in 1.2 and carries a meter-relocation definition callout the live text
-does not. Decision 56 was applied to the fork first and had to be reverted and
-re-applied, which is exactly the failure the "one live text per chapter" rule
-exists to prevent. The rule says supersede and delete. The fork is still
-undeleted, and deleting it is Dan's call.
+this before editing, every time. The superseded fork
+`06_Stage5_Design_Review/AIOM_Ch01_Stage4_FINAL.html` was deleted 2026-08-06 on
+Dan's ruling. It had diverged from the live text by roughly 150 lines, and
+Decision 56 was applied to it by mistake and had to be reverted and re-applied.
+The standing rule is one live text per chapter, supersede and delete, never fork,
+and the delete had simply not happened. The stage-folder render PDFs are kept:
+they are artifacts of a step, not competing texts. Three other chapter HTML files
+remain under Chapter 1's stage folders (two Stage 3 fact-check working copies and
+one early draft) and are older and clearly superseded, but they are the same
+hazard in smaller form.
 
 **Stage 4 passed without its second-model gut-check**, which Dan ruled complete
 without it. The craft verdict on Chapter 1 therefore rests on one read by the

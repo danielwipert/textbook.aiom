@@ -1172,13 +1172,79 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-06
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
 Findings:
 
-ARCHIVED 2026-08-06, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+STAGE 5 PASSED 2026-08-06, re-run after the reopen at Stage 5. Twenty pages, all
+fourteen gates green, and both MANUAL checks performed: every one of the twenty
+pages was rasterized at 150dpi and read, and both figures were pixel-sampled
+inside their bounding boxes. Five findings. Two are fixed, two need a ruling and
+are recorded open, one is an observation with no action.
+
+DR1. CRAFT-SECTION HEAD GROUP STRANDED AT THE FOOT OF PAGE 12. FIXED, and the
+finding matters more than the fix. The slot label "Craft section", the title "The
+consumption-event inventory", and its amber provenance line all sat alone at the
+foot of page 12, with the body opening on page 13. Gate 14 reported ZERO stranded
+heads on that render. It was not lying: Decision 56a had put `break-after: avoid`
+on `.slot-label` alone, which bound the label to the title and left the provenance
+line as the last block on the page. The gate keys on a HEAD being last, and a
+provenance line is not a head, so the check went blind at exactly the moment the
+defect got worse. Decision 56a masked this defect rather than removing it.
+Resolved by chaining `break-after: avoid` through `h2.case-title` and
+`p.provenance`, so the whole head group moves with its first paragraph. The
+chapter goes from 19 pages to 20. That is the correct trade: a section opener
+with zero lines of body beneath it is a defect in any printed book, and one page
+is what it costs to fix. Logged as gap G-II, below.
+
+DR2. MODEL-ANSWER PARAGRAPHS RUN TOGETHER WITH NO SEPARATION. OPEN, NEEDS A
+RULING. `.model p` sets `margin: 0`, so consecutive paragraphs inside a
+model-answer block butt directly against each other. Visible on page 14, where
+Steps 1 through 4 of the consumption-event inventory read as one dense block; on
+page 15, where the 54.6-million-events sentence collides with the paragraph after
+it; and on page 19. The CSS assumes the block alternates label and paragraph,
+which is why `.model p + .mlab` carries 9pt while `p + p` carries nothing. This
+chapter uses one label followed by four paragraphs, which the rule never
+anticipated. Minimal fix is `.model p + p { margin-top: 6pt }`. NOT APPLIED: the
+model-answer treatment is part of the locked design system and the change would
+touch every chapter's craft section, so it is Dan's ruling, not Stage 5's.
+
+DR3. THE P3 TABLE SPILLS ONE ROW ONTO AN OTHERWISE EMPTY FINAL PAGE. OPEN, NEEDS
+A RULING. `table.inv` carries `break-inside: auto`, so the three-row completion
+table for P3 breaks across pages 19 and 20, leaving the header repeated, a single
+row, and the interleaving note on a page that is otherwise blank. A one-row spill
+onto a closing page is a visible defect. `break-inside: avoid` on `table.inv`
+would carry all three rows to page 20 instead, at the cost of more white at the
+foot of 19. NOT APPLIED for the same reason as DR2: it is a design-system change
+affecting every chapter that carries an inventory table.
+
+DR4. HYPHENATION, OBSERVATION ONLY, NO ACTION. Four of twenty pages carry three
+consecutive hyphenated line ends: pages 1, 6, 11, and 15. None carries four or
+more. Chicago tolerates three, so this sits at the limit rather than past it, and
+it is the ordinary cost of a justified setting on this measure. Recorded so a
+later chapter that reaches four knows three was already the standing maximum.
+
+DR5. FIGURE 1.1 USED THE APPARATUS AMBER WHERE THE SPEC REQUIRES THE FIGURE
+AMBER. FIXED. The meter band rule and the METER label were set in `#B4551F`,
+which is `--amber`, while Figure 1.2 used `#C0521A`, which is `--amber-fig`. Two
+different ambers were doing the same semantic job in two figures of one chapter.
+Section 3 of AIOM_DESIGN_SPEC.md rules that figures carry literal hex for
+`--amber-fig`, `--teal`, and `--axis`, so Figure 1.1 was simply wrong. Both uses
+changed to `#C0521A`. Confirmed by pixel sampling: the figure region now returns
+`#C0521A` and no apparatus tint, and Decision 37 holds in both figures, which
+carry `--tint-fig` fills and nothing from the apparatus palette.
+
+GAP G-II, OPENED 2026-08-06. Gate 14 cannot see a stranded head GROUP. It tests
+whether a HEAD is the last block on a page, so any non-head block trailing the
+group, a provenance line today, hides the defect completely. The chapter is held
+off this defect by CSS, not by the check, which is the same shape as the gates
+that were claimed but never performed before 2026-08-05. Until gate 14 is taught
+to treat a run of head-like blocks as one unit, a chapter whose pagination moves
+must have its slot openings read, not merely gated.
+
+PRIOR RECORD, ARCHIVED 2026-08-06, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 5 PASSED 2026-08-06. ALL FOURTEEN GATES PASS on a 19-page render, the
 first fully green render this chapter has produced. Both inherited defects are
@@ -1295,31 +1361,55 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-06
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Gate 1, zero right-margin overflow
-- [ ] Gate 2, zero em and en dashes in the rendered text
-- [ ] Gate 3, running heads and folios correct and correctly sided
-- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
-- [ ] Gate 5, font faces: expected set only, none stray inside SVG
-- [ ] Gate 6, key-term register renders with correct rule and tint alternation
-- [ ] Gate 7, opening-case provenance line present on page 1
-- [ ] Gate 8, footnotes on the calling page, numbering sequential
-- [ ] Gate 9, dated evidence boxes labelled and ruled
-- [ ] Gate 10, problem labels present with their titles
-- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
-- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
-- [ ] Gate 13, no text below the bottom margin, folio excluded
-- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [x] Renders under WeasyPrint without error or warning
+- [x] Gate 1, zero right-margin overflow
+- [x] Gate 2, zero em and en dashes in the rendered text
+- [x] Gate 3, running heads and folios correct and correctly sided
+- [x] Gate 4, callout placement: no splits, ordering correct after place.py
+- [x] Gate 5, font faces: expected set only, none stray inside SVG
+- [x] Gate 6, key-term register renders with correct rule and tint alternation
+- [x] Gate 7, opening-case provenance line present on page 1
+- [x] Gate 8, footnotes on the calling page, numbering sequential
+- [x] Gate 9, dated evidence boxes labelled and ruled
+- [x] Gate 10, problem labels present with their titles
+- [x] Gate 11, theorem panel intact, labelled, ruled, not split
+- [x] Gate 12, figures captioned, numbered in order, each referenced in text
+- [x] Gate 13, no text below the bottom margin, folio excluded
+- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
 
-ARCHIVED 2026-08-06, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+G2 PASSED 2026-08-06, re-run after the reopen at Stage 5. Fresh build, not
+against the Stage 5 numbers. All fourteen printed gates pass on a 20-page render
+and both MANUAL boxes were performed rather than assumed.
+
+WHAT THE MANUAL CHECKS ACTUALLY FOUND, since that is the point of labelling them
+manual. The page-level raster review read all twenty pages at 150dpi and produced
+three of Stage 5's five findings: the stranded craft head group on page 12 (DR1),
+the model-answer paragraphs running together on pages 14, 15, and 19 (DR2), and
+the one-row table spill onto page 20 (DR3). None of the three was visible to any
+of the fourteen gates. The figure-geometry check was done by pixel sampling
+inside each figure's bounding box rather than by eyeball, because the eyeball
+version cannot distinguish `#B4551F` from `#C0521A`, and that distinction was
+DR5. Sampling returned `--tint-fig`, `--axis`, `--amber-fig`, and `--teal` inside
+the figures and NO apparatus tint in either, confirming Decision 37 directly
+instead of by inspection.
+
+The placement pass was run and reported 4 callouts, 4 fragments, 0 splitting, and
+changed nothing, so the placement standing from the previous render is still
+optimal under the new pagination.
+
+Gate 14 passing is not by itself evidence of a clean chapter on this render. It
+reported zero stranded heads while the craft head group sat orphaned at the foot
+of page 12. See gap G-II under Stage 5.
+
+PRIOR RECORD, ARCHIVED 2026-08-06, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 G2 PASSED 2026-08-06 on a fresh build, not against the Stage 5 numbers. All
 fourteen printed gates pass and both MANUAL boxes were performed rather than
