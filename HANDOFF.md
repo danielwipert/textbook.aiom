@@ -75,13 +75,14 @@ one-time, already run).
 `Northmoor/`, Chapter 1 artifacts under `Drafts/Ch01_The_Category_Error/`, and
 `archive/` for superseded files.
 
-## Chapter 1 status: 7 of 13, through Stage 5
+## Chapter 1 status: 8 of 13, through G2
 
 Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day
 against the craft standard. Passed: Stage 0, G1, Stage 1, Stage 2, all
-2026-08-05, and Stages 3, 4, and 5 on 2026-08-06. `status_check.py` reports
-7/13, STATUS CONSISTENT. The chapter is 19 pages and ALL FOURTEEN GATES PASS,
-its first fully green render.
+2026-08-05, and Stages 3, 4, 5 and G2 on 2026-08-06. `status_check.py` reports
+8/13, STATUS CONSISTENT. The chapter is 19 pages and ALL FOURTEEN GATES PASS,
+with both manual checks performed at 150dpi. Every step Claude owns before lock
+is now done.
 
 **The live text is
 `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`**, 5,961
@@ -113,6 +114,10 @@ What each step produced:
 - **Stage 5** closed both inherited layout defects and found four tooling
   defects doing it: one in gate 14 and three in `place.py`. No CSS changed and
   D0 stays closed.
+- **G2** passed on a fresh build. It found the G2 box list itself was stale, a
+  labelling inconsistency in the craft section that Stage 5 had missed (GD1,
+  ruled and fixed), and a new coverage gap, G-I, where a floated callout can
+  collide with a block panel and every gate still passes.
 
 Carried items CD1 to CD7 are in the checklist and all are now closed. CD1 closed
 at Stage 4 by a prose cut, CD6 at Stage 5 by placement, and CD7 as never having
@@ -120,42 +125,39 @@ been a defect at all.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 G2, the production gate. CLAUDE'S STEP. Next up.**
+1. **Chapter 1 Stages 6, 7, and 8. DAN'S STEPS. All three may run in one
+   sitting.**
 
-   The render is already fully green, so G2 is a matter of walking the checklist
-   against a build rather than fixing anything. Two of its sub-checks are labelled
-   MANUAL and both were performed at Stage 5 on this same render: figure geometry
-   by raster inspection, and a page-level raster review of all 19 pages. Re-run
-   the build first; do not tick against the Stage 5 numbers.
+   Copy edit, final fact check 2, and the final read. Everything Claude owns
+   before lock is done: the chapter is 19 pages, all fourteen gates pass, and both
+   manual production checks were performed at 150dpi. The G2 render is committed
+   at `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf`.
 
-   After G2: Dan's Stages 6 to 8, then G3 and lock. Lock is not blocked.
+   Two things to carry into those steps. Stage 7 is a source check and NO SOURCE
+   HOST IS REACHABLE from a Claude session, so it is structurally external. And
+   Stage 4 passed without its second-model gut-check, so if that read is ever run
+   and disagrees, it enters as NC7 and reopens Stage 4.
 
-   **Stage 5 passed 2026-08-06, and what it found matters past this chapter.**
-   Both inherited defects are gone, one fixed and one discovered to be an
-   illusion, and FOUR TOOLING DEFECTS were found in the process. Every one made
-   a check report success on a chapter the build fails, which is now the third
-   time this project has hit that failure mode.
+   After them: **G3**, the continuity gate, which is Claude's and runs
+   `continuity.py`. Then **Stage 9**, lock, also Claude's. Lock is not blocked.
 
-   - **Gate 14 counted key-term names as body prose.** A term name is a full
-     line in the semibold face at body size, so each read as a one-line
-     paragraph: the first on a page scored as a widow, the last as an orphan.
-     CD7, carried as real design work, was two phantoms. Closed as
-     not-a-defect, which is different from fixed.
-   - **`place.py` rendered the wrong document.** It called WeasyPrint on the
-     chapter source; the build renders the footnote-injected document, and
-     footnotes push body text about 50pt down the page. It reported zero splits
-     on a chapter gate 4 failed. It now renders through `AIOM_build.build()`.
-   - **`place.py` anchored inside block containers**, so it could float a
-     definition callout inside the theorem panel or a dated evidence box. Two of
-     the three placements that resolved this chapter's split were exactly that.
-   - **`place.py` scored gate 4 alone.** Three of six candidate anchors fixed
-     the split and pushed footnote 6 off its calling page. It now rejects any
-     candidate that adds a gate failure.
+   **An obligation booked for Stage 9, easy to lose:** when Chapter 1 locks,
+   `continuity.py --update` must NOT record "flow" among the terms Chapter 1 owns.
+   Chapter 2 owns it. Left unchecked, Chapter 2's proper definition registers as a
+   redefinition and G3 fails Chapter 2 for a mis-logged ledger entry.
 
-   CD6 was resolved by moving "Meter relocation" five paragraphs later, the only
-   anchor in its section that satisfies every gate. Accepted by eye: it lands
-   beside the sentence that enacts it. Both specs record how far the placement
-   preference degraded and why.
+   **G2 passed 2026-08-06 and found three things worth carrying.** The G2 BOX LIST
+   ITSELF WAS STALE: `gen_checklists.py` moved to a seventeen-box list on
+   2026-08-05 but this chapter's checklist still had the old ten-box version,
+   because `reopen.py` resets ticks and does not regenerate box text. After a
+   reopen, check the box text against the generator, not only the ticks. GD1, a
+   labelling inconsistency in the craft section's model inventory that Stage 5
+   missed, was found by the manual raster review, ruled by Dan, and fixed by making
+   all four steps inline bold, which also aligns the craft section with P2. And
+   GAP G-I is new and open: a floated callout can collide with a following block
+   panel, crushing a theorem panel's measure, while all fourteen gates pass. Until
+   it closes, a chapter whose callout placement moves must have the affected pages
+   READ, not merely gated.
 
 2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan

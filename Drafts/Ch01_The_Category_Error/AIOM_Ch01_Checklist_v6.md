@@ -1273,22 +1273,105 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-06
 
-> Mechanical, run on the rendered PDF.
+> Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Zero overflow: all character bounds inside the text block
-- [ ] Running heads correct and correctly sided on every page
-- [ ] All figures present, numbered, captioned, referenced in text
-- [ ] Figure geometry validated by pixel sampling (gap G-B; first-pass visual review 2026-08-01, p6 figures correct and in order; Dan final sign-off)
-- [ ] Callout placement correct: no splits, ordering correct after place.py
-- [ ] Footnotes on correct pages, numbering sequential and unbroken
-- [ ] Key-term register renders with correct rule and tint alternation
-- [ ] No widows, no orphans, no section head stranded at a page foot (gap G-D; first-pass visual review 2026-08-01, none seen; Dan final sign-off)
-- [ ] Rasterized visual sample reviewed at page level (19 pages rasterized and reviewed 2026-08-01, first pass by Claude)
+- [x] Renders under WeasyPrint without error or warning
+- [x] Gate 1, zero right-margin overflow
+- [x] Gate 2, zero em and en dashes in the rendered text
+- [x] Gate 3, running heads and folios correct and correctly sided
+- [x] Gate 4, callout placement: no splits, ordering correct after place.py
+- [x] Gate 5, font faces: expected set only, none stray inside SVG
+- [x] Gate 6, key-term register renders with correct rule and tint alternation
+- [x] Gate 7, opening-case provenance line present on page 1
+- [x] Gate 8, footnotes on the calling page, numbering sequential
+- [x] Gate 9, dated evidence boxes labelled and ruled
+- [x] Gate 10, problem labels present with their titles
+- [x] Gate 11, theorem panel intact, labelled, ruled, not split
+- [x] Gate 12, figures captioned, numbered in order, each referenced in text
+- [x] Gate 13, no text below the bottom margin, folio excluded
+- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+G2 PASSED 2026-08-06 on a fresh build, not against the Stage 5 numbers. All
+fourteen printed gates pass and both MANUAL boxes were performed rather than
+assumed. The render is committed at
+`Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf`, 19 pages.
+
+THE BOX LIST WAS WRONG BEFORE THIS GATE RAN, AND THAT IS THE FIRST FINDING.
+`gen_checklists.py` was rewritten on 2026-08-05 to a seventeen-box list mirroring
+the fourteen printed gates one for one, with the two manual checks labelled. This
+chapter's checklist still carried the OLD ten-box list, because `reopen.py` resets
+ticks and does not regenerate box text. CLAUDE.md claimed the mirroring was in
+place; it was true of the generator and false of the only checklist that exists.
+Ticking the old list would have recorded a fourteen-gate pass against ten boxes,
+two of which still cited coverage gaps that gates 13 and 14 had closed. The list
+was replaced from the generator before any box was ticked. CARRY THIS: after a
+reopen, check the box TEXT against `gen_checklists.py`, not only the tick state.
+
+GD1. THE MODEL INVENTORY LABELLED THREE OF ITS FOUR STEPS AND NOT THE FOURTH.
+Found by the manual raster review, which is the only check that could have found
+it. Steps 2, 3, and 4 carried amber `mlab` sub-labels while Step 1 had an inline
+bold lead-in, so on page 13 Step 1 read as body text and the others read as
+labelled subsections. Stage 5 passed without catching it.
+
+Both consistent fixes were built and rendered before the question was put to Dan.
+Giving Step 1 its own label is NOT VIABLE: it adds two lines, footnote 6 leaves
+its calling page, and gate 8 fails. Every callout placement that recovers gate 8
+then fails visually, one colliding with the theorem panel and crushing its title
+into a narrow column, the other squeezing the January 2025 dated box and leaving a
+hole at the foot of the page. Both were rendered and read.
+
+RULED by Dan: make all four steps inline bold lead-ins. APPLIED. All fourteen
+gates pass, 19 pages, the callout stays where Stage 5 put it, and the craft
+section now matches P2's model inventory, which already used bold lead-ins for all
+four of its items. The two model inventories in the chapter finally agree.
+
+GD2. A FLOATED CALLOUT CAN COLLIDE WITH A FOLLOWING BLOCK PANEL AND NO GATE SEES
+IT. A real coverage gap, found while testing GD1's alternatives. One candidate
+placement put the definition callout beside the theorem panel: the panel's title
+wrapped into a narrow column and its first line was indented while the rest ran
+full measure. Every one of the fourteen gates passed on that render. Gate 11
+checks the theorem panel is present, labelled, ruled, and unsplit; it does not
+check that the panel kept its measure. The same happens against a dated evidence
+box. `place.py` now rejects candidates that break another GATE, so it cannot
+reintroduce the gate-8 failure, but nothing stops it choosing a placement that
+collides visually. Recorded in AIOM_Design_QA_Spec_v1.md as a named gap. Until it
+is closed, a chapter whose callout placement moves must have the affected pages
+read, not merely gated.
+
+GD3. OBSERVATION, NO ACTION. Gate 5 reports five font faces against an expected
+set of six. Nothing is missing: `Plex-Medium` is declared in `AIOM_book.css` and no
+rule uses it, because every `font-weight: 500` selector in the design system is on
+the Jost family. The count is correct and expected. Recorded so a future reader
+does not read five as a staging failure.
+
+RENDER WARNINGS, CHECKED EXPLICITLY. WeasyPrint was re-run with logging captured
+at DEBUG and Python warnings forced to always: zero warnings, zero errors. The
+first box is ticked on that evidence rather than on the absence of console output.
+
+THE TWO MANUAL BOXES. Rasterized at 150dpi as the box specifies, all 19 pages
+read. Figure geometry: Figures 1.1 and 1.2 inspected, frames intact, the seat and
+event panels correct, axis labels and captions correctly styled. Page-level
+review: running head suppressed on page 1 and present after, folios throughout,
+amber provenance lines under both the opening case and the craft section titles,
+theorem panel intact on page 7, both dated boxes with their rules and footnotes on
+page 8, all four definition callouts intact and in prose order, seven key-term
+header bands, four discussion questions and three problems correctly labelled, and
+the P3 completion table's fill-in rules rendering clearly.
+
+RE-RUN CONSEQUENCE. GD1 is an apparatus change, so per the scoped re-run matrix it
+re-runs Stage 5 design and G2 and leaves dev, fact, and voice intact. Stage 5 was
+re-verified against this render as part of this gate rather than reopened
+separately: the design items it owns, callout placement, figure geometry, the
+key-term register, and page-level layout, were all read again on the 150dpi raster
+after GD1 was applied. Stage 5's tick stands on that re-read.
+
+---
 
 ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

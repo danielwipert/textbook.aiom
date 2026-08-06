@@ -192,6 +192,13 @@ that fail most often:
 - **Gate 7, provenance line.** Page 1 must carry the 7pt amber semibold line
   beneath the opening case title.
 
+- **A checklist's box TEXT can go stale even when its ticks are correct.**
+  `gen_checklists.py` moved to a seventeen-box G2 list on 2026-08-05; Chapter 1's
+  checklist still carried the old ten-box list at G2, because `reopen.py` resets
+  ticks and does not regenerate box text. This file claimed the mirroring was in
+  place, which was true of the generator and false of the only checklist that
+  exists. After a reopen, check the box text against the generator, not just the
+  ticks.
 - **Gate 14 excludes key-term names, amended 2026-08-06.** A term name is a full
   line in the semibold face at body size, so gate 14 read every one as a
   one-line paragraph: the first on a page scored as a widow, the last as an
@@ -215,6 +222,13 @@ that fail most often:
   a real defect the eleven-gate suite had passed: the "Craft section" slot label
   stranded alone at the foot of page 12, with the section it labels opening on
   page 13.
+
+Gap G-I, added 2026-08-06 at Ch1 G2: a floated definition callout can collide
+with a following block panel and no gate sees it. A placement that put the
+callout beside the theorem panel wrapped the panel's title into a narrow column
+and passed all fourteen gates. Gate 11 checks the panel is present, labelled,
+ruled, and unsplit, not that it kept its measure. Until this closes, a chapter
+whose callout placement moves must have the affected pages read, not merely gated.
 
 Remaining known gap: the theorem callout is unguarded by gate 4 (it uses
 `--tint-thm`, gate 4 keys on `--tint-def`), though gate 11 now checks the panel
@@ -341,13 +355,15 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 7 of 13.** Stage 0
+**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 8 of 13.** Stage 0
 (re-draft), G1 (structural gate), Stage 1 (content review), and Stage 2
 (developmental edit) all passed 2026-08-05; Stage 3 (source and fact check 1),
-Stage 4 (voice and craft check), and Stage 5 (design review) passed 2026-08-06.
-`status_check.py` reports 7/13 with STATUS CONSISTENT. Stage 5 (design review) also passed 2026-08-06, taking the
-chapter to 7 of 13 and producing its first fully green render: all fourteen
-gates pass on 19 pages. G2, the production gate, is next and is Claude's.
+Stage 4 (voice and craft check), Stage 5 (design review), and G2 (production
+gate) passed 2026-08-06. `status_check.py` reports 8/13 with STATUS CONSISTENT. Stage 5 (design review) and G2 (production gate) also passed
+2026-08-06, taking the chapter to 8 of 13 on a fully green render: all fourteen
+gates pass on 19 pages, with both manual checks performed at 150dpi. Stage 6,
+the copy edit, is next and is Dan's, and Stages 6, 7, and 8 may run in one
+sitting.
 
 **Stage 4 passed without its second-model gut-check**, which Dan ruled complete
 without it. The craft verdict on Chapter 1 therefore rests on one read by the
