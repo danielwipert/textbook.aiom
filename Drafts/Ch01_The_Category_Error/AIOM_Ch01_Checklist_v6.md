@@ -606,6 +606,16 @@ and they disagree on two findings. Each is stored with its dashes normalized out
 of the checker's own prose and nothing else changed; the substitutions are in the
 commit messages.
 
+Two renders sit in this folder and they are not interchangeable:
+
+  AIOM_Ch1_Stage3_FactCheck_Input.pdf      the artifact both checks audited
+  AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf   rebuilt 2026-08-06 after SF1 and SF3
+
+The first is kept because a finding is only meaningful against the text that
+produced it. The second is the current one and is what any further reading should
+use. Both are twenty pages, and the SF1 and SF3 edits changed no pagination, so
+the four open layout defects sit on the same pages in both.
+
 SF1. "THE CHIEF EXECUTIVE OF THE LARGEST PROVIDER" ASSERTED A MARKET POSITION ON
 NO STATED METRIC. Raised independently by both checks, which is the only finding
 they agreed on. Neither altman-2025-pro nor techcrunch-2025-altman-pro carries

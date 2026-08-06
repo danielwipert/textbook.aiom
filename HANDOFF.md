@@ -11,11 +11,11 @@ Active working branch: `claude/chapter-1-progress-fq0brc`, new on 2026-08-06 and
 replacing `claude/prose-voice-style-gxjkgj`, which is fully merged into `main` and
 is finished. Working tree clean, and the branch is pushed to origin.
 
-**`main` is one commit behind as of 2026-08-06.** It carries everything through
+**`main` is six commits behind as of 2026-08-06.** It carries everything through
 the 2026-08-05 merge: the voice and craft standard, the re-run process, the
-continuity ledger, and Chapter 1 through Stage 2. It does not yet carry the
-2026-08-06 Stage 3 input render. `main` has no commits of its own, so a
-fast-forward still reconciles cleanly.
+continuity ledger, and Chapter 1 through Stage 2. It carries none of the
+2026-08-06 Stage 3 work. `main` has no commits of its own, so a fast-forward
+still reconciles cleanly.
 
 Keep them synced. When this branch advances, fast-forward `main` again before
 ending the session.
@@ -28,10 +28,13 @@ git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
 python3 status_check.py                                 # authoritative status
 ```
 
-The 2026-08-06 session, in full: Chapter 1 status confirmed at 4/13, the Stage 2
-text rendered as the Stage 3 fact-check input and committed, and CLAUDE.md
-section 10 plus this file brought back into line with the checklist. No chapter
-text changed, so no step was invalidated and the status is unmoved.
+The 2026-08-06 session, in full: Chapter 1 status confirmed at 4/13; the Stage 2
+text rendered as the Stage 3 fact-check input; CLAUDE.md section 10, this file,
+and the Workplan brought back into line with the checklist, which all three had
+lagged; both external fact checks received, filed, and reconciled; five of the
+six Stage 3 findings ruled and the record written; and the input re-rendered
+after the two applied rulings. Status is unmoved at 4/13 because Stage 3 is not
+passed: SF2 is open and cannot be closed from inside a Claude session.
 
 The 2026-08-05 session, oldest first: the voice and craft standard (Decision 52);
 the craft-check hardening after the first read failed as verification; the re-run
@@ -72,7 +75,8 @@ against the craft standard. Passed: Stage 0, G1, Stage 1, Stage 2, all
 **The live text is
 `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`**, 5,961
 words against a 6,000 ceiling, 39 words of headroom. It supersedes the old Stage
-4 render, which is history.
+4 render, which is history. Stage 3 is under way against it and has changed two
+sentences; see thread 1.
 
 What each step produced:
 
@@ -95,21 +99,41 @@ work and are listed under thread 1 below.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 3, source and fact check 1. DAN'S STEP. Input delivered
-   2026-08-06, awaiting Dan's read.**
+1. **Chapter 1 Stage 3, source and fact check 1. DAN'S STEP. Under way, one
+   finding open, and that finding is what blocks the pass.**
 
-   The input is
-   `Drafts/Ch01_The_Category_Error/04_Stage3_Source_Fact_Check_1/AIOM_Ch1_Stage3_FactCheck_Input.pdf`,
-   twenty pages, rendered from the live text after the Stage 2 rulings and
-   committed. Twelve of the fourteen gates pass on it; the two that fail are
-   gate 4 and gate 14, which are CD1, CD6, and CD7 below, all Stage 5 work and
-   deliberately not fixed out of order. Six footnotes generate, all six landing
-   on their calling page. The fact check itself runs against the chapter's own
-   inline source register in the HTML, which carries the per-source rulings.
+   Two independent external checks ran 2026-08-06 and are filed in
+   `04_Stage3_Source_Fact_Check_1/` as `AIOM_Ch1_Stage3_FactCheck_1_External.md`
+   and `_2_External.md`. Six findings, SF1 to SF6, all recorded in the checklist
+   with their rulings. Five are closed:
 
-   No claim, citation, figure, or slot has changed since the re-draft cleared G1,
-   so the fact surface is unchanged. Dan may rule this a confirmation rather than
-   a full re-check, as he did on 2026-08-01 for the same class of edit.
+   - **SF1 APPLIED.** "The chief executive of the largest provider" ranked a firm
+     on no stated metric. Now "OpenAI's chief executive, Sam Altman".
+   - **SF3 APPLIED.** GitHub "premium requests that had previously carried no
+     separate charge" rested on a changelog that documents the change, not the
+     arrangement before it. Narrowed to what the artifact carries.
+   - **SF4, SF5, SF6 CLOSED**, no chapter change. Reasons in the checklist.
+
+   **SF2 IS OPEN AND IS DAN'S TO CLOSE.** The chapter says the Cursor allowance
+   was consumed "after which usage continued to bill against real rates", while
+   the register records "the option to purchase more at cost", which is not the
+   same thing. Neither check settled it. The question is narrow: on exhausting
+   the twenty-dollar frontier pool, did usage continue to bill at API rates by
+   default, or did further charges require usage-based pricing or a spend limit
+   to have been enabled? No Claude session can answer it; see the network policy
+   note under standing reminders.
+
+   Two renders sit in the folder and they are not interchangeable.
+   `AIOM_Ch1_Stage3_FactCheck_Input.pdf` is the artifact both checks audited and
+   is kept for that reason. `AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf` is the
+   current one, rebuilt after SF1 and SF3. Both are twenty pages with identical
+   pagination, twelve of fourteen gates passing, and the same four layout defects
+   (CD1, CD6, CD7 below) held for Stage 5.
+
+   When SF2 closes, rebuild once more if it changes prose, then Dan marks the
+   pass. Nothing downstream is invalidated by SF1 and SF3: Stage 4, Stage 5, and
+   G2 have not run since the reopen, and neither edit touches teaching structure,
+   so Stage 2 stands.
 
    After Stage 3: **Stage 4** voice and craft (Claude; read ADVERSARIALLY and BY
    SECTION, with the second-model check per the prompt in the checklist), then
@@ -161,6 +185,21 @@ work and are listed under thread 1 below.
 - Source register notes inside a chapter's own Decision 51 block can carry
   rulings that `AIOM_Source_Ledger.md`'s summary does not. G1 caught a breach
   this way. Read the in-chapter note before using a figure from a cited study.
+- **Write every fact-check ruling back into the register note, with the condition
+  that would reverse it.** Stage 3 on 2026-08-06 closed two raises that earlier
+  rounds had already answered, and closed a third, SF6, for at least the third
+  time. The notes that carried their history ("has been rejected once and should
+  be rejected again", "must not return") are what made those closures fast. A
+  ruling recorded only in the checklist is a ruling the next checker will raise
+  again.
+- **A second check is worth running even when the first was thorough, and the
+  two disagreeing is the useful part.** The 2026-08-06 pair agreed on one finding
+  out of six. Check 2 confirmed a passage check 1 raised, and check 1 caught a
+  sourcing gap check 2 restated as sound. Run them on different prompts.
+- **Not every proposed remedy is an improvement.** External check 1 proposed
+  hedging language the voice rules prohibit, and check 2 proposed second source
+  paths below the floor already in force. Evaluate the remedy separately from the
+  finding: the finding can be right and the fix still wrong.
 
 **How to read and check.**
 
@@ -222,6 +261,17 @@ work and are listed under thread 1 below.
   only covers that file when the name begins with an underscore. Name the root
   copy `_ch01_build.html` and both files fall under the ignore rule.
 - Fonts are committed; do not run `AIOM_build.py --fonts`.
+- **NO SOURCE HOST IS REACHABLE FROM THIS ENVIRONMENT, so Stages 3 and 7 are
+  structurally external, not external by preference.** Tested 2026-08-06:
+  `cursor.com`, `techcrunch.com`, `github.blog`, `www.microsoft.com`, `doi.org`,
+  and `x.com` all fail CONNECT with a gateway 403, recorded by the proxy as
+  "policy denial". That is the network policy, not a bot block at the origin and
+  not a TLS fault, so there is nothing to fix and nothing to work around. Verify
+  with `curl -sS "$HTTPS_PROXY/__agentproxy/status"`, which lists recent relay
+  failures by host. The practical consequence: Claude can rule on whether a
+  chapter claim stays inside what a register note says, and cannot verify the
+  note against the source. Do not offer to check a primary. Do not treat a
+  register note as a substitute for one either; say which it is.
 - The proxy blocks `raw.githubusercontent.com` and the Google Fonts CDN; do not
   route around policy denials, report them.
 - Develop on `claude/chapter-1-progress-fq0brc`, then fast-forward `main` to match
