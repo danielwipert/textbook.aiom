@@ -366,10 +366,13 @@ What the reopen inherits, as carried items for the re-draft:
 - **A real production defect found by new gate 14 on its first run**: the "Craft
   section" slot label stranded alone at the foot of page 12, with the section it
   labels opening on page 13. The eleven-gate suite passed this render. The
-  fourteen-gate suite fails it. Still open as of the 2026-08-06 Stage 3 input
-  render, where it reproduces on page 12 alongside a widow and an orphan on page
-  16 and one gate 4 callout split. All four are Stage 5 design work and are
-  recorded rather than fixed out of order.
+  fourteen-gate suite fails it. CLOSED 2026-08-06 at Stage 4, not at Stage 5:
+  applying craft finding NC2 cut two sentences from 1.4, the pagination moved,
+  and gate 14 now reports zero stranded heads on a 19-page chapter. The gate
+  found a real defect the older suite passed, and the defect outlived a full
+  re-draft and every Stage 3 edit before a two-sentence craft cut removed it. The
+  other three defects, one gate 4 callout split and a widow and an orphan on page
+  16, did not move with it and remain Stage 5 work.
 - The nine verified sources in `AIOM_Source_Ledger.md`, which the re-draft should
   reuse rather than re-verify, subject to Dan's Stage 3 re-run.
 - The Stage 2 developmental rulings D1 through D6 and the four voice rulings

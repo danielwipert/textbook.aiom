@@ -40,6 +40,23 @@ import sys
 
 VOICED_CLASSES = ("model", "dq", "dq-b", "dq-n", "dq-list", "problem")
 
+# Apparatus blocks whose inner paragraphs carry no class of their own, so
+# SKIP_CLASSES cannot see them. A theorem's formal conditional is one sentence
+# of stated antecedents and a consequent; it is a proof object, not running
+# prose, and counting it as prose reports any section holding a theorem as
+# rhythmically heavy. Found at Chapter 1 Stage 4, 2026-08-06, where it put
+# section 1.3 at a mean of 23.1 words against a chapter mean of 17.6 on the
+# strength of one 61-word sentence. Every chapter carries theorems, so the
+# misreport would have travelled to all fifteen.
+#
+# The same defect class covers <aside class="definition"> bodies and key-term
+# entries, which are also unclassed paragraphs inside a classed container.
+# Those are NOT excluded here: extending the set moves the baseline band that
+# Chapters 2 to 15 are read against, which is Dan's ruling to make, not a side
+# effect of this fix. Adding "definition" and "kt" below is the whole change if
+# he rules that way.
+APPARATUS_BLOCKS = ("theorem",)
+
 PERSON = re.compile(r"\b(I|we|our|us|you|your|yours|ourselves|yourself)\b")
 CONTRACTION = re.compile(
     r"\b(don|doesn|didn|isn|aren|wasn|weren|can|couldn|wouldn|shouldn|won"
@@ -66,24 +83,38 @@ def in_span(pos, spans):
     return any(a <= pos <= b for a, b in spans)
 
 
-def voiced_lines(lines):
-    """Which lines sit inside a voiced block, tracked by div depth."""
+def block_lines(lines, classes):
+    """Which lines sit inside a block of one of `classes`, tracked by depth.
+
+    Depth counts <div> and <aside> together, because the design system uses
+    both as block containers: voiced material is div-based, definition
+    callouts are asides.
+    """
     inside = [False] * (len(lines) + 1)
     depth = 0
-    voiced_at = None
+    marked_at = None
     for i, line in enumerate(lines, 1):
-        opens = re.findall(r"<div\b[^>]*>", line)
-        closes = len(re.findall(r"</div>", line))
+        opens = re.findall(r"<(?:div|aside)\b[^>]*>", line)
+        closes = len(re.findall(r"</(?:div|aside)>", line))
         for tag in opens:
             cls = re.search(r'class="([^"]+)"', tag)
             depth += 1
-            if voiced_at is None and cls and cls.group(1) in VOICED_CLASSES:
-                voiced_at = depth
-        inside[i] = voiced_at is not None
+            if marked_at is None and cls and cls.group(1) in classes:
+                marked_at = depth
+        inside[i] = marked_at is not None
         depth -= closes
-        if voiced_at is not None and depth < voiced_at:
-            voiced_at = None
+        if marked_at is not None and depth < marked_at:
+            marked_at = None
     return inside
+
+
+def voiced_lines(lines):
+    """Which lines sit inside a voiced block. Used by the prohibitions.
+
+    Voiced material is exempt from the person check only. It is NOT exempt
+    from the dash, contraction, or question-mark bans, which hold everywhere.
+    """
+    return block_lines(lines, VOICED_CLASSES)
 
 
 def analyse(path):
@@ -188,8 +219,10 @@ def body_paragraphs(path):
     """
     raw = open(path, encoding="utf-8").read()
     lines = raw.split("\n")
-    inside = voiced_lines(lines)
-    kept = [ln for i, ln in enumerate(lines, 1) if not inside[i]]
+    voiced = voiced_lines(lines)
+    apparatus = block_lines(lines, APPARATUS_BLOCKS)
+    kept = [ln for i, ln in enumerate(lines, 1)
+            if not voiced[i] and not apparatus[i]]
     doc = "\n".join(kept)
     doc = re.sub(r"(?s)<(script|style|svg)\b.*?</\1>", " ", doc)
     # Footnote apparatus. A <cite> body becomes a numbered footnote at build

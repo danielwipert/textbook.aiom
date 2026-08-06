@@ -768,9 +768,12 @@ at drafting time rather than as a repair pass.
   F3 (C3, 1.5)  "A word on the borders of the subject." is gone. 1.5 now opens
                 on the claim.
   F4 (C5)       All four cross-reference closes are gone; the tool that was
-                blind to them now reports 0 of 44. Each cross-reference moved
-                into the body of its paragraph, where it informs without taking
-                the close.
+                blind to them now reports 0 of 43. Three moved into the body of
+                their paragraph, where they inform without taking the close. The
+                fourth, the craft-section case's return in Chapter 6, moved into
+                the cite block, so it prints as a footnote. A reader of the PDF
+                still sees that sentence at the foot of the craft-section
+                opening; it is apparatus there, not a paragraph close.
   F5 (C4)       The summary was the weakest C4 unit in the book: 5 sentences,
                 mean 33.6 words, ZERO under twelve. It is now 10 sentences, mean
                 17.9, stdev 8.5, 20 percent short. It reads at chapter band.
@@ -849,20 +852,63 @@ is a rewrite of one sentence. NC4 is mostly a tooling item and should be fixed i
 voicecheck.py rather than in prose, before Chapter 2 is read against these
 numbers. NC6 needs no edit, only the record.
 
-BASELINE BAND, UPDATED. The superseded read set the band for Chapters 2 to 15
-from a chapter that has since been re-drafted. The current numbers are: 44
-paragraphs, 225 sentences, 3,967 words of teaching prose, sentence words mean
-17.6, median 15, stdev 10.5, range 3 to 61, short 32 percent, long 6 percent,
+BASELINE BAND, UPDATED 2026-08-06 AFTER NC2 AND THE TOOLING FIX. The superseded
+read set the band from a chapter that has since been re-drafted, and it counted
+theorem apparatus as prose. Both are corrected. The current numbers are: 43
+paragraphs, 223 sentences, 3,891 words of teaching prose, sentence words mean
+17.4, median 15, stdev 10.1, range 3 to 54, short 33 percent, long 6 percent,
 longest uniform run 5, throat-clearing openers 0, copulas 4.2 per 100 words,
-nominalizations 47.4 per 1,000, numerals 6.5 per 1,000, proper nouns 9.1 per
-1,000, trailing-qualifier closes 3 of 44, cross-reference closes 0 of 44. These
-supersede the superseded read's band. Note the numeral and proper-noun rates fell
-against the old version even though the craft section gained arithmetic, because
-the old figures counted a longer apparatus.
+nominalizations 46.0 per 1,000, numerals 6.7 per 1,000, proper nouns 9.3 per
+1,000, trailing-qualifier closes 3 of 43, cross-reference closes 0 of 43. These
+supersede both earlier bands. Chapters 2 to 15 are read against these, and any
+further change to APPARATUS_BLOCKS moves them again, which is why that set is
+not extended casually.
 
-AWAITING: Dan's second-model gut-check and ruling on NC1 to NC6. Nothing is
-applied. Any edit Dan rules is a body-prose change and re-runs per the scoped
-matrix from Stage 2 down, except NC4's tooling half, which touches no prose.
+NC2 APPLIED 2026-08-06, ruled by Dan. The paragraph is cut to its first
+sentence: "Organizations that would never let a material flow through the plant
+unrecorded let the AI flow through the work unrecorded." The causal assertion and
+the "licensed software does not flow" line are gone, and the inheritance passage
+two paragraphs later now delivers the cause unannounced. The contrast sentence
+was kept rather than cutting the paragraph whole, because it is the only payoff
+of the steel analogy in 1.4 and the inheritance passage does not repeat it. The
+section now states the puzzle, shows where it bites, then explains it.
+
+A CARRIED PRODUCTION DEFECT CLOSED AS A SIDE EFFECT. Cutting two sentences moved
+the pagination, and gate 14 now reports ZERO stranded heads. CD1, the "Craft
+section" slot label stranded at the foot of page 12, is resolved. That defect was
+gate 14's first find on its first run, survived the Stage 0 re-draft and every
+Stage 3 edit, and was booked as Stage 5 work. It was closed by a craft edit made
+for an unrelated reason. The chapter is now 19 pages, down from 20. Gate 4's
+callout split (CD6) and the page 16 widow and orphan (CD7) are unaffected and
+remain Stage 5 work.
+
+NC4 TOOLING HALF FIXED 2026-08-06, ruled by Dan. voicecheck.py excludes
+<div class="theorem"> from the craft metrics, via a new block_lines helper that
+tracks div and aside depth together and a named APPARATUS_BLOCKS set. The
+prohibitions are unaffected: a theorem is still checked for dashes,
+contractions, and question marks, because those bans hold everywhere. Effect on
+this chapter: the longest sentence falls from 61 words to 54, and 1.3 falls from
+a mean of 23.1 to 21.8.
+
+1.3 REMAINS THE HEAVIEST SECTION AFTER THE FIX, and the residue is the second
+apparatus item NC4 named: the 26-word quoted objection, which body_paragraphs
+does not exclude because it is a quotation inside an ordinary paragraph rather
+than a classed block. voicecheck.py already has voiced_spans for quotations and
+uses it only for the person check. Extending it to the craft metrics is a
+separate change and is NOT made here. Recorded so the next reader knows 1.3's
+number is still carrying apparatus.
+
+NOT EXTENDED, AND DELIBERATELY. Definition asides and key-term entries have the
+identical defect: unclassed paragraphs inside a classed container, counted as
+running prose. Key terms currently reports a mean of 24.0, the heaviest unit in
+the chapter, and it is a list of definitions. Excluding them is one line in
+APPARATUS_BLOCKS, and it is not taken, because it moves the baseline band that
+Chapters 2 to 15 are read against and that is Dan's ruling to make.
+
+AWAITING: Dan's second-model gut-check, and a ruling on NC1, NC3, NC5, and NC6.
+NC1 and NC3 are one-line fixes, NC5 is one sentence, NC6 needs only the record.
+Any edit ruled is a body-prose change and re-runs per the scoped matrix from
+Stage 2 down.
 
 ---
 

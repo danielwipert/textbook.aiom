@@ -148,7 +148,12 @@ work and are listed under thread 1 below.
 
    **Stage 5 inherits three carried items, which gate 14 and gate 4 report as
    four defects**, all recorded in the checklist:
-   - **CD1**, the "Craft section" slot label stranded at the foot of page 12.
+   - **CD1 CLOSED 2026-08-06.** The "Craft section" slot label stranded at the
+     foot of page 12 is gone. Applying NC2 at Stage 4 cut two sentences from
+     1.4, the pagination moved, and gate 14 now reports zero stranded heads. The
+     chapter is 19 pages. A carried production defect closed by a craft edit
+     made for an unrelated reason, so verify the remaining two rather than
+     assuming they moved with it: they did not.
    - **CD6**, one definition callout split across a page break, caused by
      applying ND1. Remedy is `place.py`, never CSS: WeasyPrint 69 ignores
      `break-inside` on floated elements.
