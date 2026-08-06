@@ -726,16 +726,16 @@ version.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-06
 
 > Two halves. The mechanical half is voicecheck.py. The judgment half is the six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. voicecheck.py prints advisory craft metrics proxying C1, C3, C4, and C5; the metrics inform the read and never decide it. C2 and C6 have no proxy and are enforced by reading alone.
 
-- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
-- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
-- [ ] C3 front-loaded sentences: findings lead, qualifications subordinate, no throat-clearing openers
-- [ ] C4 deliberate rhythm: sentence length varies, no long stretch at a uniform length
-- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier
-- [ ] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
+- [x] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [x] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [x] C3 front-loaded sentences: findings lead, qualifications subordinate, no throat-clearing openers
+- [x] C4 deliberate rhythm: sentence length varies, no long stretch at a uniform length
+- [x] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier
+- [x] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
 
 Findings:
 
@@ -939,10 +939,25 @@ stranded heads, so CD1 stays closed. Gate 4's callout split (CD6) and the page 1
 widow and orphan (CD7) are unmoved by all four prose edits and remain Stage 5
 work. Twelve of the fourteen gates pass.
 
-AWAITING: Dan's second-model gut-check. The prompt is at the end of this file and
-must not be shown these findings. Its purpose now is to test whether an
-independent read finds anything NC1 to NC6 missed, which is the more valuable
-output; a finding it raises that this read did not goes in as NC7.
+STAGE 4 PASSED 2026-08-06, ruled by Dan. The six criterion boxes are ticked on
+the strength of the read above: no criterion fails at chapter level, all seven
+carried findings from the superseded read are resolved, and five of the six new
+findings are applied.
+
+THE SECOND-MODEL GUT-CHECK WAS NOT RUN BEFORE THE PASS. Recorded plainly rather
+than left to be inferred, because the checklist had booked it as owed and because
+the last read written from this position returned a false all-clear. Dan ruled
+the step complete without it. What that means for anything downstream: the craft
+verdict on Chapter 1 rests on a single read by the model that drafted the chapter
+and wrote the standard, with the adversarial method and the per-section table as
+the only correctives. The prompt remains at the end of this file and can be run
+at any time; a finding it raises after the fact enters as NC7 and reopens Stage 4
+under the scoped re-run matrix rather than being absorbed silently.
+
+THE BASELINE BAND IS NOW LOAD-BEARING. Chapters 2 to 15 are read against the
+numbers recorded above, and Chapter 1 is the exemplar they are drafted against.
+Both inherit from a craft verdict that was not independently verified. If the
+second-model read is ever run and disagrees, it moves fourteen chapters, not one.
 
 ---
 

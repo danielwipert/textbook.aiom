@@ -326,11 +326,22 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 5 of 13.** Stage 0
+**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 6 of 13.** Stage 0
 (re-draft), G1 (structural gate), Stage 1 (content review), and Stage 2
-(developmental edit) all passed 2026-08-05, and Stage 3 (source and fact check 1)
-passed 2026-08-06; `status_check.py` reports 5/13 with STATUS CONSISTENT. Stage
-4, the voice and craft check, is next and is Claude's. The prior record is not
+(developmental edit) all passed 2026-08-05; Stage 3 (source and fact check 1) and
+Stage 4 (voice and craft check) passed 2026-08-06. `status_check.py` reports 6/13
+with STATUS CONSISTENT. Stage 5, design review, is next and is Claude's; it
+inherits two layout defects, a gate 4 callout split and a widow and orphan on
+page 16.
+
+**Stage 4 passed without its second-model gut-check**, which Dan ruled complete
+without it. The craft verdict on Chapter 1 therefore rests on one read by the
+model that drafted the chapter and wrote the standard it grades against, with the
+adversarial method and the per-section table as the only correctives. This
+matters past Chapter 1: the baseline band that Chapters 2 to 15 are read against
+comes from that read, and Chapter 1 is the exemplar the other fourteen are
+drafted against. The verification prompt is still in the chapter checklist and
+can be run at any time; a finding it raises enters as NC7 and reopens Stage 4. The prior record is not
 lost: every step's findings are archived in place in the checklist, marked
 superseded, because they state what was examined and how it was ruled and the
 re-run should not have to rediscover that.

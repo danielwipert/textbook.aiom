@@ -74,12 +74,12 @@ one-time, already run).
 `Northmoor/`, Chapter 1 artifacts under `Drafts/Ch01_The_Category_Error/`, and
 `archive/` for superseded files.
 
-## Chapter 1 status: 5 of 13, through Stage 3
+## Chapter 1 status: 6 of 13, through Stage 4
 
 Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day
 against the craft standard. Passed: Stage 0, G1, Stage 1, Stage 2, all
-2026-08-05, and Stage 3 on 2026-08-06. `status_check.py` reports 5/13, STATUS
-CONSISTENT.
+2026-08-05, and Stages 3 and 4 on 2026-08-06. `status_check.py` reports 6/13,
+STATUS CONSISTENT.
 
 **The live text is
 `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`**, 5,961
@@ -106,84 +106,51 @@ What each step produced:
   with no chapter change. Every ruling is written into the chapter's own register
   note with the condition that would reverse it.
 
-Carried items CD1 to CD7 are live in the checklist. CD1, CD6, and CD7 are Stage 5
-work and are listed under thread 1 below.
+Carried items CD1 to CD7 are in the checklist. CD1 is closed. CD6 and CD7 remain
+Stage 5 work and are listed under thread 1 below.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 4, the voice and craft check. CLAUDE'S STEP. Run, findings
-   applied, ONE THING LEFT: Dan's second-model gut-check.**
+1. **Chapter 1 Stage 5, design review. CLAUDE'S STEP. Next up.**
 
-   The read was run 2026-08-06, adversarially and by section. Mechanical half
-   PASS. Six findings, NC1 to NC6, one per criterion, none failing at chapter
-   level. NC1 to NC5 are applied; NC6 needed only the record.
+   Two defects to resolve, both carried and both verified as unmoved by the four
+   Stage 4 prose edits:
+   - **CD6**, one definition callout split across a page break. Remedy is
+     `place.py`, never CSS: WeasyPrint 69 ignores `break-inside` on floated
+     elements.
+   - **CD7**, a widow and an orphan on page 16.
 
-   **The six criterion boxes are still OPEN and should stay open until the
-   second-model check lands.** They are not open because a criterion fails. They
-   are open because this read was written by the model that drafted the chapter
-   and wrote the standard it grades against, and the previous read in that
-   position returned a false all-clear. The prompt is at the end of the
-   checklist. DO NOT show the second model NC1 to NC6: it is testing for what
-   this read missed, and anything it raises goes in as NC7. Ticking the six boxes
-   after that closes Stage 4 and moves the chapter to 6 of 13.
+   CD1 is closed, so the list is shorter than it was. The chapter is 19 pages and
+   twelve of the fourteen gates pass. After Stage 5: **G2**, then Dan's Stages 6
+   to 8, then **G3** and lock.
 
-   The headline result: **all seven carried craft findings from the superseded
-   read are resolved**, which is the first evidence that the standard does its
-   work at drafting time rather than as a repair pass. The summary went from the
-   weakest C4 unit in the book to chapter band, all four cross-reference closes
-   are gone, the atomic unit is argued instead of asserted, and the craft section
-   carries arithmetic it used to only assert. That arithmetic was verified at
-   Stage 4 and neither external fact check had examined it.
+   **Stage 4 passed 2026-08-06 WITHOUT its second-model gut-check.** Dan ruled
+   the step complete without it. Do not read the six ticked criterion boxes as
+   independently verified: the craft verdict rests on one read by the model that
+   drafted the chapter and wrote the standard it grades against. The prompt is
+   still at the end of the chapter checklist, refreshed and ready, and it can be
+   run at any time. A finding it raises enters as NC7 and reopens Stage 4 under
+   the scoped re-run matrix. The exposure is not confined to Chapter 1: the
+   baseline band for Chapters 2 to 15 comes from that read, and Chapter 1 is the
+   exemplar the other fourteen are drafted against.
 
-   Two things came out of Stage 4 that outlive Chapter 1. **`voicecheck.py` was
-   counting a theorem's formal conditional as running prose**, so any section
-   holding a theorem read as rhythmically heavy; fixed via `block_lines` and a
-   named `APPARATUS_BLOCKS` set. And **the baseline band was recomputed** and now
-   supersedes both earlier versions: 43 paragraphs, 224 sentences, 3,870 words,
+   What Stage 4 produced: all seven carried craft findings resolved, six new
+   findings NC1 to NC6, five applied. The summary went from the weakest C4 unit
+   in the book to chapter band, all four cross-reference closes are gone, the
+   atomic unit is argued rather than asserted, and the craft section carries
+   verified arithmetic it used to only assert. Two results outlive the chapter:
+   `voicecheck.py` no longer counts a theorem's formal conditional as running
+   prose, and the baseline band is 43 paragraphs, 224 sentences, 3,870 words,
    mean 17.3, range 3 to 49, short 33 percent, trailing-qualifier closes 2 of 43,
    cross-reference closes 0 of 43.
 
-   Then **Stage 5** design, then **G2**, then Dan's Stages 6 to 8, then **G3**
-   and lock.
-
-   **Stage 3 closed 2026-08-06**, ruled by Dan. Two independent external checks
-   on different prompts, filed in `04_Stage3_Source_Fact_Check_1/` as
-   `AIOM_Ch1_Stage3_FactCheck_1_External.md` and `_2_External.md`. Six findings:
-
-   - **SF1 APPLIED.** "The chief executive of the largest provider" ranked a firm
-     on no stated metric. Now "OpenAI's chief executive, Sam Altman".
-   - **SF2 APPLIED.** The Cursor sentence asserted automatic billing the primary
-     does not establish. Now "after which additional usage was priced at the same
-     rates", which states the price and asserts no mechanism.
-   - **SF3 APPLIED.** GitHub "premium requests that had previously carried no
-     separate charge" rested on a changelog that documents the change, not the
-     arrangement before it. Narrowed to what the artifact carries.
-   - **SF4, SF5, SF6 CLOSED**, no chapter change. Reasons in the checklist.
-
-   Every ruling is written into the chapter's own register note along with the
-   condition that would reverse it, which is what makes a repeat raise cheap to
-   close rather than a fresh argument.
-
-   Two renders sit in the folder and they are not interchangeable.
-   `AIOM_Ch1_Stage3_FactCheck_Input.pdf` is the artifact both checks audited and
-   is kept for that reason. `AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf` is the
-   current one, rebuilt after all three applied edits. Both are twenty pages with
-   identical pagination, twelve of fourteen gates passing, and the same four
-   layout defects (CD1, CD6, CD7 below) held for Stage 5.
-
-   **Stage 5 inherits three carried items, which gate 14 and gate 4 report as
-   four defects**, all recorded in the checklist:
-   - **CD1 CLOSED 2026-08-06.** The "Craft section" slot label stranded at the
-     foot of page 12 is gone. Applying NC2 at Stage 4 cut two sentences from
-     1.4, the pagination moved, and gate 14 now reports zero stranded heads. The
-     chapter is 19 pages. A carried production defect closed by a craft edit
-     made for an unrelated reason, so verify the remaining two rather than
-     assuming they moved with it: they did not.
-   - **CD6**, one definition callout split across a page break, caused by
-     applying ND1. Remedy is `place.py`, never CSS: WeasyPrint 69 ignores
-     `break-inside` on floated elements.
-   - **CD7**, a widow and an orphan on page 16. Pre-existing, and verified as
-     such by running the corrected gate 14 against the pre-ND1 render.
+   **CD1 was closed at Stage 4, not Stage 5.** It was the "Craft section" slot
+   label stranded at the foot of page 12, gate 14's first find on its first run.
+   Applying NC2 cut two sentences from 1.4, the pagination moved, and the defect
+   went. It had been booked as Stage 5 work on the sound reasoning that a
+   break-control defect is not a prose defect. Worth remembering the next time a
+   layout defect looks purely mechanical. The other two did not move with it,
+   which was verified rather than assumed.
 
    **An obligation booked for Stage 9, easy to lose:** when Chapter 1 locks,
    `continuity.py --update` must NOT record "flow" among the terms Chapter 1
