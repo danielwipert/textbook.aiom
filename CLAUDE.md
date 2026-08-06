@@ -326,13 +326,16 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 3 of 13.** Stage 0
-(re-draft), G1 (structural gate), and Stage 1 (content review) all passed
-2026-08-05; `status_check.py` reports 3/13 with STATUS CONSISTENT. Stage 2, the
-developmental edit, is next. The prior record is not lost: every step's findings are
-archived in place in the checklist, marked superseded, because they state what
-was examined and how it was ruled and the re-run should not have to rediscover
-that.
+**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 4 of 13.** Stage 0
+(re-draft), G1 (structural gate), Stage 1 (content review), and Stage 2
+(developmental edit) all passed 2026-08-05; `status_check.py` reports 4/13 with
+STATUS CONSISTENT. Stage 3, source and fact check 1, is next and is Dan's, run
+outside the Claude system. Its input is rendered and committed:
+`Drafts/Ch01_The_Category_Error/04_Stage3_Source_Fact_Check_1/AIOM_Ch1_Stage3_FactCheck_Input.pdf`,
+twenty pages, built 2026-08-06 from the live text after the Stage 2 rulings. The
+prior record is not lost: every step's findings are archived in place in the
+checklist, marked superseded, because they state what was examined and how it was
+ruled and the re-run should not have to rediscover that.
 
 Grounds for the reopen. Chapter 1 was drafted before the voice and craft standard
 existed (Decision 52), so its prose was never written against C1 through C6. The
@@ -349,20 +352,27 @@ What the reopen inherits, as carried items for the re-draft:
 - **A real production defect found by new gate 14 on its first run**: the "Craft
   section" slot label stranded alone at the foot of page 12, with the section it
   labels opening on page 13. The eleven-gate suite passed this render. The
-  fourteen-gate suite fails it.
+  fourteen-gate suite fails it. Still open as of the 2026-08-06 Stage 3 input
+  render, where it reproduces on page 12 alongside a widow and an orphan on page
+  16 and one gate 4 callout split. All four are Stage 5 design work and are
+  recorded rather than fixed out of order.
 - The nine verified sources in `AIOM_Source_Ledger.md`, which the re-draft should
   reuse rather than re-verify, subject to Dan's Stage 3 re-run.
 - The Stage 2 developmental rulings D1 through D6 and the four voice rulings
   (Decisions 42 to 45), all still standing as rules even though the steps reset.
 
-Two things the re-run has already proved. G1 caught a real breach of a standing
+Three things the re-run has already proved. G1 caught a real breach of a standing
 source ruling in the re-draft: the published QJE agent count had been put into
 prose, where a 2026-07-29 ruling reserves it for Chapter 6. The fuller ruling
 lives in the chapter's own Decision 51 register, not in the shorter
 `AIOM_Source_Ledger.md` note, so read the in-chapter register before using a
-figure from a cited study. And Stage 1 ruled seven structural findings without
+figure from a cited study. Stage 1 ruled seven structural findings without
 changing one word of the chapter, so no downstream step was invalidated, which is
-what the scoped re-run matrix exists to produce.
+what the scoped re-run matrix exists to produce. And Stage 2 found six
+developmental findings of which four were applied as ND1 through ND4, landing
+those line edits before fact check, voice, design, and production rather than
+churning them afterward, which is the whole reason Process v2 moved the
+developmental edit early.
 
 Process built 2026-08-05 to make the re-run safe and repeatable across fifteen
 chapters: `reopen.py`; the Process v1 to v2 stage-folder migration across all

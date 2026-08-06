@@ -1,20 +1,21 @@
 # Session handoff
 
-Last updated: 2026-08-05. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-06. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/prose-voice-style-gxjkgj`. Working tree clean, and
-the branch is fully pushed to origin.
+Active working branch: `claude/chapter-1-progress-fq0brc`, new on 2026-08-06 and
+replacing `claude/prose-voice-style-gxjkgj`, which is fully merged into `main` and
+is finished. Working tree clean, and the branch is pushed to origin.
 
-**`main` is merged and synced as of 2026-08-05.** Dan approved the merge and the
-branch was fast-forwarded into `main`, which carried no commits of its own, so
-the merge was a clean fast-forward with nothing to reconcile. `main` now reflects
-the whole body of work: the voice and craft standard, the re-run process, the
-continuity ledger, and Chapter 1 through Stage 2.
+**`main` is one commit behind as of 2026-08-06.** It carries everything through
+the 2026-08-05 merge: the voice and craft standard, the re-run process, the
+continuity ledger, and Chapter 1 through Stage 2. It does not yet carry the
+2026-08-06 Stage 3 input render. `main` has no commits of its own, so a
+fast-forward still reconciles cleanly.
 
 Keep them synced. When this branch advances, fast-forward `main` again before
 ending the session.
@@ -27,11 +28,16 @@ git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
 python3 status_check.py                                 # authoritative status
 ```
 
-The session's work, oldest first: the voice and craft standard (Decision 52); the
-craft-check hardening after the first read failed as verification; the re-run
+The 2026-08-06 session, in full: Chapter 1 status confirmed at 4/13, the Stage 2
+text rendered as the Stage 3 fact-check input and committed, and CLAUDE.md
+section 10 plus this file brought back into line with the checklist. No chapter
+text changed, so no step was invalidated and the status is unmoved.
+
+The 2026-08-05 session, oldest first: the voice and craft standard (Decision 52);
+the craft-check hardening after the first read failed as verification; the re-run
 process plus the reopen of Chapter 1 (Decision 53); the continuity ledger
 (Decision 54); the Chapter 1 Stage 0 re-draft; G1; Stage 1 (Decision 55); the
-Stage 2 pass; the Stage 2 rulings applied; and this handoff.
+Stage 2 pass; and the Stage 2 rulings applied.
 
 ## What now lives in the repo
 
@@ -89,7 +95,17 @@ work and are listed under thread 1 below.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 3, source and fact check 1. DAN'S STEP.**
+1. **Chapter 1 Stage 3, source and fact check 1. DAN'S STEP. Input delivered
+   2026-08-06, awaiting Dan's read.**
+
+   The input is
+   `Drafts/Ch01_The_Category_Error/04_Stage3_Source_Fact_Check_1/AIOM_Ch1_Stage3_FactCheck_Input.pdf`,
+   twenty pages, rendered from the live text after the Stage 2 rulings and
+   committed. Twelve of the fourteen gates pass on it; the two that fail are
+   gate 4 and gate 14, which are CD1, CD6, and CD7 below, all Stage 5 work and
+   deliberately not fixed out of order. Six footnotes generate, all six landing
+   on their calling page. The fact check itself runs against the chapter's own
+   inline source register in the HTML, which carries the per-source rulings.
 
    No claim, citation, figure, or slot has changed since the re-draft cleared G1,
    so the fact surface is unchanged. Dan may rule this a confirmation rather than
@@ -197,9 +213,18 @@ work and are listed under thread 1 below.
   (`Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`) to
   repo root, run `python3 AIOM_build.py <copy>.html --out <target>.pdf`, then
   remove the copy. Rasterize for visual review with `pdftoppm -png -r 150`.
+  Building in place instead of from a root copy does not merely misrender, it
+  renders a chapter that is not the book: the CSS link and the fonts resolve
+  against the HTML's own directory, so the whole design system drops out and the
+  gates report dozens of false defects (no folios, no running heads, DejaVu
+  fallback faces, no provenance line). Two side effects to clean up after a build:
+  `AIOM_build.py` writes `<name>.print.html` next to its input, and `.gitignore`
+  only covers that file when the name begins with an underscore. Name the root
+  copy `_ch01_build.html` and both files fall under the ignore rule.
 - Fonts are committed; do not run `AIOM_build.py --fonts`.
 - The proxy blocks `raw.githubusercontent.com` and the Google Fonts CDN; do not
   route around policy denials, report them.
-- Develop on `claude/prose-voice-style-gxjkgj`, then fast-forward `main` to match
+- Develop on `claude/chapter-1-progress-fq0brc`, then fast-forward `main` to match
   before ending the session. Do not push to any other branch without Dan's
-  explicit say-so.
+  explicit say-so. The previous branch, `claude/prose-voice-style-gxjkgj`, is
+  merged and finished; do not add to it.

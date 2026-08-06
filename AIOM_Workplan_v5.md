@@ -44,10 +44,12 @@ the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
 Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), re-drafted against
-the voice and craft standard, and is now 3 of 13: Stage 0, G1, and Stage 1 all
-passed 2026-08-05. Next is Stage 2, the developmental edit. The fourteen-gate
-suite is green on the re-draft except one carried defect, a stranded slot label,
-which the eleven-gate suite had passed and which belongs to Stage 5.
+the voice and craft standard, and is now 4 of 13: Stage 0, G1, Stage 1, and
+Stage 2 all passed 2026-08-05. Next is Stage 3, source and fact check 1, which is
+Dan's; its input was rendered and committed 2026-08-06. The fourteen-gate suite is
+green on that render except gates 4 and 14, which hold three layout defects
+including the carried stranded slot label the eleven-gate suite had passed. All
+three belong to Stage 5.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -75,10 +77,13 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stage 2, the developmental edit.** Stage 0, G1, and Stage 1 are
-   done. Claude runs Stage 2 as a fresh critical pass; Dan gut-checks with a
-   second model and rules. Then Stage 3 (fact check, Dan) and Stage 4 (voice and
-   craft, Claude, read adversarially and by section).
+1. **Chapter 1 Stage 3, source and fact check 1.** Dan's step, run outside the
+   Claude system. Stage 0, G1, Stage 1, and Stage 2 are done, and the twenty-page
+   input render is committed under
+   `Drafts/Ch01_The_Category_Error/04_Stage3_Source_Fact_Check_1/`. No claim,
+   citation, figure, or slot has changed since G1 cleared, so Dan may rule it a
+   confirmation rather than a full re-check. Then Stage 4 (voice and craft,
+   Claude, read adversarially and by section) and Stage 5 (design).
 2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
 3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -122,7 +127,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 2 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard. Now 3 of 13: Stage 0 draft, G1 structural gate, Stage 1 content review, all passed 2026-08-05, `status_check.py` CONSISTENT. G1 caught a real breach of a standing source ruling in the re-draft (the published agent count in prose) and it was fixed. Stage 1 raised seven structural findings, all ruled (Decision 55), none of which changed the chapter text, so no downstream step was invalidated. Carried items CD1 to CD5 remain in the checklist, including the gate-14 stranded slot label, which is Stage 5 work. Next: Stage 2 developmental edit. |
+| 1   | The Category Error             | Stage 3 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard. Now 4 of 13: Stage 0 draft, G1 structural gate, Stage 1 content review, Stage 2 developmental edit, all passed 2026-08-05, `status_check.py` CONSISTENT. G1 caught a real breach of a standing source ruling in the re-draft (the published agent count in prose) and it was fixed. Stage 1 raised seven structural findings, all ruled (Decision 55), none of which changed the chapter text, so no downstream step was invalidated. Stage 2 raised six findings; ND1 to ND4 were applied and ND5 and ND6 closed with no action, and applying ND1 exposed a latent defect in gates 12 and 14 that is now fixed. Carried items CD1 to CD7 remain in the checklist, including the gate-14 stranded slot label, which is Stage 5 work. Next: Stage 3 source and fact check 1, Dan's step, input rendered and committed 2026-08-06. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
