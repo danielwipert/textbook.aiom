@@ -592,6 +592,96 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+IN PROGRESS 2026-08-06. Two external checks are in and filed. Five of six
+findings are ruled. SF2 is open and blocks the pass.
+
+INPUTS. Both checks ran against the twenty-page Stage 3 render built 2026-08-06
+from the live text, and both are stored in this folder:
+
+  AIOM_Ch1_Stage3_FactCheck_1_External.md   claim-by-claim audit
+  AIOM_Ch1_Stage3_FactCheck_2_External.md   source validity and citation mechanics
+
+They are independent, on different prompts, with different corroboration sets,
+and they disagree on two findings. Each is stored with its dashes normalized out
+of the checker's own prose and nothing else changed; the substitutions are in the
+commit messages.
+
+SF1. "THE CHIEF EXECUTIVE OF THE LARGEST PROVIDER" ASSERTED A MARKET POSITION ON
+NO STATED METRIC. Raised independently by both checks, which is the only finding
+they agreed on. Neither altman-2025-pro nor techcrunch-2025-altman-pro carries
+"largest", and no metric was named. RULED 2026-08-06: name the firm rather than
+rank it. APPLIED. The dated box now reads "OpenAI's chief executive, Sam Altman,
+stated publicly", naming the person as well, which matches the Truell treatment
+in the opening case and strengthens C1. The register records that the superlative
+must not return in any form, including "one of the largest", which asserts the
+same unsourced position and hedges besides.
+
+SF2. THE CURSOR SENTENCE MAY ASSERT AUTOMATIC BILLING THAT THE PRIMARY DOES NOT
+ESTABLISH. Raised by check 1; check 2 did not reach the mechanism. The chapter
+says the allowance was consumed "after which usage continued to bill against real
+rates". The register records the new terms as "the option to purchase more at
+cost", which is not the same as automatic continuation. OPEN. Ruled 2026-08-06
+that the primary settles it, and the primary is unreachable from the Claude
+environment: the network policy denies CONNECT to every source host (cursor.com,
+techcrunch.com, github.blog, www.microsoft.com, doi.org, x.com all return a
+gateway 403). Carried to Dan's own pass. The question is narrow: on exhausting
+the twenty-dollar frontier pool, did usage continue to bill at API rates by
+default, or did further charges require usage-based pricing or a spend limit to
+have been enabled? The chapter currently asserts the first.
+
+SF3. "PREMIUM REQUESTS THAT HAD PREVIOUSLY CARRIED NO SEPARATE CHARGE" RESTED ON
+AN ARTIFACT THAT DOES NOT CARRY IT. Check 1 held that a dated changelog documents
+the change and not the arrangement preceding it. Check 2 restated the claim as
+sound. RULED 2026-08-06: the narrower reading controls. APPLIED. GitHub now
+"began enforcing monthly premium-request allowances and letting customers pay for
+usage beyond them", which is exactly what github-2025-premium carries. The act
+one, act two structure survives the narrowing. The register states the condition
+for restoring the stronger contrast: a pre-2025-06-18 GitHub artifact describing
+the earlier arrangement in its own words.
+
+SF4. "TWO WIDELY USED AI CODING SUBSCRIPTIONS" DOCUMENTS ONE SIDE OF THE
+ADJECTIVE. New in check 2. Copilot's adoption is established at over 4.7 million
+paid subscribers; Cursor's is not established anywhere in the register. CLOSED
+2026-08-06, no chapter change. The phrase is a descriptive commonplace rather
+than a market-position claim, and it is not doing argumentative work: the
+sentence's load is carried by "reached the same destination by different means,
+inside twelve months". The second instance sits inside the P1 model reply, where
+a CIO is speaking in the first person, so it is a character's phrasing rather
+than the book's assertion. Distinguish this from SF1, which was closed the other
+way: "largest" ranks, "widely used" describes.
+
+SF5. THE THEOREM COULD READ AS AN EXTERNALLY ESTABLISHED EMPIRICAL RESULT. Raised
+by check 1. Check 2 examined the same passage and confirmed it is already
+labelled. CLOSED 2026-08-06, no chapter change. The paragraph immediately after
+the panel does exactly what check 1 asked for, stating that a theorem here is
+proved within a stated system rather than generalized from the episodes, and
+denying that the cited cases prove it. Check 1 missed that paragraph.
+
+SF6. ARCHIVE CAPTURE AND DURABLE SECOND PATHS. Raised by both checks. CLOSED
+2026-08-06 on Decisions 30 and 48, which have already ruled it, and recorded in
+the register's own header so it does not return a fourth time. Check 2's specific
+remedy would lower the source floor rather than raise it: it proposed community
+discussions and third-party billing explainers as second paths, and its own
+corroboration set ran to forum threads and content-marketing posts. The standard
+already in force, a first-party primary plus a named-byline second path, is
+stronger than the proposal.
+
+WHAT THE CHECKS CONFIRMED, BANKED SO IT IS NOT RE-VERIFIED. Between them the two
+checks independently confirmed the Cursor terms and both dates, both GitHub acts
+with all four exceptions, the Microsoft figures with the four-month qualification
+intact, both Claude Code dates and the careful attribution of the tightening to
+subscriber reports rather than a company statement, and the QJE study's scope
+against the chapter's stipulation labels. Neither proposed July 3 for the Truell
+apology; three earlier rounds did, so the register note is holding.
+
+RE-RUN CONSEQUENCE. SF1 and SF3 are claim-scope changes to body prose. Stage 4,
+Stage 5, and G2 have not run since the reopen, so nothing downstream is
+invalidated. Stage 2 is not invalidated: neither edit changes teaching structure,
+sequence, or example fitness. The 2026-08-06 Stage 3 render is now stale against
+the live text and must be rebuilt before the pass is marked.
+
+---
+
 ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 2 PASSED 2026-07-29, run by Dan against AIOM_ch01.html. The fact-check
