@@ -11,11 +11,11 @@ Active working branch: `claude/chapter-1-progress-fq0brc`, new on 2026-08-06 and
 replacing `claude/prose-voice-style-gxjkgj`, which is fully merged into `main` and
 is finished. Working tree clean, and the branch is pushed to origin.
 
-**`main` is six commits behind as of 2026-08-06.** It carries everything through
-the 2026-08-05 merge: the voice and craft standard, the re-run process, the
-continuity ledger, and Chapter 1 through Stage 2. It carries none of the
-2026-08-06 Stage 3 work. `main` has no commits of its own, so a fast-forward
-still reconciles cleanly.
+**`main` is merged and synced as of 2026-08-06.** Dan approved the merge and
+`main` was fast-forwarded to `50f93d9`, seven commits, with nothing to reconcile
+because `main` still carries no commits of its own. It now reflects the whole
+body of work through Chapter 1 Stage 3 in progress: both external fact checks,
+the five closed findings, the two applied rulings, and the v2 render.
 
 Keep them synced. When this branch advances, fast-forward `main` again before
 ending the session.
