@@ -65,6 +65,13 @@ fourteen-gate suite), `AIOM_build.py` (fourteen gates plus a toolchain
 preflight), `place.py`, `cite_format.py`, `footnotes.py`, and pinned
 `requirements.txt`.
 
+**Stage 6 round trip (new 2026-08-06).** `copyedit_export.py` turns the chapter
+HTML into a copy-editing `.docx` plus a manifest recording every block's span in
+the source; `copyedit_import.py` maps the returned file back, applying only what
+it can place unambiguously inside a block's own span and refusing the rest. The
+`.docx` is a proof, never a second live text: Decision 50 still holds. The source
+register is excluded from the export by design.
+
 **Process tooling.** `status_check.py` (lifecycle status, authoritative),
 `gen_checklists.py`, `voicecheck.py` (mechanical bans plus per-section craft
 metrics), `reopen.py` (new), `continuity.py` (new, gate G3),
@@ -125,13 +132,24 @@ been a defect at all.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stages 6, 7, and 8. DAN'S STEPS. All three may run in one
-   sitting.**
+1. **Chapter 1 Stages 6, 7, and 8. DAN'S STEPS. Stage 6 is with Dan now.**
 
    Copy edit, final fact check 2, and the final read. Everything Claude owns
    before lock is done: the chapter is 19 pages, all fourteen gates pass, and both
    manual production checks were performed at 150dpi. The G2 render is committed
    at `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf`.
+
+   **The Stage 6 proof was issued 2026-08-06** as
+   `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit.docx`, with its manifest beside it. When
+   the edited file comes back, import it with
+   `python3 copyedit_import.py <edited>.docx <manifest>.json <chapter>.html`,
+   read the report, then re-run with `--apply`. It refuses anything it cannot
+   place unambiguously; apply those by hand rather than loosening the tool. Then
+   rebuild and re-run the gates, because a copy edit repaginates.
+
+   **Before using the pair on any LATER chapter, round-trip the UNEDITED export
+   and require zero reported changes.** That check found both bugs in the pair
+   while it was being built, and neither was visible any other way.
 
    Two things to carry into those steps. Stage 7 is a source check and NO SOURCE
    HOST IS REACHABLE from a Claude session, so it is structurally external. And
