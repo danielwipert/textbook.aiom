@@ -739,6 +739,133 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+CRAFT READ RUN 2026-08-06 against the live text, adversarially and by section.
+The six boxes above are deliberately LEFT OPEN. Independent verification is owed
+before they are ticked, for the same reason as last time: this read was written
+by the model that drafted the chapter and wrote the standard it grades against.
+The prompt for the second model is at the end of this file and must not be shown
+the findings below.
+
+MECHANICAL HALF: PASS. Em dashes 0, contractions 0, question marks outside
+discussion prompts 0, first or second person in unmarked body prose 0.
+
+ALL SEVEN CARRIED FINDINGS FROM THE SUPERSEDED READ ARE RESOLVED. This is the
+main result, and it is the first evidence that the craft standard does its work
+at drafting time rather than as a repair pass.
+
+  F1 (C1, 1.4)  The unsourced FinOps, observability, and chargeback triple is
+                gone. The passage now derives the gap structurally, from five
+                practices whose boundaries predate the resource.
+  F2 (C1, craft) RESOLVED DECISIVELY, and it is now the chapter's strongest C1
+                work. Step 4 carries the arithmetic the old version only
+                asserted: 5,000 x 40 x 6 x 21 = 25.2 million drafted replies,
+                25.2 million retrievals, 4.2 million closes, 54.6 million events
+                a month, about 10,900 behind every seat. ARITHMETIC VERIFIED
+                2026-08-06, all four figures and the per-seat ratio. Neither
+                external fact check examined it, so this is its first check. It
+                is consistent with the "tens of millions" in 1.4 and with the
+                "roughly five thousand seats" the study supports.
+  F3 (C3, 1.5)  "A word on the borders of the subject." is gone. 1.5 now opens
+                on the claim.
+  F4 (C5)       All four cross-reference closes are gone; the tool that was
+                blind to them now reports 0 of 44. Each cross-reference moved
+                into the body of its paragraph, where it informs without taking
+                the close.
+  F5 (C4)       The summary was the weakest C4 unit in the book: 5 sentences,
+                mean 33.6 words, ZERO under twelve. It is now 10 sentences, mean
+                17.9, stdev 8.5, 20 percent short. It reads at chapter band.
+  F6 (C2, 1.4)  "What is absent is not attention. It is assembly." now arrives
+                after the conditions that produce it are stated.
+  F7 (C2, 1.2)  The atomic unit is now argued rather than asserted: three
+                candidates, why user and task each fail, and what the event
+                settles that they cannot, namely reconciliation against a bill.
+
+  W1 and W2 (C6 watch) both stand, and W2 has changed. See NC6.
+
+SIX NEW FINDINGS, one per criterion, from the fresh read. None fails at chapter
+level. All are Dan's to rule.
+
+NC1 (C1, 1.4). "It shows up in three specific places" then delivers three
+categories: the quantity managed, the record, the anchor for accountability.
+Each is well drawn, and none is specific in the sense the sentence promises.
+This is the only place in the chapter where the prose claims a specificity it
+does not then supply. The cheapest fix is deleting one word.
+
+NC2 (C2, 1.4). "Organizations that would never let a material flow through the
+plant unrecorded let the AI flow through the work unrecorded, and the reason is
+the packaging. The resource arrived labeled as software, and licensed software
+does not flow." A two-sentence paragraph asserting a cause that the chapter
+argues properly two paragraphs later, in the inheritance passage, which is its
+strongest C2 work. Stating the conclusion before the argument arrives costs the
+argument its arrival. The paragraph is also the one place in 1.4 where a
+mechanism is named without its conditions.
+
+NC3 (C3, 1.3). "One objection stands against everything said so far, and it
+deserves to be put at full strength rather than in a weakened form built to be
+knocked down:" Twenty-six words announcing an objection and commenting on how it
+will be presented, before presenting it. The objection itself is strong and the
+decision to put it at full strength is right; the sentence saying so is the
+throat clearing. Note this is the same construction class that hid F3 from the
+regex, which means the C3 proxy is still blind to it.
+
+NC4 (C4, 1.3, and a tooling finding). The per-section table flags 1.3 as the
+heaviest section, mean 23.1 against a chapter mean of 17.6. Most of that is
+measurement, not prose. On a single splitter 1.3 runs 18.3 against a chapter
+15.9, and removing two apparatus items, the theorem's 61-word formal conditional
+and the 26-word quoted objection, brings it to 17.0 with short sentences at
+chapter level. THE TOOLING FINDING MATTERS MORE THAN THE SECTION: voicecheck.py
+counts a theorem's formal conditional as running prose, so every section
+containing a theorem will read as rhythmically heavy, in this chapter and in the
+fourteen that follow. Separately, the chapter's longest sentence, 76 words, is in
+P2's model inventory, where three event types' drivers are packed into one
+sentence; the craft section's Step 2 does the same job in three.
+
+NC5 (C5, 1.4). The section closes "...so building it is the work of the
+remaining chapters. The next of them takes the atomic unit defined here and asks
+what becomes visible when many events are seen at once, which is the first step
+from a unit of cost to something an organization can manage." The load-bearing
+clause is the first; the close then appends a forward pointer in a relative
+clause. This is the last residue of the F4 pattern and the only paragraph in the
+chapter where a cross-reference still shapes the close, though it no longer names
+a chapter number.
+
+NC6 (C6, 1.3). THE GUARD HOLDS, and one watch item moved under a Stage 3 ruling.
+W2 was recorded when the sentence read "the chief executive of the largest
+provider... added that he had set the price himself." SF1 named the person, so
+the clause now attaches a pricing decision to a named individual. The guard still
+holds on the original reasoning, that the clause establishes a provider
+mispricing its own product knowingly, which is a structural fact and not a
+character judgment, but the reasoning is now carrying more weight than it was.
+Recorded because SF1 was ruled at Stage 3 without a C6 read, and this is that
+read. W1 also stands and has sharpened slightly: the two corrections are now
+described with three attributes against four, the second set all favourable,
+before "Set the difference aside" pulls back to structure.
+
+CRAFT READ VERDICT: no criterion fails at chapter level, and the chapter is
+materially stronger than the version that caused the reopen. NC2 is the one
+finding worth applying on its own merits, because it costs two sentences and
+returns the inheritance passage its arrival. NC1 and NC3 are one-line fixes. NC5
+is a rewrite of one sentence. NC4 is mostly a tooling item and should be fixed in
+voicecheck.py rather than in prose, before Chapter 2 is read against these
+numbers. NC6 needs no edit, only the record.
+
+BASELINE BAND, UPDATED. The superseded read set the band for Chapters 2 to 15
+from a chapter that has since been re-drafted. The current numbers are: 44
+paragraphs, 225 sentences, 3,967 words of teaching prose, sentence words mean
+17.6, median 15, stdev 10.5, range 3 to 61, short 32 percent, long 6 percent,
+longest uniform run 5, throat-clearing openers 0, copulas 4.2 per 100 words,
+nominalizations 47.4 per 1,000, numerals 6.5 per 1,000, proper nouns 9.1 per
+1,000, trailing-qualifier closes 3 of 44, cross-reference closes 0 of 44. These
+supersede the superseded read's band. Note the numeral and proper-noun rates fell
+against the old version even though the craft section gained arithmetic, because
+the old figures counted a longer apparatus.
+
+AWAITING: Dan's second-model gut-check and ruling on NC1 to NC6. Nothing is
+applied. Any edit Dan rules is a body-prose change and re-runs per the scoped
+matrix from Stage 2 down, except NC4's tooling half, which touches no prose.
+
+---
+
 ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 CRAFT HALF ADDED 2026-08-05. The six criteria above postdate the 2026-07-28
