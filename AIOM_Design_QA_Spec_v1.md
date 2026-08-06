@@ -263,9 +263,9 @@ The suite covers apparatus and typography well. These are the holes.
 | ID | Gap | Risk |
 |---|---|---|
 | ~~G-A~~ | ~~Theorem callout splits are not checked.~~ **Closed in v6.1 by gate 11.** | resolved |
-| **G-B** | **No figure validation at all.** Nothing confirms a figure rendered, sits inside its frame, or kept its geometry. Gate 5 catches fallback fonts in SVG text and gate 1 catches horizontal overflow; everything else fails silently. | **High.** Ch1 carries two hand-built SVG figures. |
-| G-C | Gate 1 checks the right edge only. No bottom-margin baseline check. | Medium |
-| G-D | No widow or orphan detection. | Medium |
+| **G-B** | **PARTLY CLOSED in v6.3 by gate 12**, which checks that every figure is captioned, that captions run in order, and that each is referenced in the text. Figure GEOMETRY is still unvalidated: SVG `rx` renders as curve paths that never appear in pdfplumber's `.rects`, so a frame that lost its shape reads as absent rather than wrong. Inspect by pixel-sampling a raster. | **Medium.** Reduced from High: a missing or misnumbered figure now fails a gate. |
+| ~~G-C~~ | ~~Gate 1 checks the right edge only. No bottom-margin baseline check.~~ **Closed in v6.3 by gate 13**, which measures the bottom margin with the folio excluded by colour. | resolved |
+| ~~G-D~~ | ~~No widow or orphan detection.~~ **Closed in v6.3 by gate 14**, which also detects stranded section heads. AMENDED 2026-08-06 at Ch1 Stage 5: gate 14 counted key-term names as body prose. A term name is a full line in the semibold face at body size, so every one read as a one-line paragraph, and the first on a page scored as a widow while the last scored as an orphan. Chapter 1 carried one phantom widow and one phantom orphan on its Key terms page as CD7, booked as real design work. `is_body` now excludes a line that is entirely semibold, testing the whole line rather than its first character, because body prose legitimately carries inline bold at a term's first use. | resolved |
 | G-E | Gate 6 counts Key Terms rows but does not verify identity, or reconcile them against the body definition callouts. | Low |
 | G-F | No check that a part's assigned colour is the colour in use. | Low, until Part II |
 | **G-G** | **Gate 4 uses the flush-at-top split heuristic that gate 11 discarded.** A definition callout legitimately landing at the top of a page will be reported as split. The failure mode is false positives, not false negatives, so a passing result is trustworthy. | Medium |

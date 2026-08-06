@@ -1152,11 +1152,101 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-06
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
 Findings:
+
+STAGE 5 PASSED 2026-08-06. ALL FOURTEEN GATES PASS on a 19-page render, the
+first fully green render this chapter has produced. Both inherited defects are
+resolved, one by placement and one by discovering it was never real. The
+design system itself was not touched: no CSS changed, and D0 stays closed.
+
+DR1. CD6 RESOLVED. One definition callout, "Meter relocation", split across the
+page 6 to 7 boundary. Resolved by the placement pass, which moved it five
+paragraphs later, to the only anchor in section 1.3 that satisfies every gate.
+Reviewed by eye and accepted: the callout lands beside the section's closing
+paragraph, the one reading "The flat rate did not make the meter disappear. It
+moved the meter to the provider's side of the table", so the definition sits
+next to the sentence that enacts it. This stretches the locked placement rule
+further than the spec's precedent, which contemplated one paragraph. The spec
+already rules the preference degrades before a split is tolerated; section 11 of
+AIOM_DESIGN_SPEC.md now records how far it degraded here and why.
+
+DR2. CD7 WAS NEVER A REAL DEFECT. Gate 14 counted key-term names as body prose.
+A term name is a full line set in the semibold face at body size, so every one
+read as a one-line paragraph: the first on a page scored as a widow and the last
+as an orphan. Chapter 1's Key terms page produced exactly one of each, which is
+what CD7 recorded. Both are phantoms. `is_body` now excludes a line that is
+entirely semibold, and the whole line is tested rather than its first character,
+because body prose legitimately carries inline bold at a term's first use. Every
+such line in this chapter is mixed; the six fully-semibold lines are all term
+names. CD7 is closed as not-a-defect rather than as fixed, which is a different
+thing and is recorded as such.
+
+DR3 TO DR5. THREE DEFECTS IN place.py, THE PRESCRIBED REMEDY FOR GATE 4. Each
+made the pass report success on a chapter the build fails. All three are fixed
+and recorded in AIOM_DESIGN_SPEC.md section 11.
+
+  DR3  It rendered the wrong document. The pass called WeasyPrint directly on
+       the chapter source, while the build renders the footnote-injected
+       document. Footnotes displace body text about 50pt down the page on this
+       chapter, which is the whole of the difference between a callout that fits
+       and one that overruns. The pass reported "0 callouts still split" while
+       gate 4 failed on the same file. It now renders through
+       AIOM_build.build(), which also corrects the base_url.
+  DR4  It anchored inside block containers. Any line opening <p> counted as an
+       anchor, including paragraphs inside the theorem panel and the dated
+       evidence boxes, so the pass could float a definition callout inside a
+       theorem or an evidence box. TWO OF THE THREE placements that resolved
+       this chapter's split were exactly that, and both would have shipped.
+       Anchors are now top level only.
+  DR5  It scored gate 4 alone. A move repaginates the whole chapter, so it can
+       resolve the split and break something else. Three of six candidate
+       anchors here fixed the split and pushed footnote 6 off its calling page,
+       failing gate 8. A candidate is now accepted only if it resolves the split
+       AND adds no gate failure that was not already present. qa() records its
+       failure list so the pass can tell which gate a candidate broke.
+
+DR6. OBSERVATION, NO ACTION. Inside the craft section's Step 4, two consecutive
+plain paragraphs in a model block run together with no visual separation,
+because the model block deliberately sets tight and the second paragraph has no
+bold lead-in to open it. Every other model block either runs as one paragraph
+(P1) or gives each line a lead-in (P2). Recorded rather than fixed: the CSS
+remedy re-runs design review for every chapter against a locked system, and the
+prose remedy merges two paragraphs that make two distinct points. Neither is
+proportionate to one missing paragraph break. Dan's if he wants it.
+
+THE TWO MANUAL CHECKS, BOTH PERFORMED.
+
+  Figure geometry, which no gate validates because SVG rx renders as curve paths
+  that never appear in pdfplumber's .rects. Figure 1.1 inspected on a 110dpi
+  raster: frames intact, the three-stage flow and the meter band render as
+  designed, the amber rule sits under the band, and the dotted drop lines land
+  where they should. Figure 1.2 likewise.
+
+  Page-level raster review, all 19 pages at 110dpi. Running head suppressed on
+  page 1 and present thereafter, folios on every page, the amber provenance line
+  under both the opening case title and the craft section title, the theorem
+  panel intact with its left rule on page 7, both dated evidence boxes with
+  their rules and footnotes on page 8, all four definition callouts intact and
+  in prose order, the key-term register with seven header bands, and the
+  discussion questions and three problems correctly labelled.
+
+CLOSED FROM STAGE 3. External check 1 reported the P3 completion table as
+"structurally broken", its first column empty. The raster shows the fill-in
+rules rendering correctly in the EVENT TYPE column, directly under an
+instruction reading "Complete the inventory below by filling the blank column".
+The checker was reading the HTML, where the cells are genuinely empty. Carried
+to Stage 5 as a legibility question and closed here: in print the affordance is
+unambiguous.
+
+CD1 CONFIRMED CLOSED BY EYE, not only by the gate. The craft section slot label,
+title, and provenance line now sit together at the head of page 12 with the
+section body following.
+
+---
 
 ARCHIVED 2026-08-05, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

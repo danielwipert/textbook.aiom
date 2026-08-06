@@ -369,8 +369,32 @@ is now resolved, and gate 4 is blocking rather than advisory.
 
 **The fix is placement, not CSS.** The design is untouched. `place.py` renders the chapter,
 detects any callout that split, moves it to a neighbouring anchor paragraph, and re-renders,
-repeating until every callout is intact. Chapter 1 resolved in three renders: "Access price"
-moved one paragraph later, "Meter relocation" one paragraph earlier.
+repeating until every callout is intact.
+
+**Three defects in the pass, all found at Ch1 Stage 5 on 2026-08-06 and all fixed.** They are
+recorded because each made the pass report success on a chapter the build fails, which is the
+failure mode this project has now hit three times.
+
+1. *It rendered the wrong document.* The pass called WeasyPrint directly on the chapter
+   source. The build renders the FOOTNOTE-INJECTED document, and footnotes displace body text
+   down the page: about 50pt on Chapter 1, which is the whole of the difference between a
+   callout that fits and one that overruns. The pass reported "0 callouts still split" while
+   gate 4 failed. It now renders through `AIOM_build.build()`, which also fixes the base_url,
+   previously hard-coded to the working directory rather than the file's own.
+2. *It anchored inside block containers.* Any line opening `<p>` counted as an anchor,
+   including paragraphs inside the theorem panel and the dated evidence boxes, so the pass
+   could float a definition callout inside a theorem or an evidence box. Two of the three
+   placements that resolved Chapter 1's split were exactly that. Anchors are now top level
+   only.
+3. *It scored gate 4 alone.* A move repaginates the whole chapter, so it can resolve the split
+   and break another gate. On Chapter 1 three of six candidate anchors fixed the split and
+   pushed footnote 6 off its calling page, failing gate 8. A candidate is now accepted only if
+   it resolves the split AND adds no gate failure that was not already present.
+
+Chapter 1's original run resolved in three renders: "Access price" moved one paragraph later,
+"Meter relocation" one paragraph earlier. After the re-draft and the Stage 3 and Stage 4
+edits, the 2026-08-06 run resolved in six renders, with "Meter relocation" moved five
+paragraphs later, to the only anchor in its section that satisfies every gate.
 
 **Constraints on a move.** A callout may only move within its own section, so a term is never
 defined outside the section that uses it. Moves are tried nearest-first and earlier before
@@ -384,6 +408,15 @@ immediately before it, and two callouts may end up adjacent. Both happened in Ch
 "Access price" now follows its anchor paragraph and sits directly beneath "Software access
 model" on page 3. Ruled acceptable on 2026-07-26: an intact callout a paragraph out of place
 reads better than a callout cut in half by a page break.
+
+The 2026-08-06 run stretched that cost further than "a paragraph": once candidates that break
+another gate are excluded, "Meter relocation" had exactly one legal anchor in section 1.3, five
+paragraphs after the term's first use. Reviewed by eye at Stage 5 and accepted. The callout
+lands beside the section's closing paragraph, the one that reads "The flat rate did not make
+the meter disappear. It moved the meter to the provider's side of the table," so the definition
+sits next to the sentence that enacts it. The preference degraded and the page still reads.
+Where a future chapter has no legal anchor at all, the pass stops and says so rather than
+shipping a split or an illegal placement.
 
 **Adjacent callouts are sorted into prose order.** When the placement pass pushes two callouts
 onto the same anchor, document order need not match the order the reader meets the terms.

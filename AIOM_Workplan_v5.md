@@ -44,12 +44,13 @@ the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
 Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), re-drafted against
-the voice and craft standard, and is now 6 of 13: Stage 0, G1, Stage 1, and
-Stage 2 all passed 2026-08-05, and Stages 3 and 4 passed 2026-08-06. Next is
-Stage 5, design review, which is Claude's. The chapter is 19 pages and twelve of
-the fourteen gates pass. Two layout defects remain, a callout split and a widow
-and orphan on page 16, and both are Stage 5. The carried stranded slot label that
-the eleven-gate suite had passed was closed at Stage 4 by a prose cut.
+the voice and craft standard, and is now 7 of 13: Stage 0, G1, Stage 1, and
+Stage 2 all passed 2026-08-05, and Stages 3, 4, and 5 passed 2026-08-06. Next is
+G2, the production gate, which is Claude's. The chapter is 19 pages and ALL
+FOURTEEN GATES PASS, its first fully green render. Stage 5 closed both inherited
+layout defects and found four tooling defects doing it, one in gate 14 and three
+in place.py, each of which had made a check report success on a chapter the build
+fails.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -77,12 +78,12 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stage 5, design review.** Claude's step. Stages 0 through 4 and G1
-   are done. Two defects to resolve: one definition callout split across a page
-   break, whose remedy is `place.py` and never CSS, and a widow and an orphan on
-   page 16. Then G2, Dan's Stages 6 to 8, G3, and lock. Note Stage 4 passed
-   without its second-model gut-check, so the craft verdict and the baseline band
-   the remaining chapters are read against are not independently verified.
+1. **Chapter 1 G2, the production gate.** Claude's step. Stages 0 through 5 and
+   G1 are done and the render is fully green, so G2 walks its checklist against a
+   fresh build rather than fixing anything. Then Dan's Stages 6 to 8, G3, and
+   lock. Note Stage 4 passed without its second-model gut-check, so the craft
+   verdict and the baseline band the remaining chapters are read against are not
+   independently verified.
 2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
 3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -104,7 +105,7 @@ a second copy; that duplication is what drifts. Status is single-sourced in each
 chapter's checklist and printed by `status_check.py`.
 
 Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53) and is running the
-full thirteen steps from the top; 6 are passed. `reopen.py` performed the reset,
+full thirteen steps from the top; 7 are passed. `reopen.py` performed the reset,
 archiving each step's findings in place rather than destroying them. Stage
 folders across all eighteen units were migrated to Process v2 numbering the same
 day, so a folder name no longer disagrees with the live process.
@@ -126,7 +127,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 5 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard. Now 6 of 13: Stages 0 to 2 and G1 passed 2026-08-05, Stage 3 source and fact check 1 and Stage 4 voice and craft check both passed 2026-08-06, `status_check.py` CONSISTENT. G1 caught a real breach of a standing source ruling in the re-draft and it was fixed. Stage 1 raised seven structural findings, all ruled (Decision 55), none changing the chapter text. Stage 2 raised six; ND1 to ND4 applied. Stage 3 ran two independent external checks on different prompts, which agreed on one finding of six; SF1 to SF3 applied, SF4 to SF6 closed. Stage 4 resolved all seven carried craft findings and raised six new, NC1 to NC6, of which five are applied; it passed WITHOUT its second-model gut-check, so the craft verdict and the baseline band are not independently verified. CD1 closed at Stage 4 by a prose cut. Next: Stage 5 design, holding CD6 and CD7. |
+| 1   | The Category Error             | G2 next      | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard. Now 7 of 13: Stages 0 to 2 and G1 passed 2026-08-05; Stages 3, 4, and 5 passed 2026-08-06. `status_check.py` CONSISTENT. 19 pages, all fourteen gates passing, the first fully green render. Stage 3 ran two independent external checks on different prompts, which agreed on one finding of six; SF1 to SF3 applied. Stage 4 resolved all seven carried craft findings and raised six new, five applied, but passed without its second-model gut-check. Stage 5 closed CD6 by placement and found CD7 was never real, plus three defects in place.py. Next: G2 production gate. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |

@@ -70,6 +70,14 @@ def build(html_path, out, url_policy="none"):
     return len(rep)
 
 
+# The failure list from the most recent qa() call. place.py needs to know WHICH
+# gates a candidate placement breaks, not merely that something broke: a
+# placement that fixes gate 4 while pushing a footnote off its calling page is
+# not a fix. Kept as a module-level record so qa()'s boolean return, which
+# callers already branch on, does not change meaning.
+LAST_FAILS = []
+
+
 def qa(path, expected_footnotes=None):
     """Every gate from section 8 of AIOM_Design_QA_Spec_v1.md (11 gates).
     Returns True if all pass."""
@@ -342,10 +350,29 @@ def qa(path, expected_footnotes=None):
         left = page_left.get(page_no)
         return left is not None and abs(row[0]["x0"] - left) <= X_TOL
 
+    def all_semibold(row):
+        """A line set entirely in the semibold face at body size.
+
+        That is a key-term name in the register, which is apparatus: the
+        definition beneath it is 9.5pt and already excluded by size. Counted as
+        prose, every term name reads as a one-line paragraph, so the first on a
+        page scores as a widow and the last as an orphan. On Chapter 1 that
+        produced exactly one phantom widow and one phantom orphan on the Key
+        terms page, carried as CD7 and booked as real design work. Found at
+        Stage 5, 2026-08-06.
+
+        The whole line is tested, not its first character: body prose carries
+        inline bold for a term at first use, so a line may legitimately open in
+        semibold and still be prose. Every such line in Chapter 1 is mixed, and
+        the six fully-semibold lines are all key-term names.
+        """
+        return all("Semi" in c["fontname"] for c in row)
+
     def is_body(page_no, row):
         return (round(row[0]["size"], 1) == BODY_SIZE
                 and in_main_column(page_no, row)
-                and "Jost" not in row[0]["fontname"])
+                and "Jost" not in row[0]["fontname"]
+                and not all_semibold(row))
 
     def width(row):
         return sum(c["width"] for c in row)
@@ -470,6 +497,7 @@ def qa(path, expected_footnotes=None):
         fails.append(f"orphan: a paragraph's first line alone at the foot of "
                      f"page(s) {orphans}")
 
+    LAST_FAILS[:] = fails
     print("\nQA " + ("PASSED" if not fails else "FAILED"))
     for f in fails:
         print("   " + f)

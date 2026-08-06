@@ -10,9 +10,9 @@ a term is never defined outside the section that uses it.
 
 Usage:  python3 place.py AIOM_ch01.html
 """
-import re, shutil, sys
-from weasyprint import HTML
+import contextlib, io, os, re, shutil, sys
 import pdfplumber
+from AIOM_build import build, qa, LAST_FAILS
 
 TINT = "#EDE3D0"
 
@@ -54,8 +54,16 @@ def analyse(pdf_path):
 def parse(lines):
     """Locate aside blocks, top-level anchor paragraphs, and section boundaries."""
     asides, anchors, heads = [], [], []
+    # An anchor must be a TOP-LEVEL paragraph. Without the depth test this
+    # collected paragraphs inside <div class="theorem"> and <div class="dated">,
+    # so the pass could float a definition callout inside the theorem panel or
+    # inside a dated evidence box. On Chapter 1 two of the three placements that
+    # resolved the split were exactly that, and both would have shipped.
+    # Found at Stage 5, 2026-08-06.
+    depth = 0
     i = 0
     while i < len(lines):
+        depth += len(re.findall(r"<div\b", lines[i])) - lines[i].count("</div>")
         if lines[i].startswith('<aside class="definition">'):
             j = i
             while not lines[j].startswith("</aside>"):
@@ -68,7 +76,7 @@ def parse(lines):
             asides.append({"start": i, "end": j, "term": term})
             i = j + 1
             continue
-        if lines[i].startswith("<p>"):
+        if lines[i].startswith("<p>") and depth == 0:
             anchors.append(i)
         if lines[i].startswith("<h3 class=") or lines[i].startswith("<section"):
             heads.append(i)
@@ -148,15 +156,39 @@ def run(html_path, budget=14):
     renders, log = 0, []
 
     def render_and_score(ls):
+        """Render exactly what the build renders, then measure it.
+
+        This pass previously rendered the raw source with WeasyPrint directly.
+        That is not the document the build ships: AIOM_build.build() injects
+        footnotes from the chapter source block first, and footnotes displace
+        body text down the page. On Chapter 1 that displacement was about 50pt,
+        which is the whole of the difference between a callout that fits and one
+        that overruns. The pass therefore reported "0 callouts still split" on a
+        chapter gate 4 fails. Found at Stage 5, 2026-08-06. Going through
+        build() also fixes the base_url: it derives it from the HTML file's own
+        directory, where this used to hard-code the working directory.
+        """
         nonlocal renders
         open(html_path, "w").write("\n".join(ls))
-        HTML(html_path, base_url=".").write_pdf("_place.pdf")
+        with contextlib.redirect_stdout(io.StringIO()):
+            n = build(html_path, "_place.pdf")
+            qa("_place.pdf", expected_footnotes=n)
         renders += 1
-        return analyse("_place.pdf")
+        frags, split = analyse("_place.pdf")
+        # Every gate failure except the one this pass exists to fix. A move
+        # shifts pagination for the whole chapter, so it can resolve gate 4 and
+        # break gate 8 by pushing a footnote off its calling page. That happened
+        # on Chapter 1 at three of six candidate anchors. Scoring on the split
+        # alone would have shipped one of them.
+        others = [f for f in LAST_FAILS if "callout(s) split" not in f]
+        return frags, split, others
 
-    frags, split = render_and_score(lines)
+    frags, split, base_others = render_and_score(lines)
     n = len(parse(lines)[0])
     print(f"start: {n} callouts, {frags} fragments, splitting: {split}")
+    if base_others:
+        print(f"  note: {len(base_others)} unrelated gate failure(s) already "
+              f"present; a move must not add to them")
 
     while split and renders < budget:
         asides, anchors, heads = parse(lines)
@@ -182,10 +214,13 @@ def run(html_path, budget=14):
             if not (0 <= j < len(window)):
                 continue
             cand = move(lines, target, window[j])
-            f, s = render_and_score(cand)
-            if len(s) < len(split):
+            f, s, o = render_and_score(cand)
+            if len(s) < len(split) and set(o) <= set(base_others):
                 best = (cand, f, s, d)
                 break
+            if len(s) < len(split):
+                print(f"  {'earlier' if d < 0 else 'later'} by {abs(d)} fixes "
+                      f"the split but breaks another gate: {o}")
             if renders >= budget:
                 break
         if best is None:
@@ -199,15 +234,21 @@ def run(html_path, budget=14):
     before = list(lines)
     lines, reordered = order_adjacent(lines)
     if reordered:
-        frags, split = render_and_score(lines)
+        frags, split, _ = render_and_score(lines)
         for order in reordered:
             print("  reordered adjacent callouts to prose order: " + ", ".join(order))
         if split:
             print(f"  reordering reintroduced a split ({split}); reverting to placed order")
             lines = before
-            frags, split = render_and_score(lines)
+            frags, split, _ = render_and_score(lines)
 
     open(html_path, "w").write("\n".join(lines))
+    # build() writes a footnote-injected sibling on every render. Leave it and
+    # the next reader finds two HTML files where the process allows one live
+    # text, which Decision 50 exists to prevent.
+    for scratch in (html_path.replace(".html", ".print.html"), "_place.pdf"):
+        if os.path.exists(scratch):
+            os.remove(scratch)
     print(f"done: {renders} renders, {len(split)} callouts still split")
     for term, d in log:
         print(f"  {term}: moved {abs(d)} paragraph(s) {'earlier' if d < 0 else 'later'}")

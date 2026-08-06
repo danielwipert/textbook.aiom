@@ -35,14 +35,15 @@ text rendered as the Stage 3 fact-check input; CLAUDE.md section 10, this file,
 and the Workplan brought back into line with the checklist, which all three had
 lagged; both external fact checks received, filed, and reconciled; all six Stage
 3 findings ruled, three of them applied, and the record written; the input
-re-rendered; Stage 3 marked passed by Dan; the three records mirrored again at
-5/13; and Stage 4 run, with five of its six findings applied and the
-second-model check outstanding. Chapter 1 moved from 4/13 to 5/13, and Stage 4
-is one action from 6/13.
+re-rendered; Stage 3 marked passed by Dan; Stage 4 run and passed, with five of
+its six findings applied and the second-model check waived; and Stage 5 run and
+passed, closing both carried layout defects and four tooling defects. The three
+records were mirrored at each step.
 
 Seven prose edits landed on the chapter this session: SF1, SF2, SF3 at Stage 3,
-and NC1, NC2, NC3, NC5 at Stage 4. Nothing downstream was invalidated, because
-Stage 5 and G2 have not run since the reopen.
+and NC1, NC2, NC3, NC5 at Stage 4. Stage 5 then moved one callout and changed no
+prose. Chapter 1 went from 4/13 to 7/13, and its render went from twelve of
+fourteen gates to all fourteen.
 
 The 2026-08-05 session, oldest first: the voice and craft standard (Decision 52);
 the craft-check hardening after the first read failed as verification; the re-run
@@ -74,12 +75,13 @@ one-time, already run).
 `Northmoor/`, Chapter 1 artifacts under `Drafts/Ch01_The_Category_Error/`, and
 `archive/` for superseded files.
 
-## Chapter 1 status: 6 of 13, through Stage 4
+## Chapter 1 status: 7 of 13, through Stage 5
 
 Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day
 against the craft standard. Passed: Stage 0, G1, Stage 1, Stage 2, all
-2026-08-05, and Stages 3 and 4 on 2026-08-06. `status_check.py` reports 6/13,
-STATUS CONSISTENT.
+2026-08-05, and Stages 3, 4, and 5 on 2026-08-06. `status_check.py` reports
+7/13, STATUS CONSISTENT. The chapter is 19 pages and ALL FOURTEEN GATES PASS,
+its first fully green render.
 
 **The live text is
 `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`**, 5,961
@@ -105,58 +107,55 @@ What each step produced:
   agreed on one finding out of six. SF1 to SF3 were applied, SF4 to SF6 closed
   with no chapter change. Every ruling is written into the chapter's own register
   note with the condition that would reverse it.
+- **Stage 4** resolved all seven carried craft findings and raised six new, NC1
+  to NC6, of which five are applied. It passed WITHOUT its second-model
+  gut-check, which Dan ruled complete without.
+- **Stage 5** closed both inherited layout defects and found four tooling
+  defects doing it: one in gate 14 and three in `place.py`. No CSS changed and
+  D0 stays closed.
 
-Carried items CD1 to CD7 are in the checklist. CD1 is closed. CD6 and CD7 remain
-Stage 5 work and are listed under thread 1 below.
+Carried items CD1 to CD7 are in the checklist and all are now closed. CD1 closed
+at Stage 4 by a prose cut, CD6 at Stage 5 by placement, and CD7 as never having
+been a defect at all.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 5, design review. CLAUDE'S STEP. Next up.**
+1. **Chapter 1 G2, the production gate. CLAUDE'S STEP. Next up.**
 
-   Two defects to resolve, both carried and both verified as unmoved by the four
-   Stage 4 prose edits:
-   - **CD6**, one definition callout split across a page break. Remedy is
-     `place.py`, never CSS: WeasyPrint 69 ignores `break-inside` on floated
-     elements.
-   - **CD7**, a widow and an orphan on page 16.
+   The render is already fully green, so G2 is a matter of walking the checklist
+   against a build rather than fixing anything. Two of its sub-checks are labelled
+   MANUAL and both were performed at Stage 5 on this same render: figure geometry
+   by raster inspection, and a page-level raster review of all 19 pages. Re-run
+   the build first; do not tick against the Stage 5 numbers.
 
-   CD1 is closed, so the list is shorter than it was. The chapter is 19 pages and
-   twelve of the fourteen gates pass. After Stage 5: **G2**, then Dan's Stages 6
-   to 8, then **G3** and lock.
+   After G2: Dan's Stages 6 to 8, then G3 and lock. Lock is not blocked.
 
-   **Stage 4 passed 2026-08-06 WITHOUT its second-model gut-check.** Dan ruled
-   the step complete without it. Do not read the six ticked criterion boxes as
-   independently verified: the craft verdict rests on one read by the model that
-   drafted the chapter and wrote the standard it grades against. The prompt is
-   still at the end of the chapter checklist, refreshed and ready, and it can be
-   run at any time. A finding it raises enters as NC7 and reopens Stage 4 under
-   the scoped re-run matrix. The exposure is not confined to Chapter 1: the
-   baseline band for Chapters 2 to 15 comes from that read, and Chapter 1 is the
-   exemplar the other fourteen are drafted against.
+   **Stage 5 passed 2026-08-06, and what it found matters past this chapter.**
+   Both inherited defects are gone, one fixed and one discovered to be an
+   illusion, and FOUR TOOLING DEFECTS were found in the process. Every one made
+   a check report success on a chapter the build fails, which is now the third
+   time this project has hit that failure mode.
 
-   What Stage 4 produced: all seven carried craft findings resolved, six new
-   findings NC1 to NC6, five applied. The summary went from the weakest C4 unit
-   in the book to chapter band, all four cross-reference closes are gone, the
-   atomic unit is argued rather than asserted, and the craft section carries
-   verified arithmetic it used to only assert. Two results outlive the chapter:
-   `voicecheck.py` no longer counts a theorem's formal conditional as running
-   prose, and the baseline band is 43 paragraphs, 224 sentences, 3,870 words,
-   mean 17.3, range 3 to 49, short 33 percent, trailing-qualifier closes 2 of 43,
-   cross-reference closes 0 of 43.
+   - **Gate 14 counted key-term names as body prose.** A term name is a full
+     line in the semibold face at body size, so each read as a one-line
+     paragraph: the first on a page scored as a widow, the last as an orphan.
+     CD7, carried as real design work, was two phantoms. Closed as
+     not-a-defect, which is different from fixed.
+   - **`place.py` rendered the wrong document.** It called WeasyPrint on the
+     chapter source; the build renders the footnote-injected document, and
+     footnotes push body text about 50pt down the page. It reported zero splits
+     on a chapter gate 4 failed. It now renders through `AIOM_build.build()`.
+   - **`place.py` anchored inside block containers**, so it could float a
+     definition callout inside the theorem panel or a dated evidence box. Two of
+     the three placements that resolved this chapter's split were exactly that.
+   - **`place.py` scored gate 4 alone.** Three of six candidate anchors fixed
+     the split and pushed footnote 6 off its calling page. It now rejects any
+     candidate that adds a gate failure.
 
-   **CD1 was closed at Stage 4, not Stage 5.** It was the "Craft section" slot
-   label stranded at the foot of page 12, gate 14's first find on its first run.
-   Applying NC2 cut two sentences from 1.4, the pagination moved, and the defect
-   went. It had been booked as Stage 5 work on the sound reasoning that a
-   break-control defect is not a prose defect. Worth remembering the next time a
-   layout defect looks purely mechanical. The other two did not move with it,
-   which was verified rather than assumed.
-
-   **An obligation booked for Stage 9, easy to lose:** when Chapter 1 locks,
-   `continuity.py --update` must NOT record "flow" among the terms Chapter 1
-   owns. Chapter 2 owns it. Left unchecked, Chapter 2's proper definition
-   registers as a redefinition and G3 fails Chapter 2 for a mis-logged ledger
-   entry. This is ND6, closed with no chapter change but with this obligation.
+   CD6 was resolved by moving "Meter relocation" five paragraphs later, the only
+   anchor in its section that satisfies every gate. Accepted by eye: it lands
+   beside the sentence that enacts it. Both specs record how far the placement
+   preference degraded and why.
 
 2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan

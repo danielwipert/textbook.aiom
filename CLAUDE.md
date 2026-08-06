@@ -192,6 +192,21 @@ that fail most often:
 - **Gate 7, provenance line.** Page 1 must carry the 7pt amber semibold line
   beneath the opening case title.
 
+- **Gate 14 excludes key-term names, amended 2026-08-06.** A term name is a full
+  line in the semibold face at body size, so gate 14 read every one as a
+  one-line paragraph: the first on a page scored as a widow, the last as an
+  orphan. Chapter 1 carried one of each as a booked design defect for two days
+  before Stage 5 found they were phantoms. Body prose carries inline bold, so
+  the exclusion tests the whole line, not its first character.
+- **`place.py` had three defects, all found at Ch1 Stage 5 on 2026-08-06.** It
+  rendered the chapter source rather than the footnote-injected document the
+  build ships, and footnotes move body text about 50pt down the page, so it
+  reported zero splits on a chapter gate 4 failed. It treated paragraphs inside
+  the theorem panel and the dated boxes as legal anchors, so it could float a
+  definition callout inside either. And it scored gate 4 alone, so a placement
+  that fixed the split and pushed a footnote off its calling page counted as a
+  success. All three are fixed; the pass now renders through `AIOM_build.build()`
+  and accepts a candidate only if it adds no new gate failure.
 - **Gates 12, 13, 14, added 2026-08-05.** Figure captioning, numbering, order,
   and in-text reference; bottom margin with the folio excluded by colour; and
   widows, orphans, and stranded heads. These three were claimed by the G2
@@ -326,13 +341,13 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 6 of 13.** Stage 0
+**Chapter 1 was reopened at Stage 0 on 2026-08-05 and is now 7 of 13.** Stage 0
 (re-draft), G1 (structural gate), Stage 1 (content review), and Stage 2
-(developmental edit) all passed 2026-08-05; Stage 3 (source and fact check 1) and
-Stage 4 (voice and craft check) passed 2026-08-06. `status_check.py` reports 6/13
-with STATUS CONSISTENT. Stage 5, design review, is next and is Claude's; it
-inherits two layout defects, a gate 4 callout split and a widow and orphan on
-page 16.
+(developmental edit) all passed 2026-08-05; Stage 3 (source and fact check 1),
+Stage 4 (voice and craft check), and Stage 5 (design review) passed 2026-08-06.
+`status_check.py` reports 7/13 with STATUS CONSISTENT. Stage 5 (design review) also passed 2026-08-06, taking the
+chapter to 7 of 13 and producing its first fully green render: all fourteen
+gates pass on 19 pages. G2, the production gate, is next and is Claude's.
 
 **Stage 4 passed without its second-model gut-check**, which Dan ruled complete
 without it. The craft verdict on Chapter 1 therefore rests on one read by the
