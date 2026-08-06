@@ -905,10 +905,44 @@ the chapter, and it is a list of definitions. Excluding them is one line in
 APPARATUS_BLOCKS, and it is not taken, because it moves the baseline band that
 Chapters 2 to 15 are read against and that is Dan's ruling to make.
 
-AWAITING: Dan's second-model gut-check, and a ruling on NC1, NC3, NC5, and NC6.
-NC1 and NC3 are one-line fixes, NC5 is one sentence, NC6 needs only the record.
-Any edit ruled is a body-prose change and re-runs per the scoped matrix from
-Stage 2 down.
+NC1, NC3, AND NC5 APPLIED 2026-08-06, ruled by Dan. All five findings that
+called for prose are now applied; NC6 needs only the record.
+
+  NC1  "three specific places" is now "three places". The sentence no longer
+       promises a specificity the three categories do not supply.
+  NC3  The 1.3 opener is now "One objection stands against everything said so
+       far:" followed directly by the quoted objection. Twenty-six words of
+       preamble commenting on how the objection would be presented are gone. The
+       work that preamble was doing, signalling that the objection is taken at
+       full strength rather than as a straw man, is already done by the next
+       paragraph's opening, "The objection is not confused". The chapter's
+       longest sentence fell from 54 words to 49 with this cut.
+  NC5  The 1.4 close is split in two: "...asks what becomes visible when many
+       events are seen at once. That is the first step from a unit of cost to
+       something an organization can manage." The forward pointer is now a
+       standalone assertion rather than a trailing relative clause, and the
+       proxy agrees: trailing-qualifier closes fall from 3 of 43 to 2 of 43, and
+       the two that remain are the causal closes the tool is known to
+       over-report.
+
+EFFECT OF THE FIVE APPLIED FINDINGS, MEASURED. Corpus 43 paragraphs, 224
+sentences, 3,870 words. Sentence words mean 17.3, median 15, stdev 9.8, range 3
+to 49. Short 33 percent, long 5 percent. Longest uniform run 5. Throat-clearing
+openers 0. Copulas 4.2 per 100 words, nominalizations 46.3 per 1,000, numerals
+6.7 per 1,000, proper nouns 9.3 per 1,000. Trailing-qualifier closes 2 of 43,
+cross-reference closes 0 of 43. Section 1.3, the heaviest section, fell from 23.1
+to 21.2 across the tooling fix and NC3. THIS SUPERSEDES THE BAND RECORDED ABOVE
+and is what Chapters 2 to 15 are read against.
+
+PRODUCTION STATE AFTER THE EDITS, VERIFIED. Nineteen pages. Gate 14 reports zero
+stranded heads, so CD1 stays closed. Gate 4's callout split (CD6) and the page 16
+widow and orphan (CD7) are unmoved by all four prose edits and remain Stage 5
+work. Twelve of the fourteen gates pass.
+
+AWAITING: Dan's second-model gut-check. The prompt is at the end of this file and
+must not be shown these findings. Its purpose now is to test whether an
+independent read finds anything NC1 to NC6 missed, which is the more valuable
+output; a finding it raises that this read did not goes in as NC7.
 
 ---
 
