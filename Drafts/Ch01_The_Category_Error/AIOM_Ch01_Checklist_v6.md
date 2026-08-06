@@ -592,8 +592,9 @@ Status: [ ]        Date cleared:
 
 Findings:
 
-IN PROGRESS 2026-08-06. Two external checks are in and filed. Five of six
-findings are ruled. SF2 is open and blocks the pass.
+COMPLETE 2026-08-06, awaiting Dan's mark. Two external checks are in and
+filed. All six findings are ruled: SF1, SF2, and SF3 applied to the chapter,
+SF4, SF5, and SF6 closed with no chapter change.
 
 INPUTS. Both checks ran against the twenty-page Stage 3 render built 2026-08-06
 from the live text, and both are stored in this folder:
@@ -609,11 +610,11 @@ commit messages.
 Two renders sit in this folder and they are not interchangeable:
 
   AIOM_Ch1_Stage3_FactCheck_Input.pdf      the artifact both checks audited
-  AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf   rebuilt 2026-08-06 after SF1 and SF3
+  AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf   rebuilt 2026-08-06 after SF1 to SF3
 
 The first is kept because a finding is only meaningful against the text that
 produced it. The second is the current one and is what any further reading should
-use. Both are twenty pages, and the SF1 and SF3 edits changed no pagination, so
+use. Both are twenty pages, and the three applied edits changed no pagination, so
 the four open layout defects sit on the same pages in both.
 
 SF1. "THE CHIEF EXECUTIVE OF THE LARGEST PROVIDER" ASSERTED A MARKET POSITION ON
@@ -626,18 +627,29 @@ in the opening case and strengthens C1. The register records that the superlativ
 must not return in any form, including "one of the largest", which asserts the
 same unsourced position and hedges besides.
 
-SF2. THE CURSOR SENTENCE MAY ASSERT AUTOMATIC BILLING THAT THE PRIMARY DOES NOT
+SF2. THE CURSOR SENTENCE ASSERTED AUTOMATIC BILLING THAT THE PRIMARY DOES NOT
 ESTABLISH. Raised by check 1; check 2 did not reach the mechanism. The chapter
-says the allowance was consumed "after which usage continued to bill against real
+said the allowance was consumed "after which usage continued to bill against real
 rates". The register records the new terms as "the option to purchase more at
-cost", which is not the same as automatic continuation. OPEN. Ruled 2026-08-06
-that the primary settles it, and the primary is unreachable from the Claude
-environment: the network policy denies CONNECT to every source host (cursor.com,
-techcrunch.com, github.blog, www.microsoft.com, doi.org, x.com all return a
-gateway 403). Carried to Dan's own pass. The question is narrow: on exhausting
-the twenty-dollar frontier pool, did usage continue to bill at API rates by
-default, or did further charges require usage-based pricing or a spend limit to
-have been enabled? The chapter currently asserts the first.
+cost", which is not the same as automatic continuation. The primary settles it
+and no Claude session can reach the primary: the network policy denies CONNECT to
+every source host (cursor.com, techcrunch.com, github.blog, www.microsoft.com,
+doi.org, x.com all return a gateway 403).
+
+RULED 2026-08-06 by Dan: state the price of further use and assert no mechanism.
+APPLIED. The sentence now reads "after which additional usage was priced at the
+same rates". This is a narrowing, not a hedge: it adds no qualifier the voice
+rules prohibit, it drops only the claim about how billing continued, and it keeps
+the price, which the entry does carry. It also removes a repetition, since the
+preceding sentence already names the underlying API rates. The register states
+the condition for restoring a mechanism claim: a passage from the Cursor post
+describing the default billing behaviour on exhaustion.
+
+The sentence that follows, that charges arrived which no one had planned for, is
+untouched and stands on its own footing. It is scoped to the labelled composite
+team, and Cursor's refund offer for unexpected usage between June 16 and July 4,
+2025 independently establishes that unplanned charges occurred. Check 2 examined
+that sentence and ruled the composite framing sufficient.
 
 SF3. "PREMIUM REQUESTS THAT HAD PREVIOUSLY CARRIED NO SEPARATE CHARGE" RESTED ON
 AN ARTIFACT THAT DOES NOT CARRY IT. Check 1 held that a dated changelog documents
@@ -684,7 +696,7 @@ subscriber reports rather than a company statement, and the QJE study's scope
 against the chapter's stipulation labels. Neither proposed July 3 for the Truell
 apology; three earlier rounds did, so the register note is holding.
 
-RE-RUN CONSEQUENCE. SF1 and SF3 are claim-scope changes to body prose. Stage 4,
+RE-RUN CONSEQUENCE. SF1, SF2, and SF3 are claim-scope changes to body prose. Stage 4,
 Stage 5, and G2 have not run since the reopen, so nothing downstream is
 invalidated. Stage 2 is not invalidated: neither edit changes teaching structure,
 sequence, or example fitness. The 2026-08-06 Stage 3 render is now stale against
