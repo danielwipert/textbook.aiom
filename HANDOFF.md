@@ -11,10 +11,11 @@ Active working branch: `claude/textbook-opening-rewrite-ac7yst`, new on 2026-08-
 and replacing `claude/chapter-1-progress-fq0brc`. Working tree clean and pushed to
 origin.
 
-**`main` is BEHIND this branch and was not merged in this session.** The previous
-session left `main` fast-forwarded and synced; three commits have landed since and
-`main` has not moved. Merging is Dan's call. Do not assume the sync state recorded
-in the last entry still holds.
+**`main` was fast-forwarded to this branch at the end of the session, on Dan's
+ruling.** The merge was a clean fast-forward: `main` carried no commits of its own,
+so there was nothing to reconcile. A specific SHA is deliberately not recorded
+here, because it goes stale on the next commit and a handoff that lies about sync
+state is worse than none. Check it instead, with the commands below.
 
 Verify state any time with:
 
@@ -306,9 +307,9 @@ the spread.
   register note as a substitute for one either; say which it is.
 - The proxy blocks `raw.githubusercontent.com` and the Google Fonts CDN; do not
   route around policy denials, report them.
-- Develop on `claude/textbook-opening-rewrite-ac7yst`. `main` is 3 commits behind
-  it and was NOT fast-forwarded this session; merging is Dan's call. Do not push
-  to any other branch without Dan's explicit say-so. The earlier branches
+- Develop on `claude/textbook-opening-rewrite-ac7yst`, then fast-forward `main` to
+  match before ending the session. Both were synced at the close of 2026-08-06.
+  Do not push to any other branch without Dan's explicit say-so. The earlier branches
   `claude/chapter-1-progress-fq0brc` and `claude/prose-voice-style-gxjkgj` are
   finished; do not add to them.
 - **Confirm the live-text path before editing a chapter, not after.** This session
