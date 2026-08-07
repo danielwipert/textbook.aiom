@@ -1,8 +1,23 @@
 /* ============================================================
    AIOM_book.css
-   VERSION: 6.7
-   DATE:    2026-07-25
-   CHANGES: v6.7 (2026-07-28) adds --tint-fig per Decision 37.
+   VERSION: 6.9
+   DATE:    2026-08-06
+   CHANGES: v6.9 (2026-08-06) applies DR2 and DR3 from the Ch1 Stage 5
+            re-run, both ruled by Dan: .model p + p gains 6pt so a
+            block running one label over several paragraphs no longer
+            sets them flush, and table.inv moves from break-inside
+            auto to avoid so a short inventory table cannot spill one
+            row onto a closing page. break-before: avoid was tried on
+            table.inv and REJECTED: WeasyPrint binds it to the
+            preceding line box rather than the preceding block, which
+            split the problem statement across the spread.
+            v6.8 (2026-08-06) chains break-after: avoid through
+            h2.case-title and p.provenance so a slot label, its title,
+            and its provenance line move as one head group with the
+            body they open. Decision 56a had put the rule on
+            .slot-label alone, which satisfied gate 14 while leaving
+            the group stranded. See gap G-II.
+            v6.7 (2026-07-28) adds --tint-fig per Decision 37.
             Rebuilt from AIOM_Ch1_DesignProof_v5_FINAL.pdf.
             Key Terms slot restyled to Option B (ruled register).
             All other values reverse-engineered to match v5 exactly.
@@ -384,11 +399,27 @@ h3.tail-head {
 }
 .model p + .mlab { margin-top: 9pt; }
 .model p { font-size: 9.5pt; line-height: 13.8pt; margin: 0; }
+/* v6.9, DR2 from Ch1 Stage 5, 2026-08-06, ruled by Dan. The rules above assume
+   the block alternates label and paragraph, which is why p + .mlab carries 9pt
+   and p + p carried nothing. A block that runs one label followed by several
+   paragraphs, as the Ch1 consumption-event inventory does, then sets its steps
+   flush against each other and reads as one undifferentiated block. Separation
+   is set at 6pt rather than the 9pt above a label, so a label still reads as the
+   stronger break and the group under one label stays a group. */
+.model p + p { margin-top: 6pt; }
 
 /* ---------- tables ---------- */
+/* v6.9, DR3 from Ch1 Stage 5, 2026-08-06, ruled by Dan. break-inside was auto,
+   which let the Ch1 P3 inventory table break so that its header repeated and a
+   single row plus the interleaving note landed on an otherwise blank final page.
+   A one-row spill onto a closing page is a visible defect in a printed book, and
+   these tables are short by construction: they carry one row per event type, and
+   an inventory with enough event types to overrun a page would be a drafting
+   problem before it was a typesetting one. If a later chapter does produce one,
+   this rule is the thing to revisit, not the table. */
 table.inv {
   width: 100%; border-collapse: collapse;
-  margin: 10pt 0 0 0; break-inside: auto;
+  margin: 10pt 0 0 0; break-inside: avoid;
 }
 table.inv th {
   font-family: "Jost"; font-weight: 600; font-size: 7.5pt;

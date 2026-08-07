@@ -1,7 +1,7 @@
 # AI Operations Management: Design Specification
 
-**Version:** 6.8
-**Date:** 2026-07-25
+**Version:** 6.9
+**Date:** 2026-08-06
 **Status:** LOCKED
 **Applies to:** all chapters, front matter, and back matter of *AI Operations Management*
 
@@ -584,3 +584,47 @@ which is normal for academic books and faulted by no reviewer. The method note
 records plainly that web sources were verified live at drafting and were not
 archived. This is the deliberate reversal of the archival reasoning that Decision
 40 first adopted.
+
+---
+
+## 15. Addendum, 2026-08-06: the head group, the model block, and the inventory table
+
+Three rulings out of the Chapter 1 Stage 5 re-run. CSS goes to v6.9. All three
+were found by reading rasterized pages, not by a gate, and the first was found
+while a gate reported the chapter clean.
+
+**Head groups move whole (v6.8).** A slot label, the title beneath it, and the
+provenance line beneath that are one head group. `break-after: avoid` is chained
+through `.slot-label`, `h2.case-title`, and `p.provenance`, so the group cannot
+separate from the first paragraph it opens.
+
+Decision 56a had put the rule on `.slot-label` alone. That bound the label to its
+title and left the provenance line as the last block on the page, which is
+exactly what gate 14 does not test: the gate asks whether a HEAD is last, and a
+provenance line is not a head. The result was a chapter reporting zero stranded
+heads with three head lines orphaned at the foot of page 12. A partial fix that
+silences the check is worse than no fix, because it converts a visible defect
+into an invisible one. Recorded as gap G-II in CLAUDE.md.
+
+**Model-answer paragraphs carry 6pt of separation (v6.9, DR2).** `.model p + p`
+was unset, so the block relied on `p + .mlab` at 9pt for all its structure. That
+holds only where the block alternates label and paragraph. A block that runs one
+label over several paragraphs, as the Chapter 1 consumption-event inventory does,
+set its four steps flush against each other and read as one undifferentiated
+column. Separation is 6pt rather than the 9pt above a label, so a label still
+reads as the stronger break and the paragraphs under one label stay a group.
+
+**Inventory tables do not break (v6.9, DR3).** `table.inv` moves from
+`break-inside: auto` to `avoid`. Under `auto`, the Chapter 1 P3 completion table
+broke so that its header repeated and one row plus the interleaving note landed
+on an otherwise blank final page. These tables carry one row per event type and
+are short by construction; an inventory long enough to overrun a page is a
+drafting problem before it is a typesetting one, and this rule is what to revisit
+if one appears.
+
+`break-before: avoid` was tried on `table.inv` as well, to hold the table with the
+problem statement that introduces it, and was REJECTED. WeasyPrint binds it to the
+preceding line box rather than the preceding block, so instead of moving the whole
+statement it moved the statement's last two lines, splitting a paragraph across
+the spread. The accepted cost is that a table may open a page while its
+instruction closes the previous one.

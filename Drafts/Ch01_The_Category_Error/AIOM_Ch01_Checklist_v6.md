@@ -74,6 +74,26 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 | Stage 9 | Locked | not run | 0 |
 
 ---
+
+## REOPENED 2026-08-07: Stage 5 and everything after it
+
+Grounds: Decision 57 rules DR2 and DR3 from the Stage 5 re-run. CSS moves to v6.9: .model p + p gains 6pt separation, and table.inv moves from break-inside auto to avoid. Both are locked-design-system changes, and the scoped re-run matrix sends a CSS change to Stage 5 and G2 for every chapter, which today is this one. The Stage 5 and G2 passed earlier the same day were performed against v6.8 and a 20-page render.
+
+Every step from Stage 5 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Stage 5 | Design review | passed | 0 |
+| Gate G2 | Production gate | passed | 17 |
+| Stage 6 | Copy edit | not run | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
@@ -1178,6 +1198,42 @@ Status: [x]        Date cleared: 2026-08-06
 
 Findings:
 
+STAGE 5 PASSED 2026-08-06, second re-run of the day, against CSS v6.9. This run
+verifies Decision 57, which applied DR2 and DR3 from the run before it. Twenty
+pages, all fourteen gates green.
+
+SCOPE OF THE RE-READ, stated rather than assumed. The two CSS changes were
+diffed page by page against the render already read in full: only pages 19 and 20
+changed text content. Pages 14, 15, 18, 19, and 20 were re-read at 150dpi because
+they carry the affected blocks, and pages 1 to 13 and 16 to 17 were confirmed
+byte-identical in extracted text and not re-read. That is the whole document
+accounted for, either re-read or shown unchanged.
+
+DR2 RESOLVED. `.model p + p` now carries 6pt. Steps 1 through 4 of the
+consumption-event inventory read as four steps on page 14; the 54.6-million
+sentence is separated from the paragraph after it on page 15. Page 18 is
+unchanged and confirms the fix is correctly scoped: that block alternates label
+and paragraph, so `p + .mlab` still governs it and nothing moved.
+
+DR3 RESOLVED. `table.inv` no longer breaks. The P3 completion table sits whole on
+page 20 with all three rows and the interleaving note, and the repeated header is
+gone.
+
+DR3a, A NEW COST, ACCEPTED AND RECORDED. Holding the table whole leaves page 19
+about four inches short and separates the P3 instruction from the table it
+introduces. `break-before: avoid` was tried on `table.inv` to hold the two
+together and was REJECTED: WeasyPrint binds it to the preceding LINE BOX rather
+than the preceding block, so it pulled only the statement's last two lines onto
+page 20 and split a paragraph across the spread. A short page is a smaller defect
+than a split paragraph, and a completion table the student writes into is worth
+more whole than adjacent. Recorded so a later chapter does not rediscover the
+rejected fix.
+
+DR1, DR4, and DR5 are unchanged from the run before this one and are archived
+below.
+
+PRIOR RECORD, SUPERSEDED BY THE RE-RUN ABOVE.
+
 STAGE 5 PASSED 2026-08-06, re-run after the reopen at Stage 5. Twenty pages, all
 fourteen gates green, and both MANUAL checks performed: every one of the twenty
 pages was rasterized at 150dpi and read, and both figures were pixel-sampled
@@ -1384,6 +1440,29 @@ Status: [x]        Date cleared: 2026-08-06
 - [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+ARCHIVED 2026-08-07, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
+G2 PASSED 2026-08-06, second re-run of the day, on a fresh build against CSS
+v6.9. All fourteen printed gates pass on a 20-page render and both MANUAL boxes
+were performed.
+
+The placement pass was re-run after the CSS change and reported 4 callouts, 4
+fragments, 0 splitting, changing nothing, so callout placement survives v6.9.
+
+The page-level raster review is recorded under Stage 5 with its scope stated:
+pages 14, 15, 18, 19, 20 re-read, the rest shown unchanged by a page-by-page text
+diff against the render already read in full. The figure-geometry check did not
+need re-running, because neither CSS change touches an SVG and both figures were
+byte-identical in the diff.
+
+Render committed at
+`Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf`, 20 pages.
+
+Gate 14 passing is still not evidence of a clean chapter on its own. See gap G-II
+under Stage 5.
+
+PRIOR RECORD, SUPERSEDED BY THE RE-RUN ABOVE.
 
 G2 PASSED 2026-08-06, re-run after the reopen at Stage 5. Fresh build, not
 against the Stage 5 numbers. All fourteen printed gates pass on a 20-page render

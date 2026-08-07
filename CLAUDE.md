@@ -382,16 +382,24 @@ with STATUS CONSISTENT. The chapter is 20 pages, up from 19, and all fourteen
 gates pass. Stage 6, the copy edit, is next and is Dan's; Stages 6, 7, and 8 may
 run in one sitting.
 
-**The Stage 5 re-run found five things, and the fourteen gates found none of
-them.** Two are fixed: the craft-section head group stranded at the foot of page
-12 (DR1), and Figure 1.1 using `--amber` where the spec requires `--amber-fig`
-(DR5). Two are open and need Dan's ruling because both are locked-design-system
-changes that would touch every chapter: `.model p` sets `margin: 0`, so
-model-answer paragraphs run together with no separation (DR2), and `table.inv`
-carries `break-inside: auto`, so the P3 table spills one row onto an otherwise
-empty final page (DR3). One is an observation with no action: four pages carry
-three consecutive hyphenated line ends, which is at Chicago's limit, not past it
-(DR4).
+**The Stage 5 re-run found five things, the fourteen gates found none of them,
+and all five are now closed.** DR1, the craft-section head group stranded at the
+foot of page 12, and DR5, Figure 1.1 using `--amber` where the spec requires
+`--amber-fig`, were fixed in the first re-run. DR2, `.model p` setting `margin:
+0` so model-answer paragraphs run together, and DR3, `table.inv` carrying
+`break-inside: auto` so the P3 table spills one row onto an otherwise blank final
+page, were ruled by Dan and applied as Decision 57, taking CSS to v6.9. Because a
+design-system change re-runs Stage 5 and G2 for every chapter, Chapter 1 was
+reopened at Stage 5 a third time the same day and re-passed against v6.9. DR4,
+hyphenation, was an observation with no action: four pages carry three
+consecutive hyphenated line ends, which is at Chicago's limit, not past it.
+
+**DR3a is an accepted cost, recorded so it is not rediscovered.** Holding the
+inventory table whole leaves page 19 about four inches short and separates the P3
+instruction from its table. `break-before: avoid` was tried on `table.inv` to
+hold the two together and was rejected: WeasyPrint binds it to the preceding LINE
+BOX rather than the preceding block, so it split the problem statement across the
+spread. A short page is a smaller defect than a split paragraph.
 
 **Gap G-II, opened 2026-08-06: gate 14 cannot see a stranded head GROUP.** It
 tests whether a HEAD is the last block on a page, so any non-head block trailing
@@ -503,7 +511,7 @@ no entries, which is correct: entries are appended at Stage 9, and no chapter ha
 locked. Lock is no longer blocked.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
-locked: CSS at v6.8, design spec at v6.8 plus three addenda. The registry is
+locked: CSS at v6.9, design spec at v6.9 plus four addenda. The registry is
 validated: 228 objects load (200 propositions, 20 lemmas, 8 theorems), eight
 book-mapped theorem IDs resolve, zero dangling references in the dependency
 graph.

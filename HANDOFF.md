@@ -1,26 +1,20 @@
 # Session handoff
 
-Last updated: 2026-08-06. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-06 (second entry, evening). Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-progress-fq0brc`, new on 2026-08-06 and
-replacing `claude/prose-voice-style-gxjkgj`, which is fully merged into `main` and
-is finished. Working tree clean, and the branch is pushed to origin.
+Active working branch: `claude/textbook-opening-rewrite-ac7yst`, new on 2026-08-06
+and replacing `claude/chapter-1-progress-fq0brc`. Working tree clean and pushed to
+origin.
 
-**`main` is merged and synced as of 2026-08-06.** Dan approved the merge and
-`main` was fast-forwarded to match this branch, with nothing to reconcile because
-`main` still carries no commits of its own. It now reflects the whole body of
-work through Chapter 1 Stage 3 passed: both external fact checks, all six
-findings ruled, the three applied rulings, and the current render. A specific SHA
-is deliberately not recorded here, because it goes stale on the next commit and a
-handoff that lies about sync state is worse than none. Check it instead.
-
-Keep them synced. When this branch advances, fast-forward `main` again before
-ending the session.
+**`main` is BEHIND this branch and was not merged in this session.** The previous
+session left `main` fast-forwarded and synced; three commits have landed since and
+`main` has not moved. Merging is Dan's call. Do not assume the sync state recorded
+in the last entry still holds.
 
 Verify state any time with:
 
@@ -30,26 +24,22 @@ git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
 python3 status_check.py                                 # authoritative status
 ```
 
-The 2026-08-06 session, in full: Chapter 1 status confirmed at 4/13; the Stage 2
-text rendered as the Stage 3 fact-check input; CLAUDE.md section 10, this file,
-and the Workplan brought back into line with the checklist, which all three had
-lagged; both external fact checks received, filed, and reconciled; all six Stage
-3 findings ruled, three of them applied, and the record written; the input
-re-rendered; Stage 3 marked passed by Dan; Stage 4 run and passed, with five of
-its six findings applied and the second-model check waived; and Stage 5 run and
-passed, closing both carried layout defects and four tooling defects. The three
-records were mirrored at each step.
+The 2026-08-06 evening session, in full: the opening case and two teaching
+passages were rewritten at Dan's direction and handed back in chat rather than
+applied, so the live text does not carry them yet. The theorem statement form was
+ruled (Decision 56) and applied to THM-009. Chapter 1 was reopened at Stage 5
+three times and re-passed each time. The superseded fork was deleted. Stage 5 and
+G2 were re-run in full, raising five findings that no gate saw; Dan ruled DR2 and
+DR3, which became Decision 57 and took CSS to v6.9.
 
-Seven prose edits landed on the chapter this session: SF1, SF2, SF3 at Stage 3,
-and NC1, NC2, NC3, NC5 at Stage 4. Stage 5 then moved one callout and changed no
-prose. Chapter 1 went from 4/13 to 7/13, and its render went from twelve of
-fourteen gates to all fourteen.
-
-The 2026-08-05 session, oldest first: the voice and craft standard (Decision 52);
-the craft-check hardening after the first read failed as verification; the re-run
-process plus the reopen of Chapter 1 (Decision 53); the continuity ledger
-(Decision 54); the Chapter 1 Stage 0 re-draft; G1; Stage 1 (Decision 55); the
-Stage 2 pass; and the Stage 2 rulings applied.
+**One error worth carrying, because the guard against it already existed and was
+not used.** Decision 56 was first applied to
+`06_Stage5_Design_Review/AIOM_Ch01_Stage4_FINAL.html`, a superseded fork, not to
+the live text. It was caught only when this file was opened to be updated, which
+is exactly what CLAUDE.md section 11 says to read FIRST. The fork had diverged by
+roughly 150 lines. It has since been deleted, so the trap is gone for Chapter 1,
+but the lesson is general: read HANDOFF.md before touching a chapter file, and
+confirm the live-text path before editing, not after.
 
 ## What now lives in the repo
 
@@ -59,8 +49,8 @@ Competencies, Maturity Model, Case Bank (now carrying CASE 4.6 and CASE 6.4),
 Northmoor Dataset design, Workplan v5, Validation Matrix, and
 `AIOM_Voice_and_Craft_v1.md` (new 2026-08-05, at v1.1).
 
-**Build and design.** `AIOM_book.css` v6.7 plus the audit-only rule,
-`AIOM_DESIGN_SPEC` v6.8, `AIOM_Design_QA_Spec` (updated 2026-08-05 to the
+**Build and design.** `AIOM_book.css` v6.9 plus the audit-only rule,
+`AIOM_DESIGN_SPEC` v6.9, `AIOM_Design_QA_Spec` (updated 2026-08-05 to the
 fourteen-gate suite), `AIOM_build.py` (fourteen gates plus a toolchain
 preflight), `place.py`, `cite_format.py`, `footnotes.py`, and pinned
 `requirements.txt`.
@@ -84,60 +74,59 @@ one-time, already run).
 
 ## Chapter 1 status: 8 of 13, through G2
 
-Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day
-against the craft standard. Passed: Stage 0, G1, Stage 1, Stage 2, all
-2026-08-05, and Stages 3, 4, 5 and G2 on 2026-08-06. `status_check.py` reports
-8/13, STATUS CONSISTENT. The chapter is 19 pages and ALL FOURTEEN GATES PASS,
-with both manual checks performed at 150dpi. Every step Claude owns before lock
-is now done.
+Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day, then
+reopened at Stage 5 three times on 2026-08-06 and re-passed each time. Passed:
+Stage 0, G1, Stage 1, Stage 2, all 2026-08-05; Stages 3 and 4 on 2026-08-06, both
+untouched by every Stage 5 reopen; Stage 5 and G2 re-passed 2026-08-06 against CSS
+v6.9. `status_check.py` reports 8/13, STATUS CONSISTENT. The chapter is now 20
+pages, up from 19, and ALL FOURTEEN GATES PASS. Every step Claude owns before lock
+is done.
 
 **The live text is
-`Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`**, 5,961
-words against a 6,000 ceiling, 39 words of headroom. It supersedes the old Stage
-4 render, which is history. Stage 3 changed three sentences in it; see thread 1.
+`Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`.** It is
+now the only chapter HTML for Chapter 1 outside clearly-superseded early stage
+folders. Check this path before editing, every time.
 
-What each step produced:
+**Prose rewritten in chat and NOT yet applied.** Dan asked for rewrites of the
+opening case paragraphs 1, 2, 3, and 5, and of the unit-choice passage in 1.2. All
+were delivered in conversation for Dan to edit in himself. None is in the live
+text. If they land, they are body-prose edits and re-run Stage 2, Stage 3, Stage
+4, Stage 5, and G2 per the scoped re-run matrix.
 
-- **G1** caught a real breach. The re-draft had put the published QJE agent count
-  5,172 into prose, where a 2026-07-29 ruling reserves it for Chapter 6 and
-  requires "on the order of five thousand" in Chapter 1. Fixed. The fuller ruling
-  lives in the chapter's own Decision 51 register, NOT in the shorter
-  `AIOM_Source_Ledger.md` note.
-- **Stage 1** raised seven structural findings, all ruled (Decision 55). One
-  changed an artifact: the case bank held no CASE 4.6 and no CASE 6.4 although
-  the spec assigned both to Chapter 1, and both are now written in from
-  already-cleared sources. Four amended the spec rather than the chapter. Two
-  confirmed the chapter. Not one word of the chapter changed.
-- **Stage 2** raised six findings. ND1 to ND4 were ruled and applied; ND5 and ND6
-  closed with no action. Applying ND1 exposed a latent defect in gates 12 and 14,
-  now fixed (see standing reminders).
-- **Stage 3** ran two independent external checks on different prompts, which
-  agreed on one finding out of six. SF1 to SF3 were applied, SF4 to SF6 closed
-  with no chapter change. Every ruling is written into the chapter's own register
-  note with the condition that would reverse it.
-- **Stage 4** resolved all seven carried craft findings and raised six new, NC1
-  to NC6, of which five are applied. It passed WITHOUT its second-model
-  gut-check, which Dan ruled complete without.
-- **Stage 5** closed both inherited layout defects and found four tooling
-  defects doing it: one in gate 14 and three in `place.py`. No CSS changed and
-  D0 stays closed.
-- **G2** passed on a fresh build. It found the G2 box list itself was stale, a
-  labelling inconsistency in the craft section that Stage 5 had missed (GD1,
-  ruled and fixed), and a new coverage gap, G-I, where a floated callout can
-  collide with a block panel and every gate still passes.
+**Decision 56, theorem statement form, is applied.** THM-009 is set as a
+structured conditional: scope boundary first, four antecedents enumerated in
+lower-case roman, consequent on its own line. Panel is on page 7 and holds full
+measure.
 
-Carried items CD1 to CD7 are in the checklist and all are now closed. CD1 closed
-at Stage 4 by a prose cut, CD6 at Stage 5 by placement, and CD7 as never having
-been a defect at all.
+**Decision 57 closed all five Stage 5 findings.** DR1 (craft head group stranded
+at the foot of page 12) and DR5 (Figure 1.1 using `--amber` instead of
+`--amber-fig`) were fixed first. DR2 (`.model p + p` unset, so model-answer
+paragraphs ran flush) and DR3 (`table.inv` breaking, spilling one row onto a blank
+final page) were ruled by Dan and applied. DR4, hyphenation at three consecutive
+hyphenated line ends on four pages, is at Chicago's limit and took no action.
+DR3a is an accepted cost: holding the table whole leaves page 19 short, and
+`break-before: avoid` was tried and rejected because WeasyPrint binds it to the
+preceding line box rather than the preceding block, splitting a paragraph across
+the spread.
 
 ## Open threads, in priority order
 
 1. **Chapter 1 Stages 6, 7, and 8. DAN'S STEPS. Stage 6 is with Dan now.**
 
    Copy edit, final fact check 2, and the final read. Everything Claude owns
-   before lock is done: the chapter is 19 pages, all fourteen gates pass, and both
+   before lock is done: the chapter is 20 pages, all fourteen gates pass, and both
    manual production checks were performed at 150dpi. The G2 render is committed
-   at `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf`.
+   at `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf` and
+   is the v6.9 render, 20 pages.
+
+   **The Stage 6 proof on disk is STALE.** `AIOM_Ch1_CopyEdit.docx` was exported
+   2026-08-06 from the pre-Decision-56 text. It predates the theorem panel re-set
+   and every Decision 57 change. Re-export before Dan starts Stage 6, or the
+   import will refuse most of the file.
+
+   **Decide the pending prose rewrites BEFORE Stage 6, not during it.** Five
+   passages were rewritten in chat this session and never applied. A copy edit run
+   against text that is about to change is wasted work.
 
    **The Stage 6 proof was issued 2026-08-06** as
    `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit.docx`, with its manifest beside it. When
@@ -164,18 +153,33 @@ been a defect at all.
    Chapter 2 owns it. Left unchecked, Chapter 2's proper definition registers as a
    redefinition and G3 fails Chapter 2 for a mis-logged ledger entry.
 
-   **G2 passed 2026-08-06 and found three things worth carrying.** The G2 BOX LIST
-   ITSELF WAS STALE: `gen_checklists.py` moved to a seventeen-box list on
+   **The Stage 5 and G2 re-runs of 2026-08-06 found five things and no gate saw
+   any of them.** All five are closed; see the chapter status above. The one to
+   carry forward is GAP G-II, below. The earlier G2 findings still stand: the G2
+   BOX LIST ITSELF WAS STALE: `gen_checklists.py` moved to a seventeen-box list on
    2026-08-05 but this chapter's checklist still had the old ten-box version,
    because `reopen.py` resets ticks and does not regenerate box text. After a
    reopen, check the box text against the generator, not only the ticks. GD1, a
    labelling inconsistency in the craft section's model inventory that Stage 5
    missed, was found by the manual raster review, ruled by Dan, and fixed by making
    all four steps inline bold, which also aligns the craft section with P2. And
-   GAP G-I is new and open: a floated callout can collide with a following block
-   panel, crushing a theorem panel's measure, while all fourteen gates pass. Until
-   it closes, a chapter whose callout placement moves must have the affected pages
+   GAP G-I is open: a floated callout can collide with a following block panel,
+   crushing a theorem panel's measure, while all fourteen gates pass. Until it
+   closes, a chapter whose callout placement moves must have the affected pages
    READ, not merely gated.
+
+   **GAP G-II is new, open, and the most important thing in this file.** Gate 14
+   cannot see a stranded head GROUP. It tests whether a HEAD is the last block on
+   a page, so any non-head block trailing the group hides the defect completely.
+   Decision 56a put `break-after: avoid` on `.slot-label` alone; that bound the
+   label to its title, left the provenance line last, and gate 14 then reported
+   ZERO stranded heads while all three head lines sat orphaned at the foot of page
+   12. A partial fix that silences the check is worse than no fix, because it
+   turns a visible defect into an invisible one. v6.8 chains the rule through
+   `h2.case-title` and `p.provenance`, so the book is held off this defect by CSS
+   rather than by the check. Until gate 14 treats a run of head-like blocks as one
+   unit, a chapter whose pagination moves must have its SLOT OPENINGS read, not
+   merely gated.
 
 2. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan
@@ -183,8 +187,12 @@ been a defect at all.
      hand-mirrored across several sessions; the check would catch drift
      automatically.
    - Canonical `DECISIONS.md` with a status field per decision. Numbers are
-     scattered across three files and now run to 55, with 47/48 flagged
+     scattered across three files and now run to 57, with 47/48 flagged
      unverified.
+   - **Teach gate 14 about head GROUPS**, closing gap G-II, so the book is not
+     held off a stranded slot opening by CSS alone. This is the highest-value
+     item in this list: the defect it misses has now appeared twice on the same
+     page of the same chapter, and the second time the gate reported clean.
    - Gate 4 still keys on `--tint-def` and does not guard the theorem callout,
      though gate 11 now checks the panel directly.
 
@@ -298,7 +306,11 @@ been a defect at all.
   register note as a substitute for one either; say which it is.
 - The proxy blocks `raw.githubusercontent.com` and the Google Fonts CDN; do not
   route around policy denials, report them.
-- Develop on `claude/chapter-1-progress-fq0brc`, then fast-forward `main` to match
-  before ending the session. Do not push to any other branch without Dan's
-  explicit say-so. The previous branch, `claude/prose-voice-style-gxjkgj`, is
-  merged and finished; do not add to it.
+- Develop on `claude/textbook-opening-rewrite-ac7yst`. `main` is 3 commits behind
+  it and was NOT fast-forwarded this session; merging is Dan's call. Do not push
+  to any other branch without Dan's explicit say-so. The earlier branches
+  `claude/chapter-1-progress-fq0brc` and `claude/prose-voice-style-gxjkgj` are
+  finished; do not add to them.
+- **Confirm the live-text path before editing a chapter, not after.** This session
+  applied a ruling to a superseded fork and had to revert it. HANDOFF.md names the
+  live text; read it first, which is what CLAUDE.md section 11 already required.

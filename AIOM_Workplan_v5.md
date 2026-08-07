@@ -15,7 +15,7 @@ to be wrong. Items were closed, not corrected.
 
 Added or changed in v5:
 1. **D0 is closed.** Design finalization is complete. Chapter locks are
-   unblocked on the design side. CSS at v6.8, design spec at v6.8 plus three
+   unblocked on the design side. CSS at v6.9, design spec at v6.9 plus four
    addenda.
 2. **The chapter lifecycle is replaced.** v4's seven-stage lifecycle is
    superseded by the twelve-step process ruled on 2026-07-27, which separates
@@ -51,12 +51,17 @@ before lock is done, and Dan's Stages 6, 7, and 8 are next and may run in one
 sitting.
 
 The Stage 5 re-run found five things and the fourteen gates found none of them.
-Two are fixed: a craft-section head group stranded at the foot of page 12, and
-Figure 1.1 using the apparatus amber where the spec requires the figure amber.
-Two are open and need a ruling because both would change the locked design
-system for every chapter: model-answer paragraphs run together with no
-separation, and the P3 inventory table spills one row onto an otherwise empty
-final page. One is an observation with no action, on hyphenation.
+All five are now closed. DR1, a craft-section head group stranded at the foot of
+page 12, and DR5, Figure 1.1 using the apparatus amber where the spec requires
+the figure amber, were fixed in the first re-run. DR2, model-answer paragraphs
+running together, and DR3, the P3 inventory table spilling one row onto an
+otherwise blank final page, were ruled by Dan and applied as Decision 57, which
+took CSS to v6.9 and forced a second Stage 5 and G2 re-run the same day. DR4,
+hyphenation, was an observation with no action.
+
+CSS is at v6.9 and the design spec at v6.9 plus four addenda. The header of
+AIOM_book.css had said 6.7 while both this file and CLAUDE.md claimed 6.8; the
+header is now correct and carries the v6.8 and v6.9 change notes.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -84,23 +89,16 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Rule DR2 and DR3 from the Chapter 1 Stage 5 re-run.** Both are locked
-   design-system changes and both are recorded open in the chapter checklist.
-   DR2: `.model p { margin: 0 }` runs model-answer paragraphs together with no
-   separation; minimal fix is `.model p + p { margin-top: 6pt }`. DR3:
-   `table.inv { break-inside: auto }` spills one row of the P3 table onto an
-   otherwise empty final page. Either ruling re-runs Stage 5 and G2 on every
-   chapter, which today is one chapter, so it is cheapest to settle now.
-2. **Chapter 1 Stages 6, 7, and 8.** Dan's steps, and they may run in one
+1. **Chapter 1 Stages 6, 7, and 8.** Dan's steps, and they may run in one
    sitting: copy edit, final fact check 2, final read. Everything Claude owns
    before lock is done. Then G3 and Stage 9 lock, both Claude's. Note Stage 4 passed
    without its second-model gut-check, so the craft verdict and the baseline band
    the remaining chapters are read against are not independently verified, and
    Stage 7 is structurally external because no source host is reachable from a
    Claude session.
-3. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
+2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
-4. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
+3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
    Ch9, Ch12, and Ch13 problem sets, not Ch2.
 
 Closed since v5: the G1 contradiction on Chapter 1 (cleared 2026-07-29 after
@@ -149,7 +147,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 6 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard, then reopened at Stage 5 on 2026-08-06 (Decision 56) and re-passed Stage 5 and G2 the same day. Now 8 of 13, on a 20-page render with all fourteen gates passing and both MANUAL production checks performed: every page rasterized at 150dpi and read, and both figures pixel-sampled. Every step Claude owns before lock is done. The Stage 5 re-run raised five findings and no gate saw any of them: DR1 craft head group stranded at the foot of page 12 (fixed, and it exposed gap G-II, that gate 14 cannot see a stranded head GROUP) and DR5 Figure 1.1 using the apparatus amber instead of the figure amber (fixed); DR2 model-answer paragraphs running together and DR3 the P3 table spilling one row onto an empty final page, both OPEN and both needing a ruling because they change the locked design system for every chapter; DR4 hyphenation, observation only. Earlier record: Stage 3 ran two independent external checks which agreed on one finding of six. Stage 4 resolved all seven carried craft findings and raised six new, five applied, but passed without its second-model gut-check. Next: Dan rules DR2 and DR3, then takes Stages 6, 7, 8. |
+| 1   | The Category Error             | Stage 6 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard, then reopened at Stage 5 on 2026-08-06 (Decision 56) and re-passed Stage 5 and G2 the same day. Reopened a third time at Stage 5 on 2026-08-06 for Decision 57 (DR2 and DR3 applied, CSS to v6.9) and re-passed again. Now 8 of 13, on a 20-page render with all fourteen gates passing and both MANUAL production checks performed: every page rasterized at 150dpi and read, and both figures pixel-sampled. Every step Claude owns before lock is done. The Stage 5 re-run raised five findings and no gate saw any of them: DR1 craft head group stranded at the foot of page 12 (fixed, and it exposed gap G-II, that gate 14 cannot see a stranded head GROUP) and DR5 Figure 1.1 using the apparatus amber instead of the figure amber (fixed); DR2 model-answer paragraphs running together and DR3 the P3 table spilling one row onto an empty final page, both ruled by Dan and applied as Decision 57, with DR3a recorded as an accepted cost: holding the table whole leaves page 19 short, and break-before was tried and rejected because WeasyPrint binds it to the preceding line rather than the preceding block; DR4 hyphenation, observation only. Earlier record: Stage 3 ran two independent external checks which agreed on one finding of six. Stage 4 resolved all seven carried craft findings and raised six new, five applied, but passed without its second-model gut-check. Next: Dan takes Stages 6, 7, 8. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
@@ -347,6 +345,36 @@ Decisions 22 onward live here.
   elsewhere is a CSS defect, not a prose defect. Ch1 now reports zero stranded heads
   with the prose untouched.
 
+- **Decision 56. RULED 2026-08-06.** Theorem statement form. A registry
+  conditional carrying more than two antecedents is set as a structured
+  conditional, never as running prose: scope boundary first before the word
+  "if", antecedents enumerated in lower-case roman one per line, consequent on
+  its own line opening with "then". Registry shorthand is rendered into full
+  parallel English, restoring elided articles and attaching dangling disjuncts,
+  and the logic may not change in any way. Rationale: THM-009 as a single
+  sixty-word sentence put the scope boundary fifty-eight words after the reader
+  needed it, so the whole statement had to be re-scoped retroactively. Full rule
+  in AIOM_DESIGN_SPEC.md section 5. Decision 56a, the same day, added
+  `break-after: avoid` to `.slot-label`; see Decision 57, which corrects it.
+
+- **Decision 57. RULED 2026-08-06, Chapter 1 Stage 5.** Three design-system
+  changes, CSS to v6.9, all found by reading rasterized pages and none by a gate.
+  (a) `break-after: avoid` chains through `h2.case-title` and `p.provenance`, so a
+  slot label, title, and provenance line move as one head group. Decision 56a had
+  put the rule on `.slot-label` alone, which bound the label to the title, left
+  the provenance line last, and made gate 14 report zero stranded heads while
+  three head lines sat orphaned at the foot of page 12. A partial fix that
+  silences the check is worse than none. Gap G-II opened. (b) DR2: `.model p + p`
+  gains 6pt, because the model block relied on `p + .mlab` for all its structure
+  and a block running one label over several paragraphs set them flush. 6pt not
+  9pt, so a label stays the stronger break. (c) DR3: `table.inv` moves from
+  `break-inside: auto` to `avoid`, because the P3 completion table spilled its
+  header and one row onto an otherwise blank final page. `break-before: avoid` was
+  also tried and REJECTED: WeasyPrint binds it to the preceding line box rather
+  than the preceding block, so it split the problem statement across the spread.
+  Accepted cost: a table may open a page while its instruction closes the one
+  before. Chapter 1 goes from 19 pages to 20.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
@@ -354,7 +382,7 @@ cites registry IDs.
 
 ## Design system of record (D0 closed)
 
-State: CSS at v6.8. Design spec at v6.8 plus three addenda.
+State: CSS at v6.9. Design spec at v6.9 plus four addenda.
 
 What D0 proved, being the three things the system had never been tested on:
 1. Figure 1.2 renders.
