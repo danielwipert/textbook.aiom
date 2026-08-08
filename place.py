@@ -172,7 +172,7 @@ def run(html_path, budget=14):
         open(html_path, "w").write("\n".join(ls))
         with contextlib.redirect_stdout(io.StringIO()):
             n = build(html_path, "_place.pdf")
-            qa("_place.pdf", expected_footnotes=n)
+            qa("_place.pdf", expected_footnotes=n, source_html=html_path)
         renders += 1
         frags, split = analyse("_place.pdf")
         # Every gate failure except the one this pass exists to fix. A move

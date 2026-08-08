@@ -11,6 +11,7 @@ Usage:
 """
 
 import argparse, io, os, re, shutil, subprocess, sys, urllib.request, zipfile
+import html as htmlmod
 from collections import Counter
 
 FONT_DIR = "fonts/use"
@@ -78,7 +79,7 @@ def build(html_path, out, url_policy="none"):
 LAST_FAILS = []
 
 
-def qa(path, expected_footnotes=None):
+def qa(path, expected_footnotes=None, source_html=None):
     """Every gate from section 8 of AIOM_Design_QA_Spec_v1.md (11 gates).
     Returns True if all pass."""
     import pdfplumber
@@ -377,6 +378,50 @@ def qa(path, expected_footnotes=None):
     def width(row):
         return sum(c["width"] for c in row)
 
+    def whole_paragraphs(html_path):
+        """De-spaced text of every complete body paragraph in the source.
+
+        Gate 14 works from the PDF, and from the PDF a one-line paragraph and a
+        widow are IDENTICAL: both are a short line at the head of a page with a
+        new paragraph beginning under them. The 2026-08-06 amendment separated
+        key-term names by their semibold face, which works only because a term
+        name has a font signal. Ordinary body prose has none, so the five
+        diagnostic questions added to Chapter 1 section 1.4 on 2026-08-08 put a
+        phantom widow at the head of page 14 the moment they were set as short
+        standalone paragraphs.
+
+        The discriminator has to come from the source, because it is not in the
+        render. A rendered line whose ENTIRE text is a complete source paragraph
+        cannot be the last line of a longer one, so it is neither a widow nor an
+        orphan. Whitespace is stripped from both sides: pdfplumber yields
+        characters, not words, so the rendered text carries no spaces.
+
+        The obvious PDF-only discriminator does not work and was tried: whether
+        the previous page's last line fills the measure. Text flowing beside a
+        floated definition callout is legitimately narrow, so a mid-paragraph
+        line at a page break can measure 53 percent of the measure. Chapter 1
+        page 12 does exactly that.
+        """
+        if not html_path or not os.path.exists(html_path):
+            return set()
+        src = open(html_path, encoding="utf-8").read()
+        src = src.split('<section id="aiom-sources">')[0]
+        src = re.sub(r"(?s)<svg.*?</svg>", " ", src)
+        src = re.sub(r"(?s)<cite\b[^>]*>.*?</cite>", " ", src)
+        out = set()
+        for m in re.finditer(r"(?s)<p\b[^>]*>(.*?)</p>", src):
+            t = re.sub(r"(?s)<[^>]+>", " ", m.group(1))
+            t = htmlmod.unescape(t)
+            t = re.sub(r"\s+", "", t)
+            if t:
+                out.add(t)
+        return out
+
+    whole = whole_paragraphs(source_html)
+
+    def is_whole_paragraph(row):
+        return "".join(c["text"] for c in row) in whole
+
     # 12. Figures: captioned, numbered in order, each referenced in the text.
     # A caption is a caption-size line that OPENS with the figure label at the
     # left margin. An in-text reference is body size and mid-line. Matching on
@@ -467,7 +512,7 @@ def qa(path, expected_footnotes=None):
         for pg, idxs in by_page.items():
             if len(idxs) < 2:
                 continue
-            if starts_para(idxs[-1]):
+            if starts_para(idxs[-1]) and not is_whole_paragraph(body_rows[idxs[-1]][2]):
                 orphans.append(pg + 1)
             # A widow needs the page's first line to be the LAST line of its
             # paragraph, which means the line after it opens a new paragraph.
@@ -477,7 +522,8 @@ def qa(path, expected_footnotes=None):
             para_ends_here = (nxt >= len(body_rows)
                               or body_rows[nxt][0] != pg
                               or starts_para(nxt))
-            if pg > 0 and ends_para(first) and para_ends_here:
+            if (pg > 0 and ends_para(first) and para_ends_here
+                    and not is_whole_paragraph(body_rows[first][2])):
                 widows.append(pg + 1)
 
     for i, p in enumerate(pdf.pages):
@@ -557,4 +603,4 @@ if __name__ == "__main__":
         sys.exit(2)
     out = a.out or a.html.replace(".html", ".pdf")
     n = build(a.html, out, url_policy=a.url_policy)
-    sys.exit(0 if qa(out, expected_footnotes=n) else 1)
+    sys.exit(0 if qa(out, expected_footnotes=n, source_html=a.html) else 1)
