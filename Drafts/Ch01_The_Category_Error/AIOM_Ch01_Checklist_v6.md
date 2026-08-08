@@ -1912,6 +1912,48 @@ exception is visible in the source instead of living in a check's blind spot. Th
 alternative is to revert to the period-terminated fragments the live text carried
 before round 1.
 
+### RULINGS 2026-08-08, POST ROUND 2
+
+**Q1, the five diagnostic questions in 1.4. RULED A.** They stay third-person
+questions. The five paragraphs carry `class="diagnostic"`, and `voicecheck.py`
+exempts that class from the QUESTION-MARK BAN ONLY; every other prohibition still
+applies to them, including the person check, which they pass. Reasoning: the
+standing rule bans RHETORICAL questions, asked for effect with the answer implied.
+These are literal, introduced as "leaders must be able to answer five questions:".
+The check tested for a question mark outside a discussion block, which is a proxy
+for the rule and not the rule. This NARROWS what the check reads as a violation by
+putting the author's intent in the source; it does not widen what it tolerates.
+Verified three ways: mechanical now passes; a negative control that strips the
+class from one of the five fails again on exactly that line; and the class carries
+no CSS rule, so both renders are 26 pages with every page's extracted text
+identical.
+
+**Q2, the Microsoft passage in the opening case. RULED B, rewrite as a formal
+conditional.** Cut: "Microsoft was not under the same financial pressure as
+Anysphere. It had far more room to absorb the cost of heavy usage, and it used
+that room to give customers notice, build billing tools, and phase in the new
+terms. It did not use that room to preserve the flat-price model indefinitely."
+Two faults. `microsoft-2026-q2` carries one Nadella sentence, 4.7 million paid
+subscribers and 75 percent growth, and nothing else; a comparative claim about two
+firms' financial pressure is sourced on neither side, and Anysphere's position is
+not sourced anywhere in the chapter. And it explained the difference by a firm's
+SITUATION where the paragraph's own opening and closing sentences already carry
+the structural account, which is the C6 failure.
+
+Replaced with, per standing rule 2's second route: "If a provider can fund the gap
+between a flat price and the cost of the resource that price buys, then it
+controls the timing and the form of the correction. That control is what buys
+advance notice, a published schedule, and tooling that shows customers the effect
+before it lands. If a provider cannot fund the gap, the gap sets the timing
+instead." Both branches are structural, neither asserts anything about either
+firm, and no reported fact was lost: the advance notice, the schedule and the
+preview tooling are stated earlier in the same case and are sourced to
+`github-2026-usage`. Paragraph now runs 16, 30, 31, 20, 13, 5, 8 words and closes
+on "It did not make the variable cost disappear."
+
+State after both rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14, the
+same two pagination failures, still 26 pages.
+
 ---
 
 ## Stage 7. Final fact check 2
