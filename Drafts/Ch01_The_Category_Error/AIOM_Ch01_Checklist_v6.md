@@ -2062,7 +2062,34 @@ same way. The check is worth running after EVERY reopen, not just after one that
 touches the affected gate: this reopen did not reset G3, and G3's text was stale
 anyway.
 
-State after the five rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
+**Q6, the two failing gates. RULED B, book the diagnosis and leave gate 8 red.**
+Recorded in `AIOM_Design_QA_Spec_v1.md` as gaps G-J and G-K. Gate 8 is NOT
+relaxed. A red gate that is understood is worth more than a green one that is
+not, and relaxing it here would be the same move as the gates that were claimed
+but never performed before 2026-08-05.
+
+G-J, gate 8. Notes 4 and 6 render pages away from their calls, and the same
+defect leaves pages 11 and 18 about a third empty, which gate 8 does not report.
+Ruled out by experiment, not argument: not pagination luck (four prose
+perturbations moved the text and not the failure), not call position (moving
+either call off its block's last sentence changed nothing), and
+`footnote-policy: line` must stay because removing it adds a third failure. No
+minimal repro exists. Two CSS levers each fix note 6 and neither fixes note 4, so
+both were declined as a book-wide re-run for half a fix.
+
+G-K, gate 14, AND IT IS PARTLY SELF-INFLICTED. One of the two reported widows is
+a phantom created by the Q1 ruling earlier the same day: setting the five
+diagnostic questions as short standalone paragraphs gave gate 14 a one-line
+paragraph at the head of page 14, which it cannot distinguish from a widow. The
+2026-08-06 fix for the same defect keyed on the semibold face of a key-term name
+and cannot help here, because these are ordinary body prose. The widow on page 13
+is real and is Stage 5 work.
+
+I DID NOT ANTICIPATE THIS WHEN RECOMMENDING Q1 OPTION A, and the check would have
+caught it only by running it, which is the argument for running the gates after
+every ruling rather than at the end of a batch.
+
+State after the six rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
 the same two pagination failures, still 26 pages.
 
 ---
