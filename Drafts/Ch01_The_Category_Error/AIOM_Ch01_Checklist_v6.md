@@ -1951,8 +1951,27 @@ preview tooling are stated earlier in the same case and are sourced to
 `github-2026-usage`. Paragraph now runs 16, 30, 31, 20, 13, 5, 8 words and closes
 on "It did not make the variable cost disappear."
 
-State after both rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14, the
-same two pagination failures, still 26 pages.
+**Q3, P1's title against a problem that is no longer a memo. RULED A, retitle.**
+The round-1 return replaced P1's problem and model answer but kept the title "The
+CIO memo", so the slot named a memo that no longer existed anywhere in it. P1 is
+now "Five hundred seats, one meter" and its model label is "Model answer" rather
+than "Model reply". No prose was rewritten. Also fixed a numeral the round-1 style
+sweep missed inside P1's model answer, "purchases 500 licenses" against "five
+hundred employees" in the same sentence; a scan confirms no bare three-digit
+numeral remains in prose outside the arithmetic.
+
+**A KNOWN, RULED DIVERGENCE FROM THE SPEC, recorded so it does not read as an
+oversight later.** `AIOM_Consolidated_Spec_v1.md` slot 6 assigns P1 as "(P1,
+worked) model CIO memo reply per assessment 1, with annotated reasoning". Chapter 1
+no longer carries a memo. Option C was to amend the spec; Dan ruled A instead, so
+the spec is deliberately left as written and the chapter deliberately diverges. The
+cost, stated at the time and accepted: the memo was the only VOICED artifact in the
+chapter's problem set, and it was the only place a reader argued the case TO a
+skeptic rather than explaining it. Revisit when the Chapter 4 review of Decision 24
+looks at problem-set design.
+
+State after the three rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
+the same two pagination failures, still 26 pages.
 
 ---
 
