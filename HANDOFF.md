@@ -11,27 +11,40 @@ Active working branch: `claude/stage-6-craft-section-r1q9tj`, new on 2026-08-08 
 replacing `claude/textbook-opening-rewrite-ac7yst`. Working tree clean and pushed
 to origin.
 
-**`main` was fast-forwarded to this branch at the end of the session, on Dan's
-ruling.** The merge was a clean fast-forward: `main` carried no commits of its own,
-so there was nothing to reconcile. A specific SHA is deliberately not recorded
-here, because it goes stale on the next commit and a handoff that lies about sync
-state is worse than none. Check it instead, with the commands below.
+**`main` was fast-forwarded to this branch at the end of the 2026-08-08 session,
+on Dan's ruling**, as it was at the end of the session before it. Each merge has
+been a clean fast-forward, because `main` carries no commits of its own. A specific
+SHA is deliberately not recorded here: it goes stale on the next commit, and a
+handoff that lies about sync state is worse than none. Check it instead.
 
 Verify state any time with:
 
 ```
 git status                                              # working tree
 git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
-python3 status_check.py                                 # authoritative status
+python3 status_check.py                                 # authoritative status, but see below
 ```
 
-The 2026-08-06 evening session, in full: the opening case and two teaching
+**THE 2026-08-08 SESSION, IN FULL.** Dan returned the Stage 6 copy edit. It changed
+59 of 155 blocks and grew body prose 25 percent, so it is a re-voicing rather than a
+copy edit, and Dan ruled it the new live text while keeping the chapter in Stage 6
+for further rounds. `copyedit_import.py` could not land it, refusing 162 spans, so
+it was applied by span substitution against the manifest
+(`08_Stage6_Copy_Edit/apply_round1.py`, guarded so it cannot run twice). Two
+standing-rule collisions were ruled: the theorem panel keeps its Decision 56 form
+and its four registry antecedents, and the five diagnostic questions in 1.4 are set
+as five short paragraphs rather than a new list class. Then `BLOCK_RE` was fixed,
+`copyedit_import.py` was taught to refuse edits to registry-bound blocks, and the
+round-2 proof was exported and verified.
+
+**The 2026-08-06 evening session, for context.** The opening case and two teaching
 passages were rewritten at Dan's direction and handed back in chat rather than
-applied, so the live text does not carry them yet. The theorem statement form was
-ruled (Decision 56) and applied to THM-009. Chapter 1 was reopened at Stage 5
-three times and re-passed each time. The superseded fork was deleted. Stage 5 and
-G2 were re-run in full, raising five findings that no gate saw; Dan ruled DR2 and
-DR3, which became Decision 57 and took CSS to v6.9.
+applied. Those chat rewrites are now MOOT: the round-1 copy edit rewrote the same
+passages and is in the live text, so do not go looking for them. The theorem
+statement form was ruled (Decision 56) and applied to THM-009. Chapter 1 was
+reopened at Stage 5 three times and re-passed each time. The superseded fork was
+deleted. Stage 5 and G2 were re-run in full, raising five findings that no gate saw;
+Dan ruled DR2 and DR3, which became Decision 57 and took CSS to v6.9.
 
 **One error worth carrying, because the guard against it already existed and was
 not used.** Decision 56 was first applied to
@@ -56,12 +69,17 @@ fourteen-gate suite), `AIOM_build.py` (fourteen gates plus a toolchain
 preflight), `place.py`, `cite_format.py`, `footnotes.py`, and pinned
 `requirements.txt`.
 
-**Stage 6 round trip (new 2026-08-06).** `copyedit_export.py` turns the chapter
-HTML into a copy-editing `.docx` plus a manifest recording every block's span in
-the source; `copyedit_import.py` maps the returned file back, applying only what
-it can place unambiguously inside a block's own span and refusing the rest. The
-`.docx` is a proof, never a second live text: Decision 50 still holds. The source
-register is excluded from the export by design.
+**Stage 6 round trip (new 2026-08-06, extended 2026-08-08).**
+`copyedit_export.py` turns the chapter HTML into a copy-editing `.docx` plus a
+manifest recording every block's span in the source; `copyedit_import.py` maps the
+returned file back, applying only what it can place unambiguously inside a block's
+own span and refusing the rest. The `.docx` is a proof, never a second live text:
+Decision 50 still holds. The source register is excluded from the export by design.
+Since 2026-08-08 the exporter also carries `<li>`, so a theorem panel travels as
+labelled THEOREM SCOPE, THEOREM ANTECEDENT and THEOREM CONSEQUENT blocks marked
+`registry verbatim, do not edit`, and the importer REFUSES any edit to them.
+`08_Stage6_Copy_Edit/apply_round1.py` is a third, one-shot pass, kept as the record
+of how the round-1 return was applied when the importer could not land it.
 
 **Process tooling.** `status_check.py` (lifecycle status, authoritative),
 `gen_checklists.py`, `voicecheck.py` (mechanical bans plus per-section craft
@@ -101,31 +119,27 @@ and 14. Both are pagination consequences of 20 pages becoming 26, NOT defects in
 apply pass: the pre-edit text was rebuilt from git in the same session and passes all
 fourteen. Left unfixed on purpose, because further rounds will repaginate again.
 
-## Superseded: Chapter 1 status as of 2026-08-06
-
-Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day, then
-reopened at Stage 5 three times on 2026-08-06 and re-passed each time. Passed:
-Stage 0, G1, Stage 1, Stage 2, all 2026-08-05; Stages 3 and 4 on 2026-08-06, both
-untouched by every Stage 5 reopen; Stage 5 and G2 re-passed 2026-08-06 against CSS
-v6.9. `status_check.py` reports 8/13, STATUS CONSISTENT. The chapter is now 20
-pages, up from 19, and ALL FOURTEEN GATES PASS. Every step Claude owns before lock
-is done.
+## Still true from before the copy edit
 
 **The live text is
 `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`.** It is
-now the only chapter HTML for Chapter 1 outside clearly-superseded early stage
-folders. Check this path before editing, every time.
+the only chapter HTML for Chapter 1 outside clearly-superseded early stage folders.
+Check this path before editing, every time.
 
-**Prose rewritten in chat and NOT yet applied.** Dan asked for rewrites of the
-opening case paragraphs 1, 2, 3, and 5, and of the unit-choice passage in 1.2. All
-were delivered in conversation for Dan to edit in himself. None is in the live
-text. If they land, they are body-prose edits and re-run Stage 2, Stage 3, Stage
-4, Stage 5, and G2 per the scoped re-run matrix.
+**Chapter 1's history to the copy edit.** Reopened at Stage 0 on 2026-08-05
+(Decision 53) and re-drafted the same day, then reopened at Stage 5 three times on
+2026-08-06 and re-passed each time. Passed: Stage 0, G1, Stage 1, Stage 2, all
+2026-08-05; Stages 3 and 4 on 2026-08-06; Stage 5 and G2 re-passed 2026-08-06
+against CSS v6.9, on a 20-page render with all fourteen gates green. Every one of
+those passes now predates the round-1 copy edit, which is why the section above says
+the 8 of 13 is stale.
 
-**Decision 56, theorem statement form, is applied.** THM-009 is set as a
-structured conditional: scope boundary first, four antecedents enumerated in
-lower-case roman, consequent on its own line. Panel is on page 7 and holds full
-measure.
+**Decision 56, theorem statement form, is applied and survived the copy edit.**
+THM-009 is set as a structured conditional: scope boundary first, four antecedents
+enumerated in lower-case roman, consequent on its own line. The round-1 return
+rebuilt it from an older paraphrase and dropped one registry antecedent; Dan ruled
+the Decision 56 panel and the registry antecedents kept. Page number has moved with
+the repagination.
 
 **Decision 57 closed all five Stage 5 findings.** DR1 (craft head group stranded
 at the foot of page 12) and DR5 (Figure 1.1 using `--amber` instead of
@@ -133,10 +147,11 @@ at the foot of page 12) and DR5 (Figure 1.1 using `--amber` instead of
 paragraphs ran flush) and DR3 (`table.inv` breaking, spilling one row onto a blank
 final page) were ruled by Dan and applied. DR4, hyphenation at three consecutive
 hyphenated line ends on four pages, is at Chicago's limit and took no action.
-DR3a is an accepted cost: holding the table whole leaves page 19 short, and
+DR3a is an accepted cost: holding the table whole leaves a short page, and
 `break-before: avoid` was tried and rejected because WeasyPrint binds it to the
 preceding line box rather than the preceding block, splitting a paragraph across
-the spread.
+the spread. All five were found on the pre-copy-edit pagination and the design
+review owes a fresh read on 26 pages.
 
 ## Open threads, in priority order
 
@@ -180,31 +195,28 @@ the spread.
 
 2. **Chapter 1 Stages 7 and 8. DAN'S STEPS.**
 
-   Copy edit, final fact check 2, and the final read. Everything Claude owns
-   before lock is done: the chapter is 20 pages, all fourteen gates pass, and both
-   manual production checks were performed at 150dpi. The G2 render is committed
-   at `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf` and
-   is the v6.9 render, 20 pages.
+   They come AFTER the copy-edit rounds close and after the re-runs those rounds
+   owe. Do not start Stage 7 against text that is still moving.
 
-   **How stale the round-1 proof actually was, measured rather than assumed:** ONE
-   block, the theorem. Decision 57 was a CSS change and moved no block text. The
-   2026-08-06 warning here said it predated "every Decision 57 change", which
-   overstated it. Measure staleness by diffing manifest block text against a fresh
-   `copyedit_export.extract()`, not by listing decisions since the export.
+   **The G2 render committed at
+   `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf` is the
+   20-page v6.9 render and is now HISTORICAL.** It is the render the design review
+   and the production gate passed, and the chapter is 26 pages. Do not read it as
+   the current state.
 
-   **The Stage 6 proof was issued 2026-08-06** as
-   `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit.docx`, with its manifest beside it. When
-   the edited file comes back, import it with
-   `python3 copyedit_import.py <edited>.docx <manifest>.json <chapter>.html`,
-   read the report, then re-run with `--apply`. It refuses anything it cannot
-   place unambiguously; apply those by hand rather than loosening the tool. Then
-   rebuild and re-run the gates, because a copy edit repaginates.
+   **Measure proof staleness, do not assume it.** The round-1 proof was described
+   here as predating "every Decision 57 change". Measured, it was stale by ONE
+   block, the theorem: Decision 57 was a CSS change and moved no block text. Diff
+   manifest block text against a fresh `copyedit_export.extract()` rather than
+   listing decisions since the export.
 
-   **Before using the pair on any LATER chapter, round-trip the UNEDITED export
-   and require zero reported changes.** That check found both bugs in the pair
-   while it was being built, and neither was visible any other way.
+   **Before using the export and import pair on any LATER chapter, round-trip the
+   UNEDITED export and require zero reported changes.** It has now caught four
+   bugs across three sessions, and not one of them was visible any other way. On
+   2026-08-08 it caught an importer bug that would have silently deleted the "(a) "
+   "(b) " "(c) " openers from three paragraphs of Chapter 1's P2.
 
-   Two things to carry into those steps. Stage 7 is a source check and NO SOURCE
+   Two things to carry into these steps. Stage 7 is a source check and NO SOURCE
    HOST IS REACHABLE from a Claude session, so it is structurally external. And
    Stage 4 passed without its second-model gut-check, so if that read is ever run
    and disagrees, it enters as NC7 and reopens Stage 4.
