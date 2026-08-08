@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-08 (second entry). Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-08 (third entry, session close). Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
@@ -35,7 +35,10 @@ standing-rule collisions were ruled: the theorem panel keeps its Decision 56 for
 and its four registry antecedents, and the five diagnostic questions in 1.4 are set
 as five short paragraphs rather than a new list class. Then `BLOCK_RE` was fixed,
 `copyedit_import.py` was taught to refuse edits to registry-bound blocks, and the
-round-2 proof was exported and verified.
+round-2 proof was exported and verified. Rounds 2 and 3 came back and were applied,
+six rulings Q1 to Q6 were made and applied, the chapter was reopened at Stage 2,
+CSS went to v7.0, and Chapter 1 finished the day at 25 pages with ALL FOURTEEN
+GATES PASSING and a clean `voicecheck.py`.
 
 **The 2026-08-06 evening session, for context.** The opening case and two teaching
 passages were rewritten at Dan's direction and handed back in chat rather than
@@ -63,8 +66,9 @@ Competencies, Maturity Model, Case Bank (now carrying CASE 4.6 and CASE 6.4),
 Northmoor Dataset design, Workplan v5, Validation Matrix, and
 `AIOM_Voice_and_Craft_v1.md` (new 2026-08-05, at v1.1).
 
-**Build and design.** `AIOM_book.css` v6.9 plus the audit-only rule,
-`AIOM_DESIGN_SPEC` v6.9, `AIOM_Design_QA_Spec` (updated 2026-08-05 to the
+**Build and design.** `AIOM_book.css` v7.0 plus the audit-only rule
+(`AIOM_DESIGN_SPEC` is still written to v6.9 and OWES a v7.0 update: the CSS moved
+on 2026-08-08 and the design spec has not caught up), `AIOM_Design_QA_Spec` (updated 2026-08-05 to the
 fourteen-gate suite), `AIOM_build.py` (fourteen gates plus a toolchain
 preflight), `place.py`, `cite_format.py`, `footnotes.py`, and pinned
 `requirements.txt`.
@@ -91,33 +95,56 @@ one-time, already run).
 `Northmoor/`, Chapter 1 artifacts under `Drafts/Ch01_The_Category_Error/`, and
 `archive/` for superseded files.
 
-## Chapter 1 status: Stage 6, round 1 applied. The 8 of 13 is now STALE.
+## Chapter 1 status: 3 of 13, reopened at Stage 2, ALL FOURTEEN GATES PASS
 
-`status_check.py` still reports 8 of 13, STATUS CONSISTENT, and that number now
-OVERSTATES the chapter. Dan's Stage 6 round-1 return, applied 2026-08-08, changed
-59 of 155 blocks and grew body prose 25 percent, so the passes at Stage 3, 4, 5 and
-G2 were made against prose that no longer exists. Under the scoped re-run matrix a
-body-prose change re-runs Stage 2, 3, 4, 5 and G2. `reopen.py --from "Stage 2"` is
-OWED once the copy-edit rounds finish. It has deliberately not been run yet, because
-Dan ruled that Chapter 1 stays in Stage 6 for further rounds and the reopen is his
-call on timing. Until it runs, do not read 8 of 13 as the state of the chapter.
+`status_check.py` reports 3 of 13, STATUS CONSISTENT, and that number is honest.
+It is LOW because the chapter was reopened at Stage 2 on 2026-08-08, not because
+the chapter is in poor shape: it is 25 pages, all fourteen gates pass, and
+`voicecheck.py` mechanical passes. Stage 2 is the next step and it is Claude's.
 
-**Round 1 was a re-voicing, not a copy edit, and Dan ruled it the new draft.** The
-esoteric register and the long periodic sentences are gone. Body words 5,241 to
-6,526, paragraphs 63 to 129, mean sentence 18.3 to 14.9, sentences of 35 words or
-more 19 to 3, rendered chapter 20 pages to 26. Sentence-length variance FELL,
-stdev 10.5 to 6.9: the long tail is gone, which was the point, but the prose now
-clusters at 12 to 18 words and a long run at one length is the other half of what
-C4 prohibits. Round 2 should widen range, not shorten further.
+**Three copy-edit rounds happened on 2026-08-08 and the chapter is much better
+for them.** Round 1 was a re-voicing rather than a copy edit, 59 of 155 blocks,
+and Dan ruled it the new live text. Rounds 2 and 3 were real copy edits, the last
+at 13 blocks and 34 spans with zero refusals. The esoteric register and the long
+periodic sentences are gone.
 
-Full record, including the 34-item round-trip diff and every correction made while
-applying, is under Stage 6 in `AIOM_Ch01_Checklist_v6.md`.
+Body prose across the rounds: words 5,241 to about 6,500, paragraphs 63 to 129,
+mean sentence 18.3 to about 15, sentences of 35 words or more 19 to 3. Sentence
+length VARIANCE FELL, stdev 10.5 to about 6.9. The long tail is gone, which was
+the point, but the prose now clusters at 12 to 18 words, and a long run at one
+length is the other half of what C4 prohibits. Any further round should widen
+range rather than shorten. Stage 4 will have to rule on this when it re-runs.
 
-Gates after the round: 12 of 14. `voicecheck.py` mechanical PASSES. Gate 8 reports
-footnotes 4 and 6 off their calling pages and gate 14 reports two widows on pages 13
-and 14. Both are pagination consequences of 20 pages becoming 26, NOT defects in the
-apply pass: the pre-edit text was rebuilt from git in the same session and passes all
-fourteen. Left unfixed on purpose, because further rounds will repaginate again.
+**The reopen was ruled deliberately and the copy edit is not closed by it.**
+Stage 6 sits after every step the reopen reset, so another round may be taken at
+any time. Nothing is waiting on Claude except Stage 2.
+
+Six rulings were made and applied on 2026-08-08, all recorded under Stage 6 in
+`AIOM_Ch01_Checklist_v6.md` with their reasoning and their verification:
+
+  Q1  the five diagnostic questions in 1.4 stay as third-person questions,
+      marked `p.diagnostic` and exempted from the question-mark ban only
+  Q2  the unsourced Microsoft comparison became a formal conditional
+  Q3  P1 retitled "Five hundred seats, one meter"; the spec still says CIO memo
+      and that divergence is deliberate
+  Q4  the book converted to typographic quotes, `typographic_quotes.py` added
+  Q5  reopen at Stage 2
+  Q6  the two failing gates, FIRST RULED to be booked and left red, then
+      REVERSED the same day when Dan asked whether they could be fixed. They
+      could. See below.
+
+**CSS is at v7.0.** `p { widows: 2; orphans: 3 }`, plus `.dated p + p` and
+`.summary p + p` at 6pt. The design system is no longer locked at v6.9 and every
+chapter inherits this. **`AIOM_DESIGN_SPEC` still says v6.9 and owes a v7.0
+update.** `AIOM_Design_QA_Spec_v1.md` IS current: G-J rewritten and G-K closed.
+
+**Gate 8's underlying WeasyPrint behaviour is NOT fixed and is not understood.**
+The widows setting is good typography on its own merits and was ruled on that
+basis; clearing gate 8 was a side effect of repagination. It must NOT be expected
+to repeat on Chapters 2 to 15. If gate 8 fails on a later chapter, gap G-J is
+where the diagnosis starts, and it records what has already been ruled out:
+`footnote-policy: line` is load-bearing, `footnote-policy: block` does nothing,
+call position is irrelevant, and there is no minimal repro.
 
 ## Still true from before the copy edit
 
@@ -131,8 +158,8 @@ Check this path before editing, every time.
 2026-08-06 and re-passed each time. Passed: Stage 0, G1, Stage 1, Stage 2, all
 2026-08-05; Stages 3 and 4 on 2026-08-06; Stage 5 and G2 re-passed 2026-08-06
 against CSS v6.9, on a 20-page render with all fourteen gates green. Every one of
-those passes now predates the round-1 copy edit, which is why the section above says
-the 8 of 13 is stale.
+those passes now predates the copy edit, which is why the chapter was reopened at
+Stage 2 and why `status_check.py` reads 3 of 13.
 
 **Decision 56, theorem statement form, is applied and survived the copy edit.**
 THM-009 is set as a structured conditional: scope boundary first, four antecedents
@@ -150,70 +177,54 @@ hyphenated line ends on four pages, is at Chicago's limit and took no action.
 DR3a is an accepted cost: holding the table whole leaves a short page, and
 `break-before: avoid` was tried and rejected because WeasyPrint binds it to the
 preceding line box rather than the preceding block, splitting a paragraph across
-the spread. All five were found on the pre-copy-edit pagination and the design
-review owes a fresh read on 26 pages.
+the spread. All five were found on the pre-copy-edit pagination. DR2's ruling
+was EXTENDED on 2026-08-08 to `.dated p + p` and `.summary p + p`, which the copy
+edit split into several paragraphs each and which then set them flush for exactly
+the reason DR2 identified in `.model`. That was found by READING THE PAGE, not by a
+gate: no gate measures paragraph separation inside a block. Stage 5 still owes a
+fresh read when it re-runs, now on 25 pages.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 6. ROUND 2 IS RETURNED AND APPLIED. ONE RULING IS OPEN.**
+1. **Chapter 1 Stage 2, the developmental edit. CLAUDE'S, AND IT IS NEXT.**
 
-   The open ruling, and the only thing standing between the chapter and a clean
-   `voicecheck.py`: the five diagnostic questions in 1.4 came back as THIRD-PERSON
-   QUESTIONS. The person breach is cleared and that check passes. The question-mark
-   ban still fails, 5 hits. The prose has NOT been changed to make the check pass
-   and the check has NOT been loosened. Recommended: a semantic class
-   `p.diagnostic` carrying NO CSS rules, exempted in `voicecheck.py` from the
-   question ban only, so rendering does not change and no design re-run is
-   triggered. Alternative: revert to period-terminated fragments. Dan rules.
+   Nothing blocks it. The chapter is 25 pages with all fourteen gates green and a
+   clean `voicecheck.py`. Stage 2 interrogates clarity, pacing, cognitive load,
+   example fitness, transitions, and whether the argument carries the target
+   reader without a stall. Dan gut-checks with a second model. After it: Stage 3
+   (Dan, external, two checks on different prompts), Stage 4, Stage 5, G2.
 
-   **Round 2 was a real copy edit**, unlike round 1: 13 blocks, 34 spans, zero
-   refusals, no splits, and `copyedit_import.py` applied it and wrote the file.
-   Gates unchanged at 12 of 14, still 26 pages. Full record under Stage 6 in the
-   checklist.
+   Carry into Stage 4: the rhythm finding above. Round 1 removed the long tail
+   and also removed range. The advisory metric to watch is the longest uniform
+   run, which `voicecheck.py` prints.
 
-   **A THIRD EXPORTER BUG, and the one with the widest lesson.** `strip()` replaced
-   every tag with a space, so `<b>access price</b>.` reached the proof as
-   `access price .` Three blocks were affected. Emphasis tags are now removed
-   rather than spaced. THE UNEDITED ROUND TRIP CANNOT SEE THIS CLASS OF BUG: the
-   artifact is symmetric, so export and import agree with each other and both
-   differ from the page. The round trip proves the pair is self-consistent, not
-   that it reads the page correctly. When a new inline construct appears, compare
-   extracted text against the RENDERED text as well.
-
-   Superseded by the above, kept for the path: the round-2 proof was issued as
-   `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round2.docx` and came back as
-   `AIOM_Ch1_CopyEdit_round2_returned.docx`.
-
-   **All three items owed after round 1 are done.** `copyedit_export.py` `BLOCK_RE`
-   now matches `li`, so THM-009's four antecedents are in a proof for the first
-   time, labelled `registry verbatim, do not edit` with the `<span class="mk">`
-   marker held outside the editable span. `copyedit_import.py` now REFUSES an edit
-   to any registry-bound block. The proof is re-exported from the rebuilt HTML.
-
-   **The unedited round trip earned its keep again, twice.** It caught the
-   antecedent marker `(i)` truncating its own note at the first bracket, and it
-   caught a PRE-EXISTING importer bug: `read_docx` read a leading `(...)` on any
-   tag line as the sources group, so the three P2 paragraphs that round 1
-   introduced opening `(a) `, `(b) `, `(c) ` would have had those markers silently
-   deleted on import. No gate sees that: the HTML stays well formed and is merely
-   wrong. Never issue a proof without running the check.
+   **A further copy-edit round is still available** and does not conflict with
+   any of this. The round-3 manifest is stale by several blocks after rulings Q2
+   to Q4 and the v7.0 repagination, so a new round means a fresh export.
 
    **`copyedit_import.py` still drops untagged continuation paragraphs**, so a
-   split paragraph loses everything after its first line. Round 1 was applied by
-   `08_Stage6_Copy_Edit/apply_round1.py`, which keeps them. If round 2 comes back
-   with splits, the importer will report them as deletions. Not yet fixed.
+   split paragraph loses everything after its first line. Rounds 2 and 3 carried
+   no splits so it did not bite, but round 1 did and had to be applied by
+   `08_Stage6_Copy_Edit/apply_round1.py` instead. Unfixed.
 
-   Open for Dan, carried from round 1: the P1 title says "The CIO memo" but the
-   problem and model answer are no longer a memo; the "Microsoft was not under the
-   same financial pressure as Anysphere" passage asserts a comparison the register
-   does not carry and explains structure by a firm's situation (C6); the
-   straight-versus-curly apostrophe convention is owed a book-wide ruling; and the
-   four-word sentence added to restore "meter relocation" to the prose that teaches
-   it needs confirming.
+   **THREE EXPORTER AND IMPORTER BUGS WERE FIXED on 2026-08-08 and the third
+   carries the widest lesson.** `BLOCK_RE` did not match `li`, so THM-009's four
+   antecedents had never appeared in any proof, which is why the round-1 return
+   rebuilt the theorem from a paraphrase and dropped a registry antecedent. The
+   importer read a leading `(...)` on ANY tag line as the sources group, so the
+   `(a) `, `(b) `, `(c) ` openers round 1 introduced in P2 would have been
+   silently deleted. And `strip()` replaced every tag with a space, so
+   `<b>access price</b>.` reached the proof as `access price .`
 
-   What round 2 is for: round 1 cut the long-sentence tail, and also cut variance,
-   stdev 10.5 to 6.9. The prose now sits at 12 to 18 words. Widen range, do not
-   shorten further.
+   THE UNEDITED ROUND TRIP CANNOT SEE THE THIRD KIND. The artifact is symmetric:
+   export and import agree with each other and both differ from the page. The
+   round trip proves the pair is self-consistent, not that it reads the page
+   correctly. When a new inline construct appears, compare extracted text against
+   the RENDERED text as well.
+
+   The importer now REFUSES any edit to a registry-bound block (theorem scope,
+   antecedents, consequent, statement), which travel labelled
+   `registry verbatim, do not edit`.
 
 2. **Chapter 1 Stages 7 and 8. DAN'S STEPS.**
 
@@ -223,8 +234,8 @@ review owes a fresh read on 26 pages.
    **The G2 render committed at
    `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf` is the
    20-page v6.9 render and is now HISTORICAL.** It is the render the design review
-   and the production gate passed, and the chapter is 26 pages. Do not read it as
-   the current state.
+   and the production gate passed, and the chapter is 25 pages against CSS v7.0.
+   Do not read it as the current state.
 
    **Measure proof staleness, do not assume it.** The round-1 proof was described
    here as predating "every Decision 57 change". Measured, it was stale by ONE
@@ -315,6 +326,28 @@ review owes a fresh read on 26 pages.
   broke. Fix with `ln -sfn "$PWD/AIOM_book.css" <stage dir>/` and the same for
   `fonts`, then delete them before committing. CLAUDE.md section 5 shows the build
   command against `chapters/AIOM_ch01.html`; that directory does not exist.
+
+- **A green gate suite is not a read page, and 2026-08-08 proved it again.** With
+  all fourteen gates passing, reading the pages found the chapter summary and a
+  dated evidence box setting their paragraphs completely flush. No gate measures
+  paragraph separation inside a block. Gaps G-I and G-II already say a chapter
+  whose pagination moves must be READ; the sharper version is that the read finds
+  things the gates were never built to see, so do it after every pagination move,
+  not only when a gap warns you.
+
+- **When a check and the prose disagree, fix whichever is actually wrong, and say
+  which.** On 2026-08-08 gate 14 reported two widows: one real, one a phantom the
+  check could not distinguish from a one-line paragraph. The prose was right and
+  the check was wrong, so the check was given the source HTML rather than the
+  prose being bent. The opposite call was made on the question-mark ban the same
+  day: the rule was right in general, so the exception was made explicit in the
+  source with `p.diagnostic` rather than the ban being loosened.
+
+- **Do not conclude "structural" from one lever.** Gate 8's footnote failures were
+  booked as an unfixable renderer defect after four prose perturbations failed to
+  move them. Prose length was simply the wrong lever; `widows` and `orphans` moved
+  them immediately. The booked entry G-J had to be rewritten the same day. Before
+  recording something as impossible, name the levers not yet tried.
 
 - No em dashes anywhere, including commit messages. A build gate enforces it.
 - The craft standard binds at Stage 0, at drafting time, not at Stage 4. Craft
