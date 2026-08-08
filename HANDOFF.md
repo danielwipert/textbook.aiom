@@ -1,15 +1,15 @@
 # Session handoff
 
-Last updated: 2026-08-06 (second entry, evening). Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-08. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/textbook-opening-rewrite-ac7yst`, new on 2026-08-06
-and replacing `claude/chapter-1-progress-fq0brc`. Working tree clean and pushed to
-origin.
+Active working branch: `claude/stage-6-craft-section-r1q9tj`, new on 2026-08-08 and
+replacing `claude/textbook-opening-rewrite-ac7yst`. Working tree clean and pushed
+to origin.
 
 **`main` was fast-forwarded to this branch at the end of the session, on Dan's
 ruling.** The merge was a clean fast-forward: `main` carried no commits of its own,
@@ -73,7 +73,35 @@ one-time, already run).
 `Northmoor/`, Chapter 1 artifacts under `Drafts/Ch01_The_Category_Error/`, and
 `archive/` for superseded files.
 
-## Chapter 1 status: 8 of 13, through G2
+## Chapter 1 status: Stage 6, round 1 applied. The 8 of 13 is now STALE.
+
+`status_check.py` still reports 8 of 13, STATUS CONSISTENT, and that number now
+OVERSTATES the chapter. Dan's Stage 6 round-1 return, applied 2026-08-08, changed
+59 of 155 blocks and grew body prose 25 percent, so the passes at Stage 3, 4, 5 and
+G2 were made against prose that no longer exists. Under the scoped re-run matrix a
+body-prose change re-runs Stage 2, 3, 4, 5 and G2. `reopen.py --from "Stage 2"` is
+OWED once the copy-edit rounds finish. It has deliberately not been run yet, because
+Dan ruled that Chapter 1 stays in Stage 6 for further rounds and the reopen is his
+call on timing. Until it runs, do not read 8 of 13 as the state of the chapter.
+
+**Round 1 was a re-voicing, not a copy edit, and Dan ruled it the new draft.** The
+esoteric register and the long periodic sentences are gone. Body words 5,241 to
+6,526, paragraphs 63 to 129, mean sentence 18.3 to 14.9, sentences of 35 words or
+more 19 to 3, rendered chapter 20 pages to 26. Sentence-length variance FELL,
+stdev 10.5 to 6.9: the long tail is gone, which was the point, but the prose now
+clusters at 12 to 18 words and a long run at one length is the other half of what
+C4 prohibits. Round 2 should widen range, not shorten further.
+
+Full record, including the 34-item round-trip diff and every correction made while
+applying, is under Stage 6 in `AIOM_Ch01_Checklist_v6.md`.
+
+Gates after the round: 12 of 14. `voicecheck.py` mechanical PASSES. Gate 8 reports
+footnotes 4 and 6 off their calling pages and gate 14 reports two widows on pages 13
+and 14. Both are pagination consequences of 20 pages becoming 26, NOT defects in the
+apply pass: the pre-edit text was rebuilt from git in the same session and passes all
+fourteen. Left unfixed on purpose, because further rounds will repaginate again.
+
+## Superseded: Chapter 1 status as of 2026-08-06
 
 Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day, then
 reopened at Stage 5 three times on 2026-08-06 and re-passed each time. Passed:
@@ -112,7 +140,34 @@ the spread.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stages 6, 7, and 8. DAN'S STEPS. Stage 6 is with Dan now.**
+1. **Chapter 1 Stage 6, round 2. Three things are owed before the next proof.**
+
+   **(a) Fix `copyedit_export.py` `BLOCK_RE`, which does not match `<li>`.** It
+   matches `p|h1|h2|h3|figcaption|td|th|span`. THM-009's four antecedents are `<li>`
+   elements, so they were NEVER in the round-1 proof. Dan was editing the older
+   running-prose paraphrase of the theorem, could not see the structured panel, and
+   rebuilt an IF/THEN form from the paraphrase, which is why one registry antecedent
+   was dropped and one added. Ruled 2026-08-08: keep the Decision 56 panel and the
+   registry antecedents, move the return's gloss to prose after the panel. The tool
+   defect is UNFIXED and hits all fifteen chapters: the most rule-bound prose in the
+   book is invisible to Stage 6. Awaiting Dan's word on the fix.
+
+   **(b) `copyedit_import.py` `read_docx` drops untagged paragraphs**, so the 68
+   continuation paragraphs a split produces are discarded. The proof's own front
+   matter tells the editor splitting is detected. It is not. `apply_round1.py` keeps
+   them; the importer still does not.
+
+   **(c) Re-export the proof from the rebuilt HTML.** The round-1 manifest is now
+   stale by 148 blocks. `apply_round1.py` refuses on a guard rather than rewriting
+   against stale offsets, but the importer has no such guard.
+
+   Open for Dan, carried into round 2: the P1 title says "The CIO memo" but the
+   problem and model answer are no longer a memo; the "Microsoft was not under the
+   same financial pressure as Anysphere" passage asserts a comparison the register
+   does not carry and explains structure by a firm's situation (C6); and the
+   straight-versus-curly apostrophe convention is owed a book-wide ruling.
+
+2. **Chapter 1 Stages 7 and 8. DAN'S STEPS.**
 
    Copy edit, final fact check 2, and the final read. Everything Claude owns
    before lock is done: the chapter is 20 pages, all fourteen gates pass, and both
@@ -120,14 +175,11 @@ the spread.
    at `Drafts/Ch01_The_Category_Error/07_G2_Production_Gate/AIOM_Ch1_G2.pdf` and
    is the v6.9 render, 20 pages.
 
-   **The Stage 6 proof on disk is STALE.** `AIOM_Ch1_CopyEdit.docx` was exported
-   2026-08-06 from the pre-Decision-56 text. It predates the theorem panel re-set
-   and every Decision 57 change. Re-export before Dan starts Stage 6, or the
-   import will refuse most of the file.
-
-   **Decide the pending prose rewrites BEFORE Stage 6, not during it.** Five
-   passages were rewritten in chat this session and never applied. A copy edit run
-   against text that is about to change is wasted work.
+   **How stale the round-1 proof actually was, measured rather than assumed:** ONE
+   block, the theorem. Decision 57 was a CSS change and moved no block text. The
+   2026-08-06 warning here said it predated "every Decision 57 change", which
+   overstated it. Measure staleness by diffing manifest block text against a fresh
+   `copyedit_export.extract()`, not by listing decisions since the export.
 
    **The Stage 6 proof was issued 2026-08-06** as
    `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit.docx`, with its manifest beside it. When
@@ -182,7 +234,7 @@ the spread.
    unit, a chapter whose pagination moves must have its SLOT OPENINGS read, not
    merely gated.
 
-2. **Remaining process hardening** (Dan approved, still to build):
+3. **Remaining process hardening** (Dan approved, still to build):
    - `status_check.py` should verify that CLAUDE.md section 10 and the Workplan
      tracker agree with the checklist table. Those three have now been
      hand-mirrored across several sessions; the check would catch drift
@@ -197,17 +249,27 @@ the spread.
    - Gate 4 still keys on `--tint-def` and does not guard the theorem callout,
      though gate 11 now checks the panel directly.
 
-3. **Chapter 2 (The Flow)** once the Chapter 1 re-draft has settled the craft
+4. **Chapter 2 (The Flow)** once the Chapter 1 re-draft has settled the craft
    standard in practice. Chapter 2 is the first chapter drafted under the
    standard from the start, so its Stage 0 acknowledgment box is a live
    requirement rather than a retrospective one.
 
-4. **Decision 28**, Northmoor properties G, H, I. Gates the Ch9, Ch12, and Ch13
+5. **Decision 28**, Northmoor properties G, H, I. Gates the Ch9, Ch12, and Ch13
    problem sets only.
 
 ## Standing reminders
 
 **Rules that bite.**
+
+- **Building a chapter that lives under `Drafts/` needs `AIOM_book.css` and
+  `fonts/` symlinked beside it.** `AIOM_build.py` sets WeasyPrint's `base_url` to
+  the HTML file's own directory, and the CSS is committed only at the repo root, so
+  a fresh container renders the chapter with DejaVu fallbacks and reports nonsense:
+  no folios, no key-term bands, no theorem panel, gates 5, 7, 12 and 13 all failing
+  at once. That signature means the stylesheet did not load, not that the chapter
+  broke. Fix with `ln -sfn "$PWD/AIOM_book.css" <stage dir>/` and the same for
+  `fonts`, then delete them before committing. CLAUDE.md section 5 shows the build
+  command against `chapters/AIOM_ch01.html`; that directory does not exist.
 
 - No em dashes anywhere, including commit messages. A build gate enforces it.
 - The craft standard binds at Stage 0, at drafting time, not at Stage 4. Craft

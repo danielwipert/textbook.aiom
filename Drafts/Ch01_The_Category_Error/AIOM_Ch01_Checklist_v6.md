@@ -1679,7 +1679,116 @@ without Java here. The file was validated by reading it back instead, 160
 paragraphs and both images present. If it looks wrong when opened, that is the
 first thing to suspect.
 
+---
 
+### ROUND 1 RETURNED AND APPLIED 2026-08-08
+
+Returned file, kept as the artifact of the round:
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round1_returned.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/apply_round1.py
+
+**IT IS A RE-VOICING, NOT A COPY EDIT, AND IT WAS RULED THE NEW DRAFT.** 59 of
+155 blocks changed. `copyedit_import.py` applied 265 spans and REFUSED 162, which
+is the correct behaviour for rewritten paragraphs and is why the importer was set
+aside for one round. Dan ruled on 2026-08-08: take the return as the live text and
+continue in Stage 6 for further rounds.
+
+Body prose measured before and after. Words 5,241 to 6,526, up 25 percent.
+Paragraphs 63 to 129. Words per paragraph 83 to 51. Mean sentence 18.3 to 14.9.
+Sentences of 35 words or more, 19 to 3. Rendered chapter 20 pages to 26.
+
+Sentence-length VARIANCE FELL, stdev 10.5 to 6.9, which is the opposite of what
+the rhythm complaint that prompted the round was about. The long-sentence tail is
+gone, which is the real gain, but the prose now clusters at 12 to 18 words and a
+long run at one length is the other half of what C4 prohibits. Round 2 should
+reintroduce range rather than shorten further.
+
+HOW IT WAS APPLIED (Option A, ruled). Span substitution against the manifest, not
+retyping. A block whose returned text matched the live text was skipped entirely,
+so its inline markup survived untouched; only changed blocks were rewritten, each
+into a recorded character span. Verified after: source register byte-identical,
+both SVGs byte-identical, all six citations present with the same keys in the same
+order, paragraph tags balanced 157 to 157, no nested or empty paragraphs, all 17
+inline bold spans present. A word-level round trip against the returned .docx
+showed 34 differences and every one is a named ruling or correction below.
+
+**A DEFECT IN THE APPLY PASS, FOUND BY THE VERIFICATION AND NOT BY A GATE.** A
+`<cite>` element is nested INSIDE its body paragraph's span, so rewriting the
+paragraph destroyed it. The first pass silently dropped five of six citations and
+every gate still passed, because gate 8 only checks that a rendered footnote sits
+on its calling page and there were no calls left to be wrong about. Caught by a
+count check written before the pass ran. Any future pass that rewrites a body span
+must carry its citations across explicitly.
+
+RULINGS APPLIED, 2026-08-08:
+  - Theorem panel: the return rebuilt THM-009 as its own IF/THEN structure with
+    one registry antecedent DROPPED, one ADDED, and two reworded. Ruled: keep the
+    Decision 56 panel and the four registry antecedents; the two gloss sentences
+    the return added inside the consequent move to their own paragraph after the
+    panel. `Theorem 1 · THM-009` and the registry object name keep "Merely".
+  - The five diagnostic questions in 1.4: five short paragraphs, no list class,
+    so the design system does not move and Stage 5 and G2 do not re-run book-wide.
+
+WHY THE THEOREM COLLIDED, AND IT IS A TOOL DEFECT NOT AN EDITORIAL ONE. The proof
+was exported BEFORE Decision 56 restructured the panel, and `copyedit_export.py`'s
+`BLOCK_RE` matches `p|h1|h2|h3|figcaption|td|th|span` and NOT `li`. The four
+antecedents are `<li>` elements, so they were never in the proof. Dan was editing
+the older running-prose paraphrase and rebuilt a structured form from it, which is
+why the antecedents drifted. OPEN: any prose inside `<li>` is invisible to Stage 6
+on all fifteen chapters, and the theorem antecedents are the most rule-bound prose
+in the book. Fix before the round-2 export.
+
+A SECOND TOOL DEFECT, same family: `copyedit_import.py`'s `read_docx` drops any
+paragraph that does not carry a tag, so the 68 untagged continuation paragraphs a
+split produces are discarded. The front matter tells the editor splitting is
+detected. It is not. `apply_round1.py` keeps them; the importer still does not.
+
+CORRECTIONS MADE WHILE APPLYING, all reported to Dan:
+  - Grammar: a broken "; however, because" clause in 1.2; "Theorum"; an
+    unhyphenated "resource consuming"; a comma splice in 1.4; an ungrammatical
+    "Anysphere (owner of Cursor) chief executive Michael Truell"; "These five
+    practices" with no five-item antecedent; three missing terminal periods;
+    "Metered Resource" to sentence case; "AI operations management" capitalised.
+  - Numeral style: 500 and 300 spelled out in prose, numerals kept in arithmetic.
+  - Claim scope, restoring Stage 3 SF2's approved wording: "many received very
+    surprising and very large invoices" was broader than the register supports and
+    is now "charges arrived that they had not planned for".
+  - Soft superlative, same shape as the SF1 cut: "one of the clearest examples"
+    to "an early example".
+  - `meter relocation` was no longer named anywhere in the prose that teaches it,
+    only in the callout and the key-term register. One four-word sentence restores
+    the first use in bold. FOR DAN TO CONFIRM.
+  - The five questions were written in the first person with question marks, which
+    `voicecheck.py` fails on two standing rules. Recast to the book's existing
+    convention, third person and period-terminated, matching how 1.4 already set
+    the same list. FOR DAN TO RULE if the interrogative form is wanted.
+
+STATE AFTER THE ROUND. `voicecheck.py` mechanical: PASS. Gates: 12 of 14. Gate 8
+reports footnotes 4 and 6 rendering off their calling pages, and gate 14 reports
+two widows on pages 13 and 14. Both are pagination consequences of a chapter that
+grew from 20 pages to 26, and neither is a defect in the apply pass: the pre-edit
+text was rebuilt from git and passes all fourteen. They are Stage 5 work and are
+not worth fixing while further copy-edit rounds will move pagination again.
+
+OPEN FOR DAN, carried into round 2:
+  - P1 keeps the title "The CIO memo" but the problem is no longer a memo, the
+    model answer is no longer a memo, and the spec assigns P1 as a CIO memo reply
+    with annotated reasoning. Retitle, or restore the memo framing.
+  - "Microsoft was not under the same financial pressure as Anysphere. It had far
+    more room to absorb the cost of heavy usage." The register carries the
+    subscriber count and growth rate only, not a comparative claim about two
+    firms' financial pressure, and it explains the difference by a firm's
+    situation where a structural account is available (C6). Left as written
+    because any fix asserts something, and that is Dan's to choose.
+  - Word autocorrect returned curly apostrophes and quotes; the live text uses
+    straight throughout. Normalised to straight to match. A book-wide typographic
+    ruling is owed either way.
+  - The passes at Stage 3, 4, 5 and G2 were made against prose that no longer
+    exists. Under the scoped re-run matrix a body-prose change re-runs Stage 2,
+    3, 4, 5 and G2. `reopen.py --from "Stage 2"` is owed once the copy-edit rounds
+    finish. UNTIL IT IS RUN, `status_check.py` reporting 8 of 13 OVERSTATES the
+    chapter.
 
 ---
 

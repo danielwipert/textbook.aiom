@@ -14,47 +14,71 @@
 <h2 class="case-title">Two subscriptions, one correction</h2>
 <p class="provenance">Dated: June 2025 to June 2026. Vendor actions, dates, and figures are sourced. The buying organization is a composite.</p>
 
-<p>In the spring of 2025, a software team at a mid-size company was doing what thousands of teams were doing: paying twenty dollars per developer per month for an AI coding assistant called Cursor, and treating that line on the budget the way it treated every other software line. The tool was useful. The price was small. The arrangement was, on its face, a subscription like any other, filed next to the ticketing system and the design software and the password manager. Nobody in finance thought about it again after signature, because nothing about a twenty-dollar seat asks to be thought about.</p>
+<p>Twenty dollars per developer, per month. In the spring of 2025, that was the price of Cursor, an AI coding assistant. A software team bought one Cursor license for each developer who would use it, just as it did with every other software tool. The expense went into the budget beside the company's ticketing system, design software, and password manager.</p>
 
-<p>Then, on June 16, 2025, the arrangement changed underneath them. Cursor revised its Pro plan so that the previous monthly allotment of five hundred requests against external models, with Sonnet models counting as two, became a twenty-dollar monthly pool of frontier-model usage billed at the underlying API rates. Use of Cursor's own Tab model and of models in Auto became unlimited. For light users the change was invisible. For the team's heaviest users, the people getting the most value, the monthly allowance was consumed in a matter of prompts, after which additional usage was priced at the same rates. Charges arrived that no one had planned for. On July 4, after three weeks of complaint, Anysphere's chief executive, Michael Truell, published an apology, promised refunds for the intervening period, and explained the change. The explanation was not an excuse. It was an account of arithmetic: the newest models consumed far more tokens per request on long-horizon tasks than the flat price had been built to absorb, and Cursor had been absorbing the difference.<cite src="truell-2025-pricing; techcrunch-2025-cursor-apology"><span class="ckey">[truell-2025-pricing + techcrunch-2025-cursor-apology]</span> The Cursor post describes the change of June 16 and the clarification of June 30. The TechCrunch report carries Truell's role and title.</cite></p>
+<p>Cursor was useful, and it was cheap. Once the agreement was signed, nobody in finance had a reason to examine the line item again. Nothing about a twenty-dollar software seat demanded attention. But beneath every seat, a meter was running.</p>
 
-<p>The same pattern, in the same window, played out at a far larger scale. GitHub Copilot spent the year from June 2025 to June 2026 dismantling its own flat model in two acts. First, on June 18, 2025, it began enforcing monthly premium-request allowances and letting customers pay for usage beyond them. Then, on June 1, 2026, it moved standard billing from premium requests to credits denominated in tokens, priced at each model's published rate. The transition carried exceptions: annual Pro and Pro+ subscribers remained on premium-request pricing until their terms expired, completions and Next Edit Suggestions stayed included without consuming credits, and every plan retained a monthly credit allowance. Base subscription prices did not change. On its January 28, 2026 earnings call, four months before the change, Microsoft reported the paid Copilot base at over 4.7 million subscribers, up 75 percent year over year.<cite src="github-2025-premium; github-2026-usage; microsoft-2026-q2"><span class="ckey">[github-2025-premium + github-2026-usage + microsoft-2026-q2]</span> The Microsoft earnings call carries the subscriber figure and the growth rate.</cite></p>
+<p>On June 16, 2025, the twenty dollars stopped being a price and became a balance. Cursor replaced the Pro plan's monthly allowance of five hundred requests to external models with a twenty-dollar credit for frontier-model usage. Each request now drew down that credit at the model provider's API rate. The subscription still cost twenty dollars a month, but what that price bought had changed completely.</p>
 
-<p>The two corrections did not look alike from the buyer's seat. One arrived retroactively, under public pressure, with an apology and refunds. The other arrived on a published schedule, announced in advance, supported by tooling, across every plan.<cite src="github-2025-premium; github-2026-usage"><span class="ckey">[github-2025-premium + github-2026-usage]</span> Act one sits on the GitHub Changelog, dated June 18, 2025. Act two was announced April 27, 2026, with a preview bill experience launched in early May ahead of the June 1 transition.</cite> Set the difference aside and what remains is the same event twice. A product had been sold, and bought, as software: a seat, a flat price, a cost fixed at signature. The thing underneath the seat turned out to obey a different law. It consumed a resource on every use, the resource had a real and variable cost, and heavy use ran that cost past the flat price. When the gap grew wide enough, the arrangement changed. It changed on the provider's schedule, not the buyer's. It changed whether or not the buyer had ever looked at a meter. And it changed in one direction only, toward an entitlement indexed to consumption.</p>
+<p>Light users barely noticed. Heavy users could exhaust the entire monthly credit in a handful of prompts. Once the credit ran out, Cursor billed each additional request at API rates. The change therefore fell hardest on the customers who used the product most, and charges arrived that they had not planned for.</p>
 
-<p>The buyers in these stories did not make an error of vendor selection. Cursor and Copilot were, and are, excellent tools. The buyers made an error of category. They filed a metered resource under the mental model they use for licensed software, and the mental model held right up until the moment it did not.</p>
+<p>On July 4, less than three weeks after the change, Michael Truell, chief executive of Anysphere, the company behind Cursor, apologized and promised refunds for charges incurred during the transition. His explanation reduced the dispute to arithmetic. The newest models consumed far more tokens on long-horizon tasks than a flat monthly price could cover. Cursor had been paying the difference, but the difference had become too expensive to absorb.<cite src="truell-2025-pricing; techcrunch-2025-cursor-apology"><span class="ckey">[truell-2025-pricing + techcrunch-2025-cursor-apology]</span> The Cursor post describes the change of June 16 and the clarification of June 30. The TechCrunch report carries Truell's role and title.</cite></p>
+
+<p>On June 18, 2025, two days after Cursor changed its plan, GitHub began charging Copilot customers for premium requests that exceeded a monthly allowance. It then spent the next year preparing a larger change.</p>
+
+<p>On June 1, 2026, GitHub stopped measuring standard usage in requests and began measuring it in credits. Those credits reflected the tokens each customer consumed and the published rate of the model they selected. Customers received advance notice and could preview their charges before the bill arrived. Every plan included an allowance, and annual subscribers kept their existing terms until their subscriptions expired. The subscription price did not change by a dollar. What changed was what that dollar bought.</p>
+
+<p>Microsoft's scale changed how the pricing correction arrived, but not whether the underlying economics required it. Four months earlier, on its January 2026 earnings call, the company had told investors that Copilot had passed 4.7 million paid subscribers and was growing 75 percent year over year. Microsoft was not under the same financial pressure as Anysphere. It had far more room to absorb the cost of heavy usage, and it used that room to give customers notice, build billing tools, and phase in the new terms. It did not use that room to preserve the flat-price model indefinitely. Scale made the correction orderly. It did not make the variable cost disappear.<cite src="github-2025-premium; github-2026-usage; microsoft-2026-q2"><span class="ckey">[github-2025-premium + github-2026-usage + microsoft-2026-q2]</span> The Microsoft earnings call carries the subscriber figure and the growth rate.</cite></p>
+
+<p>From the buyer's side, the two pricing corrections looked very different. Cursor changed its plan without warning, then apologized and issued refunds after customers objected. GitHub announced its change in advance, published a schedule, and gave customers tools to preview the effect on their bills. The execution differed. The economic correction was the same.<cite src="github-2025-premium; github-2026-usage"><span class="ckey">[github-2025-premium + github-2026-usage]</span> Act one sits on the GitHub Changelog, dated June 18, 2025. Act two was announced April 27, 2026, with a preview bill experience launched in early May ahead of the June 1 transition.</cite></p>
+
+<p>Both products had been sold and purchased like conventional software: one seat, one flat price, and a cost fixed when the contract was signed. Beneath that subscription, however, the provider carried a variable cost. Every request consumed computing resources, and heavier use increased that cost while the revenue from each seat remained fixed. Once the cost of serving heavy users exceeded what the subscription could support, the provider changed the terms.</p>
+
+<p>The provider determined when and how that correction occurred. Customers did not have to approve the change, or even know how many tokens they were consuming, for it to affect them. In both cases, the movement was in one direction: away from unlimited use at a flat price and toward plans that tied allowances, credits, and additional charges to consumption.</p>
+
+<p>The buyers had not chosen the wrong vendors, and the tools had not failed. The mistake was in how the buyers understood what they had purchased. They bought access to a metered resource but managed it as conventional licensed software, assuming that the subscription price fixed the cost. That arrangement worked only while the cost of actual usage remained below the price of the seat. Once heavy use pushed the provider's cost beyond that price, the economics forced a correction. What had looked like fixed-price software became a consumption-based resource all at once.</p>
 
 <h3 class="section"><span class="num">1.1</span>The purchase that is not one</h3>
 
 <aside class="definition">
 <p class="lab">Definition</p>
 <p class="term">Access price</p>
-<p>The stated price of access to an AI capability, per seat or per subscription, distinct from the total cost of consuming the resource behind it.</p>
+<p>The stated amount an organization pays for the right to use an AI capability, usually per seat or subscription. It does not include additional costs based on how much AI the organization actually uses.</p>
 </aside>
 
 <aside class="definition">
 <p class="lab">Definition</p>
 <p class="term">Software access model</p>
-<p>The economic model, inherited from licensed software, in which cost is fixed at signature and the marginal cost of additional use is approximately zero; management is management of access.</p>
+<p>A purchasing model in which an organization pays a fixed price for access to software, usually per seat or subscription. Because additional use creates little or no additional cost, the organization manages who has access rather than how much of the software they consume.</p>
 </aside>
 
-<p>The buyer brought a model to the transaction, and it was a good model, refined over three decades of enterprise software procurement. In that model, software is a license. The organization buys the right for a defined number of people to use a program. The marginal cost of an additional use, once the seat is paid for, is approximately zero: a licensed user who runs the program a thousand times a day costs the buyer the same as one who runs it once a week. Cost is therefore fixed at signature. The negotiation that matters happens once, at purchase, over the number of seats and the price per seat. That per-seat figure is the <b>access price</b>. After that, management of the software is management of access: who has a login, how many seats are active, when the contract renews.</p>
+<p>The buyer understood the transaction through the conventional software model. Under that model, an organization buys licenses that give a defined number of employees access to a program. Once the organization pays for a seat, additional use creates almost no additional cost. An employee who opens the program a thousand times a day costs the same as one who opens it once a week.</p>
 
-<p>This model, the <b>software access model</b>, is not wrong about licensed software. It is wrong about the thing now being sold under the same packaging. What the organization operates when it deploys an AI assistant is not a program that people are licensed to run. It is work that consumes a metered resource on every task. Each use sends a request to a model, the model performs computation to answer it, and that computation has a cost that scales with the size of the request and the size of the answer. The marginal cost of an additional use is not approximately zero. It is the central fact.</p>
+<p>The organization therefore fixes its cost when it signs the contract. Procurement negotiates the number of seats and the price of each seat. That per-seat amount is the <b>access price</b>. After the purchase, the organization manages access rather than consumption: who has a login, how many seats are active, and when the contract renews.</p>
 
-<p>The consequence is a mismatch between what the organization manages and what the organization operates. Access management asks how many people may use the tool. Resource management asks how much of the resource the work consumes, at what cost, for what return. An organization that manages access while operating a metered resource is managing the wrong quantity. It counts seats while the bill is written in tokens, requests, and credits. The mental model determines what gets managed, and the wrong model manages the wrong thing.</p>
+<p><b>The software access model</b> is not flawed. It accurately describes licensed software, and organizations have refined it through decades of enterprise purchasing. The problem begins when buyers apply that model to AI simply because AI arrives in the same commercial packaging.</p>
+
+<p>An AI assistant may be sold as a program licensed by the seat, but each task calls a model and consumes computing resources. The amount consumed depends on factors such as the model selected and the size of the request and response. Each additional use therefore creates an additional underlying cost, whether the provider charges the buyer immediately or absorbs that cost for a time. AI access may be packaged like licensed software, but AI use behaves like a metered resource.</p>
+
+<p>The result is a mismatch between what the organization manages and what its AI systems consume. Access management asks who can use the tool and how many seats are active. Resource management asks how much AI the work consumes, what that consumption costs, and what value the work returns.</p>
+
+<p>An organization that manages only access to a metered resource is measuring the wrong quantity. It counts seats even though usage and cost are determined by tokens, requests, and credits. The organization is managing the right tool through the wrong economic model.</p>
 
 <h3 class="section"><span class="num">1.2</span>The consumption event</h3>
 
 <aside class="definition">
 <p class="lab">Definition</p>
 <p class="term">Consumption event</p>
-<p>A request that consumes computational resource, metered in tokens or their equivalents, at a per-event cost greater than zero. The atomic unit of the discipline.</p>
+<p>A single use of an AI system that consumes metered computing resources and creates an underlying cost greater than zero, whether or not the buyer is charged for it separately. A consumption event may be measured in tokens, requests, credits, compute time, or another equivalent unit. It is the basic unit of consumption tracked in AI Operations Management.</p>
 </aside>
 
-<p>The discipline that follows in this book is built on a single atomic unit. That unit is the <b>consumption event</b>. Every deployed use of AI, at bottom, is a stream of these events. They are the thing the meter counts, the thing the invoice sums, and the thing every later chapter learns to source, record, attribute, budget, allocate, and hold accountable.</p>
+<p>The discipline developed in this book begins with a single unit of measurement: <b>the consumption event</b>. Each time an employee, workflow, or product calls an AI model, the system consumes computing resources and creates one of these events. The meter records them, and the invoice sums their cost. The chapters that follow explain how an organization identifies where these events originate, records and attributes them, budgets and allocates their cost, and holds the responsible teams accountable for the value they return.</p>
 
-<p>The anatomy of one event is simple, and Figure 1.1 sets it out. Something goes in: a prompt, a document, a conversation history, retrieved reference material. The model performs computation. Something comes back: a completion, a suggestion, an answer, a tool call. A meter records what was consumed, typically the count of input tokens and output tokens, the units into which a model divides the text it reads and writes, and sometimes the calls to retrieval or tools that the event triggered. And a record of that consumption is held somewhere. In the ordinary case it is held by the provider, and the buyer never sees it at all. What reaches the buyer is a summation.</p>
+<p>The anatomy of a consumption event is simple, and Figure 1.1 shows its parts. Something enters the model: a prompt, a document, or a conversation history. The model performs a computation. Something returns: a completion, a suggestion, an answer, or a tool call.</p>
+
+<p>As this work occurs, a meter records the resources consumed. Providers typically measure this consumption in input and output tokens, the units into which the model divides the material it reads and generates. The provider records those units in a usage ledger, even when the buyer never sees the individual event.</p>
+
+<p>This creates an important difference in visibility. The provider sees a stream of metered consumption. The buyer may see only a flat subscription charge at the end of the month. Token counts can rise into the millions while remaining hidden behind that fixed price. The buyer often has no reason to examine the underlying consumption until usage exceeds an allowance or additional charges begin to appear.</p>
 
 <figure>
 <svg viewBox="0 0 360 158" xmlns="http://www.w3.org/2000/svg">
@@ -94,10 +118,16 @@
   <text x="180" y="143" font-family="Plex" font-size="6.8" fill="#2B2620" text-anchor="middle">The provider holds the record.</text>
   <text x="180" y="153" font-family="Plex" font-size="6.8" fill="#2B2620" text-anchor="middle">The buyer receives an invoice.</text>
 </svg>
-<figcaption><span class="fignum">Figure 1.1</span>Anatomy of a consumption event. Input is assembled, the model computes, output returns, and a meter records the resource drivers beneath. In the ordinary case the record stays on the provider's side, and what reaches the buyer is a summation rather than a record.</figcaption>
+<figcaption><span class="fignum">Figure 1.1</span>Anatomy of a consumption event. The system assembles an input, the model performs the computation, and the system returns an output. A meter records the resources consumed by the event. In most cases, the provider retains this event-level record, while the buyer receives only an aggregate usage total or charge.</figcaption>
 </figure>
 
-<p>The choice of unit is not arbitrary, and a different choice would produce a different discipline. Three candidates present themselves. The user is the unit the seat model already counts, and it fails immediately, because two users on identical seats can consume resource that differs by an order of magnitude. The task is the unit the business cares about, and it is the right unit for measuring value, but a single task may trigger one model call or four hundred, so it does not track cost. The event is what remains. It is the smallest thing that has a cost, and it is the only candidate the provider's meter actually records. A unit the meter does not record cannot be reconciled against a bill, and a discipline whose unit cannot be reconciled against the bill is a discipline of assertions. Later chapters aggregate events upward into flows, workloads, and workflows, and they can do so precisely because the aggregation starts from something counted rather than estimated.</p>
+<p>AI Operations Management must measure cost in the same unit used to record consumption. Three units appear possible: the seat, the task, and the consumption event.</p>
+
+<p>A seat measures access, not use. Two employees with identical seats can consume vastly different amounts of AI. A task is the right unit for measuring business value, because it connects AI use to completed work. It cannot, however, measure cost reliably, because one task may require a single model call while another requires hundreds.</p>
+
+<p>The consumption event provides the necessary unit for cost. It is the smallest recorded use of AI that consumes computing resources and creates an underlying cost. It is also the unit captured by the provider's usage meter. The organization can attribute costs to users, tasks, workloads, and workflows only by connecting those categories to the events that produced the costs. Later chapters group individual events into these larger operating units. Because each total begins with recorded events, the organization can trace it back to actual consumption and reconcile it with the provider's invoice.</p>
+
+<p>A seat measures access. A task measures value. A consumption event measures use and cost.</p>
 
 <figure>
 <svg viewBox="0 0 360 132" xmlns="http://www.w3.org/2000/svg">
@@ -127,19 +157,29 @@
     <text x="275" y="113">USAGE</text>
   </g>
 </svg>
-<figcaption><span class="fignum">Figure 1.2</span>Two purchase models. Under the seat model, cost is flat against rising usage. Under the event model, cost is the accumulating sum of consumption events. The same usage produces a flat cost on the left and a rising cost on the right.</figcaption>
+<figcaption><span class="fignum">Figure 1.2</span>Two purchase models. Under the seat model, the buyer pays a fixed price for access, so cost remains flat as usage rises. Under the event model, each consumption event adds to the total, so cost rises with usage.</figcaption>
 </figure>
 
-<p>The seat model and the event model are not two views of the same economics. They are two different economics, and Figure 1.2 draws the difference the invoice hides. A horizontal line does not become an accumulating area because the contract calls it one. A buyer operating on the left panel while the right panel governs the bill will be surprised, and the surprise arrives as a number, on a schedule the buyer did not set.</p>
+<p>The seat model and the event model do not describe the same cost in different ways. They describe two different cost structures. Under the seat model, the buyer pays a fixed price for access, regardless of how much the software is used. Under the event model, every use adds to the total cost. Figure 1.2 makes visible the difference that a flat subscription price can hide.</p>
+
+<p>A contract may package AI as fixed-price software, but that packaging does not make the underlying cost fixed. If the buyer manages seats while consumption governs the economics, the mismatch remains invisible until the provider changes the terms or additional charges appear. The correction then arrives on the provider's schedule, not the buyer's.</p>
 
 <h3 class="section"><span class="num">1.3</span>The flat-rate objection, answered</h3>
 
 
-<p>One objection stands against everything said so far: "We pay thirty dollars per seat per month, the price is flat, we are never billed by the token, and for us this simply is software."</p>
+<p>A buyer may object to this argument: "We pay twenty dollars per seat each month. Our price is fixed, and the provider never bills us by the token. From our perspective, this is simply software."</p>
 
-<p>The objection is not confused, and the answer is not that the buyer is billed by the token after all. The answer is <b>meter relocation</b>: a flat rate moves the meter, it does not abolish it. When a provider offers a flat price for a metered resource, the provider does not stop metering. The provider meters exactly what the buyer has declined to see, and prices the flat rate against an assumption about how much the average buyer will consume. That assumption is a bet. It holds while usage stays near the average the price assumed. It fails when usage is skewed, when a minority of heavy users consume a majority of the resource, because the flat price collected from everyone no longer covers the resource consumed by the few. At that point the arrangement is unstable, and the instability resolves in one direction. The provider re-indexes what the buyer receives to what the buyer consumes. It may do so by changing the price, by metering usage above an allowance, by changing the unit the allowance is denominated in, or by capping consumption outright. Chapter 4 sets out the full menu of instruments. What does not vary is the direction, or who chooses the moment: the correction arrives on the provider's schedule, because the provider holds the meter and the buyer does not.</p>
+<p>The objection is valid. A buyer who pays a flat monthly price is not secretly being billed by the token. But this does not mean that the underlying resource is unmetered. Flat pricing relocates the meter from the buyer to the provider. It does not abolish it. This is <b>meter relocation</b>.</p>
 
-<p>This is not a claim about badly run vendors. It is a structural result, and the registry states it as a theorem.</p>
+<p>The provider continues to measure what each customer consumes. It sets the flat price based on an estimate of how much the average customer will use and what that usage will cost. The price is therefore built on an assumption. It remains viable while subscription revenue covers the total cost of serving the customer base.</p>
+
+<p>The arrangement becomes unstable when actual usage departs from that assumption. If a small group of heavy users consumes a disproportionate share of the resource, the flat price collected across all customers may no longer cover the provider's cost. The provider must then bring the price or the product limits back into line with consumption.</p>
+
+<p>It can raise the subscription price, charge for usage above an allowance, redefine the allowance in tokens or credits, or cap consumption outright. Chapter 4 examines these instruments in detail. The method may vary, but the direction does not: what the customer receives becomes more closely tied to what the customer consumes.</p>
+
+<p>The buyer does not choose when this correction occurs. The provider holds the meter, bears the variable cost, and decides when the existing terms have become unsustainable. A flat price can hide the meter from the buyer. It cannot prevent the provider from acting when the numbers no longer work.</p>
+
+<p>This result does not depend on a vendor being careless or badly managed. It follows from the economics of deployed AI, and the AI Operations Management registry states it as a theorem.</p>
 
 <div class="theorem">
 <p class="lab">Theorem 1 · THM-009</p>
@@ -154,56 +194,108 @@
 <p class="conseq">then that AI use is a resource-consuming operating activity, not merely software access.</p>
 </div>
 
-<p>The word carries a precise sense here. A theorem in this book is a statement proved within a stated system, from lemmas and propositions, not an empirical generalization drawn from the episodes above, and it binds only where its antecedents hold. The theorem does not say that a flat rate is impossible or that every subscription will be repriced tomorrow. It says something narrower and more durable: that in a deployed business context, where the activity requires compute, where scaling expands the surface of use, and where total cost runs past the access price, the thing being operated is a resource-consuming activity rather than software access. A flat rate packages that activity for sale. It is not evidence that the activity is something else, and the buyer who reads it as proof of software access has mistaken the packaging for the contents.</p>
+<p>Software access describes how the buyer obtains the right to use the capability. It does not describe how much of the underlying resource the organization consumes or what that consumption costs.</p>
 
-<p>The public record already contains the pattern running its course, in more than one form.</p>
+<p>A theorem in this book is a statement established within a defined system from earlier propositions and lemmas. It is not a generalization drawn from the Cursor and Copilot episodes. Those cases illustrate the result; they do not prove it. Like every theorem in this book, Theorem 1 applies only when its stated conditions hold.</p>
+
+<p>Its claim is deliberately narrow. The theorem does not say that flat-rate AI subscriptions are impossible, nor does it predict that every provider will reprice them. It says that when an AI activity requires computation, each execution consumes resources. As employees, workflows, and products use that activity at greater scale, its resource consumption grows. When the stated cost boundary includes the cost of those resources, the economics of the activity cannot be described by the access price alone. The business is operating a resource-consuming activity, not merely accessing software.</p>
+
+<p>A flat monthly subscription to ChatGPT does not contradict this conclusion. The subscription price states what the buyer pays for access under a particular plan. It does not show how much computing capacity the buyer consumes, what that consumption costs, or whether the provider absorbs the cost within the subscription. Buyers may classify the charge as another SaaS expense because that is how it appears on the invoice. But the invoice describes the commercial arrangement, not the operating economics beneath it. The subscription buys access. Each use still consumes a resource.</p>
+
+<p>The public record already shows this pattern running its course in several forms. Some providers have moved directly to usage-based pricing. Others have retained a flat subscription while adding allowances, credits, or hard limits on consumption. The commercial instrument differs, but the correction is the same: what the buyer receives is brought back into line with what the buyer consumes.</p>
 
 <div class="dated">
 <p class="date">Dated: January 2025</p>
-<p>OpenAI's chief executive, Sam Altman, stated publicly that the company was losing money on its two-hundred-dollar Pro subscriptions because subscribers used them more than the price had assumed, and added that he had set the price himself.<cite src="altman-2025-pro; techcrunch-2025-altman-pro"><span class="ckey">[altman-2025-pro + techcrunch-2025-altman-pro]</span> The TechCrunch report reproduces both statements.</cite></p>
+<p>OpenAI provided an early example. Chief executive Sam Altman said publicly that the company was losing money on its two-hundred-dollar Pro subscriptions because customers were consuming more computing resources than the monthly price covered. He also acknowledged that he had personally set the price. The problem was not the price of access. Actual consumption had exceeded the assumption built into it.<cite src="altman-2025-pro; techcrunch-2025-altman-pro"><span class="ckey">[altman-2025-pro + techcrunch-2025-altman-pro]</span> The TechCrunch report reproduces both statements.</cite></p>
 </div>
 
 <div class="dated">
 <p class="date">Dated: July 2025</p>
-<p>Claude Code subscribers found the usage limits already governing their plans abruptly tightened, with no announcement, many of them unaware that limits applied at all, and Anthropic acknowledged the reports without confirming a change. Eleven days later the company announced two weekly caps stacked on top of the existing five-hour limits, with the new constraints taking effect the following month rather than at any subscriber's renewal. Subscribers on the highest tier could buy additional usage at standard API rates.<cite src="anthropic-2025-limits; techcrunch-2025-anthropic-limits; techcrunch-2025-anthropic-tightening"><span class="ckey">[anthropic-2025-limits + techcrunch-2025-anthropic-limits + techcrunch-2025-anthropic-tightening]</span> The announcement set two weekly caps effective August 28, 2025, added to five-hour limits already in force and tightened on July 17, 2025.</cite></p>
+<p>Claude Code customers encountered the same economic correction through tighter limits rather than a higher subscription price. Subscribers reported that they were reaching their plans' usage limits sooner, although Anthropic had given no notice of a change. Many had not realized that their subscriptions were subject to such limits at all. Anthropic acknowledged the reports but did not confirm that it had altered the plans.</p>
+
+<p>Eleven days later, the company announced two new weekly usage caps in addition to its existing five-hour limits. The caps would take effect the following month for every subscriber, regardless of renewal date. Customers on the highest-priced plan could continue using Claude Code beyond those limits by purchasing additional usage at standard API rates. The subscription price remained intact, but the amount of consumption included within it now had a clearer boundary.<cite src="anthropic-2025-limits; techcrunch-2025-anthropic-limits; techcrunch-2025-anthropic-tightening"><span class="ckey">[anthropic-2025-limits + techcrunch-2025-anthropic-limits + techcrunch-2025-anthropic-tightening]</span> The announcement set two weekly caps effective August 28, 2025, added to five-hour limits already in force and tightened on July 17, 2025.</cite></p>
 </div>
 
 <aside class="definition">
 <p class="lab">Definition</p>
 <p class="term">Meter relocation</p>
-<p>A flat rate does not abolish the meter but moves it to the provider's side, where the provider prices the flat rate against assumed consumption and corrects it on its own schedule when usage is skewed.</p>
+<p>The placement of consumption metering on the provider's side of a flat-rate subscription. The buyer pays a fixed price for access, while the provider continues to measure actual use. The provider sets the flat rate based on expected consumption and may change the price, allowance, or usage limits when actual consumption exceeds that expectation.</p>
 </aside>
-<p>The two episodes that opened this chapter belong to the same record. Cursor and GitHub Copilot reached the same destination by different means, across two widely used AI coding subscriptions, inside twelve months. The flat rate did not make the meter disappear. It moved the meter to the provider's side of the table and moved the correction to the provider's calendar.</p>
+<p>The Cursor and GitHub Copilot episodes that opened this chapter show the same pattern. Within twelve months, two widely used AI coding products revised their subscriptions so that what customers received more closely reflected what they consumed. Cursor made the correction abruptly and responded to complaints with an apology and refunds. GitHub announced its change in advance and introduced it with billing tools and a transition period. The method differed. The economic correction did not.</p>
+
+<p>In both cases, the provider continued to measure usage beneath the flat subscription price. The provider determined when the existing terms no longer worked and changed the arrangement on its own schedule. The flat rate had not removed the meter. It had placed the meter, and control over the correction, on the provider's side of the transaction.</p>
 
 <h3 class="section"><span class="num">1.4</span>What follows if this is true</h3>
 
-<p>Accept the category, and a great deal follows without further argument. Resources that flow through an organization have long been the object of a mature management discipline, and the reader already knows its shape, because every organization that handles physical goods practices it daily. A manufacturer does not manage its steel by counting the people licensed to touch it. It sources the steel against stated requirements rather than accepting whatever the incumbent supplier offers. It plans and budgets the tonnage it expects to consume, and it notices when consumption departs from the plan. It records where the material goes as it moves through the plant, so that the quantity consumed by one product line can be distinguished from the quantity consumed by another. It allocates the material under a stated rule when supply is short, rather than letting the loudest line take what it wants. And it holds the finished output accountable for the material it consumed, so that a product whose margin cannot survive its own input cost is identified as such.</p>
+<p>Once an organization recognizes deployed AI as a resource it consumes, the management requirements become familiar. Businesses already know how to manage resources used in daily operations. Consider a manufacturer that relies on steel. Counting how many employees are authorized to order steel would measure access to the resource, but it would not manage the resource itself. The company must determine how much steel its operations require, what specifications it must meet, what it costs, where it is used, and what value it helps create. The same management logic applies to AI.</p>
 
-<p>The same five practices, stated in timeless form, are not techniques belonging to manufacturing. They are the questions that any organization must be able to answer about anything that flows through it and costs money as it flows. What is being bought, and against what requirement. How much the organization expects to consume, and how it will know when the expectation fails. Where the resource actually went. Who decides when there is not enough. What the consumption returned. An organization that cannot answer those questions about a material flow is not managing that flow, whatever its org chart says. It is receiving invoices and paying them.</p>
+<p>Before purchasing steel, the company forecasts demand, sets a budget, and evaluates suppliers against its requirements. During production, it compares actual consumption with the plan and tracks how much steel each product line uses. If supply becomes limited, it allocates the available steel according to business priorities. It then includes the cost of that steel when calculating the profitability of each finished product. If a product consumes more steel than its margins can support, management can see the problem and respond.</p>
 
-<p>Deployed AI is such a resource. It flows through the organization as a stream of consumption events. It costs money as it flows. Its volume is driven by the volume of the work, which is to say by the very success of the deployment. Yet no assembled discipline governs it, and the reason is worth stating precisely, because it is not indifference. Each of the five questions falls inside the scope of some practice the organization already has. Procurement buys the contract. Cloud cost management owns the infrastructure bill. Engineering instruments what it operates. Finance allocates what it can trace. Every one of those practices was built around a boundary drawn before this resource existed, and a resource that crosses all five boundaries is owned, in practice, by none of them. Chapter 14 draws the border between this book's subject and the nearest of those neighbors. What is absent is not attention. It is assembly.</p>
+<p>These practices are not unique to manufacturing. They apply to any resource that costs money as it moves through an organization. To manage such a resource, leaders must be able to answer five questions:</p>
 
-<p>Organizations that would never let a material flow through the plant unrecorded let the AI flow through the work unrecorded.</p>
+<p>What the organization is buying, and what requirement it must meet.</p>
 
-<p>The failure to answer those questions is not abstract. It shows up in three places, and the reader can look for all three in any organization, including the reader's own. The first is the quantity managed. An organization operating on the seat model tracks headcount, license utilization, and renewal dates, and none of those three quantities moves with the bill. The second is the record. Under the seat model there is little worth recording, because a licensed use costs nothing at the margin. Under the event model every use has a resource footprint, but the buyer who never built a meter holds no record of it. An invoice is not that record; an invoice is its summation. It reports a total without reporting what produced it. The third is the anchor for accountability. A cost that cannot be traced to the work that incurred it cannot be assigned to anyone, and a cost assigned to no one is defended by no one.</p>
+<p>How much it expects to consume, and how it will know when actual use departs from the plan.</p>
 
-<p>It would be a mistake to read those absences as negligence. They are inheritance, and it is the same inheritance that left the resource unowned. The organization did not decide to stop metering. It never began, because the thing it had been buying for three decades never required it. Enterprise software procurement produced a management apparatus tuned precisely to the economics of the license, and that apparatus worked. It was then carried across to a purchase that arrived in the same packaging, through the same channel, at a price small enough to clear approval without argument. The apparatus did not fail. It was applied to a resource it was never built to govern, and it went on reporting faithfully about a quantity that had stopped governing anything.</p>
+<p>Where the resource is being used.</p>
 
-<p>What ends the arrangement is scale. A category error is affordable while the sums are small, and the sums stayed small for as long as deployment meant a pilot: one team, a few licenses, a bill that rounded to nothing against the software budget. The error becomes expensive at the moment the pilot becomes production, because production multiplies consumption events by the volume of the work itself, and the work is not small. The contact-center deployment inventoried later in this chapter runs on roughly five thousand seats and generates tens of millions of consumption events a month, a ratio the craft section works out in full. At pilot scale, the seat count is a harmless simplification. At production scale, it is a blindfold.</p>
+<p>Who decides how it is allocated when there is not enough.</p>
 
-<p>The stakes of this chapter are therefore the stakes of the book. A resource that flows needs a discipline, and none exists in assembled form, so building it is the work of the remaining chapters. The next of them takes the atomic unit defined here and asks what becomes visible when many events are seen at once. That is the first step from a unit of cost to something an organization can manage.</p>
+<p>What value the organization receives in return.</p>
+
+<p>If an organization cannot answer these questions, it is not managing the resource, regardless of what its organizational chart or policies suggest. It is simply receiving invoices and paying them.</p>
+
+<p>Deployed AI is one of these resources. Every time an employee, workflow, or product uses AI, the organization consumes computing resources and incurs a cost. Total consumption rises with the volume of work, and as a deployment succeeds, that volume usually grows.</p>
+
+<p>Most organizations, however, do not manage AI usage through a single, coordinated discipline. This is not because no one is paying attention. It is because responsibility is divided across several existing functions. Procurement negotiates the contract. Cloud cost management monitors infrastructure spending. Engineering tracks the systems it operates. Finance allocates the costs it can trace. Each function manages one part of the resource, but none manages it from purchase through consumption to business return.</p>
+
+<p>These functions were designed before deployed AI created a resource that crossed all of their boundaries. As a result, AI usage touches several owners but belongs fully to none. Chapter 14 distinguishes the subject of this book from these neighboring disciplines. What is missing is not attention. It is a management system that brings the separate responsibilities together.</p>
+
+<p>Organizations that would never allow material to move through a plant without a record often allow AI consumption to pass through daily work unrecorded. This failure is visible in three places.</p>
+
+<p>First, the organization tracks the wrong quantities. A company accustomed to seat-based software tracks headcount, license utilization, and renewal dates. None of these measures shows how much AI the organization consumes or what produces the bill.</p>
+
+<p>Second, the organization lacks a record of use. Under a seat-based contract, each additional use costs nothing at the margin, so the buyer has little reason to record it. Under an event-based model, every use consumes resources and can add to the bill. Yet a company that has not built a meter cannot show which work produced that consumption. The invoice does not provide this record. It reports the total cost, not the uses that created it.</p>
+
+<p>Third, the organization has no basis for accountability. Finance cannot assign a cost to the team, workflow, or product that incurred it unless the company can trace the cost back to the work. A cost assigned to no one is defended by no one.</p>
+
+<p>It would be a mistake to treat these gaps as negligence. The organization inherited them from the seat-based software model, just as it inherited the absence of a clear owner. It did not decide to stop metering software use. It never began, because the software it had purchased for three decades did not require it. Enterprise software procurement built a management system around the economics of the license: count the seats, track utilization, and manage renewals. That system worked.</p>
+
+<p>AI often entered the organization in familiar packaging. It came through the same vendors and procurement channels, initially at a price low enough to approve without much debate. The organization therefore managed it as another software license. The existing system did not fail. It did exactly what it was built to do, continuing to report seats, utilization, and renewal dates even after those measures had stopped explaining consumption and cost.</p>
+
+<p>Scale makes this inherited arrangement untenable. While AI remains a pilot, the organization can afford to manage it as a software license. One team uses a few seats, and the bill is too small to matter against the larger software budget.</p>
+
+<p>This all changes when the pilot enters production. AI usage then grows with the volume of work the system performs. A contact center does not merely add licensed users. It applies AI across the conversations and workflows those users handle, generating a new consumption event each time the system performs work.</p>
+
+<p>The contact-center deployment examined later in this chapter illustrates the difference. It operates with roughly five thousand seats but generates tens of millions of consumption events each month. The craft section calculates this ratio in full. At pilot scale, seat count is a harmless simplification. At production scale, it is a blindfold.</p>
+
+<p>The problem established in this chapter defines the work of the rest of the book. Once AI consumption moves through daily operations and produces variable cost, the organization needs a system for measuring, assigning, and governing it. No existing management practice provides that system in assembled form. The remaining chapters build it.</p>
+
+<p>The next chapter begins with the atomic unit defined here: the consumption event. A single event provides a unit of cost. Many events viewed together reveal where consumption occurs, which work produces it, and how it changes with operating volume. This aggregation is the first step from a cost the organization can calculate to a resource it can manage.</p>
 
 <h3 class="section"><span class="num">1.5</span>What this book is not</h3>
 
-<p>Three subjects sit close enough to this one to be mistaken for it, and none of them is it. This book is not about the internals of models. The reader will find no account here of architectures, training, or weights. It is not about prompt engineering, and it offers no techniques for extracting better outputs from a given model. It is not about use-case ideation. It will not help the reader decide which problems to point AI at. Those are real subjects with their own literatures, and Chapter 3 draws the exact line between each of them and this one. What remains after the exclusions is the whole of the subject: the economics of the resource once the decision to deploy has been made, what it consumes, what it costs, and how an organization governs both.</p>
+<p>This book addresses what happens after an organization decides to deploy AI. It does not explain how models work internally, so the reader will find no account of architectures, training, or weights. It does not teach prompt engineering or offer techniques for improving a model's output. It also does not help leaders identify problems that AI might solve. Each of these subjects has its own purpose and literature, and Chapter 3 explains where each ends and AI Operations Management begins.</p>
+
+<p>The subject of this book is the deployed resource itself. It examines what AI consumes as employees, workflows, and products use it; what that consumption costs; and how the organization measures, assigns, and governs both. The decision to deploy establishes the need. This book explains how to manage what follows.</p>
 
 <p class="slot-label">Craft section</p>
 <h2 class="case-title">The consumption-event inventory</h2>
-<p class="provenance">Worked example setting drawn from the cited study. Event architecture and volume assumptions stipulated for this exercise and labelled where used.</p>
+<p class="provenance">The contact-center setting and approximate agent population are drawn from the cited study. The event architecture and all volume assumptions are stipulated for this exercise.</p>
 
-<p>The <b>consumption-event inventory</b> turns the definition given in 1.2 into a procedure. It takes a description of an AI deployment and produces a structured account of what the deployment consumes, where the meter sits, and what the seat count conceals. It is the first artifact the reader produces, and every later artifact in this book assumes it.</p>
+<p>A seat count shows how many people can use an AI system. It does not show how much AI activity their work generates. <b>The consumption-event inventory</b> replaces that administrative count with an operating view of the deployment. It identifies each kind of consumption event, what resources the event consumes, where that consumption is measured, and what the seat count leaves hidden.</p>
 
-<p>The procedure has four steps. <b>Step 1, enumerate the event types.</b> Given a deployment description, list the distinct kinds of consumption event the deployment generates. A deployment rarely produces one kind of event; it produces several, each with its own trigger and its own resource profile. <b>Step 2, identify each type's resource drivers.</b> For each event type, name what actually consumes resource: input tokens, output tokens, the number of calls, retrieval operations, and tool invocations. The driver is what the bill scales with, and it is almost never the number of people. <b>Step 3, locate the meter.</b> State where the metering happens and who holds the record. In the ordinary case the meter is on the provider's side, and what the buyer receives instead of a meter is an invoice. <b>Step 4, state what the inventory reveals that the seat count conceals.</b> Name the quantity that actually drives cost, and set it against the quantity the organization currently tracks.</p>
+<p>This is the first artifact the reader produces in this book. Later artifacts use it to trace consumption, assign costs, and compare those costs with the value created. The inventory therefore needs to be specific enough to run against an actual deployment.</p>
+
+<p>The procedure has four steps.</p>
+
+<p><b>Step 1: Enumerate the event types.</b> List every distinct kind of consumption event generated by the deployment. Begin with the work the system performs, not with the number of employees who have access. A single deployment may classify a request, retrieve information, generate several responses, call a tool, and summarize the completed interaction. Each is a separate event type when it triggers its own measurable use of resources.</p>
+
+<p><b>Step 2: Identify the resource drivers.</b> For each event type, state what causes its resource consumption to rise. Common drivers include input tokens, output tokens, model calls, retrieval operations, tool invocations, and the amount of context processed. Do not assume that two events consume the same resources merely because they occur inside the same workflow.</p>
+
+<p><b>Step 3: Locate the meter.</b> State which system records the consumption and which party controls that record. The meter may sit with the model provider, the application vendor, the organization's cloud environment, or an internal platform. A flat-rate contract does not remove this step. It means only that the provider may hold the operational meter while the customer sees a fixed price.</p>
+
+<p><b>Step 4: State what the seat count conceals.</b> Estimate the volume of each event type over a defined period. Show the operating assumptions used in the calculation, then compare the resulting activity with the number of seats. The purpose is not merely to produce a larger number. It is to reveal the work, consumption, and cost drivers that cannot be seen from the seat count alone.</p>
 
 <p>Consider a customer-support organization that has deployed a generative AI assistant across its contact center. For each incoming customer message, the assistant drafts a suggested reply that the agent may edit and send; the assistant draws on a knowledge base and on the conversation so far. The deployment covers a large agent population, on the order of five thousand agents, and the organization currently accounts for it as a per-seat tool.<cite src="brynjolfsson-2025-genai"><span class="ckey">[brynjolfsson-2025-genai]</span> The study supplies the setting and the scale of the agent population. The event architecture and the volumes used below are stipulated for this exercise and are not reported by the study. It returns in Chapter 6 as the book's anchor case on realized value.</cite></p>
 
@@ -221,7 +313,13 @@
 <section class="summary-sec">
 <h3 class="tail-head">Chapter summary</h3>
 <div class="summary">
-<p>The category error has a name and a shape. Under the software access model, cost is fixed at signature and management is management of seats. Under the resource consumption model, cost is the accumulating sum of metered events and management is management of a flow. The reader can now tell the two apart, and can define the consumption event as the discipline's atomic unit: the smallest thing that has a cost, and the only candidate the meter records. The flat-rate objection has an answer that does not depend on predicting any vendor's behavior. A flat price relocates the meter to the provider; it does not abolish it. Behind that answer stands a structural result, THM-009, that a deployed AI activity is resource-consuming operating activity rather than software access. And the reader can run the consumption-event inventory against a deployment description, producing the event types, their resource drivers, the location of the meter, and the cost driver the seat count conceals. One thing the reader cannot yet do is manage the flow the inventory reveals. Seeing it whole comes first.</p>
+<p>The category error is now clear. Under the software access model, the organization fixes its cost when it signs the contract and manages the number of seats. Under the resource consumption model, each metered event adds to total cost, and the organization must manage the resulting flow of consumption. These are different operating models, even when the provider packages both as software subscriptions.</p>
+
+<p>The consumption event is the atomic unit of the second model. It is the smallest use of AI that consumes resources and creates an underlying cost. It is also the smallest unit whose consumption the provider's meter records. Seats measure access. Consumption events measure use and cost.</p>
+
+<p>A flat price does not erase this distinction. It relocates the meter to the provider, which continues to measure consumption and decides when the commercial terms must change. This conclusion does not require a prediction about any particular vendor. It follows from Theorem 1: deployed AI is a resource-consuming operating activity, not merely software access.</p>
+
+<p>The reader can now apply the consumption-event inventory to a deployment description. The inventory identifies the types of events the deployment produces, the resources each event consumes, where that consumption is metered, and which cost drivers the seat count conceals. It makes the flow visible. It does not yet explain how to manage that flow. Seeing it whole comes first.</p>
 </div>
 </section>
 
@@ -230,16 +328,16 @@
 <div class="kt-list">
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Consumption event</span></div>
-<p>A request that consumes computational resource, metered in tokens or their equivalents, at a per-event cost greater than zero. The atomic unit of the discipline.</p></div>
+<p>A single use of an AI system that consumes metered computing resources and creates an underlying cost greater than zero, whether or not the buyer is charged for it separately. A consumption event may be measured in tokens, requests, credits, compute time, or another equivalent unit. It is the basic unit of consumption tracked in AI Operations Management.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Resource consumption model</span></div>
-<p>The economic model in which deployed AI is a metered resource consumed on every task, with cost accruing per event; contrasted with the software access model.</p></div>
+<p>The economic model in which deployed AI is consumed as a metered resource. Each task creates a consumption event, and cost accrues with each event. It contrasts with the software access model.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Software access model</span></div>
-<p>The economic model, inherited from licensed software, in which cost is fixed at signature and the marginal cost of additional use is approximately zero; management is management of access.</p></div>
+<p>A purchasing model in which an organization pays a fixed price for access to software, usually per seat or subscription. Because additional use creates little or no additional cost, the organization manages who has access rather than how much of the software they consume.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Access price</span></div>
-<p>The stated price of access to an AI capability, per seat or per subscription, distinct from the total cost of consuming the resource behind it.</p></div>
+<p>The stated amount an organization pays for the right to use an AI capability, usually per seat or subscription. It does not include additional costs based on how much AI the organization actually uses.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Metered resource</span></div>
 <p>A resource whose consumption is measured per unit of use, here in tokens or their equivalents.</p></div>
@@ -248,7 +346,7 @@
 <p>The claim that a flat per-seat price makes AI equivalent to licensed software; answered by meter relocation.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Meter relocation</span></div>
-<p>The principle that a flat rate does not abolish the meter but moves it to the provider's side, where the provider prices the flat rate against assumed consumption and corrects it on its own schedule when usage is skewed.</p></div>
+<p>The principle that flat-rate pricing does not eliminate consumption measurement. It moves the meter to the provider, which sets the flat rate based on expected usage and adjusts pricing or terms when actual consumption diverges from those assumptions.</p></div>
 
 </div>
 </section>
@@ -257,10 +355,10 @@
 <h3 class="tail-head">Discussion questions and problems</h3>
 <p class="slot-label">Discussion questions</p>
 <div class="dq-list">
-<div class="dq"><div class="dq-n">1</div><div class="dq-b"><p>A colleague argues that because your organization pays a flat per-seat price and never sees a token bill, AI is a seat-priced good for you and the consumption framing does not apply. Explain, without appealing to any specific vendor's future behavior, why the per-seat contract does not make AI a seat-priced good.</p></div></div>
-<div class="dq"><div class="dq-n">2</div><div class="dq-b"><p>The Cursor and GitHub Copilot episodes are often read as stories about two particular companies changing their prices. Explain what the two episodes, taken together, reveal about where the meter was all along, and why the pairing is harder to dismiss than either episode alone.</p></div></div>
-<div class="dq"><div class="dq-n">3</div><div class="dq-b"><p>Section 1.2 argues that the event, rather than the user or the task, is the right atomic unit for this discipline. Construct the best case you can for the task as the unit instead. What would a discipline built on tasks be able to say that an event-based one cannot, and what would it lose?</p></div></div>
-<div class="dq"><div class="dq-n">4</div><div class="dq-b"><p>Construct the strongest version of the flat-rate objection yourself, in the voice of a capable skeptic who has read this chapter. Then answer it. Your answer should not depend on predicting that any particular subscription will be repriced.</p></div></div>
+<div class="dq"><div class="dq-n">1</div><div class="dq-b"><p>A colleague argues that your organization pays a flat per-seat price and never receives a token bill, so AI is a seat-priced good and the consumption model does not apply. Explain why the contract does not change the underlying economic model. Your answer should not depend on predicting how any specific vendor will price its product in the future.</p></div></div>
+<div class="dq"><div class="dq-n">2</div><div class="dq-b"><p>The Cursor and GitHub Copilot episodes can be read as two companies changing their prices. Taken together, what do they reveal about where consumption was being measured all along? Why does the evidence become stronger when the two cases are considered together?</p></div></div>
+<div class="dq"><div class="dq-n">3</div><div class="dq-b"><p>Section 1.2 treats the consumption event, rather than the user or the task, as the discipline's atomic unit. Make the strongest case for using the task instead. What could a task-based discipline explain or manage more effectively? What would it lose by moving away from the event?</p></div></div>
+<div class="dq"><div class="dq-n">4</div><div class="dq-b"><p>Construct the strongest flat-rate objection a capable skeptic could make after reading this chapter. Then answer it. Your response should explain why flat-rate pricing does not eliminate the underlying consumption problem without assuming that any particular subscription will eventually be repriced.</p></div></div>
 </div>
 
 <p class="slot-label">Problems</p>
@@ -268,25 +366,47 @@
 <div class="problem">
 <p class="plab">P1 · Worked</p>
 <p class="ptitle">The CIO memo</p>
-<p>A board member has written to the chief information officer arguing that the company is overcomplicating a simple software purchase and should stop tracking AI usage as if it were a utility. Write the CIO's one-page reply defending consumption economics against the flat-rate objection.</p>
+<p>A company purchases an AI coding assistant for five hundred employees at a fixed annual price per seat. The contract contains no token charges, and the finance team records the entire purchase as software expense. Over the next year, some employees use the assistant occasionally while others use it throughout the workday.</p>
+
+<p>Using the resource consumption model, explain why the absence of a usage-based charge on the company's invoice does not make seat count the underlying unit of AI consumption. Identify where the meter is likely to reside, what it measures, and what the per-seat price conceals.</p>
 <div class="model">
 <p class="mlab">Model reply</p>
-<p>Thank you for the note. I want to agree with the part of it that is right and then explain the part that will cost us if we accept it. You are right that our current AI tools are billed to us at a flat per-seat price, and that this looks exactly like the software we have always bought. The reason I am tracking usage anyway is that the flat price is not a statement about our costs; it is a bet the vendor has made about our consumption. Behind the flat price, every use of these tools consumes a metered resource that costs the vendor real money, and the vendor prices the flat rate against an assumption about how much we will use. While our usage stays near that assumption, nothing happens. When our heaviest teams pull usage above it, the vendor's arrangement stops covering its costs, and the vendor corrects it. Sometimes that means a higher price, sometimes a cap on how much we may consume, sometimes a change to what the plan includes. We have watched this happen across two widely used AI coding subscriptions inside a single year. Tracking our own usage is not utility theater. It is how we see the correction coming before it arrives as a number we did not plan for, and how we keep the timing of that correction from being entirely the vendor's to choose. I am not asking us to manage AI like plumbing. I am asking us to stop managing a metered resource as if it were a license, because the two behave differently exactly when the stakes are highest.</p>
+<p>The company pays for the AI coding assistant by the seat, but the seat is the commercial pricing unit, not the underlying unit of consumption. The five hundred employees do not consume the same amount of AI simply because the company purchases 500 licenses. An employee who uses the assistant several times a month generates far less activity than one who relies on it throughout the workday.</p>
+
+<p>The underlying meter therefore sits behind the seat price. Each time an employee uses the assistant, the system processes a request and consumes computing resources. The provider can measure those consumption events even when it does not expose them as separate charges on the customer's invoice. The flat annual price is built around assumptions about how much consumption the average seat will generate.</p>
+
+<p>Seat count therefore conceals the actual cost driver. Two companies may each purchase five hundred seats while generating very different levels of AI consumption. The same difference can exist inside one company: a small group of heavy users may account for a disproportionate share of total consumption even though every employee carries the same accounting cost per seat.</p>
+
+<p>Under the resource consumption model, the meter has not disappeared. It has moved to the provider's side of the transaction. The company sees a fixed software price, while the provider sees the flow of consumption events that the price must cover.</p>
 <p class="mlab">Annotated reasoning</p>
-<p>The reply concedes the true premise, that the price is flat and looks like software, before contesting the inference, which disarms the objection rather than dodging it. It relocates the meter, treating the flat price as a bet against assumed consumption, rather than claiming a token bill the reader knows does not exist. It grounds the structural claim in the documented pattern rather than in a prediction about a specific vendor, satisfying the evidence standard. And it closes on the buyer's actual interest, the timing of the correction, which is the concrete thing consumption tracking buys.</p>
+<p>The response begins by separating the commercial pricing unit from the underlying consumption unit. The company buys five hundred seats, but equal seat count does not imply equal AI use. It then makes the hidden mechanism visible: each request consumes computing resources, and the provider can measure those events even when the customer never sees a usage-based charge. From there, the response explains what the seat price conceals. Users, teams, and companies with the same number of seats can generate very different levels of consumption. The conclusion follows directly: flat pricing changes where the meter is visible, not whether consumption exists.</p>
 </div>
 </div>
 
 <div class="problem">
 <p class="plab">P2 · Worked</p>
 <p class="ptitle">Inventory a coding-assistant deployment</p>
-<p>A software organization has deployed an AI coding assistant to three hundred developers. The assistant offers inline code completions as developers type, answers chat questions in the editor, and runs multi-step agentic tasks on request. Produce the consumption-event inventory.</p>
+<p>A software company has deployed an AI coding assistant to three hundred developers. The assistant provides inline code completions, answers questions in the editor, and can perform multi-step agentic tasks. Produce the consumption-event inventory for the deployment.</p>
 <div class="model">
 <p class="mlab">Model inventory</p>
-<p><b>Event types:</b> (a) inline completion, triggered continuously as developers type; (b) editor chat query, triggered when a developer asks a question; (c) agentic task run, triggered when a developer delegates a multi-step task.</p>
-<p><b>Resource drivers:</b> inline completion is driven by input tokens (the surrounding code context sent for each completion) and output tokens (the suggested code), with a very high call count because completions fire constantly; chat query is driven by input tokens (the question plus code context) and output tokens (the answer); agentic task run is driven by input and output tokens across many model calls per task, plus tool invocations, and is the highest-intensity event by a wide margin.</p>
-<p><b>Meter:</b> provider side, per token, with agentic runs additionally consuming tool calls; the buyer receives an invoice, and under a seat plan, a seat count.</p>
-<p><b>What the seat count conceals:</b> cost is driven by completion frequency and, above all, by agentic run volume and length, not by the number of developer seats. A single developer who leans on agentic runs can consume more resource than a dozen who use only inline completion, at the same seat cost. The cost driver is tokens per developer per day, concentrated in agentic runs, and the seat line shows none of it.</p>
+<p><b>Event types:</b></p>
+
+<p>(a) Inline completion: triggered as a developer types and the assistant generates a code suggestion.</p>
+
+<p>(b) Editor chat query: triggered when a developer asks the assistant a question.</p>
+
+<p>(c) Agentic task run: triggered when a developer delegates a multi-step task to the assistant.</p>
+<p><b>Resource drivers:</b></p>
+
+<p>Inline completions consume input tokens from the surrounding code context and output tokens from the generated suggestion. Each event may be small, but the total volume can be high because completions occur repeatedly throughout the workday.</p>
+
+<p>Editor chat queries consume input tokens from the developer's question and any code or file context supplied with it. They also consume output tokens from the assistant's response.</p>
+
+<p>Agentic task runs consume resources across multiple model calls rather than a single request. They may also invoke tools, inspect files, generate code, and repeat steps before the task is complete. For that reason, one agentic run can consume substantially more resources than a single completion or chat query.</p>
+<p><b>Meter:</b> The meter sits primarily on the provider's side. The provider can measure token consumption and, for agentic tasks, additional activity such as tool calls or repeated model requests. Under a seat-priced plan, the buyer may see only the number of seats and the resulting subscription charge.</p>
+<p><b>What the seat count conceals:</b> Seat count does not show how much AI the developers actually consume. Two developers with identical seats may generate very different levels of usage. A developer who runs long agentic tasks throughout the day may consume far more resources than several developers who use only occasional inline completions.</p>
+
+<p>The important cost drivers are therefore the number, type, and intensity of consumption events. In this deployment, agentic task volume and length are likely to be especially important. The seat count reveals none of that variation.</p>
 </div>
 </div>
 
