@@ -40,6 +40,26 @@ import sys
 
 VOICED_CLASSES = ("model", "dq", "dq-b", "dq-n", "dq-list", "problem")
 
+# Paragraph classes exempt from the QUESTION-MARK ban only. They stay subject to
+# every other prohibition, including the person check.
+#
+# The standing rule bans RHETORICAL questions, asked for effect with the answer
+# implied and not expected. This check tests for a question mark outside a
+# discussion block, which is a proxy for that rule and not the rule. Chapter 1
+# section 1.4 sets out five diagnostic questions an organization must literally
+# answer, introduced as "leaders must be able to answer five questions:". They
+# are not rhetorical and the proxy could not tell the difference.
+#
+# Ruled 2026-08-08. The class carries NO CSS rules, so rendering is unchanged and
+# no design-system re-run is triggered. The point is to narrow what the check
+# reads as a violation by making the author's intent explicit IN THE SOURCE,
+# never to widen what it tolerates: the ban still holds everywhere a paragraph
+# does not carry one of these classes.
+QUESTION_EXEMPT_P_CLASSES = ("diagnostic",)
+EXEMPT_P_RE = re.compile(
+    r'<p[^>]*\bclass="(?:[^"]*\s)?(?:%s)(?:\s[^"]*)?"'
+    % "|".join(QUESTION_EXEMPT_P_CLASSES))
+
 # Apparatus blocks whose inner paragraphs carry no class of their own, so
 # SKIP_CLASSES cannot see them. A theorem's formal conditional is one sentence
 # of stated antecedents and a consequent; it is a proof object, not running
@@ -135,7 +155,7 @@ def analyse(path):
         for m in CONTRACTION.finditer(text):
             findings["contraction"].append((i, m.group(0), text[:90]))
 
-        if "?" in text and not inside[i]:
+        if "?" in text and not inside[i] and not EXEMPT_P_RE.search(line):
             findings["question"].append((i, "?", text[:90]))
 
         if inside[i]:
