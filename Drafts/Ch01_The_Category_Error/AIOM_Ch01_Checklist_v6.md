@@ -1970,7 +1970,40 @@ chapter's problem set, and it was the only place a reader argued the case TO a
 skeptic rather than explaining it. Revisit when the Chapter 4 review of Decision 24
 looks at problem-set design.
 
-State after the three rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
+**Q4, straight versus typographic quotes. RULED A, convert book-wide.** Straight
+quotes were never a decision, only what the HTML was drafted with, and WeasyPrint
+does not curl them, so every apostrophe printed as a vertical typewriter tick.
+Word also returns typographic quotes on every round, so staying straight meant
+normalising every return forever. `typographic_quotes.py` is new and committed,
+because fourteen chapters follow.
+
+What it converted in Chapter 1: 29 apostrophes and one double-quote pair, the
+flat-rate objection in 1.3. What it refused to touch, by design: anything inside a
+tag, so all 574 straight double quotes in `class=`, `src=` and `href=` are intact;
+the Decision 51 source register, where quoting is JSON syntax; and anything inside
+`<pre>`.
+
+CHECKED BEFORE CONVERTING, not assumed. `voicecheck.py`'s contraction ban already
+matches both `'` and `U+2019`, so the conversion could not silently switch a
+prohibition off. And no register field that actually RENDERS (title, container,
+author) carries a quote in this chapter, so freezing the register does not leave
+the printed page inconsistent. Re-check that second point for a chapter whose
+sources carry an apostrophe in a title.
+
+VERIFIED AFTER. Register byte-identical and still parses as JSON; both SVGs
+identical; attribute count unchanged. Rendered before and after: 26 pages both
+ways, 19 pages changed, and ZERO pages differ once both are reduced to a canonical
+quote form, so nothing but the glyphs moved. No replacement or tofu characters in
+the render, and all three of `U+2019`, `U+201C`, `U+201D` are present. Read on the
+page at 170dpi as well, because no gate checks glyph shape: page 1 for an
+apostrophe, page 8 for the objection's quote pair, page 10 for the theorem panel.
+
+NOT DONE, and offered rather than assumed: nothing yet ENFORCES the convention.
+A straight apostrophe typed by hand would pass every check. Word returns
+typographic quotes, so drift is unlikely from that direction, but a
+`voicecheck.py` rule would close it.
+
+State after the four rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
 the same two pagination failures, still 26 pages.
 
 ---
