@@ -1,8 +1,19 @@
 /* ============================================================
    AIOM_book.css
-   VERSION: 6.9
-   DATE:    2026-08-06
-   CHANGES: v6.9 (2026-08-06) applies DR2 and DR3 from the Ch1 Stage 5
+   VERSION: 7.0
+   DATE:    2026-08-08
+   CHANGES: v7.0 (2026-08-08) sets widows 2 and orphans 3 on body
+            paragraphs, ruled by Dan at Ch1 Stage 5. Ordinary book
+            typography, and the book had been relying on the CSS
+            initial value rather than on a decision. It also cleared
+            gate 8 on Chapter 1 as a side effect, which is recorded
+            in the design QA spec as gap G-J and should not be
+            expected to repeat on every chapter. v7.0 also extends
+            Decision 57's DR2 ruling to .dated and .summary, which the
+            Stage 6 copy edit split into several paragraphs each and
+            which then set them flush for exactly the reason DR2
+            identified in .model.
+            v6.9 (2026-08-06) applies DR2 and DR3 from the Ch1 Stage 5
             re-run, both ruled by Dan: .model p + p gains 6pt so a
             block running one label over several paragraphs no longer
             sets them flush, and table.inv moves from break-inside
@@ -129,6 +140,18 @@ p {
   text-align: justify;
   hyphens: auto;
   -weasy-hyphens: auto;
+  /* v7.0, 2026-08-08, ruled by Dan at Ch1 Stage 5. Never carry a single
+     line of a paragraph to the top of a page, and never start a paragraph
+     with fewer than three lines left at the foot of one. The book had been
+     running on the CSS initial value of 2 and 2, which is a default rather
+     than a decision, and which left a real widow at the head of Ch1 page 13.
+     Values chosen by measuring all nine combinations of 2, 3 and 4 against
+     the fourteen gates: this one is the only green pair that also SHORTENS
+     the chapter, 26 pages to 25, and it removes the worst short page.
+     It also cleared gate 8, which is a side effect of repagination and not
+     a fix for the underlying WeasyPrint behaviour. See gap G-J. */
+  widows: 2;
+  orphans: 3;
 }
 b, strong { font-weight: 600; }
 
@@ -200,6 +223,14 @@ p.provenance {
   text-align: left; hyphens: none;
 }
 .dated p { font-size: 10pt; line-height: 14.6pt; margin: 0; }
+/* v7.0, 2026-08-08. Decision 57's DR2 ruling, extended to the two blocks it did
+   not reach. DR2 fixed .model, where one label ran over several paragraphs and
+   set them flush. The Stage 6 copy edit then split a dated evidence box and the
+   chapter summary into several paragraphs each, and both had the identical
+   defect for the identical reason: margin 0 on the block's paragraphs, with no
+   p + p rule to separate them. Same remedy, same 6pt, so a label still reads as
+   the stronger break. */
+.dated p + p { margin-top: 6pt; }
 
 /* ---------- 6. SECTION HEADINGS ---------- */
 h3.section {
@@ -335,6 +366,7 @@ h3.tail-head {
 .summary-sec { margin-top: 19.7pt; }
 .summary { border-top: 2pt solid var(--amber); padding-top: 9pt; }
 .summary p { font-size: 10.5pt; line-height: 15.5pt; margin: 0; }
+.summary p + p { margin-top: 6pt; }   /* v7.0, see the note at .dated p + p */
 
 /* ---------- discussion questions ---------- */
 .problems-sec { margin-top: 19.7pt; }

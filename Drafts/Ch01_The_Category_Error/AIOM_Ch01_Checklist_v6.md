@@ -2089,6 +2089,46 @@ I DID NOT ANTICIPATE THIS WHEN RECOMMENDING Q1 OPTION A, and the check would hav
 caught it only by running it, which is the argument for running the gates after
 every ruling rather than at the end of a batch.
 
+**Q6 REOPENED AND REVERSED, same day, on Dan asking whether both gates could be
+fixed. THEY CAN. ALL FOURTEEN GATES NOW PASS at 25 pages.**
+
+My Q6 diagnosis was wrong on its central claim. I tested four prose
+perturbations, found the footnote failures immovable, and concluded they were
+structural. Prose length was the wrong lever. `widows` and `orphans` move them.
+All nine combinations of 2, 3 and 4 were then measured against the fourteen
+gates and four of them clear gate 8 outright.
+
+CSS v7.0, ruled by Dan:
+  - `p { widows: 2; orphans: 3; }`. The only green pair that also SHORTENS the
+    chapter, 26 pages to 25, and it removes the worst short page: page 11 had
+    been ending at 428pt against a normal 626pt. The book had been running on
+    the CSS initial value of 2 and 2, which is a default rather than a decision.
+  - `.dated p + p` and `.summary p + p` at 6pt. Decision 57's DR2 ruling extended
+    to the two blocks it did not reach. DR2 fixed `.model`, where one label ran
+    over several paragraphs and set them flush. The copy edit then split a dated
+    evidence box into two paragraphs and the chapter summary into four, and both
+    had the identical defect for the identical reason. FOUND BY READING THE PAGE,
+    not by a gate: no gate measures paragraph separation inside a block.
+
+Gate 14's phantom was fixed separately and properly, as a check-correctness bug
+rather than a design change. `qa()` now takes `source_html`, and a rendered line
+whose entire text is a complete source paragraph can be neither widow nor orphan.
+Gap G-K, opened and closed the same day.
+
+WHAT IS STILL NOT FIXED, and is recorded in G-J rather than glossed: the
+underlying WeasyPrint behaviour. It does not reproduce in a minimal document.
+The widows setting is good typography on its own merits and was ruled on that
+basis; clearing gate 8 is a side effect of repagination and must not be expected
+to repeat on Chapters 2 to 15.
+
+MANUAL READS PERFORMED, because Gap G-I and Gap G-II both require a chapter whose
+pagination moves to be read rather than merely gated. Craft-section slot opening
+holds its label, title and provenance together. Chapter summary and Key terms
+heads both hold with their content. The Meter relocation callout floats clean of
+the theorem panel. Page 6 remains short at 361pt because Figure 1.1 will not fit
+beneath it, which is the same accepted cost as DR3a. `place.py` re-run: 0 callouts
+split.
+
 State after the six rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
 the same two pagination failures, still 26 pages.
 
