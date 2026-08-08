@@ -1790,6 +1790,60 @@ OPEN FOR DAN, carried into round 2:
     finish. UNTIL IT IS RUN, `status_check.py` reporting 8 of 13 OVERSTATES the
     chapter.
 
+### ROUND 2 PROOF ISSUED 2026-08-08
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round2.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round2.manifest.json
+
+220 blocks against round 1's 155, from the 26-page render of the rebuilt chapter.
+Both figures re-cropped from the current render, so the proof shows the pages as
+they now print rather than as they printed at 20 pages.
+
+**`BLOCK_RE` FIXED.** It now matches `li`, so THM-009's four antecedents are in a
+proof for the first time. The panel travels as six labelled blocks: THEOREM
+STATEMENT, THEOREM SCOPE, four THEOREM ANTECEDENT, and THEOREM CONSEQUENT. Each
+carries the note `registry verbatim, do not edit`, and each antecedent carries its
+roman numeral. The `<span class="mk">` marker is NOT inside the recorded span, so
+an edit cannot renumber an antecedent even by accident.
+
+**`copyedit_import.py` NOW REFUSES an edit to any registry-bound block**, with the
+reason and the remedy: amend and re-lock the registry, then re-render the panel.
+Exposing rule-bound prose to an editor without that guard would have been worse
+than leaving it invisible. The proof's front matter says so in the editor's own
+terms: flag anything wrong in a comment, the importer will not apply it.
+
+**A SECOND IMPORTER BUG, PRE-EXISTING, FOUND BY THE UNEDITED ROUND TRIP.**
+`read_docx` read a leading `(...)` on any tag line as the sources group. Round 1
+introduced three paragraphs in the P2 model inventory that OPEN with `(a) `,
+`(b) `, `(c) `, so the importer silently ate those markers, reporting them as
+edits the editor never made. It would have deleted them from the chapter. The
+sources group is now parsed only for the kinds the exporter actually annotates,
+FOOTNOTE and the four registry-bound kinds. Nothing else in the pipeline sees
+this: it is invisible to every gate, because the resulting HTML is well formed and
+merely wrong.
+
+VERIFIED BEFORE ISSUE, four checks, the same battery the round-1 proof passed:
+  1. UNEDITED round trip reports ZERO changes, zero refusals. It failed twice
+     while this was being built, once on the antecedent marker `(i)` truncating
+     its own note at the first bracket, and once on the `(a)` `(b)` `(c)` bug
+     above. Neither was visible any other way.
+  2. Every span resolves to exactly the text it claims: 220 of 220.
+  3. Three simulated edits: an ordinary body edit APPLIED; an edit inside a
+     paragraph opening `(a)` APPLIED, which is the regression test for the bug
+     above; an edit to antecedent (i) REFUSED with its reason.
+  4. The .docx reads back at 225 paragraphs with both figure images present.
+
+NOT VERIFIED, stated rather than glossed, and unchanged from round 1: the .docx
+still cannot be rendered to PDF here, because LibreOffice cannot start without
+Java in this environment.
+
+WHAT ROUND 2 IS FOR. Round 1 removed the long-sentence tail and the esoteric
+register. It also dropped sentence-length variance from stdev 10.5 to 6.9, and the
+prose now sits at 12 to 18 words with a longest uniform run of four consecutive
+sentences within four words of each other. Round 2 should widen range rather than
+shorten further. The open items above, P1's title, the Microsoft comparison, and
+the apostrophe convention, are the other work.
+
 ---
 
 ## Stage 7. Final fact check 2

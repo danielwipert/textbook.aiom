@@ -41,11 +41,24 @@ import sys
 # paragraph-only sweep drops all seven. They are prose: they must match the
 # definition callouts word for word, and nothing else in the pipeline puts them
 # in front of a copy editor. Caught by the completeness audit, 2026-08-06.
+# <li> added 2026-08-08. It was absent, so THM-009's four antecedents, which are
+# <li> elements inside <ol class="ante">, were in no proof ever issued. The
+# Chapter 1 round-1 return rebuilt the theorem from the older running-prose
+# paraphrase because that is all the editor could see, and one registry
+# antecedent was dropped and one added. The most rule-bound prose in the book was
+# the only prose Stage 6 could not show a human.
 BLOCK_RE = re.compile(
-    r'(?s)<(p|h1|h2|h3|figcaption|td|th|span)\b([^>]*)>(.*?)</\1>')
+    r'(?s)<(p|h1|h2|h3|figcaption|td|th|li|span)\b([^>]*)>(.*?)</\1>')
 
 # Spans are used inline throughout body prose; only these carry a block.
 SPAN_BLOCK_CLASSES = {"kt-t"}
+
+# A theorem panel is a RENDERING of a locked registry statement, not prose
+# (standing rule 6, Decision 56). These kinds travel so they can be proofread and
+# are labelled so they are not rewritten; copyedit_import.py refuses to apply an
+# edit to any of them.
+REGISTRY_BOUND = {"THEOREM STATEMENT", "THEOREM SCOPE",
+                  "THEOREM ANTECEDENT", "THEOREM CONSEQUENT"}
 
 # Class to tag. The tag is what the editor reads and what the importer keys on.
 TAGS = {
@@ -56,6 +69,8 @@ TAGS = {
     "lab": "LABEL",
     "term": "TERM",
     "stmt": "THEOREM STATEMENT",
+    "cond": "THEOREM SCOPE",
+    "conseq": "THEOREM CONSEQUENT",
     "date": "DATED",
     "mlab": "SUBHEAD",
     "kt-t": "KEY TERM",
@@ -149,6 +164,12 @@ def extract(html_path):
                for m in re.finditer(r"(?s)<figure>.*?</figure>", src[:body_end])]
     fig_strings = [figure_text(f[2]) for f in figures]
 
+    # A theorem antecedent is an <li> inside <ol class="ante">, and it opens with
+    # <span class="mk">(i)</span>. The marker is structure, not prose: the span
+    # recorded below starts AFTER it, so an edit can never renumber an antecedent.
+    ante = [(m.start(), m.end()) for m in
+            re.finditer(r'(?s)<ol class="ante">.*?</ol>', src[:body_end])]
+
     blocks = []
     fig_n = 0
     for m in BLOCK_RE.finditer(src[:body_end]):
@@ -161,6 +182,16 @@ def extract(html_path):
             continue
 
         inner_start = m.start(3)
+        marker = None
+        if tag == "li":
+            mk = re.match(r'(?s)\s*<span class="mk">(.*?)</span>', inner)
+            if mk:
+                # Parentheses are stripped: the importer reads a leading
+                # "(...)" on a tag line as the sources group, so a marker of
+                # "(i)" would truncate the note at the first bracket.
+                marker = strip(mk.group(1)).strip("()")
+                inner = inner[mk.end():]
+                inner_start += mk.end()
         cites = list(re.finditer(r"(?s)<cite\b[^>]*>(.*?)</cite>", inner))
         text = strip(re.sub(r"(?s)<cite\b[^>]*>.*?</cite>", " ", inner))
 
@@ -177,15 +208,22 @@ def extract(html_path):
             kind = "TABLE HEADING"
         elif tag == "td":
             kind = "TABLE CELL"
+        elif tag == "li":
+            kind = ("THEOREM ANTECEDENT"
+                    if any(a <= m.start() < b for a, b in ante) else "LIST ITEM")
         else:
             kind = TAGS.get(cls, "BODY")
 
         if text:
-            blocks.append({
+            blk = {
                 "kind": kind, "text": text, "class": cls, "tag": tag,
                 "figure": fig_n if kind == "FIGURE CAPTION" else None,
                 "span": [inner_start, m.end(3)],
-            })
+            }
+            if kind in REGISTRY_BOUND:
+                blk["sources"] = ((marker + ", " if marker else "")
+                                  + "registry verbatim, do not edit")
+            blocks.append(blk)
 
         for c in cites:
             gloss = re.sub(r'(?s)<span class="ckey">.*?</span>', " ", c.group(1))
@@ -255,10 +293,16 @@ def build(blocks, fig_strings, fig_images, out_docx, chapter_title, source_name)
         "block is, and the order of the blocks. Splitting or merging a paragraph "
         "is fine and will be detected. The chapter's source register is not in "
         "this file: it is machine-read apparatus, and an edit inside it would "
-        "change what a citation claims without changing what the page says."
+        "change what a citation claims without changing what the page says. "
+        "Blocks marked 'registry verbatim, do not edit' are a theorem panel, "
+        "which renders a locked registry statement rather than stating one. They "
+        "travel so you can proofread them and read the chapter whole. Flag "
+        "anything wrong in them in a comment; the importer will not apply an "
+        "edit made inside one, because changing an antecedent changes the "
+        "theorem."
     ).italic = True
 
-    doc.add_paragraph().add_run("—" * 0)
+    doc.add_paragraph()     # spacer between the front matter and the chapter
 
     fig_seen = 0
     for b in blocks:

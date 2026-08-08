@@ -30,7 +30,20 @@ import json
 import re
 import sys
 
-TAG_RE = re.compile(r"^\[([A-Z][A-Z ]+)\]\s*(?:\(([^)]*)\)\s*)?(.*)$", re.S)
+TAG_RE = re.compile(r"^\[([A-Z][A-Z ]+)\]\s*(.*)$", re.S)
+SOURCES_RE = re.compile(r"^\(([^)]*)\)\s*(.*)$", re.S)
+
+# Kept in step with copyedit_export.REGISTRY_BOUND. Duplicated rather than
+# imported so neither tool can be run without the other present.
+REGISTRY_BOUND = {"THEOREM STATEMENT", "THEOREM SCOPE",
+                  "THEOREM ANTECEDENT", "THEOREM CONSEQUENT"}
+
+# Only these kinds are exported with a "(...)" note after the tag. Any other
+# block whose prose merely OPENS with a parenthetical is prose, not an annotated
+# block. Reading the group unconditionally silently ate the "(a) ", "(b) ",
+# "(c) " that open three paragraphs of the Chapter 1 P2 model inventory. Found
+# 2026-08-08 by the unedited round trip, which is the only check that sees it.
+SOURCED_KINDS = {"FOOTNOTE"} | REGISTRY_BOUND
 
 
 def read_docx(path):
@@ -44,8 +57,12 @@ def read_docx(path):
         m = TAG_RE.match(t)
         if not m:
             continue          # front matter: title line and the instructions
-        out.append((m.group(1).strip(), (m.group(2) or "").strip(),
-                    m.group(3).strip()))
+        kind, rest, sources = m.group(1).strip(), m.group(2).strip(), ""
+        if kind in SOURCED_KINDS:
+            s = SOURCES_RE.match(rest)
+            if s:
+                sources, rest = s.group(1).strip(), s.group(2).strip()
+        out.append((kind, sources, rest))
     return out
 
 
@@ -171,6 +188,18 @@ def main():
     for i, (kind, _sources, text) in pairs:
         original = blocks[i]["text"]
         if text == original:
+            continue
+        # A theorem panel renders a locked registry statement (standing rule 6,
+        # Decision 56): the registry is the authority and the panel is its
+        # rendering, so no antecedent may be added, dropped, merged, split,
+        # weakened, or strengthened here. These blocks travel in the proof to be
+        # proofread, not rewritten. Report and refuse.
+        if kind in REGISTRY_BOUND:
+            refused.append((i, original, text,
+                            "REGISTRY BOUND. This renders a locked registry "
+                            "statement and cannot be edited in a copy edit. "
+                            "Amend and re-lock the registry, then re-render the "
+                            "panel"))
             continue
         changed += 1
         print(f"\n[{i}] {kind}")

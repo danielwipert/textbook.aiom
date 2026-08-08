@@ -140,32 +140,43 @@ the spread.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 6, round 2. Three things are owed before the next proof.**
+1. **Chapter 1 Stage 6, round 2. THE PROOF IS ISSUED AND WAITING FOR DAN.**
 
-   **(a) Fix `copyedit_export.py` `BLOCK_RE`, which does not match `<li>`.** It
-   matches `p|h1|h2|h3|figcaption|td|th|span`. THM-009's four antecedents are `<li>`
-   elements, so they were NEVER in the round-1 proof. Dan was editing the older
-   running-prose paraphrase of the theorem, could not see the structured panel, and
-   rebuilt an IF/THEN form from the paraphrase, which is why one registry antecedent
-   was dropped and one added. Ruled 2026-08-08: keep the Decision 56 panel and the
-   registry antecedents, move the return's gloss to prose after the panel. The tool
-   defect is UNFIXED and hits all fifteen chapters: the most rule-bound prose in the
-   book is invisible to Stage 6. Awaiting Dan's word on the fix.
+   `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round2.docx` with its manifest beside it,
+   220 blocks, cropped from the current 26-page render. Import it with
+   `python3 copyedit_import.py <edited>.docx <manifest>.json <chapter>.html`, read
+   the report, then re-run with `--apply`.
 
-   **(b) `copyedit_import.py` `read_docx` drops untagged paragraphs**, so the 68
-   continuation paragraphs a split produces are discarded. The proof's own front
-   matter tells the editor splitting is detected. It is not. `apply_round1.py` keeps
-   them; the importer still does not.
+   **All three items owed after round 1 are done.** `copyedit_export.py` `BLOCK_RE`
+   now matches `li`, so THM-009's four antecedents are in a proof for the first
+   time, labelled `registry verbatim, do not edit` with the `<span class="mk">`
+   marker held outside the editable span. `copyedit_import.py` now REFUSES an edit
+   to any registry-bound block. The proof is re-exported from the rebuilt HTML.
 
-   **(c) Re-export the proof from the rebuilt HTML.** The round-1 manifest is now
-   stale by 148 blocks. `apply_round1.py` refuses on a guard rather than rewriting
-   against stale offsets, but the importer has no such guard.
+   **The unedited round trip earned its keep again, twice.** It caught the
+   antecedent marker `(i)` truncating its own note at the first bracket, and it
+   caught a PRE-EXISTING importer bug: `read_docx` read a leading `(...)` on any
+   tag line as the sources group, so the three P2 paragraphs that round 1
+   introduced opening `(a) `, `(b) `, `(c) ` would have had those markers silently
+   deleted on import. No gate sees that: the HTML stays well formed and is merely
+   wrong. Never issue a proof without running the check.
 
-   Open for Dan, carried into round 2: the P1 title says "The CIO memo" but the
+   **`copyedit_import.py` still drops untagged continuation paragraphs**, so a
+   split paragraph loses everything after its first line. Round 1 was applied by
+   `08_Stage6_Copy_Edit/apply_round1.py`, which keeps them. If round 2 comes back
+   with splits, the importer will report them as deletions. Not yet fixed.
+
+   Open for Dan, carried from round 1: the P1 title says "The CIO memo" but the
    problem and model answer are no longer a memo; the "Microsoft was not under the
    same financial pressure as Anysphere" passage asserts a comparison the register
-   does not carry and explains structure by a firm's situation (C6); and the
-   straight-versus-curly apostrophe convention is owed a book-wide ruling.
+   does not carry and explains structure by a firm's situation (C6); the
+   straight-versus-curly apostrophe convention is owed a book-wide ruling; and the
+   four-word sentence added to restore "meter relocation" to the prose that teaches
+   it needs confirming.
+
+   What round 2 is for: round 1 cut the long-sentence tail, and also cut variance,
+   stdev 10.5 to 6.9. The prose now sits at 12 to 18 words. Widen range, do not
+   shorten further.
 
 2. **Chapter 1 Stages 7 and 8. DAN'S STEPS.**
 
