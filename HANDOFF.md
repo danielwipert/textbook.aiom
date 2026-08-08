@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-08. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-08 (second entry). Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
@@ -155,12 +155,34 @@ review owes a fresh read on 26 pages.
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 6, round 2. THE PROOF IS ISSUED AND WAITING FOR DAN.**
+1. **Chapter 1 Stage 6. ROUND 2 IS RETURNED AND APPLIED. ONE RULING IS OPEN.**
 
-   `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round2.docx` with its manifest beside it,
-   220 blocks, cropped from the current 26-page render. Import it with
-   `python3 copyedit_import.py <edited>.docx <manifest>.json <chapter>.html`, read
-   the report, then re-run with `--apply`.
+   The open ruling, and the only thing standing between the chapter and a clean
+   `voicecheck.py`: the five diagnostic questions in 1.4 came back as THIRD-PERSON
+   QUESTIONS. The person breach is cleared and that check passes. The question-mark
+   ban still fails, 5 hits. The prose has NOT been changed to make the check pass
+   and the check has NOT been loosened. Recommended: a semantic class
+   `p.diagnostic` carrying NO CSS rules, exempted in `voicecheck.py` from the
+   question ban only, so rendering does not change and no design re-run is
+   triggered. Alternative: revert to period-terminated fragments. Dan rules.
+
+   **Round 2 was a real copy edit**, unlike round 1: 13 blocks, 34 spans, zero
+   refusals, no splits, and `copyedit_import.py` applied it and wrote the file.
+   Gates unchanged at 12 of 14, still 26 pages. Full record under Stage 6 in the
+   checklist.
+
+   **A THIRD EXPORTER BUG, and the one with the widest lesson.** `strip()` replaced
+   every tag with a space, so `<b>access price</b>.` reached the proof as
+   `access price .` Three blocks were affected. Emphasis tags are now removed
+   rather than spaced. THE UNEDITED ROUND TRIP CANNOT SEE THIS CLASS OF BUG: the
+   artifact is symmetric, so export and import agree with each other and both
+   differ from the page. The round trip proves the pair is self-consistent, not
+   that it reads the page correctly. When a new inline construct appears, compare
+   extracted text against the RENDERED text as well.
+
+   Superseded by the above, kept for the path: the round-2 proof was issued as
+   `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round2.docx` and came back as
+   `AIOM_Ch1_CopyEdit_round2_returned.docx`.
 
    **All three items owed after round 1 are done.** `copyedit_export.py` `BLOCK_RE`
    now matches `li`, so THM-009's four antecedents are in a proof for the first

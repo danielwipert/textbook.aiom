@@ -213,7 +213,7 @@
 <p class="date">Dated: July 2025</p>
 <p>Claude Code customers encountered the same economic correction through tighter limits rather than a higher subscription price. Subscribers reported that they were reaching their plans' usage limits sooner, although Anthropic had given no notice of a change. Many had not realized that their subscriptions were subject to such limits at all. Anthropic acknowledged the reports but did not confirm that it had altered the plans.</p>
 
-<p>Eleven days later, the company announced two new weekly usage caps in addition to its existing five-hour limits. The caps would take effect the following month for every subscriber, regardless of renewal date. Customers on the highest-priced plan could continue using Claude Code beyond those limits by purchasing additional usage at standard API rates. The subscription price remained intact, but the amount of consumption included within it now had a clearer boundary.<cite src="anthropic-2025-limits; techcrunch-2025-anthropic-limits; techcrunch-2025-anthropic-tightening"><span class="ckey">[anthropic-2025-limits + techcrunch-2025-anthropic-limits + techcrunch-2025-anthropic-tightening]</span> The announcement set two weekly caps effective August 28, 2025, added to five-hour limits already in force and tightened on July 17, 2025.</cite></p>
+<p>Eleven days later, the company announced two new weekly usage caps in addition to its existing five-hour limits. The caps would take effect the following month for every subscriber, regardless of renewal date. Customers on the highest-priced plan could continue using Claude Code beyond those limits by purchasing additional usage at standard API rates. The subscription price remained intact, but the amount of consumption included within it now had a clearer boundary.<cite src="anthropic-2025-limits; techcrunch-2025-anthropic-limits; techcrunch-2025-anthropic-tightening"><span class="ckey">[anthropic-2025-limits + techcrunch-2025-anthropic-limits + techcrunch-2025-anthropic-tightening]</span> The announcement set two weekly caps, effective August 28, 2025, in addition to five-hour limits that were already in force and had been tightened on July 17, 2025.</cite></p>
 </div>
 
 <aside class="definition">
@@ -233,15 +233,15 @@
 
 <p>These practices are not unique to manufacturing. They apply to any resource that costs money as it moves through an organization. To manage such a resource, leaders must be able to answer five questions:</p>
 
-<p>What the organization is buying, and what requirement it must meet.</p>
+<p>What is the organization buying, and what requirement must it meet?</p>
 
-<p>How much it expects to consume, and how it will know when actual use departs from the plan.</p>
+<p>How much does it expect to consume, and how will it know when actual use departs from the plan?</p>
 
-<p>Where the resource is being used.</p>
+<p>Where is the resource being used?</p>
 
-<p>Who decides how it is allocated when there is not enough.</p>
+<p>Who decides how it is allocated when there is not enough?</p>
 
-<p>What value the organization receives in return.</p>
+<p>What value does the organization receive in return?</p>
 
 <p>If an organization cannot answer these questions, it is not managing the resource, regardless of what its organizational chart or policies suggest. It is simply receiving invoices and paying them.</p>
 
@@ -301,14 +301,14 @@
 
 <div class="model">
 <p class="mlab">Model inventory</p>
-<p><b>Step 1. Event types.</b> The deployment generates at least three: (a) a suggested-reply generation, triggered each time an agent asks the assistant to draft a response to a customer message; (b) a knowledge retrieval, triggered when the assistant pulls reference material to ground a suggestion; and (c) a conversation-close operation, where the deployment summarizes or tags the resolved conversation.</p>
-<p><b>Step 2. Resource drivers.</b> For suggested-reply generation, the drivers are input tokens (the system instructions, the retrieved knowledge, and the conversation history assembled into the prompt) and output tokens (the drafted reply). The volume driver is the number of customer messages that receive a drafted reply, which scales with contacts multiplied by the number of turns per contact. For knowledge retrieval, the drivers are the number of retrieval calls and the tokens those calls embed and return. For the conversation-close operation, the drivers are input tokens (the full conversation) and output tokens (the summary or tags), scaling with the number of resolved conversations.</p>
-<p><b>Step 3. The meter.</b> The generation and close operations are metered on the provider's side, by token. Retrieval is metered wherever the retrieval service runs. In the architecture stipulated here that is the provider's managed index, metered by call and by token; an organization that operates its own vector store meters that step itself. Meter location is a property of the architecture rather than of the event type, which is why Step 3 directs the reader to locate the meter instead of assuming it. What the organization receives is a monthly invoice, and beneath its per-seat plan, a seat count.</p>
-<p><b>Step 4. What the seat count conceals.</b> The seat count treats the agent population as a set of equal units: five thousand seats at one price. Put the volume drivers from Step 2 against it and the two quantities separate immediately. Stipulate, for this exercise, a round five thousand agents, each handling 40 contacts on a working day, with 6 turns per contact receiving a drafted reply, one retrieval per drafted reply, and 21 working days in the month. Suggested-reply generations then run at 5,000 × 40 × 6 × 21, or 25.2 million events a month. Retrievals match them one for one at 25.2 million. Conversation-close operations run once per contact, at 4.2 million. The deployment bills against roughly 54.6 million consumption events a month, which is about 10,900 events behind every seat.</p>
-<p>Change any stipulated figure and the total moves; change none of them and the seat count still does not move, because the seat count is not a function of any of these quantities. Two agents on identical seats can consume resource that differs by an order of magnitude: a high-volume agent handling long, reference-heavy conversations generates many times the consumption of a low-volume agent, at the same seat cost. The quantity that drives the bill is tokens per resolved contact. It does not appear on the seat line, and until the inventory names it, the organization is managing a number that does not govern its cost.</p>
+<p><b>Step 1. Event types.</b> The deployment generates at least three: (a) a suggested-reply generation, triggered each time an agent asks the assistant to draft a response to a customer message; (b) a knowledge retrieval, triggered when the assistant pulls reference material to ground a suggestion; and (c) a conversation-close operation, in which the deployment summarizes or tags the resolved conversation.</p>
+<p><b>Step 2. Resource drivers.</b> For suggested-reply generation, the drivers are input tokens (the system instructions, the retrieved knowledge, and the conversation history assembled into the prompt) and output tokens (the drafted reply). The volume driver is the number of customer messages that receive a drafted reply, which scales with contacts multiplied by the number of turns per contact. For knowledge retrieval, the drivers are the number of retrieval calls and the tokens those calls embed and return. For the conversation-close operation, the drivers are input tokens (the full conversation) and output tokens (the summary or tags); their volume scales with the number of resolved conversations.</p>
+<p><b>Step 3. The meter.</b> The generation and close operations are metered on the provider's side, by token. Retrieval is metered wherever the retrieval service runs. In the architecture stipulated here, the retrieval service is the provider's managed index, metered by call and by token; an organization that operates its own vector store meters that step itself. Meter location is a property of the architecture rather than of the event type, which is why Step 3 directs the reader to locate the meter instead of assuming it. Under its per-seat plan, the organization receives a monthly invoice that shows only a seat count.</p>
+<p><b>Step 4. What the seat count conceals.</b> The seat count treats the agent population as a set of equal units: five thousand seats at one price. Put the volume drivers from Step 2 against it and the two quantities separate immediately. Stipulate, for this exercise, a round five thousand agents, each handling 40 contacts on a working day, with 6 drafted replies per contact, one retrieval per drafted reply, and 21 working days in the month. Suggested-reply generations then run at 5,000 × 40 × 6 × 21, or 25.2 million events a month. Retrievals match them one for one at 25.2 million. Conversation-close operations run once per contact, at 4.2 million. The deployment generates roughly 54.6 million consumption events a month, which is about 10,900 events behind every seat.</p>
+<p>Change any stipulated figure and the total moves; change none of them and the seat count still does not move, because the seat count is not a function of any of these quantities. Two agents on identical seats can consume amounts of the resource that differ by an order of magnitude: a high-volume agent handling long, reference-heavy conversations generates many times the consumption of a low-volume agent, at the same seat cost. The quantity that drives the bill is tokens per resolved contact. It does not appear on the seat line, and until the inventory names it, the organization is managing a number that does not govern its cost.</p>
 </div>
 
-<p>The inventory has done its work when the organization can see, for the first time, the shape of what it is buying. Not five thousand seats. A flow of tens of millions of consumption events, whose volume and intensity, not whose headcount, determine the bill.</p>
+<p>The inventory has done its work when the organization can see, for the first time, the shape of what it is buying. Not five thousand seats. A flow of tens of millions of consumption events whose volume and intensity, not headcount, determine the bill.</p>
 
 <section class="summary-sec">
 <h3 class="tail-head">Chapter summary</h3>
@@ -331,7 +331,7 @@
 <p>A single use of an AI system that consumes metered computing resources and creates an underlying cost greater than zero, whether or not the buyer is charged for it separately. A consumption event may be measured in tokens, requests, credits, compute time, or another equivalent unit. It is the basic unit of consumption tracked in AI Operations Management.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Resource consumption model</span></div>
-<p>The economic model in which deployed AI is consumed as a metered resource. Each task creates a consumption event, and cost accrues with each event. It contrasts with the software access model.</p></div>
+<p>The economic model in which deployed AI is consumed as a metered resource. Each use creates a consumption event, and cost accrues with each event. It contrasts with the software access model.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Software access model</span></div>
 <p>A purchasing model in which an organization pays a fixed price for access to software, usually per seat or subscription. Because additional use creates little or no additional cost, the organization manages who has access rather than how much of the software they consume.</p></div>

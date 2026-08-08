@@ -442,8 +442,8 @@
     7538,
     7878
    ],
-   "sha1": "e047a3b0a8df911735277a34c85ebe544a9c18cb",
-   "text": "The organization therefore fixes its cost when it signs the contract. Procurement negotiates the number of seats and the price of each seat. That per-seat amount is the access price . After the purchase, the organization manages access rather than consumption: who has a login, how many seats are active, and when the contract renews."
+   "sha1": "0c0d7db2d14f87ca423feeb7df1792005e16712d",
+   "text": "The organization therefore fixes its cost when it signs the contract. Procurement negotiates the number of seats and the price of each seat. That per-seat amount is the access price. After the purchase, the organization manages access rather than consumption: who has a login, how many seats are active, and when the contract renews."
   },
   {
    "i": 29,
@@ -577,8 +577,8 @@
     9780,
     10310
    ],
-   "sha1": "8a3057ef7bfccc16cee0673a6be166c6c30c9499",
-   "text": "The discipline developed in this book begins with a single unit of measurement: the consumption event . Each time an employee, workflow, or product calls an AI model, the system consumes computing resources and creates one of these events. The meter records them, and the invoice sums their cost. The chapters that follow explain how an organization identifies where these events originate, records and attributes them, budgets and allocates their cost, and holds the responsible teams accountable for the value they return."
+   "sha1": "64e9823bb6521f6cb4872a26972eaa5e108a2f10",
+   "text": "The discipline developed in this book begins with a single unit of measurement: the consumption event. Each time an employee, workflow, or product calls an AI model, the system consumes computing resources and creates one of these events. The meter records them, and the invoice sums their cost. The chapters that follow explain how an organization identifies where these events originate, records and attributes them, budgets and allocates their cost, and holds the responsible teams accountable for the value they return."
   },
   {
    "i": 38,
@@ -1117,8 +1117,8 @@
     17623,
     17915
    ],
-   "sha1": "fc5d475963a2060fb06a731ac9d6aef34e63ceb6",
-   "text": "The objection is valid. A buyer who pays a flat monthly price is not secretly being billed by the token. But this does not mean that the underlying resource is unmetered. Flat pricing relocates the meter from the buyer to the provider. It does not abolish it. This is meter relocation ."
+   "sha1": "891a2d1ba6cd64a6f4b27eec2e6660cca43be635",
+   "text": "The objection is valid. A buyer who pays a flat monthly price is not secretly being billed by the token. But this does not mean that the underlying resource is unmetered. Flat pricing relocates the meter from the buyer to the provider. It does not abolish it. This is meter relocation."
   },
   {
    "i": 74,

@@ -1844,6 +1844,74 @@ sentences within four words of each other. Round 2 should widen range rather tha
 shorten further. The open items above, P1's title, the Microsoft comparison, and
 the apostrophe convention, are the other work.
 
+### ROUND 2 RETURNED AND APPLIED 2026-08-08
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round2_returned.docx
+
+**A COPY EDIT THIS TIME, WHICH IS WHAT THE STAGE IS FOR.** 13 blocks, 34 spans,
+ZERO refusals, no paragraph splits, no tracked changes left pending, no comments.
+`copyedit_import.py` applied it and wrote the file, which round 1 could not do.
+Integrity after: source register byte-identical, both SVGs byte-identical, six
+citations in the same order, 157 of 157 paragraph tags, all 17 bold spans present,
+theorem panel untouched. Gates unchanged at 12 of 14 and the chapter is still 26
+pages: the round was small enough not to move a page break.
+
+**THREE REFUSALS ON FIRST RUN WERE AN EXPORTER BUG, NOT EDITS.** `strip()`
+replaced EVERY tag with a space, so `<b>access price</b>.` reached the proof as
+`access price .` The editor closed the space up, correctly, and the importer then
+refused the edit as unlocatable because the space was never in the HTML. Exactly
+three blocks were affected, `access price`, `the consumption event`, and `meter
+relocation`; every other bold run in the chapter is followed by a real space or a
+tag. Fixed: emphasis tags (b, i, em, strong, sup, sub, code, abbr) are removed
+rather than spaced. `<span>` still takes a space, because `span.num`,
+`span.fignum` and `span.mk` sit hard against the text after them and
+"1.1The purchase" would be a worse artifact than the one this fixes. The round-2
+manifest was regenerated against the UNCHANGED html: spans did not move, three
+texts were corrected, and the import then ran clean. The issued .docx is kept as
+returned and still carries the phantom spaces.
+
+**THE UNEDITED ROUND TRIP CANNOT SEE THIS CLASS OF BUG, and that is worth
+carrying.** The artifact is SYMMETRIC: export and import agree with each other and
+both differ from the page, so the check passes. It surfaced only because a human
+normalised the spacing. The round trip proves the pair is self-consistent, not that
+it reads the page correctly. Compare extracted text against the RENDERED text, not
+only against itself, when a new inline construct appears.
+
+EDITS OF SUBSTANCE, read and accepted:
+  - Key term, resource consumption model: "Each task creates a consumption event"
+    to "Each USE creates a consumption event". A real inconsistency: 1.2 argues the
+    task is precisely the wrong unit.
+  - Craft Step 4: "6 turns per contact receiving a drafted reply" to "6 drafted
+    replies per contact", and "the deployment bills against roughly" to "generates
+    roughly". Arithmetic untouched, and 54.6 million is an event count, not a bill.
+  - Craft Step 3: the meter sentence recast so the seat count is what the invoice
+    SHOWS rather than something sitting beneath the plan.
+  - Footnote 5's gloss, the Anthropic caps, edited for grammar. Checked against the
+    register: same claims, same dates, nothing added or dropped. Recorded because it
+    is citation-adjacent and therefore Stage 7's business, not because it is wrong.
+  - The four-word sentence added in round 1 to restore "meter relocation" to the
+    prose that teaches it was kept, so it is CONFIRMED.
+
+**OPEN, AND THE ONLY THING BLOCKING A CLEAN voicecheck.** The five diagnostic
+questions in 1.4 came back as THIRD-PERSON QUESTIONS. That clears the first-person
+breach round 1 raised, and `voicecheck.py` now passes the person check. It still
+fails the question-mark ban, 5 hits. The prose has NOT been changed to make the
+check pass, and the check has NOT been loosened; the state is recorded failing and
+Dan rules.
+
+The argument for the prose: the standing rule bans RHETORICAL questions, asked for
+effect with the answer implied. These five are literal, introduced as "leaders must
+be able to answer five questions:", and the reader's organization is meant to
+answer them. `voicecheck.py` tests for any question mark outside a `dq` block,
+which is a proxy for the rule rather than the rule.
+
+Recommended: give the five a semantic class, `p.diagnostic`, carrying NO CSS rules,
+and add it to the classes `voicecheck.py` exempts from the question ban only.
+Rendering does not change, so no design-system re-run is triggered, and the
+exception is visible in the source instead of living in a check's blind spot. The
+alternative is to revert to the period-terminated fragments the live text carried
+before round 1.
+
 ---
 
 ## Stage 7. Final fact check 2

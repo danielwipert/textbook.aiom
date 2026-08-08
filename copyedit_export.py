@@ -82,9 +82,28 @@ TAGS = {
 }
 
 
+# Emphasis tags carry no width, so replacing one with a space invents a space
+# the page does not have. Everything else, including span, is replaced with a
+# space: span.num, span.fignum and span.mk all sit hard against the text that
+# follows them, and "1.1The purchase" would be worse than the artifact this
+# fixes. Added 2026-08-08, see strip() below.
+INLINE_TAGS = ("b", "i", "em", "strong", "sup", "sub", "code", "abbr")
+INLINE_RE = re.compile(r"(?s)</?(?:%s)\b[^>]*>" % "|".join(INLINE_TAGS))
+
+
 def strip(fragment):
-    """Visible text of an HTML fragment, entities resolved, spacing normalised."""
-    t = re.sub(r"(?s)<[^>]+>", " ", fragment)
+    """Visible text of an HTML fragment, entities resolved, spacing normalised.
+
+    Emphasis tags are removed rather than spaced. Replacing every tag with a
+    space turned "<b>access price</b>." into "access price ." and put that
+    phantom space in the copy-editing proof, where an editor correctly closed it
+    up and the importer then refused the edit as unlocatable, because the space
+    was never in the HTML. Three of Chapter 1's blocks did this in the round-2
+    proof. The unedited round trip cannot see it: the artifact is symmetric, so
+    export and import agree with each other and both differ from the page.
+    """
+    t = INLINE_RE.sub("", fragment)
+    t = re.sub(r"(?s)<[^>]+>", " ", t)
     return re.sub(r"\s+", " ", htmllib.unescape(t)).strip()
 
 
