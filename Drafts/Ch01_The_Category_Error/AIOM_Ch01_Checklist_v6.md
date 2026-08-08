@@ -94,6 +94,29 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 | Stage 9 | Locked | not run | 0 |
 
 ---
+
+## REOPENED 2026-08-08: Stage 2 and everything after it
+
+Grounds: The Stage 6 copy edit, rounds 1 to 3 (2026-08-08), rewrote the chapter rather than corrected it. Round 1 alone changed 59 of 155 blocks and grew body prose 25 percent, narrowing one claim and cutting a superlative, and the chapter went from 20 pages to 26. Rulings Q2 and Q3 then replaced an unsourced comparative claim with a formal conditional and retitled P1, and ruling Q4 converted the book to typographic quotes. Under the scoped re-run matrix a body-prose change re-runs Stage 2, Stage 3, Stage 4, Stage 5 and G2. Those four passes were all made against prose that no longer exists, so status_check.py reporting 8 of 13 had been false since round 1 landed. Reopening does not stop the copy edit: Stage 6 sits after every step reset here, and a further round may be taken at any time.
+
+Every step from Stage 2 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Stage 2 | Developmental edit | passed | 0 |
+| Stage 3 | Source and fact check 1 | passed | 0 |
+| Stage 4 | Voice and craft check | passed | 6 |
+| Stage 5 | Design review | passed | 0 |
+| Gate G2 | Production gate | passed | 17 |
+| Stage 6 | Copy edit | not run | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
@@ -348,11 +371,13 @@ content review that ruled seven findings and cost zero re-runs.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-05
+Status: [ ]        Date cleared: 
 
 > Teaching quality, held early so its line edits do not churn fact check, voice, design, and production. Clarity, pacing, cognitive load, example fitness, transitions, and whether the argument carries the target reader without a stall. Claude runs a fresh critical pass; Dan gut-checks with a second model and rules.
 
 Findings:
+
+ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 2 PASSED 2026-08-05. Dan ruled: apply ND1 through ND4. ND5 and ND6 stand
 as recommended, no action. Applied and verified the same day.
@@ -626,11 +651,13 @@ green on the 19-page render; the Stage 3 fact surface was untouched throughout.
 
 Owner: Dan
 
-Status: [x]        Date cleared: 2026-08-06
+Status: [ ]        Date cleared: 
 
 > Every empirical claim traced to primary source. Runs before voice and design so corrections do not churn later polish.
 
 Findings:
+
+ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 3 PASSED 2026-08-06, ruled by Dan. Two external checks were run outside
 the Claude system and are filed here. All six findings are ruled: SF1, SF2, and
@@ -766,18 +793,20 @@ version.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-06
+Status: [ ]        Date cleared: 
 
 > Two halves. The mechanical half is voicecheck.py. The judgment half is the six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. voicecheck.py prints advisory craft metrics proxying C1, C3, C4, and C5; the metrics inform the read and never decide it. C2 and C6 have no proxy and are enforced by reading alone.
 
-- [x] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
-- [x] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
-- [x] C3 front-loaded sentences: findings lead, qualifications subordinate, no throat-clearing openers
-- [x] C4 deliberate rhythm: sentence length varies, no long stretch at a uniform length
-- [x] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier
-- [x] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
+- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [ ] C3 front-loaded sentences: findings lead, qualifications subordinate, no throat-clearing openers
+- [ ] C4 deliberate rhythm: sentence length varies, no long stretch at a uniform length
+- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier
+- [ ] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
 
 Findings:
+
+ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 CRAFT READ RUN 2026-08-06 against the live text, adversarially and by section.
 The six boxes above are deliberately LEFT OPEN. Independent verification is owed
@@ -1192,11 +1221,13 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-06
+Status: [ ]        Date cleared: 
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
 Findings:
+
+ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 5 PASSED 2026-08-06, second re-run of the day, against CSS v6.9. This run
 verifies Decision 57, which applied DR2 and DR3 from the run before it. Twenty
@@ -1417,29 +1448,31 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-06
+Status: [ ]        Date cleared: 
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [x] Renders under WeasyPrint without error or warning
-- [x] Gate 1, zero right-margin overflow
-- [x] Gate 2, zero em and en dashes in the rendered text
-- [x] Gate 3, running heads and folios correct and correctly sided
-- [x] Gate 4, callout placement: no splits, ordering correct after place.py
-- [x] Gate 5, font faces: expected set only, none stray inside SVG
-- [x] Gate 6, key-term register renders with correct rule and tint alternation
-- [x] Gate 7, opening-case provenance line present on page 1
-- [x] Gate 8, footnotes on the calling page, numbering sequential
-- [x] Gate 9, dated evidence boxes labelled and ruled
-- [x] Gate 10, problem labels present with their titles
-- [x] Gate 11, theorem panel intact, labelled, ruled, not split
-- [x] Gate 12, figures captioned, numbered in order, each referenced in text
-- [x] Gate 13, no text below the bottom margin, folio excluded
-- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [ ] Renders under WeasyPrint without error or warning
+- [ ] Gate 1, zero right-margin overflow
+- [ ] Gate 2, zero em and en dashes in the rendered text
+- [ ] Gate 3, running heads and folios correct and correctly sided
+- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
+- [ ] Gate 5, font faces: expected set only, none stray inside SVG
+- [ ] Gate 6, key-term register renders with correct rule and tint alternation
+- [ ] Gate 7, opening-case provenance line present on page 1
+- [ ] Gate 8, footnotes on the calling page, numbering sequential
+- [ ] Gate 9, dated evidence boxes labelled and ruled
+- [ ] Gate 10, problem labels present with their titles
+- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
+- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
+- [ ] Gate 13, no text below the bottom margin, folio excluded
+- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 ARCHIVED 2026-08-07, superseded by the reopen at Stage 5. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
@@ -2003,7 +2036,33 @@ A straight apostrophe typed by hand would pass every check. Word returns
 typographic quotes, so drift is unlikely from that direction, but a
 `voicecheck.py` rule would close it.
 
-State after the four rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
+**Q5, whether to reopen. RULED A, reopen now at Stage 2.** Run 2026-08-08 by
+`reopen.py`. Stage 2, Stage 3, Stage 4, Stage 5 and G2 reset to not-run, 23
+sub-boxes cleared, findings archived in place and marked superseded.
+`status_check.py` now reports 3 of 13, STATUS CONSISTENT, which is the first
+honest number since round 1 landed.
+
+Reopening does NOT stop the copy edit. Stage 6 sits after every step reset here,
+so a round 4 may be taken at any time; the reopen resets step RECORDS and does not
+touch the text.
+
+**THE POST-REOPEN BOX-TEXT CHECK FOUND A REAL STALENESS, second time in this
+chapter.** CLAUDE.md warns that `reopen.py` resets ticks and does not regenerate
+box text, so the boxes must be read against `gen_checklists.py` rather than
+trusted. G3's eight boxes had drifted: all eight had lost the generator's
+"Check N," numbering, checks 2 and 3 were in swapped order, and the last box read
+"Ledger updated on lock" where the generator reads "Ledger updated at lock
+(continuity.py --update), glosses written by hand", losing both the command and
+the hand-written-glosses instruction. Regenerated from `gen_checklists.py`. G3 has
+never run, so no tick was lost. All five stages that carry sub-boxes now match the
+generator exactly, 42 boxes, zero absent.
+
+That is the same defect the G2 list carried on 2026-08-05 and it was found the
+same way. The check is worth running after EVERY reopen, not just after one that
+touches the affected gate: this reopen did not reset G3, and G3's text was stale
+anyway.
+
+State after the five rulings: `voicecheck.py` mechanical PASSES. Gates 12 of 14,
 the same two pagination failures, still 26 pages.
 
 ---
@@ -2028,14 +2087,14 @@ Status: [ ]        Date cleared:
 
 > Mechanical, against the running continuity ledger. Catches chapter to chapter drift here rather than at manuscript integration, where the fix would mean reopening a locked chapter.
 
-- [ ] No term redefined that an earlier chapter already owns
-- [ ] Every forward reference assigned to this chapter is paid
-- [ ] Every forward reference this chapter makes is logged
-- [ ] Northmoor figures diffed against generator output
-- [ ] Registry IDs logged; recurring glosses worded identically
-- [ ] Maturity ladder language consistent with the locked five-stage model
-- [ ] Founding Question references match the canonical table exactly
-- [ ] Ledger updated on lock
+- [ ] Check 1, no term redefined that an earlier chapter already owns
+- [ ] Check 2, every forward reference this chapter makes is logged
+- [ ] Check 3, every forward reference assigned to this chapter is paid
+- [ ] Check 4, registry IDs logged; recurring glosses worded identically
+- [ ] Check 5, Founding Question references match the canonical table exactly
+- [ ] Check 6, maturity ladder language consistent with the locked five stages
+- [ ] Check 7, Northmoor figures diffed against generator output
+- [ ] Ledger updated at lock (continuity.py --update), glosses written by hand
 
 Findings:
 
