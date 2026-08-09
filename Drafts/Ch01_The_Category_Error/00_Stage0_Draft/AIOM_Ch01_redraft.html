@@ -72,7 +72,7 @@
 <p>A single use of an AI system that consumes metered computing resources and creates an underlying cost greater than zero, whether or not the buyer is charged for it separately. A consumption event may be measured in tokens, requests, credits, compute time, or another equivalent unit. It is the basic unit of consumption tracked in AI Operations Management.</p>
 </aside>
 
-<p>The discipline developed in this book begins with a single unit of measurement: <b>the consumption event</b>. Each time an employee, workflow, or product calls an AI model, the system consumes computing resources and creates one of these events. The meter records them, and the invoice sums their cost. The chapters that follow explain how an organization identifies where these events originate, records and attributes them, budgets and allocates their cost, and holds the responsible teams accountable for the value they return.</p>
+<p>The discipline developed in this book begins with a single unit of measurement: <b>the consumption event</b>. Each time an employee, workflow, or product calls an AI model, the system consumes computing resources and creates one of these events. The meter records them, and the invoice sums their cost.</p>
 
 <p>The anatomy of a consumption event is simple, and Figure 1.1 shows its parts. Something enters the model: a prompt, a document, or a conversation history. The model performs a computation. Something returns: a completion, a suggestion, an answer, or a tool call.</p>
 
@@ -200,6 +200,11 @@
 
 <p>Its claim is deliberately narrow. The theorem does not say that flat-rate AI subscriptions are impossible, nor does it predict that every provider will reprice them. It says that when an AI activity requires computation, each execution consumes resources. As employees, workflows, and products use that activity at greater scale, its resource consumption grows. When the stated cost boundary includes the cost of those resources, the economics of the activity cannot be described by the access price alone. The business is operating a resource-consuming activity, not merely accessing software.</p>
 
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">Meter relocation</p>
+<p>The placement of consumption metering on the provider’s side of a flat-rate subscription. The buyer pays a fixed price for access, while the provider continues to measure actual use. The provider sets the flat rate based on expected consumption and may change the price, allowance, or usage limits when actual consumption exceeds that expectation.</p>
+</aside>
 <p>A flat monthly subscription to ChatGPT does not contradict this conclusion. The subscription price states what the buyer pays for access under a particular plan. It does not show how much computing capacity the buyer consumes, what that consumption costs, or whether the provider absorbs the cost within the subscription. Buyers may classify the charge as another SaaS expense because that is how it appears on the invoice. But the invoice describes the commercial arrangement, not the operating economics beneath it. The subscription buys access. Each use still consumes a resource.</p>
 
 <p>The public record already shows this pattern running its course in several forms. Some providers have moved directly to usage-based pricing. Others have retained a flat subscription while adding allowances, credits, or hard limits on consumption. The commercial instrument differs, but the correction is the same: what the buyer receives is brought back into line with what the buyer consumes.</p>
@@ -216,11 +221,6 @@
 <p>Eleven days later, the company announced two new weekly usage caps in addition to its existing five-hour limits. The caps would take effect the following month for every subscriber, regardless of renewal date. Customers on the highest-priced plan could continue using Claude Code beyond those limits by purchasing additional usage at standard API rates. The subscription price remained intact, but the amount of consumption included within it now had a clearer boundary.<cite src="anthropic-2025-limits; techcrunch-2025-anthropic-limits; techcrunch-2025-anthropic-tightening"><span class="ckey">[anthropic-2025-limits + techcrunch-2025-anthropic-limits + techcrunch-2025-anthropic-tightening]</span> The announcement set two weekly caps, effective August 28, 2025, in addition to five-hour limits that were already in force and had been tightened on July 17, 2025.</cite></p>
 </div>
 
-<aside class="definition">
-<p class="lab">Definition</p>
-<p class="term">Meter relocation</p>
-<p>The placement of consumption metering on the provider’s side of a flat-rate subscription. The buyer pays a fixed price for access, while the provider continues to measure actual use. The provider sets the flat rate based on expected consumption and may change the price, allowance, or usage limits when actual consumption exceeds that expectation.</p>
-</aside>
 <p>The Cursor and GitHub Copilot episodes that opened this chapter show the same pattern. Within twelve months, two widely used AI coding products revised their subscriptions so that what customers received more closely reflected what they consumed. Cursor made the correction abruptly and responded to complaints with an apology and refunds. GitHub announced its change in advance and introduced it with billing tools and a transition period. The method differed. The economic correction did not.</p>
 
 <p>In both cases, the provider continued to measure usage beneath the flat subscription price. The provider determined when the existing terms no longer worked and changed the arrangement on its own schedule. The flat rate had not removed the meter. It had placed the meter, and control over the correction, on the provider’s side of the transaction.</p>

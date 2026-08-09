@@ -681,6 +681,43 @@ RECOMMEND: cut the four-activity clause. The sentence that survives it, "The
 meter records them, and the invoice sums their cost", is the better close and is
 the one the section actually builds on.
 
+DE8 RULED AND APPLIED 2026-08-09, OUT OF ORDER, to clear the widow DE3 opened.
+Dan ruled solution one on the merits after being asked to rule DE8 independently
+of the pagination. The four-activity clause is cut, so the paragraph that
+introduces the consumption event now closes on "The meter records them, and the
+invoice sums their cost", which is the sentence the section actually builds on.
+The chapter's earliest enumeration, the only one it never returns to, is gone.
+Chapter 7,101 words to 7,070.
+
+`place.py` RUN, AS THE DE8 TEST PREDICTED. Cutting the clause cleared the widow
+and moved a page break onto the "Meter relocation" callout, splitting it. The
+pass moved that callout two paragraphs earlier, inside its own section, and
+resolved the split in three renders. Result: ALL FOURTEEN GATES PASS, 25 pages,
+`voicecheck.py` mechanical PASS.
+
+GAPS G-I AND G-II DISCHARGED BY READING, NOT BY GATING, which is what both gaps
+require of a chapter whose callout placement or pagination moves.
+
+  Page 10, the moved callout. Intact, beside the ChatGPT paragraph, no collision
+  with a block panel. The theorem panel is on the preceding page and keeps its
+  full measure, so the G-I hazard does not arise. The move also improves the
+  teaching order slightly: the callout now sits nearer the bolded first use of
+  the term in 1.3 than it did.
+
+  Page 16, the craft-section head group. Slot label, title, and provenance line
+  sit together mid-page with four paragraphs of body beneath them. No stranded
+  group, which is the defect gate 14 cannot see.
+
+  Page 6, where the widow was. Clean. Figure 1.1 sits with its caption, the page
+  closes on a full three-line paragraph, no widow and no orphan.
+
+ONE HOUSEKEEPING NOTE FOR LATER CHAPTERS. `place.py` writes a `.bak` beside the
+chapter before it moves anything. On Chapter 1 that produced a second chapter
+HTML in the live-text directory, which is the exact fork hazard the one-live-text
+rule exists to prevent, and it is not covered by `.gitignore`. It was verified as
+an intermediate (identical to the live text except for the callout move) and
+deleted. Check for it after every `place.py` run until the tool is changed.
+
 ### Watch items, no action recommended
 
 W1. Ruling Q1 set the five diagnostic questions as five separate paragraphs
