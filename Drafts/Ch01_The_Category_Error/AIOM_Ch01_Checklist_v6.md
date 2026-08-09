@@ -649,6 +649,30 @@ RECOMMEND: cut the hand-off paragraph at the end of 1.4, or trim it to its first
 sentence. Standing rule 5 disfavours the prose signpost independently. Recovers
 roughly 70 words.
 
+DE5 RULED AND APPLIED 2026-08-09. Dan ruled solution one. The Chapter 2 hand-off
+paragraph is cut, 65 words. Section 1.4 now ends on "The remaining chapters build
+it", which is the conclusion its own divided-ownership argument was built to
+reach, and the chapter hands off to Chapter 2 once, in the summary, where the
+skeleton puts closing material. The chapter's last piece of prose signposting is
+gone, and it no longer previews the aggregation material that belongs to Chapter
+2 (ND6). Chapter 7,079 words to 7,014.
+
+Verified: `voicecheck.py` mechanical PASS, all fourteen gates PASS, 25 pages.
+
+PAGE 16 IS NOW SHORT BY ABOUT 1.7 INCHES, CARRIED TO STAGE 5 AS AN OBSERVATION,
+NOT BOOKED AS A DEFECT. Cutting 65 words pushed the craft-section head group onto
+page 17, so 1.5 now ends page 16 with its body closing at y 500.9 where a full
+page runs to about 622. Read rather than gated, per G-II: the head group is whole
+at the top of page 17, slot label, title, and provenance together with body
+beneath, and page 16 ends on a complete paragraph.
+
+Two reasons this is recorded as an observation. A major slot opening on a fresh
+page is defensible design rather than a defect, and it is the same shape as DR3a,
+where a short page was accepted as the smaller cost. And the alternative is to
+restore words in order to fill a page, which is bending prose to pagination, the
+thing this chapter has repeatedly ruled against. Stage 5 owns the final judgment
+and will see it on a full read.
+
 ### DE6 (MEDIUM, AND THIS ONE IS DAN'S). The chapter is roughly 1,150 words over the ruled band, and no step has booked it.
 
 Measured 2026-08-09, whole chapter, excluding the Decision 51 source register and
