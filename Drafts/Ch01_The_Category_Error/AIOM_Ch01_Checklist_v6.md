@@ -434,6 +434,44 @@ RECOMMEND: name it at the 1.2 contrast paragraph, where the seat and event pair
 is already being set against each other, and hang the figure shorthand off the
 two model names. About twenty words, no structural change, no new claim.
 
+DE1 RULED AND APPLIED 2026-08-09. Dan ruled solution one, prose only. The 1.2
+contrast paragraph now names both models and states the correspondence to the
+figure's shorthand; Figure 1.2 keeps SEAT MODEL and EVENT MODEL, which are the
+right labels for a diagram. `resource consumption model` is now taught in the
+body, in bold, at the point of contrast, and D6's count for the term goes from
+zero back to one. Chapter 7,102 words to 7,135, which does not change DE6.
+Verified: `voicecheck.py` mechanical PASS, all fourteen gates PASS, 25 pages,
+page count unchanged.
+
+A LATENT DEFECT IN GATE 12, FOUND BY APPLYING DE1 AND NOW FIXED. The 33 added
+words moved a line break so that the reference read "... total cost. Figure" /
+"1.2 makes visible ...", and gate 12 reported Figure 1.2 captioned but never
+referenced. Justified text wraps wherever the measure ends, and the gate scanned
+for references LINE BY LINE, so any figure reference that straddled a line break
+was invisible to it. The same scan carried a second hole: a body-size line that
+OPENED with a figure label was excluded as a caption on size, then excluded again
+as a reference for starting the line, so it counted as neither.
+
+References are now counted on the joined page text with captions subtracted one
+for one. Caption detection is unchanged, still per line and still on size and
+column. Gate 12 reads 2 references and 0 unreferenced, which is what it read
+before DE1, so the fix restores the correct count rather than suppressing the
+failure. NEGATIVE TEST RUN, because a green gate on changed code is weak
+evidence: with the reference sentence removed from a scratch copy, the fixed gate
+reports 1 unreferenced and QA FAILS. It can still fail.
+
+This is the fourth check written in this repo to be wrong in a way that read as
+green or fired on correct prose, and the second time gate 12 specifically. The
+pattern holds: every one was found by changing the input, never by re-reading the
+code. It is also the second illustration of the 2026-08-08 rule that when a check
+and the prose disagree, the fix goes to whichever is actually wrong. Rewording
+the sentence so the reference did not wrap would have passed the gate and left
+every later chapter exposed.
+
+RE-RUN CONSEQUENCE OF DE1. Body prose, so Stage 3, Stage 4, Stage 5 and G2, all
+already open. No claim, citation, figure, or slot changed, so G1 stands. The gate
+12 fix is a check change, not a book change, and re-runs nothing on its own.
+
 ### DE2 (HIGH). A ruled developmental fix has been lost, and the defect it closed is live again.
 
 D1 was ruled 2026-08-01 as "signpost and tighten, no split", and EDIT 3 opened the

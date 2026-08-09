@@ -232,6 +232,19 @@ that fail most often:
   a real defect the eleven-gate suite had passed: the "Craft section" slot label
   stranded alone at the foot of page 12, with the section it labels opening on
   page 13.
+- **Gate 12 counted in-text figure references LINE BY LINE until 2026-08-09, so a
+  reference that wrapped was invisible.** Justified text breaks wherever the
+  measure ends, and applying Ch1 DE1 moved a break so the page read "... total
+  cost. Figure" / "1.2 makes visible ...". The gate then failed a chapter whose
+  prose names the figure in the sentence beside it. It also dropped any body-size
+  line OPENING with a figure label, which it excluded as a caption on size and
+  then excluded again as a reference for starting the line. References are now
+  counted on the joined page text with captions subtracted one for one; caption
+  detection is unchanged. This is the second silent defect in gate 12, after the
+  mirrored-margin bug of 2026-08-05, and both were found by changing the input
+  rather than by re-reading the code. When a check and the prose disagree, fix
+  whichever is wrong and say which: rewording the sentence so the reference did
+  not wrap would have passed the gate and left every later chapter exposed.
 
 Gap G-I, added 2026-08-06 at Ch1 G2: a floated definition callout can collide
 with a following block panel and no gate sees it. A placement that put the

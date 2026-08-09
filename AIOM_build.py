@@ -424,21 +424,36 @@ def qa(path, expected_footnotes=None, source_html=None):
 
     # 12. Figures: captioned, numbered in order, each referenced in the text.
     # A caption is a caption-size line that OPENS with the figure label at the
-    # left margin. An in-text reference is body size and mid-line. Matching on
-    # the string alone counts every reference as a caption, which reads as a
-    # duplicate figure number.
+    # left margin. Matching on the string alone counts every reference as a
+    # caption, which reads as a duplicate figure number.
+    #
+    # REFERENCES ARE COUNTED ON THE JOINED PAGE, NOT LINE BY LINE, fixed
+    # 2026-08-09 at Ch1 Stage 2. Justified text wraps wherever the measure ends,
+    # so "Figure" and "1.2" can land on consecutive lines, and the line-by-line
+    # scan then saw no reference at all and failed a chapter whose prose names
+    # the figure in the sentence beside it. Applying DE1 moved that break and
+    # the gate reported Figure 1.2 unreferenced. The same scan also dropped any
+    # body-size line that OPENED with a figure label: it was excluded as a
+    # caption on size, then excluded again as a reference for starting the line.
+    # Captions are still detected per line, on size and column, and are then
+    # subtracted from the page's occurrences one for one.
     CAP_SIZE = 9.0
     caps, refs = [], []
     for i, p in enumerate(pdf.pages):
+        page_lines = []
         for _, row in lines_of(p):
             text = "".join(c["text"] for c in row)
+            page_lines.append(text)
             m = re.match(r"\s*Figure\s*(\d+\.\d+)", text)
             if m and round(row[0]["size"], 1) == CAP_SIZE \
                     and in_main_column(i, row):
                 caps.append((m.group(1), i + 1))
-            for r in re.finditer(r"Figure\s*(\d+\.\d+)", text):
-                if not (m and r.start() == m.start()):
-                    refs.append((r.group(1), i + 1))
+        joined = re.sub(r"\s+", " ", " ".join(page_lines))
+        occ = re.findall(r"Figure\s*(\d+\.\d+)", joined)
+        for n, pg in caps:
+            if pg == i + 1 and n in occ:
+                occ.remove(n)
+        refs.extend((n, i + 1) for n in occ)
     cap_nums = [n for n, _ in caps]
     ref_nums = {n for n, _ in refs}
     if not cap_nums:
