@@ -377,6 +377,256 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+## STAGE 2 RE-RUN 2026-08-09. NOTHING IS APPLIED. AWAITING DAN'S RULING.
+
+Run against the live text
+`00_Stage0_Draft/AIOM_Ch01_redraft.html` as it stands after the three copy-edit
+rounds and rulings Q1 to Q6. Baseline confirmed before reading: 25 pages, all
+fourteen gates PASS, `voicecheck.py` mechanical PASS. Findings are labelled DE to
+keep them distinct from the archived D1 to D6 (2026-08-01) and ND1 to ND6
+(2026-08-05) passes, both of which describe versions of the chapter that no
+longer exist.
+
+Method: one read at reading pace, then a second read against the six questions in
+the second-model prompt below, then targeted verification of anything the read
+suspected. The archived rulings were consulted BEFORE writing findings, so a
+raise that a previous pass already closed is either not raised or is raised
+explicitly as a different finding on different text. Two of the findings below
+exist only because that check was made: DE2 is a ruled fix that has since been
+lost, and DE3 is a different defect on text that D3 ruled about before it was
+rewritten twice.
+
+WHAT IS STRONG, and what the copy edit bought. The opening case is materially
+better than the version D3 ruled on: it opens on a concrete price rather than on
+vendor mechanics, and the fact pattern now carries itself for eleven paragraphs
+without an abstraction. Section 1.3 is the best-taught section in the chapter.
+The objection is stated in the buyer's own voice, conceded, then dismantled, and
+the two dated boxes arrive as instances of a result already established rather
+than as evidence for it. The craft section earns its space: the four steps are
+procedural, the model inventory runs the arithmetic in the open, and the closing
+move from five thousand seats to 54.6 million events is the chapter's strongest
+single teaching moment. Sentence rhythm improved everywhere except where noted at
+Stage 4.
+
+### DE1 (HIGH). The chapter names the wrong model and never names the right one.
+
+Section 1.1 defines <b>software access model</b> in a callout and in bold. Its
+counterpart is never named in the teaching body. Section 1.2 introduces the
+contrast under the figure's shorthand instead: "The seat model and the event
+model do not describe the same cost in different ways" (para at line 163), and
+Figure 1.2 is captioned "Two purchase models". The body-facing name, "resource
+consumption model", appears for the first time in the CHAPTER SUMMARY, after the
+teaching is over, and once more in P1. It appears nowhere in 1.1 through 1.5.
+
+So the chapter carries four names for two models and never states the
+correspondence. A reader who meets "resource consumption model" in the summary
+has to reconstruct that it is the "event model" of 1.2, which is the "resource
+consumption" half of the category error in the chapter title. This is the
+chapter's central contrast, and it is the one piece of vocabulary the reader is
+left to assemble alone.
+
+D6 ruled all seven key terms load-bearing on 2026-08-01, counting one body use of
+"resource consumption model". In the current text that count is zero. The terms
+are spec-locked at Stage 1, so the remedy is to earn the term in the body, not to
+cut it.
+
+RECOMMEND: name it at the 1.2 contrast paragraph, where the seat and event pair
+is already being set against each other, and hang the figure shorthand off the
+two model names. About twenty words, no structural change, no new claim.
+
+### DE2 (HIGH). A ruled developmental fix has been lost, and the defect it closed is live again.
+
+D1 was ruled 2026-08-01 as "signpost and tighten, no split", and EDIT 3 opened the
+three absences with "The failure to answer those questions is not abstract",
+explicitly bridging the shift from five questions to three failures as symptom of
+cause rather than as a fresh list. EDIT 1's bridge survived the re-draft in new
+words ("To manage such a resource, leaders must be able to answer five
+questions"). EDIT 3's bridge did not survive. The three failures now open at "This
+failure is visible in three places", and the failure referred to is the divided
+ownership of the two preceding paragraphs, not the five questions.
+
+The result is exactly the defect D1 named: two enumerated lists a few paragraphs
+apart, with no stated relation, in the section carrying the most moves.
+
+RECOMMEND: restore the bridge in one clause. Nothing renumbers, resplits, or
+reorders.
+
+WORTH NAMING AS A CLASS, and it is the most transferable thing in this pass. A
+ruled developmental fix can be silently reverted by a later re-draft or copy-edit
+round, and no gate, no check, and no stage sees it. Three rounds of copy edit
+touched this section and none of them knew EDIT 3 was load-bearing. Every other
+ruling in this chapter is recorded with its reasoning, which is what let this one
+be recovered, but recovery depended on a human or a model rereading an archived
+record. Suggest a standing practice for the remaining fourteen chapters: when a
+developmental fix is applied, record the SENTENCE it added, not only the reason,
+so a later pass can grep for it.
+
+### DE3 (MEDIUM-HIGH). The opening case states its central causal claim twice, and delivers the chapter's diagnosis before the teaching body opens.
+
+The case runs three analytic paragraphs after the fact pattern closes.
+
+  Para at line 35 states the mismatch and the correction: "Once the cost of
+  serving heavy users exceeded what the subscription could support, the provider
+  changed the terms."
+
+  Para at line 37 states provider control of the timing, which is 1.3's payoff.
+
+  Para at line 39 states the category error itself, then restates the same causal
+  claim as line 35: "Once heavy use pushed the provider's cost beyond that price,
+  the economics forced a correction."
+
+Two of those three paragraphs end on the same sentence in different words. Then
+1.1 re-derives the mismatch over six paragraphs and 1.3 re-derives provider
+control over six more.
+
+D3 ruled 2026-08-01 to leave the opener as drafted. That ruling was about
+front-loading vendor mechanics at the TOP of the case, on text that has since been
+rewritten twice. This is a different finding about the case's analytical TAIL and
+does not reopen D3.
+
+RECOMMEND: cut to two paragraphs by folding line 35 into line 39, which removes
+the duplicate causal sentence and leaves the diagnosis in place. The stronger
+version, which is Dan's call and not mine to make, is to cut line 39 as well and
+let 1.1 land the diagnosis first. Recovers roughly 120 words either way, which
+bears on DE6.
+
+### DE4 (MEDIUM). Antecedent (iv) of Theorem 1 is never glossed, and it is the one a reader will stall on.
+
+The paragraph after the panel translates the formal statement into plain English
+and walks (i) compute, (ii) scaling, and (iii) the cost boundary. It does not
+touch (iv), "measurement makes resource use, or the cost-bearing activity,
+visible."
+
+A reader who has just been taught that flat pricing HIDES the meter from the
+buyer will read (iv) as a contradiction of the section it sits in. The resolution
+is that (iv) requires the resource use to be measurable somewhere in the system,
+not visible to the buyer, which is meter relocation restated. The theorem's least
+intuitive antecedent is therefore also the one that most directly supports 1.3,
+and the prose leaves it on the floor.
+
+RECOMMEND: one clause in the gloss paragraph. The panel is a rendering of the
+registry statement and is not touched (Decision 56).
+
+### DE5 (MEDIUM). The chapter reaches a closing cadence three times.
+
+Section 1.4 ends by handing off to Chapter 2: "The next chapter begins with the
+atomic unit defined here: the consumption event." Two slots then follow. The
+summary closes on the same beat: "It makes the flow visible. It does not yet
+explain how to manage that flow. Seeing it whole comes first."
+
+The chapter therefore hands off to Chapter 2 twice, once before 1.5, the craft
+section, and the summary still have to run. The summary's version is the better
+one, and it is in the slot the skeleton assigns to closing.
+
+RECOMMEND: cut the hand-off paragraph at the end of 1.4, or trim it to its first
+sentence. Standing rule 5 disfavours the prose signpost independently. Recovers
+roughly 70 words.
+
+### DE6 (MEDIUM, AND THIS ONE IS DAN'S). The chapter is roughly 1,150 words over the ruled band, and no step has booked it.
+
+Measured 2026-08-09, whole chapter, excluding the Decision 51 source register and
+SVG label text: 7,102 words. At G1 on 2026-08-05 the same chapter measured 5,949,
+inside Decision 33's 5,000 to 6,000 band with 51 words of headroom. The three
+copy-edit rounds added roughly 1,150 words, about 19 percent.
+
+CAVEAT ON THE COMPARISON, stated so it is not taken for more than it is. The
+method behind the 5,949 figure is not recorded, so the delta is approximate. It
+is corroborated in direction and magnitude by the body-prose measure carried in
+HANDOFF.md, 5,241 words rising to about 6,500 across the same three rounds.
+
+G1 keeps its pass legitimately. The scoped re-run matrix leaves G1 intact for a
+body-prose change unless a slot moves, and no slot moved. But the word band is a
+G1 criterion, so the breach is real and currently unbooked, and it is a pacing
+question, which is this stage's own territory.
+
+OPTIONS FOR DAN, one ruling:
+
+  A. Amend Decision 33's band for Chapter 1 and record why. The chapter is 25
+     pages and reads well; the band may simply have been set against a leaner
+     conception of the chapter than the one three copy edits produced.
+  B. Cut back into band. DE3 and DE5 together return roughly 190 words, so about
+     950 more would have to come from the teaching body. That is a real edit, not
+     a trim.
+  C. Re-run G1 and book the breach explicitly as an accepted cost, the way DR3a
+     is booked.
+
+RECOMMEND A, with the reasoning recorded. The band was a drafting target; the
+chapter now exists and can be judged directly, and nothing in the read suggests
+the extra words are padding. If Dan rules B, the cuts should come from 1.3 and
+1.4, which carry the most restatement.
+
+### DE7 (LOW). "Four months earlier" has no antecedent in the reading line.
+
+The Microsoft paragraph in the opening case opens on "Four months earlier". The
+arithmetic works only if the reader carries the June 1, 2026 date across a
+paragraph break and rounds it. The more natural anchor, the April 27, 2026
+announcement, appears only in the citation note, which reaches the printed page as
+a numbered footnote rather than in the reading line.
+
+RECOMMEND: "In January 2026, four months before that change, ..." Six words, no
+claim changes.
+
+### DE8 (MEDIUM). Six enumerations, and the one that carries no load arrives earliest.
+
+The chapter enumerates six times: three candidate units in 1.2; the book's four
+activities in the paragraph that introduces the consumption event; five questions
+in 1.4; three failures in 1.4; four inventory steps in the craft section; three
+event types in the model inventory.
+
+Four of the six are load-bearing. The five questions foreshadow Chapter 3's
+Founding Questions, which D4 ruled intentional. The four activities are the
+exception: they arrive in the same paragraph as the chapter's atomic unit, at the
+point of highest new-vocabulary load, and nothing in the chapter refers to them
+again. They are a table of contents in prose, which standing rule 5 disfavours.
+
+RECOMMEND: cut the four-activity clause. The sentence that survives it, "The
+meter records them, and the invoice sums their cost", is the better close and is
+the one the section actually builds on.
+
+### Watch items, no action recommended
+
+W1. Ruling Q1 set the five diagnostic questions as five separate paragraphs
+marked `p.diagnostic`. That is more prominent on the page than the running prose
+D4 ruled on, so the Chapter 3 foreshadow is louder than when it was ruled
+intentional. D4's ruling still covers it. Flagged only so that if Chapter 3 later
+finds the foreshadow spent, the cause is on record.
+
+W2. The chapter states that a task "is the right unit for measuring business
+value" without support, which is correct practice, since later chapters own it.
+Recorded so a later reader does not raise it as an unsourced claim. It is a
+definitional stipulation, not an empirical claim, so it is outside Stage 3.
+
+### Re-run consequence if Dan rules any of DE1 to DE5, DE7, DE8
+
+All are body-prose edits. Per the scoped re-run matrix they pull Stage 3 fact,
+Stage 4 voice and craft, Stage 5 design, and G2. All four are already open
+following the reopen, so nothing reverts and no work is lost. No claim, citation,
+figure, or slot changes under any recommendation above, so G1 stands, and Stage 3
+is a confirmation of an unchanged fact surface rather than a re-check, which is
+Dan's call. DE6 option C is the exception: it re-runs G1 by design.
+
+Pagination WILL move if DE3, DE5, or DE8 is applied. Gaps G-I and G-II both
+require that a chapter whose pagination moves has its slot openings and its
+callout placements READ, not merely gated, and the 2026-08-08 session added the
+sharper form of the rule: the read finds things the gates were never built to
+see. Book that read into Stage 5, not into this stage.
+
+### Second-model gut-check
+
+The prompt below is unchanged and still fits. Give the second model the chapter
+HTML and the prompt, and do NOT give it the findings above. Compare its answers
+against DE1 to DE8. Agreement raises confidence. A stall it names that this pass
+missed is the more valuable output and enters as DE9 onward. Disagreement is
+Dan's to rule.
+
+ONE CAUTION SPECIFIC TO THIS RE-RUN. This pass was made by the model that drafted
+the chapter, wrote the craft standard, and applied all three copy-edit rounds. The
+same conflict that CLAUDE.md section 10 records against the Stage 4 read applies
+here with more force, because this stage has no mechanical half at all. The
+second-model check is worth more on this pass than on the archived ones.
+
+---
+
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 2 PASSED 2026-08-05. Dan ruled: apply ND1 through ND4. ND5 and ND6 stand
