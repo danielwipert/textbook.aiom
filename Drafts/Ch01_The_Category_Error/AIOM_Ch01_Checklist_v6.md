@@ -605,6 +605,35 @@ and the prose leaves it on the floor.
 RECOMMEND: one clause in the gloss paragraph. The panel is a rendering of the
 registry statement and is not touched (Decision 56).
 
+DE4 RULED AND APPLIED 2026-08-09. Dan ruled solution one, and added a standard
+for this material: the theorem must be easy to understand, not overly wordy or
+scientific, because the point here is to educate. Two sentences now gloss
+antecedent (iv), placed after the (iii) sentence so the paragraph keeps its
+close: "The fourth condition asks only that the resource use be measured
+somewhere, not that the buyer can see it. A provider's meter satisfies that
+condition even when the invoice shows a single flat charge." The ruled text said
+"satisfies it"; that pronoun was ambiguous between the condition and the meter,
+so it reads "satisfies that condition". Chapter 7,070 words to 7,109.
+
+All four antecedents are now glossed in plain English, and (iv) lands on meter
+relocation, which the section established six paragraphs earlier. The formal
+statement is now explained by the argument rather than sitting beside it.
+
+Verified: `voicecheck.py` mechanical PASS, all fourteen gates PASS, 25 pages.
+Pages 9 and 10 READ, per gaps G-I and G-II, because pagination moved: the THM-009
+panel is whole on page 9 at full measure, the "Meter relocation" callout is intact
+beside its paragraph on page 10, and neither page carries a widow, an orphan, or a
+stranded head.
+
+RE-RUN CONSEQUENCE. Body prose, so Stage 3, Stage 4, Stage 5 and G2, all already
+open. The panel was not touched, so Decision 56 and the registry statement are
+undisturbed and G1 stands.
+
+DAN'S STANDARD FOR THE THEOREM MATERIAL IS RECORDED AS AN OPEN ITEM, NOT AS
+CLOSED BY DE4. DE4 fixed an omission. It did not make the passage plainer, and
+reading the rendered pages 9 and 10 against the standard raises a separate
+finding, DE9 below.
+
 ### DE5 (MEDIUM). The chapter reaches a closing cadence three times.
 
 Section 1.4 ends by handing off to Chapter 2: "The next chapter begins with the
@@ -717,6 +746,35 @@ HTML in the live-text directory, which is the exact fork hazard the one-live-tex
 rule exists to prevent, and it is not covered by `.gitignore`. It was verified as
 an intermediate (identical to the live text except for the callout move) and
 deleted. Check for it after every `place.py` run until the tool is changed.
+
+### DE9 (RAISED 2026-08-09, NOT YET RULED). The theorem passage is harder to read than the argument it states.
+
+Raised under the standard Dan set when ruling DE4: the theorem must be easy to
+understand, not overly wordy or scientific, because the point is to educate. DE4
+closed an omission and did not touch this. Three things carry the difficulty, and
+they are separable, so they can be ruled separately.
+
+  A. THE PANEL'S OWN LANGUAGE. Antecedent (ii) reads "production scaling expands
+     the surface over which that activity is used", and (iv) reads "measurement
+     makes resource use, or the cost-bearing activity, visible". Both are registry
+     shorthand carried into English with the shorthand's texture intact. Decision
+     56 requires the panel to render the registry statement into full parallel
+     English and forbids changing the logic; it does not require this vocabulary.
+     "Surface" is the word doing the most damage, and it is doing no work that
+     "the range of work it is used for" would not do.
+
+  B. THE GLOSS PARAGRAPH IS ONE TWELVE-LINE BLOCK. On the rendered page it is a
+     wall, and it now carries five moves: what the theorem does not say, then (i),
+     (ii), (iii), and (iv). It reads as a single held breath.
+
+  C. THE PARAGRAPH AFTER THE PANEL RESTATES 1.1 FOR THE THIRD TIME. "Software
+     access describes how the buyer obtains the right to use the capability. It
+     does not describe how much of the underlying resource the organization
+     consumes or what that consumption costs." The chapter has already said this
+     in 1.1 and in the theorem's own consequent, which sits four lines above it.
+
+Any change to A touches a registry rendering and is the one that needs the most
+care. B and C are ordinary prose edits.
 
 ### Watch items, no action recommended
 
