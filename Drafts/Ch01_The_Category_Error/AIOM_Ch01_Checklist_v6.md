@@ -499,6 +499,36 @@ record. Suggest a standing practice for the remaining fourteen chapters: when a
 developmental fix is applied, record the SENTENCE it added, not only the reason,
 so a later pass can grep for it.
 
+DE2 RULED AND APPLIED 2026-08-09. Dan ruled solution one, restore the bridge. The
+three failures now open on "The five questions therefore go unanswered, and the
+reason is visible in three places", so they read as the causes of the unanswered
+questions rather than as a second list. Six words. This is D1 EDIT 3 restored in
+current vocabulary, four paragraphs further from the questions than when it was
+first ruled. The five questions are still referred to exactly twice, at the test
+that follows them and now at the bridge, which is the minimum that keeps the
+Chapter 3 foreshadow alive. Chapter 7,135 words to 7,141. Verified:
+`voicecheck.py` mechanical PASS, all fourteen gates PASS, 25 pages, page count
+unchanged.
+
+RE-RUN CONSEQUENCE. Body prose, so Stage 3, Stage 4, Stage 5 and G2, all already
+open. No claim, citation, figure, or slot changed, so G1 stands.
+
+THE CLASS PROBLEM DE2 NAMES IS NOT CLOSED BY APPLYING DE2. A ruled developmental
+fix was silently reverted by a later re-draft and three copy-edit rounds, and
+nothing saw it: not a gate, not `voicecheck.py`, not the copy-edit round trip,
+which is designed to detect exactly the block-level changes that removed it. It
+was recovered only because D1's ruling was archived with its reasoning and this
+pass read the archive before writing findings. That is not a mechanism, it is a
+habit, and it does not scale to fourteen more chapters.
+
+PROPOSED STANDING PRACTICE, for Dan to rule separately from DE2: when a
+developmental or craft fix is applied, record the SENTENCE it adds, in full and
+in quotation marks, not only the reason it was applied. A sentence on the record
+is greppable, so a later pass can test whether a ruled fix still exists in the
+live text. A reason on the record is not. The archived D1 entry did quote EDIT 3's
+sentence, which is why this was recoverable at all; the practice is to make that
+the rule rather than the exception, and to check it at G2 or Stage 9.
+
 ### DE3 (MEDIUM-HIGH). The opening case states its central causal claim twice, and delivers the chapter's diagnosis before the teaching body opens.
 
 The case runs three analytic paragraphs after the fact pattern closes.
