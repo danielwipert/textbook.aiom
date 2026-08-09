@@ -41,6 +41,18 @@ These have all been explicitly ruled and re-affirmed. Do not relitigate them.
    exception.** See section 3.
 4. **The registry justifies the book. It does not organize the book.** Never
    restructure a chapter around registry objects.
+4a. **The registry is the third rail. The book is an interpretation of it.**
+   Ruled 2026-08-09 at Ch1 DE9. A registry object is never edited to suit a
+   chapter, and a panel rendering it is never paraphrased into plainer words:
+   the ID in the panel label is what a reader follows to the verbatim form, and
+   that promise is what makes the panel trustworthy. When a registry statement
+   reads as wordy or technical, the remedy is always the prose beside it, never
+   the statement. Give every antecedent a plain-English twin in the gloss and
+   let the panel stay formal. If the shorthand itself is genuinely wrong, that
+   is an AI Business Economics change, upstream of the book, not a chapter edit.
+   Note also that the Locked Registry workbook is NOT in this repo, so no panel
+   wording can be verified from a Claude session; `aiom_registry.py` expects the
+   workbook to be supplied.
 5. **No decorative apparatus.** Signposting is done through the skeleton, not
    through prose. Do not tell the reader what the chapter is about to say before
    saying it.

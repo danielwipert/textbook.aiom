@@ -776,6 +776,49 @@ they are separable, so they can be ruled separately.
 Any change to A touches a registry rendering and is the one that needs the most
 care. B and C are ordinary prose edits.
 
+DE9 RULED AND APPLIED 2026-08-09. Dan ruled A2, B and C together, and stated the
+governing principle: the registry is never touched, it is the third rail, and the
+textbook is an interpretation of the registry. Graduated into CLAUDE.md as
+standing rule 4a, because it is durable and general and had been implicit in
+Decision 56 without ever being stated as a rule of its own.
+
+  A2 APPLIED, which means the panel is untouched and the plain English is carried
+  entirely by the gloss. Every antecedent now has a plain-English twin in the
+  prose beside it: (i), (ii) and (iii) in the first gloss paragraph, where (ii)'s
+  "surface" is rendered as "As employees, workflows, and products use that
+  activity at greater scale, its resource consumption grows", and (iv) in the
+  second, added at DE4.
+
+  B APPLIED. The gloss splits after "cannot be described by the access price
+  alone". The first paragraph holds what the theorem does not say plus conditions
+  (i) to (iii); the second holds condition (iv) and the conclusion. Zero words.
+
+  C APPLIED. The paragraph restating 1.1 after the panel is cut, 30 words, so
+  "A theorem in this book is a statement established within a defined system"
+  now follows the panel directly and the reader meets the formal object and is
+  told what kind of object it is in the same breath.
+
+A CORRECTION MADE IN THE COURSE OF THIS FINDING, recorded because the error was
+mine and it was load-bearing. When DE9 was first raised, it said Decision 56 does
+not require the panel's vocabulary. Decision 56 does require it: the permitted
+transformations are restoring elided articles, attaching a dangling disjunct, and
+setting the antecedents in parallel grammar, and it states that the registry
+statement is the authority and the panel a faithful rendering. Substituting
+plainer words for "the surface over which that activity is used" would have been
+paraphrase, outside what the decision allows. Reading the decision text before
+proposing the edit is what caught it.
+
+Chapter 7,109 words to 7,079. Verified: `voicecheck.py` mechanical PASS, all
+fourteen gates PASS, 25 pages. Pages 9 and 10 READ per gaps G-I and G-II: the
+panel is whole at full measure with the methodological paragraph directly beneath
+it, the gloss reads as two units rather than one wall, the "Meter relocation"
+callout is intact beside its paragraph, and neither page carries a widow, an
+orphan, or a stranded head.
+
+RE-RUN CONSEQUENCE. Body prose, so Stage 3, Stage 4, Stage 5 and G2, all already
+open. The panel is untouched, so Decision 56, the registry statement, and G1 all
+stand.
+
 ### Watch items, no action recommended
 
 W1. Ruling Q1 set the five diagnostic questions as five separate paragraphs
