@@ -19,6 +19,12 @@ in AIOM_Voice_and_Craft_v1.md:
   - copula rate and nominalization density                 -> C3 economy
   - paragraphs closing on a trailing qualifier             -> C5 close
 
+One printed number is NOT a proxy: the chapter word count, printed first under
+the craft metrics. It is the Decision 33 measure, named at Ch1 DE6 on 2026-08-09,
+and it is the only figure here that answers to a ruled band (6,500 to 7,500 for
+Chapters 1 and 2). It is printed rather than enforced, because the band is
+editorial judgment and G1 owns it.
+
 These numbers never fail a run and never will. They are proxies, and a proxy
 optimized against has stopped measuring. They inform the Stage 4 read; the
 checklist criteria decide it. C2 (context and stakes) and C6 (the guard) have
@@ -330,6 +336,25 @@ def section_table(paras):
               f"{statistics.pstdev(lens):>7.1f}{short:>7.0f}%{flag}")
 
 
+def chapter_words(path):
+    """The Decision 33 measure, amended 2026-08-09 at Ch1 DE6.
+
+    The whole chapter as rendered, excluding only the Decision 51 source
+    register block and SVG label text. Citation notes ARE counted, because
+    sources.py turns them into numbered footnotes the reader reads.
+
+    This exists because the band was unusable without it. Decision 33 named a
+    number and no measure, and Chapter 1 produced four defensible counts, two of
+    which put it on opposite sides of the band. A hand-computed check is exactly
+    the condition under which a green reading measures nothing.
+    """
+    src = open(path, encoding="utf-8").read()
+    src = re.sub(r'(?s)<section id="aiom-sources">.*?</section>', " ", src)
+    src = re.sub(r"(?s)<svg.*?</svg>", " ", src)
+    src = re.sub(r"(?s)<head>.*?</head>", " ", src)
+    return len(re.sub(r"<[^>]+>", " ", src).split())
+
+
 def craft_metrics(path):
     paras = body_paragraphs(path)
     if not paras:
@@ -346,8 +371,10 @@ def craft_metrics(path):
     per_k = lambda n: round(1000.0 * n / words, 1) if words else 0.0
 
     print("CRAFT METRICS (advisory, never a pass or fail)")
+    print(f"  chapter: {chapter_words(path)} words "
+          f"(Decision 33 measure: whole chapter less source register and SVG)")
     print(f"  corpus: {len(paras)} paragraphs, {len(sents)} sentences, "
-          f"{words} words")
+          f"{words} words  (craft prose only, NOT the Decision 33 measure)")
 
     # C4, rhythm.
     run, at = longest_uniform_run(lengths)

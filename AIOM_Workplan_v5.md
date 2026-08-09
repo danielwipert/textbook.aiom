@@ -212,8 +212,28 @@ Decisions 22 onward live here.
   checked at G3.
 - **Decision 32. AMENDED.** Per-chapter checklist only. No process document and
   no book-wide rollup.
-- **Decision 33.** Word bands are set. Chapters 1 and 2 run 5,000 to 6,000
-  words.
+- **Decision 33. AMENDED 2026-08-09 at Ch1 DE6.** Word bands are set, and the
+  measure is now named. Chapters 1 and 2 run **6,500 to 7,500 words**, counted as
+  the WHOLE CHAPTER AS RENDERED, excluding only the Decision 51 source register
+  block and SVG label text. Citation notes ARE counted, because they reach the
+  reader as numbered footnotes. `voicecheck.py` prints the number under this
+  name, so it is read rather than recomputed by hand.
+
+  The original band was 5,000 to 6,000 words with no measure stated, and that
+  omission is what made the amendment necessary. Chapter 1 produced four
+  defensible numbers at DE6: 7,032 on the measure now ruled, 6,865 with citation
+  notes removed, 4,855 for `voicecheck.py`'s craft corpus, and 4,228 for the
+  opening case plus 1.1 to 1.5 alone. The chapter was therefore either 1,030
+  words over the ceiling or 770 under the floor, depending on a choice the
+  decision never made. A band that cannot be computed is not a constraint.
+
+  The band moved rather than the chapter because the three copy-edit rounds of
+  2026-08-08 that added roughly 1,100 words were ruled, improved the prose, and
+  were not padding. Setting the band to fit the artifact is more honest than
+  keeping a target the book has outgrown and booking a permanent exception
+  against it. Holding 5,000 to 6,000 was considered and would have meant cutting
+  about 1,030 words from the teaching body, which is its own editorial pass and
+  not a consequence of a number.
 - **Decision 34. MOOT.** Margins were already correct. No change.
 - **Decision 35. MOOT.** The theorem panel is a block, so `break-inside: avoid`
   holds it. No workaround needed.
@@ -580,8 +600,10 @@ drafting. Decision 28 affects Ch9, Ch12, and Ch13 problem sets specifically.
 Protocol: one editorial decision at a time, ruled before proceeding. Every
 chapter uses the fixed six-slot skeleton, no exceptions, and runs the full
 lifecycle above. Per-chapter registry grounding is in the validation matrix.
-Word band: 5,000 to 6,000 for Ch1 and Ch2 (Decision 33).
-- [~] Ch1  The Category Error        (renders at 19 pages; through G2, Dan's Stage 6 to 8 remain)
+Word band: 6,500 to 7,500 for Ch1 and Ch2 (Decision 33, amended 2026-08-09),
+counted as the whole rendered chapter less the source register and SVG labels.
+`voicecheck.py` prints the number.
+- [~] Ch1  The Category Error        (25 pages, 7,014 words, all fourteen gates pass; reopened at Stage 2 on 2026-08-08 and Stage 2 is in progress)
 - [ ] Ch2  The Flow                  (next; unblocked)
 - [ ] Ch3  A Science and Its Discipline   (M2 ready; build THM-004 trace)
 - [ ] Part I cumulative case

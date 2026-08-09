@@ -706,6 +706,44 @@ chapter now exists and can be judged directly, and nothing in the read suggests
 the extra words are padding. If Dan rules B, the cuts should come from 1.3 and
 1.4, which carry the most restatement.
 
+DE6 RULED AND APPLIED 2026-08-09. Dan ruled solution one, band 6,500 to 7,500.
+Decision 33 is amended in `AIOM_Workplan_v5.md`, in the decision entry and in the
+drafting tracker, and the measure is now named: the whole chapter as rendered,
+excluding only the Decision 51 source register block and SVG label text, with
+citation notes counted because they reach the reader as numbered footnotes.
+
+Chapter 1 measures 7,032 words on that definition and is IN BAND, with 468 words
+of headroom to the ceiling and 532 to the floor.
+
+THE MEASURE IS NOW PRINTED, NOT RECOMPUTED. `voicecheck.py` gained
+`chapter_words()` and prints the figure as the first line of the craft metrics,
+labelled as the Decision 33 measure, with the craft corpus relabelled beneath it
+so the two numbers cannot be confused. This was part of the recommendation Dan
+ruled and can be reverted on its own if he wants the band kept as a hand check.
+It is printed and never enforced: the band is editorial judgment and G1 owns it.
+
+WHY THE BAND MOVED AND THE CHAPTER DID NOT. The three copy-edit rounds that added
+roughly 1,100 words were ruled, improved the prose, and are not padding; the
+Stage 2 read found no filler. Setting the band to fit the artifact is more honest
+than keeping a target the book has outgrown and booking a permanent exception
+against it. Holding 5,000 to 6,000 was offered as solution two and would have
+meant cutting about 1,030 words from the teaching body, which is its own
+editorial pass, not a consequence of a number.
+
+WHAT MADE THIS RULABLE AT ALL. Decision 33 named a number and no measure, and
+Chapter 1 produced four defensible counts: 7,032 on the measure now ruled, 6,865
+with citation notes removed, 4,855 for the craft corpus, and 4,228 for the
+opening case plus 1.1 to 1.5 alone. Two of those put the chapter on opposite
+sides of the band, over by 1,030 or under by 770. The G1 figure of 5,949 recorded
+on 2026-08-05 cannot be reproduced, because the method behind it was never
+written down. That is the whole finding: a band nobody can compute is a number in
+a decision log, not a constraint, and fifteen chapters were due to be drafted
+against it.
+
+RE-RUN CONSEQUENCE. None on the chapter: not one word of Chapter 1 changed. G1
+owns the band and keeps its pass, and it now has a defined measure to apply when
+it next runs. The amendment binds Chapter 2 from Stage 0.
+
 ### DE7 (LOW). "Four months earlier" has no antecedent in the reading line.
 
 The Microsoft paragraph in the opening case opens on "Four months earlier". The
