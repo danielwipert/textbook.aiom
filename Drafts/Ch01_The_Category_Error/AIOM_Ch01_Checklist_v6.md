@@ -558,6 +558,36 @@ version, which is Dan's call and not mine to make, is to cut line 39 as well and
 let 1.1 land the diagnosis first. Recovers roughly 120 words either way, which
 bears on DE6.
 
+DE3 RULED AND APPLIED 2026-08-09. Dan ruled solution one. The two sentences in the
+case's last paragraph that restated the mechanism already given four paragraphs
+earlier are cut, so the causal claim is made once and the case closes on "What had
+looked like fixed-price software became a consumption-based resource all at once."
+The pre-emption half of the finding was deliberately NOT actioned: a first
+chapter's opening case naming its own lesson is defensible, and 1.1's job is to
+derive properly what the case asserts loosely. Chapter 7,141 words to 7,101.
+`voicecheck.py` mechanical PASS.
+
+GATE 14 FAILS ON THE POST-DE3 RENDER, AND THIS IS OPEN. Cutting 40 words moved a
+page break, and the last line of the paragraph that introduces the consumption
+event now sits alone at the head of page 6: "responsible teams accountable for the
+value they return." It is a real widow, not a phantom of the kind G-K closed. The
+other thirteen gates are green and the chapter is still 25 pages.
+
+Worth recording rather than passing over: CSS v7.0 sets `p { widows: 2 }` and it
+did not hold here. That setting cleared gate 8's footnote failures on 2026-08-08
+as a side effect of repagination, and gap G-J already warns that the underlying
+WeasyPrint behaviour is not understood and must not be expected to repeat. This is
+the first evidence that the widows setting itself does not hold universally
+either. Diagnose it at Stage 5, not here.
+
+TESTED, NOT APPLIED: cutting the four-activity clause per DE8 clears the widow. The
+render then reports 0 widows, 0 orphans, 0 stranded heads at 25 pages, and one
+definition callout split, whose remedy is documented and mechanical (`place.py`,
+which re-renders through `AIOM_build.build()` and accepts a placement only if it
+adds no new gate failure). Put to Dan as the recommended route, with the explicit
+condition that DE8 be ruled on its own merits and not on the pagination. If DE8 is
+refused, the widow is booked and carried to Stage 5.
+
 ### DE4 (MEDIUM). Antecedent (iv) of Theorem 1 is never glossed, and it is the one a reader will stall on.
 
 The paragraph after the panel translates the formal statement into plain English
