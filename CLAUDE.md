@@ -163,7 +163,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_Northmoor_Dataset_v1.md` | Capstone dataset design. |
 | `AIOM_Workplan_v5.md` | Current workplan and per-chapter tracker. Supersedes v4, which is retired. |
 | `AIOM_Validation_Matrix_v1.xlsx` | The 28-row Appendix A trace matrix. Working artifact, never book content. Distinct from the full 228-object registry, which lives in Drive. |
-| `chapters/` | Chapter HTML sources. |
+| `Drafts/ChNN_<Name>/` | Chapter working directories, one per chapter, plus `Case_Part_I` through `III`. Each holds thirteen stage folders on Process v2 numbering and the chapter checklist. The live text sits in `00_Stage0_Draft/`. **There is no `chapters/` directory**, and this row claimed one until 2026-08-10. |
 | `fonts/` | Committed fonts (IBM Plex Sans, Jost) plus their OFL licenses. `fonts/use/` holds the six faces the CSS loads, so rendering needs no network staging. |
 
 When spec placeholders conflict with operative content, trust the operative
@@ -174,15 +174,47 @@ placeholder glosses.
 
 ## 5. Build commands
 
+There is no chapter path that works for every tool, because the build and
+`place.py` want the file in different places. Read the comments before copying a
+line.
+
 ```bash
 pip install -r requirements.txt                  # once per session, first
 apt-get update -qq && apt-get install -y poppler-utils
-python3 AIOM_build.py chapters/AIOM_ch01.html    # render plus all QA gates
-python3 AIOM_build.py chapters/AIOM_ch01.html --out build/Ch1.pdf
-python3 place.py chapters/AIOM_ch01.html         # callout placement pass
-python3 voicecheck.py chapters/AIOM_ch01.html    # Stage 4 mechanical plus craft metrics
+
+# The live text. Every chapter has its own path; this is Chapter 1's.
+LIVE=Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html
+
+# Render plus all fourteen QA gates. AIOM_build.py sets base_url to the HTML's
+# OWN directory, so building in place under Drafts/ loses AIOM_book.css and
+# fonts/ and reports dozens of false defects. Copy to the repo root, build
+# there, delete the copy and its .print.html sibling. Create build/ first: the
+# render raises FileNotFoundError rather than making the directory. Without
+# --out it writes beside the input, which leaves a fourth file to clean up.
+mkdir -p build
+cp "$LIVE" _ch01_build.html
+python3 AIOM_build.py _ch01_build.html --out build/Ch1.pdf
+rm -f _ch01_build.html _ch01_build.print.html
+
+# Callout placement pass, the gate 4 remedy. place.py REWRITES the file it is
+# given, so unlike the build it runs on the live text path itself, from the
+# repo root, and needs AIOM_book.css and fonts/ symlinked beside the live text.
+# Those symlinks are not committed, so create them. It leaves a .bak next to
+# the chapter that is not gitignored; delete it or a second chapter HTML sits
+# in the live-text directory.
+python3 place.py "$LIVE"
+
+# These two read the source and need no design system, so they take the live
+# text path directly.
+python3 voicecheck.py "$LIVE"                    # Stage 4 mechanical plus craft metrics
 python3 status_check.py                          # lifecycle status, authoritative
 python3 reopen.py <checklist.md> --from "Stage 2" --reason "..."   # reopen
+
+# Stage 6 round trip. The export needs a current production render, and the
+# UNEDITED export must round-trip at zero reported changes before either tool
+# is trusted on a chapter. Without --apply the importer is a dry run.
+python3 copyedit_export.py "$LIVE" --pdf build/Ch1.pdf --out <name>
+python3 copyedit_import.py <name>.docx <name>.manifest.json "$LIVE"
 ```
 
 Fonts are committed under `fonts/`, so `--fonts` is not needed and the render
@@ -191,7 +223,10 @@ is missing.
 
 System dependencies WeasyPrint requires: `libpango-1.0-0`, `libpangoft2-1.0-0`,
 `libcairo2`, `libgdk-pixbuf-2.0-0`, `libffi-dev`, `shared-mime-info`.
-Python: `weasyprint`, `pdfplumber`, `pdf2image`, `pillow`, `openpyxl`, `fonttools`.
+Python: `weasyprint`, `pdfplumber`, `pdf2image`, `pillow`, `openpyxl`, `fonttools`,
+and `python-docx`, which the Stage 6 pair needs and which went unpinned until
+2026-08-10. All are pinned in `requirements.txt`; install from the file rather
+than from this list.
 
 ---
 
