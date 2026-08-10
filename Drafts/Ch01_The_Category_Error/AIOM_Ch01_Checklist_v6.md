@@ -3634,18 +3634,19 @@ primary, and none is offered.
 
   Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/AIOM_Ch1_Stage7_FactCheck_Input.pdf
   Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/AIOM_Ch1_Stage7_Claim_Inventory.md
-  Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/build_factcheck_packet.py
 
 The render is 25 pages with all fourteen gates green. The inventory pairs all six
 cited passages with the register entry behind each key, each note verbatim,
 because the notes carry the verification history and the conditions that would
-reverse a ruling.
+reverse a ruling. It was regenerated after SF11, so it carries that correction.
 
-The generator is filed in the step folder rather than at the repo root, on the
-`apply_round1.py` precedent, because promoting it is still unruled (thread 0). The
-Stage 3 packet was built by a throwaway script that died with its container, and
-this is the SECOND time the same work has been needed on the SAME chapter.
-Fifteen chapters need it twice each.
+**THE GENERATOR IS NOW REPO TOOLING: `factcheck_packet.py` at the repo root, on
+Dan's ruling of 2026-08-10.** That closes the open thread asking whether the
+packet was worth having on every chapter. It is: Stages 3 and 7 each need one, so
+fifteen chapters need thirty. The argument was the history. The Stage 3 packet was
+built by a throwaway script in a session scratchpad and died with its container,
+and the Stage 7 packet four hours later rebuilt the same work from nothing. A
+script that must be rewritten to reproduce a step is not a reproducible step.
 
 **MECHANICAL CHECKS BANKED, so the external check need not repeat them.**
 
@@ -3661,8 +3662,8 @@ fact check that predates a copy edit is credited. Everything between the Stage 3
 tick and now, the Stage 4 craft edits, Stage 5's `.nb` wrapping, G2's `lang`
 correction, and CE1 and CE2, left the value surface untouched.
 
-**SF11, RAISED 2026-08-10, NOT YET RULED. A register note describes prose that no
-longer exists, and it is the FIFTH instance of that shape.**
+**SF11, RULED AND APPLIED 2026-08-10. A register note described prose that no
+longer existed, and it is the FIFTH instance of that shape.**
 
 The `altman-2025-pro` note records, under "SUPERLATIVE CUT 2026-08-06 (Stage 3,
 SF1)", that the sentence "now reads 'OpenAI's chief executive, Sam Altman, stated
@@ -3685,14 +3686,33 @@ Stage 3 restoration work tested banned and ruled FORMS, and SF1's ruling was a
 prohibition plus a requirement, both of which the rewritten sentence still
 satisfies.
 
-Recommended remedy, on the A2 precedent: leave the dated 2026-08-06 line standing,
-because it was accurate when written, and APPEND the drift, the current wording
-and the reversing condition beneath it. Do not edit the dated line. The prose
-needs no change.
+**RULED: apply the recommended remedy.** On the A2 precedent the dated 2026-08-06
+line is left standing, because it was accurate when written, and the drift, the
+current wording and the reversing condition are APPENDED beneath it. The dated
+line was not edited. The prose was not changed.
 
-Recommended handling: take this as a Stage 7 input rather than reopening Stage 3.
-Under the scoped re-run matrix a citation-or-source-only edit re-runs "Stage 3 or
-Stage 7 fact check, G2", and Stage 7 is the fact check now in progress.
+Taken as a Stage 7 input rather than reopening Stage 3. Under the scoped re-run
+matrix a citation-or-source-only edit re-runs "Stage 3 or Stage 7 fact check, G2",
+and Stage 7 is the fact check in progress.
+
+Verified after applying, with the control SF7 taught: the register still parses as
+JSON at 11 keys, the dated line is still present, the correction sits after it,
+and the newly recorded wording is verbatim in the chapter. A note that quotes a
+sentence the chapter does not contain is the defect being fixed, so recording a
+new quote without checking it would have reproduced the defect.
+
+G2 re-run as the matrix requires: all fourteen gates pass, 25 pages held.
+
+**A REFINEMENT TO THE CE2 RULE, AND IT WAS MEASURED RATHER THAN REASONED.** CE2
+established that an edit to the live text invalidates the outstanding export. SF11
+edits the live text and does NOT invalidate it: round 5 still resolves 209 of 221
+spans with the same twelve by-design citation-key blocks, and the round trip is
+still clean. The reason is positional. The source register sits after every
+exported block in the file, and the export excludes it under Decision 51, so a
+register-only edit shifts no body span. The rule is therefore narrower than CE2
+stated it: an edit invalidates the export when it falls at or before an exported
+block, which every prose edit does and a register-only edit does not. Round 5
+remains current and importable.
 
 **A SIXTH INSTANCE WAS LOOKED FOR AND RULED OUT.** Every register note asserting
 what the chapter "now reads" was checked against the body prose. Six such claims
