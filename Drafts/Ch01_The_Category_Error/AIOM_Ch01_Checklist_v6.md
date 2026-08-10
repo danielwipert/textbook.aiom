@@ -1724,9 +1724,9 @@ Stage 9 from the locked text. UNTIL THEN THE RECORDED BAND MUST NOT BE USED: the
 numbers in the archived block are a measurement of a superseded chapter, and no
 chapter is read against them.
 
-NC5 (C5, 1.2 and 1.5). TWO PARAGRAPHS CLOSE ON A POINTER. RULED AND ATTEMPTED,
-NOT APPLIED. BLOCKED ON A SECOND RULING, and the chapter is at HEAD, green, with
-the prose UNCHANGED. `voicecheck.py` reports 2 of 85 paragraphs closing on a
+NC5 (C5, 1.2 and 1.5). TWO PARAGRAPHS CLOSE ON A POINTER. RULED AND APPLIED, in
+two edits ruled separately, the second only after the first failed the build
+twice. `voicecheck.py` reported 2 of 85 paragraphs closing on a
 cross-reference. F4 drove that count to 0 of 43 at the Stage 4 of 2026-08-06, and
 the copy edit put two back.
 
@@ -1766,17 +1766,39 @@ but never referenced", which sends a reader hunting for a sentence that is prese
 in the source. Misleading wording, not a blind check, and the distinction was only
 visible after the render was inspected rather than the code re-read.
 
-WHAT WOULD MAKE IT GREEN, and what needs the second ruling. Absorbing the added
-line requires cutting thirteen words from sentence two of the same paragraph:
-"They describe two different cost structures, and they are the two this chapter
-has been setting against each other" becomes "They describe two different cost
-structures." With attempt 2 plus that cut, all fourteen gates pass, 25 pages,
-7,062 words, mechanical half clean, and cross-reference closes fall from 2 to 1.
-The cut is defensible on its own merits, since the clause tells the reader what
-the chapter has been doing and standing rule 5 prohibits signposting in prose, but
-it is a second prose change and only the reorder was ruled. Options put to Dan:
-keep both, keep the cut and revert the reorder, or revert both and defer NC5 to
-Stage 5, which owns pagination. NOTHING IS APPLIED UNTIL THAT RULING.
+THE SECOND EDIT, RULED SEPARATELY. Absorbing the added line required cutting
+thirteen words from sentence two of the same paragraph. Three options were put to
+Dan: keep both edits, keep the cut and revert the reorder, or revert both and
+defer NC5 to Stage 5, which owns pagination.
+
+RULED 2026-08-10 by Dan: keep both. APPLIED. Sentence two now reads "They describe
+two different cost structures." The cut stands on its own merits and not only as a
+line-absorber: "they are the two this chapter has been setting against each other"
+tells the reader what the chapter has been doing, which is the retrospective form
+of the signposting standing rule 5 prohibits.
+
+THE PARAGRAPH AS IT NOW READS, from "The seat model and the event model do not
+describe the same cost in different ways. They describe two different cost
+structures. The seat model is the software access model defined in 1.1. The event
+model is the resource consumption model, in which each use is a metered
+consumption event. Figure 1.2 makes visible the difference that a flat
+subscription price can hide. Under the software access model, the buyer pays a
+fixed price for access, regardless of how much the software is used. Under the
+resource consumption model, every use adds to the total cost."
+
+VERIFIED. All fourteen gates green, 25 pages, chapter 7,075 to 7,062 words,
+mechanical half PASS. Cross-reference closes fall from 2 of 85 to 1 of 86, and the
+one that remains is 1.5, ruled to stand. Gate 8 back to six footnotes on their
+calling pages and gate 12 back to two references with none unreferenced, which are
+the two the attempts broke.
+
+WHAT THIS FINDING COST, recorded because the lesson is not in the fix. A
+one-sentence reorder ruled in seconds took two failed builds, a rebuild of the
+committed state to attribute the failure, and a second ruling. Pagination in this
+design is tightly coupled: any edit that changes a paragraph's line count can push
+a footnote off its calling page eleven pages later. A craft fix in a chapter this
+close to full is not a local change, and the only reliable way to know is to
+build.
 
 ---
 
