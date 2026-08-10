@@ -2901,7 +2901,7 @@ page footnotes shifted pagination.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-10
 
 > Line level, on prose that has stopped moving. Decision 24 places this late. Revisit the placement after Chapter 4.
 
@@ -3573,7 +3573,47 @@ staled the outstanding proof, and it is now a rule rather than an observation: a
 edit to the live text invalidates the current export, and the re-export is part of
 applying the edit rather than a later step.
 
-Stage 6 remains OPEN. It is Dan's step and further rounds may be taken at any time.
+### STAGE 6 CLOSED 2026-08-10 on Dan's ruling. WHAT THIS TICK MEANS.
+
+Read this before treating the tick as more than it is.
+
+**What ran.** Two findings, both Dan's, both ruled and applied: CE1, the Category
+error key-term entry rewritten in plain syntax, and CE2, "a round" cut from the
+craft section. A full mechanical spelling and grammar pass ran alongside CE2:
+`aspell` en_US over 7,181 words with the source register excluded, zero spelling
+errors, and the doubled-word, article, split-word and homophone checks all clean.
+The chapter was rebuilt and re-gated after each edit: fourteen gates pass, 25 pages
+held throughout, `voicecheck.py` mechanically clean.
+
+**WHAT DID NOT RUN, AND IT IS THE REASON THIS PARAGRAPH EXISTS. NO WORD ROUND TRIP
+WAS PERFORMED IN THIS CYCLE.** CLAUDE.md section 8 defines Stage 6 as running in
+Word, on a proof from `copyedit_export.py`, returned through
+`copyedit_import.py`. Three proofs were issued in this cycle (rounds 3, 4 and 5)
+and NONE was returned. Round 5 is built, both its controls are banked, and it sits
+unopened. The step closes on two findings applied directly to the live text on
+Dan's instruction, not on a copy-edited proof.
+
+That is a narrower pass than the step's definition, and it is deliberate rather
+than accidental. The 2026-08-08 rounds are what caused the reopen: three rounds
+rewrote the chapter rather than correcting it, grew body prose 25 percent, and
+silently reverted three ruled Stage 3 narrowings and one ruled Stage 4 fix. Two
+targeted edits carry none of that risk, and both were verified to change no
+meaning. Dan owns this step and ruled it complete.
+
+**What the tick therefore does not record.** It does not record that a line-level
+copy edit was performed over the whole chapter by a human reader in Word. Nothing
+in this cycle did that. The mechanical pass is a dictionary and pattern check, and
+its limit is recorded under CE2: it would not have caught "a round" had that been
+wrong, because the phrase is two correctly spelled words in a grammatical
+construction.
+
+**Reversing condition.** A finding from any later read, including Stage 8, enters
+as CE3 and reopens this step. Round 5 remains current and importable for as long
+as the live text does not move; if it moves, re-export before use, per the rule
+under CE2.
+
+**What is NOT closed by this tick.** Stage 7, G3 and Stage 8 all sit between here
+and lock. Stage 9 Locked is a separate step with its own booked pending actions.
 
 ---
 
