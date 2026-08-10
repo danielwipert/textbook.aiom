@@ -399,13 +399,47 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 is 5 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
+**Chapter 1 is 6 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
 copy-edit rounds rewrote rather than corrected it, the Stage 2 re-run completed
-2026-08-09, and Stage 3 cleared 2026-08-10. Stage 0, G1, and Stage 1 passed
-2026-08-05 and were before the reopen point. `status_check.py` reports 5/13 with
-STATUS CONSISTENT. The chapter is 25 pages, 7,037 words, all fourteen gates pass,
-`voicecheck.py` is mechanically clean. Stage 4, the voice and craft check, is
-next and is Claude's.
+2026-08-09, and Stage 3 and Stage 4 both cleared 2026-08-10. Stage 0, G1, and
+Stage 1 passed 2026-08-05 and were before the reopen point. `status_check.py`
+reports 6/13 with STATUS CONSISTENT. The chapter is 25 pages, 7,062 words, all
+fourteen gates pass, `voicecheck.py` is mechanically clean. Stage 5, the design
+review, is next and is Claude's.
+
+**Stage 4 raised six findings, one per criterion, and closed with its
+second-model gut-check still open**, on Dan's ruling and the precedent of Stage 2
+and the archived Stage 4. NC1, NC2, NC3 and NC5 were applied; NC4 and NC6 were
+recorded with no edit. The craft verdict on Chapter 1 therefore rests on one read
+by the model that drafted it and wrote the standard it grades against, for the
+second time. A finding from the verification prompt enters as NC7 and reopens the
+step.
+
+**No craft baseline band is in force, and that is deliberate.** The band recorded
+at Stage 4 on 2026-08-06 measures a chapter the copy edit replaced: it reads mean
+17.4, stdev 10.1, range 3 to 54, long 6 percent, against a current 14.5, 6.3, max
+33, long 0 percent. `AIOM_Voice_and_Craft_v1.md` section 4 makes Chapter 1 the
+band that Chapters 2 to 15 are read against, so the stale numbers would have
+graded Chapter 2 against a text that no longer exists. Dan ruled the reset
+deferred to Stage 9 so it is taken from the locked text. The archived block is
+annotated in place and the reset is booked as a Stage 9 pending action. Until lock,
+no chapter is read against a band.
+
+**Pagination in this design is tightly coupled, and a craft edit is not a local
+change.** NC5 was a one-sentence reorder inside 1.2. It failed the build twice:
+once by splitting "Figure 1.2" across a page turn, and both times by adding a line
+that pushed footnotes 5 and 6 off their calling pages eleven pages later. It went
+green only after a second, separately ruled cut absorbed the line. Two consequences
+for every later chapter: build after any craft edit rather than reasoning about it,
+and attribute a new gate failure by rebuilding the committed state rather than
+assuming the edit caused it.
+
+**Gate 12's failure MESSAGE is misleading, though the check is sound.** A figure
+reference split across a page boundary vanishes from both pages' joined text, so
+the gate fails, correctly, and reports "captioned but never referenced". A reader
+of that message goes hunting for a sentence that is present in the source. This
+was first diagnosed in-session as a third gate 12 blind spot and that diagnosis was
+wrong; the distinction was visible only after inspecting the render.
 
 **Stage 3 was cleared on Dan's executive ruling that the 2026-08-06 external
 checks carry it, and the tick records that and not a fresh pair of checks.**

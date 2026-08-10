@@ -89,16 +89,19 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stage 4, then Stage 5 and G2. All Claude's, and Stage 4 is next.**
-   This entry read "Stages 6, 7, and 8, everything Claude owns before lock is
-   done" until 2026-08-10, which the 2026-08-08 reopen at Stage 2 had made false:
-   Stage 4, Stage 5, and G2 were all reset and are Claude's. Carry the rhythm
-   finding into Stage 4, read adversarially against the per-section table rather
-   than the chapter average, and note that the Stage 4 of record passed without
-   its second-model gut-check, so the baseline band the other fourteen chapters
-   are read against is not independently verified. Then Dan's Stages 6, 7, and 8,
-   which may run in one sitting, and Stage 7 is structurally external because no
-   source host is reachable from a Claude session. Then G3 and Stage 9, Claude's.
+1. **Chapter 1 Stage 5, then G2. Both Claude's, and Stage 5 is next.** Stage 4
+   closed 2026-08-10 with its second-model gut-check still open, so the craft
+   verdict rests on one unverified read; a finding from the verification prompt
+   enters as NC7 and reopens it. Carry two things into Stage 5. First, the
+   short-page distribution moved under NC1 and NC2: page 16's carried observation
+   is CLOSED, and the tail is shorter instead, with page 24 newly short and page
+   25 at about 46 percent fill, both DR3a's mechanism. Second, a green gate suite
+   is not a read page, and NC5 proved the sharper form: pagination here is coupled
+   tightly enough that a craft edit eleven pages earlier moves a footnote off its
+   calling page. Then Dan's Stages 6, 7, and 8, which may run in one sitting, with
+   Stage 7 structurally external because no source host is reachable from a Claude
+   session. Then G3 and Stage 9, Claude's, and Stage 9 carries a booked pending
+   action to re-set the craft baseline band from the locked text.
 2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
 3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -121,8 +124,8 @@ chapter's checklist and printed by `status_check.py`.
 
 Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), at Stage 5
 (2026-08-06, Decision 56), and at Stage 2 (2026-08-08, after three copy-edit
-rounds rewrote rather than corrected it); 5 of the thirteen steps are passed as
-of 2026-08-10, with Stage 4 next. `reopen.py` performed every reset, archiving
+rounds rewrote rather than corrected it); 6 of the thirteen steps are passed as
+of 2026-08-10, with Stage 5 next. `reopen.py` performed every reset, archiving
 each step's findings in place rather than destroying them. This paragraph read
 "8 of the thirteen" until 2026-08-10, which was true before the Stage 2 reopen
 and false for two days after it: the count here is a mirror, and

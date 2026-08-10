@@ -44,15 +44,33 @@ This is the same failure the repo has hit four times in its own checks: a readin
 that looks authoritative, taken from an input nobody re-derived. It cost a false
 claim in a handoff, which is the one file that must not carry one.
 
-## Chapter 1 status: 5 of 13, Stage 3 cleared, all fourteen gates pass
+## Chapter 1 status: 6 of 13, Stage 3 and Stage 4 both cleared, all fourteen gates pass
 
-25 pages, 7,037 words, `voicecheck.py` mechanically clean, `status_check.py`
-reports 5/13 STATUS CONSISTENT.
+25 pages, 7,062 words, `voicecheck.py` mechanically clean, `status_check.py`
+reports 6/13 STATUS CONSISTENT.
 
-**Stage 4, the voice and craft check, is next and it is Claude's.** So are Stage
-5 and G2 after it. The reopen of 2026-08-08 reset all three, so the old claim
-that everything Claude owned before lock was finished is not true and has been
-corrected in the Workplan queue.
+**Stage 5, the design review, is next and it is Claude's.** So is G2 after it.
+
+**Stage 4 closed with its second-model gut-check still open**, on Dan's ruling and
+the precedent of Stage 2 and the archived Stage 4. Six findings, one per criterion:
+NC1, NC2, NC3 and NC5 applied, NC4 and NC6 recorded with no edit. Read the "WHAT
+THIS TICK MEANS" paragraph under Stage 4 in the checklist before treating it as
+more. A finding from the verification prompt enters as NC7 and reopens the step.
+
+**NO CRAFT BASELINE BAND IS IN FORCE, and that is deliberate.** The band recorded
+2026-08-06 measures a chapter the copy edit replaced: 17.4 mean and 10.1 stdev
+against a current 14.5 and 6.3, with the long tail gone entirely. The standard
+makes Chapter 1 the band later chapters are read against, so the stale numbers
+would have graded Chapter 2 against a text that no longer exists. Dan ruled the
+reset deferred to Stage 9, taken from the locked text. Booked as a Stage 9 pending
+action, and the archived block is annotated in place.
+
+**Pagination is coupled tightly enough that a craft edit is not a local change.**
+NC5 was a one-sentence reorder inside 1.2. It failed the build twice: once by
+splitting "Figure 1.2" across a page turn, and both times by adding a line that
+pushed footnotes 5 and 6 off their calling pages ELEVEN PAGES LATER. Build after
+any craft edit, and attribute a new gate failure by rebuilding the committed state
+rather than assuming the edit caused it, which is how that one was pinned.
 
 **Stage 3 was cleared 2026-08-10 on Dan's executive ruling** that the 2026-08-06
 external checks carry it, rather than by running a fresh pair. Read the "WHAT
@@ -75,7 +93,31 @@ The packet built for the checks that were passed is still filed in
 
 ### What the 2026-08-10 session did
 
-Built the Stage 3 packet, raised four findings, and cleared the step.
+Cleared TWO steps, Stage 3 and Stage 4, raising ten findings between them.
+
+**Stage 4, six findings, one per criterion.** NC1, the chapter never named its own
+title concept: "category error" appeared once, in the first words of the summary,
+and nowhere in the opening case or in 1.1 to 1.5. That breached Consolidated Spec
+line 565, wording that is itself the product of ruling S3. Applied, and it is now
+the eighth key term. NC2, 1.1 gave a thin cause ("simply because AI arrives in the
+same commercial packaging") for what 1.4 explains properly as inheritance; the
+clause is cut and the argued account keeps its arrival. NC3, 1.3 opened on "A
+buyer may object", which is "one might say" with the noun changed; the ruled 2026-
+08-06 form is restored. NC4, 1.1 is the flattest prose in the chapter, ruled a
+deliberate choice with no edit because the standard forbids adding a sentence for
+cadence and both candidate repairs were worse than the condition. NC5, two
+paragraphs closed on a pointer; 1.2 reordered, 1.5 ruled to stand. NC6, the guard
+holds, recorded with no edit, both archived watch items unchanged.
+
+**The regression check that opened Stage 4 is worth repeating on every chapter.**
+Because SF8 to SF10 had just shown that a ruled form does not survive a copy edit,
+the applied craft fixes were checked the same way BEFORE the read began. NC1 to
+NC3 and F2 to F3 all survived, and two apparent regressions turned out to be false
+alarms from rewording. Reading rather than trusting the string match is what
+distinguished them, and a grep alone would have raised two findings that were not
+there.
+
+**Stage 3: the packet, and four findings.**
 
 **SF8, SF9, SF10, and the reason the ruling to pass was checked before it was
 ticked.** Dan ruled that the two external checks would be passed because the fact
@@ -238,30 +280,30 @@ text (Decision 50).
    ruled. Until he does, regenerating the Chapter 1 packet means rewriting the
    script.
 
-1. **Chapter 1 Stage 4, voice and craft. CLAUDE'S, AND IT IS NEXT.** Stage 3
-   cleared 2026-08-10; see the chapter status above for what that tick does and
-   does not record. Kept here because its practice binds Stage 7 and every later
-   chapter: two checks on different prompts, and judge each proposed
-   remedy separately from the finding it answers, since a finding can be right and its
-   fix still wrong, which happened twice on 2026-08-06.
+1. **Chapter 1 Stage 5, design review. CLAUDE'S, AND IT IS NEXT.** Then G2.
+   Stage 4 cleared 2026-08-10 with its gut-check open; see the chapter status
+   above. Two things to carry in. The short-page distribution MOVED under NC1 and
+   NC2: page 16's carried observation is CLOSED, and the tail is shorter instead,
+   page 24 newly short and page 25 at about 46 percent fill, both DR3a's
+   mechanism. And a green gate suite is not a read page, in the sharper form NC5
+   proved: pagination is coupled tightly enough that a craft edit moved a footnote
+   off its calling page eleven pages later, so BUILD after any edit and attribute
+   a new failure by rebuilding the committed state rather than assuming.
 
-2. **Then Stage 5 and G2, both Claude's.** Two things to carry:
+2. **Gaps G-I and G-II still bind Stage 5.** Both require a chapter whose
+   pagination or callout placement moves to be READ rather than gated, and this
+   chapter's pagination moved four times on 2026-08-10. Gate 14 still cannot see a
+   stranded head GROUP, and a floated callout can still collide with a block panel
+   unseen.
 
-   Into Stage 4, the rhythm finding. The copy edit removed the long tail and also
-   removed range: stdev fell from 10.5 to about 6.3 and the prose clusters at 12
-   to 18 words. A long run at one length is the other half of what C4 prohibits.
-   Watch the longest-uniform-run metric `voicecheck.py` prints. Read
-   ADVERSARIALLY, quoting the weakest passage per criterion, and read the
-   per-section table, never the chapter average.
-
-   Into Stage 5, the short page 16 above, and a full read. A green gate suite is
-   not a read page. Gaps G-I and G-II both require a chapter whose pagination or
-   callout placement moves to be READ, and the sharper 2026-08-08 form is that
-   the read finds things the gates were never built to see.
-
-3. **Chapter 1 Stages 7 and 8, then G3 and Stage 9.** At lock,
-   `continuity.py --update` must NOT record "flow" among Chapter 1's terms.
-   Chapter 2 owns it, and a mis-logged entry would fail G3 on Chapter 2.
+3. **Then Dan's Stages 6, 7 and 8, then G3 and Stage 9.** Stage 9 now carries a
+   BOOKED PENDING-ACTIONS LIST in the checklist, because these are owed at lock and
+   are easy to lose: re-set the craft baseline band from the locked text (nothing
+   reads against a band until this is done); do NOT let `continuity.py --update`
+   record "flow" among Chapter 1's terms, since Chapter 2 owns it and a mis-logged
+   entry would fail G3 on Chapter 2; and check whether "category error" should be
+   logged as a Chapter 1 term, since it became the eighth key term on 2026-08-10,
+   after the ledger design was written.
 
 4. **Remaining process hardening** (Dan approved, still to build):
    - **Teach gate 14 about head GROUPS**, closing gap G-II. Highest value: the

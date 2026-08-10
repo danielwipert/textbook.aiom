@@ -1562,16 +1562,16 @@ version.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-10
 
 > Two halves. The mechanical half is voicecheck.py. The judgment half is the six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. voicecheck.py prints advisory craft metrics proxying C1, C3, C4, and C5; the metrics inform the read and never decide it. C2 and C6 have no proxy and are enforced by reading alone.
 
-- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
-- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
-- [ ] C3 front-loaded sentences: findings lead, qualifications subordinate, no throat-clearing openers
-- [ ] C4 deliberate rhythm: sentence length varies, no long stretch at a uniform length
-- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier
-- [ ] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
+- [x] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [x] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [x] C3 front-loaded sentences: findings lead, qualifications subordinate, no throat-clearing openers
+- [x] C4 deliberate rhythm: sentence length varies, no long stretch at a uniform length
+- [x] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier
+- [x] C6 the guard holds: no hero or villain framing, no populist register, no character-driven causation where a structural account is available
 
 Findings:
 
@@ -1799,6 +1799,74 @@ design is tightly coupled: any edit that changes a paragraph's line count can pu
 a footnote off its calling page eleven pages later. A craft fix in a chapter this
 close to full is not a local change, and the only reliable way to know is to
 build.
+
+NC6 (C6, chapter level). THE GUARD HOLDS. RECORDED, NO EDIT. C6 has no mechanical
+proxy and never will, so this rests entirely on the read. No hero framing, no
+villain framing, no populist register, and no character-driven causation where a
+structural account was available.
+
+STRONGEST INSTANCE, and it now carries the NC1 naming as well: "The buyers had not
+chosen the wrong vendors, and the tools had not failed. They made an error of
+category." The sentence that could have blamed someone declines to, twice, and
+then names a structural mistake instead. Providers are derived rather than
+scolded throughout, most visibly in the Microsoft paragraph, which explains an
+orderly correction by the provider's ability to fund the gap rather than by its
+virtue and then refuses the flattering reading: "Scale made the correction
+orderly. It did not make the variable cost disappear."
+
+BOTH ARCHIVED WATCH ITEMS STAND, UNCHANGED. W1, the asymmetry in how the two
+corrections are described, still holds: GitHub gets advance notice, a published
+schedule, and preview tooling, Cursor gets no warning and an apology after the
+fact, and the passage pulls back to structure with "The execution differed. The
+economic correction was the same." The guard survives because the difference is
+attributed to the ability to fund the gap and not to character. It stays a watch
+item because the favourable set is longer than the unfavourable one. W2 still
+carries more weight than when it was written: "He also acknowledged that he had
+personally set the price" is the only place in the chapter where an individual's
+decision is a causal node, and the SF1 ruling that named the person rather than
+ranking the firm is what put the individual there. It holds on the original
+reasoning, that a provider knowingly mispricing its own product is a structural
+fact rather than a character judgment.
+
+WHY THERE IS NOTHING TO FIX. The guard is a prohibition, and prohibitions are
+satisfied by absence. The two watch items are not defects. They are places where
+the structural account is doing work a character account could have done more
+cheaply, and they are recorded so a later edit does not quietly take the cheaper
+option. Both have now survived a re-draft, three copy-edit rounds, a developmental
+re-run, and a fact-check restoration, which is evidence they are stable rather
+than lucky.
+
+STAGE 4 CLOSED 2026-08-10. All six criteria ruled: NC1, NC2, NC3 and NC5 applied
+to the chapter, NC4 and NC6 recorded with no edit. Mechanical half PASS. All
+fourteen gates green, 25 pages, chapter 7,062 words and inside the Decision 33
+band.
+
+WHAT THIS TICK MEANS, stated so it is not read as more. The step ran, every
+finding was ruled one at a time, and each applied fix was verified by building. It
+does NOT record independent verification. THE SECOND-MODEL GUT-CHECK IS STILL
+OPEN, closed on Dan's ruling and on the precedent of Stage 2 and of the archived
+Stage 4. This read was made by the model that drafted the chapter and wrote the
+standard it grades against, and Stage 4's judgment half has no mechanical
+component that could compensate. The correctives actually applied were the
+adversarial protocol, the per-section table rather than the chapter average, and a
+regression check against the ruled forms run before any new finding was written.
+The verification prompt is at the end of this file and can be run at any time; a
+finding it raises enters as NC7 and reopens this step.
+
+THIS MATTERS PAST CHAPTER 1. Chapter 1 is the exemplar the other fourteen chapters
+are drafted against, and the craft verdict on it now rests on one unverified read
+for the second time. The baseline band, the other thing later chapters inherit, is
+deliberately NOT set from this read: it is booked to Stage 9 and no band is in
+force until then.
+
+WHAT THE STEP PRODUCED THAT IS NOT A CHAPTER EDIT. Three things. The regression
+check on applied craft fixes, run before the read began because SF8 to SF10 had
+just shown that a ruled form does not survive a copy edit on its own; it cleared
+NC1 to NC3 and F2 to F3, and turned two apparent regressions into false alarms,
+which reading rather than trusting the string match is what distinguished. The
+correction to gate 12's failure MESSAGE, recorded under NC5. And the finding that
+pagination in this design is tightly coupled enough that a craft edit is not a
+local change, which Stage 5 and Chapter 2 both inherit.
 
 ---
 
