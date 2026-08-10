@@ -1575,6 +1575,63 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+STEP IN PROGRESS, opened 2026-08-10. Mechanical half PASS: em dashes 0,
+contractions 0, question marks outside discussion prompts 0, first or second
+person in unmarked body prose 0.
+
+REGRESSION CHECK RUN FIRST, before any new finding was written. The 2026-08-08
+copy edit reverted three Stage 3 rulings without touching a value (SF8 to SF10),
+so the applied craft fixes were checked the same way before the read began. NC1,
+NC2, NC3 and F2, F3 all SURVIVE in substance. Two apparent regressions were false
+alarms from rewording, and reading rather than trusting the string match is what
+distinguished them: NC2's contrast sentence is present as "Organizations that
+would never allow material to move through a plant without a record often allow
+AI consumption to pass through daily work unrecorded", and F2's craft arithmetic
+is intact at all five figures. The craft fixes held where the fact-check rulings
+did not.
+
+NC1 (C1, opening case). THE CHAPTER NEVER NAMED ITS OWN TITLE CONCEPT. "Category
+error" appeared in body prose exactly once, as the first words of the chapter
+summary, "The category error is now clear." It appeared nowhere in the opening
+case or in 1.1 through 1.5, and it was not a key term. The summary announced as
+settled a term the teaching body never introduced.
+
+Three grounds, ascending. It is a C1 defect: the abstraction the whole chapter
+carries was anchored nowhere. It is DE1's exact shape, ruled a defect 2026-08-09
+for "resource consumption model" on the same reasoning. And it breached the
+Consolidated Spec at line 565, which directs that the opening case "closes on the
+category error itself, stated rather than asked", wording that is itself the
+product of ruling S3 at Ch1 Stage 1 on 2026-08-05; spec line 582 states the
+chapter's coverage as "The category error named". The archived Stage 2 record
+describes this same paragraph, at line 39, as one that "states the category error
+itself". It no longer did. Same mechanism as SF8 to SF10: substance kept, ruled
+form silently dropped, nothing mechanical able to see it.
+
+RULED 2026-08-10 by Dan: apply option A and add the term to the key-term list.
+APPLIED. The closing paragraph of the opening case now reads "The buyers had not
+chosen the wrong vendors, and the tools had not failed. They made an error of
+category. They bought access to a metered resource but managed it as conventional
+licensed software, assuming that the subscription price fixed the cost." Six words
+replace eleven, the term is set in the semibold face as a key-term anchor, and the
+paragraph gains a short hard sentence after a fourteen-word one. An eighth key
+term, "Category error", is added at the head of the list.
+
+VERIFIED. Fourteen gates green, gate 6 now reads 8 entries and 8 header bands.
+Chapter 7,037 to 7,083 words, inside the Decision 33 band. Mechanical half still
+PASS.
+
+PAGINATION CONSEQUENCE, CARRIED TO STAGE 5 AS AN OBSERVATION, NOT BOOKED AS A
+DEFECT. The chapter moved 25 to 26 pages. Body-fill measured with the running head
+and folio excluded, before and after: pages 16 and 19 are unchanged at 76.8 and
+83.2 percent; page 22 is newly short at 81.8; and the tail worsened, page 25 going
+73.7 to 62.5 percent with a new page 26 at 45.8. The cause is DR3a's mechanism
+recurring: the eighth key term pushes the problems section down, and `table.inv`
+carries `break-inside: avoid` under Decision 57, so the P3 inventory table can no
+longer fit on page 25 and moves whole to page 26. This is the accepted cost of
+holding the table whole, arriving one page later than before. Stage 5 owns it.
+
+---
+
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 CRAFT READ RUN 2026-08-06 against the live text, adversarially and by section.
