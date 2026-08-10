@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-09, session close. Read this plus CLAUDE.md before starting
+Last updated: 2026-08-10, session close. Read this plus CLAUDE.md before starting
 work, and update this file before ending the session. The protocol is CLAUDE.md
 section 11. A SessionStart hook (`.claude/settings.json`) prints this file into
 context automatically at the start of every session, alongside the voice and
@@ -8,14 +8,17 @@ craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-progress-78opym`, new on 2026-08-09.
-It replaces `claude/stage-6-craft-section-r1q9tj`, which is finished; do not add
+Active working branch: `claude/chapter-1-stage-3-r2rtyq`, new on 2026-08-10.
+It replaces `claude/chapter-1-progress-78opym`, which is finished; do not add
 to it.
 
-**`main` was merged up to this branch at the close of the 2026-08-09 session, on
-Dan's ruling.** Every merge so far has been a clean fast-forward, because `main`
-carries no commits of its own. A specific SHA is deliberately not recorded here:
-it goes stale on the next commit.
+**`main` had already been fast-forwarded to carry the 2026-08-09 work before this
+session began,** so the new branch started level with it and no merge was needed.
+Verified by fetch, not by the tracking ref: `origin/main` and the branch point
+were both `8515fc9`. Every merge so far has been a clean fast-forward, because
+`main` carries no commits of its own. **`main` is now behind this branch by the
+two commits below and wants merging up at the next ruling.** A specific SHA for
+the head is deliberately not recorded here: it goes stale on the next commit.
 
 **THE REMOTE-TRACKING REFS IN A FRESH CONTAINER CAN BE STALE, AND THEY WERE ON
 2026-08-09. FETCH BEFORE YOU DIAGNOSE SYNC STATE.** The container clones with
@@ -41,19 +44,71 @@ This is the same failure the repo has hit four times in its own checks: a readin
 that looks authoritative, taken from an input nobody re-derived. It cost a false
 claim in a handoff, which is the one file that must not carry one.
 
-## Chapter 1 status: 4 of 13, Stage 2 complete, all fourteen gates pass
+## Chapter 1 status: 4 of 13, Stage 3 open with its packet built, all fourteen gates pass
 
-25 pages, 7,034 words, `voicecheck.py` mechanically clean, `status_check.py`
+25 pages, 7,035 words, `voicecheck.py` mechanically clean, `status_check.py`
 reports 4/13 STATUS CONSISTENT.
 
 The number is low because of the 2026-08-08 reopen at Stage 2, not because the
 chapter is weak. Every step from Stage 3 forward was reset then, and those passes
 had been made against prose the copy edit replaced.
 
-**Stage 3, the source and fact check, is next. It is Dan's and it is structurally
-external:** no source host is reachable from a Claude session. Run two checks on
-different prompts rather than one thorough check; the 2026-08-06 pair agreed on
-one finding out of six and the disagreement was the value.
+**Stage 3, the source and fact check, is the open step. It is Dan's and it is
+structurally external:** no source host is reachable from a Claude session. Run
+two checks on different prompts rather than one thorough check; the 2026-08-06
+pair agreed on one finding out of six and the disagreement was the value.
+
+**The packet the two checks should run against is built and filed** in
+`04_Stage3_Source_Fact_Check_1/`:
+
+  AIOM_Ch1_Stage3_FactCheck_Input_v3.pdf   the current render, 25 pages, built
+                                           from the live text, fourteen gates
+                                           green. The v1 and v2 renders are kept
+                                           because a finding is only meaningful
+                                           against the text that produced it.
+  AIOM_Ch1_Stage3_Claim_Inventory.md       every cited passage paired with the
+                                           register entry behind each key, each
+                                           note verbatim.
+
+The notes are verbatim on purpose: the conditions that would reverse SF1, SF2,
+SF3, and SF6 live in them, so a checker who reaches one of those should say
+whether the condition is now met rather than restate the finding. SF6, archive
+capture, has now been raised four times.
+
+### What the 2026-08-10 session did
+
+Built the Stage 3 packet above, and raised and applied one finding.
+
+**SF7, ruled by Dan and applied. DE7 came due and did not check out.** Stage 2
+flagged DE7 forward on the grounds that the temporal relation had gone from vague
+to explicit, and an explicit claim is checkable in a way the vague one was not.
+It failed on two counts. The prose read "In January 2026, four months before that
+change", and read as the month at large the interval to the 2026-06-01 transition
+runs to five; it is four only from the 2026-01-28 call, which the sentence did not
+name. Worse, the `microsoft-2026-q2` note had recorded since 2026-07-29 that the
+chapter "attributes the figure to the January 28, 2026 call". It did not, and the
+string appeared zero times in body prose. The date was generalized after item A2
+was written, most probably in the copy edit, and the note went on asserting the
+stronger form.
+
+Ruled: name the date. The sentence now reads "On January 28, 2026, four months
+before that change, ...", so the interval verifies from the sentence itself. The
+register note was corrected in the same change, which was required whichever way
+the prose was ruled. A2 is left standing and dated because it was accurate when
+written; the drift, the restoration, and the reversing condition are appended
+beneath it.
+
+**The lesson generalizes past Chapter 1.** A register note can drift out of true
+with the prose it describes, and nothing mechanical sees it. This is the third
+instance of the shape: DE2 was a ruled fix silently lost, SF7 is a ruled fix whose
+RECORD outlived the prose, and both were catchable only because the note or the
+archived entry quoted the actual sentence. That is a direct argument for the
+standing practice proposed on 2026-08-09 and still unruled, below.
+
+**Mechanical checks banked**, so the external checks need not spend on them: the
+register closes both ways, 11 keys defined and 11 cited, zero orphans and zero
+dangling; every cite marker resolves; six footnotes all fall on their calling
+page. These are recorded on the packet's first page.
 
 ### What the 2026-08-09 session did
 
@@ -106,14 +161,17 @@ prompt is in the checklist; a stall it finds enters as DE10 and reopens Stage 2.
   head group to page 17. Read, not gated: the head group is whole and page 16
   ends on a complete paragraph. Carried to Stage 5 as an observation, not booked
   as a defect. Same shape as DR3a.
-- **DE7 is flagged for Stage 3.** No figure, date, or source changed, but the
-  temporal relation went from vague to explicit, and an explicit claim is
-  checkable in a way the vague one was not.
+- **DE7 was flagged for Stage 3. CLOSED 2026-08-10 as SF7**, and the flag was
+  worth writing: the explicit claim it created was checkable, and it failed.
 - **A standing practice was proposed and is NOT yet ruled:** when a developmental
   or craft fix is applied, record the SENTENCE it adds, in quotation marks, not
   only the reason. DE2 exists because a ruled fix was silently reverted and
   nothing saw it, and it was recoverable only because D1's archived entry
   happened to quote the sentence. A sentence is greppable; a reason is not.
+  **SF7 is a second argument for it, from the other direction:** there the RECORD
+  outlived the prose, and the drift was visible only because the note quoted what
+  it had ruled. Ruling this in would have caught SF7 at the copy edit instead of
+  three steps later.
 
 ## What lives in the repo
 
@@ -139,7 +197,16 @@ text (Decision 50).
 
 ## Open threads, in priority order
 
-1. **Chapter 1 Stage 3, source and fact check. DAN'S, AND IT IS NEXT.**
+0. **UNRULED DECISION, cheap and it blocks nothing.** The Stage 3 packet was
+   generated by a throwaway script in the session scratchpad, so it is not
+   reproducible for Chapters 2 to 15. It should become `factcheck_packet.py` at
+   the repo root if the packet is judged worth having every chapter. Dan has not
+   ruled. Until he does, regenerating the Chapter 1 packet means rewriting the
+   script.
+
+1. **Chapter 1 Stage 3, source and fact check. DAN'S, AND IT IS THE OPEN STEP.**
+   Its input packet is built and filed; see the chapter status above. What remains
+   is the two external checks, which no Claude session can run.
    Structurally external. Two checks on different prompts. Judge each proposed
    remedy separately from the finding it answers: a finding can be right and its
    fix still wrong, which happened twice on 2026-08-06.
