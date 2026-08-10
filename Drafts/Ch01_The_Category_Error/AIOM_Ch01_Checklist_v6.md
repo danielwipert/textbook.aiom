@@ -1268,6 +1268,81 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+STEP IS OPEN. The two external checks have not run. What follows is the input
+packet Claude built for them, plus one finding Claude could rule on without a
+source host and Dan ruled on 2026-08-10.
+
+INPUTS PREPARED 2026-08-10, filed in this folder:
+
+  AIOM_Ch1_Stage3_FactCheck_Input_v3.pdf   25 pages, built from the live text,
+                                           all fourteen gates green. Replaces the
+                                           2026-08-06 render, which the archived
+                                           record below booked as stale.
+  AIOM_Ch1_Stage3_Claim_Inventory.md       every cited passage paired with the
+                                           register entry behind each key, each
+                                           register note verbatim.
+
+The inventory reproduces the notes verbatim on purpose. The conditions that would
+reverse SF1, SF2, SF3, and SF6 are written into those notes, so they travel with
+the packet instead of being rediscovered. SF6, archive capture and second paths,
+has now been raised four times, and the packet says so on its first page and
+names Decisions 30 and 48.
+
+MECHANICAL CHECKS BANKED 2026-08-10, so the external checks need not spend on
+them: the register closes both ways, 11 keys defined and 11 cited with zero
+orphans and zero dangling; every cite marker resolves to a register key; six
+footnotes all fall on their calling page.
+
+SF7. THE FOUR-MONTH INTERVAL RESTED ON A DATE THE SENTENCE DID NOT NAME, AND THE
+REGISTER NOTE ASSERTED OTHERWISE. This is DE7 coming due. Stage 2 applied DE7 and
+flagged it forward with the observation that no figure, date, or source changed
+but the temporal relation went from vague to explicit, and an explicit claim is
+checkable in a way the vague one was not. It is now checkable and it did not
+check out, on two counts.
+
+The prose read "In January 2026, four months before that change". Read January as
+the month at large and the interval to the 2026-06-01 transition runs to five
+months. It is four only from the 2026-01-28 call, which the sentence did not
+name. Separately, the `microsoft-2026-q2` register note has recorded since
+2026-07-29, at Stage 2 item A2, that the chapter "attributes the figure to the
+January 28, 2026 call". It did not. The string "January 28" appeared zero times
+in body prose. The date was generalized to the month at some point after A2 was
+written, most probably in the copy-edit rounds, and the note went on asserting
+the stronger form.
+
+The second count is the serious one, and it is the failure the standing reminder
+names: a ruling recorded in a note the prose has since drifted away from. Same
+shape as DE2, a ruled fix silently lost, and again catchable only because the
+note quoted what it had ruled.
+
+RULED 2026-08-10 by Dan: name the date. APPLIED. The sentence now reads "On
+January 28, 2026, four months before that change, the company told investors on
+its earnings call that Copilot had passed 4.7 million paid subscribers and was
+growing 75 percent year over year." The interval is now self-verifying from the
+sentence itself, and the register note is true of the chapter again.
+
+The register note is corrected as part of the same fix, which was required
+whichever way the prose was ruled. A2 is left standing and dated rather than
+edited, because it was accurate when written; the drift, the restoration, and the
+reversing condition are appended beneath it. A2's other claim is corrected there
+too: the chapter reads "had passed 4.7 million", which carries the same quantity
+as Nadella's verified "over 4.7 million" but is not that phrase verbatim, and
+overstating the match is precisely what went wrong the first time.
+
+WHAT CLAUDE CANNOT DO HERE, stated so the tick is not read as more than it is.
+Whether the FY26 Q2 call in fact falls on 2026-01-28 is external. No source host
+is reachable from a Claude session, verified 2026-08-06 against six of them. SF7
+is a finding about internal consistency between the prose and the register, which
+Claude can rule on, and it is not a verification of the register against
+Microsoft's IR page, which Claude cannot perform and must not offer to.
+
+RE-RUN CONSEQUENCE. Body prose, so Stage 3, Stage 4, Stage 5 and G2. None of them
+have run since the reopen, so nothing is invalidated and the edit cost nothing.
+It would not have been free after Stage 4. Chapter 7,034 to 7,035 words, 25 pages
+held, all fourteen gates green after the edit, `voicecheck.py` mechanically clean.
+
+---
+
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 STAGE 3 PASSED 2026-08-06, ruled by Dan. Two external checks were run outside
