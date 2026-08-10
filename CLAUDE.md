@@ -399,13 +399,30 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 is 7 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
-copy-edit rounds rewrote rather than corrected it, the Stage 2 re-run completed
-2026-08-09, and Stage 3, Stage 4 and Stage 5 all cleared 2026-08-10. Stage 0, G1,
-and Stage 1 passed 2026-08-05 and were before the reopen point. `status_check.py`
-reports 7/13 with STATUS CONSISTENT. The chapter is 25 pages, 7,062 words, all
-fourteen gates pass against CSS v7.1, `voicecheck.py` is mechanically clean. G2,
-the production gate, is next and is Claude's.
+**Chapter 1 is 8 of 13, and every step Claude owns before lock is done.** It was
+reopened at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than
+corrected it, the Stage 2 re-run completed 2026-08-09, and Stage 3, Stage 4,
+Stage 5 and G2 all cleared 2026-08-10. `status_check.py` reports 8/13 with STATUS
+CONSISTENT. The chapter is 25 pages, 7,062 words, all fourteen gates pass against
+CSS v7.1, `voicecheck.py` is mechanically clean. Dan's Stages 6, 7 and 8 are next
+and may run in one sitting; then G3 and Stage 9, both Claude's.
+
+**G2 found PG1 and it is Decision 59: the book sets `lang="en-US"`, never
+`lang="en"`.** In Pyphen, which WeasyPrint hyphenates through, `en` is an ALIAS
+FOR en_GB rather than a neutral English, so a Chicago-styled American book was
+breaking on British points: "organiz-ation" for "or-ga-ni-za-tion". Five of the
+chapter's 88 hyphenated line ends sat at points en_US would not choose. THERE IS
+NO CSS LEVER FOR THIS. It is a per-document attribute, so every new chapter must
+carry it, and one that omits it hyphenates British silently with no gate
+reporting it.
+
+**A false scope claim was written into the Stage 5 record and is corrected in
+place.** It said ten pages were rasterized and read; nine were. Page 1 was never
+rasterized and page 4 was rasterized and never opened, and page 4 is exactly where
+PG1 sat until G2's full 25-page read found it. This is the fifth instance in this
+repo of a check claimed in a record that was not performed, and the first written
+by Claude rather than inherited. Write a scope claim from what was done, never
+from what was intended.
 
 **Stage 5 found two defects by reading that no gate can see, and they are now
 Decision 58 and CSS v7.1.** DR6, "ChatGPT" breaking as ChatG-PT in the narrow

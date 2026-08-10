@@ -687,3 +687,42 @@ spacing instead, which is a worse defect and a harder one to see.
 still a design-system change and re-runs Stage 5 and G2 for every chapter under
 the scoped matrix. It was taken on 2026-08-10 deliberately, while Chapter 1 was
 the only chapter in flight and that cost was one chapter rather than five.
+
+---
+
+## 18. Addendum, 2026-08-10: the book is set in American English
+
+CSS is unchanged; this is a document-level setting. Decision 59, ruled by Dan at
+Ch1 G2 on finding PG1. Found during the manual page-level review, which is the
+box G2 marks MANUAL, and invisible to all fourteen automated gates.
+
+**Every chapter sets `<html lang="en-US">`, never `lang="en"` (v7.1, PG1).**
+WeasyPrint hyphenates through Pyphen, and in Pyphen `en` is an ALIAS FOR en_GB.
+It is not a neutral English. A book set to Chicago was therefore being broken on
+British patterns:
+
+| word | `en`, which shipped | `en_US` |
+|---|---|---|
+| organization | or-gan-**iz**-a-tion | or-ga-**ni**-za-tion |
+| measurement | **meas**-ure-ment | **mea**-sure-ment |
+| explanation | ex-**plan**-a-tion | ex-pla-**na**-tion |
+
+The visible instance was "organiz-" / "ation" on Chapter 1 page 4, in the narrow
+column beside a floated definition callout. Checking all 88 hyphenated line ends
+in the chapter against American patterns found five at points en_US would not
+choose: explan-ation, organiz-ation, custom-ers, generat-ive, re-cords.
+
+**The count understates it.** This is not five defects, it is a wrong setting
+producing defects at whatever rate the measure happens to demand. The rate rises
+in narrow columns beside floated callouts, which is exactly where it surfaced, and
+every chapter inherits it.
+
+**Effect of the fix on Chapter 1:** 25 pages held, all fourteen gates green, zero
+breaks at non-American points, and zero proper nouns broken, so Decision 58's
+`.nb` wrapping continues to hold. Hyphenated line ends rise from 88 to 95, because
+American patterns offer more legal break points, which is a gain rather than a
+cost: more legal points mean better spacing in a justified measure.
+
+**This is a per-document setting and there is no CSS lever for it.** Every new
+chapter must carry `lang="en-US"` in its `<html>` element. A chapter that omits it
+will silently hyphenate British and no gate will report it.

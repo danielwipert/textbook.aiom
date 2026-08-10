@@ -2302,12 +2302,22 @@ STAGE 5 PASSED 2026-08-10, against CSS v7.1. Twenty-five pages, all fourteen
 gates green. Two findings, DR6 and DR7, both found by reading and neither visible
 to any gate. Both ruled by Dan and applied as Decision 58.
 
-SCOPE OF THE READ, stated rather than assumed. The chapter's pagination moved four
-times on 2026-08-10 under NC1, NC2, NC3 and NC5, so nothing could be carried
-forward as unchanged and the whole document was re-examined. Pages 1, 5, 6, 7, 9,
-10, 11, 20, 24 and 25 were rasterized at 110dpi and READ: they carry the opening
-and its provenance line, every definition callout, both figures, the theorem
-panel, both dated boxes, the key-term register, and the tail. Pages 15, 16, 19 and
+SCOPE OF THE READ, CORRECTED 2026-08-10 AT G2. THE ORIGINAL CLAIM HERE WAS FALSE
+AND IS REPLACED. It read "Pages 1, 5, 6, 7, 9, 10, 11, 20, 24 and 25 were
+rasterized at 110dpi and READ". Page 1 was never rasterized at Stage 5, and page 4
+was rasterized and never opened. NINE pages were read, not ten, and the list named
+a page that had not been seen. This is the exact failure the repo has recorded
+four times, a check claimed in a record that was not performed, and it is worse at
+Stage 5 than anywhere else because the whole premise of the step is that a green
+gate suite is not a read page. The pages actually read at Stage 5 were 5, 6, 7, 9,
+10, 11, 20, 24 and 25. Page 1 and page 4 were read at G2, and page 4 is where PG1
+was found, which is the direct cost of the gap. The full 25-page read is recorded
+under G2.
+
+The chapter's pagination moved four times on 2026-08-10 under NC1, NC2, NC3 and
+NC5, so nothing could be carried forward as unchanged. The nine pages that WERE
+read carry every definition callout, both figures, the theorem panel, one dated
+box, the key-term register, and the tail. Pages 15, 16, 19 and
 20 were examined line by line in extracted geometry for the head-group and
 short-page questions. The remaining pages carry running prose only and were
 verified structurally rather than read as images: fourteen gates, a body-fill
@@ -2618,29 +2628,102 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-10
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Gate 1, zero right-margin overflow
-- [ ] Gate 2, zero em and en dashes in the rendered text
-- [ ] Gate 3, running heads and folios correct and correctly sided
-- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
-- [ ] Gate 5, font faces: expected set only, none stray inside SVG
-- [ ] Gate 6, key-term register renders with correct rule and tint alternation
-- [ ] Gate 7, opening-case provenance line present on page 1
-- [ ] Gate 8, footnotes on the calling page, numbering sequential
-- [ ] Gate 9, dated evidence boxes labelled and ruled
-- [ ] Gate 10, problem labels present with their titles
-- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
-- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
-- [ ] Gate 13, no text below the bottom margin, folio excluded
-- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [x] Renders under WeasyPrint without error or warning
+- [x] Gate 1, zero right-margin overflow
+- [x] Gate 2, zero em and en dashes in the rendered text
+- [x] Gate 3, running heads and folios correct and correctly sided
+- [x] Gate 4, callout placement: no splits, ordering correct after place.py
+- [x] Gate 5, font faces: expected set only, none stray inside SVG
+- [x] Gate 6, key-term register renders with correct rule and tint alternation
+- [x] Gate 7, opening-case provenance line present on page 1
+- [x] Gate 8, footnotes on the calling page, numbering sequential
+- [x] Gate 9, dated evidence boxes labelled and ruled
+- [x] Gate 10, problem labels present with their titles
+- [x] Gate 11, theorem panel intact, labelled, ruled, not split
+- [x] Gate 12, figures captioned, numbered in order, each referenced in text
+- [x] Gate 13, no text below the bottom margin, folio excluded
+- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+G2 PASSED 2026-08-10 on a fresh build against CSS v7.1, at 25 pages. All fourteen
+printed gates pass and BOTH MANUAL BOXES WERE PERFORMED. One finding, PG1, ruled
+by Dan and applied as Decision 59.
+
+BOX TEXT CHECKED AGAINST THE GENERATOR BEFORE THE GATE RAN, per the standing
+instruction in CLAUDE.md that a reopen resets ticks and does not regenerate box
+text. All seventeen boxes match `gen_checklists.py` verbatim. No drift this time.
+
+PG1. THE BOOK WAS BEING HYPHENATED ON BRITISH PATTERNS. The chapter set
+`<html lang="en">`. In Pyphen, which is what WeasyPrint hyphenates through, `en`
+is an ALIAS FOR en_GB rather than a neutral English, so a Chicago-styled American
+book was breaking on British points. The visible instance was "organiz-" / "ation"
+on page 4, in the narrow column beside a floated callout. Checking all 88
+hyphenated line ends against American patterns found five at points en_US would
+not choose: explan-ation, organiz-ation, custom-ers, generat-ive, re-cords.
+
+The count understates it. This is a wrong setting producing defects at whatever
+rate the measure demands, the rate rises in narrow columns, and every chapter
+inherits it.
+
+RULED 2026-08-10 by Dan: set `lang="en-US"` and make it the standing setting for
+all fifteen chapters. APPLIED as DECISION 59, recorded in `AIOM_DESIGN_SPEC.md`
+section 18. VERIFIED: 25 pages held, all fourteen gates green, ZERO breaks at
+non-American points against five before, and zero proper nouns broken, so Decision
+58's `.nb` wrapping still holds. Hyphenated line ends rise from 88 to 95, which is
+a gain: more legal break points mean better spacing in a justified measure.
+
+There is NO CSS lever for this. It is a per-document attribute, so every new
+chapter must carry it, and a chapter that omits it hyphenates British silently
+with no gate reporting it.
+
+MANUAL BOX 1, FIGURE GEOMETRY: PERFORMED. Both figures checked against a raster,
+which is the only way, since SVG `rx` renders as curve paths and never appears in
+`pdfplumber`'s `.rects`. Figure 1.1's meter band carries `--amber-fig`, so DR5's
+fix holds; Figure 1.2's two panels render as specified.
+
+MANUAL BOX 2, PAGE-LEVEL VISUAL REVIEW: PERFORMED, ALL 25 PAGES, and the scope is
+stated exactly rather than summarised. Fourteen pages were read at 150dpi on the
+FINAL post-Decision-59 render: 2, 3, 8, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22,
+23. Page 4 was also re-read on the final render to confirm PG1 at the site where
+it was found. Ten pages were read on renders that precede the lang change and
+differ from it only in line-break positions: 1 at 150dpi, and 5, 6, 7, 9, 10, 11,
+20, 24, 25 at 110dpi under Stage 5. The line-break delta, which is the only thing
+that moved, was verified programmatically across ALL 25 pages: every hyphenated
+line end validated against en_US, every proper noun checked for breaks, body fill
+measured per page, and the fourteen gates re-run.
+
+WHAT THE FULL READ CONFIRMED. Every slot opening is whole: the craft-section head
+group on 16, Key terms on 20, Discussion questions and problems on 21, so gap
+G-II is not triggered anywhere. Both `.model` blocks on 22 and 23 carry Decision
+57's 6pt separation, and the summary on 19 carries v7.0's extension of it. All
+eight key-term entries render with a 2pt rule and a 23.4pt band. Both dated boxes,
+all six footnotes on their calling pages, all three problem labels with titles,
+and the P3 table whole on 25. NC1's "error of category", NC3's restored opener,
+and SF7's named date all read correctly on the page.
+
+DR7 CONFIRMED FIXED ON THE PAGE. Page 12 now opens "GitHub announced its change in
+advance", where before the fix page 11 ended on "Git-" and page 12 opened on
+"Hub".
+
+SHORT PAGES: 19, 24 and 25, all previously ruled. DR3a stands as an accepted cost.
+
+A FALSE ALARM FROM STAGE 5, RESOLVED. A rust rule above one key term looked absent
+at 110dpi and is present; confirmed from the rect list. A raster at review
+resolution is evidence for layout, not for hairlines.
+
+THE STAGE 5 SCOPE CLAIM WAS FALSE AND IS CORRECTED IN PLACE. It named ten pages
+read and nine were. Page 1 was never rasterized there and page 4 was rasterized
+and never opened, which is where PG1 sat waiting. The correction is recorded under
+Stage 5 rather than only here, because that is where a later reader will look.
+Recorded as the cost of a scope claim written from intent rather than from what
+was done.
 
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

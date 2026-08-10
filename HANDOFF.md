@@ -44,13 +44,33 @@ This is the same failure the repo has hit four times in its own checks: a readin
 that looks authoritative, taken from an input nobody re-derived. It cost a false
 claim in a handoff, which is the one file that must not carry one.
 
-## Chapter 1 status: 7 of 13, Stages 3, 4 and 5 all cleared, all fourteen gates pass
+## Chapter 1 status: 8 of 13, EVERY STEP CLAUDE OWNS BEFORE LOCK IS DONE
 
 25 pages, 7,062 words, CSS v7.1, `voicecheck.py` mechanically clean,
-`status_check.py` reports 7/13 STATUS CONSISTENT.
+`status_check.py` reports 8/13 STATUS CONSISTENT. Stages 3, 4, 5 and G2 all
+cleared 2026-08-10.
 
-**G2, the production gate, is next and it is Claude's.** It is the last step
-before Dan's Stages 6, 7 and 8.
+**Dan's Stages 6, 7 and 8 are next and may run in one sitting.** Then G3 and
+Stage 9, both Claude's.
+
+**G2 found PG1, now Decision 59: the book sets `lang="en-US"`, never `lang="en"`.**
+In Pyphen, which WeasyPrint hyphenates through, `en` is an ALIAS FOR en_GB, so a
+Chicago-styled American book was breaking on British points ("organiz-ation" for
+"or-ga-ni-za-tion"). Five of 88 line-end breaks sat at points en_US would not
+choose. THERE IS NO CSS LEVER: it is a per-document attribute, so EVERY NEW
+CHAPTER MUST CARRY IT, and one that omits it hyphenates British silently with no
+gate reporting it. After the fix: 25 pages held, zero non-American breaks, zero
+proper nouns broken, and line-end breaks rise 88 to 95, which is a gain because
+more legal points mean better spacing in a justified measure.
+
+**A FALSE SCOPE CLAIM WAS WRITTEN INTO THE STAGE 5 RECORD, BY CLAUDE, AND IS
+CORRECTED IN PLACE.** It said ten pages were rasterized and read. Nine were. Page
+1 was never rasterized and page 4 was rasterized and never opened, and page 4 is
+exactly where PG1 sat until G2's full 25-page read found it. Fifth instance in
+this repo of a check claimed in a record that was not performed, and the first
+authored here rather than inherited. WRITE A SCOPE CLAIM FROM WHAT WAS DONE, NEVER
+FROM WHAT WAS INTENDED. G2's own scope statement is written that way and names
+which pages were read on which render.
 
 **Stage 5 found two defects by reading that no gate can see, now Decision 58 and
 CSS v7.1.** DR6, "ChatGPT" breaking as ChatG-PT in the narrow column beside a
@@ -309,17 +329,17 @@ text (Decision 50).
    ruled. Until he does, regenerating the Chapter 1 packet means rewriting the
    script.
 
-1. **Chapter 1 Stage 5, design review. CLAUDE'S, AND IT IS NEXT.** Then G2.
-   Stage 4 cleared 2026-08-10 with its gut-check open; see the chapter status
-   above. Two things to carry in. The short-page distribution MOVED under NC1 and
-   NC2: page 16's carried observation is CLOSED, and the tail is shorter instead,
-   page 24 newly short and page 25 at about 46 percent fill, both DR3a's
-   mechanism. And a green gate suite is not a read page, in the sharper form NC5
-   proved: pagination is coupled tightly enough that a craft edit moved a footnote
-   off its calling page eleven pages later, so BUILD after any edit and attribute
-   a new failure by rebuilding the committed state rather than assuming.
+1. **Chapter 1 Stages 6, 7 and 8. DAN'S, AND THEY MAY RUN IN ONE SITTING.** Copy
+   edit, final fact check 2, final read. Stage 6 runs in Word through
+   `copyedit_export.py` and back through `copyedit_import.py`; round-trip the
+   UNEDITED export first and require zero reported changes before trusting the
+   pair. Stage 7 is structurally external. AND NOTE WHAT THIS SESSION PROVED
+   ABOUT STAGE 6: three ruled Stage 3 narrowings and one ruled Stage 4 fix were
+   silently reverted by the last copy edit, and nothing mechanical saw any of
+   them. After any copy-edit round, DIFF THE RESULT AGAINST THE RULED SENTENCES
+   quoted in the register notes and the checklist before crediting the round.
 
-2. **Gaps G-I and G-II still bind Stage 5.** Both require a chapter whose
+2. **Gaps G-I and G-II are not closed, and bind any future design work.** Both require a chapter whose
    pagination or callout placement moves to be READ rather than gated, and this
    chapter's pagination moved four times on 2026-08-10. Gate 14 still cannot see a
    stranded head GROUP, and a floated callout can still collide with a block panel
