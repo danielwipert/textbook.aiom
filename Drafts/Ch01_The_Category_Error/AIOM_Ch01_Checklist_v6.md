@@ -1724,6 +1724,60 @@ Stage 9 from the locked text. UNTIL THEN THE RECORDED BAND MUST NOT BE USED: the
 numbers in the archived block are a measurement of a superseded chapter, and no
 chapter is read against them.
 
+NC5 (C5, 1.2 and 1.5). TWO PARAGRAPHS CLOSE ON A POINTER. RULED AND ATTEMPTED,
+NOT APPLIED. BLOCKED ON A SECOND RULING, and the chapter is at HEAD, green, with
+the prose UNCHANGED. `voicecheck.py` reports 2 of 85 paragraphs closing on a
+cross-reference. F4 drove that count to 0 of 43 at the Stage 4 of 2026-08-06, and
+the copy edit put two back.
+
+The 1.2 case is the defect. The DE1 paragraph, which carries the chapter's central
+contrast, closed on "Figure 1.2 makes visible the difference that a flat
+subscription price can hide", taking the close from "Under the resource
+consumption model, every use adds to the total cost." The 1.5 case, closing on
+"Chapter 3 explains where each ends and AI Operations Management begins", was
+ruled to stand: that section exists to set a boundary, so a pointer to where the
+boundary is drawn is nearer content than apparatus there.
+
+RULED 2026-08-10 by Dan: reorder 1.2 so the paragraph closes on the contrast,
+leave 1.5. ATTEMPTED TWICE AND BOTH ATTEMPTS FAILED THE BUILD.
+
+  Attempt 1, reference placed sixth of seven sentences. FAILED gates 8 and 12.
+  The sentence landed across a page boundary: page 7 ended on the word "Figure"
+  and page 8 opened with "1.2 makes visible", so the figure label broke across the
+  page turn. That is a typographic defect independent of any gate.
+
+  Attempt 2, reference placed fifth of seven. Gate 12 green, 2 references and 0
+  unreferenced, and the paragraph closes on the contrast as ruled. FAILED gate 8:
+  footnotes 5 and 6 off their calling pages, called on 11 and 17 with their text
+  on 12 and 18.
+
+ATTRIBUTED, NOT ASSUMED. The committed state was rebuilt to check: HEAD passes all
+fourteen gates with six footnotes on their calling pages, so the failure is the
+edit's. The cause is that ANY reordering of that paragraph adds a line, and the
+line cascades to pages 11 and 17.
+
+A CORRECTION TO THIS SESSION'S OWN READ, recorded because it was nearly written
+into the record as a gate defect. Attempt 1 was first diagnosed as a third gate 12
+blind spot, on the reasoning that the 2026-08-09 fix handles a reference wrapping
+across a LINE but not across a PAGE. That is wrong. Gate 12 failed and the failure
+was correct: a page-split reference always vanishes from both pages' joined text
+and is reported unreferenced. What is defective is only the MESSAGE, "captioned
+but never referenced", which sends a reader hunting for a sentence that is present
+in the source. Misleading wording, not a blind check, and the distinction was only
+visible after the render was inspected rather than the code re-read.
+
+WHAT WOULD MAKE IT GREEN, and what needs the second ruling. Absorbing the added
+line requires cutting thirteen words from sentence two of the same paragraph:
+"They describe two different cost structures, and they are the two this chapter
+has been setting against each other" becomes "They describe two different cost
+structures." With attempt 2 plus that cut, all fourteen gates pass, 25 pages,
+7,062 words, mechanical half clean, and cross-reference closes fall from 2 to 1.
+The cut is defensible on its own merits, since the clause tells the reader what
+the chapter has been doing and standing rule 5 prohibits signposting in prose, but
+it is a second prose change and only the reorder was ruled. Options put to Dan:
+keep both, keep the cut and revert the reorder, or revert both and defer NC5 to
+Stage 5, which owns pagination. NOTHING IS APPLIED UNTIL THAT RULING.
+
 ---
 
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
