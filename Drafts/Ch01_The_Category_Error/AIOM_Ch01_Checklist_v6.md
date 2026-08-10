@@ -3495,6 +3495,84 @@ on a thirteenth.
 Recommended as a permanent addition to the Stage 6 procedure for Chapters 2 to 15,
 alongside the round trip rather than instead of it. Not yet ruled.
 
+**CE2, "a round" cut from the craft section. Ruled and applied 2026-08-10.**
+
+Dan read "a round five thousand agents" in the consumption-event inventory as a
+typo for "around". It was not one, and the check that answered it is worth keeping
+because the answer went the opposite way from the report.
+
+The ruled sentence, quoted so the fix is greppable if a later round reverts it:
+
+  "Stipulate, for this exercise, five thousand agents, each handling 40 contacts
+   on a working day, with 6 drafted replies per contact, one retrieval per
+   drafted reply, and 21 working days in the month."
+
+"A round five thousand" was correct English, *round* being an adjective meaning a
+whole and convenient number, and it was load-bearing: "around" would have been
+WRONG, because the passage performs exact arithmetic on the figure. That
+arithmetic was verified rather than assumed, and every quantity in the paragraph
+follows from 5,000 exactly: contacts 4,200,000, suggested replies 25,200,000,
+retrievals 25,200,000 one for one, total 54,600,000, and 10,920 events per seat
+against a prose figure of "about 10,900".
+
+**The finding was the misreading, not the grammar.** Dan is the target reader, and
+a reader who resolves the phrase as "around" takes away an approximate five
+thousand where the passage means an exact one, which quietly undercuts the
+calculation that follows. The word was right and the sentence was still costing
+something. "Stipulate" already carries the work "a round" was doing, so the
+roundness is self-evident from the number and the two words were cut rather than
+replaced. "Exactly five thousand" was considered and rejected as redundant after
+*stipulate*.
+
+MEANING IS UNCHANGED, so this sits in the copy-edit row of the scoped re-run
+matrix and re-runs G2 alone. Verified: all fourteen gates pass, 25 pages held,
+`voicecheck.py` mechanically clean. The live text loses 8 characters, 79,269 to
+79,261.
+
+**A FULL MECHANICAL SPELLING AND GRAMMAR PASS WAS RUN AT THE SAME TIME, and its
+scope is stated from what was done.** `aspell` en_US over the chapter prose with
+the source register excluded, 7,181 words: ZERO spelling errors. All 23 flagged
+tokens are legitimate proper nouns, domain terms (agentic, unmetered, redline,
+SaaS) or citation keys. Doubled words, article agreement, split and joined
+confusions, and the homophone set (its/it's, their/there, then/than,
+affect/effect, principal/principle, fewer/less, discreet/discrete, lead/led,
+restrictive *which*) all clean on inspection.
+
+Three false positives, recorded so they are not raised again: "COST COST USAGE
+USAGE" is Figure 1.2's two panels each carrying both axis labels, adjacent once
+tags are stripped; `README` is the source register's own key; and "a usage-based
+charge" is correct, since *usage* takes *a*.
+
+THE LIMIT OF THAT PASS, stated because it is the interesting part: it is a
+dictionary and pattern check. It catches misspellings and confusables. It would
+NOT have caught "a round" had that actually been wrong, because the phrase is two
+correctly spelled words in a grammatical construction. The reader caught what the
+tooling could not, and the tooling then proved the reader wrong. Neither was
+sufficient alone.
+
+**PROOF REISSUED, round 5.** CE2 staled round 4 exactly as predicted, so the
+export was rebuilt from the post-CE2 live text (sha256 `2b0d34d5...`) against a
+fourteen-gate render of that same text.
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round5.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round5.manifest.json
+
+Both controls run. The round trip passes at 221 blocks, zero edited, zero applied,
+zero refused, live text hash identical before and after. The span check, measured
+against the CURRENT live text, is what separates them:
+
+  round 3   spans correct 134/221   stale 73   other 14
+  round 4   spans correct 134/221   stale 74   other 13
+  round 5   spans correct 209/221   stale  0   other 12
+
+Round 5's twelve are the same twelve indices as round 4's (9, 10, 13, 14, 15, 16,
+96, 97, 100, 101, 140, 141), every one carrying a citation-key span, which is what
+proves round 5 introduced nothing. **ROUNDS 3 AND 4 ARE BOTH SUPERSEDED AND MUST
+NOT BE REVIEWED.** This is the second time in one session that an applied edit
+staled the outstanding proof, and it is now a rule rather than an observation: an
+edit to the live text invalidates the current export, and the re-export is part of
+applying the edit rather than a later step.
+
 Stage 6 remains OPEN. It is Dan's step and further rounds may be taken at any time.
 
 ---
