@@ -399,13 +399,33 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 was reopened at Stage 5 on 2026-08-06 and is now 8 of 13.** Stage 0
-(re-draft), G1, Stage 1, and Stage 2 passed 2026-08-05; Stage 3 and Stage 4
-passed 2026-08-06 and were untouched by the reopen; Stage 5 and G2 were reset by
-the reopen and re-run and re-passed the same day. `status_check.py` reports 8/13
-with STATUS CONSISTENT. The chapter is 20 pages, up from 19, and all fourteen
-gates pass. Stage 6, the copy edit, is next and is Dan's; Stages 6, 7, and 8 may
-run in one sitting.
+**Chapter 1 is 4 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
+copy-edit rounds rewrote rather than corrected it, and the Stage 2 re-run
+completed 2026-08-09. Stage 0, G1, and Stage 1 passed 2026-08-05 and were before
+the reopen point; Stage 2 passed 2026-08-09. `status_check.py` reports 4/13 with
+STATUS CONSISTENT. The chapter is 25 pages, 7,034 words, all fourteen gates pass,
+`voicecheck.py` is mechanically clean. Stage 3, the source and fact check, is
+next and is Dan's and is structurally external.
+
+**The number is low because of the reopen, not because the chapter is weak.**
+Every step from Stage 3 forward was reset on 2026-08-08, and those passes had all
+been made against prose the copy edit replaced. A further copy-edit round remains
+available at any time: Stage 6 sits after every step the reopen reset.
+
+**The Stage 2 re-run of 2026-08-09 raised nine findings, all ruled, seven applied
+to the chapter.** Three of its outputs are not chapter edits and bind the whole
+book: the gate 12 line-by-line defect above, found by applying DE1 and fixed with
+a negative test; standing rule 4a, from Dan's ruling that the registry is the
+third rail; and Decision 33 made computable. The chapter moved 7,102 to 7,034
+words and held at 25 pages throughout.
+
+**Stage 2 was closed with its second-model gut-check still open**, on Dan's
+ruling and on the precedent of the archived pass. The tick records that the step
+ran and that every finding was ruled. It does not record independent
+verification, because none was performed: the pass was made by the model that
+drafted the chapter, wrote the craft standard, and applied all three copy-edit
+rounds, and Stage 2 has no mechanical half. The prompt is in the checklist and a
+stall it finds enters as DE10 and reopens the step.
 
 **The Stage 5 re-run found five things, the fourteen gates found none of them,
 and all five are now closed.** DR1, the craft-section head group stranded at the

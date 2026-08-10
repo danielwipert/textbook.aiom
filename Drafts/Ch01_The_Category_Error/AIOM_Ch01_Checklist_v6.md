@@ -371,7 +371,7 @@ content review that ruled seven findings and cost zero re-runs.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-09
 
 > Teaching quality, held early so its line edits do not churn fact check, voice, design, and production. Clarity, pacing, cognitive load, example fitness, transitions, and whether the argument carries the target reader without a stall. Claude runs a fresh critical pass; Dan gut-checks with a second model and rules.
 
@@ -930,13 +930,19 @@ part worth carrying to Chapters 2 to 15.
   and the chapter produced four defensible counts. The measure is now named and
   `voicecheck.py` prints it.
 
-WHAT REMAINS OPEN ON THIS STEP. The second-model gut-check is Dan's and has not
-been run. The prompt is below, unchanged. A stall it names that this pass missed
-enters as DE10 onward and is the more valuable output. The caution recorded when
-the pass opened still stands and matters more here than on the archived runs:
-this pass was made by the model that drafted the chapter, wrote the craft
-standard, and applied all three copy-edit rounds, and Stage 2 has no mechanical
-half at all.
+STEP CLOSED 2026-08-09 ON DAN'S RULING, WITH THE SECOND-MODEL GUT-CHECK OPEN.
+This follows the precedent of the archived pass of 2026-08-05, which was also
+closed with the gut-check outstanding. The prompt is below, unchanged, and can be
+run at any time. A stall it names that this pass missed enters as DE10 onward and
+reopens this step; that is the more valuable output and is the reason the prompt
+stays in the checklist rather than being retired with the step.
+
+THE CAUTION RECORDED WHEN THIS PASS OPENED STANDS, and it matters more here than
+on the archived runs. The pass was made by the model that drafted the chapter,
+wrote the craft standard, and applied all three copy-edit rounds, and Stage 2 has
+no mechanical half at all. The tick records that the step ran and that every
+finding it raised was ruled. It does not record independent verification, because
+none was performed.
 
 ### Watch items, no action recommended
 
