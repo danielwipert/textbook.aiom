@@ -1620,15 +1620,42 @@ VERIFIED. Fourteen gates green, gate 6 now reads 8 entries and 8 header bands.
 Chapter 7,037 to 7,083 words, inside the Decision 33 band. Mechanical half still
 PASS.
 
-PAGINATION CONSEQUENCE, CARRIED TO STAGE 5 AS AN OBSERVATION, NOT BOOKED AS A
-DEFECT. The chapter moved 25 to 26 pages. Body-fill measured with the running head
-and folio excluded, before and after: pages 16 and 19 are unchanged at 76.8 and
-83.2 percent; page 22 is newly short at 81.8; and the tail worsened, page 25 going
-73.7 to 62.5 percent with a new page 26 at 45.8. The cause is DR3a's mechanism
-recurring: the eighth key term pushes the problems section down, and `table.inv`
-carries `break-inside: avoid` under Decision 57, so the P3 inventory table can no
-longer fit on page 25 and moves whole to page 26. This is the accepted cost of
-holding the table whole, arriving one page later than before. Stage 5 owns it.
+PAGINATION CONSEQUENCE OF NC1, SINCE ABSORBED BY NC2. NC1 alone took the chapter
+25 to 26 pages, because the eighth key term pushed the problems section down and
+`table.inv` carries `break-inside: avoid` under Decision 57, so the P3 inventory
+table could not fit on page 25 and moved whole to page 26. NC2's nine-word cut
+pulled it back to 25. The net effect of the two together is recorded under NC2
+rather than here, because neither finding's effect is legible on its own.
+
+NC2 (C2, 1.1). A THIN CAUSE STATED TWENTY PARAGRAPHS BEFORE THE ARGUED ONE. 1.1
+read "The problem begins when buyers apply that model to AI simply because AI
+arrives in the same commercial packaging." 1.4 explains the same behaviour
+properly, in the passage the craft standard names as its C2 exemplar: "It would be
+a mistake to treat these gaps as negligence... It never began, because the
+software it had purchased for three decades did not require it."
+
+"Simply because" is the negligence reading that the 1.4 passage exists to
+foreclose, so the thin account reached the reader first and the argued one arrived
+as confirmation of something already believed. It is also a standing-rule problem
+and not only a craft one: the rule is to explain why the buyer's mental model was
+legible rather than sneer at it, and "simply because" makes the buyer's reasoning
+sound thin where 1.4 makes it sound inevitable. This is the same shape as the NC2
+of 2026-08-06, ruled and applied then, in a different sentence.
+
+RULED 2026-08-10 by Dan: cut the causal claim, keep the observation. APPLIED. The
+sentence now reads "The problem begins when buyers apply that model to AI." Nine
+words cut, nothing added, and the paragraph now closes on a ten-word sentence.
+The packaging explanation is left to arrive once, in 1.4, where it is argued.
+
+VERIFIED, NC1 AND NC2 TOGETHER. Fourteen gates green, mechanical half PASS,
+chapter 7,074 words and inside the Decision 33 band, 25 pages, so the page NC1
+added is paid for. The short-page distribution moved and Stage 5 owns the result.
+Body fill with running head and folio excluded, against the Stage 3 render as
+baseline: page 16 is NO LONGER SHORT, which closes the observation carried out of
+Stage 2 at 76.8 percent; page 19 is 83.2 to 81.4; and the tail is worse, page 24
+newly short at 70.4 and page 25 going 73.7 to 45.8. One carried observation
+closed, one new one opened, both DR3a's mechanism and neither booked as a defect
+here.
 
 ---
 
