@@ -3627,6 +3627,89 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+**PACKET BUILT 2026-08-10.** Stage 7 is STRUCTURALLY EXTERNAL, not external by
+preference: no source host is reachable from the Claude environment, verified
+2026-08-06 against six of them. Nothing recorded here is a verification against a
+primary, and none is offered.
+
+  Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/AIOM_Ch1_Stage7_FactCheck_Input.pdf
+  Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/AIOM_Ch1_Stage7_Claim_Inventory.md
+  Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/build_factcheck_packet.py
+
+The render is 25 pages with all fourteen gates green. The inventory pairs all six
+cited passages with the register entry behind each key, each note verbatim,
+because the notes carry the verification history and the conditions that would
+reverse a ruling.
+
+The generator is filed in the step folder rather than at the repo root, on the
+`apply_round1.py` precedent, because promoting it is still unruled (thread 0). The
+Stage 3 packet was built by a throwaway script that died with its container, and
+this is the SECOND time the same work has been needed on the SAME chapter.
+Fifteen chapters need it twice each.
+
+**MECHANICAL CHECKS BANKED, so the external check need not repeat them.**
+
+  Register closure    11 keys defined, 11 cited. Zero orphans, zero dangling.
+  Citation markers    6 cited passages, every marker resolving to a register key.
+  Footnotes           6 generated, all falling on their calling page (gate 8).
+  Value surface       175 numeric atoms, 32 date atoms, IDENTICAL to the Stage 3
+                      audited render. Zero added, zero removed, zero altered.
+  Ruled-form check    SF7 to SF10, NC1, NC3, CE1 and CE2 all still in force.
+
+The value-surface comparison is the check the standing rule requires before a
+fact check that predates a copy edit is credited. Everything between the Stage 3
+tick and now, the Stage 4 craft edits, Stage 5's `.nb` wrapping, G2's `lang`
+correction, and CE1 and CE2, left the value surface untouched.
+
+**SF11, RAISED 2026-08-10, NOT YET RULED. A register note describes prose that no
+longer exists, and it is the FIFTH instance of that shape.**
+
+The `altman-2025-pro` note records, under "SUPERLATIVE CUT 2026-08-06 (Stage 3,
+SF1)", that the sentence "now reads 'OpenAI's chief executive, Sam Altman, stated
+publicly'". The chapter reads:
+
+  "OpenAI provided an early example. Chief executive Sam Altman said publicly
+   that the company was losing money on its two-hundred-dollar Pro subscriptions
+   because subscribers used them more than the price had assumed."
+
+**THE RULING'S SUBSTANCE HOLDS AND THIS IS NOT A CLAIM REGRESSION.** SF1 banned an
+unsourceable superlative and required the firm be named instead. No superlative is
+present in any form, the firm is named, and the person is named. Only the note's
+description of the sentence is stale.
+
+Attributed rather than assumed: the recorded wording left the prose at commit
+`b4f2e22`, "Ch1 Stage 6: apply the round-1 copy-edit return as the new draft".
+That is the same 2026-08-08 round that produced SF8, SF9 and SF10 and that
+orphaned the note behind SF7. Nothing caught this one at the time because the
+Stage 3 restoration work tested banned and ruled FORMS, and SF1's ruling was a
+prohibition plus a requirement, both of which the rewritten sentence still
+satisfies.
+
+Recommended remedy, on the A2 precedent: leave the dated 2026-08-06 line standing,
+because it was accurate when written, and APPEND the drift, the current wording
+and the reversing condition beneath it. Do not edit the dated line. The prose
+needs no change.
+
+Recommended handling: take this as a Stage 7 input rather than reopening Stage 3.
+Under the scoped re-run matrix a citation-or-source-only edit re-runs "Stage 3 or
+Stage 7 fact check, G2", and Stage 7 is the fact check now in progress.
+
+**A SIXTH INSTANCE WAS LOOKED FOR AND RULED OUT.** Every register note asserting
+what the chapter "now reads" was checked against the body prose. Six such claims
+exist. Four are current and verified present verbatim. One is the
+`microsoft-2026-q2` A2 entry quoting "over 4.7 million", which is the dated
+2026-07-29 line deliberately left standing with the SF7 correction appended
+beneath it, exactly as ruled, and is therefore not a finding. The sixth is SF11.
+
+**METHOD NOTE, because the check nearly missed its own finding.** A regex pass over
+the notes was run first and it FAILED to see SF11, because the quoted sentence
+contains a typographic apostrophe in "OpenAI's" and the pattern's character class
+truncated the capture to "OpenAI", which then matched trivially and reported OK.
+The same hole reported a false positive on Nadella's verified source wording. The
+finding survived only because the six claims were printed and READ. This is the
+same lesson as the Stage 4 regression check: reading rather than trusting the
+string match is what distinguishes a finding from an artifact.
+
 ---
 
 ## Gate G3. Continuity gate
