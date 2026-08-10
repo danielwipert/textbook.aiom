@@ -13,10 +13,11 @@ session. It replaces `claude/chapter-1-status-gli2c0`. **DO NOT ADD TO THAT
 BRANCH, AND READ THE NEXT PARAGRAPH BEFORE ASSUMING IT IS FINISHED.**
 
 **`main` WAS MERGED UP ON DAN'S INSTRUCTION AND `main` AND THIS BRANCH ARE
-LEVEL.** The branch took five commits and `main` was fast-forwarded to the branch
-head. Verified immediately before pushing rather than trusted from a reading taken
-earlier in the session: `git rev-list --left-right --count origin/main...HEAD`
-reported `0 5`, `git log origin/main ^HEAD` was empty, and
+LEVEL.** The branch took seven commits and `main` was fast-forwarded to the branch
+head twice on Dan's instruction, once at five commits and again at seven. Verified
+immediately before each push rather than trusted from a reading taken earlier in
+the session: `git rev-list --left-right --count origin/main...HEAD`
+reported `0 7`, `git log origin/main ^HEAD` was empty, and
 `git merge-base --is-ancestor origin/main HEAD` confirmed `main` was a strict
 ancestor. A specific SHA is deliberately not recorded here, because it goes stale
 on the next commit.
@@ -99,13 +100,42 @@ Stage 9, both Claude's.
 **STAGE 6 IS UNDER WAY. ONE EDIT IS APPLIED, CE1, AND THE CURRENT PROOF IS ROUND
 4.** Chapter is 7,066 words after CE1. Full record under Stage 6 in the checklist.
 
-  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.docx`
-  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.manifest.json`
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round5.docx`
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round5.manifest.json`
 
-**ROUND 3 IS SUPERSEDED AND MUST NOT BE REVIEWED.** Its `.docx` still displays the
-pre-CE1 Category error definition, and 64 of its 221 spans went stale when CE1
-shortened the live text by three characters. It is kept as the artifact of its
-step, not deleted.
+**ROUNDS 3 AND 4 ARE BOTH SUPERSEDED AND MUST NOT BE REVIEWED.** Round 3 still
+displays the pre-CE1 Category error definition; round 4 was staled by CE2. Both
+are kept as the artifacts of their steps, not deleted. Span check against the
+current live text:
+
+  round 3   spans correct 134/221   stale 73   other 14
+  round 4   spans correct 134/221   stale 74   other 13
+  round 5   spans correct 209/221   stale  0   other 12
+
+**TWO EDITS ARE APPLIED, CE1 AND CE2, AND EACH ONE STALED THE OUTSTANDING PROOF.
+THAT IS NOW A RULE RATHER THAN AN OBSERVATION: the re-export is part of applying
+an edit, not a later step.** CE1 shortened the live text by 3 characters and
+staled 64 spans; CE2 shortened it by 8 and staled 74.
+
+**CE2, "a round" cut from the craft section.** Dan read "a round five thousand
+agents" as a typo for "around". It was not one, and the answer went the opposite
+way from the report: "a round" was correct, and "around" would have been WRONG,
+because the paragraph performs exact arithmetic on the figure. That arithmetic was
+verified rather than assumed and every quantity follows from 5,000 exactly. The
+finding was the misreading rather than the grammar, since a reader who resolves
+the phrase as "around" takes an approximate five thousand where the passage means
+an exact one. "Stipulate" already carried the work, so the two words were cut.
+
+**A FULL MECHANICAL SPELLING AND GRAMMAR PASS RAN WITH IT, AND ITS LIMIT IS THE
+PART WORTH CARRYING.** `aspell` en_US over 7,181 words with the source register
+excluded: zero spelling errors, and the doubled-word, article, split-word and
+homophone checks all clean. It would NOT have caught "a round" had that been
+wrong, because the phrase is two correctly spelled words in a grammatical
+construction. The reader caught what the tooling could not, and the tooling then
+proved the reader wrong. Neither was sufficient alone, which is the same shape as
+gate 12 and DR7. Three recorded false positives, so they are not re-raised: "COST
+COST USAGE USAGE" is Figure 1.2's two panels each carrying both axis labels,
+`README` is the register's own key, and "a usage-based charge" is correct.
 
 **CE1, the Category error key-term entry, rewritten in plain syntax.** Dan's
 finding, ruled and applied. Two sentences at mean 25.5 words became four at mean
@@ -502,8 +532,9 @@ record mentions it, it is gone and Decision 50 is why.
    edit, final fact check 2, final read. **STAGE 6 IS UNDER WAY: CE1 IS APPLIED
    AND THE CURRENT PROOF IS ROUND 4**, exported from the post-CE1 live text with
    both the round trip and the span check banked. Open
-   `AIOM_Ch1_CopyEdit_round4.docx`, edit in Word, return it, and import through
-   `copyedit_import.py` with the round-4 manifest. **DO NOT USE ROUND 3.** Stage 7
+   `AIOM_Ch1_CopyEdit_round5.docx`, edit in Word, return it, and import through
+   `copyedit_import.py` with the round-5 manifest. **DO NOT USE ROUND 3 OR ROUND
+   4.** Stage 7
    is structurally external. THREE THINGS TO CARRY INTO THE ROUND:
 
    - **Any edit that changes the live text invalidates the current proof.** CE1
