@@ -2292,11 +2292,110 @@ CONSEQUENCE. These are prose edits, so Stage 4 and Gate G2 revert to not run.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-10
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
 Findings:
+
+STAGE 5 PASSED 2026-08-10, against CSS v7.1. Twenty-five pages, all fourteen
+gates green. Two findings, DR6 and DR7, both found by reading and neither visible
+to any gate. Both ruled by Dan and applied as Decision 58.
+
+SCOPE OF THE READ, stated rather than assumed. The chapter's pagination moved four
+times on 2026-08-10 under NC1, NC2, NC3 and NC5, so nothing could be carried
+forward as unchanged and the whole document was re-examined. Pages 1, 5, 6, 7, 9,
+10, 11, 20, 24 and 25 were rasterized at 110dpi and READ: they carry the opening
+and its provenance line, every definition callout, both figures, the theorem
+panel, both dated boxes, the key-term register, and the tail. Pages 15, 16, 19 and
+20 were examined line by line in extracted geometry for the head-group and
+short-page questions. The remaining pages carry running prose only and were
+verified structurally rather than read as images: fourteen gates, a body-fill
+measurement on every page, and a hyphenation scan over every line break in the
+chapter. That is the whole document accounted for, and the structural half is
+recorded here so the next reader knows which pages were seen and which were
+measured.
+
+WHAT THE READ CONFIRMED SOUND. The theorem panel holds full measure on page 9, so
+gap G-I is not triggered: no floated callout intrudes and Decision 56's structured
+conditional renders with its scope line, four enumerated antecedents, and the
+consequent on its own line. Callout placement is clean on pages 5 and 10, both
+whole, neither colliding with a section head or block panel. Both figures are
+correct, and Figure 1.1's meter band carries `--amber-fig`, so DR5's fix is
+holding; this is the MANUAL geometry check, done by raster because SVG `rx` never
+appears in `pdfplumber`'s `.rects`. Head groups survived every pagination move:
+the craft-section label, title and provenance sit together on page 16 and Key
+terms opens whole on page 20, which is the Decision 56a chain working, with short
+pages 15 and 19 as its price rather than as defects.
+
+A FALSE ALARM, RECORDED BECAUSE IT WAS NEARLY BOOKED AS A DEFECT. The rust rule
+above "Software access model" appeared absent in the 110dpi raster. It is present.
+All eight key-term entries carry identical geometry, a 2pt rule and a 23.4pt band,
+confirmed from the rect list. A raster read at review resolution is evidence for
+layout and not for hairlines, and the check was run before the finding was
+written.
+
+DR6 (page 10). "ChatGPT" BROKE AS "ChatG-" / "PT", in the narrow column beside the
+floated Meter relocation callout. An acronym severed mid-token, producing a
+non-word at the line end.
+
+DR7 (pages 11 to 12). "GitHub" BROKE AS "Git-" / "Hub" ACROSS THE PAGE TURN. Page
+11's last body line ended "...an apology and refunds. Git-" and the reader had to
+turn the page for "Hub". The same structural fault as the "Figure" / "1.2" split
+NC5 produced at Stage 4: one token divided across a spread.
+
+HOW THEY WERE FOUND, which matters more than the fix. Not by eye. DR6 was seen in
+the page 10 raster, and that raised the question rather than answering it; the
+chapter's 89 hyphenated line ends were then scanned programmatically against its
+proper nouns, which found DR7 and proved the list complete at exactly two. Eyeing
+25 pages would have found DR6 and could easily have missed DR7, because a break at
+a page foot reads as an ordinary hyphen until the page is turned.
+
+RULED 2026-08-10 by Dan: add a CSS class and wrap the proper nouns. APPLIED as
+DECISION 58, CSS to v7.1. `.nb` sets `hyphens: none` and `-weasy-hyphens: none`,
+and 34 brand-name occurrences across nine proper nouns are wrapped in body prose,
+with SVG figure labels and the source register excluded. Body prose keeps
+`hyphens: auto`, which is right for a justified measure.
+
+REWORDING WAS REJECTED, and the reasoning is the general one. Both sentences could
+have been reflowed so the words fell elsewhere, and both breaks would have
+returned at the next pagination move, because a break is a property of the measure
+and not of the sentence. Same reasoning that fixed gate 12 in the tool rather than
+in the prose on 2026-08-09.
+
+VERIFIED. Fourteen gates green, 25 pages held, pagination unmoved. The hyphenation
+scan re-run reports 88 line-end breaks and ZERO broken proper nouns, against two
+before. ChatGPT, GitHub, Copilot and Cursor all read intact in the render at every
+occurrence.
+
+DR3a RECURS, AND REMAINS AN ACCEPTED COST. The P3 instruction is separated from its
+inventory table, now at pages 24 and 25 rather than 19 and 20. Page 24 ends after
+"Complete the inventory below by filling the blank column" with about two and a
+half inches of white, and the chapter closes on a page 25 that is 46 percent full.
+This is Decision 57's `break-inside: avoid` on `table.inv` doing what it was ruled
+to do. `break-before: avoid` was tried at the time and rejected, because WeasyPrint
+binds it to the preceding LINE BOX rather than the preceding block and split the
+problem statement across the spread. A short page is a smaller defect than a split
+paragraph. Recorded again only because the page numbers moved.
+
+SHORT PAGES ON THE FINAL RENDER: 19 at 81.4 percent, 24 at 70.4, 25 at 45.8. Page
+16's carried observation from Stage 2 is CLOSED, having been absorbed by the NC1
+and NC2 edits. Pages 19 and 24 are head-group and table costs already ruled.
+
+CONSEQUENCE OF THE CSS CHANGE, stated because the matrix requires it. A design
+system change re-runs Stage 5 and G2 for EVERY chapter. Chapter 1 is the only
+chapter in flight, so the cost was one chapter, and this run IS that re-run: the
+pass above was taken against v7.1, not against v7.0. Taking the same fix after
+five chapters had locked would have cost five re-runs, which is why it was taken
+now.
+
+DOCUMENTATION DEBT PAID IN THE SAME PASS. `AIOM_DESIGN_SPEC.md` read v6.9 while
+the CSS shipped v7.0, which CLAUDE.md flagged as owed. The spec now carries
+section 16 for v7.0, the widows and orphans ruling and the DR2 extension to
+`.dated` and `.summary`, and section 17 for v7.1 and Decision 58, and its header
+reads v7.1.
+
+---
 
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

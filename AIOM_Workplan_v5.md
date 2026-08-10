@@ -15,8 +15,8 @@ to be wrong. Items were closed, not corrected.
 
 Added or changed in v5:
 1. **D0 is closed.** Design finalization is complete. Chapter locks are
-   unblocked on the design side. CSS at v6.9, design spec at v6.9 plus four
-   addenda.
+   unblocked on the design side. CSS and design spec were both at v6.9 when v5
+   was written; both are at v7.1 as of 2026-08-10. See the snapshot below.
 2. **The chapter lifecycle is replaced.** v4's seven-stage lifecycle is
    superseded by the twelve-step process ruled on 2026-07-27, which separates
    gates from passes. See the reconstruction flag below.
@@ -43,25 +43,30 @@ had never been tested on: Figure 1.2 renders, the craft section typesets using
 the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
-Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), re-drafted against
-the voice and craft standard, reopened again at Stage 5 (2026-08-06, Decision
-56), and re-passed Stage 5 and G2 the same day. It is now 8 of 13. The chapter
-is 20 pages, up from 19, and ALL FOURTEEN GATES PASS. Every step Claude owns
-before lock is done, and Dan's Stages 6, 7, and 8 are next and may run in one
-sitting.
+Chapter 1 is 7 of 13 as of 2026-08-10, on a 25-page render with ALL FOURTEEN
+GATES PASSING against CSS v7.1. G2 is next and is Claude's; then Dan's Stages 6,
+7 and 8, which may run in one sitting; then G3 and Stage 9.
 
-The Stage 5 re-run found five things and the fourteen gates found none of them.
-All five are now closed. DR1, a craft-section head group stranded at the foot of
-page 12, and DR5, Figure 1.1 using the apparatus amber where the spec requires
-the figure amber, were fixed in the first re-run. DR2, model-answer paragraphs
-running together, and DR3, the P3 inventory table spilling one row onto an
-otherwise blank final page, were ruled by Dan and applied as Decision 57, which
-took CSS to v6.9 and forced a second Stage 5 and G2 re-run the same day. DR4,
-hyphenation, was an observation with no action.
+The paragraph here read "It is now 8 of 13, the chapter is 20 pages" until
+2026-08-10. That was true before the 2026-08-08 reopen at Stage 2, which reset
+every step from Stage 3 onward, and false for two days after it. THE COUNT IN
+THIS FILE IS A MIRROR AND `status_check.py` IS THE SOURCE. This is the second
+stale mirror found in this file on the same day, after the lifecycle paragraph
+below.
 
-CSS is at v6.9 and the design spec at v6.9 plus four addenda. The header of
-AIOM_book.css had said 6.7 while both this file and CLAUDE.md claimed 6.8; the
-header is now correct and carries the v6.8 and v6.9 change notes.
+The three steps run on 2026-08-10 each found something no gate could see. Stage 3
+cleared on Dan's executive ruling that the 2026-08-06 external checks carry it,
+after a diff against the audited render showed the value surface unchanged at
+eighteen atoms and found three ruled claim narrowings silently reverted by the
+copy edit; all three were restored from the register wording. Stage 4 raised six
+findings, one per criterion, four applied, and closed with its second-model
+gut-check still open. Stage 5 raised DR6 and DR7, two proper nouns broken by
+automatic hyphenation, one of them across a page turn, and both were applied as
+Decision 58.
+
+CSS is at v7.1 and the design spec is at v7.1. The spec had read v6.9 while the
+CSS shipped v7.0, a debt CLAUDE.md flagged; it was paid on 2026-08-10 with
+section 16 for v7.0 and section 17 for v7.1.
 
 The editorial process now exists as a defined thing rather than an intention.
 
@@ -89,19 +94,14 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stage 5, then G2. Both Claude's, and Stage 5 is next.** Stage 4
-   closed 2026-08-10 with its second-model gut-check still open, so the craft
-   verdict rests on one unverified read; a finding from the verification prompt
-   enters as NC7 and reopens it. Carry two things into Stage 5. First, the
-   short-page distribution moved under NC1 and NC2: page 16's carried observation
-   is CLOSED, and the tail is shorter instead, with page 24 newly short and page
-   25 at about 46 percent fill, both DR3a's mechanism. Second, a green gate suite
-   is not a read page, and NC5 proved the sharper form: pagination here is coupled
-   tightly enough that a craft edit eleven pages earlier moves a footnote off its
-   calling page. Then Dan's Stages 6, 7, and 8, which may run in one sitting, with
-   Stage 7 structurally external because no source host is reachable from a Claude
-   session. Then G3 and Stage 9, Claude's, and Stage 9 carries a booked pending
-   action to re-set the craft baseline band from the locked text.
+1. **Chapter 1 G2, the production gate. CLAUDE'S, AND IT IS NEXT.** Stage 5
+   closed 2026-08-10 against CSS v7.1. Then Dan's Stages 6, 7 and 8, which may
+   run in one sitting, with Stage 7 structurally external because no source host
+   is reachable from a Claude session. Then G3 and Stage 9, both Claude's, and
+   Stage 9 carries a booked pending-actions list: re-set the craft baseline band
+   from the locked text, keep "flow" out of Chapter 1's continuity entry, and
+   decide whether "category error" is logged as a Chapter 1 term.
+
 2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
 3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -124,8 +124,8 @@ chapter's checklist and printed by `status_check.py`.
 
 Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), at Stage 5
 (2026-08-06, Decision 56), and at Stage 2 (2026-08-08, after three copy-edit
-rounds rewrote rather than corrected it); 6 of the thirteen steps are passed as
-of 2026-08-10, with Stage 5 next. `reopen.py` performed every reset, archiving
+rounds rewrote rather than corrected it); 7 of the thirteen steps are passed as
+of 2026-08-10, with G2 next. `reopen.py` performed every reset, archiving
 each step's findings in place rather than destroying them. This paragraph read
 "8 of the thirteen" until 2026-08-10, which was true before the Stage 2 reopen
 and false for two days after it: the count here is a mirror, and
@@ -157,7 +157,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 6 next | Reopened at Stage 0 on 2026-08-05 (Decision 53) and re-drafted the same day against the craft standard, then reopened at Stage 5 on 2026-08-06 (Decision 56) and re-passed Stage 5 and G2 the same day. Reopened a third time at Stage 5 on 2026-08-06 for Decision 57 (DR2 and DR3 applied, CSS to v6.9) and re-passed again. Now 8 of 13, on a 20-page render with all fourteen gates passing and both MANUAL production checks performed: every page rasterized at 150dpi and read, and both figures pixel-sampled. Every step Claude owns before lock is done. The Stage 5 re-run raised five findings and no gate saw any of them: DR1 craft head group stranded at the foot of page 12 (fixed, and it exposed gap G-II, that gate 14 cannot see a stranded head GROUP) and DR5 Figure 1.1 using the apparatus amber instead of the figure amber (fixed); DR2 model-answer paragraphs running together and DR3 the P3 table spilling one row onto an empty final page, both ruled by Dan and applied as Decision 57, with DR3a recorded as an accepted cost: holding the table whole leaves page 19 short, and break-before was tried and rejected because WeasyPrint binds it to the preceding line rather than the preceding block; DR4 hyphenation, observation only. Earlier record: Stage 3 ran two independent external checks which agreed on one finding of six. Stage 4 resolved all seven carried craft findings and raised six new, five applied, but passed without its second-model gut-check. Next: Dan takes Stages 6, 7, 8. |
+| 1   | The Category Error             | Stage 5 done | 7 of 13 as of 2026-08-10, on a 25-page render with all fourteen gates passing against CSS v7.1. G2 next, then Dan's Stages 6, 7, 8, then G3 and Stage 9. Reopened at Stage 0 on 2026-08-05 (Decision 53), at Stage 5 on 2026-08-06 (Decisions 56 and 57), and at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than corrected it, which reset every step from Stage 3 on. Stage 3 cleared 2026-08-10 on Dan's executive ruling that the 2026-08-06 external checks carry it, after a diff against the audited render showed the value surface unchanged at eighteen atoms and found three ruled claim narrowings silently reverted by the copy edit (SF8, SF9, SF10), all restored from the register wording. Stage 4 raised six findings, one per criterion, four applied, and closed with its second-model gut-check still open, so the craft verdict rests on one unverified read. Stage 5 raised DR6 and DR7, two proper nouns broken by automatic hyphenation, one of them across a page turn, neither visible to any gate; applied as Decision 58, CSS to v7.1. The craft baseline band is deliberately NOT set: it is booked to Stage 9 and no chapter is read against a band until then. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |

@@ -1,7 +1,7 @@
 # AI Operations Management: Design Specification
 
-**Version:** 6.9
-**Date:** 2026-08-06
+**Version:** 7.1
+**Date:** 2026-08-10
 **Status:** LOCKED
 **Applies to:** all chapters, front matter, and back matter of *AI Operations Management*
 
@@ -628,3 +628,62 @@ preceding line box rather than the preceding block, so instead of moving the who
 statement it moved the statement's last two lines, splitting a paragraph across
 the spread. The accepted cost is that a table may open a page while its
 instruction closes the previous one.
+
+---
+
+## 16. Addendum, 2026-08-08: widows, orphans, and the two blocks DR2 missed
+
+CSS goes to v7.0. This section pays a documentation debt: the CSS shipped v7.0 on
+2026-08-08 and this spec still read v6.9 for two days, which CLAUDE.md flagged as
+owed. Recorded now with section 17 rather than left outstanding.
+
+**Body paragraphs carry widows 2 and orphans 3 (v7.0).** Ruled by Dan at Ch1
+Stage 5. The book had been running on the CSS initial value of 2 and 2, which is a
+default rather than a decision, and which left a real widow at the head of Chapter
+1 page 13. All nine combinations of 2, 3 and 4 were measured against the fourteen
+gates. This pair is the only green one that also SHORTENS the chapter, 26 pages to
+25, and it removes the worst short page.
+
+It also cleared gate 8 on Chapter 1, and that is a side effect of repagination
+rather than a fix for the underlying WeasyPrint footnote behaviour. Recorded in
+the QA spec as gap G-J. Do not expect it to repeat on another chapter.
+
+**Decision 57's DR2 ruling extends to `.dated` and `.summary` (v7.0).** The
+original rule gave 6pt of separation to `.model p + p` only. Reading the render
+found the same defect, paragraphs running together with no separation, inside the
+dated evidence boxes and the chapter summary, which are classed blocks whose
+paragraphs were not covered. Both now carry the same 6pt.
+
+---
+
+## 17. Addendum, 2026-08-10: proper nouns are not broken
+
+CSS goes to v7.1. Decision 58, ruled by Dan at Ch1 Stage 5 on findings DR6 and
+DR7. Found by reading, and no gate sees either defect.
+
+**Proper nouns never break across a line or a page (v7.1, DR6 and DR7).** A new
+class, `.nb`, sets `hyphens: none` and `-weasy-hyphens: none`. Apply it to a
+proper noun in body prose. Body prose otherwise keeps `hyphens: auto`, which is
+correct for a justified measure: Chapter 1 carries 88 hyphenated line ends and 86
+of them are unremarkable.
+
+The two that were not: "ChatGPT" broke as ChatG-PT in the narrow column beside a
+floated definition callout, and "GitHub" broke as Git-Hub ACROSS THE PAGE 11 TO 12
+TURN, so the reader met "Git-" at the foot of one page and "Hub" at the head of
+the next. Chicago avoids breaking proper nouns, and an acronym severed mid-token
+and a brand name split across a spread are the two worst instances of it.
+
+**Rewording was rejected as the remedy.** Both sentences could have been reflowed
+so the words fell elsewhere, and both breaks would have returned at the next
+pagination move, because a break is a property of the measure and not of the
+sentence. This is the same reasoning that fixed gate 12 in the tool rather than in
+the prose on 2026-08-09.
+
+**Apply `.nb` to a proper noun, never to running prose.** Switching hyphenation
+off across a justified measure does not remove the break, it widens the word
+spacing instead, which is a worse defect and a harder one to see.
+
+**Scope note.** The class is additive and changes nothing until applied, but it is
+still a design-system change and re-runs Stage 5 and G2 for every chapter under
+the scoped matrix. It was taken on 2026-08-10 deliberately, while Chapter 1 was
+the only chapter in flight and that cost was one chapter rather than five.

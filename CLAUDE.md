@@ -399,13 +399,33 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 is 6 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
+**Chapter 1 is 7 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
 copy-edit rounds rewrote rather than corrected it, the Stage 2 re-run completed
-2026-08-09, and Stage 3 and Stage 4 both cleared 2026-08-10. Stage 0, G1, and
-Stage 1 passed 2026-08-05 and were before the reopen point. `status_check.py`
-reports 6/13 with STATUS CONSISTENT. The chapter is 25 pages, 7,062 words, all
-fourteen gates pass, `voicecheck.py` is mechanically clean. Stage 5, the design
-review, is next and is Claude's.
+2026-08-09, and Stage 3, Stage 4 and Stage 5 all cleared 2026-08-10. Stage 0, G1,
+and Stage 1 passed 2026-08-05 and were before the reopen point. `status_check.py`
+reports 7/13 with STATUS CONSISTENT. The chapter is 25 pages, 7,062 words, all
+fourteen gates pass against CSS v7.1, `voicecheck.py` is mechanically clean. G2,
+the production gate, is next and is Claude's.
+
+**Stage 5 found two defects by reading that no gate can see, and they are now
+Decision 58 and CSS v7.1.** DR6, "ChatGPT" breaking as ChatG-PT in the narrow
+column beside a floated callout, and DR7, "GitHub" breaking as Git-Hub ACROSS THE
+PAGE 11 TO 12 TURN. A new class, `.nb`, switches hyphenation off for a proper
+noun, and 34 brand-name occurrences are wrapped. Body prose keeps `hyphens: auto`,
+which is right for a justified measure: 88 line-end breaks, and after the fix zero
+of them fall inside a proper noun.
+
+**The method matters more than the fix.** DR6 was seen in a raster and that only
+raised the question; the chapter's 89 hyphenated line ends were then scanned
+programmatically against its proper nouns, which found DR7 and proved the list
+complete at exactly two. Eyeing 25 pages finds the first and misses the second,
+because a break at a page foot reads as an ordinary hyphen until the page turns.
+Rewording was rejected on the gate 12 precedent: a break is a property of the
+measure, not of the sentence, so it would return at the next reflow.
+
+**The design spec is no longer in debt.** It read v6.9 while the CSS shipped
+v7.0; it now carries section 16 for v7.0 and section 17 for v7.1, and its header
+reads v7.1.
 
 **Stage 4 raised six findings, one per criterion, and closed with its
 second-model gut-check still open**, on Dan's ruling and the precedent of Stage 2
@@ -610,7 +630,7 @@ no entries, which is correct: entries are appended at Stage 9, and no chapter ha
 locked. Lock is no longer blocked.
 
 Design finalization is complete (D0 closed, 2026-07-28). The design system is
-locked: CSS at v6.9, design spec at v6.9 plus four addenda. The registry is
+locked: CSS at v7.1, design spec at v7.1. The registry is
 validated: 228 objects load (200 propositions, 20 lemmas, 8 theorems), eight
 book-mapped theorem IDs resolve, zero dangling references in the dependency
 graph.

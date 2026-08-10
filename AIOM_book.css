@@ -1,8 +1,16 @@
 /* ============================================================
    AIOM_book.css
-   VERSION: 7.0
-   DATE:    2026-08-08
-   CHANGES: v7.0 (2026-08-08) sets widows 2 and orphans 3 on body
+   VERSION: 7.1
+   DATE:    2026-08-10
+   CHANGES: v7.1 (2026-08-10) adds .nb, which switches hyphenation off for a
+            proper noun. Decision 58, ruled by Dan at Ch1 Stage 5 on findings
+            DR6 and DR7: "ChatGPT" was breaking as ChatG-PT and "GitHub" as
+            Git-Hub across a page turn. Additive, so it changes nothing until
+            applied, but it is still a design-system change and re-runs Stage 5
+            and G2 for every chapter under the scoped matrix. Taken now
+            deliberately, while Chapter 1 is the only chapter in flight and that
+            cost is one chapter rather than five.
+            v7.0 (2026-08-08) sets widows 2 and orphans 3 on body
             paragraphs, ruled by Dan at Ch1 Stage 5. Ordinary book
             typography, and the book had been relying on the CSS
             initial value rather than on a decision. It also cleared
@@ -154,6 +162,20 @@ p {
   orphans: 3;
 }
 b, strong { font-weight: 600; }
+
+/* v7.1, 2026-08-10, Decision 58, ruled by Dan at Ch1 Stage 5. Proper nouns are
+   never broken across a line or a page. Body prose sets hyphens: auto, which is
+   correct for a justified measure and produced 89 hyphenated line ends in
+   Chapter 1, 87 of them unremarkable. The other two were DR6, "ChatGPT" broken
+   as ChatG-PT in the narrow column beside a floated callout, and DR7, "GitHub"
+   broken as Git-Hub ACROSS THE PAGE 11 TO 12 TURN. Chicago avoids breaking
+   proper nouns; an acronym severed mid-token and a brand name split across a
+   spread are the two worst cases of it. No gate sees either, and rewording so
+   the break falls elsewhere was rejected because breaks move with pagination and
+   would return at the next reflow. Apply .nb to a proper noun, never to running
+   prose: switching hyphenation off across a justified measure widens word
+   spacing instead. */
+.nb { hyphens: none; -weasy-hyphens: none; }
 
 /* ---------- 5. CHAPTER OPENER ---------- */
 .part-label {

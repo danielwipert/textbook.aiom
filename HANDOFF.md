@@ -44,12 +44,41 @@ This is the same failure the repo has hit four times in its own checks: a readin
 that looks authoritative, taken from an input nobody re-derived. It cost a false
 claim in a handoff, which is the one file that must not carry one.
 
-## Chapter 1 status: 6 of 13, Stage 3 and Stage 4 both cleared, all fourteen gates pass
+## Chapter 1 status: 7 of 13, Stages 3, 4 and 5 all cleared, all fourteen gates pass
 
-25 pages, 7,062 words, `voicecheck.py` mechanically clean, `status_check.py`
-reports 6/13 STATUS CONSISTENT.
+25 pages, 7,062 words, CSS v7.1, `voicecheck.py` mechanically clean,
+`status_check.py` reports 7/13 STATUS CONSISTENT.
 
-**Stage 5, the design review, is next and it is Claude's.** So is G2 after it.
+**G2, the production gate, is next and it is Claude's.** It is the last step
+before Dan's Stages 6, 7 and 8.
+
+**Stage 5 found two defects by reading that no gate can see, now Decision 58 and
+CSS v7.1.** DR6, "ChatGPT" breaking as ChatG-PT in the narrow column beside a
+floated callout; DR7, "GitHub" breaking as Git-Hub ACROSS THE PAGE 11 TO 12 TURN.
+A new `.nb` class switches hyphenation off for a proper noun and 34 brand
+occurrences are wrapped. After the fix, 88 hyphenated line ends and zero of them
+inside a proper noun.
+
+**The method is the transferable part.** DR6 came from a raster and only raised
+the question; every hyphenated line end in the chapter was then scanned against
+its proper nouns, which found DR7 and proved the list complete at two. Eyeing 25
+pages finds the first and misses the second, because a break at a page foot reads
+as an ordinary hyphen until the page turns. Rewording was rejected on the gate 12
+precedent: a break is a property of the measure, not of the sentence.
+
+**A CSS change re-runs Stage 5 and G2 for every chapter,** and this Stage 5 pass
+IS that re-run, taken against v7.1. It was taken now deliberately, while Chapter 1
+was the only chapter in flight and the cost was one chapter rather than five.
+
+**The design spec debt is paid.** It read v6.9 while the CSS shipped v7.0. It now
+carries section 16 for v7.0 and section 17 for v7.1, header at v7.1.
+
+**FOUR STALE MIRRORS WERE FOUND AND FIXED IN THE WORKPLAN ON ONE DAY.** Its
+tracker row still said "Stage 6 next, 8 of 13, 20-page render"; its snapshot said
+the same; its lifecycle paragraph said 6 of 13; its queue named a finished step.
+CLAUDE.md and this file are mirrors too. `status_check.py` is the only source, and
+the standing item to have it verify the mirrors mechanically is now the most
+valuable unbuilt piece of process tooling in the repo.
 
 **Stage 4 closed with its second-model gut-check still open**, on Dan's ruling and
 the precedent of Stage 2 and the archived Stage 4. Six findings, one per criterion:
