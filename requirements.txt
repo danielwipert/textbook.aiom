@@ -23,3 +23,13 @@ pdf2image==1.17.0
 pillow==12.3.0
 openpyxl==3.1.5
 fonttools==4.63.0
+
+# Stage 6 round trip, added 2026-08-10. copyedit_export.py and
+# copyedit_import.py both import python-docx, and it had never been pinned, so
+# the export died with ModuleNotFoundError in a fresh container while every
+# gate in the render path passed. Note this is unrelated to CLAUDE.md section 7,
+# which says python-docx FAILS on the spec files: those carry a .docx extension
+# and are plain markdown. The Stage 6 proof is a real .docx and needs the
+# library. Version recorded from the environment that exported Chapter 1
+# round 3 and round-tripped it at zero reported changes.
+python-docx==1.2.0
