@@ -17,18 +17,29 @@ Dan's ruling.** Every merge so far has been a clean fast-forward, because `main`
 carries no commits of its own. A specific SHA is deliberately not recorded here:
 it goes stale on the next commit.
 
-**A correction to the previous entry, worth reading before trusting any handoff
-claim about sync state.** The 2026-08-08 entry said `main` had been
-fast-forwarded at that session's close. It had not. `origin/main` was still at
-`2090bcf` when the 2026-08-09 session opened, twenty-eight commits behind, missing
-the entire copy-edit session including CSS v7.0. The claim was written and never
-checked. Check it, do not copy it forward:
+**THE REMOTE-TRACKING REFS IN A FRESH CONTAINER CAN BE STALE, AND THEY WERE ON
+2026-08-09. FETCH BEFORE YOU DIAGNOSE SYNC STATE.** The container clones with
+`fetch --depth 50` at setup, and that stored `origin/main` at `2090bcf`. The real
+remote `main` was eighteen commits further on, at `95dc1f3`. Reading the stale ref,
+this session reported that `main` was behind and that the 2026-08-08 entry's claim
+of a fast-forward was false. Both conclusions were wrong. The 2026-08-08 entry was
+accurate: `main` had been fast-forwarded to `95dc1f3` at that session's close, and
+`git push origin main` on 2026-08-09 confirmed it by reporting `95dc1f3..28848c6`.
+
+The lesson is not about that entry, it is about the tooling. `git log origin/main`
+and `git rev-list origin/main...HEAD` both read the local tracking ref, and in this
+environment that ref can be an old snapshot rather than the remote. Run
+`git fetch origin main` first, then:
 
 ```
 git status                                              # working tree
 git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
 python3 status_check.py                                 # authoritative status
 ```
+
+This is the same failure the repo has hit four times in its own checks: a reading
+that looks authoritative, taken from an input nobody re-derived. It cost a false
+claim in a handoff, which is the one file that must not carry one.
 
 ## Chapter 1 status: 4 of 13, Stage 2 complete, all fourteen gates pass
 
