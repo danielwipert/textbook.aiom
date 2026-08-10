@@ -44,42 +44,79 @@ This is the same failure the repo has hit four times in its own checks: a readin
 that looks authoritative, taken from an input nobody re-derived. It cost a false
 claim in a handoff, which is the one file that must not carry one.
 
-## Chapter 1 status: 4 of 13, Stage 3 open with its packet built, all fourteen gates pass
+## Chapter 1 status: 5 of 13, Stage 3 cleared, all fourteen gates pass
 
-25 pages, 7,035 words, `voicecheck.py` mechanically clean, `status_check.py`
-reports 4/13 STATUS CONSISTENT.
+25 pages, 7,037 words, `voicecheck.py` mechanically clean, `status_check.py`
+reports 5/13 STATUS CONSISTENT.
 
-The number is low because of the 2026-08-08 reopen at Stage 2, not because the
-chapter is weak. Every step from Stage 3 forward was reset then, and those passes
-had been made against prose the copy edit replaced.
+**Stage 4, the voice and craft check, is next and it is Claude's.** So are Stage
+5 and G2 after it. The reopen of 2026-08-08 reset all three, so the old claim
+that everything Claude owned before lock was finished is not true and has been
+corrected in the Workplan queue.
 
-**Stage 3, the source and fact check, is the open step. It is Dan's and it is
-structurally external:** no source host is reachable from a Claude session. Run
-two checks on different prompts rather than one thorough check; the 2026-08-06
-pair agreed on one finding out of six and the disagreement was the value.
+**Stage 3 was cleared 2026-08-10 on Dan's executive ruling** that the 2026-08-06
+external checks carry it, rather than by running a fresh pair. Read the "WHAT
+THIS TICK MEANS" paragraph under Stage 3 in the checklist before treating the
+tick as more than it is. A finding from any later external check enters as SF11
+and reopens the step.
 
-**The packet the two checks should run against is built and filed** in
-`04_Stage3_Source_Fact_Check_1/`:
+The packet built for the checks that were passed is still filed in
+`04_Stage3_Source_Fact_Check_1/` and is current against the live text:
 
   AIOM_Ch1_Stage3_FactCheck_Input_v3.pdf   the current render, 25 pages, built
                                            from the live text, fourteen gates
                                            green. The v1 and v2 renders are kept
                                            because a finding is only meaningful
-                                           against the text that produced it.
+                                           against the text that produced it,
+                                           and v2 earned its keep this session.
   AIOM_Ch1_Stage3_Claim_Inventory.md       every cited passage paired with the
                                            register entry behind each key, each
                                            note verbatim.
 
-The notes are verbatim on purpose: the conditions that would reverse SF1, SF2,
-SF3, and SF6 live in them, so a checker who reaches one of those should say
-whether the condition is now met rather than restate the finding. SF6, archive
-capture, has now been raised four times.
-
 ### What the 2026-08-10 session did
 
-Built the Stage 3 packet above, and raised and applied one finding.
+Built the Stage 3 packet, raised four findings, and cleared the step.
 
-**SF7, ruled by Dan and applied. DE7 came due and did not check out.** Stage 2
+**SF8, SF9, SF10, and the reason the ruling to pass was checked before it was
+ticked.** Dan ruled that the two external checks would be passed because the fact
+checks had already run on 2026-08-06. Before ticking, the current text was diffed
+against `AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf`, the artifact those checks
+actually audited. The diff supported the ruling on values: eighteen checkable
+atoms, zero added, zero altered, so a fresh pair would have re-verified an
+unchanged value surface. It also found that the sentences carrying those values
+had all been rewritten by the 2026-08-08 copy edit, and that three had regressed
+to forms Stage 3 had specifically ruled out.
+
+  SF8   the SF2 mechanism claim was back: "Once the credit ran out, Cursor billed
+        each additional request at API rates", against a register note that says
+        in as many words not to restore a mechanism claim without a new passage
+  SF9   the depletion claim had lost its scoping to the case team and become a
+        general claim about "Heavy users" that the primary contradicts
+  SF10  the Altman sentence had acquired a compute mechanism the register records
+        the sources as not carrying
+
+Ruled: restore all three from the register wording. Applied, and verified by the
+same check that caught them: five banned forms absent, four ruled forms present,
+value surface still eighteen atoms with zero added and zero gone.
+
+**THE FINDING THAT GENERALIZES, and it is the real output of this session. A
+ruled claim narrowing does not survive a copy edit on its own, and nothing
+mechanical sees it go.** Every date and figure stayed intact through all three
+regressions, so no gate and no check on values could detect them. They were
+recoverable only because each register note quoted the exact ruled SENTENCE,
+which made the regression greppable and diffable against the audited render.
+With DE2 and SF7 this is the fourth instance of the shape. Two consequences, one
+of them still unruled:
+
+1. Quoting the sentence a fix adds is a control, not a convenience. See the
+   unruled standing practice below, which this converts from housekeeping into
+   the thing that saved the step.
+2. A chapter whose fact check predates a copy edit should be diffed against the
+   audited artifact before that fact check is credited. Run here by hand; it
+   should probably be tooling.
+
+**SF7, ruled by Dan and applied earlier in the same session. DE7 came due and did
+not check out.** Stage 2
 flagged DE7 forward on the grounds that the temporal relation had gone from vague
 to explicit, and an explicit claim is checkable in a way the vague one was not.
 It failed on two counts. The prose read "In January 2026, four months before that
@@ -98,17 +135,14 @@ the prose was ruled. A2 is left standing and dated because it was accurate when
 written; the drift, the restoration, and the reversing condition are appended
 beneath it.
 
-**The lesson generalizes past Chapter 1.** A register note can drift out of true
-with the prose it describes, and nothing mechanical sees it. This is the third
-instance of the shape: DE2 was a ruled fix silently lost, SF7 is a ruled fix whose
-RECORD outlived the prose, and both were catchable only because the note or the
-archived entry quoted the actual sentence. That is a direct argument for the
-standing practice proposed on 2026-08-09 and still unruled, below.
+SF7 is the same shape as SF8 to SF10 seen from the other side. There the prose
+drifted away from a ruled form; here the RECORD outlived the prose it described.
+Both were catchable only because something quoted the actual sentence.
 
-**Mechanical checks banked**, so the external checks need not spend on them: the
+**Mechanical checks banked** and recorded on the packet's first page: the
 register closes both ways, 11 keys defined and 11 cited, zero orphans and zero
 dangling; every cite marker resolves; six footnotes all fall on their calling
-page. These are recorded on the packet's first page.
+page.
 
 ### What the 2026-08-09 session did
 
@@ -204,17 +238,17 @@ text (Decision 50).
    ruled. Until he does, regenerating the Chapter 1 packet means rewriting the
    script.
 
-1. **Chapter 1 Stage 3, source and fact check. DAN'S, AND IT IS THE OPEN STEP.**
-   Its input packet is built and filed; see the chapter status above. What remains
-   is the two external checks, which no Claude session can run.
-   Structurally external. Two checks on different prompts. Judge each proposed
-   remedy separately from the finding it answers: a finding can be right and its
+1. **Chapter 1 Stage 4, voice and craft. CLAUDE'S, AND IT IS NEXT.** Stage 3
+   cleared 2026-08-10; see the chapter status above for what that tick does and
+   does not record. Kept here because its practice binds Stage 7 and every later
+   chapter: two checks on different prompts, and judge each proposed
+   remedy separately from the finding it answers, since a finding can be right and its
    fix still wrong, which happened twice on 2026-08-06.
 
-2. **Then Stage 4, Stage 5, G2, all Claude's.** Two things to carry:
+2. **Then Stage 5 and G2, both Claude's.** Two things to carry:
 
    Into Stage 4, the rhythm finding. The copy edit removed the long tail and also
-   removed range: stdev fell from 10.5 to about 6.2 and the prose clusters at 12
+   removed range: stdev fell from 10.5 to about 6.3 and the prose clusters at 12
    to 18 words. A long run at one length is the other half of what C4 prohibits.
    Watch the longest-uniform-run metric `voicecheck.py` prints. Read
    ADVERSARIALLY, quoting the weakest passage per criterion, and read the

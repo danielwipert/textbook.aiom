@@ -1262,15 +1262,17 @@ green on the 19-page render; the Stage 3 fact surface was untouched throughout.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-10
 
 > Every empirical claim traced to primary source. Runs before voice and design so corrections do not churn later polish.
 
 Findings:
 
-STEP IS OPEN. The two external checks have not run. What follows is the input
-packet Claude built for them, plus one finding Claude could rule on without a
-source host and Dan ruled on 2026-08-10.
+STEP CLEARED 2026-08-10 on Dan's executive ruling that the 2026-08-06 external
+checks carry it. Four findings were raised and ruled in the process: SF7 from the
+DE7 flag, and SF8, SF9 and SF10 from the diff against the artifact those checks
+audited. All four are applied. See HOW THE STEP WAS CLEARED below for exactly
+what the tick does and does not record.
 
 INPUTS PREPARED 2026-08-10, filed in this folder:
 
@@ -1340,6 +1342,87 @@ RE-RUN CONSEQUENCE. Body prose, so Stage 3, Stage 4, Stage 5 and G2. None of the
 have run since the reopen, so nothing is invalidated and the edit cost nothing.
 It would not have been free after Stage 4. Chapter 7,034 to 7,035 words, 25 pages
 held, all fourteen gates green after the edit, `voicecheck.py` mechanically clean.
+
+HOW THE STEP WAS CLEARED. Dan ruled 2026-08-10 that the two external checks would
+be passed, on the grounds that the fact checks had already been run on 2026-08-06.
+Before ticking, the current text was diffed against
+`AIOM_Ch1_Stage3_FactCheck_Input_v2.pdf`, the artifact those checks actually
+audited. The diff both supported the ruling and found three regressions it could
+not have anticipated, and all three were repaired before the tick.
+
+WHAT THE DIFF SUPPORTED. Every checkable atom is identical across the two
+renders: eighteen shared, zero added, zero changed. Same dates, same figures,
+same entities, June 18 2025 and June 1 2026 and June 16 and July 4 and 4.7
+million and 75 percent and January 28 2026. No number or date entered the chapter
+that the 2026-08-06 checks had not verified, so a fresh pair of checks would have
+re-verified an unchanged value surface and found nothing. The ruling is sound on
+values and is recorded as sound.
+
+WHAT THE DIFF FOUND ANYWAY. The sentences carrying those values were all
+rewritten by the 2026-08-08 copy-edit rounds, and three of them had regressed to
+forms Stage 3 had specifically ruled out. The values survived; the rulings did
+not. A check on numbers cannot see this, which is exactly why the diff was run
+against the audited artifact rather than the ruling being taken on trust.
+
+SF8. THE SF2 MECHANISM CLAIM HAD BEEN RESTORED. The `truell-2025-pricing` note
+records, verbatim: "RULED by Dan: state the price and assert no mechanism. The
+sentence now reads 'after which additional usage was priced at the same rates'.
+Do not restore a mechanism claim without a passage from this post that describes
+the default billing behaviour on exhaustion." The chapter had come to read "Once
+the credit ran out, Cursor billed each additional request at API rates", which is
+the automatic-continuation claim SF2 removed, restored in different words, with
+no new passage from the post.
+
+SF9. THE DEPLETION CLAIM HAD LOST ITS SCOPE. The audited render read "For the
+team's heaviest users, the people getting the most value, the monthly allowance
+was consumed in a matter of prompts." It had become "Heavy users could exhaust
+the entire monthly credit in a handful of prompts." The COVERAGE entry in the
+register exists to require that scoping, because the post states that the vast
+majority of Pro users do not exhaust the allowance. As it stood the chapter made
+a general claim the primary contradicts.
+
+SF10. A MECHANISM HAD BEEN ADDED TO THE ALTMAN SENTENCE. The `altman-2025-pro`
+note records what the two sources carry "and all they carry": the company lost
+money "because subscribers used it more than the price assumed". The chapter had
+come to read "because customers were consuming more computing resources than the
+monthly price covered", which attributes a mechanism the note does not record.
+
+RULED 2026-08-10 by Dan: restore all three from the register wording. APPLIED.
+The repairs needed no source access, because the register records the ruled
+sentences verbatim, so this is restoration rather than fresh judgment. The
+paragraph now reads "Light users barely noticed. For the team's heaviest users,
+the people getting the most value, the credit was consumed in a handful of
+prompts, after which additional usage was priced at the same rates." The Altman
+sentence now reads "because subscribers used them more than the price had
+assumed." All three register notes carry the regression, the restoration, and the
+condition that would reverse each.
+
+VERIFIED AFTER THE REPAIR, by the same check that caught the regressions: all
+five banned forms absent, all four ruled forms present including SF7's date
+anchor, and the value surface still eighteen atoms with zero added and zero gone.
+Chapter 7,037 words, 25 pages held, fourteen gates green, `voicecheck.py`
+mechanically clean.
+
+WHAT THIS TICK MEANS, stated so it is not read as more. The step is cleared on
+Dan's executive ruling that the 2026-08-06 external checks carry it, plus the
+diff above showing the value surface is unchanged and the three claim-scope
+regressions repaired. It does NOT record a fresh pair of external checks against
+the current text; none were run. Whether the register notes are true of their
+sources remains verified as of 2026-08-06 and not since, and no Claude session
+can verify it. A finding from any later external check enters as SF11 and reopens
+this step.
+
+THE FINDING THAT GENERALIZES, and it is the most valuable output of this step. A
+ruled claim narrowing does not survive a copy edit on its own. Three separate
+Stage 3 rulings were silently reverted by the 2026-08-08 rounds while every date
+and figure stayed intact, so no gate and no value check could see it. They were
+recoverable only because each register note quoted the exact ruled sentence,
+which made the regression greppable and diffable against the audited render. This
+is now the fourth instance of the shape, after DE2, SF7, and these three taken
+together, and it converts the still-unruled practice proposed on 2026-08-09 from
+a convenience into a control: quote the sentence, not only the reason. It also
+argues that the diff-against-the-audited-artifact run here should become a
+standing step wherever a chapter's fact check predates a copy edit.
 
 ---
 

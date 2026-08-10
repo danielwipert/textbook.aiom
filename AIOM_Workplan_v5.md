@@ -89,13 +89,16 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stages 6, 7, and 8.** Dan's steps, and they may run in one
-   sitting: copy edit, final fact check 2, final read. Everything Claude owns
-   before lock is done. Then G3 and Stage 9 lock, both Claude's. Note Stage 4 passed
-   without its second-model gut-check, so the craft verdict and the baseline band
-   the remaining chapters are read against are not independently verified, and
-   Stage 7 is structurally external because no source host is reachable from a
-   Claude session.
+1. **Chapter 1 Stage 4, then Stage 5 and G2. All Claude's, and Stage 4 is next.**
+   This entry read "Stages 6, 7, and 8, everything Claude owns before lock is
+   done" until 2026-08-10, which the 2026-08-08 reopen at Stage 2 had made false:
+   Stage 4, Stage 5, and G2 were all reset and are Claude's. Carry the rhythm
+   finding into Stage 4, read adversarially against the per-section table rather
+   than the chapter average, and note that the Stage 4 of record passed without
+   its second-model gut-check, so the baseline band the other fourteen chapters
+   are read against is not independently verified. Then Dan's Stages 6, 7, and 8,
+   which may run in one sitting, and Stage 7 is structurally external because no
+   source host is reachable from a Claude session. Then G3 and Stage 9, Claude's.
 2. **Chapter 2 drafting.** Can run in parallel once the Chapter 1 re-draft has
    settled the craft standard in practice.
 3. **Decision 28 ruling.** Northmoor properties G, H, I. Not urgent: it gates
@@ -116,10 +119,14 @@ the scoped re-run matrix, and the v1-to-v2 stage mapping. This file does not kee
 a second copy; that duplication is what drifts. Status is single-sourced in each
 chapter's checklist and printed by `status_check.py`.
 
-Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53) and again at Stage 5
-(2026-08-06, Decision 56); 8 of the thirteen steps are passed. `reopen.py`
-performed both resets, archiving each step's findings in place rather than
-destroying them. Stage folders across all eighteen units were migrated to
+Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), at Stage 5
+(2026-08-06, Decision 56), and at Stage 2 (2026-08-08, after three copy-edit
+rounds rewrote rather than corrected it); 5 of the thirteen steps are passed as
+of 2026-08-10, with Stage 4 next. `reopen.py` performed every reset, archiving
+each step's findings in place rather than destroying them. This paragraph read
+"8 of the thirteen" until 2026-08-10, which was true before the Stage 2 reopen
+and false for two days after it: the count here is a mirror, and
+`status_check.py` is the source. Stage folders across all eighteen units were migrated to
 Process v2 numbering on 2026-08-05, so a folder name no longer disagrees with
 the live process.
 

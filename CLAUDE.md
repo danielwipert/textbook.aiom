@@ -399,13 +399,33 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 is 4 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
-copy-edit rounds rewrote rather than corrected it, and the Stage 2 re-run
-completed 2026-08-09. Stage 0, G1, and Stage 1 passed 2026-08-05 and were before
-the reopen point; Stage 2 passed 2026-08-09. `status_check.py` reports 4/13 with
-STATUS CONSISTENT. The chapter is 25 pages, 7,034 words, all fourteen gates pass,
-`voicecheck.py` is mechanically clean. Stage 3, the source and fact check, is
-next and is Dan's and is structurally external.
+**Chapter 1 is 5 of 13.** It was reopened at Stage 2 on 2026-08-08 after three
+copy-edit rounds rewrote rather than corrected it, the Stage 2 re-run completed
+2026-08-09, and Stage 3 cleared 2026-08-10. Stage 0, G1, and Stage 1 passed
+2026-08-05 and were before the reopen point. `status_check.py` reports 5/13 with
+STATUS CONSISTENT. The chapter is 25 pages, 7,037 words, all fourteen gates pass,
+`voicecheck.py` is mechanically clean. Stage 4, the voice and craft check, is
+next and is Claude's.
+
+**Stage 3 was cleared on Dan's executive ruling that the 2026-08-06 external
+checks carry it, and the tick records that and not a fresh pair of checks.**
+Before it was ticked, the current text was diffed against the render those checks
+actually audited. The value surface was unchanged, eighteen checkable atoms with
+zero added and zero altered, which is what makes the ruling sound. The same diff
+found that three ruled claim narrowings had been silently reverted by the copy
+edit, and all three were repaired from the register wording before the tick. Full
+record under Stage 3 in the chapter checklist.
+
+**A ruled claim narrowing does not survive a copy edit on its own, and nothing
+mechanical sees it go.** SF8, SF9, and SF10 were Stage 3 rulings reverted by the
+2026-08-08 rounds while every date and figure stayed intact, so no gate and no
+check on values could detect them. They were recoverable only because each
+register note quoted the exact ruled sentence, which made the regression
+greppable and diffable against the audited artifact. With DE2 and SF7 this is the
+fourth instance of the shape. Two consequences: quoting the sentence a fix adds
+is a control rather than a convenience, and a chapter whose fact check predates a
+copy edit should be diffed against the audited artifact before the fact check is
+credited.
 
 **The number is low because of the reopen, not because the chapter is weak.**
 Every step from Stage 3 forward was reset on 2026-08-08, and those passes had all
