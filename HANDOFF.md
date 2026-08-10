@@ -12,11 +12,14 @@ Active working branch: `claude/stage-6-edits-rof1yb`, new in the THIRD 2026-08-1
 session. It replaces `claude/chapter-1-status-gli2c0`. **DO NOT ADD TO THAT
 BRANCH, AND READ THE NEXT PARAGRAPH BEFORE ASSUMING IT IS FINISHED.**
 
-**`main` IS BEHIND BY THREE COMMITS AND WAS NOT MERGED UP AT THIS SESSION'S
-CLOSE.** `git rev-list --left-right --count origin/main...HEAD` reports `0 3` and
-`git log origin/main ^HEAD` is empty, so a fast-forward is safe whenever it is
-wanted. It was left undone deliberately: Stage 6 is mid-round and the next session
-may add to this branch.
+**`main` WAS MERGED UP ON DAN'S INSTRUCTION AND `main` AND THIS BRANCH ARE
+LEVEL.** The branch took five commits and `main` was fast-forwarded to the branch
+head. Verified immediately before pushing rather than trusted from a reading taken
+earlier in the session: `git rev-list --left-right --count origin/main...HEAD`
+reported `0 5`, `git log origin/main ^HEAD` was empty, and
+`git merge-base --is-ancestor origin/main HEAD` confirmed `main` was a strict
+ancestor. A specific SHA is deliberately not recorded here, because it goes stale
+on the next commit.
 
 **A COMMIT WAS STRANDED ON THE PREVIOUS BRANCH AND NEARLY LOST, WHICH IS THE MAIN
 LESSON OF THIS SESSION.** Stage 6 CE1 was committed to
