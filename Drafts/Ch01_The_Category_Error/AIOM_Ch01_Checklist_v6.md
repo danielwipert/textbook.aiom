@@ -881,6 +881,63 @@ RE-RUN CONSEQUENCE. Body prose, so Stage 3, Stage 4, Stage 5 and G2, all already
 open. The panel is untouched, so Decision 56, the registry statement, and G1 all
 stand.
 
+DE7 RULED AND APPLIED 2026-08-09. Dan ruled solution one. The Microsoft paragraph
+now opens "In January 2026, four months before that change, the company told
+investors on its earnings call that ...", so the anchor is named in the reading
+line instead of sitting a paragraph back. No figure, date, or source changed, and
+the interval asserted is the one the sentence already carried. Chapter 7,032
+words to 7,034, still in band.
+
+FLAGGED FOR STAGE 3, NOT ASSUMED CLEAN. This is prose beside a sourced claim, and
+the temporal relation goes from vague to explicit. Nothing new is asserted, but
+an explicit claim is checkable in a way the vague one was not, so the external
+check should look at it rather than treat the fact surface as untouched.
+
+Verified: `voicecheck.py` mechanical PASS, all fourteen gates PASS, 25 pages.
+
+---
+
+## STAGE 2 RE-RUN COMPLETE 2026-08-09. Nine findings raised, nine ruled, seven applied to the chapter.
+
+  DE1  applied   the resource consumption model is named in the body
+  DE2  applied   the five-questions to three-failures bridge restored
+  DE3  applied   duplicate causal sentence cut from the opening case
+  DE4  applied   theorem antecedent (iv) glossed
+  DE5  applied   the chapter hands off to Chapter 2 once, in the summary
+  DE6  ruled     Decision 33 amended to 6,500 to 7,500, measure named
+  DE7  applied   the Microsoft paragraph names its own anchor
+  DE8  applied   the four-activity clause cut
+  DE9  applied   panel untouched, gloss split, restating paragraph cut
+
+Net effect on the chapter: 7,102 words to 7,034, which is in band under the
+amended Decision 33 with 466 words of headroom. 25 pages throughout, unchanged.
+ALL FOURTEEN GATES PASS and `voicecheck.py` is mechanically clean at every step.
+
+THREE THINGS THIS PASS PRODUCED THAT ARE NOT CHAPTER EDITS, and they are the
+part worth carrying to Chapters 2 to 15.
+
+  A GATE DEFECT, gate 12, found by DE1 and fixed. In-text figure references were
+  counted line by line, so a reference that wrapped was invisible, and a
+  body-size line opening with a figure label counted as neither caption nor
+  reference. Now counted on the joined page text with captions subtracted. A
+  negative test was run to prove the fixed gate can still fail.
+
+  A STANDING RULE, 4a in CLAUDE.md, from Dan's ruling at DE9: the registry is the
+  third rail and the book is an interpretation of it. It had been implicit in
+  Decision 56 and was never stated as a rule of its own.
+
+  A DECISION MADE COMPUTABLE, Decision 33. The band had a number and no measure,
+  and the chapter produced four defensible counts. The measure is now named and
+  `voicecheck.py` prints it.
+
+WHAT REMAINS OPEN ON THIS STEP. The second-model gut-check is Dan's and has not
+been run. The prompt is below, unchanged. A stall it names that this pass missed
+enters as DE10 onward and is the more valuable output. The caution recorded when
+the pass opened still stands and matters more here than on the archived runs:
+this pass was made by the model that drafted the chapter, wrote the craft
+standard, and applied all three copy-edit rounds, and Stage 2 has no mechanical
+half at all.
+
 ### Watch items, no action recommended
 
 W1. Ruling Q1 set the five diagnostic questions as five separate paragraphs
