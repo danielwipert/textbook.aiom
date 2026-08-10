@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-10, at the close of the SECOND session that day. Read this
+Last updated: 2026-08-10, at the close of the THIRD session that day. Read this
 plus CLAUDE.md before starting work, and update this file before ending the
 session. The protocol is CLAUDE.md section 11. A SessionStart hook
 (`.claude/settings.json`) prints this file into context automatically at the
@@ -8,11 +8,40 @@ start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-status-gli2c0`, new in the second
-2026-08-10 session. It replaces `claude/chapter-1-stage-3-r2rtyq`, which is
-finished and fully merged; do not add to it.
+Active working branch: `claude/stage-6-edits-rof1yb`, new in the THIRD 2026-08-10
+session. It replaces `claude/chapter-1-status-gli2c0`. **DO NOT ADD TO THAT
+BRANCH, AND READ THE NEXT PARAGRAPH BEFORE ASSUMING IT IS FINISHED.**
 
-**`main` WAS MERGED UP AT THIS SESSION'S CLOSE and `main` and this branch are
+**`main` IS BEHIND BY THREE COMMITS AND WAS NOT MERGED UP AT THIS SESSION'S
+CLOSE.** `git rev-list --left-right --count origin/main...HEAD` reports `0 3` and
+`git log origin/main ^HEAD` is empty, so a fast-forward is safe whenever it is
+wanted. It was left undone deliberately: Stage 6 is mid-round and the next session
+may add to this branch.
+
+**A COMMIT WAS STRANDED ON THE PREVIOUS BRANCH AND NEARLY LOST, WHICH IS THE MAIN
+LESSON OF THIS SESSION.** Stage 6 CE1 was committed to
+`claude/chapter-1-status-gli2c0` AFTER that branch had already been levelled with
+`main`, so `main` never received it, and the next session cloned a container whose
+live text did not contain the edit. The session opened believing Stage 6 edits
+were in progress and found a clean tree, no pull requests, no issues, and no
+returned proof. The edit was recovered by fast-forward, but only because every
+branch was searched for commits `main` did not have:
+
+```
+git fetch --all --prune
+for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
+  n=$(git rev-list --count origin/main..$b); [ "$n" != 0 ] && echo "$b +$n"; done
+```
+
+Two things follow. **Merge up before the branch is retired, not after the last
+commit you happen to remember**, and **when a session reports work that is not in
+the tree, search every branch before concluding it was lost.** Note also that
+`origin/claude/stage-6-edits-rof1yb` did not exist on the remote at session start
+while a local tracking ref for it did, so the first sync reading looked clean and
+meant nothing. That is the THIRD instance of a worthless pre-fetch sync reading.
+
+Historical note from the second session, kept because the reasoning still holds:
+**`main` WAS MERGED UP AT THAT SESSION'S CLOSE and `main` and that branch were
 LEVEL.** The branch started level with `main`, took four commits, and `main` was
 fast-forwarded to the branch head. Every merge so far has been a clean
 fast-forward, because `main` carries no commits of its own, and that was verified
@@ -64,10 +93,52 @@ cleared 2026-08-10.
 **Dan's Stages 6, 7 and 8 are next and may run in one sitting.** Then G3 and
 Stage 9, both Claude's.
 
-**THE STAGE 6 PROOF IS BUILT AND WAITING**, new in the second 2026-08-10
-session:
+**STAGE 6 IS UNDER WAY. ONE EDIT IS APPLIED, CE1, AND THE CURRENT PROOF IS ROUND
+4.** Chapter is 7,066 words after CE1. Full record under Stage 6 in the checklist.
 
-  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round3.docx`
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.docx`
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.manifest.json`
+
+**ROUND 3 IS SUPERSEDED AND MUST NOT BE REVIEWED.** Its `.docx` still displays the
+pre-CE1 Category error definition, and 64 of its 221 spans went stale when CE1
+shortened the live text by three characters. It is kept as the artifact of its
+step, not deleted.
+
+**CE1, the Category error key-term entry, rewritten in plain syntax.** Dan's
+finding, ruled and applied. Two sentences at mean 25.5 words became four at mean
+12.5, in genus and differentia form, with the semicolon splice gone. Meaning
+unchanged and the same five propositions survive, which is what holds it in the
+copy-edit row of the scoped re-run matrix, re-running G2 alone. Verified in a
+fresh container rather than trusted from the commit message: fourteen gates pass,
+25 pages held, `voicecheck.py` mechanically clean, Key terms improves from mean
+18.2 to 15.9 words and from 14 to 19 percent short sentences.
+
+**THE STANDING ROUND-TRIP CONTROL IS NECESSARY AND NOT SUFFICIENT. THIS IS THE
+TRANSFERABLE FINDING OF THE SESSION AND IT BINDS EVERY LATER CHAPTER.** CLAUDE.md
+requires the unedited export to round-trip at zero reported changes before either
+Stage 6 tool is trusted. Round 3 PASSED that control at 221 blocks, zero edited,
+zero applied, zero refused, while 64 of its spans were stale, because
+`copyedit_import.py` compares the return against the manifest's own recorded text
+and never against the live file. A manifest that has drifted from the chapter
+still round-trips clean. The check that sees it compares each recorded span
+against the current live text:
+
+  round 3   spans correct 144/221   stale by exactly -3   64   other 12
+  round 4   spans correct 209/221   stale                  0   other 12
+
+The twelve are by design and identical in both rounds: six body paragraphs whose
+span encloses a nested `<cite>`, and their six footnote blocks whose citation-key
+marker the export excludes under Decision 51. Expect twelve; fail on a thirteenth.
+Adding this to the Stage 6 procedure for Chapters 2 to 15 is NOT YET RULED.
+
+The stale span was established as a usability problem and not a corruption risk by
+READING the apply path, not by assuming. `copyedit_import.py` locates each edit
+inside `frag = src[s0:e0]`, a real slice of the current file, so a located match
+carries a true absolute offset even when the window is shifted, and it writes only
+under `if a.apply and not problems and not refused`, so one refusal blocks the
+whole write.
+
+Superseded, from the second 2026-08-10 session:
 
 221 blocks, exported from the live text against a fresh fourteen-gate render.
 The `.manifest.json` beside it is what `copyedit_import.py` maps the return
@@ -425,11 +496,17 @@ record mentions it, it is gone and Decision 50 is why.
    script.
 
 1. **Chapter 1 Stages 6, 7 and 8. DAN'S, AND THEY MAY RUN IN ONE SITTING.** Copy
-   edit, final fact check 2, final read. **THE STAGE 6 PROOF IS ALREADY BUILT
-   AND THE ROUND TRIP IS ALREADY BANKED**, so the step can start immediately:
-   open `AIOM_Ch1_CopyEdit_round3.docx`, edit in Word, return it, and import
-   through `copyedit_import.py` with its manifest. Stage 7 is structurally
-   external. TWO THINGS TO CARRY INTO THE ROUND:
+   edit, final fact check 2, final read. **STAGE 6 IS UNDER WAY: CE1 IS APPLIED
+   AND THE CURRENT PROOF IS ROUND 4**, exported from the post-CE1 live text with
+   both the round trip and the span check banked. Open
+   `AIOM_Ch1_CopyEdit_round4.docx`, edit in Word, return it, and import through
+   `copyedit_import.py` with the round-4 manifest. **DO NOT USE ROUND 3.** Stage 7
+   is structurally external. THREE THINGS TO CARRY INTO THE ROUND:
+
+   - **Any edit that changes the live text invalidates the current proof.** CE1
+     shortened it by three characters and staled 64 spans. Re-export after
+     applying a round, and run the span check rather than relying on the round
+     trip, which cannot see staleness.
 
    - **Diff the return against the ruled sentences before crediting it.** Three
      ruled Stage 3 narrowings and one ruled Stage 4 fix were silently reverted
