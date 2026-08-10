@@ -3387,6 +3387,79 @@ the same two pagination failures, still 26 pages.
 
 ---
 
+### Round 4, on the round-3 proof. CE1, ruled and applied 2026-08-10.
+
+The first finding of the current round, and at the time of writing the only one.
+Recorded here on 2026-08-10 because it was not recorded when it was applied: the
+edit was committed as `6054674` and its entire record was the commit message.
+
+**CE1, the Category error key-term entry, rewritten in plain syntax.** Dan's
+finding. The entry ran two sentences at mean 25.5 words, stacking three clauses
+before the reader reached a complete thought, and it carried a semicolon splice.
+The ideas are complex; the writing does not need to be.
+
+The ruled sentences, quoted so the fix is greppable if a later round reverts it:
+
+  "The error of managing a metered resource as if it were licensed software.
+   It rests on a false assumption: that the access price fixes the total cost.
+   The tool is the right one and the vendor is not at fault. The economic
+   model applied to the tool is wrong."
+
+Four sentences, 50 words, mean 12.5, in genus and differentia form, which is the
+standard definitional shape and which the old opening ("The mistake of buying
+access to ... and managing ... on the assumption that ...") did not have. An
+intermediate draft used a three-word retort, "It does not." Dan ruled it too
+conversational for a glossary: plain words and short sentences are not the same
+thing as a rhetorical beat. Classification replaced it.
+
+MEANING IS UNCHANGED, which is what holds this inside the copy-edit row of the
+scoped re-run matrix, re-running G2 alone rather than the four steps a teaching
+change would. The same five propositions survive: metered resource managed as
+software, access price assumed to be total cost, tool right, vendor blameless,
+model wrong. A variant that also stated the positive case was drafted and
+rejected for adding a proposition.
+
+Verified after recovery, in a fresh container rather than trusted from the commit
+message: all fourteen gates pass, 25 pages held, `voicecheck.py` mechanically
+clean. Key terms, the weakest section in the chapter on both craft proxies,
+improves from mean 18.2 to 15.9 words and from 14 to 19 percent short sentences
+on this one entry. Chapter 7,062 to 7,066 words on the Decision 33 measure.
+
+**THE COMMIT WAS STRANDED, AND THAT IS THE PROCESS FINDING.** It was committed to
+`claude/chapter-1-status-gli2c0` after that branch had already been levelled with
+`main`, so `main` never received it and the next session started from a container
+whose live text did not contain it. It was recovered by fast-forward on
+2026-08-10. Nothing detected the gap: `status_check.py` reads the checklist,
+which had no CE1 entry, and the fourteen gates read whichever text they are given.
+A commit message is not a record. This is the sixth instance in this repo of work
+that read as done and was not, and the first where the artifact itself went
+missing rather than the check.
+
+**CONSEQUENCE FOR THE PROOF, and it must be settled before the next Word round.**
+CE1 shortened the live text by exactly three characters, and
+`AIOM_Ch1_CopyEdit_round3.manifest.json` stores absolute character offsets. Of its
+221 blocks, 144 spans remain correct, 64 are now stale by exactly three characters
+(every block from i=157, which is the Key terms entries from "Consumption event"
+onward, all four discussion questions, and all three problems including the P3
+table), and 13 differ for reasons unrelated to CE1 (twelve carry citation keys the
+export excludes by design, and the thirteenth is CE1's own block).
+
+This is a usability problem and not a corruption risk, which was established by
+reading the apply path rather than assumed. `copyedit_import.py` locates each edit
+inside `frag = src[s0:e0]`, a genuine slice of the current file, so a located match
+carries a true absolute offset even when the window is shifted; and it writes only
+under `if a.apply and not problems and not refused`, so a single refusal blocks the
+whole write. The worst case is an edit falling in a block's final three characters
+being refused. The remaining hazard is editorial rather than mechanical: the
+round-3 `.docx` still displays the PRE-CE1 Category error definition, so an editor
+working from it would be reading text that no longer exists and could reinstate it
+without anything mechanical objecting. Regenerating the export from the post-CE1
+live text removes both. Not yet ruled.
+
+Stage 6 remains OPEN. It is Dan's step and further rounds may be taken at any time.
+
+---
+
 ## Stage 7. Final fact check 2
 
 Owner: Dan
