@@ -1,35 +1,39 @@
 # Session handoff
 
-Last updated: 2026-08-10, session close. Read this plus CLAUDE.md before starting
-work, and update this file before ending the session. The protocol is CLAUDE.md
-section 11. A SessionStart hook (`.claude/settings.json`) prints this file into
-context automatically at the start of every session, alongside the voice and
-craft card.
+Last updated: 2026-08-10, at the close of the SECOND session that day. Read this
+plus CLAUDE.md before starting work, and update this file before ending the
+session. The protocol is CLAUDE.md section 11. A SessionStart hook
+(`.claude/settings.json`) prints this file into context automatically at the
+start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-stage-3-r2rtyq`, new on 2026-08-10.
-It replaces `claude/chapter-1-progress-78opym`, which is finished; do not add
-to it.
+Active working branch: `claude/chapter-1-status-gli2c0`, new in the second
+2026-08-10 session. It replaces `claude/chapter-1-stage-3-r2rtyq`, which is
+finished and fully merged; do not add to it.
 
-**`main` WAS MERGED UP AT THE CLOSE OF THE 2026-08-10 SESSION, on Dan's ruling,
-and `main` and this branch are LEVEL.** The branch started the session level with
-`main` at `8515fc9`, took thirteen commits, and `main` was fast-forwarded to the
-branch head at the close. Every merge so far has been a clean fast-forward,
-because `main` carries no commits of its own, and that was verified before pushing
-rather than assumed: `git rev-list --left-right --count origin/main...HEAD`
-reported `0 13`, and `git log origin/main ^HEAD` was empty, which is what proves
-`main` is a strict ancestor. Verified level again after the push. A specific SHA
-for the head is deliberately not recorded here: it goes stale on the next commit.
+**`main` WAS MERGED UP AT THIS SESSION'S CLOSE and `main` and this branch are
+LEVEL.** The branch started level with `main`, took four commits, and `main` was
+fast-forwarded to the branch head. Every merge so far has been a clean
+fast-forward, because `main` carries no commits of its own, and that was verified
+before pushing rather than assumed: `git rev-list --left-right --count
+origin/main...HEAD` reported `0 4`, and `git log origin/main ^HEAD` was empty,
+which is what proves `main` is a strict ancestor. A specific SHA for the head is
+deliberately not recorded here: it goes stale on the next commit.
 
-**THE REMOTE-TRACKING REFS IN A FRESH CONTAINER CAN BE STALE, AND THEY WERE ON
-2026-08-09. FETCH BEFORE YOU DIAGNOSE SYNC STATE.** The container clones with
-`fetch --depth 50` at setup, and that stored `origin/main` at `2090bcf`. The real
-remote `main` was eighteen commits further on, at `95dc1f3`. Reading the stale ref,
-this session reported that `main` was behind and that the 2026-08-08 entry's claim
-of a fast-forward was false. Both conclusions were wrong. The 2026-08-08 entry was
-accurate: `main` had been fast-forwarded to `95dc1f3` at that session's close, and
-`git push origin main` on 2026-08-09 confirmed it by reporting `95dc1f3..28848c6`.
+**THE REMOTE-TRACKING REFS IN A FRESH CONTAINER CAN BE STALE. FETCH BEFORE YOU
+DIAGNOSE SYNC STATE. THIS HAS NOW HAPPENED TWICE.** The container clones with
+`fetch --depth 50` at setup. On 2026-08-09 that stored `origin/main` at `2090bcf`
+while the real remote was eighteen commits further on at `95dc1f3`, and reading
+the stale ref produced two false conclusions: that `main` was behind, and that
+the 2026-08-08 entry's claim of a fast-forward was wrong. Both were incorrect.
+
+**The second 2026-08-10 session hit the identical stale value.** A fresh
+container again showed `origin/main` at `2090bcf`; `git fetch origin main` moved
+it to the true head in one step. The ref was thirteen commits out of date and
+would have made a level branch look far ahead. Two instances of the same stale
+SHA is not coincidence, it is what the shallow clone stores, so treat any sync
+reading taken before a fetch as worthless.
 
 The lesson is not about that entry, it is about the tooling. `git log origin/main`
 and `git rev-list origin/main...HEAD` both read the local tracking ref, and in this
@@ -59,6 +63,27 @@ cleared 2026-08-10.
 
 **Dan's Stages 6, 7 and 8 are next and may run in one sitting.** Then G3 and
 Stage 9, both Claude's.
+
+**THE STAGE 6 PROOF IS BUILT AND WAITING**, new in the second 2026-08-10
+session:
+
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round3.docx`
+
+221 blocks, exported from the live text against a fresh fourteen-gate render.
+The `.manifest.json` beside it is what `copyedit_import.py` maps the return
+through, so keep the pair together. Nothing in the folder before it is current:
+round 2 was committed 2026-08-08 and twenty-one commits have touched the live
+text since, so reviewing it would mean reviewing the text the Stage 2 re-run,
+the Stage 3 restorations and the Stage 4 craft fixes all replaced. The unedited
+export was round-tripped before the proof was handed over and reported 221
+paragraphs against 221 blocks with zero edited, zero applied and zero refused,
+which is the control CLAUDE.md requires before either Stage 6 tool is trusted on
+a chapter. The live text hash was captured before and after to prove the dry run
+mutated nothing.
+
+The production render it was cropped from is `build/Ch1.pdf`, which is
+gitignored and dies with the container. Rebuild it from the block in CLAUDE.md
+section 5 if it is wanted again.
 
 **G2 found PG1, now Decision 59: the book sets `lang="en-US"`, never `lang="en"`.**
 In Pyphen, which WeasyPrint hyphenates through, `en` is an ALIAS FOR en_GB, so a
@@ -150,7 +175,61 @@ The packet built for the checks that were passed is still filed in
                                            register entry behind each key, each
                                            note verbatim.
 
-### What the 2026-08-10 session did
+### What the SECOND 2026-08-10 session did
+
+Advanced no step, and that is correct: every step Claude owns before lock was
+already done, so the work was preparing Dan's next step and clearing repo debt.
+Four commits.
+
+1. **The Stage 6 proof, round 3**, described under the chapter status above.
+2. **`python-docx` pinned in `requirements.txt`.** `copyedit_export.py` and
+   `copyedit_import.py` both import it and it had never been pinned, so the
+   export died with `ModuleNotFoundError` in a fresh container. Pinned at 1.2.0,
+   the version that produced the clean round trip. Note the near-contradiction
+   the comment now heads off: CLAUDE.md section 7 says python-docx FAILS on this
+   repo's `.docx` files, which is true of the spec files, since those carry the
+   extension and are plain markdown. The Stage 6 proof is a real `.docx`.
+3. **`aiom_md.py` deleted, on Dan's ruling.** It parsed `AIOM_chNN.md` into
+   semantic HTML, which was the pipeline before Decision 50 made the chapter HTML
+   the single source of truth, and its docstring still asserted the overturned
+   premise. Verified dead across every file type before removal: zero references
+   to `aiom_md` or `parse_chapter` anywhere, and the only markdown chapter source
+   ever written is already filed as
+   `archive/AIOM_ch01_markdown_noncanonical.md`. The companion artifact had been
+   archived and the parser had not. It carried the repo's only two other unpinned
+   imports, `markdown_it` and `mdit_py_plugins`, which went with it rather than
+   being pinned.
+4. **CLAUDE.md's `chapters/` paths fixed.** The repository map listed
+   `chapters/` as "Chapter HTML sources" and all four build commands in section 5
+   invoked `chapters/AIOM_ch01.html`. That directory has never existed, so a
+   fresh session following section 5 verbatim got a file-not-found on its first
+   render.
+
+**THE PATTERN ACROSS THREE OF THE FOUR IS THE ONE THIS REPO KEEPS FINDING, in a
+new place.** The dependency gap, the dead module and the wrong paths all sat in
+territory no gate covers. The fourteen gates cover the render path and they were
+green throughout; Stage 6 is a Word round trip and CLAUDE.md is prose, and
+neither is exercised by anything. Each defect read as fine right up to the moment
+someone tried to use it. This is the same shape as the gates that were claimed
+but never performed before 2026-08-05, and as the five stale mirrors of the first
+2026-08-10 session, and it is the standing argument for the unbuilt
+`status_check.py` mirror verification in thread 4.
+
+**Section 5 was rewritten rather than path-corrected, because a corrected path
+would not have been enough.** There is no chapter path that works for every tool:
+the build must NOT run on the live text, since `base_url` is the HTML's own
+directory and building in place loses the design system, and `place.py` MUST run
+on the live text, since it rewrites the file it is given. The block now carries
+that reason, a `LIVE` variable, the Stage 6 pair, and four hazards that were
+previously only in this file or in nobody's notes: create `build/` first or the
+render raises `FileNotFoundError`, delete the `.print.html` sibling, omitting
+`--out` writes a fourth file beside the input, and `place.py` leaves an
+ungitignored `.bak`. The documented block was then run verbatim to prove it
+works. The `place.py` symlink requirement is the ONE line in it transcribed from
+this file rather than re-verified, because running `place.py` would rewrite a
+live text that has passed G2.
+
+### What the FIRST 2026-08-10 session did
 
 Cleared TWO steps, Stage 3 and Stage 4, raising ten findings between them.
 
@@ -328,7 +407,9 @@ attribute and not a CSS rule).
 **Stage 6 round trip.** `copyedit_export.py` and `copyedit_import.py`, plus
 `08_Stage6_Copy_Edit/apply_round1.py` as the record of how round 1 was applied
 when the importer could not land it. The `.docx` is a proof, never a second live
-text (Decision 50).
+text (Decision 50). Both tools need `python-docx`, pinned in
+`requirements.txt` since 2026-08-10. `aiom_md.py` was DELETED that day; if a
+record mentions it, it is gone and Decision 50 is why.
 
 **Process tooling.** `status_check.py`, `gen_checklists.py`, `voicecheck.py`
 (now prints the Decision 33 measure), `reopen.py`, `continuity.py` (G3),
@@ -344,14 +425,21 @@ text (Decision 50).
    script.
 
 1. **Chapter 1 Stages 6, 7 and 8. DAN'S, AND THEY MAY RUN IN ONE SITTING.** Copy
-   edit, final fact check 2, final read. Stage 6 runs in Word through
-   `copyedit_export.py` and back through `copyedit_import.py`; round-trip the
-   UNEDITED export first and require zero reported changes before trusting the
-   pair. Stage 7 is structurally external. AND NOTE WHAT THIS SESSION PROVED
-   ABOUT STAGE 6: three ruled Stage 3 narrowings and one ruled Stage 4 fix were
-   silently reverted by the last copy edit, and nothing mechanical saw any of
-   them. After any copy-edit round, DIFF THE RESULT AGAINST THE RULED SENTENCES
-   quoted in the register notes and the checklist before crediting the round.
+   edit, final fact check 2, final read. **THE STAGE 6 PROOF IS ALREADY BUILT
+   AND THE ROUND TRIP IS ALREADY BANKED**, so the step can start immediately:
+   open `AIOM_Ch1_CopyEdit_round3.docx`, edit in Word, return it, and import
+   through `copyedit_import.py` with its manifest. Stage 7 is structurally
+   external. TWO THINGS TO CARRY INTO THE ROUND:
+
+   - **Diff the return against the ruled sentences before crediting it.** Three
+     ruled Stage 3 narrowings and one ruled Stage 4 fix were silently reverted
+     by the LAST copy edit, and nothing mechanical saw any of them: every date
+     and figure survived intact. The quoted sentences are in the register notes
+     and the checklist. This is the single highest-risk moment left in the
+     chapter, because Stage 6 is the step that caused the reopen.
+   - **The theorem panel blocks export but the importer refuses edits to them.**
+     That is standing rule 4a working as designed. If a panel line reads badly
+     the remedy is the prose beside it, never the panel.
 
 2. **Gaps G-I and G-II are not closed, and bind any future design work.** Both require a chapter whose
    pagination or callout placement moves to be READ rather than gated, and this
@@ -402,13 +490,16 @@ text (Decision 50).
 
 **Rules that bite.**
 
-- **Building a chapter under `Drafts/` needs `AIOM_book.css` and `fonts/`
-  symlinked beside it,** or better, copy the live text to the repo root as
-  `_ch01_build.html`, build there, and delete both it and the `.print.html`
-  sibling. `AIOM_build.py` sets `base_url` to the HTML's own directory, so
-  building in place drops the whole design system and reports dozens of false
-  defects. `place.py` is different: run it from the repo root ON the live text
-  path, with the symlinks in place, because it rewrites the file it is given.
+- **The build and `place.py` want the chapter in DIFFERENT places, and CLAUDE.md
+  section 5 now carries the runnable form.** Do not reconstruct it from memory
+  here. In short: `AIOM_build.py` sets `base_url` to the HTML's own directory, so
+  building in place under `Drafts/` drops the design system and reports dozens of
+  false defects, and the fix is to copy the live text to the repo root, build
+  there, and delete the copy and its `.print.html` sibling. `place.py` is the
+  opposite case and runs ON the live text path, from the repo root, with
+  `AIOM_book.css` and `fonts/` symlinked beside it, because it rewrites the file
+  it is given. This bullet graduated into CLAUDE.md on 2026-08-10 per the section
+  11 division of labor; it stays here only as the pointer.
 - **A green gate suite is not a read page.** With all fourteen gates passing,
   reading found flush paragraphs in the summary and a dated box (2026-08-08) and
   confirmed three moved-page cases (2026-08-09). No gate measures paragraph
