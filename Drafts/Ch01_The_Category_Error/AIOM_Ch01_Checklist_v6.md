@@ -1687,6 +1687,43 @@ VERIFIED. Fourteen gates green, 25 pages held, chapter 7,075 words. Mechanical
 half still PASS, including first or second person at 0, so the quotation is still
 recognised as a voiced span with the attributing frame removed.
 
+NC4 (C4, 1.1). THE FLATTEST PROSE IN THE CHAPTER. RULED A DELIBERATE CHOICE, NO
+EDIT. 1.1 runs 21 sentences at mean 15.3 words, stdev 4.9, shortest 7, longest 24,
+with nothing over 25 and only 5 of 21 under 12. Its last three paragraphs are a
+ten-sentence stretch between 12 and 23 words with neither a short punch nor a long
+build, and it is the only such stretch in the chapter. 1.1 replaces the summary as
+the weakest C4 unit; the summary is now the strongest at mean 12.5 and 50 percent
+short, and the chapter's hardest C4 pair is its "Seats measure access. Consumption
+events measure use and cost."
+
+RULED 2026-08-10 by Dan: record it and make no edit. The grounds are three. Each
+of the three paragraphs closes hard, so C5 is unaffected. The section is
+definitional, and expository prose at 15 words is doing its work. And the standard
+forbids the obvious repair: "Rhythm is not decoration and it is never a reason to
+add a sentence. If a short sentence is inserted only for cadence and asserts
+nothing, it is padding under a different name." Any repair had to be a split or a
+cut, and both candidates were worse than the condition: the economy cut of
+"factors such as" moves one sentence from 19 words to 16 and does not change the
+stretch, and splitting the 23-word concessive breaks a pairing that the
+paragraph's closing sentence deliberately echoes. Naming the worst instance is the
+deliverable of an adversarial read, not a verdict that something must change.
+
+THE BASELINE BAND OF RECORD IS STALE. DEFERRED TO STAGE 9 BY DAN, 2026-08-10. The
+band in the archived block below was set 2026-08-06 at mean 17.4, median 15, stdev
+10.1, range 3 to 54, short 33 percent, long 6 percent. The chapter now runs mean
+14.5, median 14, stdev 6.3, max 33, long 0 percent: the copy edit removed the long
+tail entirely and compressed the spread. `AIOM_Voice_and_Craft_v1.md` section 4
+directs that Chapter 1 sets the band and that later chapters are compared against
+it rather than against an absolute threshold, so reading Chapter 2 against the
+recorded numbers would grade it against a text that no longer exists. This is the
+same failure as SF8 to SF10 and the stale Workplan count, in a fourth location.
+
+RULED: do not re-set the band now. Stage 5 and G2 may still move the prose, so a
+band set today would be superseded before Chapter 2 is drafted. It is re-set at
+Stage 9 from the locked text. UNTIL THEN THE RECORDED BAND MUST NOT BE USED: the
+numbers in the archived block are a measurement of a superseded chapter, and no
+chapter is read against them.
+
 ---
 
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
@@ -1815,6 +1852,13 @@ nominalizations 46.0 per 1,000, numerals 6.7 per 1,000, proper nouns 9.3 per
 supersede both earlier bands. Chapters 2 to 15 are read against these, and any
 further change to APPARATUS_BLOCKS moves them again, which is why that set is
 not extended casually.
+
+[SUPERSEDED 2026-08-10, Stage 4 re-run. DO NOT READ ANY CHAPTER AGAINST THE
+NUMBERS ABOVE. They measure a version of Chapter 1 that the 2026-08-08 copy edit
+replaced. The current chapter runs mean 14.5, stdev 6.3, max 33, long 0 percent
+against the 17.4 / 10.1 / 54 / 6 percent recorded here. Dan ruled the reset
+deferred to Stage 9, so that it is taken from the locked text rather than from
+prose Stage 5 and G2 may still move. Until lock there is NO band in force.]
 
 NC2 APPLIED 2026-08-06, ruled by Dan. The paragraph is cut to its first
 sentence: "Organizations that would never let a material flow through the plant
@@ -3071,6 +3115,24 @@ Status: [ ]        Date cleared:
 > Frozen. Continuity ledger committed. No change without an explicit reopen, which re-runs every stage from the one that owns the change.
 
 Findings:
+
+PENDING ACTIONS BOOKED FOR THIS STEP. Recorded here because they are owed AT lock
+and are easy to lose between now and then.
+
+1. RE-SET THE CRAFT BASELINE BAND from the locked text, and mark the 2026-08-06
+   band superseded. Deferred here by Dan on 2026-08-10 at Stage 4. The recorded
+   band measures a chapter the copy edit replaced, and `AIOM_Voice_and_Craft_v1.md`
+   section 4 makes Chapter 1 the band that Chapters 2 to 15 are read against, so
+   the reset is a precondition for reading Chapter 2, not bookkeeping. Run
+   `voicecheck.py` on the locked text and record the full metric set in the Stage 4
+   findings, replacing the annotated block. Until this is done NO band is in force.
+
+2. `continuity.py --update` MUST NOT record "flow" among Chapter 1's terms.
+   Chapter 2 owns it, and a mis-logged entry would fail G3 on Chapter 2.
+
+3. Check whether "category error" should be logged as a Chapter 1 term. It became
+   the eighth key term on 2026-08-10 under NC1, after the ledger design was
+   written, so no earlier record anticipates it.
 
 ---
 
