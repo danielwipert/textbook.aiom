@@ -12,13 +12,15 @@ Active working branch: `claude/chapter-1-stage-3-r2rtyq`, new on 2026-08-10.
 It replaces `claude/chapter-1-progress-78opym`, which is finished; do not add
 to it.
 
-**`main` had already been fast-forwarded to carry the 2026-08-09 work before this
-session began,** so the new branch started level with it and no merge was needed.
-Verified by fetch, not by the tracking ref: `origin/main` and the branch point
-were both `8515fc9`. Every merge so far has been a clean fast-forward, because
-`main` carries no commits of its own. **`main` is now behind this branch by the
-two commits below and wants merging up at the next ruling.** A specific SHA for
-the head is deliberately not recorded here: it goes stale on the next commit.
+**`main` WAS MERGED UP AT THE CLOSE OF THE 2026-08-10 SESSION, on Dan's ruling,
+and `main` and this branch are LEVEL.** The branch started the session level with
+`main` at `8515fc9`, took thirteen commits, and `main` was fast-forwarded to the
+branch head at the close. Every merge so far has been a clean fast-forward,
+because `main` carries no commits of its own, and that was verified before pushing
+rather than assumed: `git rev-list --left-right --count origin/main...HEAD`
+reported `0 13`, and `git log origin/main ^HEAD` was empty, which is what proves
+`main` is a strict ancestor. Verified level again after the push. A specific SHA
+for the head is deliberately not recorded here: it goes stale on the next commit.
 
 **THE REMOTE-TRACKING REFS IN A FRESH CONTAINER CAN BE STALE, AND THEY WERE ON
 2026-08-09. FETCH BEFORE YOU DIAGNOSE SYNC STATE.** The container clones with
@@ -35,14 +37,19 @@ environment that ref can be an old snapshot rather than the remote. Run
 `git fetch origin main` first, then:
 
 ```
+git fetch origin main                                   # ALWAYS FIRST
 git status                                              # working tree
 git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
+git log --oneline origin/main ^HEAD                     # empty = ff is safe
 python3 status_check.py                                 # authoritative status
 ```
 
-This is the same failure the repo has hit four times in its own checks: a reading
+This is the same failure the repo has hit repeatedly in its own checks: a reading
 that looks authoritative, taken from an input nobody re-derived. It cost a false
-claim in a handoff, which is the one file that must not carry one.
+claim in a handoff, which is the one file that must not carry one. The 2026-08-10
+session added a second instance of the same shape in a different place, a scope
+claim in the Stage 5 record naming a page that had not been read; see the chapter
+status below.
 
 ## Chapter 1 status: 8 of 13, EVERY STEP CLAUDE OWNS BEFORE LOCK IS DONE
 
@@ -91,14 +98,17 @@ IS that re-run, taken against v7.1. It was taken now deliberately, while Chapter
 was the only chapter in flight and the cost was one chapter rather than five.
 
 **The design spec debt is paid.** It read v6.9 while the CSS shipped v7.0. It now
-carries section 16 for v7.0 and section 17 for v7.1, header at v7.1.
+carries section 16 for v7.0, section 17 for v7.1 and Decision 58, and section 18
+for Decision 59, with its header at v7.1.
 
-**FOUR STALE MIRRORS WERE FOUND AND FIXED IN THE WORKPLAN ON ONE DAY.** Its
-tracker row still said "Stage 6 next, 8 of 13, 20-page render"; its snapshot said
-the same; its lifecycle paragraph said 6 of 13; its queue named a finished step.
-CLAUDE.md and this file are mirrors too. `status_check.py` is the only source, and
-the standing item to have it verify the mirrors mechanically is now the most
-valuable unbuilt piece of process tooling in the repo.
+**FIVE STALE MIRRORS WERE FOUND AND FIXED ON ONE DAY, FOUR OF THEM IN THE
+WORKPLAN.** Its tracker row still said "Stage 6 next, 8 of 13, 20-page render";
+its snapshot said the same; its lifecycle paragraph said 6 of 13; its queue named
+a finished step. CLAUDE.md's counts were the fifth. Each was true when written and
+false within two days. CLAUDE.md and this file are mirrors too. `status_check.py`
+is the only source, and the standing item to have it verify the mirrors
+mechanically is now the most valuable unbuilt piece of process tooling in the
+repo.
 
 **Stage 4 closed with its second-model gut-check still open**, on Dan's ruling and
 the precedent of Stage 2 and the archived Stage 4. Six findings, one per criterion:
@@ -305,11 +315,15 @@ Competencies, Maturity Model, Case Bank, Northmoor Dataset design, Workplan v5
 (Decision 33 amended 2026-08-09), Validation Matrix, and
 `AIOM_Voice_and_Craft_v1.md` at v1.1.
 
-**Build and design.** `AIOM_book.css` v7.0, `AIOM_Design_QA_Spec` (current),
-`AIOM_build.py` (fourteen gates plus toolchain preflight, gate 12 fixed
-2026-08-09), `place.py`, `cite_format.py`, `footnotes.py`, pinned
-`requirements.txt`. **`AIOM_DESIGN_SPEC` is still written to v6.9 and OWES a v7.0
-update.**
+**Build and design.** `AIOM_book.css` **v7.1**, `AIOM_DESIGN_SPEC` **v7.1**,
+`AIOM_Design_QA_Spec` (current), `AIOM_build.py` (fourteen gates plus toolchain
+preflight, gate 12 fixed 2026-08-09), `place.py`, `cite_format.py`,
+`footnotes.py`, pinned `requirements.txt`. **The design-spec debt is PAID.** It
+had been written to v6.9 while the CSS shipped v7.0; on 2026-08-10 it gained
+section 16 for v7.0 (widows and orphans, and Decision 57's DR2 extended to
+`.dated` and `.summary`), section 17 for v7.1 (Decision 58, `.nb` for proper
+nouns), and section 18 for Decision 59 (`lang="en-US"`, which is a per-document
+attribute and not a CSS rule).
 
 **Stage 6 round trip.** `copyedit_export.py` and `copyedit_import.py`, plus
 `08_Stage6_Copy_Edit/apply_round1.py` as the record of how round 1 was applied
@@ -345,10 +359,10 @@ text (Decision 50).
    stranded head GROUP, and a floated callout can still collide with a block panel
    unseen.
 
-3. **Then Dan's Stages 6, 7 and 8, then G3 and Stage 9.** Stage 9 now carries a
+3. **G3 and Stage 9, both Claude's, after Dan's three steps.** Stage 9 carries a
    BOOKED PENDING-ACTIONS LIST in the checklist, because these are owed at lock and
-   are easy to lose: re-set the craft baseline band from the locked text (nothing
-   reads against a band until this is done); do NOT let `continuity.py --update`
+   are easy to lose: re-set the craft baseline band from the locked text (NOTHING
+   READS AGAINST A BAND UNTIL THIS IS DONE); do NOT let `continuity.py --update`
    record "flow" among Chapter 1's terms, since Chapter 2 owns it and a mis-logged
    entry would fail G3 on Chapter 2; and check whether "category error" should be
    logged as a Chapter 1 term, since it became the eighth key term on 2026-08-10,
@@ -358,10 +372,14 @@ text (Decision 50).
    - **Teach gate 14 about head GROUPS**, closing gap G-II. Highest value: the
      defect it misses has appeared twice on the same page of the same chapter,
      and the second time the gate reported clean.
-   - `status_check.py` should verify CLAUDE.md section 10 and the Workplan
-     tracker against the checklist table. All three are hand-mirrored today.
-   - Canonical `DECISIONS.md` with a status field. Numbers run to 57 across three
-     files, with 47/48 flagged unverified.
+   - **`status_check.py` should verify CLAUDE.md section 10 and the Workplan
+     against the checklist. THIS IS NOW THE HIGHEST-VALUE UNBUILT ITEM HERE.** All
+     are hand-mirrored, and 2026-08-10 alone found FIVE stale mirrors: the
+     Workplan's tracker row, snapshot, lifecycle paragraph and queue, plus
+     CLAUDE.md's counts. Each was true when written and false within two days.
+   - Canonical `DECISIONS.md` with a status field. Numbers run to **59** across
+     several files, with 47/48 flagged unverified. 58 (`.nb`, proper nouns) and 59
+     (`lang="en-US"`) were both added 2026-08-10 and live in the design spec.
    - Gate 4 still keys on `--tint-def` and does not guard the theorem callout.
    - `copyedit_import.py` still drops untagged continuation paragraphs, so a
      split paragraph loses everything after its first line. Unfixed.
@@ -371,7 +389,11 @@ text (Decision 50).
 
 5. **Chapter 2 (The Flow).** Drafts against the amended band, 6,500 to 7,500, and
    is the first chapter written under the craft standard from Stage 0, so its
-   acknowledgment box is a live requirement rather than a retrospective one.
+   acknowledgment box is a live requirement rather than a retrospective one. TWO
+   THINGS IT MUST CARRY FROM DAY ONE: `<html lang="en-US">` (Decision 59; there is
+   no CSS lever and no gate reports its absence) and `.nb` on proper nouns
+   (Decision 58). And it is read against NO craft band until Stage 9 re-sets one
+   from the locked Chapter 1.
 
 6. **Decision 28**, Northmoor properties G, H, I. Gates Ch9, Ch12, Ch13 problem
    sets only.
