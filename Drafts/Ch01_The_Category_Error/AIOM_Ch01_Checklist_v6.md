@@ -1657,6 +1657,36 @@ newly short at 70.4 and page 25 going 73.7 to 45.8. One carried observation
 closed, one new one opened, both DR3a's mechanism and neither booked as a defect
 here.
 
+NC3 (C3, 1.3). THE CHAPTER'S SET PIECE OPENED ON A HEDGE. 1.3 read "A buyer may
+object to this argument:" before the quoted objection. The standing rule bans
+hedging and names the construction: no "perhaps", no "some argue", no "one might
+say". "A buyer may object" is "one might say" with the noun changed.
+
+It also undercut the sentence after it. 1.3's whole move is to grant the objection
+full strength and answer it anyway, and the next paragraph opens "The objection is
+valid." A modal frame makes the objection hypothetical and the following line
+asserts it is valid, so the two pulled against each other with the weaker going
+first. This was the WEAKEST C3 instance in the chapter, which otherwise
+front-loads well; the strongest is four paragraphs later, "The execution differed.
+The economic correction was the same."
+
+THE PROXY COULD NOT SEE IT, for the third time on this criterion in this chapter.
+`voicecheck.py` reports zero throat-clearing openers because its regex looks for
+preamble phrases and this was a six-word frame. NC3 of 2026-08-06 recorded the
+same blind spot when the detector missed F3's construction class. C3's proxy
+catches length, not stance.
+
+RULED 2026-08-10 by Dan: restore the ruled form. APPLIED. The section now opens
+"One objection stands against everything said so far:" followed directly by the
+quotation. This is the exact wording ruled at Stage 4 on 2026-08-06 and silently
+reverted by the copy edit, so it is a restoration and not a fresh judgment. The
+clause "against everything said so far" is what tells the reader the objection
+threatens the whole argument rather than a detail of it.
+
+VERIFIED. Fourteen gates green, 25 pages held, chapter 7,075 words. Mechanical
+half still PASS, including first or second person at 0, so the quotation is still
+recognised as a voiced span with the attributing frame removed.
+
 ---
 
 ARCHIVED 2026-08-08, superseded by the reopen at Stage 2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
