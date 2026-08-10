@@ -3456,6 +3456,45 @@ working from it would be reading text that no longer exists and could reinstate 
 without anything mechanical objecting. Regenerating the export from the post-CE1
 live text removes both. Not yet ruled.
 
+**PROOF REISSUED 2026-08-10, round 4, on Dan's ruling.** It replaces round 3,
+which is superseded and must not be reviewed: its `.docx` still displays the
+pre-CE1 Category error definition, and 64 of its spans are stale.
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.manifest.json
+
+221 blocks, exported from the post-CE1 live text (sha256 `dfca6a0c...`) against a
+fourteen-gate render of that same text. Round 3 is kept rather than deleted,
+because a proof is an artifact of a step and a finding is only meaningful against
+the text that produced it, but it is superseded in the same sense the earlier
+rounds are.
+
+**THE STANDING ROUND-TRIP CONTROL IS NECESSARY AND NOT SUFFICIENT, and that is the
+transferable finding.** CLAUDE.md requires the unedited export to round-trip at
+zero reported changes before either tool is trusted on a chapter. Round 4 passes
+it: 221 paragraphs against 221 blocks, zero edited, zero applied, zero refused,
+with the live text hash identical before and after. **Round 3 passed exactly the
+same control while 64 of its spans were stale.** The control cannot see span
+staleness, because `copyedit_import.py` compares the returned text against the
+manifest's own recorded text and never against the live file, so a manifest that
+has drifted from the chapter still reports a clean round trip.
+
+The check that does see it compares each recorded span against the current live
+text. Run on both, it separates them cleanly:
+
+  round 3   spans correct 144/221   stale by exactly -3   64   other 12
+  round 4   spans correct 209/221   stale                  0   other 12
+
+The twelve are by design and are identical in both rounds, which is what proves
+round 4 introduced nothing: six body paragraphs whose span encloses a nested
+`<cite>` element, which is the structure the round-1 apply pass discovered, and
+their six matching footnote blocks, whose citation-key marker the export excludes
+under Decision 51. A span check on a chapter should expect these twelve and fail
+on a thirteenth.
+
+Recommended as a permanent addition to the Stage 6 procedure for Chapters 2 to 15,
+alongside the round trip rather than instead of it. Not yet ruled.
+
 Stage 6 remains OPEN. It is Dan's step and further rounds may be taken at any time.
 
 ---
