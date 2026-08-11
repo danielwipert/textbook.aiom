@@ -740,9 +740,9 @@ record mentions it, it is gone and Decision 50 is why.
 - The chapter HTML is the single source of truth (Decision 50). Never fork.
 - Source register notes inside a chapter's own Decision 51 block can carry
   rulings the summary ledger does not. Read them before using a figure.
-- **Write every fact-check ruling back into the register note, with the condition
-  that would reverse it.** A ruling recorded only in the checklist is a ruling
-  the next checker will raise again.
+- Writing every fact-check ruling back into the register note, with the condition
+  that would reverse it, GRADUATED INTO CLAUDE.md section 10 on 2026-08-11 and is
+  no longer restated here.
 - **Not every proposed remedy is an improvement.** Evaluate the remedy separately
   from the finding.
 

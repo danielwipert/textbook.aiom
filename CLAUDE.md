@@ -496,9 +496,6 @@ reads green while measuring nothing, or a record claiming work nobody did.
   from memory with the same defect, testing only the following line within a page,
   which is exactly the blind spot that hid DR7 until it turned up across a page
   turn. Join the pages in reading order with folios and running heads stripped.
-- **When a check and the prose disagree, fix whichever is wrong and say which.**
-  Rewording a sentence so a figure reference did not wrap would have passed gate 12
-  and left every later chapter exposed.
 - **Gate 12's failure MESSAGE is misleading, though the check is sound.** A figure
   reference split across a page boundary vanishes from both pages' joined text, so
   the gate correctly fails and reports "captioned but never referenced", sending a
