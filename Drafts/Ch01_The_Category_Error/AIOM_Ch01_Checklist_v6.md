@@ -3587,6 +3587,93 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+**EXTERNAL CHECK 1 RECEIVED 2026-08-11.** Full record in
+`09_Stage7_Final_Fact_Check_2/`: the report archived as
+`AIOM_Ch1_Stage7_ExternalCheck_1.md` with its em dashes normalized on the
+precedent already set for the TechCrunch headline in the source register, the
+render it should have been given as `AIOM_Ch1_Stage7_FactCheck_Input.pdf`, and
+everything decidable inside the repo as `AIOM_Ch1_Stage7_Render_Verification.md`.
+
+Verdict as received: the factual spine holds, no fabricated or misdated events,
+five precision flags and two production flags. **The source half is recorded as
+received and is NOT confirmed in this repo.** No source host is reachable from the
+Claude environment, verified 2026-08-06 against six of them.
+
+FC1 to FC5, the precision flags. Dan ruled 2026-08-11: apply 2, 3, 4 and 5.
+
+- **FC1, "Eleven days later". OPEN, not applied.** The interval is measured from
+  the July 17 press report rather than from the encounter, which the report dates
+  to Monday July 14. That half needs the source. The half that is decidable here
+  is a real defect and should be fixed in the same pass rather than twice: the
+  preceding paragraph carries no date in prose, so "eleven days later" counts from
+  nothing the reader has been given. Of the two remedies offered, "eleven days
+  after the first reports" keeps the precision and supplies the antecedent, and
+  "two weeks later" blurs both.
+- **FC2, the SF3 ruled narrowing regressed. APPLIED.** The chapter had come to say
+  GitHub "began charging Copilot customers for premium requests that exceeded a
+  monthly allowance", against a changelog that says allowances were enforced and
+  overage required a spending limit defaulting to zero. Restored to the SF3 ruled
+  form, with "for Copilot" carried inside it because line 27 is where the product
+  is first named.
+- **FC3, "existing terms". APPLIED** as "premium-request pricing", which is the
+  register note's own wording. The model-multiplier exception the checker reports
+  is not in the register note and stays open for the source.
+- **FC4, "regardless of renewal date". APPLIED** as "for all Pro and Max
+  subscribers". The cut clause was an unsourced inference under standing rule 2.
+- **FC5, "highest-priced plan". APPLIED** as "Max subscribers", the register's own
+  wording. Max spans two price points, so the superlative was wrong twice over.
+
+**FC2 IS THE SAME DEFECT AS SF8, MADE A SECOND TIME ABOUT A SECOND VENDOR.** SF8
+was the copy edit reintroducing automatic continuation on the Cursor side; FC2
+reintroduced automatic charging on the GitHub side. The copy edit reaches for "the
+vendor began charging" because it is shorter than "began enforcing allowances and
+offered a paid overage". Both sources are scheduled for reuse in Chapters 4 and
+11, so this is a drafting attractor to watch, not a closed incident.
+
+**THE SWEEP SAYS FC2 WAS ALONE, AND THE SWEEP SHOULD BECOME A GATE.** Every ruled
+sentence quoted in the register was compared against body prose, with the register
+block excluded so the notes cannot self-match. Four such sentences exist; three
+were present and only SF3 was absent. So the repair of 2026-08-10 caught SF8, SF9
+and SF10 and missed exactly one. The check is about fifteen lines, it generalizes
+to all fifteen chapters, and the control has now failed once by being run by hand.
+Its limit, stated so it is not overtrusted: it sees only claims that were once
+ruled with a quoted sentence. FC3, FC4 and FC5 are prose drifting broader than a
+register note on claims never ruled, and nothing mechanical will find those.
+
+**BOTH PRODUCTION FLAGS WERE PHANTOMS, AND THE CAUSE IS PROCEDURAL.** The checker
+was given the chapter HTML rather than a render. Theorem 1's four antecedents
+render intact on page 9; the extraction dropped the `<li>` contents. P3's table is
+correct and its student-blank column is the first one, drawn as three fill rules
+under EVENT TYPE; the extraction collapsed the empty cells leftward. Stage 3 fed
+PDFs. Stage 7 must too, on every chapter. Note also that the P3 flag would
+reproduce against the PDF under naive text extraction, since an empty cell
+contributes no text: it dies only to a read or to the geometry.
+
+**A STALE OPEN MARKER, FOR DAN.** The Stage 6 finding above still reads "OPEN: any
+prose inside `<li>` is invisible to Stage 6 on all fifteen chapters". That defect
+was fixed on 2026-08-08 and the round 6 export confirms it, listing four THEOREM
+ANTECEDENT blocks and refusing edits to them. Not edited here because Stage 6 is
+Dan's step. A stale OPEN is the same hazard as a check claimed but never
+performed, running the other way.
+
+**STATE AFTER THE EDITS.** All fourteen gates pass, 25 pages held, `voicecheck.py`
+STAGE 4 MECHANICAL: PASS, 7,062 words. Building also discharged a real exposure:
+G2 was ticked 2026-08-10 against the pre-CE1 state, and CE1 and CE2 are copy
+edits, which re-run G2 under the scoped re-run matrix.
+
+**RE-RUN CLASSIFICATION IS UNRULED AND IS THE NEXT DECISION.** FC2 to FC5 are
+claim narrowings restoring prose to what the register supports. Read as "citation
+or source only" they re-run fact check and G2 and leave dev, voice and design
+intact, which is the precedent SF8, SF9 and SF10 set at Stage 3 on 2026-08-10.
+Read as "body prose claim change" they re-run Stages 2, 3, 4, 5 and G2. Nothing
+has been ticked or unticked pending Dan's ruling, and `status_check.py` still
+reports 8/13 STATUS CONSISTENT.
+
+Status is unchanged: this step remains OPEN, and external check 2 on a different
+prompt is recommended before it is ticked. Stage 3 established that two checks on
+different prompts beat one thorough check and that the disagreement is the value.
+SF3 itself exists because two checks disagreed. This is one check.
+
 ---
 
 ## Gate G3. Continuity gate

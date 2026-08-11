@@ -36,13 +36,27 @@ The source carries them as `<ol class="ante">` with four `<li>` items at lines 1
 to 193. The checker's HTML-to-text extraction dropped the `<li>` contents, leaving
 "if:" butted against "then", which is exactly the reported symptom.
 
-**This is the second independent tool to exhibit `<li>` blindness.** The first is
-`copyedit_export.py`, where it is already logged as an open Stage 6 defect: "any
-prose inside `<li>` is invisible to Stage 6." Two tools, one blind spot, and the
-lines it eats are theorem antecedents, which under standing rule 4a are the least
-paraphrasable content in the book. Treat this as a property of HTML text
-extraction generally, not a quirk of one script. Consequence for Chapters 2 to 15:
-never hand a fact checker the HTML.
+**This is the second independent tool to exhibit `<li>` blindness.** The first was
+`copyedit_export.py`, whose `BLOCK_RE` matched `p|h1|h2|h3|figcaption|td|th|span`
+and not `li`, so the four antecedents were never in the round-1 proof and Dan
+rebuilt a structured form from the older running-prose paraphrase, which is how
+the antecedents drifted.
+
+CORRECTED 2026-08-11: that tool defect is FIXED, not open. It was repaired on
+2026-08-08, and the round 6 export confirms it, listing four THEOREM ANTECEDENT
+blocks and refusing edits to them. The Stage 6 finding at checklist line 3023
+still reads "OPEN: any prose inside `<li>` is invisible to Stage 6 on all fifteen
+chapters," and that marker is now stale. Flagged for Dan rather than edited here,
+because Stage 6 is his step. A stale OPEN is the same hazard as a check claimed
+but never performed, running in the other direction.
+
+What survives the correction, and it is the transferable half: two unrelated tools
+have now shown the same defect class, and the lines it eats are theorem
+antecedents, which under standing rule 4a are the least paraphrasable content in
+the book. Treat `<li>` loss as a property of HTML text extraction generally rather
+than a quirk of one script. Consequence for Chapters 2 to 15: never hand a fact
+checker the HTML. This chapter contains exactly four `<li>` elements and all four
+are theorem antecedents.
 
 ## Production flag B, P3 table alignment. PHANTOM.
 
@@ -176,5 +190,82 @@ both. Judge the remedy separately from the finding, per Stage 3.
    through 5 are body-prose or citation-adjacent changes, and round 5 is
    unstaled. An edit to the live text invalidates the current export, and the
    re-export is part of applying the edit.
-4. Nothing in the chapter has been edited on the strength of this check. All five
-   flags await Dan's ruling.
+4. Flag 1 is still open and needs the source. Flags 2 through 5 are applied; see
+   below.
+
+---
+
+# RULED AND APPLIED, 2026-08-11
+
+Dan ruled: apply flags 2, 3, 4 and 5, and re-export as round 6. Flag 1 was not
+ruled and is NOT applied, which is correct: its source half needs the Brandom
+piece, and its prose half ("eleven days later" with no antecedent in prose) should
+be fixed in the same pass rather than twice.
+
+| Flag | Before | After |
+| :-- | :-- | :-- |
+| 2 | GitHub "began charging Copilot customers for premium requests that exceeded a monthly allowance" | GitHub "began enforcing monthly premium-request allowances for Copilot and letting customers pay for usage beyond them" |
+| 3 | "annual subscribers kept their existing terms until their subscriptions expired" | "annual subscribers kept premium-request pricing until their subscriptions expired" |
+| 4 | "for every subscriber, regardless of renewal date" | "for all Pro and Max subscribers" |
+| 5 | "Customers on the highest-priced plan could continue" | "Max subscribers could continue" |
+
+Notes on the wording chosen, since each departs slightly from the literal
+suggestion and the reasons should not have to be rediscovered.
+
+- **Flag 2 keeps "for Copilot" inside the ruled sentence.** Line 27 is where
+  Copilot is first named in the chapter, and the SF3 ruled form drops the product.
+  The two-word scope is inserted between "allowances" and "and letting"; both
+  halves of the ruled phrase are otherwise verbatim, and no claim element is
+  added, dropped, or weakened.
+- **Flags 3 and 5 use the register's own wording,** "premium-request pricing" and
+  "Max subscribers", rather than the checker's paraphrases.
+- **Flag 4 uses "all Pro and Max subscribers",** which the checker verified against
+  Zeff. "Only Max subscribers could buy past the caps" was considered and
+  rejected: the register establishes that Max subscribers could, not that Pro
+  subscribers could not, and asserting exclusivity would commit the same error
+  being repaired.
+- **The GitHub-versus-Anthropic contrast survives, on sourced ground.** The worry
+  recorded above was that narrowing flag 3 and cutting flag 4 would dissolve it
+  from both ends. It does not: GitHub carved out its annual subscribers, and the
+  Anthropic caps applied to all Pro and Max subscribers. "All" now does the work
+  "regardless of renewal date" was doing, and unlike that clause it is sourced.
+- **The multiplier exception in flag 3 is NOT applied.** The checker reports that
+  model multipliers rose on June 1 for annual subscribers only. That is not in the
+  register note, so it is unverifiable here and remains open for the source.
+
+## Verification after the edits
+
+- All fourteen gates pass. 25 pages, held.
+- `voicecheck.py` STAGE 4 MECHANICAL: PASS. Em dashes 0, contractions 0, question
+  marks outside prompts 0, first or second person in unmarked body prose 0.
+- 7,062 words on the Decision 33 measure.
+- Craft metrics moved within noise: mean sentence 14.4 words, stdev 6.3, max 33,
+  long sentences 0 percent, short 36 percent.
+
+## Round 6 proof
+
+Exported to `08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round6.docx` from the render
+above. **Round 5 is superseded and must not be reviewed**, on the rule the
+previous session established: an edit to the live text invalidates the current
+export, and the re-export is part of applying the edit.
+
+Both controls run.
+
+- Round trip on the UNEDITED export: 221 tagged paragraphs against 221 exported
+  blocks, 0 edited, 0 applied, 0 refused, live text hash identical before and
+  after.
+- Span check against the current live text: **209/221 correct, 0 stale, 12 other**,
+  and the twelve are the same indices rounds 4 and 5 carried by design (9, 10, 13,
+  14, 15, 16, 96, 97, 100, 101, 140, 141): six body paragraphs whose span encloses
+  a nested `<cite>`, and their six matching footnote blocks, whose citation-key
+  marker the export excludes under Decision 51. Identical indices are what prove
+  round 6 introduced nothing.
+
+**A note on running the span check, learned here.** The first run of it reported
+10 stale and 10 other, which disagreed with round 5's recorded profile. The export
+emits a space at every inline `<span>` boundary, so a comparison that strips tags
+without substituting whitespace misreads every block containing an `.nb` brand
+name or a `.num` section number. The check must be whitespace-insensitive. The
+disagreement was the tool, not the chapter, and it was resolved by inspecting the
+disputed blocks rather than by trusting either number.
+
