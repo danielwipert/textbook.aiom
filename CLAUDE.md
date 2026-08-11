@@ -434,13 +434,48 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 is 8 of 13, and every step Claude owns before lock is done.** It was
-reopened at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than
-corrected it, the Stage 2 re-run completed 2026-08-09, and Stage 3, Stage 4,
-Stage 5 and G2 all cleared 2026-08-10. `status_check.py` reports 8/13 with STATUS
-CONSISTENT. The chapter is 25 pages, 7,062 words, all fourteen gates pass against
-CSS v7.1, `voicecheck.py` is mechanically clean. Dan's Stages 6, 7 and 8 are next
-and may run in one sitting; then G3 and Stage 9, both Claude's.
+**Chapter 1 is 8 of 13 and Stage 7 is under way, which is Dan's.** It was reopened
+at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than corrected
+it, the Stage 2 re-run completed 2026-08-09, Stage 3, Stage 4, Stage 5 and G2 all
+cleared 2026-08-10, and G2 was reopened and re-passed on 2026-08-11 after the Stage
+7 edits. `status_check.py` reports 8/13 with STATUS CONSISTENT. The chapter is 25
+pages, 7,062 words, all fourteen gates pass against CSS v7.1, `voicecheck.py` is
+mechanically clean. G3 and Stage 9 are Claude's and come after Dan's steps.
+
+Perishable detail about which findings are open and which artifact is current
+belongs in `HANDOFF.md`, not here. This section holds what binds later chapters.
+
+**Stage 7's external check must be fed a RENDER, never the chapter HTML.** Check 1
+on Chapter 1 returned two production flags and both were phantoms of HTML
+extraction: it dropped the `<li>` contents of the theorem panel and reported the
+antecedents missing, and it collapsed the empty cells of the P3 table leftward and
+reported the student-blank column misplaced. Both render correctly. Disproving them
+cost a build. Stage 3 fed PDFs and Stage 7 must too, on every chapter. Note the
+sharper form of the same trap: the P3 flag would reproduce even against the PDF
+under naive text extraction, because an empty cell contributes no text. It dies
+only to a read or to the geometry.
+
+**PG2 and PG2a, 2026-08-11: the citation formatter emitted the wrong quotation
+marks, and fixing it broke the comma logic.** Every generated footnote set its
+source titles in ASCII straight quotes while body prose used typographic ones, and
+both were visible within nine pages of each other. `cite_format.py` now emits
+`“Title,”`. The fix then doubled the comma in all six footnotes, because `_join`
+suppressed the separator after a title by testing `endswith((',"', ",", "."))`,
+keyed on the ASCII quote, and a title ending `,”` matched nothing. Both forms are
+now tested.
+
+**NO GATE IN THIS SUITE READS PUNCTUATION.** Gate 2 tests em and en dashes and
+nothing else, so all fourteen gates passed the straight quotes for as long as they
+existed, and then passed the doubled comma twice: on the build that introduced it
+and the build that removed it. Two consequences for every later chapter. A one-line
+change to shared tooling is not too small to re-verify, because a glyph-width change
+is a reflow. And a check whose input a fix could move must be re-run after the fix,
+not before it.
+
+**FC2 is a drafting attractor and not a closed incident.** It is the same defect as
+SF8, made a second time about a second vendor: the copy edit reaches for "the vendor
+began charging" because it is shorter than "began enforcing allowances and offered a
+paid overage". Both sources are scheduled for reuse in Chapters 4 and 11.
 
 **G2 found PG1 and it is Decision 59: the book sets `lang="en-US"`, never
 `lang="en"`.** In Pyphen, which WeasyPrint hyphenates through, `en` is an ALIAS
@@ -464,16 +499,27 @@ Decision 58 and CSS v7.1.** DR6, "ChatGPT" breaking as ChatG-PT in the narrow
 column beside a floated callout, and DR7, "GitHub" breaking as Git-Hub ACROSS THE
 PAGE 11 TO 12 TURN. A new class, `.nb`, switches hyphenation off for a proper
 noun, and 34 brand-name occurrences are wrapped. Body prose keeps `hyphens: auto`,
-which is right for a justified measure: 88 line-end breaks, and after the fix zero
-of them fall inside a proper noun.
+which is right for a justified measure. The durable claim is not a count, which
+moves with every reflow, but that zero line-end breaks fall inside a proper noun.
+That has held at every measurement since, while the count itself has not: 88 at
+this fix, 95 once PG1 switched the hyphenation dictionary to en_US, 93 as of
+2026-08-11. A record that pins the claim to a number goes stale in a week.
 
 **The method matters more than the fix.** DR6 was seen in a raster and that only
-raised the question; the chapter's 89 hyphenated line ends were then scanned
+raised the question; every hyphenated line end in the chapter was then scanned
 programmatically against its proper nouns, which found DR7 and proved the list
 complete at exactly two. Eyeing 25 pages finds the first and misses the second,
 because a break at a page foot reads as an ordinary hyphen until the page turns.
 Rewording was rejected on the gate 12 precedent: a break is a property of the
 measure, not of the sentence, so it would return at the next reflow.
+
+**THE SCAN ITSELF HAD THE DEFECT IT EXISTS TO CATCH, found 2026-08-11.** Rewritten
+from memory, it tested only the following line within the same page, which is
+exactly the blind spot that hid DR7 until it turned up across the page 11 to 12
+turn. It must join the pages in reading order, with folios and running heads
+stripped, or it silently passes the page-turn case. Same shape as gate 12 counting
+line by line. When writing any check over rendered pages, decide explicitly what it
+does at a page boundary.
 
 **The design spec is no longer in debt.** It read v6.9 while the CSS shipped
 v7.0; it now carries section 16 for v7.0 and section 17 for v7.1, and its header
@@ -484,8 +530,12 @@ second-model gut-check still open**, on Dan's ruling and the precedent of Stage 
 and the archived Stage 4. NC1, NC2, NC3 and NC5 were applied; NC4 and NC6 were
 recorded with no edit. The craft verdict on Chapter 1 therefore rests on one read
 by the model that drafted it and wrote the standard it grades against, for the
-second time. A finding from the verification prompt enters as NC7 and reopens the
-step.
+second time, with the adversarial method and the per-section table as the only
+correctives. This matters past Chapter 1 in two ways: the baseline band that
+Chapters 2 to 15 are read against comes from that read, and Chapter 1 is the
+exemplar the other fourteen are drafted against. The verification prompt is still
+in the chapter checklist and can be run at any time. A finding it raises enters as
+NC7 and reopens the step.
 
 **No craft baseline band is in force, and that is deliberate.** The band recorded
 at Stage 4 on 2026-08-06 measures a chapter the copy edit replaced: it reads mean
@@ -566,11 +616,13 @@ hyphenation, was an observation with no action: four pages carry three
 consecutive hyphenated line ends, which is at Chicago's limit, not past it.
 
 **DR3a is an accepted cost, recorded so it is not rediscovered.** Holding the
-inventory table whole leaves page 19 about four inches short and separates the P3
-instruction from its table. `break-before: avoid` was tried on `table.inv` to
-hold the two together and was rejected: WeasyPrint binds it to the preceding LINE
-BOX rather than the preceding block, so it split the problem statement across the
-spread. A short page is a smaller defect than a split paragraph.
+inventory table whole leaves the page carrying the P3 instruction about four inches
+short and separates that instruction from its table. It was page 19 when DR3a was
+booked and is page 24 as of 2026-08-11, which is the reason no page number is
+recorded here. `break-before: avoid` was tried on `table.inv` to hold the two
+together and was rejected: WeasyPrint binds it to the preceding LINE BOX rather
+than the preceding block, so it split the problem statement across the spread. A
+short page is a smaller defect than a split paragraph.
 
 **Gap G-II, opened 2026-08-06: gate 14 cannot see a stranded head GROUP.** It
 tests whether a HEAD is the last block on a page, so any non-head block trailing
@@ -597,17 +649,9 @@ remain under Chapter 1's stage folders (two Stage 3 fact-check working copies an
 one early draft) and are older and clearly superseded, but they are the same
 hazard in smaller form.
 
-**Stage 4 passed without its second-model gut-check**, which Dan ruled complete
-without it. The craft verdict on Chapter 1 therefore rests on one read by the
-model that drafted the chapter and wrote the standard it grades against, with the
-adversarial method and the per-section table as the only correctives. This
-matters past Chapter 1: the baseline band that Chapters 2 to 15 are read against
-comes from that read, and Chapter 1 is the exemplar the other fourteen are
-drafted against. The verification prompt is still in the chapter checklist and
-can be run at any time; a finding it raises enters as NC7 and reopens Stage 4. The prior record is not
-lost: every step's findings are archived in place in the checklist, marked
-superseded, because they state what was examined and how it was ruled and the
-re-run should not have to rediscover that.
+**A reopen archives rather than destroys.** Every step's findings are archived in
+place in the checklist, marked superseded, because they state what was examined and
+how it was ruled, and the re-run should not have to rediscover that.
 
 **Stage 3 established two things worth carrying to every later chapter.** First,
 run two external checks on different prompts rather than one thorough check. The
