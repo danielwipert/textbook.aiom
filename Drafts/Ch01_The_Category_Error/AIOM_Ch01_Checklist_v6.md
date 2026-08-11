@@ -117,6 +117,25 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 | Stage 9 | Locked | not run | 0 |
 
 ---
+
+## REOPENED 2026-08-11: Gate G2 and everything after it
+
+Grounds: FC2 to FC5 applied at Stage 7 from external check 1, ruled by Dan as citation or source only under the scoped re-run matrix. That row re-runs the fact check and G2 and leaves dev, voice and design intact, so Stages 2, 4 and 5 keep their ticks. The fact check being re-run is Stage 7 itself, which is open and owns these findings. G2 was ticked 2026-08-10 against the pre-CE1 state and no G2 page read has ever been made against the current text.
+
+Every step from Gate G2 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Gate G2 | Production gate | passed | 17 |
+| Stage 6 | Copy edit | not run | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
@@ -2628,7 +2647,7 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-10
+Status: [ ]        Date cleared: 
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
@@ -2648,9 +2667,86 @@ Status: [x]        Date cleared: 2026-08-10
 - [x] Gate 13, no text below the bottom margin, folio excluded
 - [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
 - [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+## G2 RE-RUN 2026-08-11. **FAILED on PG2.**
+
+Run after FC2 to FC5, which Dan ruled citation-only. That row of the scoped re-run
+matrix re-runs the fact check and G2, so Stages 2, 4 and 5 keep their ticks and the
+fact check being re-run is Stage 7, which is open and owns the findings.
+
+**PG2, STRAIGHT QUOTATION MARKS IN EVERY GENERATED FOOTNOTE.** All six footnotes
+set their source titles in ASCII straight quotes (U+0022) while body prose uses
+typographic quotes. The contrast is visible inside this one chapter: the objection
+quoted at the head of 1.3 on page 8 reads with a proper opening and closing pair,
+and footnote 1 two pages earlier reads with typewriter marks. In a Chicago-styled
+book at university-press standard, a straight quote in a note is a production
+defect.
+
+Counted in the rendered text, not inferred from source: 22 straight double quotes,
+all six footnotes, on pages 2, 3, 11 and 17. Exactly one typographic pair exists in
+the whole chapter, the body-prose objection on page 8.
+
+CAUSE, and it is one line. `cite_format.py:102` builds every title as
+`f'"{entry["title"]},"'`. The comma inside the closing mark is correct Chicago; the
+marks are not. No gate sees this: gate 2 tests em and en dashes only, and no gate
+tests quote style.
+
+SCOPE. This is production tooling shared by all fifteen chapters, not chapter
+content, so the remedy belongs in `cite_format.py` rather than in this chapter or
+in its source register. Under the scoped re-run matrix a production-apparatus
+change re-runs Stage 5 and G2 for every chapter, which is contained today because
+Chapter 1 is the only chapter drafted and it is not locked. NOT APPLIED. It is a
+book-wide tooling change and Dan rules it.
+
+**THE PAGE READ IS INCOMPLETE, AND THIS IS THE SCOPE CLAIM WRITTEN FROM WHAT WAS
+DONE.** Eleven of twenty-five pages were rasterized at 150 dpi and read: 1, 2, 3,
+4, 6, 7, 8, 11, 12, 17 and 25. Fourteen were not: 5, 9, 10, 13, 14, 15, 16, 18, 19,
+20, 21, 22, 23 and 24. The read was stopped when PG2 was confirmed rather than
+carried to the end, on the reasoning that curly quotes are not the same width as
+straight ones, so the remedy reflows six footnote blocks and can move the pages
+carrying them. A page read taken before the fix is invalidated by the fix, which is
+the same rule the Stage 6 rounds established: an edit invalidates the outstanding
+artifact, and re-running the check is part of applying the edit. The full
+twenty-five-page read is owed after PG2 is ruled and applied.
+
+WHAT THE ELEVEN PAGES CONFIRMED, besides PG2. FC2 and FC3 render correctly on page
+2 and FC4 and FC5 on page 11. The two stacked definition callouts on page 4 are
+intact and unsplit, and neither collides with a panel, which is the Gap G-I hazard.
+Both dated boxes on page 11 carry their amber label and rule. Footnotes 4 and 5 sit
+on their calling page, which is the pagination coupling that broke twice during the
+Stage 4 craft edits. Page 25 is short, which is DR3a and an accepted cost, not a
+new defect.
+
+FC1 IS VISIBLE ON THE PAGE AND STILL OPEN. Page 11 shows the July 2025 box with no
+date in its prose, and the next paragraph opening "Eleven days later". A reader is
+asked to count eleven days from nothing they have been given. Unchanged by this
+gate, and still Stage 7's to rule.
+
+**PG1 HOLDS.** `lang="en-US"` is present and is the only lang attribute, so the
+chapter is still hyphenating American. Verified rather than assumed, because there
+is no CSS lever for it and no gate reports its absence.
+
+HYPHENATION SCAN, the DR6 and DR7 method, re-run because the new text could create
+a break inside a proper noun. Ninety-three hyphenated line ends, zero falling
+inside any of the nine brand names carried by `.nb`, and zero falling at a page
+turn. Recorded also as a method correction: the first run of this scan tested only
+the following line within the same page, which is precisely the blind spot that hid
+DR7 until it was found across the page 11 to 12 turn. It was re-run with page turns
+included and with folios and running heads stripped. A scan that cannot see a page
+turn would have passed the very defect the method exists to catch.
+
+G2 BOX TEXT VERIFIED AGAINST `gen_checklists.py`: seventeen boxes, identical
+strings, no drift. CLAUDE.md warns that a reopen resets ticks without regenerating
+box text, and Chapter 1 carried a stale ten-box G2 list once before.
+
+**STATUS: G2 IS OPEN AND FAILS.** Sixteen of seventeen boxes are ticked and the
+page-level review is deliberately not, because it is both incomplete and the box
+that found the defect. A gate stops the chapter where it stands.
+
+ARCHIVED 2026-08-11, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 G2 PASSED 2026-08-10 on a fresh build against CSS v7.1, at 25 pages. All fourteen
 printed gates pass and BOTH MANUAL BOXES WERE PERFORMED. One finding, PG1, ruled
