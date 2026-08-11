@@ -434,311 +434,185 @@ Workplan tracker must mirror what it prints.
 
 ## 10. Current state
 
-**Chapter 1 is 8 of 13 and Stage 7 is under way, which is Dan's.** It was reopened
-at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than corrected
-it, the Stage 2 re-run completed 2026-08-09, Stage 3, Stage 4, Stage 5 and G2 all
-cleared 2026-08-10, and G2 was reopened and re-passed on 2026-08-11 after the Stage
-7 edits. `status_check.py` reports 8/13 with STATUS CONSISTENT. The chapter is 25
-pages, 7,062 words, all fourteen gates pass against CSS v7.1, `voicecheck.py` is
-mechanically clean. G3 and Stage 9 are Claude's and come after Dan's steps.
+`status_check.py` is the only authority on where a chapter stands, and
+`HANDOFF.md` carries the perishable working state: which findings are open, which
+artifact is current, what is committed. **This section holds only what binds later
+chapters.** A finding belonging to one chapter lives in that chapter's checklist,
+where a reopen archives it in place rather than destroying it. Do not restate it
+here.
 
-Perishable detail about which findings are open and which artifact is current
-belongs in `HANDOFF.md`, not here. This section holds what binds later chapters.
+Chapter 1 is the exemplar the other fourteen are drafted against, and it is not yet
+locked. Chapter 2 ("The Flow") is the immediate next drafting target and is
+unblocked. Chapters 3 through 15 follow in sequence. Front and back matter come
+after the manuscript.
 
-**Stage 7's external check must be fed a RENDER, never the chapter HTML.** Check 1
-on Chapter 1 returned two production flags and both were phantoms of HTML
-extraction: it dropped the `<li>` contents of the theorem panel and reported the
-antecedents missing, and it collapsed the empty cells of the P3 table leftward and
-reported the student-blank column misplaced. Both render correctly. Disproving them
-cost a build. Stage 3 fed PDFs and Stage 7 must too, on every chapter. Note the
-sharper form of the same trap: the P3 flag would reproduce even against the PDF
-under naive text extraction, because an empty cell contributes no text. It dies
-only to a read or to the geometry.
+### What every chapter must carry
 
-**PG2 and PG2a, 2026-08-11: the citation formatter emitted the wrong quotation
-marks, and fixing it broke the comma logic.** Every generated footnote set its
-source titles in ASCII straight quotes while body prose used typographic ones, and
-both were visible within nine pages of each other. `cite_format.py` now emits
-`“Title,”`. The fix then doubled the comma in all six footnotes, because `_join`
-suppressed the separator after a title by testing `endswith((',"', ",", "."))`,
-keyed on the ASCII quote, and a title ending `,”` matched nothing. Both forms are
-now tested.
+- **`lang="en-US"`, never `lang="en"`. Decision 59, found by G2.** In Pyphen,
+  which WeasyPrint hyphenates through, `en` is an ALIAS FOR en_GB rather than a
+  neutral English, so a Chicago-styled American book breaks on British points:
+  "organiz-ation" for "or-ga-ni-za-tion". THERE IS NO CSS LEVER FOR THIS. It is a
+  per-document attribute, so a chapter that omits it hyphenates British silently
+  with no gate reporting it.
+- **`.nb` on proper nouns. Decision 58, CSS v7.1.** DR6 broke "ChatGPT" as
+  ChatG-PT in the narrow column beside a floated callout, and DR7 broke "GitHub" as
+  Git-Hub ACROSS THE PAGE 11 TO 12 TURN. The class switches hyphenation off for a
+  proper noun; body prose keeps `hyphens: auto`, which is right for a justified
+  measure. The durable claim is not a count, which moves with every reflow, but
+  that zero line-end breaks fall inside a proper noun. Chapter 1 has held that at
+  every measurement while the count itself moved: 88 at the fix, 95 once Decision
+  59 switched the dictionary, 93 as of 2026-08-11.
+- **One live text per chapter. Supersede and delete, never fork.** Chapter 1's is
+  `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`. Check
+  the path before editing, every time. A superseded fork of it survived undeleted
+  long enough to diverge by roughly 150 lines, and Decision 56 was applied to the
+  wrong copy and had to be reverted and re-applied. Stage-folder render PDFs are
+  kept: they are artifacts of a step, not competing texts.
 
-**NO GATE IN THIS SUITE READS PUNCTUATION.** Gate 2 tests em and en dashes and
-nothing else, so all fourteen gates passed the straight quotes for as long as they
-existed, and then passed the doubled comma twice: on the build that introduced it
-and the build that removed it. Two consequences for every later chapter. A one-line
-change to shared tooling is not too small to re-verify, because a glyph-width change
-is a reflow. And a check whose input a fix could move must be re-run after the fix,
-not before it.
+### Rules that came from a check being wrong
 
-**FC2 is a drafting attractor and not a closed incident.** It is the same defect as
-SF8, made a second time about a second vendor: the copy edit reaches for "the vendor
-began charging" because it is shorter than "began enforcing allowances and offered a
-paid overage". Both sources are scheduled for reuse in Chapters 4 and 11.
+The recurring failure in this repo is not a bad judgment call. It is a check that
+reads green while measuring nothing, or a record claiming work nobody did.
 
-**G2 found PG1 and it is Decision 59: the book sets `lang="en-US"`, never
-`lang="en"`.** In Pyphen, which WeasyPrint hyphenates through, `en` is an ALIAS
-FOR en_GB rather than a neutral English, so a Chicago-styled American book was
-breaking on British points: "organiz-ation" for "or-ga-ni-za-tion". Five of the
-chapter's 88 hyphenated line ends sat at points en_US would not choose. THERE IS
-NO CSS LEVER FOR THIS. It is a per-document attribute, so every new chapter must
-carry it, and one that omits it hyphenates British silently with no gate
-reporting it.
+- **Write a scope claim from what was done, never from what was intended.** A
+  Stage 5 record said ten pages were rasterized and read; nine were, and the page
+  it wrongly claimed is exactly where the next defect was sitting. That was the
+  fifth instance in this repo of a check claimed in a record but not performed, and
+  the first authored by Claude rather than inherited.
+- **NO GATE IN THIS SUITE READS PUNCTUATION.** Gate 2 tests em and en dashes and
+  nothing else. Chapter 1 shipped straight quotation marks in every generated
+  footnote past fourteen green gates, and when `cite_format.py` was corrected to
+  emit `“Title,”` the fix doubled the comma in all six footnotes, because `_join`
+  suppressed the separator by testing `endswith((',"', ",", "."))`, keyed on the
+  ASCII quote. Fourteen gates then passed the doubled comma twice, on the build
+  that introduced it and the build that removed it.
+- **A one-line change to shared tooling is not too small to re-verify, because a
+  glyph-width change is a reflow.** And a check whose input a fix could move is
+  re-run AFTER the fix, not before it: a page read taken before a fix is
+  invalidated by that fix.
+- **When writing any check over rendered pages, decide explicitly what it does at
+  a page boundary.** Gate 12 counted in-text figure references line by line, so a
+  reference that wrapped was invisible. The hyphenation scan was later rewritten
+  from memory with the same defect, testing only the following line within a page,
+  which is exactly the blind spot that hid DR7 until it turned up across a page
+  turn. Join the pages in reading order with folios and running heads stripped.
+- **When a check and the prose disagree, fix whichever is wrong and say which.**
+  Rewording a sentence so a figure reference did not wrap would have passed gate 12
+  and left every later chapter exposed.
+- **Gate 12's failure MESSAGE is misleading, though the check is sound.** A figure
+  reference split across a page boundary vanishes from both pages' joined text, so
+  the gate correctly fails and reports "captioned but never referenced", sending a
+  reader hunting for a sentence that is present in the source.
+- **A defect a raster raises is not a defect proved.** DR6 was seen by eye and that
+  only raised the question; scanning every hyphenated line end against the
+  chapter's proper nouns is what found DR7 and proved the list complete at exactly
+  two. Eyeing 25 pages finds the first and misses the second, because a break at a
+  page foot reads as an ordinary hyphen until the page turns.
+- **Rewording is not a fix for a break.** A break is a property of the measure, not
+  of the sentence, so it returns at the next reflow.
 
-**A false scope claim was written into the Stage 5 record and is corrected in
-place.** It said ten pages were rasterized and read; nine were. Page 1 was never
-rasterized and page 4 was rasterized and never opened, and page 4 is exactly where
-PG1 sat until G2's full 25-page read found it. This is the fifth instance in this
-repo of a check claimed in a record that was not performed, and the first written
-by Claude rather than inherited. Write a scope claim from what was done, never
-from what was intended.
+### Sourcing and fact checking
 
-**Stage 5 found two defects by reading that no gate can see, and they are now
-Decision 58 and CSS v7.1.** DR6, "ChatGPT" breaking as ChatG-PT in the narrow
-column beside a floated callout, and DR7, "GitHub" breaking as Git-Hub ACROSS THE
-PAGE 11 TO 12 TURN. A new class, `.nb`, switches hyphenation off for a proper
-noun, and 34 brand-name occurrences are wrapped. Body prose keeps `hyphens: auto`,
-which is right for a justified measure. The durable claim is not a count, which
-moves with every reflow, but that zero line-end breaks fall inside a proper noun.
-That has held at every measurement since, while the count itself has not: 88 at
-this fix, 95 once PG1 switched the hyphenation dictionary to en_US, 93 as of
-2026-08-11. A record that pins the claim to a number goes stale in a week.
+- **No source host is reachable from the Claude environment**, verified 2026-08-06
+  against six of them, so Stages 3 and 7 are structurally external rather than
+  external by preference. Claude can rule on whether prose stays inside what a
+  register note says. Claude cannot verify the note against the source, and must
+  not offer to.
+- **Stage 7's external check must be fed a RENDER, never the chapter HTML.** Both
+  production flags on Chapter 1's check 1 were phantoms of HTML extraction: it
+  dropped the `<li>` contents of the theorem panel and reported the antecedents
+  missing, and it collapsed the empty cells of a table leftward and reported a
+  student-blank column misplaced. Disproving them cost a build. Note the sharper
+  form: the table flag would reproduce even against the PDF under naive text
+  extraction, because an empty cell contributes no text. It dies only to a read or
+  to the geometry.
+- **Run two external checks on different prompts rather than one thorough check.**
+  Chapter 1's 2026-08-06 pair agreed on one finding out of six. The disagreement is
+  the value.
+- **Judge a proposed remedy separately from the finding it answers.** In that same
+  pair both findings survived and neither proposed fix did: one proposed hedging
+  language the voice rules prohibit, the other a second-source path below the floor
+  already in force.
+- **A ruled claim narrowing does not survive a copy edit on its own, and nothing
+  mechanical sees it go.** SF8, SF9 and SF10 were reverted while every date and
+  figure stayed intact, so no gate and no check on values could detect them. They
+  were recoverable only because each register note quoted the exact ruled SENTENCE.
+  FC2 then repeated the shape a fourth time on a second vendor, which makes it a
+  drafting attractor rather than a closed incident: the copy edit reaches for "the
+  vendor began charging" because it is shorter than "began enforcing allowances and
+  offered a paid overage". Both sources are scheduled for reuse in Chapters 4 and
+  11. Two consequences: quoting the sentence a fix adds is a control rather than a
+  convenience, and a chapter whose fact check predates a copy edit must be diffed
+  against the audited artifact before that fact check is credited.
+- **Write every fact-check ruling back into the register note, with the condition
+  that would reverse it.** A ruling recorded only in a checklist is one the next
+  checker raises again.
+- **Read the in-chapter Decision 51 register before using a figure from a cited
+  study.** It can carry rulings the shorter `AIOM_Source_Ledger.md` note does not.
+  G1 caught a real breach of exactly this: a published agent count reserved for
+  Chapter 6 had been put into Chapter 1's prose.
 
-**The method matters more than the fix.** DR6 was seen in a raster and that only
-raised the question; every hyphenated line end in the chapter was then scanned
-programmatically against its proper nouns, which found DR7 and proved the list
-complete at exactly two. Eyeing 25 pages finds the first and misses the second,
-because a break at a page foot reads as an ordinary hyphen until the page turns.
-Rewording was rejected on the gate 12 precedent: a break is a property of the
-measure, not of the sentence, so it would return at the next reflow.
+### Design and pagination
 
-**THE SCAN ITSELF HAD THE DEFECT IT EXISTS TO CATCH, found 2026-08-11.** Rewritten
-from memory, it tested only the following line within the same page, which is
-exactly the blind spot that hid DR7 until it turned up across the page 11 to 12
-turn. It must join the pages in reading order, with folios and running heads
-stripped, or it silently passes the page-turn case. Same shape as gate 12 counting
-line by line. When writing any check over rendered pages, decide explicitly what it
-does at a page boundary.
+- **Pagination in this design is tightly coupled, and a craft edit is not a local
+  change.** A one-sentence reorder inside Chapter 1 failed the build twice, once by
+  splitting a figure reference across a page turn and both times by pushing
+  footnotes off their calling pages ELEVEN PAGES LATER. Build after any craft edit
+  rather than reasoning about it, and attribute a new gate failure by rebuilding
+  the committed state rather than assuming the edit caused it.
+- **Gap G-II: gate 14 cannot see a stranded head GROUP.** It tests whether a HEAD
+  is the last block on a page, so any non-head block trailing the group hides the
+  defect. Decision 56a puts `break-after: avoid` on `.slot-label`, chained through
+  `h2.case-title` and `p.provenance`, so a chapter is held off this by CSS rather
+  than by the check. Until gate 14 treats a run of head-like blocks as one unit, a
+  chapter whose pagination moves must have its slot openings READ, not merely
+  gated. Gap G-I, in section 6, has the same consequence for callout placement.
+- **DR3a is an accepted cost, recorded so it is not rediscovered.** Holding an
+  inventory table whole leaves the page carrying its instruction about four inches
+  short and separates the two. `break-before: avoid` was tried on `table.inv` and
+  rejected: WeasyPrint binds it to the preceding LINE BOX rather than the preceding
+  block, so it split the problem statement across the spread. A short page is a
+  smaller defect than a split paragraph.
 
-**The design spec is no longer in debt.** It read v6.9 while the CSS shipped
-v7.0; it now carries section 16 for v7.0 and section 17 for v7.1, and its header
-reads v7.1.
+### What Chapter 1 leaves standing for Chapters 2 to 15
 
-**Stage 4 raised six findings, one per criterion, and closed with its
-second-model gut-check still open**, on Dan's ruling and the precedent of Stage 2
-and the archived Stage 4. NC1, NC2, NC3 and NC5 were applied; NC4 and NC6 were
-recorded with no edit. The craft verdict on Chapter 1 therefore rests on one read
-by the model that drafted it and wrote the standard it grades against, for the
-second time, with the adversarial method and the per-section table as the only
-correctives. This matters past Chapter 1 in two ways: the baseline band that
-Chapters 2 to 15 are read against comes from that read, and Chapter 1 is the
-exemplar the other fourteen are drafted against. The verification prompt is still
-in the chapter checklist and can be run at any time. A finding it raises enters as
-NC7 and reopens the step.
+- **No craft baseline band is in force, and that is deliberate.** The band recorded
+  at Stage 4 on 2026-08-06 measures a chapter the copy edit replaced.
+  `AIOM_Voice_and_Craft_v1.md` section 4 makes Chapter 1 the band later chapters are
+  read against, so the stale numbers would grade Chapter 2 against a text that no
+  longer exists. Dan ruled the reset deferred to Stage 9 so it is taken from the
+  locked text, and it is booked as a Stage 9 pending action. **Until then no chapter
+  is read against a band.**
+- **Chapter 1's craft verdict rests on one read by the model that drafted it and
+  wrote the standard it grades against.** Stage 2 and Stage 4 were both closed with
+  their second-model gut-check still open, on Dan's ruling, with the adversarial
+  method and the per-section table as the only correctives. This matters twice
+  over, because the baseline band above comes from that read and Chapter 1 is the
+  exemplar. The verification prompts are in the chapter checklist and can be run at
+  any time; a finding either raises reopens its step.
+- **The Stage 2 developmental rulings D1 through D6 and the four voice rulings,
+  Decisions 42 to 45, still stand as rules** even though the steps that produced
+  them were reset.
+- **A reopen archives rather than destroys.** Every step's findings stay in the
+  checklist marked superseded, because they state what was examined and how it was
+  ruled, and a re-run should not have to rediscover that.
 
-**No craft baseline band is in force, and that is deliberate.** The band recorded
-at Stage 4 on 2026-08-06 measures a chapter the copy edit replaced: it reads mean
-17.4, stdev 10.1, range 3 to 54, long 6 percent, against a current 14.5, 6.3, max
-33, long 0 percent. `AIOM_Voice_and_Craft_v1.md` section 4 makes Chapter 1 the
-band that Chapters 2 to 15 are read against, so the stale numbers would have
-graded Chapter 2 against a text that no longer exists. Dan ruled the reset
-deferred to Stage 9 so it is taken from the locked text. The archived block is
-annotated in place and the reset is booked as a Stage 9 pending action. Until lock,
-no chapter is read against a band.
+### Registry, ledger, and the open decision
 
-**Pagination in this design is tightly coupled, and a craft edit is not a local
-change.** NC5 was a one-sentence reorder inside 1.2. It failed the build twice:
-once by splitting "Figure 1.2" across a page turn, and both times by adding a line
-that pushed footnotes 5 and 6 off their calling pages eleven pages later. It went
-green only after a second, separately ruled cut absorbed the line. Two consequences
-for every later chapter: build after any craft edit rather than reasoning about it,
-and attribute a new gate failure by rebuilding the committed state rather than
-assuming the edit caused it.
+The design system is locked: CSS at v7.1, design spec at v7.1. Design finalization
+is complete (D0 closed, 2026-07-28). The registry is validated: 228 objects load
+(200 propositions, 20 lemmas, 8 theorems), eight book-mapped theorem IDs resolve,
+zero dangling references in the dependency graph.
 
-**Gate 12's failure MESSAGE is misleading, though the check is sound.** A figure
-reference split across a page boundary vanishes from both pages' joined text, so
-the gate fails, correctly, and reports "captioned but never referenced". A reader
-of that message goes hunting for a sentence that is present in the source. This
-was first diagnosed in-session as a third gate 12 blind spot and that diagnosis was
-wrong; the distinction was visible only after inspecting the render.
+**The continuity ledger is built.** `AIOM_Continuity_Ledger.md` holds the record
+and `continuity.py` is gate G3, running all seven checks the G3 checklist names. It
+currently holds no entries, which is correct: entries are appended at Stage 9, and
+no chapter has locked. Lock is not blocked.
 
-**Stage 3 was cleared on Dan's executive ruling that the 2026-08-06 external
-checks carry it, and the tick records that and not a fresh pair of checks.**
-Before it was ticked, the current text was diffed against the render those checks
-actually audited. The value surface was unchanged, eighteen checkable atoms with
-zero added and zero altered, which is what makes the ruling sound. The same diff
-found that three ruled claim narrowings had been silently reverted by the copy
-edit, and all three were repaired from the register wording before the tick. Full
-record under Stage 3 in the chapter checklist.
-
-**A ruled claim narrowing does not survive a copy edit on its own, and nothing
-mechanical sees it go.** SF8, SF9, and SF10 were Stage 3 rulings reverted by the
-2026-08-08 rounds while every date and figure stayed intact, so no gate and no
-check on values could detect them. They were recoverable only because each
-register note quoted the exact ruled sentence, which made the regression
-greppable and diffable against the audited artifact. With DE2 and SF7 this is the
-fourth instance of the shape. Two consequences: quoting the sentence a fix adds
-is a control rather than a convenience, and a chapter whose fact check predates a
-copy edit should be diffed against the audited artifact before the fact check is
-credited.
-
-**The number is low because of the reopen, not because the chapter is weak.**
-Every step from Stage 3 forward was reset on 2026-08-08, and those passes had all
-been made against prose the copy edit replaced. A further copy-edit round remains
-available at any time: Stage 6 sits after every step the reopen reset.
-
-**The Stage 2 re-run of 2026-08-09 raised nine findings, all ruled, seven applied
-to the chapter.** Three of its outputs are not chapter edits and bind the whole
-book: the gate 12 line-by-line defect above, found by applying DE1 and fixed with
-a negative test; standing rule 4a, from Dan's ruling that the registry is the
-third rail; and Decision 33 made computable. The chapter moved 7,102 to 7,034
-words and held at 25 pages throughout.
-
-**Stage 2 was closed with its second-model gut-check still open**, on Dan's
-ruling and on the precedent of the archived pass. The tick records that the step
-ran and that every finding was ruled. It does not record independent
-verification, because none was performed: the pass was made by the model that
-drafted the chapter, wrote the craft standard, and applied all three copy-edit
-rounds, and Stage 2 has no mechanical half. The prompt is in the checklist and a
-stall it finds enters as DE10 and reopens the step.
-
-**The Stage 5 re-run found five things, the fourteen gates found none of them,
-and all five are now closed.** DR1, the craft-section head group stranded at the
-foot of page 12, and DR5, Figure 1.1 using `--amber` where the spec requires
-`--amber-fig`, were fixed in the first re-run. DR2, `.model p` setting `margin:
-0` so model-answer paragraphs run together, and DR3, `table.inv` carrying
-`break-inside: auto` so the P3 table spills one row onto an otherwise blank final
-page, were ruled by Dan and applied as Decision 57, taking CSS to v6.9. Because a
-design-system change re-runs Stage 5 and G2 for every chapter, Chapter 1 was
-reopened at Stage 5 a third time the same day and re-passed against v6.9. DR4,
-hyphenation, was an observation with no action: four pages carry three
-consecutive hyphenated line ends, which is at Chicago's limit, not past it.
-
-**DR3a is an accepted cost, recorded so it is not rediscovered.** Holding the
-inventory table whole leaves the page carrying the P3 instruction about four inches
-short and separates that instruction from its table. It was page 19 when DR3a was
-booked and is page 24 as of 2026-08-11, which is the reason no page number is
-recorded here. `break-before: avoid` was tried on `table.inv` to hold the two
-together and was rejected: WeasyPrint binds it to the preceding LINE BOX rather
-than the preceding block, so it split the problem statement across the spread. A
-short page is a smaller defect than a split paragraph.
-
-**Gap G-II, opened 2026-08-06: gate 14 cannot see a stranded head GROUP.** It
-tests whether a HEAD is the last block on a page, so any non-head block trailing
-the group hides the defect. Decision 56a put `break-after: avoid` on
-`.slot-label` alone, which bound the label to its title and left the provenance
-line last, and gate 14 then reported zero stranded heads while all three lines
-sat orphaned at the foot of page 12. The fix chains the rule through
-`h2.case-title` and `p.provenance`, so the chapter is held off this defect by
-CSS rather than by the check. Until gate 14 treats a run of head-like blocks as
-one unit, a chapter whose pagination moves must have its slot openings read, not
-merely gated. This is the same shape as the gates that were claimed but never
-performed before 2026-08-05.
-
-**The live text is
-`Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`.** Check
-this before editing, every time. The superseded fork
-`06_Stage5_Design_Review/AIOM_Ch01_Stage4_FINAL.html` was deleted 2026-08-06 on
-Dan's ruling. It had diverged from the live text by roughly 150 lines, and
-Decision 56 was applied to it by mistake and had to be reverted and re-applied.
-The standing rule is one live text per chapter, supersede and delete, never fork,
-and the delete had simply not happened. The stage-folder render PDFs are kept:
-they are artifacts of a step, not competing texts. Three other chapter HTML files
-remain under Chapter 1's stage folders (two Stage 3 fact-check working copies and
-one early draft) and are older and clearly superseded, but they are the same
-hazard in smaller form.
-
-**A reopen archives rather than destroys.** Every step's findings are archived in
-place in the checklist, marked superseded, because they state what was examined and
-how it was ruled, and the re-run should not have to rediscover that.
-
-**Stage 3 established two things worth carrying to every later chapter.** First,
-run two external checks on different prompts rather than one thorough check. The
-2026-08-06 pair agreed on one finding out of six: check 2 confirmed a passage
-check 1 had raised, and check 1 caught a sourcing gap check 2 restated as sound.
-The disagreement is the value. Second, judge a proposed remedy separately from
-the finding it answers. Check 1 was right that a superlative was unsourced and
-proposed hedging language the voice rules prohibit; check 2 was right that
-durability rests on access dates and proposed second source paths below the floor
-already in force. Both findings survived and neither fix did.
-
-**No source host is reachable from the Claude environment**, verified 2026-08-06
-against six of them, so Stages 3 and 7 are structurally external rather than
-external by preference. Claude can rule on whether prose stays inside what a
-register note says. Claude cannot verify the note against the source, and must
-not offer to.
-
-Grounds for the reopen. Chapter 1 was drafted before the voice and craft standard
-existed (Decision 52), so its prose was never written against C1 through C6. The
-Stage 4 craft read found seven findings, including a systematic C5 failure (four
-paragraphs closing on a cross-reference) and the weakest C4 unit in the book (the
-summary, at twice the chapter's mean sentence length with zero short sentences).
-Chapter 1 is the exemplar the other fourteen chapters are drafted against, so it
-is re-drafted rather than patched, and the re-draft doubles as the proving run for
-Process v2 end to end.
-
-What the reopen inherits, as carried items for the re-draft:
-
-- The seven craft findings and two watch items, archived under Stage 4.
-- **A real production defect found by new gate 14 on its first run**: the "Craft
-  section" slot label stranded alone at the foot of page 12, with the section it
-  labels opening on page 13. The eleven-gate suite passed this render. The
-  fourteen-gate suite fails it. CLOSED 2026-08-06 at Stage 4, not at Stage 5:
-  applying craft finding NC2 cut two sentences from 1.4, the pagination moved,
-  and gate 14 now reports zero stranded heads on a 19-page chapter. The gate
-  found a real defect the older suite passed, and the defect outlived a full
-  re-draft and every Stage 3 edit before a two-sentence craft cut removed it. The
-  other three defects, one gate 4 callout split and a widow and an orphan on page
-  16, did not move with it and remain Stage 5 work.
-- The nine verified sources in `AIOM_Source_Ledger.md`, which the re-draft should
-  reuse rather than re-verify, subject to Dan's Stage 3 re-run.
-- The Stage 2 developmental rulings D1 through D6 and the four voice rulings
-  (Decisions 42 to 45), all still standing as rules even though the steps reset.
-
-Three things the re-run has already proved. G1 caught a real breach of a standing
-source ruling in the re-draft: the published QJE agent count had been put into
-prose, where a 2026-07-29 ruling reserves it for Chapter 6. The fuller ruling
-lives in the chapter's own Decision 51 register, not in the shorter
-`AIOM_Source_Ledger.md` note, so read the in-chapter register before using a
-figure from a cited study. Stage 1 ruled seven structural findings without
-changing one word of the chapter, so no downstream step was invalidated, which is
-what the scoped re-run matrix exists to produce. And Stage 2 found six
-developmental findings of which four were applied as ND1 through ND4, landing
-those line edits before fact check, voice, design, and production rather than
-churning them afterward, which is the whole reason Process v2 moved the
-developmental edit early.
-
-Process built 2026-08-05 to make the re-run safe and repeatable across fifteen
-chapters: `reopen.py`; the Process v1 to v2 stage-folder migration across all
-eighteen units (162 folders renamed, 18 developmental-edit folders created);
-gates 12, 13, and 14; the toolchain preflight and `requirements.txt`; and a G2
-checklist that now mirrors the fourteen printed gates one for one, with the two
-genuinely manual checks labelled as manual.
-
-**The continuity ledger is built (2026-08-05).** `AIOM_Continuity_Ledger.md`
-holds the record and `continuity.py` is gate G3, running all seven checks the
-checklist names. Verified end to end against the superseded Chapter 1 render: it
-found the six forward references, detected unpaid promises when run as a later
-chapter, recognised a term restated verbatim as not a redefinition, and failed on
-a placeholder registry gloss rather than passing it. The ledger currently holds
-no entries, which is correct: entries are appended at Stage 9, and no chapter has
-locked. Lock is no longer blocked.
-
-Design finalization is complete (D0 closed, 2026-07-28). The design system is
-locked: CSS at v7.1, design spec at v7.1. The registry is
-validated: 228 objects load (200 propositions, 20 lemmas, 8 theorems), eight
-book-mapped theorem IDs resolve, zero dangling references in the dependency
-graph.
-
-Chapter 2 ("The Flow") is the immediate next drafting target and is unblocked.
-Chapters 3 through 15 follow in sequence. Front and back matter come after the
-manuscript.
-
-One decision still open: **Decision 28**, the Northmoor property gap. The M3
-build asserts properties A through F; Decision 18 in the Addendum extended the
-list to A through I. G, H, and I remain unbuilt. This gates the Ch9, Ch12, and
-Ch13 problem sets, not Ch2.
+One decision still open: **Decision 28**, the Northmoor property gap. The M3 build
+asserts properties A through F; Decision 18 in the Addendum extended the list to A
+through I. G, H, and I remain unbuilt. This gates the Ch9, Ch12, and Ch13 problem
+sets, not Ch2.
 
 Registry flags to carry into the appendix build (Phase 3, Appendix A):
 
@@ -746,9 +620,9 @@ Registry flags to carry into the appendix build (Phase 3, Appendix A):
   LEM-015 absent.
 - The "20 lemmas" count is correct as an object count. The ID range runs to 21.
 - The registry ships a pre-built trace for THM-005, which is a Ch6 asset, not
-  THM-004. Chapter 3's trace set piece uses THM-004 and must be built
-  separately. Traces are generable mechanically from the dependency graph, so
-  Figure 3.1 is buildable from data.
+  THM-004. Chapter 3's trace set piece uses THM-004 and must be built separately.
+  Traces are generable mechanically from the dependency graph, so Figure 3.1 is
+  buildable from data.
 
 Appendix A reproduces the 28 theorems and lemmas only. The 200 propositions are
 cited by ID and not reproduced in full.
