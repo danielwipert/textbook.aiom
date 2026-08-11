@@ -714,16 +714,6 @@ record mentions it, it is gone and Decision 50 is why.
   confirmed three moved-page cases (2026-08-09), and found straight quotes in every
   footnote and then a doubled comma introduced by their fix (2026-08-11). No gate
   measures paragraph separation inside a block, and none reads punctuation at all.
-- **A ONE-LINE FIX TO SHARED TOOLING IS NOT TOO SMALL TO RE-VERIFY.** PG2a is the
-  case: correcting the footnote quotes broke the comma logic that had been keyed on
-  the old quote character, and all fourteen gates passed the result. Rebuild and
-  RE-READ the pages the fix touches, and re-run any scan whose input it could move.
-  A glyph-width change is a reflow.
-- **A CHECK THAT CANNOT SEE A PAGE TURN WILL PASS THE DEFECT IT EXISTS TO CATCH.**
-  The hyphenation scan was first written to test only the following line within the
-  same page, which is exactly the blind spot that hid DR7 until it turned up across
-  the page 11 to 12 boundary. Same shape as gate 12 counting line by line. When
-  writing a check over rendered pages, decide explicitly what it does at a boundary.
 - **When a check and the prose disagree, fix whichever is actually wrong, and say
   which.** Gate 12 on 2026-08-09 is the cleanest case: rewording the sentence so
   the reference did not wrap would have passed the gate and left every later
@@ -737,14 +727,22 @@ record mentions it, it is gone and Decision 50 is why.
   does. Had that gone unchecked, the ruling would have breached it.
 - No em dashes anywhere, including commit messages. A build gate enforces it.
 - The craft standard binds at Stage 0, at drafting time, not at Stage 4.
-- The chapter HTML is the single source of truth (Decision 50). Never fork.
-- Source register notes inside a chapter's own Decision 51 block can carry
-  rulings the summary ledger does not. Read them before using a figure.
-- Writing every fact-check ruling back into the register note, with the condition
-  that would reverse it, GRADUATED INTO CLAUDE.md section 10 on 2026-08-11 and is
-  no longer restated here.
-- **Not every proposed remedy is an improvement.** Evaluate the remedy separately
-  from the finding.
+
+**Graduated into CLAUDE.md section 10 on 2026-08-11, and deliberately not restated
+here.** They were duplicated in both files, and a mirror is the failure this repo
+has already paid for repeatedly. Read them there, not from memory:
+
+- a one-line change to shared tooling is not too small to re-verify, because a
+  glyph-width change is a reflow
+- a check over rendered pages must decide explicitly what it does at a page
+  boundary, or it passes the defect it exists to catch
+- one live text per chapter, the chapter HTML is it, supersede and delete and never
+  fork (Decision 50)
+- read the in-chapter Decision 51 register before using a figure from a cited
+  study, because it can carry rulings the summary ledger does not
+- write every fact-check ruling back into the register note, with the condition
+  that would reverse it
+- judge a proposed remedy separately from the finding it answers
 
 **Tooling facts learned the hard way.**
 

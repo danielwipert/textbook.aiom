@@ -462,7 +462,8 @@ after the manuscript.
   that zero line-end breaks fall inside a proper noun. Chapter 1 has held that at
   every measurement while the count itself moved: 88 at the fix, 95 once Decision
   59 switched the dictionary, 93 as of 2026-08-11.
-- **One live text per chapter. Supersede and delete, never fork.** Chapter 1's is
+- **One live text per chapter, and the chapter HTML is it. Supersede and delete,
+  never fork.** This is Decision 50. Chapter 1's is
   `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`. Check
   the path before editing, every time. A superseded fork of it survived undeleted
   long enough to diverge by roughly 150 lines, and Decision 56 was applied to the
@@ -487,8 +488,9 @@ reads green while measuring nothing, or a record claiming work nobody did.
   ASCII quote. Fourteen gates then passed the doubled comma twice, on the build
   that introduced it and the build that removed it.
 - **A one-line change to shared tooling is not too small to re-verify, because a
-  glyph-width change is a reflow.** And a check whose input a fix could move is
-  re-run AFTER the fix, not before it: a page read taken before a fix is
+  glyph-width change is a reflow.** Rebuild, RE-READ the pages the fix touches, and
+  re-run any scan whose input it could move. A check whose input a fix could move
+  is re-run AFTER the fix, not before it: a page read taken before a fix is
   invalidated by that fix.
 - **When writing any check over rendered pages, decide explicitly what it does at
   a page boundary.** Gate 12 counted in-text figure references line by line, so a
