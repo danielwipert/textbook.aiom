@@ -220,12 +220,37 @@ session added a second instance of the same shape in a different place, a scope
 claim in the Stage 5 record naming a page that had not been read; see the chapter
 status below.
 
-## Chapter 1 status: 8 of 13, G2 RE-PASSED 2026-08-12 AT FIFTEEN GATES
+## Chapter 1 status: 9 of 13, STAGE 6 CLOSED. ONLY STAGE 7 AND STAGE 8 REMAIN OF DAN'S
 
-`status_check.py` reports 8/13 STATUS CONSISTENT. CSS v7.1. Stages 3, 4 and 5
-cleared 2026-08-10 and are undisturbed. **Every step Claude owns before Dan's
-remaining three is done.** Stages 6, 7 and 8 are Dan's; G3 and Stage 9 are Claude's
-and come after them.
+`status_check.py` reports 9/13 STATUS CONSISTENT. CSS v7.1. Stages 3, 4 and 5
+cleared 2026-08-10 and are undisturbed. G2 re-passed at fifteen gates 2026-08-12.
+
+**STAGE 6 IS CLOSED, ON DAN'S RULING OF 2026-08-12: "I have no more edits."**
+Second closure of this step and the one in force. Fourteen copy edits raised, ruled
+and applied, CE1 through CE14. It does NOT mean a further round is impossible:
+Decision 24 places the step late so it runs on prose that has stopped moving, and
+prose that moves again reopens it. The reversing condition stands, and a finding
+from any later read enters as CE15.
+
+**THE RECORD WAS FIVE FINDINGS SHORT WHEN THE RULING ARRIVED, AND WAS COMPLETED
+BEFORE THE TICK.** CE10 to CE14 were in the live text with no entry in the
+checklist, because the session that applied them ran concurrently with the
+reconciliation and wrote its record into commit messages instead. Reconstructed
+verbatim from `d19bf74` and `fceb220`; the chapter text was not touched. **CHECK A
+STEP'S FINDINGS LIST AGAINST THE TEXT BEFORE TICKING IT, NOT AFTER.** A tick is a
+claim about a record, and this record described a chapter five edits older than the
+one on disk.
+
+**THE PART 5 RULE 1 PROXY IN `voicecheck.py` IS DEFECTIVE AND ITS NUMBERS MUST NOT
+BE QUOTED.** Recovered from the CE10 to CE12 record. It counts fronted adverbial
+phrases as subject-verb separations, and a fronted adverbial is right-branching and
+permitted, so both its baseline and its after-reading were measuring something the
+rule does not cover. Fourth check in this repo to read authoritative while measuring
+nothing. The sound measure moved: 40 long comma-fenced asides to 35. **This is
+unfixed and is the one open defect in the ported house-style checks.**
+
+Nothing downstream was invalidated by the tick: the last edit to the live text was
+CE13 and CE14, and G2 was re-run after it.
 
 **G2 PASSED ON THE RECONCILED TEXT, run from the top rather than carried forward.**
 Fifteen gates, 25 pages, all twenty-five read at 150 dpi with the rasters deleted
@@ -937,17 +962,14 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
    - **Gaps G-I and G-II still mean callout placement and slot openings must be
      READ whenever pagination moves.** It moved again with the copy edits.
 
-2. **Chapter 1 Stages 6, 7 and 8 are DAN'S. Stage 7 is the live one.**
+2. **Chapter 1 Stages 7 and 8 are DAN'S, and they are all that is left of his.
+   Stage 7 is the live one.**
 
-   **STAGE 6 IS MARKED OPEN, AND ITS PROOF IS ROUND 9.** Dan closed Stage 6 at
-   9 of 13 on 2026-08-10, that ruling is preserved verbatim in the checklist, and
-   on 2026-08-12 he ruled the tick left OPEN rather than restored: the closure was
-   stranded on a branch while other sessions applied eleven further copy edits,
-   CE3 to CE6 and CE10 to CE14, plus four fact-check narrowings FC2 to FC5. It
-   predates work that came after it. Re-closing it is one character in the
-   checklist and it is Dan's. To take a round: open
-   `AIOM_Ch1_CopyEdit_round9.docx`, edit in Word, return it, and import through
-   `copyedit_import.py` with the round-9 manifest. **DO NOT USE ROUNDS 3 TO 8.**
+   **STAGE 6 IS CLOSED, 2026-08-12.** Dan ruled it: "I have no more edits." The
+   record is under Stage 6 in the checklist, including the CE10 to CE14 entries
+   reconstructed at the moment of closing. If a further round is ever wanted, the
+   proof is `AIOM_Ch1_CopyEdit_round9.docx` with the round-9 manifest, **DO NOT USE
+   ROUNDS 3 TO 8**, and taking one enters as CE15 and reopens the step.
 
    **THE STAGE 7 PACKET IS BUILT AND WAITING**, in
    `09_Stage7_Final_Fact_Check_2/`: a 25-page render, green at the gate count of

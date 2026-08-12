@@ -43,9 +43,10 @@ had never been tested on: Figure 1.2 renders, the craft section typesets using
 the model-answer treatment that section 7 of the spec predicted, and a
 full-length chapter paginates without defect.
 
-Chapter 1 is 8 of 13 as of 2026-08-10, on a 25-page render with ALL FOURTEEN
-GATES PASSING against CSS v7.1. Every step Claude owns before lock is done. Dan's
-Stages 6, 7 and 8 are next and may run in one sitting; then G3 and Stage 9.
+Chapter 1 is 9 of 13 as of 2026-08-12, on a 25-page render with ALL FIFTEEN
+GATES PASSING against CSS v7.1. Stage 6 closed 2026-08-12 on Dan's ruling after
+fourteen copy edits. Only Stage 7 and Stage 8 remain of Dan's; then G3 and Stage 9,
+both Claude's.
 
 The paragraph here read "It is now 8 of 13, the chapter is 20 pages" until
 2026-08-10. That was true before the 2026-08-08 reopen at Stage 2, which reset
@@ -94,10 +95,13 @@ property coverage: see Decision 28.
 ---
 
 ## Immediate queue (in order)
-1. **Chapter 1 Stages 6, 7 and 8. DAN'S, AND THEY MAY RUN IN ONE SITTING.** Copy
-   edit, final fact check 2, final read. G2 closed 2026-08-10 against CSS v7.1.
+1. **Chapter 1 Stages 7 and 8. DAN'S, AND THEY MAY RUN IN ONE SITTING.** Final
+   fact check 2, then final read. **Stage 6 closed 2026-08-12** after fourteen copy
+   edits. G2 re-passed 2026-08-12 at fifteen gates against CSS v7.1.
    Stage 7 is structurally external because no source host is reachable from a
-   Claude session. Then G3 and Stage 9, both Claude's, and Stage 9 carries a
+   Claude session, and its checker must be fed a RENDER, never the chapter HTML:
+   both production flags on external check 1 were phantoms of HTML extraction.
+   External check 2 on a different prompt is still owed. Then G3 and Stage 9, both Claude's, and Stage 9 carries a
    booked pending-actions list: re-set the craft baseline band from the locked
    text, keep "flow" out of Chapter 1's continuity entry, and decide whether
    "category error" is logged as a Chapter 1 term.
@@ -124,8 +128,9 @@ chapter's checklist and printed by `status_check.py`.
 
 Chapter 1 was reopened at Stage 0 (2026-08-05, Decision 53), at Stage 5
 (2026-08-06, Decision 56), and at Stage 2 (2026-08-08, after three copy-edit
-rounds rewrote rather than corrected it); 8 of the thirteen steps are passed as
-of 2026-08-10, and every step Claude owns before lock is done. `reopen.py` performed every reset, archiving
+rounds rewrote rather than corrected it), and at G2 twice on 2026-08-11 and
+2026-08-12; 9 of the thirteen steps are passed as of 2026-08-12, and only Dan's
+Stage 7 and Stage 8 stand between the chapter and G3. `reopen.py` performed every reset, archiving
 each step's findings in place rather than destroying them. This paragraph read
 "8 of the thirteen" until 2026-08-10, which was true before the Stage 2 reopen
 and false for two days after it: the count here is a mirror, and
@@ -157,7 +162,7 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | G2 done      | 8 of 13 as of 2026-08-10, on a 25-page render with all fourteen gates passing against CSS v7.1 and both MANUAL G2 checks performed, all 25 pages read. Every step Claude owns before lock is done. Dan's Stages 6, 7, 8 next, then G3 and Stage 9. Reopened at Stage 0 on 2026-08-05 (Decision 53), at Stage 5 on 2026-08-06 (Decisions 56 and 57), and at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than corrected it, which reset every step from Stage 3 on. Stage 3 cleared 2026-08-10 on Dan's executive ruling that the 2026-08-06 external checks carry it, after a diff against the audited render showed the value surface unchanged at eighteen atoms and found three ruled claim narrowings silently reverted by the copy edit (SF8, SF9, SF10), all restored from the register wording. Stage 4 raised six findings, one per criterion, four applied, and closed with its second-model gut-check still open, so the craft verdict rests on one unverified read. Stage 5 raised DR6 and DR7, two proper nouns broken by automatic hyphenation, one of them across a page turn, neither visible to any gate; applied as Decision 58, CSS to v7.1. The craft baseline band is deliberately NOT set: it is booked to Stage 9 and no chapter is read against a band until then. |
+| 1   | The Category Error             | Stage 6 done | 9 of 13 as of 2026-08-12, on a 25-page render with all FIFTEEN gates passing against CSS v7.1 and both MANUAL G2 checks performed, all 25 pages read. Only Dan's Stage 7 and Stage 8 remain, then G3 and Stage 9. Stage 6 closed 2026-08-12 on Dan's ruling after fourteen copy edits, CE1 to CE14; CE10 to CE14 were in the text but missing from the checklist and were reconstructed from the commit record before the tick. G2 was reopened and re-passed 2026-08-12 because its 2026-08-11 pass predated CE3 to CE6, and gate 15, typographic marks, ran against this chapter for the first time. Reopened at Stage 0 on 2026-08-05 (Decision 53), at Stage 5 on 2026-08-06 (Decisions 56 and 57), at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than corrected it, and at G2 twice since. Stage 3 cleared 2026-08-10 on Dan's executive ruling that the 2026-08-06 external checks carry it, after a diff against the audited render found three ruled claim narrowings silently reverted (SF8, SF9, SF10), all restored; FC2 repeated the shape a fourth time on a second vendor. Stage 4 closed with its second-model gut-check still open, so the craft verdict rests on one unverified read. Stage 5 raised DR6 and DR7, two proper nouns broken by automatic hyphenation, one across a page turn, neither visible to any gate; applied as Decision 58, CSS to v7.1. The craft baseline band is deliberately NOT set: it is booked to Stage 9 and no chapter is read against a band until then. |
 | 2   | The Flow                       | not started  | Unblocked. Next to draft. |
 | 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
 | 4   | The Playing Field              | not started  | Decision 24 revisited here. |
@@ -613,7 +618,7 @@ lifecycle above. Per-chapter registry grounding is in the validation matrix.
 Word band: 6,500 to 7,500 for Ch1 and Ch2 (Decision 33, amended 2026-08-09),
 counted as the whole rendered chapter less the source register and SVG labels.
 `voicecheck.py` prints the number.
-- [~] Ch1  The Category Error        (25 pages, 7,014 words, all fourteen gates pass; reopened at Stage 2 on 2026-08-08 and Stage 2 is in progress)
+- [~] Ch1  The Category Error        (25 pages, all fifteen gates pass; 9 of 13 as of 2026-08-12, Stage 6 closed, awaiting Dan's Stage 7 and Stage 8)
 - [ ] Ch2  The Flow                  (next; unblocked)
 - [ ] Ch3  A Science and Its Discipline   (M2 ready; build THM-004 trace)
 - [ ] Part I cumulative case
