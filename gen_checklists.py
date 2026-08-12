@@ -138,6 +138,7 @@ STAGES = [
          "Gate 12, figures captioned, numbered in order, each referenced in text",
          "Gate 13, no text below the bottom margin, folio excluded",
          "Gate 14, no widows, no orphans, no section head stranded at a page foot",
+         "Gate 15, typographic marks: zero straight quotes or apostrophes",
          "MANUAL, not automated: figure geometry checked by eyeball against a "
          "raster, since SVG rx renders as curve paths and does not appear in "
          "pdfplumber rects",

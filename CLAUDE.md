@@ -551,13 +551,18 @@ reads green while measuring nothing, or a record claiming work nobody did.
   it wrongly claimed is exactly where the next defect was sitting. That was the
   fifth instance in this repo of a check claimed in a record but not performed, and
   the first authored by Claude rather than inherited.
-- **NO GATE IN THIS SUITE READS PUNCTUATION.** Gate 2 tests em and en dashes and
-  nothing else. Chapter 1 shipped straight quotation marks in every generated
-  footnote past fourteen green gates, and when `cite_format.py` was corrected to
-  emit `“Title,”` the fix doubled the comma in all six footnotes, because `_join`
-  suppressed the separator by testing `endswith((',"', ",", "."))`, keyed on the
-  ASCII quote. Fourteen gates then passed the doubled comma twice, on the build
-  that introduced it and the build that removed it.
+- **PUNCTUATION WENT UNGATED UNTIL 2026-08-12, AND GATE 15 NOW COVERS IT.** Gate 2
+  tests em and en dashes and nothing else, so Chapter 1 shipped straight quotation
+  marks in every generated footnote past fourteen green gates. When
+  `cite_format.py` was corrected to emit `“Title,”` the fix doubled the comma in
+  all six footnotes, because `_join` suppressed the separator by testing
+  `endswith((',"', ",", "."))`, keyed on the ASCII quote, and those same fourteen
+  gates passed the doubled comma twice: on the build that introduced it and the
+  build that removed it. Gate 15, typographic marks, closes the first half of this
+  by failing on any straight quote or apostrophe in the render. **It does not close
+  the second half.** No gate reads a doubled comma, a spliced clause, or any other
+  punctuation defect, so the general lesson stands: a green suite is evidence about
+  what the gates measure and about nothing else.
 - **A one-line change to shared tooling is not too small to re-verify, because a
   glyph-width change is a reflow.** Rebuild, RE-READ the pages the fix touches, and
   re-run any scan whose input it could move. A check whose input a fix could move
