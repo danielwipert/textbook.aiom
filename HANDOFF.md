@@ -83,14 +83,6 @@ with the mapping recorded in the checklist. Both also produced a file called
 round 6. Number a finding or an artifact only after checking what the checklist
 already owns.
 
-The four commits, oldest first:
-
-1. Stage 7 external check 1 archived, plus the render that disproves its two
-   production flags
-2. Stage 7 FC2 to FC5 applied, and the Stage 6 proof reissued as round 6
-3. G2 re-run after the citation-only edits, failing on PG2
-4. PG2 and PG2a fixed in `cite_format.py`, and G2 passed on a full 25-page read
-
 **THE STRANDED-COMMIT LESSON FROM 2026-08-10 APPLIES DIRECTLY HERE**, because this
 branch is exactly the state that produced it: work that `main` does not have. If a
 later session finds the live text missing an edit this file claims, search every
@@ -205,23 +197,44 @@ the geometry.
 that two checks on different prompts beat one thorough check, and that the
 disagreement between them is the value. One check is not the step.
 
-**CE3 IS THE FINDING WORTH CARRYING TO EVERY CHAPTER, AND NO GATE COULD SEE IT.**
-"Meter relocation" was defined twice, once as a body callout and once as a key
-term, and the two definitions did not match. The other three terms appearing in
-both places were character for character identical, which is what showed this to
-be an oversight rather than a convention. Gate 6 counts entries and header bands
-and read 8 and 8 throughout. It was also a live G3 risk, since `continuity.py`
-treats a verbatim restatement as not a redefinition. **The check is four lines:
-test each body callout against its key-term twin for exact equality.** CE4 was
-mixed number style inside one sentence; CE5 and CE6 were pronoun-antecedent
-faults; CE2 cut "a round" from the craft section.
+**STAGE 6 HAS FOURTEEN EDITS APPLIED, CE1 TO CE14, AND THE CURRENT PROOF IS
+ROUND 9.** Rounds 3 to 8 are superseded and must not be reviewed.
 
-**THE PROOF IS STALE AND MUST BE REISSUED AS ROUND 7.** Round 6 was exported from
-the post-FC live text on `claude/stage-7-explanation-sdsb38` and the reconciliation
-merge changed the live text again, which stales it under the standing rule that a
-re-export is part of applying an edit. A SECOND FILE ALSO NAMED ROUND 6 existed on
-the other branch and was dropped in the merge as superseded and never reviewed.
-Rounds 3, 4 and 5 are superseded and must not be reviewed.
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round9.docx`
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round9.manifest.json`
+
+  CE1        Category error key term rewritten in plain syntax
+  CE2        "a round" cut from the craft section
+  CE3        Meter relocation defined twice and differently; key term now verbatim
+  CE4        number style mixed inside one sentence
+  CE5, CE6   pronoun-antecedent faults
+  CE7 to CE9 RAISED AND UNRULED, listed in the checklist
+  CE10       the stacked-interrupter sentence the style guide itself cites
+  CE11, CE12 two further interrupters, per style guide Part 5
+  CE13       antithesis budget, and a genuine repetition it surfaced
+  CE14       "the reader" removed from the teaching body
+
+**CE3 IS THE FINDING WORTH CARRYING TO EVERY CHAPTER, AND IT IS NOW MECHANICAL.**
+"Meter relocation" was defined twice, once as a body callout and once as a key
+term, and the two did not match. The other three terms appearing in both places
+were character for character identical, which is what showed this to be an
+oversight. Gate 6 counts entries and header bands and read 8 and 8 throughout, and
+it was a live G3 risk because `continuity.py` treats a verbatim restatement as not
+a redefinition. **The check now runs in `voicecheck.py` as part of the house-style
+block**, and its negative test reproduces CE3 exactly.
+
+**CE13 IS THE ONE TO LEARN FROM, BECAUSE THE COUNT WAS NOT THE FINDING.** The
+antithesis budget reported 4 against 3. Reading them showed two making the SAME
+move one paragraph apart in 1.4: "not because no one is paying attention" and
+"What is missing is not attention". A repetition a reader feels. The budget
+surfaced it; the reading found it. The C6 guard that the cut clause was carrying
+was verified present twice elsewhere in the same section BEFORE cutting.
+
+**A REGISTER NOTE QUOTED THE SENTENCE CE11 CHANGED, AND WAS UPDATED IN THE SAME
+COMMIT.** Sixth instance in this chapter of a record outliving the prose, and the
+FIRST caught at the moment of the edit rather than three steps later. Before
+editing any sentence, grep the register for it. That note is where SF8 to SF10
+were found, precisely because it quotes the sentence.
 
 **TWO EDITS ARE APPLIED, CE1 AND CE2, AND EACH ONE STALED THE OUTSTANDING PROOF.
 THAT IS NOW A RULE RATHER THAN AN OBSERVATION: the re-export is part of applying
@@ -682,37 +695,49 @@ text (Decision 50). Both tools need `python-docx`, pinned in
 record mentions it, it is gone and Decision 50 is why.
 
 **Process tooling.** `status_check.py`, `gen_checklists.py`, `voicecheck.py`
-(now prints the Decision 33 measure), `reopen.py`, `continuity.py` (G3),
-`AIOM_Continuity_Ledger.md`, `typographic_quotes.py`, `renumber_stage_folders.py`.
+(Decision 33 measure, plus the five prose style guide Part 8 house-style checks
+since 2026-08-12; `--voice-only` suppresses that half for Stage 4 work in
+progress), `reopen.py`, `continuity.py` (G3), `AIOM_Continuity_Ledger.md`,
+`typographic_quotes.py`, `renumber_stage_folders.py`, and **`git_hygiene.py`,
+which is run BEFORE every merge and every session close** (CLAUDE.md section 9).
+
+**The prose standard is TWO files and they divide cleanly.**
+`AIOM_Voice_and_Craft_v1.md` governs the six craft criteria C1 to C6;
+`AIOM_Prose_Style_Guide_v1.md` governs the reader model, altitude, sentence-level
+craft, the drafting protocol and the house style sheet. Read both before
+drafting. **Part 5 of the guide is the answer to prose that reads denser than its
+ideas**, which is the most common complaint about this book's drafts.
+
+**The QA suite is FIFTEEN gates**, not fourteen. Gate 15, typographic marks, was
+added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-00. **THREE ITEMS RECOVERED FROM `chapter-1-prose-style-x0bzze`, ALL UNRULED.**
-    The branch audit of 2026-08-12 found these stranded since 2026-08-05. Nothing
-    references any of them from `main`.
+00. **CLOSED 2026-08-12. The prose style guide is adopted and its checks are
+    running.** Three items were recovered from `chapter-1-prose-style-x0bzze`,
+    stranded there since 2026-08-05. Dan ruled option B: adopt the guide, retire
+    its duplicated Part 6 to a pointer, then port the checks separately.
 
-    a. **`AIOM_Prose_Style_Guide_v1.md`, 971 lines, orphaned.** Sections on
-       altitude, register, mechanical rules, sentence-level craft, a drafting
-       protocol and a house style sheet. **THIS IS DIRECTLY RELEVANT TO A LIVE
-       COMPLAINT.** On 2026-08-12 Dan said the drafts carry "overly complex
-       syntax and semantics" and that "the ideas are complex, the writing does
-       not need to be". That is what sections 4 and 5 of this guide address, and
-       it was sitting on a branch the whole time. The question is whether it is
-       adopted, folded into `AIOM_Voice_and_Craft_v1.md`, or left retired. It
-       predates the voice standard and nothing in the repo cites it.
-    b. **A TYPOGRAPHIC-MARKS BUILD GATE THAT `main` DOES NOT HAVE, and it closes
-       a gap CLAUDE.md records as open.** CLAUDE.md says in as many words that NO
-       GATE IN THIS SUITE READS PUNCTUATION, and that Chapter 1 shipped straight
-       quotation marks in every generated footnote past fourteen green gates.
-       That branch's `AIOM_build.py` carries a gate that fails on straight quotes
-       and apostrophes, excluding the JSON source register which legitimately
-       uses them. It is numbered 12 there and would be gate 15 here.
-    c. **`AIOM_Placed_Vocabulary_Ledger.md`, 48 lines.** A vocabulary placement
-       record. Least urgent of the three, and it may be superseded by the
-       continuity ledger, which nobody has checked.
+    - **`AIOM_Prose_Style_Guide_v1.md` is on `main` at v1.6.** Part 6 duplicated
+      `AIOM_Voice_and_Craft_v1.md` and is now a pointer to it. **The two files
+      divide as stated in CLAUDE.md section 2**: the craft file governs C1 to C6,
+      the guide governs everything else about prose. Part 9 was rewritten because
+      the original described a repository that never existed.
+    - **The typographic check is gate 15 in `AIOM_build.py`**, verified by
+      negative test.
+    - **The five Part 8 house-style checks are in `voicecheck.py`**, ported one
+      at a time because the branch script was 262 lines and this one is 470.
+      Each verified by negative test; one reproduces CE3 exactly.
+    - **STILL UNRULED: `AIOM_Placed_Vocabulary_Ledger.md`, 48 lines.** The one
+      item not taken. It may be superseded by the continuity ledger, which
+      nobody has checked.
 
-    Recommendation: take (b) first. It is a mechanical check closing a documented
-    gap, it costs one merge and one build, and it protects all fifteen chapters.
+    **THE ADOPTION PAID FOR ITSELF WITHIN THE HOUR.** The guide's Part 5 rule 2
+    cites one sentence as its example of stacked interrupters, and that sentence
+    was still in the opening case, having survived a developmental edit, a voice
+    pass, a design review, a production gate and two copy-edit rounds since it
+    was named on 2026-08-05. It is CE10. The ported checks then raised CE13 and
+    CE14 with no human read involved.
 
 0. **CLOSED 2026-08-10. Dan ruled it in, and `factcheck_packet.py` is now at the
    repo root.** The packet is judged worth having on every chapter: Stages 3 and 7
