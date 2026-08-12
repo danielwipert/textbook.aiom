@@ -558,6 +558,30 @@ def qa(path, expected_footnotes=None, source_html=None):
         fails.append(f"orphan: a paragraph's first line alone at the foot of "
                      f"page(s) {orphans}")
 
+    # Gate 15, typographic marks. Recovered 2026-08-12 from
+    # claude/chapter-1-prose-style-x0bzze, where it had been stranded since
+    # 2026-08-05, and renumbered from 12 to 15 because this suite's gate 12 is
+    # figure captioning.
+    #
+    # This closes the gap CLAUDE.md records in as many words: NO GATE IN THIS
+    # SUITE READS PUNCTUATION. Gate 2 tests em and en dashes and nothing else,
+    # which is how Chapter 1 shipped straight quotation marks in all six
+    # generated footnotes past fourteen green gates, twice.
+    #
+    # Checked against the RENDERED PDF, never the HTML, for two reasons. The
+    # chapter's source register is JSON and legitimately carries straight
+    # quotes as syntax, so the HTML would fail on apparatus that never prints.
+    # And footnotes are generated at build time from that block, so a straight
+    # mark can reach the printed page even when every line of chapter prose is
+    # clean. That is exactly the defect that got through before.
+    straight = [(i + 1, c["text"]) for i, p in enumerate(pdf.pages)
+                for c in p.chars if c["text"] in ("'", '"')]
+    print(f"15. typographic marks ..... {len(straight)}")
+    if straight:
+        pages = sorted({p for p, _ in straight})
+        fails.append(f"straight quotes or apostrophes on page(s) {pages}: "
+                     f"{straight[:5]}; use the typographic forms")
+
     LAST_FAILS[:] = fails
     print("\nQA " + ("PASSED" if not fails else "FAILED"))
     for f in fails:

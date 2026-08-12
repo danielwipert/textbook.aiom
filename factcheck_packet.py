@@ -107,7 +107,7 @@ def main():
     out.append("Claude environment, verified 2026-08-06 against six of them, so nothing")
     out.append("below is a verification. It is the material a checker needs.\n")
     out.append(f"LIVE TEXT      `{a.html}`")
-    out.append(f"RENDER         `{a.render}`, built this session, all fourteen gates green.\n")
+    out.append(f"RENDER         `{a.render}`, built this session, all fifteen gates green.\n")
     out.append("WHAT THIS IS. Every passage carrying a citation marker, with the keys it")
     out.append("cites and the register entry behind each key. The register note is")
     out.append("reproduced in full because it carries the verification history and, for")

@@ -313,6 +313,36 @@ audit draft shows. `.audit-only` hides the source block from the render.
 
 ---
 
+### Gate 15. Typographic marks
+
+**Added 2026-08-12.** Fails on any straight apostrophe (`'`) or straight double
+quote (`"`) found in the rendered PDF, and reports the pages carrying them.
+
+**What it closes.** Until this gate existed, NO GATE IN THIS SUITE READ
+PUNCTUATION. Gate 2 tests em and en dashes and nothing else. That is how
+Chapter 1 shipped straight quotation marks in all six generated footnotes past
+fourteen green gates, and then how the doubled-comma regression that followed
+the `cite_format.py` fix passed fourteen gates twice, on the build that
+introduced it and the build that removed it.
+
+**Why it reads the PDF and not the HTML.** Two reasons, and both are load
+bearing. The chapter's source register is JSON and legitimately carries straight
+quotes as its syntax, so an HTML-side check fails on apparatus that never
+prints. And footnotes are GENERATED AT BUILD TIME from that block, so a straight
+mark can reach the printed page even when every line of chapter prose is clean.
+That is precisely the path the original defect took.
+
+**Provenance.** Recovered from `claude/chapter-1-prose-style-x0bzze`, where it
+had been written on 2026-08-05 and stranded ever since. It was gate 12 there;
+this suite's gate 12 is figure captioning, so it is renumbered 15.
+
+**Verified by negative test**, per the precedent set when gate 12 was fixed. A
+straight double quote was injected into section 1.3, and the gate failed the
+build and named page 8. Injection removed. A new check that only ever reads
+green is not evidence that it measures anything.
+
+---
+
 ## 7. Standing rule for this file
 
 This document and `AIOM_build.py` must move together. A gate added, removed,

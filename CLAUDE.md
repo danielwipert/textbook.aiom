@@ -142,7 +142,7 @@ sources are dated. Constructed material is labelled as constructed.
 
 | Path | What it is |
 |---|---|
-| `AIOM_build.py` | Font staging, WeasyPrint render, fourteen QA gates, toolchain preflight. One command. |
+| `AIOM_build.py` | Font staging, WeasyPrint render, fifteen QA gates, toolchain preflight. One command. |
 | `AIOM_book.css` | The locked design system. |
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `copyedit_export.py` | Chapter HTML to a copy-editing `.docx` plus a round-trip manifest. Stage 6 happens in Word; this is how it gets there. Excludes the source register by design. |
@@ -187,7 +187,7 @@ apt-get update -qq && apt-get install -y poppler-utils
 # The live text. Every chapter has its own path; this is Chapter 1's.
 LIVE=Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html
 
-# Render plus all fourteen QA gates. AIOM_build.py sets base_url to the HTML's
+# Render plus all fifteen QA gates. AIOM_build.py sets base_url to the HTML's
 # OWN directory, so building in place under Drafts/ loses AIOM_book.css and
 # fonts/ and reports dozens of false defects. Copy to the repo root, build
 # there, delete the copy and its .print.html sibling. Create build/ first: the
@@ -234,7 +234,7 @@ than from this list.
 
 ## 6. QA gates and their remedies
 
-The suite is fourteen gates. Full detail in `AIOM_Design_QA_Spec_v1.md`. The ones
+The suite is fifteen gates. Full detail in `AIOM_Design_QA_Spec_v1.md`. The ones
 that fail most often:
 
 - **Gate 1, horizontal overflow.** 428.4pt odd pages, 417.6pt even, 1.5pt

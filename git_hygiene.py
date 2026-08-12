@@ -108,9 +108,22 @@ def main():
     if stranded:
         rc = rc or 1
 
+    # origin/main is trivially merged into itself, and deleting the branch you
+    # are standing on is never safe. Both were listed as deletable on the first
+    # run of this script, which is the kind of suggestion a tired reader acts on.
+    protected = {"origin/main", f"origin/{head}"}
+    merged = [b for b in merged if b not in protected]
+
     print(f"\nFULLY MERGED INTO MAIN, SAFE TO DELETE  ({len(merged)})")
     for b in merged:
         print(f"  {b}")
+    if merged:
+        print("\n  Delete them with:")
+        print("    " + " ".join("git push origin --delete "
+                                + b.split("/", 1)[1] for b in merged[:1]))
+        print("  or all at once:")
+        names = " ".join(b.split("/", 1)[1] for b in merged)
+        print(f"    git push origin --delete {names}")
 
     print("\n" + "=" * 68)
     if rc == 0:
