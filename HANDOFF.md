@@ -7,7 +7,39 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-status-gli2c0`.
+Active working branch: `claude/stage-7-explanation-sdsb38`, **ONE COMMIT AHEAD OF
+`main` AND ZERO BEHIND.** Verified by `git_hygiene.py` immediately before writing
+this, not by hand. That one commit is the gate 15 correction, the G2 reopen, and
+the `gen_checklists.py` fix described under the chapter status. **MERGE IT UP
+BEFORE THIS BRANCH IS RETIRED**, which is rule 4 of CLAUDE.md section 9 and the
+shape of every stranding incident this file records.
+
+**A PUSH FROM THIS CONTAINER RECREATED A BRANCH DAN HAD DELETED, AND CLAUDE CANNOT
+UNDO IT.** The 2026-08-12 cleanup left three branches and this was not among them.
+A session that had been running since before the cleanup pushed again, and the push
+reported `* [new branch]`. The remote now holds four:
+
+  main                                     the trunk
+  claude/stage-7-explanation-sdsb38        +1, this container, NOT YET MERGED UP
+  claude/chapter-1-status-gli2c0           fully merged, safe to delete
+  claude/chapter-1-handoff-review-sbkq2u   +3, superseded, recovery tip `68bc904`
+
+Deletion is Dan's: `git push --delete` returns 403 from this environment. **The
+lesson is narrower than "clean up branches" and worth stating exactly: A DELETED
+BRANCH IS NOT GONE WHILE A SESSION HOLDING IT IS STILL ALIVE.** A long-running
+container carries a local ref and full push rights, so cleanup and open sessions
+have to be sequenced. Close the sessions, then delete.
+
+**"MERGE MAIN UP" WAS ASKED FOR IN THIS CONTAINER ON 2026-08-12 AND THE ANSWER WAS
+THE OPPOSITE DIRECTION.** `main` was EIGHTEEN commits ahead and this branch held
+nothing `main` lacked, because the reconciliation session had already merged it.
+Fast-forwarding `main` to the branch head, the phrase's usual meaning here, would
+have been a no-op at best. The fetch-first rule and `git_hygiene.py` both caught it
+before anything was pushed. This is the second consecutive session where the
+inherited fast-forward assumption was false, so treat it as dead rather than as
+unlucky.
+
+Historical, from the 2026-08-12 reconciliation session:
 
 **FOUR SESSIONS WORKED CHAPTER 1 BETWEEN 2026-08-10 AND 2026-08-12 WITHOUT SEEING
 EACH OTHER, AND THE RESULT WAS THREE DISAGREEING RECORDS OF ONE CHAPTER.** Dan
@@ -179,13 +211,33 @@ session added a second instance of the same shape in a different place, a scope
 claim in the Stage 5 record naming a page that had not been read; see the chapter
 status below.
 
-## Chapter 1 status: 8 of 13, STAGE 7 IS UNDER WAY AND IS DAN'S
+## Chapter 1 status: 7 of 13, G2 REOPENED 2026-08-12
 
-25 pages, 7,062 words, CSS v7.1, `voicecheck.py` mechanically clean,
-`status_check.py` reports 8/13 STATUS CONSISTENT. G2 was re-passed 2026-08-11
-after the Stage 7 edits; Stages 3, 4 and 5 cleared 2026-08-10 and were not
-disturbed, because Dan ruled the edits citation-only and that row of the scoped
-re-run matrix re-runs the fact check and G2 alone.
+`status_check.py` reports 7/13 STATUS CONSISTENT. CSS v7.1. Stages 3, 4 and 5
+cleared 2026-08-10 and are undisturbed.
+
+**G2 IS REOPENED AND THE REASON GENERALIZES.** It was passed 2026-08-11 against the
+pre-CE3 text. CE3 to CE6 were then ruled and applied on 2026-08-12 by the
+reconciliation, the scoped re-run matrix sends a copy edit to G2, and no re-run was
+made against the reconciled text. So `status_check.py` read 8 of 13 STATUS
+CONSISTENT while a gate was green against prose that no longer existed. That is the
+same shape as the 2026-08-08 reopen, and it happened again for the same structural
+reason: a merge can invalidate a gate that neither side re-ran, because each side
+was internally consistent. **AFTER ANY RECONCILIATION, RE-CHECK EVERY GATE TICK
+AGAINST THE DATE OF THE LAST EDIT THAT COULD MOVE IT.** Nothing mechanical does
+this today.
+
+**THE G2 RE-RUN MUST CLEAR FIFTEEN GATES, NOT FOURTEEN.** Gate 15, typographic
+marks, was added 2026-08-12 and has never run against this chapter at G2.
+
+**`gen_checklists.py` WAS EMITTING FOURTEEN GATE BOXES WHILE THE BUILD RAN FIFTEEN,
+AND BOTH ARE FIXED.** A G2 pass could have been ticked without gate 15 ever being
+recorded. This is the 2026-08-05 drift running the other way: then the checklist
+claimed checks the build never performed, now the build performed one the checklist
+did not list. Both produce a gate that reads green while nobody looked. G2 is now
+eighteen boxes. Found only because CLAUDE.md requires checking box TEXT against the
+generator after a reopen, since `reopen.py` resets ticks and does not regenerate
+text.
 
 **STAGE 7 IS OPEN. EXTERNAL CHECK 1 IS BACK AND ARCHIVED; FOUR OF ITS FIVE
 PRECISION FLAGS ARE APPLIED.** Full record under Stage 7 in the checklist.
@@ -426,7 +478,34 @@ The packet built for the checks that were passed is still filed in
                                            register entry behind each key, each
                                            note verbatim.
 
-### What the 2026-08-12 session did
+### What the 2026-08-12 stage-7 container did, AFTER the reconciliation
+
+A second session was still running on `claude/stage-7-explanation-sdsb38` while the
+reconciliation below happened, and could not see it. Its Stage 7 and G2 work is
+already in `main`; what follows is only what it did after merging `main` in.
+
+1. **Ran G2 to completion on the pre-reconciliation text.** Fourteen gates, figure
+   geometry by pixel sampling, and all twenty-five pages read at 150 dpi. It found
+   PG2, straight quotation marks in every generated footnote, and then PG2a, a
+   doubled comma its own fix introduced through `_join` keying on the ASCII quote.
+   Both are fixed in `cite_format.py` and both are in `main`.
+2. **Cut CLAUDE.md section 10 from 323 lines to 194**, to durable rules only, and
+   graduated six duplicated standing reminders out of this file into it. Every
+   retained item was checked to still resolve, and two existed nowhere else: Gap
+   G-II and the `AIOM_Source_Ledger.md` pointer.
+3. **Told to "merge main up", found `main` eighteen ahead instead.** See the
+   repository state above.
+4. **Corrected the gate 15 claim, reopened G2, and fixed `gen_checklists.py`.** See
+   the chapter status above. This is the one commit `main` does not yet have.
+
+**THE CONNECTING THREAD IS THAT GATE 15 EXISTS BECAUSE OF PG2, AND NEITHER SESSION
+KNEW ABOUT THE OTHER.** This container found straight quotes by reading pages; the
+reconciliation recovered a typographic-marks gate stranded since 2026-08-05. Two
+sessions solved the same defect the same day by different routes, one by hand and
+one by tooling. That is the cost of concurrency stated precisely: not wrong work,
+duplicated work.
+
+### What the 2026-08-12 reconciliation session did
 
 **Almost none of it was drafting, and that was the point.** Dan ruled mid-session
 that keeping the repository coherent is Claude's job, not his, after spending his
@@ -812,7 +891,23 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
    died with its container, and the Stage 7 packet four hours later rebuilt the
    same work from nothing.
 
-1. **Chapter 1 Stages 6, 7 and 8 are DAN'S. Stage 7 is the live one.**
+1. **RE-RUN G2. CLAUDE'S, AND IT IS THE TOP OPEN ITEM.** Reopened 2026-08-12
+   because the 2026-08-11 pass was taken against the pre-CE3 text. It must clear
+   FIFTEEN gates now, and gate 15 has never run against this chapter at G2. Four
+   things to carry in:
+
+   - **Build from the repo root, never in place under `Drafts/`.** CLAUDE.md
+     section 5 carries the runnable block.
+   - **The page read is eighteen boxes, and two of them are MANUAL.** Figure
+     geometry by pixel sampling, and all twenty-five pages read at 150 dpi. Delete
+     and regenerate the rasters first: a stale page read is worse than none.
+   - **Read the pages, do not only gate them.** The 2026-08-11 run found two
+     defects no gate could see, and the second was introduced by the fix for the
+     first.
+   - **Gaps G-I and G-II mean callout placement and slot openings must be READ**
+     whenever pagination moves, and the reconciliation moved it.
+
+2. **Chapter 1 Stages 6, 7 and 8 are DAN'S. Stage 7 is the live one.**
 
    **STAGE 6 IS MARKED OPEN, AND ITS PROOF IS ROUND 9.** Dan closed Stage 6 at
    9 of 13 on 2026-08-10, that ruling is preserved verbatim in the checklist, and
@@ -871,13 +966,13 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
      That is standing rule 4a working as designed. If a panel line reads badly
      the remedy is the prose beside it, never the panel.
 
-2. **Gaps G-I and G-II are not closed, and bind any future design work.** Both require a chapter whose
+3. **Gaps G-I and G-II are not closed, and bind any future design work.** Both require a chapter whose
    pagination or callout placement moves to be READ rather than gated, and this
    chapter's pagination moved four times on 2026-08-10. Gate 14 still cannot see a
    stranded head GROUP, and a floated callout can still collide with a block panel
    unseen.
 
-3. **G3 and Stage 9, both Claude's, after Dan's three steps.** Stage 9 carries a
+4. **G3 and Stage 9, both Claude's, after Dan's three steps.** Stage 9 carries a
    BOOKED PENDING-ACTIONS LIST in the checklist, because these are owed at lock and
    are easy to lose: re-set the craft baseline band from the locked text (NOTHING
    READS AGAINST A BAND UNTIL THIS IS DONE); do NOT let `continuity.py --update`
@@ -886,7 +981,7 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
    logged as a Chapter 1 term, since it became the eighth key term on 2026-08-10,
    after the ledger design was written.
 
-4. **Remaining process hardening** (Dan approved, still to build):
+5. **Remaining process hardening** (Dan approved, still to build):
    - **The ruled-sentence sweep as a gate.** About fifteen lines: compare every
      sentence a register note quotes as ruled against body prose, with the register
      block excluded so the notes cannot self-match. It has already failed once by
@@ -911,7 +1006,7 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
      HTML in the live-text directory and is not gitignored. Delete it after every
      run until the tool is changed.
 
-5. **Chapter 2 (The Flow).** Drafts against the amended band, 6,500 to 7,500, and
+6. **Chapter 2 (The Flow).** Drafts against the amended band, 6,500 to 7,500, and
    is the first chapter written under the craft standard from Stage 0, so its
    acknowledgment box is a live requirement rather than a retrospective one. TWO
    THINGS IT MUST CARRY FROM DAY ONE: `<html lang="en-US">` (Decision 59; there is
@@ -919,7 +1014,7 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
    (Decision 58). And it is read against NO craft band until Stage 9 re-sets one
    from the locked Chapter 1.
 
-6. **Decision 28**, Northmoor properties G, H, I. Gates Ch9, Ch12, Ch13 problem
+7. **Decision 28**, Northmoor properties G, H, I. Gates Ch9, Ch12, Ch13 problem
    sets only.
 
 ## Standing reminders
