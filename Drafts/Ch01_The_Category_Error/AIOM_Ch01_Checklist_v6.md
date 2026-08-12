@@ -3387,6 +3387,299 @@ the same two pagination failures, still 26 pages.
 
 ---
 
+### Round 4, on the round-3 proof. CE1, ruled and applied 2026-08-10.
+
+The first finding of the current round, and at the time of writing the only one.
+Recorded here on 2026-08-10 because it was not recorded when it was applied: the
+edit was committed as `6054674` and its entire record was the commit message.
+
+**CE1, the Category error key-term entry, rewritten in plain syntax.** Dan's
+finding. The entry ran two sentences at mean 25.5 words, stacking three clauses
+before the reader reached a complete thought, and it carried a semicolon splice.
+The ideas are complex; the writing does not need to be.
+
+The ruled sentences, quoted so the fix is greppable if a later round reverts it:
+
+  "The error of managing a metered resource as if it were licensed software.
+   It rests on a false assumption: that the access price fixes the total cost.
+   The tool is the right one and the vendor is not at fault. The economic
+   model applied to the tool is wrong."
+
+Four sentences, 50 words, mean 12.5, in genus and differentia form, which is the
+standard definitional shape and which the old opening ("The mistake of buying
+access to ... and managing ... on the assumption that ...") did not have. An
+intermediate draft used a three-word retort, "It does not." Dan ruled it too
+conversational for a glossary: plain words and short sentences are not the same
+thing as a rhetorical beat. Classification replaced it.
+
+MEANING IS UNCHANGED, which is what holds this inside the copy-edit row of the
+scoped re-run matrix, re-running G2 alone rather than the four steps a teaching
+change would. The same five propositions survive: metered resource managed as
+software, access price assumed to be total cost, tool right, vendor blameless,
+model wrong. A variant that also stated the positive case was drafted and
+rejected for adding a proposition.
+
+Verified after recovery, in a fresh container rather than trusted from the commit
+message: all fourteen gates pass, 25 pages held, `voicecheck.py` mechanically
+clean. Key terms, the weakest section in the chapter on both craft proxies,
+improves from mean 18.2 to 15.9 words and from 14 to 19 percent short sentences
+on this one entry. Chapter 7,062 to 7,066 words on the Decision 33 measure.
+
+**THE COMMIT WAS STRANDED, AND THAT IS THE PROCESS FINDING.** It was committed to
+`claude/chapter-1-status-gli2c0` after that branch had already been levelled with
+`main`, so `main` never received it and the next session started from a container
+whose live text did not contain it. It was recovered by fast-forward on
+2026-08-10. Nothing detected the gap: `status_check.py` reads the checklist,
+which had no CE1 entry, and the fourteen gates read whichever text they are given.
+A commit message is not a record. This is the sixth instance in this repo of work
+that read as done and was not, and the first where the artifact itself went
+missing rather than the check.
+
+**CONSEQUENCE FOR THE PROOF, and it must be settled before the next Word round.**
+CE1 shortened the live text by exactly three characters, and
+`AIOM_Ch1_CopyEdit_round3.manifest.json` stores absolute character offsets. Of its
+221 blocks, 144 spans remain correct, 64 are now stale by exactly three characters
+(every block from i=157, which is the Key terms entries from "Consumption event"
+onward, all four discussion questions, and all three problems including the P3
+table), and 13 differ for reasons unrelated to CE1 (twelve carry citation keys the
+export excludes by design, and the thirteenth is CE1's own block).
+
+This is a usability problem and not a corruption risk, which was established by
+reading the apply path rather than assumed. `copyedit_import.py` locates each edit
+inside `frag = src[s0:e0]`, a genuine slice of the current file, so a located match
+carries a true absolute offset even when the window is shifted; and it writes only
+under `if a.apply and not problems and not refused`, so a single refusal blocks the
+whole write. The worst case is an edit falling in a block's final three characters
+being refused. The remaining hazard is editorial rather than mechanical: the
+round-3 `.docx` still displays the PRE-CE1 Category error definition, so an editor
+working from it would be reading text that no longer exists and could reinstate it
+without anything mechanical objecting. Regenerating the export from the post-CE1
+live text removes both. Not yet ruled.
+
+**PROOF REISSUED 2026-08-10, round 4, on Dan's ruling.** It replaces round 3,
+which is superseded and must not be reviewed: its `.docx` still displays the
+pre-CE1 Category error definition, and 64 of its spans are stale.
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round4.manifest.json
+
+221 blocks, exported from the post-CE1 live text (sha256 `dfca6a0c...`) against a
+fourteen-gate render of that same text. Round 3 is kept rather than deleted,
+because a proof is an artifact of a step and a finding is only meaningful against
+the text that produced it, but it is superseded in the same sense the earlier
+rounds are.
+
+**THE STANDING ROUND-TRIP CONTROL IS NECESSARY AND NOT SUFFICIENT, and that is the
+transferable finding.** CLAUDE.md requires the unedited export to round-trip at
+zero reported changes before either tool is trusted on a chapter. Round 4 passes
+it: 221 paragraphs against 221 blocks, zero edited, zero applied, zero refused,
+with the live text hash identical before and after. **Round 3 passed exactly the
+same control while 64 of its spans were stale.** The control cannot see span
+staleness, because `copyedit_import.py` compares the returned text against the
+manifest's own recorded text and never against the live file, so a manifest that
+has drifted from the chapter still reports a clean round trip.
+
+The check that does see it compares each recorded span against the current live
+text. Run on both, it separates them cleanly:
+
+  round 3   spans correct 144/221   stale by exactly -3   64   other 12
+  round 4   spans correct 209/221   stale                  0   other 12
+
+The twelve are by design and are identical in both rounds, which is what proves
+round 4 introduced nothing: six body paragraphs whose span encloses a nested
+`<cite>` element, which is the structure the round-1 apply pass discovered, and
+their six matching footnote blocks, whose citation-key marker the export excludes
+under Decision 51. A span check on a chapter should expect these twelve and fail
+on a thirteenth.
+
+Recommended as a permanent addition to the Stage 6 procedure for Chapters 2 to 15,
+alongside the round trip rather than instead of it. Not yet ruled.
+
+**CE2, "a round" cut from the craft section. Ruled and applied 2026-08-10.**
+
+Dan read "a round five thousand agents" in the consumption-event inventory as a
+typo for "around". It was not one, and the check that answered it is worth keeping
+because the answer went the opposite way from the report.
+
+The ruled sentence, quoted so the fix is greppable if a later round reverts it:
+
+  "Stipulate, for this exercise, five thousand agents, each handling 40 contacts
+   on a working day, with 6 drafted replies per contact, one retrieval per
+   drafted reply, and 21 working days in the month."
+
+"A round five thousand" was correct English, *round* being an adjective meaning a
+whole and convenient number, and it was load-bearing: "around" would have been
+WRONG, because the passage performs exact arithmetic on the figure. That
+arithmetic was verified rather than assumed, and every quantity in the paragraph
+follows from 5,000 exactly: contacts 4,200,000, suggested replies 25,200,000,
+retrievals 25,200,000 one for one, total 54,600,000, and 10,920 events per seat
+against a prose figure of "about 10,900".
+
+**The finding was the misreading, not the grammar.** Dan is the target reader, and
+a reader who resolves the phrase as "around" takes away an approximate five
+thousand where the passage means an exact one, which quietly undercuts the
+calculation that follows. The word was right and the sentence was still costing
+something. "Stipulate" already carries the work "a round" was doing, so the
+roundness is self-evident from the number and the two words were cut rather than
+replaced. "Exactly five thousand" was considered and rejected as redundant after
+*stipulate*.
+
+MEANING IS UNCHANGED, so this sits in the copy-edit row of the scoped re-run
+matrix and re-runs G2 alone. Verified: all fourteen gates pass, 25 pages held,
+`voicecheck.py` mechanically clean. The live text loses 8 characters, 79,269 to
+79,261.
+
+**A FULL MECHANICAL SPELLING AND GRAMMAR PASS WAS RUN AT THE SAME TIME, and its
+scope is stated from what was done.** `aspell` en_US over the chapter prose with
+the source register excluded, 7,181 words: ZERO spelling errors. All 23 flagged
+tokens are legitimate proper nouns, domain terms (agentic, unmetered, redline,
+SaaS) or citation keys. Doubled words, article agreement, split and joined
+confusions, and the homophone set (its/it's, their/there, then/than,
+affect/effect, principal/principle, fewer/less, discreet/discrete, lead/led,
+restrictive *which*) all clean on inspection.
+
+Three false positives, recorded so they are not raised again: "COST COST USAGE
+USAGE" is Figure 1.2's two panels each carrying both axis labels, adjacent once
+tags are stripped; `README` is the source register's own key; and "a usage-based
+charge" is correct, since *usage* takes *a*.
+
+THE LIMIT OF THAT PASS, stated because it is the interesting part: it is a
+dictionary and pattern check. It catches misspellings and confusables. It would
+NOT have caught "a round" had that actually been wrong, because the phrase is two
+correctly spelled words in a grammatical construction. The reader caught what the
+tooling could not, and the tooling then proved the reader wrong. Neither was
+sufficient alone.
+
+**PROOF REISSUED, round 5.** CE2 staled round 4 exactly as predicted, so the
+export was rebuilt from the post-CE2 live text (sha256 `2b0d34d5...`) against a
+fourteen-gate render of that same text.
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round5.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round5.manifest.json
+
+Both controls run. The round trip passes at 221 blocks, zero edited, zero applied,
+zero refused, live text hash identical before and after. The span check, measured
+against the CURRENT live text, is what separates them:
+
+  round 3   spans correct 134/221   stale 73   other 14
+  round 4   spans correct 134/221   stale 74   other 13
+  round 5   spans correct 209/221   stale  0   other 12
+
+Round 5's twelve are the same twelve indices as round 4's (9, 10, 13, 14, 15, 16,
+96, 97, 100, 101, 140, 141), every one carrying a citation-key span, which is what
+proves round 5 introduced nothing. **ROUNDS 3 AND 4 ARE BOTH SUPERSEDED AND MUST
+NOT BE REVIEWED.** This is the second time in one session that an applied edit
+staled the outstanding proof, and it is now a rule rather than an observation: an
+edit to the live text invalidates the current export, and the re-export is part of
+applying the edit rather than a later step.
+
+### Round 6, on a full read. CE3 to CE6, ruled and applied 2026-08-10.
+
+**THESE FOUR WERE FOUND AND APPLIED IN A CONCURRENT SESSION AND CARRIED THE
+LABELS CE2 TO CE5 THERE. THEY ARE RENUMBERED CE3 TO CE6 HERE**, on Dan's ruling,
+because the session that raised them could not see this checklist and reused a
+label CE2 already owned. The mapping is recorded once so the commit message that
+says "CE2 to CE5" can still be followed: CE2 to CE3, CE3 to CE4, CE4 to CE5,
+CE5 to CE6. The unruled findings from the same read are CE7 to CE9 below.
+
+Dan asked for a full read of the draft for glaring grammar and spelling issues.
+`codespell` over the body prose returned zero, matching the `aspell` result
+recorded under round 5, and the doubled-word and space-before-punctuation checks
+were clean. A first spelling scan produced ten hits that were ALL false positives
+from a regex matching "promised" and "revised" as British forms; it was re-run
+tighter before anything was reported. The craft-section arithmetic was verified
+independently and is correct at 25.2, 25.2 and 4.2 million, 54.6 million total,
+and 10,920 per seat against the stated 10,900.
+
+**CE3, "Meter relocation" was defined twice and the two definitions did not
+match.** The only real defect in the read. The body callout read "The placement of
+consumption metering on the provider's side of a flat-rate subscription"; the
+key-term entry read "The principle that flat-rate pricing does not eliminate
+consumption measurement", with different supporting sentences. The key-term entry
+now repeats the callout verbatim.
+
+The finding came from a check worth keeping: every term appearing BOTH as a body
+callout and as a key-term entry was tested for exact equality. Access price,
+Software access model and Consumption event are character for character
+identical. Meter relocation was the only divergence, and that is what showed it
+to be an oversight rather than a convention. **NO GATE SEES THIS.** Gate 6 counts
+entries and header bands and read 8 and 8 throughout. It was also a live G3 risk,
+since `continuity.py` treats a verbatim restatement as not a redefinition, so the
+divergent copy could have failed the continuity gate later. Recommended as a
+mechanical check for Chapters 2 to 15; it is four lines of code.
+
+**CE4, number style mixed inside one sentence** in the craft section: "five
+thousand" and "one" spelled out beside numerals 40, 6 and 21, where the chapter
+spells out everywhere else. A scan of the whole body found the only other bare
+numerals are 4.7 million and 75 percent, both cited statistics where numerals are
+correct. The prose is now spelled out and the equation keeps its numerals. The
+ruled sentence, quoted so a later round cannot silently revert it:
+
+  "Stipulate, for this exercise, five thousand agents, each handling forty
+   contacts on a working day, with six drafted replies per contact, one
+   retrieval per drafted reply, and twenty-one working days in the month."
+
+**CE4 AND CE2 EDITED THE SAME SENTENCE IN TWO BRANCHES AND BOTH SURVIVE.** CE2
+cut "a round" and kept the numerals; CE4 kept "a round" and spelled them out. The
+merge took both, because the two fixes are orthogonal improvements to one
+sentence. This was the only merge conflict.
+
+**CE5, singular antecedent with a plural pronoun**, in the same clause as a
+singular verb. "the tokens each customer consumed and the published rate of the
+model they selected" now reads "... the model that customer selected".
+
+**CE6, "they" with no clean antecedent** in the Software access model definition,
+where the nearest noun was "the organization". "how much of the software they
+consume" now reads "how much of the software each user consumes". Applied to BOTH
+copies, callout and key term, because CE3 is only meaningful if the pairs stay
+verbatim.
+
+**THREE FINDINGS RAISED AND NOT YET RULED**, carried so they are not rediscovered:
+
+  CE7  "additional usage was priced at the same rates" has no clear referent;
+       the antecedent is "the model provider's API rate", singular, two
+       paragraphs earlier
+  CE8  "reaching their plans' usage limits sooner" gives no comparison point
+  CE9  "behaviour" twice in the source register, British spelling in an en-US
+       document. Outside the copy edit by Decision 51, so flagged not fixed
+
+**PROOF REISSUED, round 6**, under the rule established at round 5: the re-export
+is part of applying an edit. Exported from the post-merge live text (sha256
+`be9cbe79...`) against a fourteen-gate render of that same text.
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round6.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round6.manifest.json
+
+Round trip passes at 221 blocks, zero edited, zero applied, zero refused, live
+text hash identical before and after.
+
+**ROUNDS 3, 4 AND 5 ARE ALL SUPERSEDED AND MUST NOT BE REVIEWED.** The span check
+was re-implemented in this session rather than reused, so ITS ABSOLUTE NUMBERS
+ARE NOT COMPARABLE WITH THE ROUND-5 TABLE ABOVE, which was produced by a
+different construction. Stated plainly rather than presented as continuous with
+it. What it does establish is the comparison across rounds under one method:
+
+  round 3   spans correct   9/221
+  round 4   spans correct   9/221
+  round 5   spans correct   9/221
+  round 6   spans correct 205/221
+
+The 16 blocks in round 6 that do not resolve exactly are 6 footnotes, 5 section
+heads, 3 body blocks and 2 figure captions. The footnotes are generated from the
+source register at build time and have no span in the source HTML. The other ten
+were NOT individually traced, and that is stated rather than glossed.
+
+A first version of this check reported round 6 at 6 of 221, which was impossible
+for a manifest exported seconds earlier. The check was wrong, not the export: it
+compared a raw-HTML slice against the manifest's plain text, so every block
+carrying inline markup failed. Fixed before any number was reported. This is the
+same shape as the gate 12 defects, and the same lesson: when a check and the
+artifact disagree, find out which one is wrong before believing either.
+
+Stage 6 remains OPEN. It is Dan's step and further rounds may be taken at any time.
+
+---
+
 ## Stage 7. Final fact check 2
 
 Owner: Dan

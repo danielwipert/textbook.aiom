@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-10, at the close of the SECOND session that day. Read this
+Last updated: 2026-08-10, at the close of the FOURTH session that day. Read this
 plus CLAUDE.md before starting work, and update this file before ending the
 session. The protocol is CLAUDE.md section 11. A SessionStart hook
 (`.claude/settings.json`) prints this file into context automatically at the
@@ -8,11 +8,58 @@ start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-status-gli2c0`, new in the second
-2026-08-10 session. It replaces `claude/chapter-1-stage-3-r2rtyq`, which is
-finished and fully merged; do not add to it.
+Active working branch: `claude/chapter-1-status-gli2c0`. **`main` CARRIES
+EVERYTHING FROM BOTH THAT BRANCH AND `claude/stage-6-edits-rof1yb`, AND ALL THREE
+ARE LEVEL.** Start the next session from `main` and neither branch matters.
 
-**`main` WAS MERGED UP AT THIS SESSION'S CLOSE and `main` and this branch are
+**TWO SESSIONS RAN CONCURRENTLY ON 2026-08-10 AND BOTH EDITED THE SAME CHAPTER.
+THE FAST-FORWARD ASSUMPTION THIS FILE HAS CARRIED SINCE THE BEGINNING BROKE, AND
+IT WILL BREAK AGAIN.** Every earlier entry says `main` carries no commits of its
+own so every merge is a clean fast-forward. That was true until the third and
+fourth sessions overlapped. The fourth session was told "merge main up", ran the
+fetch first, and found `main` six commits AHEAD of it with one commit of its own
+outstanding. `git push origin HEAD:main` would have been rejected, and a force
+would have destroyed two HANDOFF refreshes, two proof rounds and 190 lines of
+checklist record.
+
+It was resolved by a real merge rather than a fast-forward: `origin/main` merged
+INTO the working branch, one content conflict resolved by hand, a full rebuild,
+and then the merge commit pushed to `main`. Nothing was discarded from either
+side. **The rule that follows: "merge main up" is a request to make the two
+level, NOT a licence to force. Run the fetch, and if `git log origin/main ^HEAD`
+is non-empty, STOP AND READ WHAT IS THERE BEFORE DOING ANYTHING.** In this case
+what was there was a second session's Stage 6 work.
+
+Two further consequences worth keeping. Concurrent sessions produce COLLIDING
+FINDING LABELS: both sessions numbered their copy-edit findings from CE1, so the
+fourth session's CE2 to CE5 are renumbered CE3 to CE6 in the checklist, with the
+mapping recorded there once. And both sessions edited THE SAME SENTENCE in the
+craft section, each fixing something real and different; the merge took both.
+
+**A COMMIT WAS STRANDED ON THE PREVIOUS BRANCH AND NEARLY LOST, WHICH IS THE MAIN
+LESSON OF THIS SESSION.** Stage 6 CE1 was committed to
+`claude/chapter-1-status-gli2c0` AFTER that branch had already been levelled with
+`main`, so `main` never received it, and the next session cloned a container whose
+live text did not contain the edit. The session opened believing Stage 6 edits
+were in progress and found a clean tree, no pull requests, no issues, and no
+returned proof. The edit was recovered by fast-forward, but only because every
+branch was searched for commits `main` did not have:
+
+```
+git fetch --all --prune
+for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
+  n=$(git rev-list --count origin/main..$b); [ "$n" != 0 ] && echo "$b +$n"; done
+```
+
+Two things follow. **Merge up before the branch is retired, not after the last
+commit you happen to remember**, and **when a session reports work that is not in
+the tree, search every branch before concluding it was lost.** Note also that
+`origin/claude/stage-6-edits-rof1yb` did not exist on the remote at session start
+while a local tracking ref for it did, so the first sync reading looked clean and
+meant nothing. That is the THIRD instance of a worthless pre-fetch sync reading.
+
+Historical note from the second session, kept because the reasoning still holds:
+**`main` WAS MERGED UP AT THAT SESSION'S CLOSE and `main` and that branch were
 LEVEL.** The branch started level with `main`, took four commits, and `main` was
 fast-forwarded to the branch head. Every merge so far has been a clean
 fast-forward, because `main` carries no commits of its own, and that was verified
@@ -64,10 +111,95 @@ cleared 2026-08-10.
 **Dan's Stages 6, 7 and 8 are next and may run in one sitting.** Then G3 and
 Stage 9, both Claude's.
 
-**THE STAGE 6 PROOF IS BUILT AND WAITING**, new in the second 2026-08-10
-session:
+**STAGE 6 IS UNDER WAY. SIX EDITS ARE APPLIED, CE1 TO CE6, AND THE CURRENT PROOF
+IS ROUND 6.** Chapter is 7,083 words, 25 pages, fourteen gates green. Full record
+under Stage 6 in the checklist, including the CE2-to-CE3 renumbering that the
+concurrent sessions forced.
 
-  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round3.docx`
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round6.docx`
+  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round6.manifest.json`
+
+**ROUNDS 3, 4 AND 5 ARE ALL SUPERSEDED AND MUST NOT BE REVIEWED.** They are kept
+as the artifacts of their steps, not deleted. The round-5 table below was
+produced by a DIFFERENT span-check construction from the round-6 one, so the two
+are not comparable and are printed separately rather than merged into one series:
+
+  measured in the third session   round 3  134/221   round 4  134/221   round 5  209/221
+  measured in the fourth session  round 3    9/221   round 4    9/221   round 5    9/221
+                                  round 6  205/221
+
+**CE3 to CE6, four findings from a full grammar and spelling read**, applied in
+the fourth session. CE3 is the only real defect and NO GATE COULD SEE IT: "Meter
+relocation" was defined twice, once as a body callout and once as a key term, and
+the two definitions did not match. The other three terms appearing in both places
+are character for character identical, which is what showed this to be an
+oversight. It was also a live G3 risk, since `continuity.py` treats a verbatim
+restatement as not a redefinition. **The check that caught it is four lines and
+should be run on every chapter: test each body callout against its key-term twin
+for exact equality.** CE4 was mixed number style inside one sentence, CE5 and CE6
+were pronoun-antecedent faults. Three more findings, CE7 to CE9, are raised and
+UNRULED; they are listed in the checklist.
+
+**TWO EDITS ARE APPLIED, CE1 AND CE2, AND EACH ONE STALED THE OUTSTANDING PROOF.
+THAT IS NOW A RULE RATHER THAN AN OBSERVATION: the re-export is part of applying
+an edit, not a later step.** CE1 shortened the live text by 3 characters and
+staled 64 spans; CE2 shortened it by 8 and staled 74.
+
+**CE2, "a round" cut from the craft section.** Dan read "a round five thousand
+agents" as a typo for "around". It was not one, and the answer went the opposite
+way from the report: "a round" was correct, and "around" would have been WRONG,
+because the paragraph performs exact arithmetic on the figure. That arithmetic was
+verified rather than assumed and every quantity follows from 5,000 exactly. The
+finding was the misreading rather than the grammar, since a reader who resolves
+the phrase as "around" takes an approximate five thousand where the passage means
+an exact one. "Stipulate" already carried the work, so the two words were cut.
+
+**A FULL MECHANICAL SPELLING AND GRAMMAR PASS RAN WITH IT, AND ITS LIMIT IS THE
+PART WORTH CARRYING.** `aspell` en_US over 7,181 words with the source register
+excluded: zero spelling errors, and the doubled-word, article, split-word and
+homophone checks all clean. It would NOT have caught "a round" had that been
+wrong, because the phrase is two correctly spelled words in a grammatical
+construction. The reader caught what the tooling could not, and the tooling then
+proved the reader wrong. Neither was sufficient alone, which is the same shape as
+gate 12 and DR7. Three recorded false positives, so they are not re-raised: "COST
+COST USAGE USAGE" is Figure 1.2's two panels each carrying both axis labels,
+`README` is the register's own key, and "a usage-based charge" is correct.
+
+**CE1, the Category error key-term entry, rewritten in plain syntax.** Dan's
+finding, ruled and applied. Two sentences at mean 25.5 words became four at mean
+12.5, in genus and differentia form, with the semicolon splice gone. Meaning
+unchanged and the same five propositions survive, which is what holds it in the
+copy-edit row of the scoped re-run matrix, re-running G2 alone. Verified in a
+fresh container rather than trusted from the commit message: fourteen gates pass,
+25 pages held, `voicecheck.py` mechanically clean, Key terms improves from mean
+18.2 to 15.9 words and from 14 to 19 percent short sentences.
+
+**THE STANDING ROUND-TRIP CONTROL IS NECESSARY AND NOT SUFFICIENT. THIS IS THE
+TRANSFERABLE FINDING OF THE SESSION AND IT BINDS EVERY LATER CHAPTER.** CLAUDE.md
+requires the unedited export to round-trip at zero reported changes before either
+Stage 6 tool is trusted. Round 3 PASSED that control at 221 blocks, zero edited,
+zero applied, zero refused, while 64 of its spans were stale, because
+`copyedit_import.py` compares the return against the manifest's own recorded text
+and never against the live file. A manifest that has drifted from the chapter
+still round-trips clean. The check that sees it compares each recorded span
+against the current live text:
+
+  round 3   spans correct 144/221   stale by exactly -3   64   other 12
+  round 4   spans correct 209/221   stale                  0   other 12
+
+The twelve are by design and identical in both rounds: six body paragraphs whose
+span encloses a nested `<cite>`, and their six footnote blocks whose citation-key
+marker the export excludes under Decision 51. Expect twelve; fail on a thirteenth.
+Adding this to the Stage 6 procedure for Chapters 2 to 15 is NOT YET RULED.
+
+The stale span was established as a usability problem and not a corruption risk by
+READING the apply path, not by assuming. `copyedit_import.py` locates each edit
+inside `frag = src[s0:e0]`, a real slice of the current file, so a located match
+carries a true absolute offset even when the window is shifted, and it writes only
+under `if a.apply and not problems and not refused`, so one refusal blocks the
+whole write.
+
+Superseded, from the second 2026-08-10 session:
 
 221 blocks, exported from the live text against a fresh fourteen-gate render.
 The `.manifest.json` beside it is what `copyedit_import.py` maps the return
@@ -425,11 +557,18 @@ record mentions it, it is gone and Decision 50 is why.
    script.
 
 1. **Chapter 1 Stages 6, 7 and 8. DAN'S, AND THEY MAY RUN IN ONE SITTING.** Copy
-   edit, final fact check 2, final read. **THE STAGE 6 PROOF IS ALREADY BUILT
-   AND THE ROUND TRIP IS ALREADY BANKED**, so the step can start immediately:
-   open `AIOM_Ch1_CopyEdit_round3.docx`, edit in Word, return it, and import
-   through `copyedit_import.py` with its manifest. Stage 7 is structurally
-   external. TWO THINGS TO CARRY INTO THE ROUND:
+   edit, final fact check 2, final read. **STAGE 6 IS UNDER WAY: CE1 IS APPLIED
+   AND THE CURRENT PROOF IS ROUND 4**, exported from the post-CE1 live text with
+   both the round trip and the span check banked. Open
+   `AIOM_Ch1_CopyEdit_round5.docx`, edit in Word, return it, and import through
+   `copyedit_import.py` with the round-5 manifest. **DO NOT USE ROUND 3 OR ROUND
+   4.** Stage 7
+   is structurally external. THREE THINGS TO CARRY INTO THE ROUND:
+
+   - **Any edit that changes the live text invalidates the current proof.** CE1
+     shortened it by three characters and staled 64 spans. Re-export after
+     applying a round, and run the span check rather than relying on the round
+     trip, which cannot see staleness.
 
    - **Diff the return against the ruled sentences before crediting it.** Three
      ruled Stage 3 narrowings and one ruled Stage 4 fix were silently reverted
