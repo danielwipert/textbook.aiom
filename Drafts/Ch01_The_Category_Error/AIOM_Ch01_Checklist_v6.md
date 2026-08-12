@@ -3138,7 +3138,28 @@ page footnotes shifted pagination.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-12
+
+> **CLOSED 2026-08-12 ON DAN'S RULING: "I have no more edits."** This is the second
+> closure of this step and it is the one in force. WHAT THE TICK MEANS: fourteen
+> copy edits were raised, ruled and applied, CE1 through CE14, and Dan has declared
+> the chapter's prose finished at the line level. It does NOT mean a further round
+> is impossible; Decision 24 places this step late precisely so that it runs on
+> prose that has stopped moving, and prose that moves again reopens it. The stated
+> reversing condition stands: a finding from any later read enters as CE15 and
+> reopens this step.
+>
+> **THE RECORD WAS INCOMPLETE WHEN THE RULING ARRIVED, AND WAS COMPLETED BEFORE THE
+> TICK.** CE10 to CE14 were in the live text with no entry in this checklist,
+> because the session that applied them was concurrent with the reconciliation and
+> wrote its record into commit messages. They are reconstructed below from
+> `d19bf74` and `fceb220`. A step is not closed on a record that stops five
+> findings short of the text.
+>
+> **NOTHING DOWNSTREAM IS INVALIDATED BY THIS TICK.** The last edit to the live
+> text was CE13 and CE14 in `fceb220`; G2 was re-run and passed after it, at
+> fifteen gates on all twenty-five pages. Under the scoped re-run matrix a copy
+> edit re-runs G2 alone, and that has been done.
 
 > **TICK REOPENED 2026-08-12 ON DAN'S RULING, AND THE 2026-08-10 CLOSURE IS KEPT
 > AS HISTORY.** The closure was real and is reproduced verbatim further down this
@@ -4033,6 +4054,68 @@ under CE2.
 and lock. Stage 9 Locked is a separate step with its own booked pending actions.
 
 ---
+
+### CE10 to CE14, RECONSTRUCTED 2026-08-12 FROM THE COMMIT RECORD
+
+**THESE FIVE EDITS WERE APPLIED TO THE LIVE TEXT AND NEVER RECORDED HERE.** Found
+when Dan asked to close Stage 6: the findings above stopped at CE9 while the
+chapter carried CE14. The edits are real, ruled and in the text; only the checklist
+entry was missing, because the session that applied them was concurrent with the
+reconciliation and wrote its record into commit messages rather than into this
+file. Reconstructed verbatim from `d19bf74` and `fceb220` rather than re-derived,
+and the chapter text was not touched.
+
+**CE10 to CE12, three interrupters removed, per prose style guide Part 5.** Ruled
+by Dan, the first edits made under the guide adopted the same day.
+
+  CE10  the opening case sentence the guide itself cites as its example of stacked
+        interrupters. "Michael Truell, chief executive of Anysphere, the company
+        behind Cursor, apologized" put three appositives between the date and the
+        verb. Now split so subject and verb are adjacent and the identification
+        trails in its own sentence.
+  CE11  an interrupter MOVED to the end of its clause rather than cut, because
+        "the people getting the most value" is a claim and cutting it would have
+        left the copy-edit lane.
+  CE12  a relative pronoun rejoined to its verb in P3.
+
+**CE10'S FIRST PROPOSAL WAS WRONG AND THE SESSION RECORDED IT.** It read "Cursor
+apologized", which moves the actor from the person to the product and is a claim
+change rather than a copy edit. The register note requires the role and title, and
+they survive in the trailing sentence.
+
+**A REGISTER NOTE QUOTED THE PRE-CE11 SENTENCE VERBATIM AND WAS UPDATED.** Sixth
+instance in this chapter of a record outliving the prose it describes, and the
+FIRST CAUGHT AT THE MOMENT OF THE EDIT rather than three steps later. That note is
+where SF8 to SF10 were found, precisely because it quotes the sentence. Updated on
+the A2 and SF11 precedent, appending beneath the dated ruling rather than editing
+it, and stating explicitly that the SF9 scoping survives.
+
+**THE PART 5 RULE 1 PROXY IS DEFECTIVE AND ITS NUMBERS MUST NOT BE QUOTED.** It
+reported three violations before and after the edits, but all three are fronted
+adverbial phrases, which are right-branching and permitted, not subject-verb
+separations. The baseline was wrong for the same reason, so the edits looked
+ineffective against a measure that was never measuring the rule. Fourth instance in
+this repo of a check reading authoritative while measuring nothing. The sound
+measure did move: 40 long comma-fenced asides to 35.
+
+**CE13 and CE14, both house-style violations, ruled by Dan.** The first findings
+raised by the ported checks rather than by a human read.
+
+  CE13  the antithesis budget, four uses against a budget of three. THE FINDING WAS
+        NOT THE COUNT: two made the same move one paragraph apart in 1.4, the same
+        antithesis on the same idea twice. The first was recast and the second
+        kept, because the second is concrete about the remedy and closes its
+        section on the load-bearing clause, which is C5. The C6 guard was checked
+        before cutting, not assumed: the cut clause was doing guard work, and the
+        guard survives twice over in the same section, verified by grep against the
+        current text.
+  CE14  "the reader" in the teaching body, guide 8.4. Section 1.5 read "so the
+        reader will find no account of architectures" and now reads "so it carries
+        no account". The book is already the subject.
+
+LANE. None of the five touched a value, a date or a cited claim, so all stay in the
+copy-edit row of the scoped re-run matrix and re-run G2 alone. G2 was re-run and
+passed 2026-08-12 against the text that carries them.
 
 ## Stage 7. Final fact check 2
 
