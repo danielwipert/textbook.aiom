@@ -16,18 +16,22 @@ reconciliation: `main` merged in first, then `stage-7` merged on top, with the
 Stage 6 copy edits CE3 to CE6 layered over the Stage 7 fact-check narrowings FC2
 to FC5. Nothing was discarded from either side.
 
-**ONE BRANCH IS STILL OUTSTANDING AND CARRIES A DAN RULING THAT IS NOT IN THIS
-TEXT.** `claude/stage-6-edits-rof1yb` has three commits nothing else contains:
+**CLOSED 2026-08-12. `claude/stage-6-edits-rof1yb` IS MERGED AND ITS WORK IS IN
+THIS TEXT.** It had held three commits nothing else contained: the Stage 6
+closure at 9 of 13, the Stage 7 packet, SF11, and `factcheck_packet.py`. All are
+now on `main`. Dan ruled option B: take everything, but leave the Stage 6 tick
+OPEN, because the closure was made on 2026-08-10 and then stranded while two
+sessions that could not see it applied four further copy edits. The closure text
+is preserved verbatim in the checklist under a header reading RECORDED BUT NOT IN
+FORCE. Re-closing Stage 6 is one character in the checklist and it is Dan's.
 
-  d43b25f  Stage 6 closed at 9 of 13 on Dan's ruling, with what the tick means
-  f256eed  Stage 7 packet built, mechanical checks banked, and SF11 raised
-  b313fa5  SF11 applied, and factcheck_packet.py promoted to repo tooling
-
-`stage-7`'s own HANDOFF says it REPLACES that branch, but the git graph disagrees:
-both branched from `e233c12` and `stage-7` never contained those three commits.
-So the Stage 6 closure ruling, the Stage 7 packet, SF11, and `factcheck_packet.py`
-are all still stranded. **THE CHECKLIST HERE THEREFORE SAYS STAGE 6 IS OPEN WHILE
-A COMMIT ELSEWHERE RECORDS DAN CLOSING IT.** Unresolved, and the top open thread.
+Worth keeping as a warning about handoffs rather than about branches:
+`stage-7`'s HANDOFF asserted it REPLACED that branch. The git graph said
+otherwise. Both branched from `e233c12`, and `stage-7` never contained those
+three commits, so a handoff written in good faith sent the next reader past work
+that was still stranded. **VERIFY A SUPERSESSION CLAIM WITH
+`git merge-base --is-ancestor` BEFORE BELIEVING IT.** A branch is superseded when
+the graph says so, never when a document says so.
 
 **THE FAST-FORWARD ASSUMPTION THIS FILE CARRIED SINCE THE BEGINNING IS DEAD.**
 Every entry before 2026-08-12 says `main` carries no commits of its own so every
