@@ -116,6 +116,38 @@ fails a Stage 4 marked passed with one of them left open.
 are proxies, permanently advisory, and never a pass-or-fail threshold. C2 and C6
 have no proxy at all and are enforced only by reading.
 
+### The prose standard is TWO files, and they divide cleanly
+
+Adopted 2026-08-12. `AIOM_Prose_Style_Guide_v1.md` was written on 2026-08-05 and
+stranded on an unmerged branch for a week, during which Chapter 1 passed a
+developmental edit, a fact check, a voice pass, a design review, a production
+gate and two copy-edit rounds without it. Both it and
+`AIOM_Voice_and_Craft_v1.md` were adopted the same day by sessions that could not
+see each other, both name the same four exemplars, and neither mentioned the
+other. The division:
+
+- **`AIOM_Voice_and_Craft_v1.md` governs the six craft criteria C1 to C6**, the
+  exemplars, and the guard. Stage 4 grades against it and `status_check.py`
+  enforces it.
+- **`AIOM_Prose_Style_Guide_v1.md` governs everything else about prose:** the
+  reader model, altitude and contextualization, sentence-level craft, the
+  drafting protocol, and the house style sheet. **Read it before drafting.**
+- The style guide's Part 6 duplicated the craft file and is retired to a pointer.
+
+**THE RULE THAT ANSWERS THE MOST COMMON COMPLAINT ABOUT THIS BOOK'S PROSE IS
+PART 5.** The ideas are complex; the sentences do not need to be. Vary length
+with load, keep the actor in the sentence, and ration the parenthetical
+interrupter: never separate a subject from its verb by more than about three
+words, never stack two interrupters in one sentence, prefer the right-branching
+alternative. Part 4 adds a hard rule that is not in section 2 above, no comma
+splices and no run-on sentences.
+
+Two items are booked and NOT done. Consolidated Spec B.2 still duplicates the
+register and mechanical rules and is not yet demoted to a pointer. And the Part 8
+source-level checks are not in `voicecheck.py`: they were written against a
+262-line version of that script and `main`'s is now 470 lines, so they must be
+ported individually rather than merged.
+
 ---
 
 ## 3. The fixed six-slot skeleton
@@ -157,6 +189,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_Design_QA_Spec_v1.md` | Gate-by-gate spec. Moves with `AIOM_build.py`. |
 | `AIOM_Consolidated_Spec_v1.md` | The full pre-drafting specification. Authoritative. Markdown despite the earlier `.pdf` reference. |
 | `AIOM_Voice_and_Craft_v1.md` | The positive voice standard: the four borrowed techniques, the guard, and the six craft criteria. Binds from Stage 0. Read before drafting. |
+| `AIOM_Prose_Style_Guide_v1.md` | The other half of the prose standard, adopted 2026-08-12 after a week stranded on an unmerged branch. Reader model, altitude, sentence-level craft, drafting protocol, house style sheet. **Part 5 is the answer to prose that reads denser than its ideas.** Read before drafting. See section 2. |
 | `AIOM_Specification_Addendum_v1.0.docx` | Decisions 1 through 21 and the Addendum rulings. |
 | `AIOM_Structure_v1.md` | Chapter structure and structural devices. |
 | `AIOM_Exit_Competencies_v1.md` | The twenty-four competencies. Backward-design root. |
