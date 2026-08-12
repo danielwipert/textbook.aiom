@@ -3053,7 +3053,17 @@ page footnotes shifted pagination.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [ ]        Date cleared:
+
+> **TICK REOPENED 2026-08-12 ON DAN'S RULING, AND THE 2026-08-10 CLOSURE IS KEPT
+> AS HISTORY.** The closure was real and is reproduced verbatim further down this
+> step under "The Stage 6 closure of 2026-08-10, RECORDED BUT NOT IN FORCE". It
+> was stranded on `claude/stage-6-edits-rof1yb` while two sessions that could not
+> see it applied four further copy edits, CE3 to CE6. The closure therefore
+> predates work that came after it, and its own stated reversing condition fired:
+> it said a finding from any later read "enters as CE3 and reopens this step",
+> and CE3 to CE6 are exactly that. Re-closing is Dan's, and it is one character
+> here.
 
 > Line level, on prose that has stopped moving. Decision 24 places this late. Revisit the placement after Chapter 4.
 
@@ -3876,6 +3886,69 @@ Stage 6 remains OPEN. It is Dan's step and further rounds may be taken at any ti
 
 ---
 
+### The Stage 6 closure of 2026-08-10, RECORDED BUT NOT IN FORCE
+
+**THE TICK BELOW IS PRESERVED AS HISTORY. STAGE 6 IS MARKED OPEN IN THE STATUS
+TABLE, ON DAN'S RULING OF 2026-08-12.** Dan closed Stage 6 on 2026-08-10, and that
+ruling is real and is reproduced verbatim below. It was then stranded on
+`claude/stage-6-edits-rof1yb` while two further sessions, which could not see it,
+applied four more Stage 6 copy edits (CE3 to CE6) and four Stage 7 fact-check
+narrowings (FC2 to FC5). The closure therefore predates edits that came after it.
+
+Dan ruled the record kept and the tick left open: the step is his to close, the
+work that followed the closure was Stage 6 work, and a status tick that says
+"closed" above a list of later edits would read as a contradiction. Re-closing it
+is one word in this file whenever he is satisfied.
+
+Note also that the reversing condition stated in the closure text below has in
+fact fired. It says a finding from any later read "enters as CE3 and reopens this
+step". A later read raised exactly that, and those findings are numbered CE3 to
+CE6 in this checklist.
+
+### STAGE 6 CLOSED 2026-08-10 on Dan's ruling. WHAT THIS TICK MEANS.
+
+Read this before treating the tick as more than it is.
+
+**What ran.** Two findings, both Dan's, both ruled and applied: CE1, the Category
+error key-term entry rewritten in plain syntax, and CE2, "a round" cut from the
+craft section. A full mechanical spelling and grammar pass ran alongside CE2:
+`aspell` en_US over 7,181 words with the source register excluded, zero spelling
+errors, and the doubled-word, article, split-word and homophone checks all clean.
+The chapter was rebuilt and re-gated after each edit: fourteen gates pass, 25 pages
+held throughout, `voicecheck.py` mechanically clean.
+
+**WHAT DID NOT RUN, AND IT IS THE REASON THIS PARAGRAPH EXISTS. NO WORD ROUND TRIP
+WAS PERFORMED IN THIS CYCLE.** CLAUDE.md section 8 defines Stage 6 as running in
+Word, on a proof from `copyedit_export.py`, returned through
+`copyedit_import.py`. Three proofs were issued in this cycle (rounds 3, 4 and 5)
+and NONE was returned. Round 5 is built, both its controls are banked, and it sits
+unopened. The step closes on two findings applied directly to the live text on
+Dan's instruction, not on a copy-edited proof.
+
+That is a narrower pass than the step's definition, and it is deliberate rather
+than accidental. The 2026-08-08 rounds are what caused the reopen: three rounds
+rewrote the chapter rather than correcting it, grew body prose 25 percent, and
+silently reverted three ruled Stage 3 narrowings and one ruled Stage 4 fix. Two
+targeted edits carry none of that risk, and both were verified to change no
+meaning. Dan owns this step and ruled it complete.
+
+**What the tick therefore does not record.** It does not record that a line-level
+copy edit was performed over the whole chapter by a human reader in Word. Nothing
+in this cycle did that. The mechanical pass is a dictionary and pattern check, and
+its limit is recorded under CE2: it would not have caught "a round" had that been
+wrong, because the phrase is two correctly spelled words in a grammatical
+construction.
+
+**Reversing condition.** A finding from any later read, including Stage 8, enters
+as CE3 and reopens this step. Round 5 remains current and importable for as long
+as the live text does not move; if it moves, re-export before use, per the rule
+under CE2.
+
+**What is NOT closed by this tick.** Stage 7, G3 and Stage 8 all sit between here
+and lock. Stage 9 Locked is a separate step with its own booked pending actions.
+
+---
+
 ## Stage 7. Final fact check 2
 
 Owner: Dan
@@ -3885,6 +3958,109 @@ Status: [ ]        Date cleared:
 > Narrower than stage 2. Targets what changed since it, confirming nothing broke in revision.
 
 Findings:
+
+**PACKET BUILT 2026-08-10.** Stage 7 is STRUCTURALLY EXTERNAL, not external by
+preference: no source host is reachable from the Claude environment, verified
+2026-08-06 against six of them. Nothing recorded here is a verification against a
+primary, and none is offered.
+
+  Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/AIOM_Ch1_Stage7_FactCheck_Input.pdf
+  Drafts/Ch01_The_Category_Error/09_Stage7_Final_Fact_Check_2/AIOM_Ch1_Stage7_Claim_Inventory.md
+
+The render is 25 pages with all fourteen gates green. The inventory pairs all six
+cited passages with the register entry behind each key, each note verbatim,
+because the notes carry the verification history and the conditions that would
+reverse a ruling. It was regenerated after SF11, so it carries that correction.
+
+**THE GENERATOR IS NOW REPO TOOLING: `factcheck_packet.py` at the repo root, on
+Dan's ruling of 2026-08-10.** That closes the open thread asking whether the
+packet was worth having on every chapter. It is: Stages 3 and 7 each need one, so
+fifteen chapters need thirty. The argument was the history. The Stage 3 packet was
+built by a throwaway script in a session scratchpad and died with its container,
+and the Stage 7 packet four hours later rebuilt the same work from nothing. A
+script that must be rewritten to reproduce a step is not a reproducible step.
+
+**MECHANICAL CHECKS BANKED, so the external check need not repeat them.**
+
+  Register closure    11 keys defined, 11 cited. Zero orphans, zero dangling.
+  Citation markers    6 cited passages, every marker resolving to a register key.
+  Footnotes           6 generated, all falling on their calling page (gate 8).
+  Value surface       175 numeric atoms, 32 date atoms, IDENTICAL to the Stage 3
+                      audited render. Zero added, zero removed, zero altered.
+  Ruled-form check    SF7 to SF10, NC1, NC3, CE1 and CE2 all still in force.
+
+The value-surface comparison is the check the standing rule requires before a
+fact check that predates a copy edit is credited. Everything between the Stage 3
+tick and now, the Stage 4 craft edits, Stage 5's `.nb` wrapping, G2's `lang`
+correction, and CE1 and CE2, left the value surface untouched.
+
+**SF11, RULED AND APPLIED 2026-08-10. A register note described prose that no
+longer existed, and it is the FIFTH instance of that shape.**
+
+The `altman-2025-pro` note records, under "SUPERLATIVE CUT 2026-08-06 (Stage 3,
+SF1)", that the sentence "now reads 'OpenAI's chief executive, Sam Altman, stated
+publicly'". The chapter reads:
+
+  "OpenAI provided an early example. Chief executive Sam Altman said publicly
+   that the company was losing money on its two-hundred-dollar Pro subscriptions
+   because subscribers used them more than the price had assumed."
+
+**THE RULING'S SUBSTANCE HOLDS AND THIS IS NOT A CLAIM REGRESSION.** SF1 banned an
+unsourceable superlative and required the firm be named instead. No superlative is
+present in any form, the firm is named, and the person is named. Only the note's
+description of the sentence is stale.
+
+Attributed rather than assumed: the recorded wording left the prose at commit
+`b4f2e22`, "Ch1 Stage 6: apply the round-1 copy-edit return as the new draft".
+That is the same 2026-08-08 round that produced SF8, SF9 and SF10 and that
+orphaned the note behind SF7. Nothing caught this one at the time because the
+Stage 3 restoration work tested banned and ruled FORMS, and SF1's ruling was a
+prohibition plus a requirement, both of which the rewritten sentence still
+satisfies.
+
+**RULED: apply the recommended remedy.** On the A2 precedent the dated 2026-08-06
+line is left standing, because it was accurate when written, and the drift, the
+current wording and the reversing condition are APPENDED beneath it. The dated
+line was not edited. The prose was not changed.
+
+Taken as a Stage 7 input rather than reopening Stage 3. Under the scoped re-run
+matrix a citation-or-source-only edit re-runs "Stage 3 or Stage 7 fact check, G2",
+and Stage 7 is the fact check in progress.
+
+Verified after applying, with the control SF7 taught: the register still parses as
+JSON at 11 keys, the dated line is still present, the correction sits after it,
+and the newly recorded wording is verbatim in the chapter. A note that quotes a
+sentence the chapter does not contain is the defect being fixed, so recording a
+new quote without checking it would have reproduced the defect.
+
+G2 re-run as the matrix requires: all fourteen gates pass, 25 pages held.
+
+**A REFINEMENT TO THE CE2 RULE, AND IT WAS MEASURED RATHER THAN REASONED.** CE2
+established that an edit to the live text invalidates the outstanding export. SF11
+edits the live text and does NOT invalidate it: round 5 still resolves 209 of 221
+spans with the same twelve by-design citation-key blocks, and the round trip is
+still clean. The reason is positional. The source register sits after every
+exported block in the file, and the export excludes it under Decision 51, so a
+register-only edit shifts no body span. The rule is therefore narrower than CE2
+stated it: an edit invalidates the export when it falls at or before an exported
+block, which every prose edit does and a register-only edit does not. Round 5
+remains current and importable.
+
+**A SIXTH INSTANCE WAS LOOKED FOR AND RULED OUT.** Every register note asserting
+what the chapter "now reads" was checked against the body prose. Six such claims
+exist. Four are current and verified present verbatim. One is the
+`microsoft-2026-q2` A2 entry quoting "over 4.7 million", which is the dated
+2026-07-29 line deliberately left standing with the SF7 correction appended
+beneath it, exactly as ruled, and is therefore not a finding. The sixth is SF11.
+
+**METHOD NOTE, because the check nearly missed its own finding.** A regex pass over
+the notes was run first and it FAILED to see SF11, because the quoted sentence
+contains a typographic apostrophe in "OpenAI's" and the pattern's character class
+truncated the capture to "OpenAI", which then matched trivially and reported OK.
+The same hole reported a false positive on Nadella's verified source wording. The
+finding survived only because the six claims were printed and READ. This is the
+same lesson as the Stage 4 regression check: reading rather than trusting the
+string match is what distinguishes a finding from an artifact.
 
 **EXTERNAL CHECK 1 RECEIVED 2026-08-11.** Full record in
 `09_Stage7_Final_Fact_Check_2/`: the report archived as

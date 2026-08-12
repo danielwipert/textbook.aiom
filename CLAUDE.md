@@ -147,6 +147,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `copyedit_export.py` | Chapter HTML to a copy-editing `.docx` plus a round-trip manifest. Stage 6 happens in Word; this is how it gets there. Excludes the source register by design. |
 | `copyedit_import.py` | The copy-edited `.docx` back into the chapter HTML, block by block, by span. Applies what is unambiguous and refuses the rest rather than guessing. |
+| `factcheck_packet.py` | Builds the Stage 3 and Stage 7 packet: every cited passage paired with its register entry, notes reproduced verbatim, plus the mechanical checks run locally. It verifies nothing, because both stages are structurally external. Promoted to the root 2026-08-10 after the same throwaway work came due twice on one chapter. |
 | `AIOM_Continuity_Ledger.md` | The G3 record: terms owned per chapter, forward references and whether paid, registry glosses, Northmoor figures, and the canonical Founding Questions and maturity stages. Appended at lock, never edited to make a gate pass. |
 | `continuity.py` | Gate G3. Seven checks against the ledger. `--update` appends at Stage 9; `--pay N` marks promises kept. |
 | `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
