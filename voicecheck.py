@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """
-Stage 4 voice and craft check. AIOM.
+Stage 4 voice and craft check, plus the Stage 6 house-style counts. AIOM.
 
-Two halves, and only the first decides anything.
+    python3 voicecheck.py <chapter.html>               everything
+    python3 voicecheck.py <chapter.html> --voice-only  Stage 4 half only
+
+THREE HALVES NOW, WHICH IS THE POINT OF THE FLAG. The mechanical checks below
+are Stage 4 and decide that step. The HOUSE STYLE block is prose style guide
+Part 8, ported 2026-08-12, and belongs to the STAGE 6 copy edit, not to Stage 4.
+It is printed by default because a defect nobody prints is a defect nobody
+fixes, and suppressed by --voice-only when running Stage 4 on work in progress.
+The two verdicts print on separate lines and are never merged.
 
 MECHANICAL (pass or fail). Magisterial register, testable parts:
   - zero em dashes
@@ -438,6 +446,136 @@ def craft_metrics(path):
     print("  [C6 the guard]          no proxy exists. Read for it.")
 
 
+# --------------------------------------------------------------------------
+# HOUSE STYLE, prose style guide Part 8.
+#
+# Ported 2026-08-12 from claude/chapter-1-prose-style-x0bzze, where these were
+# written on 2026-08-05 against a 262-line version of this script and then
+# stranded. This file is now 470 lines, so they were ported check by check
+# rather than merged, and each one was verified by a NEGATIVE TEST: an injected
+# violation must make it fail. A check that has only ever read green is not
+# evidence that it measures anything, which this repo has now learned four
+# times.
+#
+# These are SOURCE-level checks. Typography of the RENDERED artifact is gate 15
+# in AIOM_build.py and reads the PDF, because the chapter's source register is
+# JSON and legitimately carries straight quotes, and because footnotes are
+# generated at build time. The two do not overlap: this one catches a straight
+# quote a drafter types into prose, gate 15 catches one that reaches the page
+# from the apparatus.
+# --------------------------------------------------------------------------
+
+PARA_MAX_WORDS = 150          # guide 8.3
+FIGURE_BUDGET = 3             # guide 8.2
+# "It is not X. It is Y", the chapter's signature antithesis.
+ANTITHESIS = re.compile(
+    r"(?:is|was|are|were|do(?:es)?|did)\s+not\b[^.]{0,90}\.\s*"
+    r"(?:It|They|That|These)\s+(?:is|was|are|were)\b")
+STRAIGHT = re.compile(r"['\"]")
+
+
+def hs_strip(s):
+    return re.sub(r"\s+", " ", re.sub(r"(?s)<[^>]+>", " ", html.unescape(s))
+                  ).strip()
+
+
+def prose_regions(raw):
+    """Drop everything that is not running body prose.
+
+    The source register, the problems section with its voiced material, model
+    answers, the theorem panel, definition callouts, key terms, figure captions,
+    SVG labels and citation apparatus all come out.
+    """
+    for pat in (r'(?s)<section id="aiom-sources">.*?</section>',
+                r'(?s)<section class="problems-sec">.*?</section>',
+                r'(?s)<section class="keyterms">.*?</section>',
+                r'(?s)<div class="model">.*?</div>',
+                r'(?s)<div class="theorem">.*?</div>',
+                r'(?s)<aside class="definition">.*?</aside>',
+                r"(?s)<figcaption>.*?</figcaption>",
+                r"(?s)<svg.*?</svg>",
+                r"(?s)<cite\b.*?</cite>"):
+        raw = re.sub(pat, "", raw)
+    return raw
+
+
+def housestyle(path):
+    raw = open(path, encoding="utf-8").read()
+    body = prose_regions(raw)
+    craft_at = body.find('<p class="slot-label">Craft section</p>')
+    if craft_at < 0:
+        craft_at = len(body)
+
+    out = {"quotes": [], "longpara": [], "figure": [], "reader": [],
+           "terminvar": []}
+
+    # Body prose paragraphs carry no class attribute.
+    for m in re.finditer(r"(?s)<p>(.*?)</p>", body):
+        text = hs_strip(m.group(1))
+        if len(text.split()) < 15:
+            continue
+        if len(text.split()) > PARA_MAX_WORDS:
+            out["longpara"].append((len(text.split()), text[:70]))
+        for q in STRAIGHT.finditer(text):
+            out["quotes"].append(
+                (q.group(0), text[max(0, q.start() - 32):q.start() + 28]))
+        # "the reader" is permitted in the craft section, which addresses one.
+        if m.start() < craft_at:
+            for r in re.finditer(r"\bthe reader\b", text, re.I):
+                out["reader"].append(text[max(0, r.start() - 30):
+                                          r.start() + 45])
+        # Scanned per paragraph, NEVER across the stripped body. Stripping
+        # wholesale runs a heading into the paragraph beneath it and invents
+        # sentence pairs that are not on the page.
+        for a in ANTITHESIS.finditer(text):
+            out["figure"].append(a.group(0).strip()[:78])
+
+    # A defined term must read IDENTICALLY in its callout and its key term.
+    # This is the check that would have caught CE3 on 2026-08-12, where "Meter
+    # relocation" carried two different definitions past every gate. Gate 6
+    # counts entries and header bands and read 8 and 8 throughout.
+    defs = {}
+    for d in re.finditer(r'(?s)<aside class="definition">(.*?)</aside>', raw):
+        blk = d.group(1)
+        t = re.search(r'<p class="term">(.*?)</p>', blk)
+        ps = re.findall(r"(?s)<p>(.*?)</p>", blk)
+        if t and ps:
+            defs[hs_strip(t.group(1)).lower()] = hs_strip(ps[-1])
+    for k in re.finditer(r'(?s)<div class="kt">(.*?)</div>\s*<p>(.*?)</p>',
+                         raw):
+        t = re.search(r'<span class="kt-t">(.*?)</span>', k.group(1))
+        if not t:
+            continue
+        term = hs_strip(t.group(1)).lower()
+        kt = hs_strip(k.group(2))
+        if term in defs and defs[term] != kt:
+            out["terminvar"].append((term, defs[term][:58], kt[:58]))
+    return out
+
+
+def report_housestyle(h):
+    rows = [
+        ("quotes", "Straight quotes or apostrophes in chapter prose", None),
+        ("longpara", f"Paragraphs over {PARA_MAX_WORDS} words", None),
+        ("figure", f"Antithesis figure (budget {FIGURE_BUDGET})",
+         FIGURE_BUDGET),
+        ("reader", "'the reader' in the teaching body", None),
+        ("terminvar", "Defined terms differing from their key term", None),
+    ]
+    failed = False
+    print("HOUSE STYLE (prose style guide Part 8)")
+    for key, label, budget in rows:
+        hits = h[key]
+        over = len(hits) > budget if budget is not None else bool(hits)
+        failed = failed or over
+        print(f"[{'FAIL' if over else 'PASS'}] {label}: {len(hits)}")
+        for item in hits[:6]:
+            print(f"         {item}")
+        if len(hits) > 6:
+            print(f"         ... and {len(hits) - 6} more")
+    return failed
+
+
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else "AIOM_ch01.html"
     f = analyse(path)
@@ -459,6 +597,14 @@ def main():
     print()
     print("STAGE 4 MECHANICAL:", "FAIL" if failed else "PASS")
     print()
+    # --voice-only suppresses the house-style half for work in progress, per
+    # prose style guide 8.7. The Stage 4 mechanical result above is unaffected.
+    if "--voice-only" not in sys.argv:
+        hs_failed = report_housestyle(housestyle(path))
+        failed = failed or hs_failed
+        print()
+        print("HOUSE STYLE:", "FAIL" if hs_failed else "PASS")
+        print()
     craft_metrics(path)
     print()
     print("Craft criteria C1 to C6 are ruled on the Stage 4 checklist, not "
