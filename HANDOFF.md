@@ -72,10 +72,36 @@ retired by `renumber_stage_folders.py` on 2026-08-05, which is what dates them:
   handoff-review-ownf6v            +1   `copyedit_docx.py`, an ancestor of
                                         `copyedit_export.py`.
 
-**THE THIRD BRANCH IS NOT DEAD AND CARRIES THREE THINGS WORTH A RULING.** See the
-open threads below. `chapter-1-prose-style-x0bzze` (+20) rewrote Chapter 1 in full
-against a style guide, and that chapter work IS superseded many times over. What
-is not superseded is what it built along the way.
+**THE LAST THREE BRANCHES ARE RULED FOR DELETION, AND THEIR CONTENT IS ALREADY
+SAFE.** Dan ruled it 2026-08-12. Everything worth keeping was extracted onto
+`main` first, so deleting them destroys nothing that matters. Recovery points are
+recorded here in case that judgment is ever wrong:
+
+  chapter-1-prose-style-x0bzze     tip 84d6d04   +20   style guide EXTRACTED,
+                                                       gate 15 EXTRACTED, the
+                                                       five house-style checks
+                                                       EXTRACTED, vocabulary
+                                                       ledger PRESERVED under
+                                                       archive/. Its Chapter 1
+                                                       rewrite is superseded many
+                                                       times over.
+  chapter-1-handoff-review-sbkq2u  tip 68bc904   +3    superseded copy-edit
+                                                       worksheet tooling
+  handoff-review-ownf6v            tip a52f95f   +1    copyedit_docx.py, ancestor
+                                                       of copyedit_export.py
+
+**A TIP SHA IS RECORDED FOR EACH, WHICH IS THE WHOLE POINT OF THIS BLOCK.** These
+branches carry UNMERGED commits, so deleting them is not the same as deleting the
+merged ones: the commits become unreachable. GitHub keeps unreachable objects for
+a window, and a recorded SHA is what makes recovery possible inside it. `git fetch
+origin <sha>` while the window lasts.
+
+**BRANCH DELETION IS BLOCKED FROM THE CLAUDE ENVIRONMENT.** `git push --delete`
+returns HTTP 403 for every branch, singly and in bulk, and the GitHub MCP server
+exposes `create_branch` with no delete counterpart. The proxy reports no relay
+failures, so this is the remote refusing the operation rather than a transport
+fault. Deletion is Dan's, from the GitHub branches page or a local clone. Do not
+route around the denial.
 
 **CONCURRENT SESSIONS COLLIDE ON NAMES, TWICE OVER.** Both Stage 6 sessions
 numbered findings from CE1, so one session's CE2 to CE5 are renumbered CE3 to CE6
@@ -728,9 +754,16 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
     - **The five Part 8 house-style checks are in `voicecheck.py`**, ported one
       at a time because the branch script was 262 lines and this one is 470.
       Each verified by negative test; one reproduces CE3 exactly.
-    - **STILL UNRULED: `AIOM_Placed_Vocabulary_Ledger.md`, 48 lines.** The one
-      item not taken. It may be superseded by the continuity ledger, which
-      nobody has checked.
+    - **STILL UNRULED, BUT NO LONGER AT RISK: the placed-vocabulary ledger.**
+      Preserved at `archive/AIOM_Placed_Vocabulary_Ledger_unadopted.md` before
+      its branch was deleted. Filed in `archive/` rather than the root because a
+      file at the root reads as adopted and Dan has not ruled it in.
+      **IT IS PROBABLY A LIVE REQUIREMENT.** Style guide section 2.4 places
+      inherited vocabulary once and never re-explains it, which only works across
+      fifteen chapters if something records what has already been placed. This is
+      that something, and **Chapter 2 is the first chapter that needs it.** Check
+      whether `AIOM_Continuity_Ledger.md` already covers the ground, and whether
+      the two should merge, before ruling.
 
     **THE ADOPTION PAID FOR ITSELF WITHIN THE HOUR.** The guide's Part 5 rule 2
     cites one sentence as its example of stacked interrupters, and that sentence
