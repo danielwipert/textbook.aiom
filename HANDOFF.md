@@ -61,47 +61,48 @@ Four of the seven "dead" branches were fully merged the whole time. A sweep that
 reports noise as danger is worse than no sweep, because it spends the reader's
 trust. `git_hygiene.py` deepens before measuring, every run.
 
-**THE FULL AUDIT OF THE OLD BRANCHES WAS RUN 2026-08-12 AND IS CLOSED.** Two of
-the three stranded branches are superseded tooling, and their artifacts sit under
-PROCESS V1 STAGE FOLDER NAMES (`07_Stage5_Copy_Edit`, `06_Stage6_CopyEdit`),
-retired by `renumber_stage_folders.py` on 2026-08-05, which is what dates them:
+**BRANCH CLEANUP IS DONE. THE REPOSITORY IS THREE BRANCHES.** Dan deleted eleven
+fully merged branches and then two of the three that carried unmerged work, all
+on 2026-08-12, after every item worth keeping had been extracted onto `main`.
+What remains:
 
-  chapter-1-handoff-review-sbkq2u  +3   a reading copy, a copy-edit worksheet and
-                                        its builder. Superseded by
-                                        `copyedit_export.py`.
-  handoff-review-ownf6v            +1   `copyedit_docx.py`, an ancestor of
-                                        `copyedit_export.py`.
+  main                             the trunk
+  claude/chapter-1-status-gli2c0   the 2026-08-12 working branch, level with main
+  claude/chapter-1-handoff-review-sbkq2u   +3, STILL PRESENT, superseded
 
-**THE LAST THREE BRANCHES ARE RULED FOR DELETION, AND THEIR CONTENT IS ALREADY
-SAFE.** Dan ruled it 2026-08-12. Everything worth keeping was extracted onto
-`main` first, so deleting them destroys nothing that matters. Recovery points are
-recorded here in case that judgment is ever wrong:
+The third is a leftover rather than a decision: Dan ruled all three for deletion
+and two went. It holds a reading copy, a copy-edit worksheet and its builder, all
+Process v1 artifacts superseded by `copyedit_export.py`. Nothing in it is wanted.
+Delete it whenever convenient. Recovery point if that judgment is ever wrong:
+tip `68bc904`.
 
-  chapter-1-prose-style-x0bzze     tip 84d6d04   +20   style guide EXTRACTED,
-                                                       gate 15 EXTRACTED, the
-                                                       five house-style checks
-                                                       EXTRACTED, vocabulary
-                                                       ledger PRESERVED under
-                                                       archive/. Its Chapter 1
-                                                       rewrite is superseded many
-                                                       times over.
-  chapter-1-handoff-review-sbkq2u  tip 68bc904   +3    superseded copy-edit
-                                                       worksheet tooling
-  handoff-review-ownf6v            tip a52f95f   +1    copyedit_docx.py, ancestor
-                                                       of copyedit_export.py
+**THE TWO DELETED BRANCHES CARRIED UNMERGED COMMITS, so their tips are recorded
+here rather than in a commit message that scrolls away:**
 
-**A TIP SHA IS RECORDED FOR EACH, WHICH IS THE WHOLE POINT OF THIS BLOCK.** These
-branches carry UNMERGED commits, so deleting them is not the same as deleting the
-merged ones: the commits become unreachable. GitHub keeps unreachable objects for
-a window, and a recorded SHA is what makes recovery possible inside it. `git fetch
-origin <sha>` while the window lasts.
+  chapter-1-prose-style-x0bzze  tip 84d6d04  +20  style guide, gate 15 and the
+                                                  five house-style checks all
+                                                  EXTRACTED first; vocabulary
+                                                  ledger PRESERVED under archive/
+  handoff-review-ownf6v         tip a52f95f  +1   copyedit_docx.py, ancestor of
+                                                  copyedit_export.py
 
-**BRANCH DELETION IS BLOCKED FROM THE CLAUDE ENVIRONMENT.** `git push --delete`
-returns HTTP 403 for every branch, singly and in bulk, and the GitHub MCP server
-exposes `create_branch` with no delete counterpart. The proxy reports no relay
-failures, so this is the remote refusing the operation rather than a transport
-fault. Deletion is Dan's, from the GitHub branches page or a local clone. Do not
-route around the denial.
+Unreachable objects survive on the remote for a window, and a recorded SHA is
+what makes recovery a procedure rather than a hope: `git fetch origin <sha>`.
+
+**THE NEAR MISS WORTH REMEMBERING.** The 2026-08-12 audit first called the
+placed-vocabulary ledger "least urgent, possibly superseded". That was true when
+written and false four hours later, because adopting the prose style guide the
+same day made its section 2.4 live, and 2.4 only works across fifteen chapters if
+something records which terms have already been placed. Deleting the branch would
+have destroyed a live requirement four hours after adopting the policy that needs
+it. **A SUPERSEDED VERDICT HAS A DATE ON IT. Re-check it against what the repo
+adopted since, not against what it looked like when the verdict was written.**
+
+**BRANCH DELETION IS BLOCKED FROM THE CLAUDE ENVIRONMENT AND IS DAN'S.**
+`git push --delete` returns HTTP 403 for every branch, singly and in bulk; the
+GitHub MCP server exposes `create_branch` with no delete counterpart; the proxy
+reports no relay failures, so the remote is refusing rather than the transport
+failing. Report the denial, do not route around it.
 
 **CONCURRENT SESSIONS COLLIDE ON NAMES, TWICE OVER.** Both Stage 6 sessions
 numbered findings from CE1, so one session's CE2 to CE5 are renumbered CE3 to CE6
@@ -109,16 +110,12 @@ with the mapping recorded in the checklist. Both also produced a file called
 round 6. Number a finding or an artifact only after checking what the checklist
 already owns.
 
-**THE STRANDED-COMMIT LESSON FROM 2026-08-10 APPLIES DIRECTLY HERE**, because this
-branch is exactly the state that produced it: work that `main` does not have. If a
-later session finds the live text missing an edit this file claims, search every
-branch before concluding it was lost:
-
-```
-git fetch --all --prune
-for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
-  n=$(git rev-list --count origin/main..$b); [ "$n" != 0 ] && echo "$b +$n"; done
-```
+**THE STRANDED-COMMIT LESSON, WHICH IS WHY `git_hygiene.py` EXISTS.** If a later
+session finds the live text missing an edit this file claims, do not conclude it
+was lost. Run `python3 git_hygiene.py --deep`, which deepens the shallow clone
+first and lists every branch holding commits `main` does not have, plus the files
+that live only on each. The hand-rolled version of that sweep used to be printed
+here and was wrong; see the correction above.
 
 Historical note from the third 2026-08-10 session, kept because the recovery
 procedure above is drawn from it:
@@ -428,6 +425,42 @@ The packet built for the checks that were passed is still filed in
   AIOM_Ch1_Stage3_Claim_Inventory.md       every cited passage paired with the
                                            register entry behind each key, each
                                            note verbatim.
+
+### What the 2026-08-12 session did
+
+**Almost none of it was drafting, and that was the point.** Dan ruled mid-session
+that keeping the repository coherent is Claude's job, not his, after spending his
+time managing files instead of writing. The rules that came out of it are
+CLAUDE.md section 9.
+
+**Reconciled four sessions into one history.** `main` was six commits AHEAD with
+one of its own outstanding, the first time it was not a strict ancestor. Two
+sessions had edited the same chapter, colliding on finding labels (two CE2s) and
+artifact names (two round 6 files). Resolved by real merges on Dan's ruling that
+`stage-7-explanation` was the base, with nothing discarded from either side. Both
+content conflicts turned out to be two correct fixes to one sentence.
+
+**Cleaned git from sixteen branches to three**, and built `git_hygiene.py` so it
+does not happen again. The audit corrected its own premise: the hand-rolled sweep
+reported nine branches and 149 stranded commits, which was a SHALLOW CLONE
+ARTIFACT. The true figure was three branches and 24 commits, with thirteen
+branches already fully merged.
+
+**Recovered a week of stranded standards work**, which turned out to be the most
+valuable thing found all day: the prose style guide, gate 15, and five
+house-style checks, all written 2026-08-05 and never merged.
+
+**Stage 6, eleven edits applied: CE3 to CE6, CE10 to CE14.** Three came from the
+recovered style guide's Part 5, one of them the sentence the guide itself cites
+as its example and which had survived every step since being named.
+
+**Four checks in this repo were found to be wrong or newly built this day**, and
+that is the running theme. Gate 15 closed the punctuation gap. Five house-style
+checks were ported, each with a negative test. And TWO CHECKS WRITTEN IN THIS
+SESSION WERE THEMSELVES DEFECTIVE and were caught before their numbers were
+believed: a span check that reported a freshly written manifest as 6 of 221, and
+a Part 5 proxy whose three "violations" were all fronted adverbials rather than
+subject-verb splits. Both were reported as wrong rather than quietly re-run.
 
 ### What the 2026-08-11 session did
 
@@ -781,18 +814,18 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 1. **Chapter 1 Stages 6, 7 and 8 are DAN'S. Stage 7 is the live one.**
 
-   **STAGE 6 IS MARKED OPEN, AND ITS PROOF IS ROUND 7.** Dan closed Stage 6 at
+   **STAGE 6 IS MARKED OPEN, AND ITS PROOF IS ROUND 9.** Dan closed Stage 6 at
    9 of 13 on 2026-08-10, that ruling is preserved verbatim in the checklist, and
    on 2026-08-12 he ruled the tick left OPEN rather than restored: the closure was
-   stranded on a branch while two other sessions applied four more copy edits
-   (CE3 to CE6) and four fact-check narrowings (FC2 to FC5), so it predates work
-   that came after it. Re-closing it is one word in the checklist. To take a
-   round: open `AIOM_Ch1_CopyEdit_round7.docx`, edit in Word, return it, import
-   through `copyedit_import.py` with the round-7 manifest. **DO NOT USE ROUNDS 3
-   TO 6.**
+   stranded on a branch while other sessions applied eleven further copy edits,
+   CE3 to CE6 and CE10 to CE14, plus four fact-check narrowings FC2 to FC5. It
+   predates work that came after it. Re-closing it is one character in the
+   checklist and it is Dan's. To take a round: open
+   `AIOM_Ch1_CopyEdit_round9.docx`, edit in Word, return it, and import through
+   `copyedit_import.py` with the round-9 manifest. **DO NOT USE ROUNDS 3 TO 8.**
 
    **THE STAGE 7 PACKET IS BUILT AND WAITING**, in
-   `09_Stage7_Final_Fact_Check_2/`: a 25-page render with fourteen gates green and
+   `09_Stage7_Final_Fact_Check_2/`: a 25-page render, green at the gate count of
    `AIOM_Ch1_Stage7_Claim_Inventory.md` pairing all six cited passages with the
    register entry behind each key, notes verbatim. Mechanical checks are banked on
    its first page and need not be repeated. **`factcheck_packet.py` at the repo
