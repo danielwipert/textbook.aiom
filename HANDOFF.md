@@ -1,44 +1,48 @@
 # Session handoff
 
-Last updated: 2026-08-12. Read this
-plus CLAUDE.md before starting work, and update this file before ending the
-session. The protocol is CLAUDE.md section 11. A SessionStart hook
-(`.claude/settings.json`) prints this file into context automatically at the
-start of every session, alongside the voice and craft card.
+Last updated: 2026-08-12. Read this plus CLAUDE.md before starting work, and
+update this file before ending the session. The protocol is CLAUDE.md section 11.
+A SessionStart hook (`.claude/settings.json`) prints this file into context
+automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-status-gli2c0`, level with `main`.
+Active working branch: `claude/chapter-1-status-gli2c0`.
 
-**READ THIS BEFORE ANY MERGE. `main` IS NOT THE WHOLE PROJECT. NINE BRANCHES
-CARRY 149 COMMITS `main` DOES NOT HAVE, AND TWO OF THEM ARE LIVE CHAPTER 1 WORK
-THAT IS AHEAD OF `main`.** This is unresolved and is the top open thread.
+**FOUR SESSIONS WORKED CHAPTER 1 BETWEEN 2026-08-10 AND 2026-08-12 WITHOUT SEEING
+EACH OTHER, AND THE RESULT WAS THREE DISAGREEING RECORDS OF ONE CHAPTER.** Dan
+ruled `claude/stage-7-explanation-sdsb38` the base, and this branch is the
+reconciliation: `main` merged in first, then `stage-7` merged on top, with the
+Stage 6 copy edits CE3 to CE6 layered over the Stage 7 fact-check narrowings FC2
+to FC5. Nothing was discarded from either side.
 
-  `claude/stage-6-edits-rof1yb`        +3   2026-08-10
-  `claude/stage-7-explanation-sdsb38`  +9   2026-08-11
+**ONE BRANCH IS STILL OUTSTANDING AND CARRIES A DAN RULING THAT IS NOT IN THIS
+TEXT.** `claude/stage-6-edits-rof1yb` has three commits nothing else contains:
 
-The first CLOSED STAGE 6 at 9 of 13, built the Stage 7 packet, raised and applied
-SF11, and promoted `factcheck_packet.py` to repo tooling. The second archived
-Stage 7 external check 1, applied FC2 to FC5, fixed PG2 and PG2a in
-`cite_format.py`, passed G2 on a full 25-page read, and cut CLAUDE.md section 10
-from 323 lines to 194. **The two branches DIVERGE from each other**, and their
-live texts differ by four lines. `main`'s checklist currently says Stage 6 is
-OPEN, which is true of `main` and false of both branches.
+  d43b25f  Stage 6 closed at 9 of 13 on Dan's ruling, with what the tick means
+  f256eed  Stage 7 packet built, mechanical checks banked, and SF11 raised
+  b313fa5  SF11 applied, and factcheck_packet.py promoted to repo tooling
+
+`stage-7`'s own HANDOFF says it REPLACES that branch, but the git graph disagrees:
+both branched from `e233c12` and `stage-7` never contained those three commits.
+So the Stage 6 closure ruling, the Stage 7 packet, SF11, and `factcheck_packet.py`
+are all still stranded. **THE CHECKLIST HERE THEREFORE SAYS STAGE 6 IS OPEN WHILE
+A COMMIT ELSEWHERE RECORDS DAN CLOSING IT.** Unresolved, and the top open thread.
 
 **THE FAST-FORWARD ASSUMPTION THIS FILE CARRIED SINCE THE BEGINNING IS DEAD.**
-Every earlier entry says `main` carries no commits of its own so every merge is a
-clean fast-forward. Told "merge main up" on 2026-08-12, this session ran the
-fetch first and found `main` six commits AHEAD with one commit of its own
-outstanding. A force push would have destroyed two HANDOFF refreshes, two proof
-rounds and 190 lines of checklist record. It was resolved by a real merge:
-`origin/main` merged INTO the branch, one content conflict resolved by hand, full
-rebuild, merge commit pushed. Nothing discarded.
+Every entry before 2026-08-12 says `main` carries no commits of its own so every
+merge is a clean fast-forward. Told "merge main up", the 2026-08-12 session ran
+the fetch first and found `main` six commits AHEAD with one of its own
+outstanding. A force would have destroyed two HANDOFF refreshes, two proof rounds
+and 190 lines of checklist record. **"Merge main up" is a request to make the two
+level, NOT a licence to force. If `git log origin/main ^HEAD` is non-empty, STOP
+AND READ WHAT IS THERE.**
 
-**THE SWEEP BELOW WAS RUN AFTER THAT PUSH AND SHOULD HAVE RUN BEFORE IT.** The
-third session had already written it into this file as its own main lesson, and
-this session used it as a post-hoc confirmation rather than a precondition. Had
-it run first, the nine branches would have been visible before `main` moved. RUN
-IT BEFORE EVERY MERGE, NOT AFTER:
+**RUN THE ALL-BRANCH SWEEP BEFORE EVERY MERGE, NOT AFTER.** The 2026-08-12 session
+ran it as a post-hoc confirmation and it reported NINE branches carrying 149
+commits `main` did not have. Had it run first, that would have been visible before
+`main` moved. This is the third session in a row to be bitten by work living
+somewhere `main` cannot see:
 
 ```
 git fetch --all --prune
@@ -50,27 +54,41 @@ The other seven branches last saw a commit between 2026-07-30 and 2026-08-05,
 predate the reopen, and are PROBABLY superseded. That word is doing real work:
 nobody has checked them, and this file should not claim they are dead.
 
-Two consequences of concurrent sessions, both already realised. FINDING LABELS
-COLLIDE: both sessions numbered copy-edit findings from CE1, so this session's
-CE2 to CE5 are renumbered CE3 to CE6 in the checklist. PROOF ROUND NUMBERS
-COLLIDE TOO: there are now two different files called round 6, one here and one
-on `claude/stage-7-explanation-sdsb38`. Neither has been renamed, pending a
-ruling on how the branches reconcile.
+**CONCURRENT SESSIONS COLLIDE ON NAMES, TWICE OVER.** Both Stage 6 sessions
+numbered findings from CE1, so one session's CE2 to CE5 are renumbered CE3 to CE6
+with the mapping recorded in the checklist. Both also produced a file called
+round 6. Number a finding or an artifact only after checking what the checklist
+already owns.
 
-**A COMMIT WAS STRANDED ON THE PREVIOUS BRANCH AND NEARLY LOST, WHICH IS THE MAIN
-LESSON OF THIS SESSION.** Stage 6 CE1 was committed to
-`claude/chapter-1-status-gli2c0` AFTER that branch had already been levelled with
-`main`, so `main` never received it, and the next session cloned a container whose
-live text did not contain the edit. The session opened believing Stage 6 edits
-were in progress and found a clean tree, no pull requests, no issues, and no
-returned proof. The edit was recovered by fast-forward, but only because every
-branch was searched for commits `main` did not have:
+The four commits, oldest first:
+
+1. Stage 7 external check 1 archived, plus the render that disproves its two
+   production flags
+2. Stage 7 FC2 to FC5 applied, and the Stage 6 proof reissued as round 6
+3. G2 re-run after the citation-only edits, failing on PG2
+4. PG2 and PG2a fixed in `cite_format.py`, and G2 passed on a full 25-page read
+
+**THE STRANDED-COMMIT LESSON FROM 2026-08-10 APPLIES DIRECTLY HERE**, because this
+branch is exactly the state that produced it: work that `main` does not have. If a
+later session finds the live text missing an edit this file claims, search every
+branch before concluding it was lost:
 
 ```
 git fetch --all --prune
 for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
   n=$(git rev-list --count origin/main..$b); [ "$n" != 0 ] && echo "$b +$n"; done
 ```
+
+Historical note from the third 2026-08-10 session, kept because the recovery
+procedure above is drawn from it:
+
+**A COMMIT WAS STRANDED ON THE PREVIOUS BRANCH AND NEARLY LOST.** Stage 6 CE1 was committed to
+`claude/chapter-1-status-gli2c0` AFTER that branch had already been levelled with
+`main`, so `main` never received it, and the next session cloned a container whose
+live text did not contain the edit. The session opened believing Stage 6 edits
+were in progress and found a clean tree, no pull requests, no issues, and no
+returned proof. The edit was recovered by fast-forward, but only because every
+branch was searched for commits `main` did not have, using the snippet above.
 
 Two things follow. **Merge up before the branch is retired, not after the last
 commit you happen to remember**, and **when a session reports work that is not in
@@ -123,43 +141,64 @@ session added a second instance of the same shape in a different place, a scope
 claim in the Stage 5 record naming a page that had not been read; see the chapter
 status below.
 
-## Chapter 1 status: 8 of 13, EVERY STEP CLAUDE OWNS BEFORE LOCK IS DONE
+## Chapter 1 status: 8 of 13, STAGE 7 IS UNDER WAY AND IS DAN'S
 
 25 pages, 7,062 words, CSS v7.1, `voicecheck.py` mechanically clean,
-`status_check.py` reports 8/13 STATUS CONSISTENT. Stages 3, 4, 5 and G2 all
-cleared 2026-08-10.
+`status_check.py` reports 8/13 STATUS CONSISTENT. G2 was re-passed 2026-08-11
+after the Stage 7 edits; Stages 3, 4 and 5 cleared 2026-08-10 and were not
+disturbed, because Dan ruled the edits citation-only and that row of the scoped
+re-run matrix re-runs the fact check and G2 alone.
 
-**Dan's Stages 6, 7 and 8 are next and may run in one sitting.** Then G3 and
-Stage 9, both Claude's.
+**STAGE 7 IS OPEN. EXTERNAL CHECK 1 IS BACK AND ARCHIVED; FOUR OF ITS FIVE
+PRECISION FLAGS ARE APPLIED.** Full record under Stage 7 in the checklist.
 
-**STAGE 6 IS UNDER WAY. SIX EDITS ARE APPLIED, CE1 TO CE6, AND THE CURRENT PROOF
-IS ROUND 6.** Chapter is 7,083 words, 25 pages, fourteen gates green. Full record
-under Stage 6 in the checklist, including the CE2-to-CE3 renumbering that the
-concurrent sessions forced.
+**STAGE 6 AND STAGE 7 BOTH HAVE WORK APPLIED, FROM TWO DIFFERENT SESSIONS THAT
+DID NOT SEE EACH OTHER.** Both sets are now in one text.
 
-  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round6.docx`
-  `Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round6.manifest.json`
+  CE1 to CE6           Stage 6 copy edits, applied 2026-08-10 to 2026-08-12
+  FC2, FC3, FC4, FC5   Stage 7 fact-check narrowings, applied 2026-08-11
+  FC1                  OPEN, and half of it is decidable without a source
+  CE7, CE8, CE9        raised and UNRULED, listed in the checklist
 
-**ROUNDS 3, 4 AND 5 ARE ALL SUPERSEDED AND MUST NOT BE REVIEWED.** They are kept
-as the artifacts of their steps, not deleted. The round-5 table below was
-produced by a DIFFERENT span-check construction from the round-6 one, so the two
-are not comparable and are printed separately rather than merged into one series:
+**FC1 IS THE ONE LIVE CHAPTER DEFECT AND IT IS VISIBLE ON PAGE 11.** The July 2025
+dated box carries no date in its prose, and the paragraph after it opens "Eleven
+days later", so the reader is asked to count eleven days from nothing they have
+been given. That half needs no source. The other half does: the interval is
+measured from the July 17 press report rather than from the encounter the report
+dates to July 14. Of the two remedies offered, "eleven days after the first
+reports" keeps the precision and supplies the antecedent; "two weeks later" blurs
+both.
 
-  measured in the third session   round 3  134/221   round 4  134/221   round 5  209/221
-  measured in the fourth session  round 3    9/221   round 4    9/221   round 5    9/221
-                                  round 6  205/221
+**BOTH PRODUCTION FLAGS WERE PHANTOMS, AND THE CAUSE IS PROCEDURAL: THE CHECKER
+WAS GIVEN THE CHAPTER HTML RATHER THAN A RENDER.** Theorem 1's four antecedents
+render intact on page 9 and P3's table is correct; the extraction dropped `<li>`
+contents and collapsed empty cells leftward. Stage 3 fed PDFs and Stage 7 must too,
+on every chapter. They carry no FC number, because they were disproved rather than
+ruled. Note that the P3 flag would reproduce even against the PDF under naive text
+extraction, since an empty cell contributes no text: it dies only to a read or to
+the geometry.
 
-**CE3 to CE6, four findings from a full grammar and spelling read**, applied in
-the fourth session. CE3 is the only real defect and NO GATE COULD SEE IT: "Meter
-relocation" was defined twice, once as a body callout and once as a key term, and
-the two definitions did not match. The other three terms appearing in both places
-are character for character identical, which is what showed this to be an
-oversight. It was also a live G3 risk, since `continuity.py` treats a verbatim
-restatement as not a redefinition. **The check that caught it is four lines and
-should be run on every chapter: test each body callout against its key-term twin
-for exact equality.** CE4 was mixed number style inside one sentence, CE5 and CE6
-were pronoun-antecedent faults. Three more findings, CE7 to CE9, are raised and
-UNRULED; they are listed in the checklist.
+**EXTERNAL CHECK 2, ON A DIFFERENT PROMPT, IS STILL OWED.** Stage 3 established
+that two checks on different prompts beat one thorough check, and that the
+disagreement between them is the value. One check is not the step.
+
+**CE3 IS THE FINDING WORTH CARRYING TO EVERY CHAPTER, AND NO GATE COULD SEE IT.**
+"Meter relocation" was defined twice, once as a body callout and once as a key
+term, and the two definitions did not match. The other three terms appearing in
+both places were character for character identical, which is what showed this to
+be an oversight rather than a convention. Gate 6 counts entries and header bands
+and read 8 and 8 throughout. It was also a live G3 risk, since `continuity.py`
+treats a verbatim restatement as not a redefinition. **The check is four lines:
+test each body callout against its key-term twin for exact equality.** CE4 was
+mixed number style inside one sentence; CE5 and CE6 were pronoun-antecedent
+faults; CE2 cut "a round" from the craft section.
+
+**THE PROOF IS STALE AND MUST BE REISSUED AS ROUND 7.** Round 6 was exported from
+the post-FC live text on `claude/stage-7-explanation-sdsb38` and the reconciliation
+merge changed the live text again, which stales it under the standing rule that a
+re-export is part of applying an edit. A SECOND FILE ALSO NAMED ROUND 6 existed on
+the other branch and was dropped in the merge as superseded and never reviewed.
+Rounds 3, 4 and 5 are superseded and must not be reviewed.
 
 **TWO EDITS ARE APPLIED, CE1 AND CE2, AND EACH ONE STALED THE OUTSTANDING PROOF.
 THAT IS NOW A RULE RATHER THAN AN OBSERVATION: the re-export is part of applying
@@ -327,6 +366,61 @@ The packet built for the checks that were passed is still filed in
   AIOM_Ch1_Stage3_Claim_Inventory.md       every cited passage paired with the
                                            register entry behind each key, each
                                            note verbatim.
+
+### What the 2026-08-11 session did
+
+Archived Stage 7 external check 1, applied four of its findings, and re-ran G2,
+which failed, was fixed, and passed. Four commits. Advanced no step to passed
+except G2, which is where it started.
+
+**TWO OF THE THREE DEFECTS FOUND THIS SESSION WERE IN SHARED PRODUCTION TOOLING,
+NOT IN CHAPTER 1, so all fifteen chapters have them fixed before the second is
+drafted.** That is the argument for finding them on the exemplar.
+
+**PG2, straight quotation marks in every generated footnote.** All six footnotes
+set their source titles in ASCII quotes while body prose used typographic ones, and
+both were visible within nine pages of each other: the objection at the head of 1.3
+on page 8 read with a proper pair, footnote 1 on page 2 with typewriter marks. In a
+Chicago-styled book at university-press standard that is a production defect.
+Counted in the rendered text, not inferred from source: 22 straight quotes against
+exactly one typographic pair. `cite_format.py:105` now emits curly marks. No gate
+sees this; gate 2 tests em and en dashes only.
+
+**PG2a, WHICH THE FIX INTRODUCED AND THE RE-READ CAUGHT. THIS IS THE FINDING OF
+THE SESSION.** Applying PG2 doubled the comma in every footnote: `“Clarifying Our
+Pricing,”,`. Chicago puts the comma inside the closing mark, so `_join` suppressed
+the separator by testing `endswith((',"', ",", "."))`, keyed on the ASCII quote; a
+title ending `,”` matched nothing and took a second comma. Both forms are now
+tested and the docstring says why.
+
+**All fourteen gates passed the doubled comma twice**, on the build that introduced
+it and the build that removed it, because nothing mechanical in this repo reads
+punctuation. It was visible on page 2 the moment the page was opened. A one-line
+change to shared tooling is exactly the kind that feels too small to re-verify, and
+it silently broke a second thing inside the same six footnotes it was correcting.
+
+**THE PAGE READ WAS STOPPED MID-WAY ON THE FAILING RUN, DELIBERATELY, AND THAT
+REASONING IS WHY PG2a WAS CAUGHT.** Curly quotes are not the width of straight
+ones, so the remedy reflows the footnote blocks and can move the pages carrying
+them: a read taken before the fix is invalidated by the fix. Eleven pages were read
+and recorded as eleven, then superseded. The final read is all twenty-five pages on
+the final render, with the rasters deleted and regenerated between runs so no stale
+page could be read.
+
+**FC2 IS A DRAFTING ATTRACTOR, NOT A CLOSED INCIDENT.** It is the same defect as
+SF8, made a second time about a second vendor: the copy edit reaches for "the
+vendor began charging" because it is shorter than "began enforcing allowances and
+offered a paid overage". Both sources are scheduled for reuse in Chapters 4 and 11.
+
+**THE RULED-SENTENCE SWEEP SHOULD BECOME A GATE, AND IT HAS NOW FAILED ONCE BY
+BEING RUN BY HAND.** Every ruled sentence quoted in the register was compared
+against body prose with the register block excluded so the notes cannot self-match.
+Four exist; three were present and only SF3 was absent, so the 2026-08-10 repair
+caught SF8, SF9 and SF10 and missed exactly one. About fifteen lines, and it
+generalizes to all fifteen chapters. Its limit, stated so it is not overtrusted: it
+sees only claims that were once ruled with a quoted sentence. FC3, FC4 and FC5 are
+prose drifting broader than a register note on claims never ruled, and nothing
+mechanical will find those.
 
 ### What the SECOND 2026-08-10 session did
 
@@ -549,8 +643,8 @@ Competencies, Maturity Model, Case Bank, Northmoor Dataset design, Workplan v5
 
 **Build and design.** `AIOM_book.css` **v7.1**, `AIOM_DESIGN_SPEC` **v7.1**,
 `AIOM_Design_QA_Spec` (current), `AIOM_build.py` (fourteen gates plus toolchain
-preflight, gate 12 fixed 2026-08-09), `place.py`, `cite_format.py`,
-`footnotes.py`, pinned `requirements.txt`. **The design-spec debt is PAID.** It
+preflight, gate 12 fixed 2026-08-09), `place.py`, `cite_format.py` (quote handling
+fixed 2026-08-11, PG2 and PG2a), `footnotes.py`, pinned `requirements.txt`. **The design-spec debt is PAID.** It
 had been written to v6.9 while the CSS shipped v7.0; on 2026-08-10 it gained
 section 16 for v7.0 (widows and orphans, and Decision 57's DR2 extended to
 `.dated` and `.summary`), section 17 for v7.1 (Decision 58, `.nb` for proper
@@ -578,13 +672,17 @@ record mentions it, it is gone and Decision 50 is why.
    script.
 
 1. **Chapter 1 Stages 6, 7 and 8. DAN'S, AND THEY MAY RUN IN ONE SITTING.** Copy
-   edit, final fact check 2, final read. **STAGE 6 IS UNDER WAY: CE1 IS APPLIED
-   AND THE CURRENT PROOF IS ROUND 4**, exported from the post-CE1 live text with
-   both the round trip and the span check banked. Open
-   `AIOM_Ch1_CopyEdit_round5.docx`, edit in Word, return it, and import through
-   `copyedit_import.py` with the round-5 manifest. **DO NOT USE ROUND 3 OR ROUND
-   4.** Stage 7
-   is structurally external. THREE THINGS TO CARRY INTO THE ROUND:
+   edit, final fact check 2, final read. **STAGE 7 IS THE LIVE ONE: EXTERNAL CHECK
+   1 IS APPLIED AND CHECK 2 IS OWED**, on a different prompt, per the Stage 3
+   finding that the disagreement between two checks is the value. **FC1 IS THE ONE
+   OPEN CHAPTER DEFECT**; its decidable half needs no source and should be fixed in
+   the same pass as its sourced half rather than twice. **FEED THE CHECKER A PDF,
+   NEVER THE HTML**: check 1's two production flags were both phantoms of HTML
+   extraction and cost a render to disprove. **STAGE 6 REMAINS AVAILABLE AND ITS
+   PROOF IS ROUND 6**, exported from the post-FC live text. Open
+   `AIOM_Ch1_CopyEdit_round6.docx`, edit in Word, return it, and import through
+   `copyedit_import.py` with the round-6 manifest. **DO NOT USE ROUNDS 3, 4 OR 5.**
+   THREE THINGS TO CARRY INTO THE ROUND:
 
    - **Any edit that changes the live text invalidates the current proof.** CE1
      shortened it by three characters and staled 64 spans. Re-export after
@@ -617,6 +715,12 @@ record mentions it, it is gone and Decision 50 is why.
    after the ledger design was written.
 
 4. **Remaining process hardening** (Dan approved, still to build):
+   - **The ruled-sentence sweep as a gate.** About fifteen lines: compare every
+     sentence a register note quotes as ruled against body prose, with the register
+     block excluded so the notes cannot self-match. It has already failed once by
+     being run by hand, missing SF3 on 2026-08-10 and surfacing it as FC2 a day
+     later through an external check. Read the limit in the 2026-08-11 section
+     before treating it as complete coverage.
    - **Teach gate 14 about head GROUPS**, closing gap G-II. Highest value: the
      defect it misses has appeared twice on the same page of the same chapter,
      and the second time the gate reported clean.
@@ -661,9 +765,10 @@ record mentions it, it is gone and Decision 50 is why.
   it is given. This bullet graduated into CLAUDE.md on 2026-08-10 per the section
   11 division of labor; it stays here only as the pointer.
 - **A green gate suite is not a read page.** With all fourteen gates passing,
-  reading found flush paragraphs in the summary and a dated box (2026-08-08) and
-  confirmed three moved-page cases (2026-08-09). No gate measures paragraph
-  separation inside a block.
+  reading found flush paragraphs in the summary and a dated box (2026-08-08),
+  confirmed three moved-page cases (2026-08-09), and found straight quotes in every
+  footnote and then a doubled comma introduced by their fix (2026-08-11). No gate
+  measures paragraph separation inside a block, and none reads punctuation at all.
 - **When a check and the prose disagree, fix whichever is actually wrong, and say
   which.** Gate 12 on 2026-08-09 is the cleanest case: rewording the sentence so
   the reference did not wrap would have passed the gate and left every later
@@ -677,14 +782,22 @@ record mentions it, it is gone and Decision 50 is why.
   does. Had that gone unchecked, the ruling would have breached it.
 - No em dashes anywhere, including commit messages. A build gate enforces it.
 - The craft standard binds at Stage 0, at drafting time, not at Stage 4.
-- The chapter HTML is the single source of truth (Decision 50). Never fork.
-- Source register notes inside a chapter's own Decision 51 block can carry
-  rulings the summary ledger does not. Read them before using a figure.
-- **Write every fact-check ruling back into the register note, with the condition
-  that would reverse it.** A ruling recorded only in the checklist is a ruling
-  the next checker will raise again.
-- **Not every proposed remedy is an improvement.** Evaluate the remedy separately
-  from the finding.
+
+**Graduated into CLAUDE.md section 10 on 2026-08-11, and deliberately not restated
+here.** They were duplicated in both files, and a mirror is the failure this repo
+has already paid for repeatedly. Read them there, not from memory:
+
+- a one-line change to shared tooling is not too small to re-verify, because a
+  glyph-width change is a reflow
+- a check over rendered pages must decide explicitly what it does at a page
+  boundary, or it passes the defect it exists to catch
+- one live text per chapter, the chapter HTML is it, supersede and delete and never
+  fork (Decision 50)
+- read the in-chapter Decision 51 register before using a figure from a cited
+  study, because it can carry rulings the summary ledger does not
+- write every fact-check ruling back into the register note, with the condition
+  that would reverse it
+- judge a proposed remedy separately from the finding it answers
 
 **Tooling facts learned the hard way.**
 

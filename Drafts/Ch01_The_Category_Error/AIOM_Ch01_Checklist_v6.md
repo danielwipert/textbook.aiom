@@ -117,6 +117,25 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 | Stage 9 | Locked | not run | 0 |
 
 ---
+
+## REOPENED 2026-08-11: Gate G2 and everything after it
+
+Grounds: FC2 to FC5 applied at Stage 7 from external check 1, ruled by Dan as citation or source only under the scoped re-run matrix. That row re-runs the fact check and G2 and leaves dev, voice and design intact, so Stages 2, 4 and 5 keep their ticks. The fact check being re-run is Stage 7 itself, which is open and owns these findings. G2 was ticked 2026-08-10 against the pre-CE1 state and no G2 page read has ever been made against the current text.
+
+Every step from Gate G2 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Gate G2 | Production gate | passed | 17 |
+| Stage 6 | Copy edit | not run | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
@@ -2628,7 +2647,7 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-10
+Status: [x]        Date cleared: 2026-08-11
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
@@ -2651,6 +2670,139 @@ Status: [x]        Date cleared: 2026-08-10
 - [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+## G2 RE-RUN 2026-08-11. **PASSED, after failing on PG2 and being re-run.**
+
+The gate failed on its first run, PG2 was ruled by Dan and applied, and the gate
+was re-run from the top against the new render. What follows records both runs,
+because the first is what found the defect and the second is what cleared it.
+
+FINAL STATE: all fourteen automated gates pass, 25 pages, figure geometry passes,
+and all twenty-five pages were read at 150 dpi on the final render with no further
+defect found.
+
+Run after FC2 to FC5, which Dan ruled citation-only. That row of the scoped re-run
+matrix re-runs the fact check and G2, so Stages 2, 4 and 5 keep their ticks and the
+fact check being re-run is Stage 7, which is open and owns the findings.
+
+**PG2, STRAIGHT QUOTATION MARKS IN EVERY GENERATED FOOTNOTE.** All six footnotes
+set their source titles in ASCII straight quotes (U+0022) while body prose uses
+typographic quotes. The contrast is visible inside this one chapter: the objection
+quoted at the head of 1.3 on page 8 reads with a proper opening and closing pair,
+and footnote 1 two pages earlier reads with typewriter marks. In a Chicago-styled
+book at university-press standard, a straight quote in a note is a production
+defect.
+
+Counted in the rendered text, not inferred from source: 22 straight double quotes,
+all six footnotes, on pages 2, 3, 11 and 17. Exactly one typographic pair exists in
+the whole chapter, the body-prose objection on page 8.
+
+CAUSE, and it is one line. `cite_format.py:102` builds every title as
+`f'"{entry["title"]},"'`. The comma inside the closing mark is correct Chicago; the
+marks are not. No gate sees this: gate 2 tests em and en dashes only, and no gate
+tests quote style.
+
+SCOPE. This is production tooling shared by all fifteen chapters, not chapter
+content, so the remedy belongs in `cite_format.py` rather than in this chapter or
+in its source register. Under the scoped re-run matrix a production-apparatus
+change re-runs Stage 5 and G2 for every chapter, which is contained today because
+Chapter 1 is the only chapter drafted and it is not locked.
+
+**RULED BY DAN AND APPLIED.** `cite_format.py:105` now emits `“Title,”`. Verified
+in the rendered text rather than in the source: zero U+0022, twelve balanced
+typographic pairs, being the eleven footnote titles and the one body-prose
+objection on page 8.
+
+**PG2a, A SECOND DEFECT INTRODUCED BY THE FIX AND CAUGHT BY THE RE-READ.** Applying
+PG2 doubled the comma in every footnote: `“Clarifying Our Pricing,”,`. Chicago puts
+the comma inside the closing mark, so `_join` at `cite_format.py:81` suppressed the
+separator by testing `endswith((',"', ",", "."))`, and that test was keyed on the
+ASCII quote. A title ending `,”` matched nothing and took a second comma. Fixed by
+testing both forms, and the docstring now says why both are there. Zero `,”,` in
+the render.
+
+PG2a IS THE POINT OF THE RE-READ, NOT AN INCIDENT ALONGSIDE IT. Every one of the
+fourteen gates passed the doubled comma, twice: once on the run that introduced it
+and once on the run that removed it. Nothing mechanical in this repo reads
+punctuation. The defect existed for one build and was visible on page 2 the moment
+the page was opened. A one-line fix to shared tooling is exactly the kind of change
+that feels too small to re-verify, and it silently broke a second thing in the same
+six footnotes it was correcting.
+
+**THE PAGE READ IS COMPLETE ON THE FINAL RENDER, AND THIS SCOPE CLAIM IS WRITTEN
+FROM WHAT WAS DONE.** All twenty-five pages were rasterized at 150 dpi and read
+against the final PDF, after both fixes: 1 through 25, none skipped, none read only
+on an earlier render and carried forward. The rasters were deleted and regenerated
+between runs so no stale page could be read by mistake. The first run's partial
+read of eleven pages is superseded and is not counted toward this claim.
+
+WHY THE FIRST RUN STOPPED AT ELEVEN PAGES, kept as the reasoning and not as a
+result: curly quotes are not the width of straight ones, so the remedy reflows six
+footnote blocks and can move the pages carrying them, and a read taken before the
+fix is invalidated by the fix. That reasoning was right and PG2a is the proof of
+it.
+
+WHAT THE TWENTY-FIVE-PAGE READ CONFIRMED, none of it visible to a gate.
+
+FC2 and FC3 render correctly on page 2, FC4 and FC5 on page 11. Every footnote now
+reads as correct Chicago, including the two forms the formatter treats specially: a
+social post sits unquoted and lowercase on page 11, and the journal article on page
+17 attaches its year parenthetical to the container with no intervening comma.
+
+The two stacked definition callouts on page 4 are intact and unsplit, and neither
+collides with a panel, which is the Gap G-I hazard that no gate sees. The Theorem 1
+panel on page 9 holds its full measure and renders the structured conditional
+correctly: scope boundary before the "if", four antecedents in lower-case roman one
+per line, consequent on its own line opening "then". "ChatGPT" on page 10 sits
+unbroken in the narrow column beside a callout, which is where DR6 broke it. The
+craft-section head group on page 16 is whole and unstranded, which is DR1 and Gap
+G-II. Model-answer paragraphs on page 22 are separated, which is DR2. The P3
+inventory table on page 25 is unsplit, which is DR3, and page 24 carries the short
+foot that DR3a accepts as the cost of holding it whole.
+
+The craft section's arithmetic was checked on the page rather than assumed:
+5,000 × 40 × 6 × 21 gives 25.2 million suggested-reply generations, retrievals match
+one for one, conversation closes run 5,000 × 40 × 21 or 4.2 million, the total is
+54.6 million, and 54.6 million over five thousand seats is 10,920, which the prose
+rounds to about 10,900. Every figure on page 18 follows from the stipulated inputs.
+
+FC1 IS VISIBLE ON THE PAGE AND STILL OPEN. Page 11 shows the July 2025 box with no
+date in its prose, and the next paragraph opening "Eleven days later". A reader is
+asked to count eleven days from nothing they have been given. Unchanged by this
+gate, and still Stage 7's to rule.
+
+**PG1 HOLDS.** `lang="en-US"` is present and is the only lang attribute, so the
+chapter is still hyphenating American. Verified rather than assumed, because there
+is no CSS lever for it and no gate reports its absence.
+
+HYPHENATION SCAN, the DR6 and DR7 method, run three times: on the incoming text,
+and again after each fix, because a glyph-width change can move a line end.
+Ninety-three hyphenated line ends every time, zero falling inside any of the nine
+brand names carried by `.nb`, and zero falling at a page turn. The count holding at
+93 across all three runs is also the evidence that neither fix reflowed body text.
+
+Recorded as a method correction, because it is the same shape as PG2a. The first
+run of this scan tested only the following line within the same page, which is
+precisely the blind spot that hid DR7 until it was found across the page 11 to 12
+turn. It was re-run with page turns included and with folios and running heads
+stripped. A scan that cannot see a page turn would have passed the very defect the
+method exists to catch.
+
+G2 BOX TEXT VERIFIED AGAINST `gen_checklists.py`: seventeen boxes, identical
+strings, no drift. CLAUDE.md warns that a reopen resets ticks without regenerating
+box text, and Chapter 1 carried a stale ten-box G2 list once before.
+
+**STATUS: G2 PASSES.** All seventeen boxes ticked, against the final render, with
+every check re-run from the top after the last fix rather than carried forward from
+the failing run.
+
+WHAT THIS RE-RUN LEAVES FOR LATER CHAPTERS. Two of the three defects found here
+were in shared production tooling, not in Chapter 1, so they are now fixed for all
+fifteen chapters before the second one is drafted. That is the argument for finding
+them on the exemplar. It also means Chapter 2 inherits a formatter whose quote
+handling has been read on a page, which no chapter before this one could say.
+
+ARCHIVED 2026-08-11, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 G2 PASSED 2026-08-10 on a fresh build against CSS v7.1, at 25 pages. All fourteen
 printed gates pass and BOTH MANUAL BOXES WERE PERFORMED. One finding, PG1, ruled
@@ -3581,9 +3733,43 @@ from the HANDOFF header convention rather than derived. The commits are dated
 copied from a neighbouring document instead of read off the work is the same
 failure as a scope claim written from intent.
 
-**THE PROOF NAMED ROUND 6 HERE COLLIDES WITH A DIFFERENT ROUND 6 ON
-`claude/stage-7-explanation-sdsb38`.** Both exist, they are not the same file,
-and neither has been renamed pending Dan's ruling on how the branches reconcile.
+**THE ROUND 6 COLLISION IS RESOLVED. RULED 2026-08-12: `stage-7-explanation` is
+the base.** Two different files were named round 6, one exported here and one on
+that branch. The Stage 7 branch's round 6 is kept, because it belongs to the
+lineage Dan made canonical. The one exported here was dropped in the merge as
+superseded and never reviewed. **THE CURRENT PROOF IS ROUND 7**, exported from the
+reconciled live text (sha256 `990ffec7...`) against a fourteen-gate render of it:
+
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round7.docx
+  Drafts/Ch01_The_Category_Error/08_Stage6_Copy_Edit/AIOM_Ch1_CopyEdit_round7.manifest.json
+
+Round trip passes at zero edited, zero applied, zero refused, hash identical
+before and after. **ROUNDS 3, 4, 5 AND 6 ARE ALL SUPERSEDED.**
+
+### The reconciliation, 2026-08-12
+
+Four sessions worked this chapter between 2026-08-10 and 2026-08-12 without
+seeing each other. Dan ruled `claude/stage-7-explanation-sdsb38` the base. The
+Stage 6 copy edits CE3 to CE6 are layered over the Stage 7 fact-check narrowings
+FC2 to FC5, and nothing was discarded from either side.
+
+**ONE CONFLICT, AND BOTH SIDES WERE RIGHT, WHICH IS NOW THE SECOND TIME.** The
+June 1 2026 GitHub paragraph carried a Stage 7 claim narrowing ("annual
+subscribers kept premium-request pricing") and a Stage 6 grammar fix ("the model
+that customer selected") in the same sentence pair. The merge takes both. The
+narrowing was preserved character for character, because a ruled claim narrowing
+that does not survive an edit is the failure mode this chapter has already hit
+four times.
+
+**A DAN RULING IS STILL STRANDED ON ANOTHER BRANCH AND IS NOT IN THIS TEXT.**
+`claude/stage-6-edits-rof1yb` holds three commits nothing else contains: Stage 6
+closed at 9 of 13 on Dan's ruling, the Stage 7 packet with its mechanical checks,
+SF11 raised and applied, and `factcheck_packet.py` promoted to repo tooling.
+`stage-7`'s HANDOFF claims to replace that branch, but both branched from
+`e233c12` and `stage-7` never contained those commits. **THIS CHECKLIST THEREFORE
+STILL SHOWS STAGE 6 OPEN WHILE A COMMIT ELSEWHERE RECORDS DAN CLOSING IT.** Not
+resolved here, because reconciling a status tick against a ruling recorded in
+another lineage is Dan's call and not a merge decision.
 
 **THESE FOUR WERE FOUND AND APPLIED IN A CONCURRENT SESSION AND CARRIED THE
 LABELS CE2 TO CE5 THERE. THEY ARE RENUMBERED CE3 TO CE6 HERE**, on Dan's ruling,
@@ -3699,6 +3885,93 @@ Status: [ ]        Date cleared:
 > Narrower than stage 2. Targets what changed since it, confirming nothing broke in revision.
 
 Findings:
+
+**EXTERNAL CHECK 1 RECEIVED 2026-08-11.** Full record in
+`09_Stage7_Final_Fact_Check_2/`: the report archived as
+`AIOM_Ch1_Stage7_ExternalCheck_1.md` with its em dashes normalized on the
+precedent already set for the TechCrunch headline in the source register, the
+render it should have been given as `AIOM_Ch1_Stage7_FactCheck_Input.pdf`, and
+everything decidable inside the repo as `AIOM_Ch1_Stage7_Render_Verification.md`.
+
+Verdict as received: the factual spine holds, no fabricated or misdated events,
+five precision flags and two production flags. **The source half is recorded as
+received and is NOT confirmed in this repo.** No source host is reachable from the
+Claude environment, verified 2026-08-06 against six of them.
+
+FC1 to FC5, the precision flags. Dan ruled 2026-08-11: apply 2, 3, 4 and 5.
+
+- **FC1, "Eleven days later". OPEN, not applied.** The interval is measured from
+  the July 17 press report rather than from the encounter, which the report dates
+  to Monday July 14. That half needs the source. The half that is decidable here
+  is a real defect and should be fixed in the same pass rather than twice: the
+  preceding paragraph carries no date in prose, so "eleven days later" counts from
+  nothing the reader has been given. Of the two remedies offered, "eleven days
+  after the first reports" keeps the precision and supplies the antecedent, and
+  "two weeks later" blurs both.
+- **FC2, the SF3 ruled narrowing regressed. APPLIED.** The chapter had come to say
+  GitHub "began charging Copilot customers for premium requests that exceeded a
+  monthly allowance", against a changelog that says allowances were enforced and
+  overage required a spending limit defaulting to zero. Restored to the SF3 ruled
+  form, with "for Copilot" carried inside it because line 27 is where the product
+  is first named.
+- **FC3, "existing terms". APPLIED** as "premium-request pricing", which is the
+  register note's own wording. The model-multiplier exception the checker reports
+  is not in the register note and stays open for the source.
+- **FC4, "regardless of renewal date". APPLIED** as "for all Pro and Max
+  subscribers". The cut clause was an unsourced inference under standing rule 2.
+- **FC5, "highest-priced plan". APPLIED** as "Max subscribers", the register's own
+  wording. Max spans two price points, so the superlative was wrong twice over.
+
+**FC2 IS THE SAME DEFECT AS SF8, MADE A SECOND TIME ABOUT A SECOND VENDOR.** SF8
+was the copy edit reintroducing automatic continuation on the Cursor side; FC2
+reintroduced automatic charging on the GitHub side. The copy edit reaches for "the
+vendor began charging" because it is shorter than "began enforcing allowances and
+offered a paid overage". Both sources are scheduled for reuse in Chapters 4 and
+11, so this is a drafting attractor to watch, not a closed incident.
+
+**THE SWEEP SAYS FC2 WAS ALONE, AND THE SWEEP SHOULD BECOME A GATE.** Every ruled
+sentence quoted in the register was compared against body prose, with the register
+block excluded so the notes cannot self-match. Four such sentences exist; three
+were present and only SF3 was absent. So the repair of 2026-08-10 caught SF8, SF9
+and SF10 and missed exactly one. The check is about fifteen lines, it generalizes
+to all fifteen chapters, and the control has now failed once by being run by hand.
+Its limit, stated so it is not overtrusted: it sees only claims that were once
+ruled with a quoted sentence. FC3, FC4 and FC5 are prose drifting broader than a
+register note on claims never ruled, and nothing mechanical will find those.
+
+**BOTH PRODUCTION FLAGS WERE PHANTOMS, AND THE CAUSE IS PROCEDURAL.** The checker
+was given the chapter HTML rather than a render. Theorem 1's four antecedents
+render intact on page 9; the extraction dropped the `<li>` contents. P3's table is
+correct and its student-blank column is the first one, drawn as three fill rules
+under EVENT TYPE; the extraction collapsed the empty cells leftward. Stage 3 fed
+PDFs. Stage 7 must too, on every chapter. Note also that the P3 flag would
+reproduce against the PDF under naive text extraction, since an empty cell
+contributes no text: it dies only to a read or to the geometry.
+
+**A STALE OPEN MARKER, FOR DAN.** The Stage 6 finding above still reads "OPEN: any
+prose inside `<li>` is invisible to Stage 6 on all fifteen chapters". That defect
+was fixed on 2026-08-08 and the round 6 export confirms it, listing four THEOREM
+ANTECEDENT blocks and refusing edits to them. Not edited here because Stage 6 is
+Dan's step. A stale OPEN is the same hazard as a check claimed but never
+performed, running the other way.
+
+**STATE AFTER THE EDITS.** All fourteen gates pass, 25 pages held, `voicecheck.py`
+STAGE 4 MECHANICAL: PASS, 7,062 words. Building also discharged a real exposure:
+G2 was ticked 2026-08-10 against the pre-CE1 state, and CE1 and CE2 are copy
+edits, which re-run G2 under the scoped re-run matrix.
+
+**RE-RUN CLASSIFICATION IS UNRULED AND IS THE NEXT DECISION.** FC2 to FC5 are
+claim narrowings restoring prose to what the register supports. Read as "citation
+or source only" they re-run fact check and G2 and leave dev, voice and design
+intact, which is the precedent SF8, SF9 and SF10 set at Stage 3 on 2026-08-10.
+Read as "body prose claim change" they re-run Stages 2, 3, 4, 5 and G2. Nothing
+has been ticked or unticked pending Dan's ruling, and `status_check.py` still
+reports 8/13 STATUS CONSISTENT.
+
+Status is unchanged: this step remains OPEN, and external check 2 on a different
+prompt is recommended before it is ticked. Stage 3 established that two checks on
+different prompts beat one thorough check and that the disagreement is the value.
+SF3 itself exists because two checks disagreed. This is one check.
 
 ---
 

@@ -72,13 +72,15 @@ def _join(parts):
     """Join citation parts, respecting punctuation a part already carries.
 
     Chicago puts the comma inside the closing quotation mark, so a title part
-    arrives as '"Title,"' and must not receive a second comma.
+    arrives as '“Title,”' and must not receive a second comma. Both quote forms
+    are tested: the ASCII pair is no longer emitted, but keying this test on one
+    form is what silently doubled the comma when the quotes were corrected.
     """
     out = ""
     for p in (x for x in parts if x):
         if not out:
             out = p
-        elif out.rstrip().endswith((',"', ",", ".")):
+        elif out.rstrip().endswith((',”', ',"', ",", ".")):
             out += " " + p
         else:
             out += ", " + p
@@ -99,7 +101,10 @@ def format_note(entry, url_policy="full"):
         parts.append(desc)
     else:
         if entry.get("title"):
-            parts.append(f'"{entry["title"]},"')
+            # Typographic quotes, not ASCII. Chicago sets a title in curly
+            # marks, and body prose already uses them, so a straight mark in a
+            # note reads as a typewriter artifact next to the prose above it.
+            parts.append(f'“{entry["title"]},”')
         if entry.get("container"):
             # An article's year parenthetical attaches to the journal name
             # with no intervening comma.
