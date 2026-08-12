@@ -2666,30 +2666,93 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-12
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Gate 1, zero right-margin overflow
-- [ ] Gate 2, zero em and en dashes in the rendered text
-- [ ] Gate 3, running heads and folios correct and correctly sided
-- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
-- [ ] Gate 5, font faces: expected set only, none stray inside SVG
-- [ ] Gate 6, key-term register renders with correct rule and tint alternation
-- [ ] Gate 7, opening-case provenance line present on page 1
-- [ ] Gate 8, footnotes on the calling page, numbering sequential
-- [ ] Gate 9, dated evidence boxes labelled and ruled
-- [ ] Gate 10, problem labels present with their titles
-- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
-- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
-- [ ] Gate 13, no text below the bottom margin, folio excluded
-- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [ ] Gate 15, typographic marks: zero straight quotes or apostrophes
-- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [x] Renders under WeasyPrint without error or warning
+- [x] Gate 1, zero right-margin overflow
+- [x] Gate 2, zero em and en dashes in the rendered text
+- [x] Gate 3, running heads and folios correct and correctly sided
+- [x] Gate 4, callout placement: no splits, ordering correct after place.py
+- [x] Gate 5, font faces: expected set only, none stray inside SVG
+- [x] Gate 6, key-term register renders with correct rule and tint alternation
+- [x] Gate 7, opening-case provenance line present on page 1
+- [x] Gate 8, footnotes on the calling page, numbering sequential
+- [x] Gate 9, dated evidence boxes labelled and ruled
+- [x] Gate 10, problem labels present with their titles
+- [x] Gate 11, theorem panel intact, labelled, ruled, not split
+- [x] Gate 12, figures captioned, numbered in order, each referenced in text
+- [x] Gate 13, no text below the bottom margin, folio excluded
+- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [x] Gate 15, typographic marks: zero straight quotes or apostrophes
+- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+## G2 RE-RUN 2026-08-12. **PASSED, on the reconciled text, at fifteen gates.**
+
+Third G2 run on this chapter. It was reopened because the 2026-08-11 pass was taken
+against the pre-CE3 text and CE3 to CE6 landed after it. Every check was run from
+the top rather than carried forward.
+
+FIFTEEN GATES PASS, 25 pages. Gate 15, typographic marks, ran against this chapter
+for the first time and reports zero straight quotes or apostrophes, which is the
+independent confirmation that the PG2 fix in `cite_format.py` survived the
+reconciliation. Counted in the rendered text as well: zero U+0022, twelve balanced
+typographic pairs, thirty-one typographic apostrophes.
+
+**THE PAGE READ IS COMPLETE AND THIS SCOPE CLAIM IS WRITTEN FROM WHAT WAS DONE.**
+All twenty-five pages rasterized at 150 dpi and read, 1 through 25, none skipped.
+The rasters were deleted and regenerated from this build before the read, so no
+page from the 2026-08-11 run could be read by mistake. NO NEW DEFECT FOUND.
+
+FIGURE GEOMETRY, the first of the two MANUAL checks. Verified by pixel sampling
+rather than by eye, and the first attempt was WRONG in a way worth recording: a
+tolerance of 14 cannot separate `--amber-fig` #C0521A from `--amber` #B4551F,
+because they differ by 12 in red, so both matched every pixel and the check would
+have passed a figure using the wrong token. Re-run by taking the dominant saturated
+colours exactly. Figure 1.1 is #C0521A with no #B4551F present, which is the DR5
+fix holding. Figure 1.2 pairs #C0521A with #0E7A72, the teal. Neither figure uses
+`rx`, so the curve-path hazard that makes this check manual does not arise in this
+chapter.
+
+HYPHENATION SCAN, the DR6 and DR7 method, with page turns included. Ninety-five
+hyphenated line ends, zero falling inside any of the nine `.nb` brand names, zero
+falling at a page turn. The count moved from 93 to 95 with the copy edits, which is
+why the durable claim is the zero and not the count.
+
+`lang="en-US"` present and sole, so PG1 holds and the chapter still hyphenates
+American.
+
+WHAT THE READ CONFIRMED THAT NO GATE CAN SEE. The two stacked callouts on page 4
+are intact and clear of any panel, which is Gap G-I. The Theorem 1 panel on page 9
+holds its full measure and its structured-conditional form, scope boundary before
+the "if", four antecedents in lower-case roman, consequent opening "then". "ChatGPT"
+on page 10 is unbroken in the narrow column beside a callout, where DR6 broke it.
+The craft-section head group on page 16 carries its body, which is DR1 and Gap
+G-II. Model-answer paragraphs on page 22 are separated, which is DR2. The P3 table
+on page 25 is whole, which is DR3, and page 24 carries the short foot DR3a accepts
+as its price.
+
+THE CRAFT ARITHMETIC WAS RE-CHECKED ON THE PAGE, because the copy edit rewrote the
+sentence carrying it. Page 18 now spells the operands in prose and keeps figures in
+the calculation. 5,000 x 40 x 6 x 21 gives 25.2 million suggested-reply generations,
+retrievals match one for one, closes run once per contact at 4.2 million, the total
+is 54.6 million, and that over five thousand seats is 10,920, which the prose rounds
+to about 10,900. Every figure still follows from the stipulated inputs.
+
+FC1 IS STILL OPEN AND STILL VISIBLE ON PAGE 11. The July 2025 box carries no date
+in its prose and the paragraph after it opens "Eleven days later". Untouched by the
+copy edit and by this gate, and still Stage 7's to rule.
+
+**A DEFECT IN THE CHECKLIST ITSELF WAS FOUND AND FIXED BEFORE THIS RUN.**
+`gen_checklists.py` emitted fourteen gate boxes while `AIOM_build.py` runs fifteen,
+so a G2 pass could have been ticked without gate 15 ever being recorded. That is
+the 2026-08-05 drift running the other way, and it was caught only because CLAUDE.md
+requires checking box TEXT against the generator after a reopen. G2 is now eighteen
+boxes and both the generator and this list carry gate 15.
 
 ARCHIVED 2026-08-12, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
