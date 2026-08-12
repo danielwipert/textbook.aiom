@@ -3573,7 +3573,17 @@ staled the outstanding proof, and it is now a rule rather than an observation: a
 edit to the live text invalidates the current export, and the re-export is part of
 applying the edit rather than a later step.
 
-### Round 6, on a full read. CE3 to CE6, ruled and applied 2026-08-10.
+### Round 6, on a full read. CE3 to CE6, ruled and applied 2026-08-12.
+
+**DATE CORRECTED IN PLACE.** This block first said 2026-08-10, which was taken
+from the HANDOFF header convention rather than derived. The commits are dated
+2026-08-11 and 2026-08-12. Recorded rather than silently fixed, because a date
+copied from a neighbouring document instead of read off the work is the same
+failure as a scope claim written from intent.
+
+**THE PROOF NAMED ROUND 6 HERE COLLIDES WITH A DIFFERENT ROUND 6 ON
+`claude/stage-7-explanation-sdsb38`.** Both exist, they are not the same file,
+and neither has been renamed pending Dan's ruling on how the branches reconcile.
 
 **THESE FOUR WERE FOUND AND APPLIED IN A CONCURRENT SESSION AND CARRIED THE
 LABELS CE2 TO CE5 THERE. THEY ARE RENUMBERED CE3 TO CE6 HERE**, on Dan's ruling,

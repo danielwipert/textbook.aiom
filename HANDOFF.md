@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-10, at the close of the FOURTH session that day. Read this
+Last updated: 2026-08-12. Read this
 plus CLAUDE.md before starting work, and update this file before ending the
 session. The protocol is CLAUDE.md section 11. A SessionStart hook
 (`.claude/settings.json`) prints this file into context automatically at the
@@ -8,33 +8,54 @@ start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/chapter-1-status-gli2c0`. **`main` CARRIES
-EVERYTHING FROM BOTH THAT BRANCH AND `claude/stage-6-edits-rof1yb`, AND ALL THREE
-ARE LEVEL.** Start the next session from `main` and neither branch matters.
+Active working branch: `claude/chapter-1-status-gli2c0`, level with `main`.
 
-**TWO SESSIONS RAN CONCURRENTLY ON 2026-08-10 AND BOTH EDITED THE SAME CHAPTER.
-THE FAST-FORWARD ASSUMPTION THIS FILE HAS CARRIED SINCE THE BEGINNING BROKE, AND
-IT WILL BREAK AGAIN.** Every earlier entry says `main` carries no commits of its
-own so every merge is a clean fast-forward. That was true until the third and
-fourth sessions overlapped. The fourth session was told "merge main up", ran the
-fetch first, and found `main` six commits AHEAD of it with one commit of its own
-outstanding. `git push origin HEAD:main` would have been rejected, and a force
-would have destroyed two HANDOFF refreshes, two proof rounds and 190 lines of
-checklist record.
+**READ THIS BEFORE ANY MERGE. `main` IS NOT THE WHOLE PROJECT. NINE BRANCHES
+CARRY 149 COMMITS `main` DOES NOT HAVE, AND TWO OF THEM ARE LIVE CHAPTER 1 WORK
+THAT IS AHEAD OF `main`.** This is unresolved and is the top open thread.
 
-It was resolved by a real merge rather than a fast-forward: `origin/main` merged
-INTO the working branch, one content conflict resolved by hand, a full rebuild,
-and then the merge commit pushed to `main`. Nothing was discarded from either
-side. **The rule that follows: "merge main up" is a request to make the two
-level, NOT a licence to force. Run the fetch, and if `git log origin/main ^HEAD`
-is non-empty, STOP AND READ WHAT IS THERE BEFORE DOING ANYTHING.** In this case
-what was there was a second session's Stage 6 work.
+  `claude/stage-6-edits-rof1yb`        +3   2026-08-10
+  `claude/stage-7-explanation-sdsb38`  +9   2026-08-11
 
-Two further consequences worth keeping. Concurrent sessions produce COLLIDING
-FINDING LABELS: both sessions numbered their copy-edit findings from CE1, so the
-fourth session's CE2 to CE5 are renumbered CE3 to CE6 in the checklist, with the
-mapping recorded there once. And both sessions edited THE SAME SENTENCE in the
-craft section, each fixing something real and different; the merge took both.
+The first CLOSED STAGE 6 at 9 of 13, built the Stage 7 packet, raised and applied
+SF11, and promoted `factcheck_packet.py` to repo tooling. The second archived
+Stage 7 external check 1, applied FC2 to FC5, fixed PG2 and PG2a in
+`cite_format.py`, passed G2 on a full 25-page read, and cut CLAUDE.md section 10
+from 323 lines to 194. **The two branches DIVERGE from each other**, and their
+live texts differ by four lines. `main`'s checklist currently says Stage 6 is
+OPEN, which is true of `main` and false of both branches.
+
+**THE FAST-FORWARD ASSUMPTION THIS FILE CARRIED SINCE THE BEGINNING IS DEAD.**
+Every earlier entry says `main` carries no commits of its own so every merge is a
+clean fast-forward. Told "merge main up" on 2026-08-12, this session ran the
+fetch first and found `main` six commits AHEAD with one commit of its own
+outstanding. A force push would have destroyed two HANDOFF refreshes, two proof
+rounds and 190 lines of checklist record. It was resolved by a real merge:
+`origin/main` merged INTO the branch, one content conflict resolved by hand, full
+rebuild, merge commit pushed. Nothing discarded.
+
+**THE SWEEP BELOW WAS RUN AFTER THAT PUSH AND SHOULD HAVE RUN BEFORE IT.** The
+third session had already written it into this file as its own main lesson, and
+this session used it as a post-hoc confirmation rather than a precondition. Had
+it run first, the nine branches would have been visible before `main` moved. RUN
+IT BEFORE EVERY MERGE, NOT AFTER:
+
+```
+git fetch --all --prune
+for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
+  n=$(git rev-list --count origin/main..$b); [ "$n" != 0 ] && echo "$b +$n"; done
+```
+
+The other seven branches last saw a commit between 2026-07-30 and 2026-08-05,
+predate the reopen, and are PROBABLY superseded. That word is doing real work:
+nobody has checked them, and this file should not claim they are dead.
+
+Two consequences of concurrent sessions, both already realised. FINDING LABELS
+COLLIDE: both sessions numbered copy-edit findings from CE1, so this session's
+CE2 to CE5 are renumbered CE3 to CE6 in the checklist. PROOF ROUND NUMBERS
+COLLIDE TOO: there are now two different files called round 6, one here and one
+on `claude/stage-7-explanation-sdsb38`. Neither has been renamed, pending a
+ruling on how the branches reconcile.
 
 **A COMMIT WAS STRANDED ON THE PREVIOUS BRANCH AND NEARLY LOST, WHICH IS THE MAIN
 LESSON OF THIS SESSION.** Stage 6 CE1 was committed to
