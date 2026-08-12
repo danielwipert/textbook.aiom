@@ -7,12 +7,18 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/stage-7-explanation-sdsb38`, **ONE COMMIT AHEAD OF
-`main` AND ZERO BEHIND.** Verified by `git_hygiene.py` immediately before writing
-this, not by hand. That one commit is the gate 15 correction, the G2 reopen, and
-the `gen_checklists.py` fix described under the chapter status. **MERGE IT UP
-BEFORE THIS BRANCH IS RETIRED**, which is rule 4 of CLAUDE.md section 9 and the
-shape of every stranding incident this file records.
+Active working branch: `claude/stage-7-explanation-sdsb38`, **LEVEL WITH `main`,
+NOTHING OUTSTANDING.** `main` was merged up on Dan's instruction 2026-08-12 and
+took three commits: the gate 15 correction with the G2 reopen and the
+`gen_checklists.py` fix, this file's previous refresh, and the G2 pass. Verified by
+`git_hygiene.py` before the push and by `git rev-list --left-right --count` after
+it, which reports `0 0`. The fast-forward was clean and nothing was forced:
+`git log origin/main ^HEAD` was empty and `git merge-base --is-ancestor` confirmed
+`main` was a strict ancestor, both checked before pushing rather than assumed.
+
+**THIS BRANCH IS NOW FULLY MERGED AND SAFE TO DELETE ONCE THIS SESSION CLOSES.**
+Delete it in the same pass as `claude/chapter-1-status-gli2c0`, and read the
+paragraph below first, because the ordering is the whole point.
 
 **A PUSH FROM THIS CONTAINER RECREATED A BRANCH DAN HAD DELETED, AND CLAUDE CANNOT
 UNDO IT.** The 2026-08-12 cleanup left three branches and this was not among them.
@@ -20,9 +26,12 @@ A session that had been running since before the cleanup pushed again, and the p
 reported `* [new branch]`. The remote now holds four:
 
   main                                     the trunk
-  claude/stage-7-explanation-sdsb38        +1, this container, NOT YET MERGED UP
+  claude/stage-7-explanation-sdsb38        LEVEL, merged up, safe to delete
   claude/chapter-1-status-gli2c0           fully merged, safe to delete
   claude/chapter-1-handoff-review-sbkq2u   +3, superseded, recovery tip `68bc904`
+
+Only the last carries anything `main` does not have, and it is already ruled for
+deletion as a Process v1 leftover.
 
 Deletion is Dan's: `git push --delete` returns 403 from this environment. **The
 lesson is narrower than "clean up branches" and worth stating exactly: A DELETED
@@ -211,13 +220,35 @@ session added a second instance of the same shape in a different place, a scope
 claim in the Stage 5 record naming a page that had not been read; see the chapter
 status below.
 
-## Chapter 1 status: 7 of 13, G2 REOPENED 2026-08-12
+## Chapter 1 status: 8 of 13, G2 RE-PASSED 2026-08-12 AT FIFTEEN GATES
 
-`status_check.py` reports 7/13 STATUS CONSISTENT. CSS v7.1. Stages 3, 4 and 5
-cleared 2026-08-10 and are undisturbed.
+`status_check.py` reports 8/13 STATUS CONSISTENT. CSS v7.1. Stages 3, 4 and 5
+cleared 2026-08-10 and are undisturbed. **Every step Claude owns before Dan's
+remaining three is done.** Stages 6, 7 and 8 are Dan's; G3 and Stage 9 are Claude's
+and come after them.
 
-**G2 IS REOPENED AND THE REASON GENERALIZES.** It was passed 2026-08-11 against the
-pre-CE3 text. CE3 to CE6 were then ruled and applied on 2026-08-12 by the
+**G2 PASSED ON THE RECONCILED TEXT, run from the top rather than carried forward.**
+Fifteen gates, 25 pages, all twenty-five read at 150 dpi with the rasters deleted
+and regenerated first so no page from the previous run could be read by mistake. No
+new defect. Gate 15 ran against this chapter for the first time and reports zero
+straight marks, which is independent confirmation by tooling that the PG2 fix
+survived the reconciliation. Hyphenation with page turns included: 95 line ends,
+zero inside a brand name, zero at a page turn.
+
+**THE FIGURE GEOMETRY CHECK WAS WRONG ON ITS FIRST ATTEMPT, AND THIS IS THE THIRD
+CHECK IN THIS REPO TO READ GREEN WHILE MEASURING NOTHING.** Pixel sampling with a
+tolerance of 14 cannot separate `--amber-fig` #C0521A from `--amber` #B4551F, which
+differ by 12 in red, so both matched every pixel and the check would have passed a
+figure using the wrong token. It was re-run by taking dominant saturated colours
+exactly. **WHEN A CHECK COMPARES COLOURS, MAKE THE TOLERANCE SMALLER THAN THE
+DISTANCE BETWEEN THE TOKENS IT MUST TELL APART, OR MATCH EXACTLY.** It was caught by
+noticing both tokens reported identical hit counts, which is impossible if they are
+different colours, not by re-reading the code.
+
+Historical, and the reason G2 was reopened at all:
+
+**G2 HAD BEEN GREEN AGAINST PROSE THAT NO LONGER EXISTED.** It was passed 2026-08-11
+against the pre-CE3 text. CE3 to CE6 were then ruled and applied on 2026-08-12 by the
 reconciliation, the scoped re-run matrix sends a copy edit to G2, and no re-run was
 made against the reconciled text. So `status_check.py` read 8 of 13 STATUS
 CONSISTENT while a gate was green against prose that no longer existed. That is the
@@ -227,8 +258,8 @@ was internally consistent. **AFTER ANY RECONCILIATION, RE-CHECK EVERY GATE TICK
 AGAINST THE DATE OF THE LAST EDIT THAT COULD MOVE IT.** Nothing mechanical does
 this today.
 
-**THE G2 RE-RUN MUST CLEAR FIFTEEN GATES, NOT FOURTEEN.** Gate 15, typographic
-marks, was added 2026-08-12 and has never run against this chapter at G2.
+**EVERY G2 FROM NOW ON IS FIFTEEN GATES.** Gate 15, typographic marks, was added
+2026-08-12, first ran against this chapter at the re-run above, and passed.
 
 **`gen_checklists.py` WAS EMITTING FOURTEEN GATE BOXES WHILE THE BUILD RAN FIFTEEN,
 AND BOTH ARE FIXED.** A G2 pass could have been ticked without gate 15 ever being
@@ -891,21 +922,20 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
    died with its container, and the Stage 7 packet four hours later rebuilt the
    same work from nothing.
 
-1. **RE-RUN G2. CLAUDE'S, AND IT IS THE TOP OPEN ITEM.** Reopened 2026-08-12
-   because the 2026-08-11 pass was taken against the pre-CE3 text. It must clear
-   FIFTEEN gates now, and gate 15 has never run against this chapter at G2. Four
-   things to carry in:
+1. **CLOSED 2026-08-12. G2 was re-run and passed at fifteen gates.** Reopened
+   because the 2026-08-11 pass was taken against the pre-CE3 text. Full record
+   under Gate G2 in the checklist. Three things from it that bind the next G2 on
+   any chapter:
 
-   - **Build from the repo root, never in place under `Drafts/`.** CLAUDE.md
-     section 5 carries the runnable block.
-   - **The page read is eighteen boxes, and two of them are MANUAL.** Figure
-     geometry by pixel sampling, and all twenty-five pages read at 150 dpi. Delete
-     and regenerate the rasters first: a stale page read is worse than none.
-   - **Read the pages, do not only gate them.** The 2026-08-11 run found two
-     defects no gate could see, and the second was introduced by the fix for the
-     first.
-   - **Gaps G-I and G-II mean callout placement and slot openings must be READ**
-     whenever pagination moves, and the reconciliation moved it.
+   - **Delete and regenerate the rasters before a page read.** A page read taken
+     against a stale raster is worse than none, and this chapter has now had two
+     runs whose renders differ only in places a reader would not suspect.
+   - **A colour check needs a tolerance smaller than the distance between the
+     tokens it must separate.** The figure geometry check first reported identical
+     hit counts for two different colours, which is impossible, and would have
+     passed a figure using the wrong token.
+   - **Gaps G-I and G-II still mean callout placement and slot openings must be
+     READ whenever pagination moves.** It moved again with the copy edits.
 
 2. **Chapter 1 Stages 6, 7 and 8 are DAN'S. Stage 7 is the live one.**
 
