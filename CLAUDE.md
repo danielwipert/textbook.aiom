@@ -152,6 +152,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `continuity.py` | Gate G3. Seven checks against the ledger. `--update` appends at Stage 9; `--pay N` marks promises kept. |
 | `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
 | `renumber_stage_folders.py` | One-time Process v1 to v2 stage-folder migration. Run 2026-08-05 across all eighteen units. |
+| `git_hygiene.py` | Is any work stranded, and is the tree fit to hand over? Deepens the shallow clone FIRST, because an undeepened sweep counts merged branches as stranded. Run before every merge and every session close. See section 9. |
 | `requirements.txt` | Pinned build toolchain. WeasyPrint line breaking and float placement move between releases, and gates 4 and 14 are sensitive to exactly that. |
 | `AIOM_Design_QA_Spec_v1.md` | Gate-by-gate spec. Moves with `AIOM_build.py`. |
 | `AIOM_Consolidated_Spec_v1.md` | The full pre-drafting specification. Authoritative. Markdown despite the earlier `.pdf` reference. |
@@ -430,6 +431,42 @@ Workplan tracker must mirror what it prints.
 - **Protect pedagogical surprises.** Later chapters withhold things deliberately.
   Do not front-run them.
 - **Real cited evidence over constructed material,** every time it is available.
+
+### Git hygiene is Claude's job, not Dan's
+
+Ruled 2026-08-12, after four sessions worked Chapter 1 in three days without
+seeing each other and produced three disagreeing records of one chapter.
+Reconciling them cost a full session of file management instead of drafting.
+**Dan's time goes to writing and ruling. Keeping the repository coherent is
+Claude's.** The rules below are what that means in practice.
+
+1. **Run `python3 git_hygiene.py` BEFORE any merge and BEFORE closing a
+   session.** Not after. On 2026-08-12 the sweep was run as a post-hoc
+   confirmation and found nine branches of outstanding work AFTER `main` had
+   already moved.
+2. **A SHALLOW CLONE LIES ABOUT STRANDED WORK, and this is the single most
+   expensive thing learned here.** The container clones with `fetch --depth 50`,
+   so an older branch's common ancestor sits beyond the boundary,
+   `git merge-base` fails, and `git rev-list origin/main..<branch>` counts the
+   branch's WHOLE history as unmerged. That reported seven dead branches as 137
+   stranded commits; after `--unshallow` the true figure was 24 across three
+   branches, and four of the seven were fully merged. `git_hygiene.py` deepens
+   before measuring. Never hand-roll the sweep instead.
+3. **"Merge main up" means make the two level. It is never a licence to force.**
+   Fetch first. If `git log origin/main ^HEAD` is non-empty, STOP AND READ WHAT
+   IS THERE. `main` carried no commits of its own for months, and every entry
+   written in that period assumed a fast-forward; that assumption died on
+   2026-08-12 and will die again.
+4. **Merge up BEFORE a branch is retired, not after the last commit anyone
+   remembers.** Every stranding incident here has the same shape: a session
+   levelled its branch, committed once more, and ended.
+5. **One session, one branch, and say so in HANDOFF.** Concurrent sessions
+   collide on more than text. Two numbered their copy-edit findings from CE1 and
+   two produced files called round 6. **Before numbering a finding or an
+   artifact, check what the checklist already owns.**
+6. **Delete a branch once `git_hygiene.py` lists it as fully merged.** Thirteen
+   branches were merged and undeleted on 2026-08-12, which is what made the
+   stranded three hard to see.
 
 ---
 

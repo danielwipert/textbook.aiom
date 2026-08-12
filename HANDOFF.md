@@ -38,21 +38,40 @@ and 190 lines of checklist record. **"Merge main up" is a request to make the tw
 level, NOT a licence to force. If `git log origin/main ^HEAD` is non-empty, STOP
 AND READ WHAT IS THERE.**
 
-**RUN THE ALL-BRANCH SWEEP BEFORE EVERY MERGE, NOT AFTER.** The 2026-08-12 session
-ran it as a post-hoc confirmation and it reported NINE branches carrying 149
-commits `main` did not have. Had it run first, that would have been visible before
-`main` moved. This is the third session in a row to be bitten by work living
-somewhere `main` cannot see:
+**USE `python3 git_hygiene.py` BEFORE EVERY MERGE AND EVERY SESSION CLOSE. DO NOT
+HAND-ROLL THE SWEEP.** Ruled 2026-08-12 and written into CLAUDE.md section 9,
+along with the rest of the git rules, because keeping the repository coherent is
+Claude's job and it cost Dan a drafting session.
 
-```
-git fetch --all --prune
-for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
-  n=$(git rev-list --count origin/main..$b); [ "$n" != 0 ] && echo "$b +$n"; done
-```
+**THE HAND-ROLLED SWEEP THIS FILE USED TO CARRY WAS WRONG, AND ITS NUMBERS ARE
+CORRECTED HERE.** It reported nine branches carrying 149 commits `main` did not
+have. **That was a shallow-clone artifact.** The container clones with
+`fetch --depth 50`, so an older branch's common ancestor sits beyond the
+boundary, `git merge-base` fails, and `git rev-list origin/main..<branch>` counts
+the branch's WHOLE history as unmerged. After `git fetch --unshallow`:
 
-The other seven branches last saw a commit between 2026-07-30 and 2026-08-05,
-predate the reopen, and are PROBABLY superseded. That word is doing real work:
-nobody has checked them, and this file should not claim they are dead.
+  claimed   9 branches, 149 commits stranded
+  actual    3 branches,  24 commits stranded, and 13 branches FULLY MERGED
+
+Four of the seven "dead" branches were fully merged the whole time. A sweep that
+reports noise as danger is worse than no sweep, because it spends the reader's
+trust. `git_hygiene.py` deepens before measuring, every run.
+
+**THE FULL AUDIT OF THE OLD BRANCHES WAS RUN 2026-08-12 AND IS CLOSED.** Two of
+the three stranded branches are superseded tooling, and their artifacts sit under
+PROCESS V1 STAGE FOLDER NAMES (`07_Stage5_Copy_Edit`, `06_Stage6_CopyEdit`),
+retired by `renumber_stage_folders.py` on 2026-08-05, which is what dates them:
+
+  chapter-1-handoff-review-sbkq2u  +3   a reading copy, a copy-edit worksheet and
+                                        its builder. Superseded by
+                                        `copyedit_export.py`.
+  handoff-review-ownf6v            +1   `copyedit_docx.py`, an ancestor of
+                                        `copyedit_export.py`.
+
+**THE THIRD BRANCH IS NOT DEAD AND CARRIES THREE THINGS WORTH A RULING.** See the
+open threads below. `chapter-1-prose-style-x0bzze` (+20) rewrote Chapter 1 in full
+against a style guide, and that chapter work IS superseded many times over. What
+is not superseded is what it built along the way.
 
 **CONCURRENT SESSIONS COLLIDE ON NAMES, TWICE OVER.** Both Stage 6 sessions
 numbered findings from CE1, so one session's CE2 to CE5 are renumbered CE3 to CE6
@@ -663,6 +682,33 @@ record mentions it, it is gone and Decision 50 is why.
 `AIOM_Continuity_Ledger.md`, `typographic_quotes.py`, `renumber_stage_folders.py`.
 
 ## Open threads, in priority order
+
+00. **THREE ITEMS RECOVERED FROM `chapter-1-prose-style-x0bzze`, ALL UNRULED.**
+    The branch audit of 2026-08-12 found these stranded since 2026-08-05. Nothing
+    references any of them from `main`.
+
+    a. **`AIOM_Prose_Style_Guide_v1.md`, 971 lines, orphaned.** Sections on
+       altitude, register, mechanical rules, sentence-level craft, a drafting
+       protocol and a house style sheet. **THIS IS DIRECTLY RELEVANT TO A LIVE
+       COMPLAINT.** On 2026-08-12 Dan said the drafts carry "overly complex
+       syntax and semantics" and that "the ideas are complex, the writing does
+       not need to be". That is what sections 4 and 5 of this guide address, and
+       it was sitting on a branch the whole time. The question is whether it is
+       adopted, folded into `AIOM_Voice_and_Craft_v1.md`, or left retired. It
+       predates the voice standard and nothing in the repo cites it.
+    b. **A TYPOGRAPHIC-MARKS BUILD GATE THAT `main` DOES NOT HAVE, and it closes
+       a gap CLAUDE.md records as open.** CLAUDE.md says in as many words that NO
+       GATE IN THIS SUITE READS PUNCTUATION, and that Chapter 1 shipped straight
+       quotation marks in every generated footnote past fourteen green gates.
+       That branch's `AIOM_build.py` carries a gate that fails on straight quotes
+       and apostrophes, excluding the JSON source register which legitimately
+       uses them. It is numbered 12 there and would be gate 15 here.
+    c. **`AIOM_Placed_Vocabulary_Ledger.md`, 48 lines.** A vocabulary placement
+       record. Least urgent of the three, and it may be superseded by the
+       continuity ledger, which nobody has checked.
+
+    Recommendation: take (b) first. It is a mechanical check closing a documented
+    gap, it costs one merge and one build, and it protects all fifteen chapters.
 
 0. **CLOSED 2026-08-10. Dan ruled it in, and `factcheck_packet.py` is now at the
    repo root.** The packet is judged worth having on every chapter: Stages 3 and 7
