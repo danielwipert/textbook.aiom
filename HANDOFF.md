@@ -1361,6 +1361,28 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
 
 **Rules that bite.**
 
+- **CLAUDE CANNOT DELETE A REMOTE BRANCH FROM THIS CONTAINER, AND SECTION 9 RULE
+  6 THEREFORE NEEDS DAN.** The egress proxy denies ref DELETION specifically:
+  `git push origin --delete` returns `RPC failed; HTTP 403` on
+  `git-receive-pack`, and `DELETE /repos/.../git/refs/heads/...` on the REST API
+  returns 403, while ordinary pushes to the same remote succeed. The proxy
+  README rules 403s as organization policy, to be reported rather than routed
+  around. **Do not spend a third attempt on this.** Report the branch name and
+  let Dan run the one-liner. As of 2026-08-13 that is
+  `claude/book-website-privacy-check-ewd96o`, fully merged, sitting at the
+  pre-merge `main` tip and holding nothing unique. This matters because the
+  2026-08-12 stranding was made hard to see by thirteen merged and undeleted
+  branches, so the cleanup rule is real even though Claude cannot execute it.
+- **A LOCAL `main` CAN BE STALE IN A WAY EVERY SECTION 9 CHECK MISSES.** On
+  2026-08-13 `git merge --ff-only` refused with 69 and 193 divergent commits
+  after `git_hygiene.py`, a fetch, `git log origin/main ^HEAD` and
+  `merge-base --is-ancestor` had ALL passed. Nothing was wrong: local `main`
+  still pointed at `2090bcf` from 2026-08-06, the dead pre-rewrite history from
+  the `git-filter-repo` force-push, and every one of those checks measures
+  against `origin/main` rather than the local pointer. Confirm the old tip is
+  contained in no remote branch (`git branch -r --contains main`), tag it, then
+  `git reset --hard origin/main` before the fast-forward.
+
 - **TO EDIT A LOCKED CHAPTER, USE `amend.py`. Do not reopen it.** A reopen is for
   producing a chapter; an amendment is for changing one that exists.
   `python3 amend.py Ch01 -m "what changed"` runs the mechanical gates, appends
