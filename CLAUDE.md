@@ -798,6 +798,29 @@ rulings. What binds outside that document:
   `AIOM_Voice_and_Craft_v1.md` already applies to the four prose exemplars: a
   New Yorker spot drawing would import a whimsy that C6 rules out, so any future
   spot marks are drawn as instruments rather than as jokes.
+- **THE SPOT MARKS ARE CHROME ONLY, AND GATE W4g ENFORCES IT.** Ruled twice by
+  Dan, 2026-08-13: the chapter is a reading surface, the sidenote layout is
+  already its distinctive thing, and a mark there competes with the prose rather
+  than framing it. Nine marks live on the landing page and the reference layer,
+  in `web_templates/_marks.html.j2`. **W1 CANNOT COVER THIS RULE**, which is why
+  it needed its own check: a mark is an SVG carrying no text, so text
+  equivalence with print stays perfect while a reading page fills with ornament.
+  The hero and the author band are unmarked on purpose too, since each already
+  carries its own object.
+- **EVERY MARK MEANS SOMETHING, WHICH IS WHAT KEEPS IT OUT OF STANDING RULE 5.**
+  A mark that is about its section is a rubric device; a mark that is merely
+  pretty is the decorative apparatus rule 5 forbids. The theorem mark sits above
+  the theorem panel and states the same shape.
+- **A MARK'S COLOUR IS NEVER LITERAL.** Two scoped properties, `--mark-ink` and
+  `--mark-accent`, are redirected on `.invert` to `--invert-fg` and
+  `--invert-accent`. Hardcoding `--navy` paints dark navy on the navy band,
+  which is the defect gate W13 already found in the theorem panel's numerals.
+- **DRAWN MARKS ARE JUDGED AT THE SIZE THEY SHIP AT, NEVER AT DISPLAY SIZE.**
+  Three of the nine were redrawn after rendering a contact sheet at both sizes,
+  and one took three attempts: a cross over the branch it cancelled turned to
+  mud, and the stop bar replacing it shared an angle with its own branch so the
+  mark read as a single arrow at 2.35rem. Render the sheet, do not reason about
+  the geometry.
 - **THE GRAIN SITS BEHIND THE CONTENT, NOT OVER IT.** The paper colour moved to
   `html` so `body::before` can carry the texture at `z-index: -1`. A fixed
   overlay painted on top would put noise over every line of type, which at this

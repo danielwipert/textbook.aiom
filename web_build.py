@@ -696,6 +696,22 @@ def gate_w4(web_html, meta):
     else:
         print(f"W4e. citations ............ {len(meta['notes'])} note(s) built "
               f"from the chapter register")
+
+    # W4g. THE CHAPTER PAGE CARRIES NO SPOT MARK. Ruled 2026-08-13: the marks
+    # live in chrome only, because the chapter is a reading surface and anything
+    # competing with the prose is a cost. Stated as a rule this would be an
+    # intention, and an intention that reads as a control is this repository's
+    # signature failure. GATE W1 CANNOT COVER IT: a mark is an SVG carrying no
+    # text, so text equivalence with print stays perfect while the page fills up
+    # with ornament.
+    marks = web_html.count('class="mark"')
+    if marks:
+        fails.append(f"W4g: the chapter page carries {marks} spot mark(s). Marks "
+                     f"are chrome only (ruled 2026-08-13); the chapter is a "
+                     f"reading surface.")
+    else:
+        print("W4g. chapter ornament ..... none, marks are chrome only")
+
     return fails
 
 

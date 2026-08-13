@@ -260,6 +260,16 @@ def main():
     case("no citation resolved",
          lambda: quiet(wb.gate_w4, web_html, m4))
 
+    # W4g. A mark added to the chapter template would pass every other gate in
+    # this suite: it carries no text, so W1 text equivalence stays perfect. This
+    # control is the only thing standing between the ruling and a reading page
+    # that quietly fills with ornament.
+    case("a spot mark added to the chapter page",
+         lambda: quiet(wb.gate_w4,
+                       web_html.replace("</article>",
+                                        '<svg class="mark"></svg></article>'),
+                       meta))
+
     print("\nW5, document attributes")
     # Decision 59. In Pyphen 'en' is an alias for en_GB, and no CSS lever
     # exists, so a silent downgrade to British hyphenation is exactly the
