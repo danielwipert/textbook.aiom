@@ -1,3 +1,4 @@
+{% from "_marks.html.j2" import mark %}
 {#
   THE OBJECT INDEX IS AN APPENDIX, NEVER THE SPINE. CLAUDE.md rule 4: the
   registry justifies the book, it does not organize it. Nothing links here from
@@ -8,6 +9,7 @@
 <main>
   <section class="band band-first">
     <div class="band-head">
+      {{ mark("graph") }}
       <p class="eyebrow">Appendix</p>
       <h2>Registry objects</h2>
       <p class="band-meta">{{ objects|length }} invoked</p>
@@ -34,6 +36,7 @@
 
   <section class="band">
     <div class="band-head">
+      {{ mark("continuity") }}
       <p class="eyebrow">Continuity</p>
       <h2>Promises between chapters</h2>
       <p class="band-meta">{{ forward|selectattr('status', 'equalto', 'open')|list|length }} open</p>

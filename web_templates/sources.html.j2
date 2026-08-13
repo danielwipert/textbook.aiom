@@ -1,9 +1,11 @@
+{% from "_marks.html.j2" import mark %}
 {% set page_title = "Sources" %}
 {% set page_desc = "Every source cited in AI Operations Management, in Chicago note form." %}
 {% include "_ref_head.html.j2" %}
 <main>
   <section class="band band-first">
     <div class="band-head">
+      {{ mark("sources") }}
       <p class="eyebrow">Reference</p>
       <h2>Sources</h2>
       <p class="band-meta">{{ sources|selectattr('cited')|list|length }} cited</p>

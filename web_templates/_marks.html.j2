@@ -1,0 +1,98 @@
+{# _marks.html.j2 | the spot marks | 2026-08-13
+
+   THE NEW YORKER SPOT, WITH THE REGISTER TAKEN OUT. The New Yorker drops a small
+   drawn object into a column and that is the single most recognizable thing on
+   its page. The drawing is witty, and wit is exactly what craft criterion C6
+   rules out of this book: no populist register, no character where a structural
+   account is available. So the technique is borrowed and the register is not.
+   Every mark below is an INSTRUMENT, drawn from the book's own subject: a
+   theorem, a routing junction, a dependency trace. None of them is a joke.
+
+   That is the same rule AIOM_Voice_and_Craft_v1.md already applies to the four
+   prose exemplars, applied to the design instead of the sentences.
+
+   EACH MARK IS ABOUT THE SECTION IT HEADS, which is what keeps this from being
+   decorative apparatus under standing rule 5. A mark that means something is a
+   rubric device. A mark that means nothing is ornament, and would not belong.
+
+   COLOUR IS NEVER LITERAL. Two scoped custom properties carry it, so a mark on
+   the inverted band picks up --invert-fg and --invert-accent instead of --navy
+   and --amber. Hardcoding --navy would have painted dark navy on a navy ground,
+   which is the exact defect gate W13 caught in the theorem panel's numerals.
+
+   Marks live in CHROME ONLY, on Dan's ruling of 2026-08-13. None of them appears
+   inside <article id="chapter-text">, so gate W1 cannot be affected by any of it.
+#}
+{% macro mark(name) %}
+<svg class="mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"
+     fill="none" stroke-linecap="round" stroke-linejoin="round">
+  {% if name == "theorem" %}
+  {# Antecedents stacked inside a brace, a rule, then the consequent. #}
+  <path d="M17 11 h-5 v26 h5" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M22 16 h17 M22 22 h13 M22 28 h15" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M12 33 h27" stroke="var(--mark-ink)" stroke-width="1" opacity="0.45"/>
+  <path d="M22 38 h11" stroke="var(--mark-accent)" stroke-width="2.4"/>
+
+  {% elif name == "junction" %}
+  {# One claim in, three ways out: cited, formalized, or CUT. Two redraws. A
+     cross over the third branch crossed the very line it cancelled and turned
+     the mark to mud; a stop bar then shared an angle with its own branch, so at
+     2.35rem the whole thing read as one arrow. The cut route is now simply
+     DASHED, which survives being small: the eye sees a route not taken without
+     having to resolve any detail at all. #}
+  <path d="M8 24 h11" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M19 24 L38 12 M19 24 h19" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M19 24 L38 36" stroke="var(--mark-accent)" stroke-width="1.6"
+        stroke-dasharray="3.5 2.5"/>
+
+  {% elif name == "parts" %}
+  {# Four parts, rising. The first is where the reader is. #}
+  <path d="M12 38 V22" stroke="var(--mark-accent)" stroke-width="2.6"/>
+  <path d="M21 38 V17 M30 38 V25 M39 38 V13" stroke="var(--mark-ink)" stroke-width="2.6"/>
+  <path d="M9 41 h33" stroke="var(--mark-ink)" stroke-width="1" opacity="0.45"/>
+
+  {% elif name == "editions" %}
+  {# Two carriers of one text. The bound page gets a spine, the screen gets a
+     stand: without those the first draft was a rectangle inside a rectangle,
+     which says nothing at all. #}
+  <rect x="7" y="11" width="19" height="25" rx="1" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M12 11 V36" stroke="var(--mark-ink)" stroke-width="1" opacity="0.5"/>
+  <rect x="24" y="18" width="17" height="13" rx="1" stroke="var(--mark-accent)" stroke-width="1.6"/>
+  <path d="M32.5 31 v4 M28 35.5 h9" stroke="var(--mark-accent)" stroke-width="1.6"/>
+
+  {% elif name == "glossary" %}
+  {# A term, and the definition that the chapter owning it must match. #}
+  <path d="M12 15 h15" stroke="var(--mark-accent)" stroke-width="3"/>
+  <path d="M12 24 h26 M12 30 h20 M12 36 h24" stroke="var(--mark-ink)" stroke-width="1.6"/>
+
+  {% elif name == "graph" %}
+  {# A trace through the dependency graph: three objects, two edges. #}
+  <path d="M15 33 L25 17 M25 17 L37 29" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <circle cx="15" cy="33" r="4" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <circle cx="25" cy="17" r="4" stroke="var(--mark-accent)" stroke-width="1.6"/>
+  <circle cx="37" cy="29" r="4" stroke="var(--mark-ink)" stroke-width="1.6"/>
+
+  {% elif name == "continuity" %}
+  {# A promise made in one chapter and paid in a later one. #}
+  <path d="M8 24 h32" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M20 13 V35 M33 13 V35" stroke="var(--mark-ink)" stroke-width="1" opacity="0.45"
+        stroke-dasharray="2.5 3"/>
+  <circle cx="20" cy="24" r="2.6" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <circle cx="33" cy="24" r="2.6" fill="var(--mark-accent)" stroke="none"/>
+
+  {% elif name == "sources" %}
+  {# A line of prose and the call that sends it to its source. #}
+  <path d="M10 26 h20 M10 33 h26" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M34 24 v-9" stroke="var(--mark-accent)" stroke-width="1.6"/>
+  <circle cx="34" cy="13" r="2.4" fill="var(--mark-accent)" stroke="none"/>
+
+  {% elif name == "search" %}
+  {# One entry picked out of a set. The first draft was stacked rules in grey,
+     which broke the family's solid weight AND repeated the glossary mark; a
+     bracket selecting one line is a different instrument, not a lighter one. #}
+  <path d="M18 16 h20 M18 32 h15" stroke="var(--mark-ink)" stroke-width="1.6"/>
+  <path d="M18 24 h20" stroke="var(--mark-accent)" stroke-width="1.6"/>
+  <path d="M15 19 h-4 v10 h4" stroke="var(--mark-accent)" stroke-width="1.6"/>
+  {% endif %}
+</svg>
+{% endmacro %}

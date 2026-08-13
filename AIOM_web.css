@@ -648,6 +648,31 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
    rule as well is one mark too many in a space that is already spoken for. */
 .part-card .eyebrow::before { content: none; }
 
+/* THE SPOT MARK. Sits above the department line, small and quiet, and always
+   MEANS something: each one is drawn from the section it heads. See
+   web_templates/_marks.html.j2 for why they are instruments rather than jokes.
+
+   COLOUR COMES THROUGH TWO SCOPED PROPERTIES, never literally. On the inverted
+   band --navy is a dark blue in the light theme and the band is navy, so a
+   hardcoded mark would paint dark on dark: the same defect gate W13 found in
+   the theorem panel's roman numerals. Redirecting the two properties on .invert
+   is the whole fix, and it costs one rule. */
+.mark {
+  --mark-ink:    var(--navy);
+  --mark-accent: var(--amber);
+  display: block;
+  width: 2.35rem; height: 2.35rem;
+  margin: 0 0 0.6rem;
+}
+.invert .mark {
+  --mark-ink:    var(--invert-fg);
+  --mark-accent: var(--invert-accent);
+}
+/* The hero and the author band are deliberately unmarked. Each already carries
+   its own object, the live model figure and the monogram, and a second mark
+   would be competing for the same eye rather than adding to it. */
+
+
 /* Hero: text left, live model right, and it uses the whole measure. */
 .hero {
   max-width: 76rem; margin: 0 auto;

@@ -1,9 +1,11 @@
+{% from "_marks.html.j2" import mark %}
 {% set page_title = "Search" %}
 {% set page_desc = "Search the text of AI Operations Management, its glossary and its sources." %}
 {% include "_ref_head.html.j2" %}
 <main>
   <section class="band band-first">
     <div class="band-head">
+      {{ mark("search") }}
       <p class="eyebrow">Reference</p>
       <h2>Search</h2>
       <p class="band-meta">{{ count }} entries indexed</p>

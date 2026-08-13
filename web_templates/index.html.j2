@@ -1,3 +1,4 @@
+{% from "_marks.html.j2" import mark %}
 {#
   index.html.j2  |  the front door  |  Phase W3, rebuilt after the W4 editorial review
 
@@ -112,6 +113,7 @@
   <!-- 2. THE FORMAL SPINE, inverted, quoted verbatim. -->
   <section class="invert" id="argument">
     <div class="invert-inner">
+      {{ mark("theorem") }}
       <p class="eyebrow">The formal spine</p>
       <h2>The claim is a theorem, not an opinion.</h2>
       <p class="invert-lede">Every argument in this book traces to a registry of
@@ -130,6 +132,7 @@
   <!-- 3. THE EVIDENCE DISCIPLINE, shown rather than claimed. -->
   <section class="band" id="evidence">
     <div class="band-head">
+      {{ mark("junction") }}
       <p class="eyebrow">Method</p>
       <h2>Every claim is cited, formalized, or cut.</h2>
       <p class="band-meta">No fourth option</p>
@@ -188,6 +191,7 @@
   <!-- 5. THE CONTENTS. -->
   <section class="band" id="contents">
     <div class="band-head">
+      {{ mark("parts") }}
       <p class="eyebrow">Inside the book</p>
       <h2>Four parts, {{ chapter_count }} chapters</h2>
       <p class="band-meta">{{ locked_count }} published, the rest in preparation</p>
@@ -221,6 +225,7 @@
   <!-- 6. CONVERSION. -->
   <section class="band" id="editions">
     <div class="band-head">
+      {{ mark("editions") }}
       <p class="eyebrow">Editions</p>
       <h2>The text is free to read here</h2>
     </div>

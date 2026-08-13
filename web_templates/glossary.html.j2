@@ -1,9 +1,11 @@
+{% from "_marks.html.j2" import mark %}
 {% set page_title = "Glossary" %}
 {% set page_desc = "Every key term in AI Operations Management, with the chapter that owns it." %}
 {% include "_ref_head.html.j2" %}
 <main>
   <section class="band band-first">
     <div class="band-head">
+      {{ mark("glossary") }}
       <p class="eyebrow">Reference</p>
       <h2>Glossary</h2>
       <p class="band-meta">{{ terms|length }} terms</p>
