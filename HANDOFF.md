@@ -14,16 +14,29 @@ stranded and no branch safe to delete, the tree is clean, local and remote are
 `0 0`, and `status_check.py` reports Chapter 1 locked at 13 of 13, STATUS
 CONSISTENT. **No work sits on a branch. There is nothing to merge up.**
 
-Four changes shipped this session, all to the reading surface, none to the
-chapter text: the v0.4 reading scale, the v0.5 body roman, term linking, and
-the documentation for each. Every one is described below. **Chapter 1's text
-was not edited at all, so no lifecycle step was touched and no amendment was
-needed**, which is the point of the presentation layer being a separate file.
+Four changes shipped to the reading surface, none of them to the chapter text:
+the v0.4 reading scale, the v0.5 body roman, term linking, and the
+documentation for each. A fifth closed a toolchain hole: **`playwright` is now
+pinned**, and the workflow's bare `pip install playwright`, which ran after the
+requirements install and would have overridden it, is gone. All five are
+described below. **Chapter 1's text was not edited at all, so no lifecycle step
+was touched and no amendment was needed**, which is the point of the
+presentation layer being a separate file.
+
+**THE PATTERN THAT RAN THROUGH ALL FIVE IS WORTH REUSING: every one began by
+measuring, and three of the five began by measuring something the repository
+already believed it knew.** The column was 71 characters and the stylesheet said
+66. The body roman was weight 450 and the CSS said 400. The section 17
+breakpoint sum had been missing a whole term since Phase W2 and was covered by a
+cushion nobody had reasoned about. None of those was found by reading the code,
+which asserted the wrong number in each case. They came from rendering the page
+and measuring the result, which is the lesson the drawn spot marks and the
+hyphenation scan had already taught in other corners of this project.
 
 **Next session starts on `main` and starts on CHAPTER 2**, unless Dan brings
-more website edits, in which case the pattern this session settled into worked
-well: change, gates, self-test, render a sheet, commit with the reasoning in the
-message, then update the three documents.
+more website edits, in which case the working rhythm was: change, gates,
+self-test, render a sheet at the size it ships at, commit with the reasoning in
+the message, then update the three documents.
 
 **TERM LINKING, 2026-08-13. ON `main`.** A bolded key term in the chapter text
 is now a link to the definition callout that owns it. Built by
