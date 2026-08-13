@@ -842,28 +842,48 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work), 9 (the
-case bank's withdrawn claim, which blocks nothing but corrupts Ch4 and Ch11 if
-missed), 8 (the web edition, now LIVE and waiting on Dan for a domain, a README
-and the author band), 10 (the Northmoor CSVs, for the Part III build),
-5 (process hardening), 3 (design gaps), 7 (Decision 28).** Everything else below is
+**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work), 8 (the
+web edition, now LIVE and waiting on Dan for a domain, a README and the author
+band), 10 (the Northmoor CSVs, for the Part III build), 5 (process hardening),
+3 (design gaps), 7 (Decision 28). Thread 9 closed the day it opened.**
+Everything else below is
 closed and kept as record. The numbering is left alone deliberately: these numbers
 are cited in commit messages and in the checklist, and renumbering would break
 those references for cosmetic tidiness. **THE WEB EDITION IS BUILT THROUGH PHASE
 W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
 
-9. **A WITHDRAWN CLAIM IS SITTING IN THE CASE BANK, UPSTREAM OF TWO UNWRITTEN
-   CHAPTERS. Booked 2026-08-13 for the Chapter 4 drafting session, on Dan's
-   ruling, and deliberately kept out of the pre-public cleanup so the two
-   changes stay separable.**
+9. **CLOSED 2026-08-13, same day it was found. The case bank's withdrawn claim is
+   fixed and the bank now carries the ruling that governs it.**
 
-   `AIOM_Case_Bank_v1.md`, in CASE 4.6, asserts flatly that GitHub "began billing
+   `AIOM_Case_Bank_v1.md`, in CASE 4.6, asserted flatly that GitHub "began billing
    premium requests that had previously carried no separate charge." That is the
    exact sentence SF3 narrowed on 2026-08-06, because the changelog documents the
    change rather than the arrangement preceding it. The case bank is not a
    superseded draft. It is a live working document, and CLAUDE.md schedules that
    source for reuse in Chapters 4 and 11, so the next chapter to draft from it
-   inherits the unsupported form.
+   would have inherited the unsupported form.
+
+   **THE FIX WAS COPIED FROM THE REGISTER NOTE, NOT COMPOSED.** Act one now reads
+   that GitHub "began enforcing monthly premium-request allowances for Copilot and
+   letting customers pay for usage beyond them", which was verified to be the
+   chapter's own current sentence before it was carried across, rather than
+   reconstructed from the note's description of it.
+
+   **THE BANK NOW CARRIES A `Claim ruling:` LINE, AND THAT LINE IS THE REAL FIX.**
+   It records what was narrowed, that the two external checks disagreed and the
+   narrower reading was ruled controlling, and the REVERSAL CONDITION: no
+   restoration of the prior-state contrast without a pre-2025-06-18 GitHub pricing
+   or documentation artifact describing the earlier arrangement in its own words.
+   The bank had no convention for recording a ruling before this; it has one now,
+   and the next entry to take a fact-check finding should use it.
+
+   **WHY IT SURVIVED SEVENTY DAYS: the ruling was written into the Ch1 register
+   note and never propagated to the source document.** CLAUDE.md already requires
+   writing a ruling back into the register note, and that was done. Nothing
+   required propagating it to the case bank, and nothing mechanical reads the case
+   bank, so a privacy sweep is what found it. A sweep of the other four withdrawn
+   sentences across every live working document came back clean, so this was the
+   only instance, but the propagation gap itself is not closed by fixing one entry.
 
    **THIS IS THE FIFTH INSTANCE OF A SHAPE CLAUDE.md ALREADY CALLS A DRAFTING
    ATTRACTOR.** SF8, SF9 and SF10 were reverted during a copy edit with every date
