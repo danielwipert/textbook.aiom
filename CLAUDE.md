@@ -633,10 +633,51 @@ rulings. What binds outside that document:
   390px, which no amount of looking at a desktop render would have shown.
 - **A RESPONSIVE BREAKPOINT IS ARITHMETIC, NOT TASTE.** The sidenote needs
   `--note + --note-gap` of side track, and the side track is
-  `(viewport - --rail - --measure) / 2`. The first draft set the breakpoint by eye
-  at 1240px when the arithmetic says 1411px, leaving a 170px band where notes ran
-  off the right edge of the window. Any change to those four tokens must redo the
-  sum. The comment in `AIOM_web.css` section 15 carries it.
+  `(viewport - --rail - 2 x .reading padding - --measure) / 2`. The first draft
+  set the breakpoint by eye at 1240px, leaving a 170px band where notes ran off
+  the right edge of the window. Any change to those four tokens, to that padding,
+  or to either stop of the section 3 type clamp must redo the sum. The comment in
+  `AIOM_web.css` section 17 carries it, and it is solved in rem rather than px
+  because v0.4 made the root size fluid, so every term scales together.
+- **THE SECOND VERSION OF THAT SUM WAS ALSO WRONG, AND IT READ AS RIGHT FOR TWO
+  MONTHS.** It computed 1411px while omitting the `.reading` padding entirely, and
+  the media query sat at 1440px, so a 29px cushion nobody had reasoned about was
+  the only thing covering a dropped term. A sum that is off by a term and lands
+  inside its own safety margin is indistinguishable from a correct one until a
+  token moves. **When re-deriving it, enumerate every term that consumes
+  horizontal space rather than the ones the previous comment listed.**
+- **THE MEASURE IS 71 CHARACTERS, MEASURED IN A BROWSER, NOT 66.** The stylesheet
+  claimed 66 from v0.2 until 2026-08-13, which was the 0.5em rule of thumb applied
+  to a 32rem column rather than anything measured. The real figure comes from the
+  average glyph advance of this chapter's own prose in its own face at its own
+  size, and it sits near the top of the 45 to 75 band. **The column was never too
+  narrow.** What reads as thin on a wide screen is the ratio: before v0.4 it held
+  28 per cent of a 1920px window with 556px of air on each side.
+- **ONLY THREE THINGS CAN MOVE THE TEXT COLUMN: the measure, the type size, and
+  the alignment rule.** Capping the reading area cannot, because a centred child
+  of a centred container lands in the same place at every cap, and a variant that
+  capped it rendered pixel-identical to the build it was meant to improve. Rule
+  this out before anyone spends an afternoon on it.
+- **v0.4 BUYS PRESENCE WITH TYPE SIZE RATHER THAN WITH MEASURE, 2026-08-13.** The
+  root is `clamp(17px, 8px + 0.625vw, 20px)`, which passes through exactly 17px at
+  1440 and exactly 20px at 1920, so neither clamp bound is a place where the size
+  jumps. The column grows from 544px to 640px while holding 71 characters, so
+  nothing is spent on readability. Below 1440px nothing moves, and the 620px rule
+  still holds phones at 16px and 49 characters. **Mobile was never the problem and
+  is untouched.**
+- **THE RAIL IS CONTENT AND THE NOTE TRACK IS CLEARANCE, SO THE CLEARANCE GIVES
+  WAY.** Fluid type scales the sidenote along with the column, which pushed the
+  breakpoint to about 1565px and would have cost a 1512px laptop its margin notes.
+  Narrowing `--rail` as well was tried first and wrapped the contents, breaking
+  "Ch. 3 A Science and Its Discipline" across two lines. Only `--note` narrows,
+  15.5rem to 14rem, and the breakpoint lands at 1420px, BELOW the 1440px it was,
+  so a 1440px window gains margin notes it did not have.
+- **THE NOTE-OFF-THE-EDGE DEFECT IS NOT A GATE AND CANNOT BE.** A floated note
+  hanging past the window does not make the page scroll, so W6 is blind to it, and
+  it is the exact defect the 1240px breakpoint shipped. It is checked by sweeping
+  widths and comparing each floated note's right edge with the viewport. **Run
+  that sweep after any change to the four tokens or the clamp**, because a green
+  W6 is evidence about sideways scroll and about nothing else.
 - **EVERY WEB GATE HAS A NEGATIVE CONTROL, AND THIS IS WHY.** `web_gates_selftest.py`
   injects one fault at a time and asserts the owning gate fails. On its first run
   five of twenty-five controls did not fire: four mark controls landed in `<head>`,

@@ -7,7 +7,9 @@ authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 reference layer and search, followed, and Phase W5, the site build and deploy,
 is built, and Phase W6, dark mode and the figure token pass, closes the plan.
 Host and analytics are ruled as Decisions 65 and 66. Only the DOMAIN is
-outstanding.** Sections 8 through 14 record what each phase learned.
+outstanding.** Sections 8 through 15 record what each phase learned, and section
+15 is the v0.4 reading scale, which came from a question Dan asked about the text
+column rather than from a phase.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -401,10 +403,18 @@ note from landing on the right border of a full-measure box such as `.dated`.
 
 **A RESPONSIVE BREAKPOINT IS ARITHMETIC AND SHOULD BE WRITTEN DOWN AS ARITHMETIC.**
 A margin note needs `--note + --note-gap` of side track, and the side track is
-`(viewport - --rail - --measure) / 2`, so notes fit only from 1411px up. The first
-draft put the breakpoint at 1240px by eye, leaving a 170px band where every note
-ran off the right edge of the window. The sum now sits in a comment beside the
-media query, because the next person to change the measure will not rederive it.
+`(viewport - --rail - 2 x .reading padding - --measure) / 2`. The first draft put
+the breakpoint at 1240px by eye, leaving a 170px band where every note ran off the
+right edge of the window. The sum now sits in a comment beside the media query,
+because the next person to change the measure will not rederive it.
+
+**AND THE SUM THAT REPLACED IT WAS ALSO WRONG.** The version written here at Phase
+W2 gave 1411px and omitted the `.reading` padding, a whole term. It never showed,
+because the media query sat at 1440px and a 29px cushion nobody had reasoned about
+covered the gap. That is the worse failure of the two: a breakpoint set by eye
+announces itself as a guess, while a sum that is off by a term and lands inside
+its own safety margin reads as rigour until a token moves. Corrected at v0.4 and
+re-derived in rem, since the root size is now fluid and every term scales together.
 
 **GATE W6 EXISTS BECAUSE THE WIDTH SWEEP FOUND SOMETHING NO RENDER SHOWED.** A
 sweep across twenty viewport widths caught the P3 inventory table forcing the
@@ -745,3 +755,72 @@ theme currently is.
 - **The domain remains the only thing between here and a live site.**
 - The author band still needs real biography and a portrait.
 - No praise or adoption surface exists yet.
+
+---
+
+## 15. The reading scale, v0.4
+
+Dan asked why the chapter's text column ran so thin. It does not, and the useful
+part of the answer is how long it took to establish that.
+
+**THE COLUMN WAS NEVER TOO NARROW: IT IS 71 CHARACTERS, MEASURED, NOT 66.** The
+stylesheet had claimed 66 since v0.2, which was the half-em rule of thumb applied
+to a 32rem column rather than anything measured. The real figure comes from the
+average glyph advance of this chapter's own prose in its own face at its own
+size, taken in a browser, and it sits near the top of the 45 to 75 band. Mobile
+measures 49 characters at 390px and 45 at 360px, which is a proper phone setting
+and needed nothing. **The first diagnosis written for Dan was wrong, and it was
+wrong because it reasoned from the CSS instead of rendering the page**, which is
+the same failure the drawn spot marks taught in Phase W6 and the same one the
+hyphenation scan taught in print.
+
+What reads as thin is the ratio rather than the measure. Before v0.4 the column
+held 28 per cent of a 1920px window, with 556px of air on each side and the rail
+beyond that.
+
+**ONLY THREE THINGS CAN MOVE THE COLUMN: the measure, the type size, and the
+alignment rule.** Capping the reading area cannot. A centred child of a centred
+container lands in the same place at every cap, so the obvious fix is a no-op:
+the variant built to test it rendered pixel-identical to the build it was meant
+to improve. Establishing that on a contact sheet cost one render and saved the
+option from being tried on the real thing.
+
+**THE EMPTY SPACE IS NOT WASTE. IT IS THE SIDENOTE RESERVE**, so every option
+that fills it by growing the column pushes the width at which a margin note can
+exist. That coupling is the whole design problem, and it is why widening the
+measure is the trap here: it spends readability AND raises the breakpoint, for
+the smallest visible gain of the options considered.
+
+**v0.4 BUYS PRESENCE WITH TYPE SIZE INSTEAD.** The root is
+`clamp(17px, 8px + 0.625vw, 20px)`, whose stops are arithmetic rather than taste:
+the expression passes through exactly 17px at 1440 and exactly 20px at 1920, so
+neither clamp bound is a place where the size jumps. The column grows from 544px
+to 640px while holding 71 characters. Nothing is spent. Below 1440px nothing
+moves at all, and the 620px rule still holds phones at 16px, so the change is
+invisible on the view that was already best set.
+
+**THE RAIL IS CONTENT AND THE NOTE TRACK IS CLEARANCE, SO THE CLEARANCE GIVES
+WAY.** Fluid type scales the sidenote with the column, which pushed the
+breakpoint to about 1565px and would have taken margin notes away from a 1512px
+laptop. The first attempt narrowed `--rail` and `--note` together and the render
+showed the cost at once: the contents wrapped, breaking "Ch. 3 A Science and Its
+Discipline" and the word count across two lines each. Only `--note` narrows, and
+the breakpoint lands at 1420px, below the 1440px it was, so a 1440px window gains
+margin notes it did not have.
+
+**THE DEFECT THIS AREA PRODUCES CANNOT BE A GATE.** A floated note hanging past
+the window edge does not make the page scroll, so W6 is blind to it, and it is
+exactly what the 1240px breakpoint shipped. It is checked instead by sweeping
+viewport widths and comparing each floated note's right edge with the viewport,
+which is how v0.4 was verified across 24 widths from 1400px to 2560px. A green
+W6 is evidence about sideways scroll and about nothing else.
+
+### Open after v0.4
+
+- **The margin could be filled rather than reserved, and this is unruled.**
+  Chapter 1 calls six notes across 6,853 words, so the side track is empty for
+  almost the whole chapter. The layout is built for a book with heavy marginalia
+  and the book does not yet have any. Moving figure captions or key-term glosses
+  into the margin would make the space read as designed rather than as leftover.
+  It is a decision about Chapters 2 to 15, not about CSS, and it is the only
+  option that answers the original complaint without touching a measurement.
