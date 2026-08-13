@@ -1039,7 +1039,26 @@ BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
    caught it only through stray apostrophes, which is luck. Ten gates now,
    forty-four negative controls.
 
-   **Phase W5, deploy, is next.**
+   **Phase W5, the site build and deploy, is BUILT.** `web_build.py --site`
+   discovers every locked chapter and builds the whole site, plus sitemap,
+   robots.txt, 404 and CNAME. `.github/workflows/web.yml` builds, gates, runs the
+   self-test and publishes to GitHub Pages from `main`. ELEVEN gates, forty-nine
+   negative controls.
+
+   **A STALE FORK IS STILL SITTING IN CHAPTER 1'S LIVE-TEXT FOLDER.**
+   `Drafts/Ch01_The_Category_Error/00_Stage0_Draft/DRAFT-AIOM_ch01.html` carries
+   `lang="en"` and no source register. It is the Decision 50 hazard exactly.
+   Discovery excludes it by name and prints that it did so on every build, but an
+   exclusion rule is a guard and not a fix. **Deleting it is Dan's call and it
+   should be made.**
+
+   **CI INSTALLS A HEADLESS BROWSER ON PURPOSE**, so gate W6 actually runs. A CI
+   job running `--no-browser` would be a green tick on a suite with a known hole.
+
+   **THREE THINGS ARE OUTSTANDING AND ALL THREE ARE DAN'S: the domain, the host
+   confirmation, and the analytics posture.** `--base-url` is unset, so no
+   hostname is invented; the sitemap emits site-relative paths until one is
+   supplied. Nothing on the site contacts any third party today.
 
    **STILL BLOCKED AND IT IS NOT A CODE PROBLEM: `messyjobs.ai` is refused by the
    container's egress proxy** (`gateway answered 403 to CONNECT`, confirmed against

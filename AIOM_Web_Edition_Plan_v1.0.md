@@ -4,7 +4,9 @@ Status: **ADOPTED 2026-08-13.** All five opening decisions are ruled and are
 logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numbering
 authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 2026-08-13, and Phase W3, the front door, followed the same day. Phase W4, the
-reference layer and search, followed. Phase W5, deploy, is the next work.**
+reference layer and search, followed, and Phase W5, the site build and deploy,
+is built. Only the domain, the host confirmation and the analytics posture are
+outstanding, and all three are Dan's.**
 Sections 8 through 11 record what each phase learned.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
@@ -247,7 +249,7 @@ pipeline on one chapter before scaling it.
   author. Depends on the section 6 input and on Decision W-A below.
 - **Phase W4, the reference layer and search. BUILT AND GREEN 2026-08-13.** Glossary, object index, sources,
   search index.
-- **Phase W5, deploy. NEXT.** Domain, hosting, analytics posture, and the build hook that
+- **Phase W5, deploy. BUILT 2026-08-13, pending Dan's domain and host rulings.** Domain, hosting, analytics posture, and the build hook that
   publishes a chapter when it locks.
 - **Phase W6, dark mode and the SVG token pass.** Separable, and deliberately last.
 
@@ -623,3 +625,53 @@ published early to fill the page. Same fact, and it now reads as rigour.
 - No praise, endorsement, or adoption surface exists. For a founding textbook that
   will matter, and it cannot be built until there is something real to put in it.
 - Part descriptions remain one-sentence placeholders.
+
+---
+
+## 13. What Phase W5 learned
+
+**`web_build.py` built one chapter, and a deploy needs a site.** That gap was the
+real work of W5. `--site` discovers every locked chapter from `Drafts/`, builds a
+page for each, then builds the reference layer, the search index and the deploy
+files once over the whole set. Per-chapter gates run per chapter; site-level gates
+run once over every emitted page. A failing chapter does not stop the others being
+reported, because a deploy needs the full list of what is wrong rather than the
+first thing that is wrong.
+
+**DISCOVERY MUST NEVER BE ABLE TO PICK A STALE FORK, AND ONE IS STILL SITTING
+THERE.** Chapter 1's Stage 0 folder holds `DRAFT-AIOM_ch01.html` alongside the live
+text: a superseded copy carrying `lang="en"` and no source register. It is exactly
+the hazard CLAUDE.md records under Decision 50, where a superseded fork survived
+long enough to diverge by 150 lines and a ruling was applied to the wrong copy.
+`discover_chapters()` excludes it by name, fails loudly if more than one candidate
+remains, and prints what it skipped on every build. **Deleting the file is Dan's
+call and it should be made**: an exclusion rule is a guard, not a fix.
+
+**THE TWO-CHAPTER PATH IS PROVEN BEFORE CHAPTER 2 EXISTS.** Code that works for one
+chapter is not thereby known to work for two, and the site builder had only ever
+seen one. The self-test now synthesises a second locked chapter in a throwaway
+tree and asserts that two chapter pages are emitted and both appear in the
+sitemap. Four controls, and they cost nothing to keep.
+
+**CI INSTALLS A HEADLESS BROWSER, DELIBERATELY.** Gate W6 is optional because it
+needs one, and the tempting shortcut is to run CI with `--no-browser`. That would
+produce a green tick on a suite with a known hole in it, which is this repository's
+signature failure wearing a badge. The workflow installs Chromium and runs the
+full width sweep.
+
+**Publishing is gated twice.** `web_build.py` refuses any chapter that
+`status_check.py` does not report at Stage 9 (Decision 64), and the deploy job runs
+only if every gate passed. Rendered output is never committed (Decision 63), so
+the site is built from source on every push and a chapter's text exists once in
+version control rather than twice.
+
+### Open, and all three are Dan's
+
+- **The domain.** `--base-url` sets the CNAME and makes sitemap URLs absolute. It
+  is unset, so no hostname is invented and the sitemap emits site-relative paths,
+  which are valid and become absolute the moment a domain is supplied.
+- **The host.** The workflow targets GitHub Pages because it needs no third-party
+  account and no secret. Cloudflare Pages would need an API token in repository
+  secrets.
+- **The analytics posture.** Nothing is included. The site currently sends
+  no request to any third party, and the search page says so.

@@ -49,6 +49,67 @@ def _fake_unlocked_chapter():
     return os.path.join(root, "00_Stage0_Draft", "AIOM_Ch99.html")
 
 
+def _multi_chapter_control(case):
+    """Build a TWO chapter site before chapter 2 exists.
+
+    The site builder has only ever been exercised with one chapter, and code that
+    works for one is not thereby known to work for two. This control synthesises a
+    second locked chapter in a throwaway Drafts tree, retitled to the structure
+    document's own name for chapter 2, and asserts the whole site builds and gates
+    clean. It is the cheapest possible proof that the pipeline scales past the
+    single chapter that happens to exist today.
+    """
+    import glob
+    import os
+    import shutil
+    root = "build/selftest-tree"
+    shutil.rmtree(root, ignore_errors=True)
+    src_dir = os.path.dirname(os.path.dirname(CHAPTER))
+    for num, title in ((1, "The Category Error"), (2, "The Flow")):
+        dst = os.path.join(root, f"Ch{num:02d}_Synthetic", "00_Stage0_Draft")
+        os.makedirs(dst, exist_ok=True)
+        html = open(CHAPTER, encoding="utf-8").read()
+        if num != 1:
+            html = html.replace("AI Operations Management, Chapter 1",
+                                f"AI Operations Management, Chapter {num}")
+            html = html.replace('<h1 class="chapter-title">The Category Error</h1>',
+                                f'<h1 class="chapter-title">{title}</h1>')
+        open(os.path.join(dst, f"AIOM_Ch{num:02d}_live.html"), "w",
+             encoding="utf-8").write(html)
+        # A stale fork beside the live text, which discovery must skip rather
+        # than choose. Chapter 1's real folder still carries one.
+        open(os.path.join(dst, "DRAFT-old.html"), "w", encoding="utf-8").write("<html></html>")
+        for f in glob.glob(os.path.join(src_dir, "AIOM_Ch*_Checklist*.md")):
+            shutil.copy(f, os.path.join(root, f"Ch{num:02d}_Synthetic",
+                                        f"AIOM_Ch{num:02d}_Checklist.md"))
+
+    found, notes = wb.discover_chapters(root)
+    case("two locked chapters are discovered",
+         lambda: [] if len(found) == 2 else ["found " + str(len(found))], False)
+    case("the stale fork beside each live text is skipped",
+         lambda: [] if sum("skipped" in n for n in notes) == 2 else ["not skipped"],
+         False)
+
+    out = "build/selftest-site"
+    shutil.rmtree(out, ignore_errors=True)
+    os.makedirs(out, exist_ok=True)
+    fails, metas = quiet(wb.build_site, [p for _, p in found], out,
+                         False, True, "", notes)
+    # Chapter 2 is synthetic, so gates that compare it against the real ledger
+    # and the real structure document are expected to object. What this control
+    # proves is that the SITE BUILD runs over more than one chapter and emits a
+    # complete site, which is the thing that has never been exercised.
+    case("a two chapter site emits two chapter pages",
+         lambda: [] if len(metas) == 2 and os.path.exists(
+             os.path.join(out, "ch02", "index.html")) else ["missing ch02"], False)
+    case("the sitemap covers both chapters",
+         lambda: [] if "/ch02/" in open(os.path.join(out, "sitemap.xml"),
+                                        encoding="utf-8").read()
+         else ["ch02 absent from sitemap"], False)
+    case("a publish build carries no noindex page",
+         lambda: [f for f in fails if "noindex" in f], False)
+
+
 def quiet(fn, *a, **kw):
     """Run a gate without its progress lines. Returns its failure list."""
     with redirect_stdout(io.StringIO()):
@@ -304,6 +365,9 @@ def main():
         print(f"  [{'ok  ' if f6 else 'MISS'}] "
               f"{'a 3000px block widens the page':<46} "
               f"{f6[0][:70] if f6 else 'no failure reported'}")
+
+    print("\nW10, the site build and deploy readiness")
+    _multi_chapter_control(case)
 
     missed = [n for ok, n, _ in results if not ok]
     print(f"\n{len(results) - len(missed)}/{len(results)} controls behaved as "

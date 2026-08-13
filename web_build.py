@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""web_build.py  |  the web edition renderer  |  Phases W1 and W2
+"""web_build.py  |  the web edition renderer and site build  |  Phases W1 to W5
 
 Adopted by Decision 62. Companion to AIOM_build.py, reading the SAME locked
 chapter HTML. The web is a second PRESENTATION of the book, never a second text.
@@ -23,18 +23,22 @@ and NO TEXT, which is the test for whether a presentation change belongs here.
 Gate W1 then proves the transform preserved the text, which is a check on this
 file rather than a check on the author.
 
-Six gates. W1 text equivalence, W2 lock status, W3 typographic marks, W4
+Eleven gates. W1 text equivalence, W2 lock status, W3 typographic marks, W4
 structure and links, W5 document attributes, W6 horizontal overflow across a
-width sweep. W6 needs a headless browser and is the only optional one; it reports
+width sweep, W7 the book spine, W8 the reference layer against the chapter, W9a
+the landing page quoted verbatim, W9b no register note published, W10 deploy
+readiness. W6 needs a headless browser and is the only optional one; it reports
 SKIPPED and is never counted as passed.
 
 Citation text is never reimplemented here. It comes from footnotes.py and
 cite_format.py, which is the whole reason this is Python.
 
 Usage:
-    python3 web_build.py Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html
-    python3 web_build.py <chapter.html> --out build/web --preview
-    python3 web_build.py <chapter.html> --no-browser   # skip gate W6
+    python3 web_build.py --site                    # every LOCKED chapter, discovered
+    python3 web_build.py --site --base-url https://example.org
+    python3 web_build.py <chapter.html>            # one chapter
+    python3 web_build.py <chapter.html> --preview  # unlocked, noindex, local only
+    python3 web_build.py --site --no-browser       # skip gate W6
 """
 import argparse
 import glob
@@ -634,6 +638,124 @@ def gate_w5(web_html, meta, label="chapter"):
     return fails
 
 
+# A chapter's live text is the ONE html in its Stage 0 folder. Decision 50
+# permits exactly one per chapter, and Chapter 1's folder still holds a stale
+# superseded fork (DRAFT-AIOM_ch01.html: lang="en", no source register). Auto
+# discovery must never be able to choose it, so excluded prefixes are named here
+# and gate W10 reports every file it skipped on every build.
+LIVE_EXCLUDE = ("DRAFT-", "_")
+LIVE_EXCLUDE_SUFFIX = (".print.html",)
+
+
+def discover_chapters(root="Drafts"):
+    """Find the live text of every LOCKED chapter, in book order.
+
+    Returns (chapters, notes) where chapters is [(number, path)] and notes
+    records what was skipped and why, so a silent choice is never made.
+    """
+    found, notes = [], []
+    for d in sorted(glob.glob(os.path.join(root, "Ch[0-9][0-9]_*"))):
+        m = re.search(r"Ch(\d\d)_", os.path.basename(d))
+        if not m:
+            continue
+        num = int(m.group(1))
+        locked, _ = is_locked(d)
+        if not locked:
+            continue
+        stage0 = os.path.join(d, "00_Stage0_Draft")
+        cands, skipped = [], []
+        for f in sorted(glob.glob(os.path.join(stage0, "*.html"))):
+            base = os.path.basename(f)
+            if base.startswith(LIVE_EXCLUDE) or base.endswith(LIVE_EXCLUDE_SUFFIX):
+                skipped.append(base)
+            else:
+                cands.append(f)
+        for s in skipped:
+            notes.append(f"chapter {num}: skipped {s} (excluded by name)")
+        if len(cands) != 1:
+            notes.append(f"chapter {num}: FAIL, {len(cands)} candidate live "
+                         f"texts in {stage0}: {[os.path.basename(c) for c in cands]}. "
+                         f"Decision 50 permits exactly one per chapter.")
+            continue
+        found.append((num, cands[0]))
+        notes.append(f"chapter {num}: {os.path.basename(cands[0])}")
+    return found, notes
+
+
+def gate_w10(outdir, metas, notes, preview):
+    """Deploy readiness. Is what is about to be published complete and correct?"""
+    fails = [n for n in notes if "FAIL" in n]
+    fails = [f"W10: {f}" for f in fails]
+
+    locked = set(locked_chapters())
+    built = {int(m["chapter_number"]) for m in metas if m["chapter_number"]}
+    missing = sorted(locked - built)
+    if missing:
+        fails.append(f"W10: chapter(s) {missing} are locked but were not built, "
+                     f"so the deploy would silently omit them")
+
+    for m in metas:
+        page = os.path.join(outdir, m["slug"], "index.html")
+        if not os.path.exists(page):
+            fails.append(f"W10: {page} was not written")
+
+    # A publish build must carry no noindex page. A preview build must carry
+    # nothing else.
+    for path in sorted(glob.glob(os.path.join(outdir, "**", "*.html"),
+                                 recursive=True)):
+        has = 'name="robots"' in open(path, encoding="utf-8").read()
+        if has and not preview:
+            fails.append(f"W10: {path} carries a robots noindex tag in a "
+                         f"publish build")
+
+    for req in ("index.html", "robots.txt", "sitemap.xml", "404.html",
+                "search-index.json", "assets/aiom_web.css"):
+        if not os.path.exists(os.path.join(outdir, req)):
+            fails.append(f"W10: {req} is missing from the built site")
+
+    sm = os.path.join(outdir, "sitemap.xml")
+    if os.path.exists(sm):
+        xml = open(sm, encoding="utf-8").read()
+        for m in metas:
+            if f"/{m['slug']}/" not in xml:
+                fails.append(f"W10: chapter {m['chapter_number']} is not in "
+                             f"the sitemap")
+    if not fails:
+        print(f"W10. deploy readiness .... {len(metas)} chapter page(s), "
+              f"sitemap, robots, 404, assets all present")
+    return fails
+
+
+def write_deploy_files(outdir, metas, base_url):
+    """robots.txt, sitemap.xml, 404.html, and CNAME when a domain is set.
+
+    base_url is empty until Dan rules the domain. The sitemap then emits
+    site-relative paths, which are valid and become absolute the moment a domain
+    is supplied. Nothing here invents a hostname.
+    """
+    pages = ["", "search/", "glossary/", "sources/", "objects/"] + \
+            [m["slug"] + "/" for m in metas]
+    root = base_url.rstrip("/") if base_url else ""
+    urls = "\n".join(
+        f"  <url><loc>{root}/{p}</loc></url>" for p in pages)
+    open(os.path.join(outdir, "sitemap.xml"), "w", encoding="utf-8").write(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}\n</urlset>\n")
+
+    open(os.path.join(outdir, "robots.txt"), "w", encoding="utf-8").write(
+        "User-agent: *\n"
+        "Allow: /\n"
+        + (f"Sitemap: {root}/sitemap.xml\n" if root else "Sitemap: /sitemap.xml\n"))
+
+    open(os.path.join(outdir, "404.html"), "w", encoding="utf-8").write(
+        _env().get_template("404.html.j2").render())
+
+    if base_url:
+        host = re.sub(r"^https?://", "", base_url).strip("/")
+        open(os.path.join(outdir, "CNAME"), "w", encoding="utf-8").write(host + "\n")
+
+
 def gate_w7(meta, book):
     """The book spine, and the one place it can silently drift.
 
@@ -1167,56 +1289,114 @@ def render_index(outdir, meta):
     return os.path.join(outdir, "index.html")
 
 
+def build_site(chapter_paths, outdir, preview=False, no_browser=False,
+               base_url="", notes=()):
+    """Build the whole site from every chapter given, then gate it.
+
+    W5 turned this from a one-chapter command into a site build. The gates that
+    are per-chapter run per chapter; the gates that are properties of the site
+    run once over every emitted page. A chapter that fails does not stop the
+    others being reported, because a deploy needs the full list of what is wrong
+    rather than the first thing that is wrong.
+    """
+    metas, pages, fails = [], [], []
+    first_index = None
+
+    for path in chapter_paths:
+        src = open(path, encoding="utf-8").read()
+        print_html, web_html, meta, page = render(path, outdir, preview)
+        meta["spec"] = build_specimens(meta, src)
+        metas.append(meta)
+        pages.append(("chapter " + meta["slug"], web_html))
+        print(f"  chapter {meta['chapter_number']}: {meta['chapter_title']} "
+              f"-> {page}")
+
+        fails += gate_w1(print_html, web_html)
+        fails += gate_w2(path, preview)
+        fails += gate_w4(web_html, meta)
+        fails += gate_w5(web_html, meta, "chapter " + meta["slug"])
+        fails += gate_w7(meta, meta["structure"])
+        fails += gate_w9b(src, [("chapter " + meta["slug"], web_html)])
+        if not no_browser:
+            w6, ran = gate_w6(page)
+            fails += w6
+
+    if not metas:
+        return ["W10: no chapters were built, so there is nothing to publish"], []
+
+    lead = metas[0]
+    index = render_index(outdir, lead)
+    ref_pages, ref = build_reference(
+        outdir, lead, open(chapter_paths[0], encoding="utf-8").read())
+    search_html, docs, bytes_ = build_search(
+        outdir, lead, chapter_paths[0], ref)
+    write_deploy_files(outdir, metas, base_url)
+    print(f"  reference and search: {docs} search docs, {bytes_ / 1024:.1f} kB")
+    print(f"  deploy files: sitemap, robots, 404"
+          + (f", CNAME for {base_url}" if base_url else ", no CNAME (no domain set)"))
+
+    index_html = open(index, encoding="utf-8").read()
+    site_pages = ([("index", index_html), ("search", search_html)]
+                  + [(n, h) for n, h in ref_pages.items()])
+
+    fails += gate_w8(ref, lead, pages[0][1])
+    fails += gate_w9(lead["spec"], lead, index_html)
+    fails += gate_w9b(open(chapter_paths[0], encoding="utf-8").read(), site_pages)
+    fails += gate_pages(site_pages)
+    if not no_browser:
+        w6, _ = gate_w6(index)
+        fails += w6
+    fails += gate_w10(outdir, metas, notes, preview)
+    return fails, metas
+
+
 def main():
     ap = argparse.ArgumentParser(description="Build the AIOM web edition.")
-    ap.add_argument("chapter", help="path to the locked chapter HTML")
+    ap.add_argument("chapter", nargs="*",
+                    help="chapter HTML to build; omit with --site to discover")
+    ap.add_argument("--site", action="store_true",
+                    help="build every LOCKED chapter, discovered from Drafts/")
     ap.add_argument("--out", default="build/web", help="output directory")
     ap.add_argument("--preview", action="store_true",
                     help="build an unlocked chapter to a local noindex page")
     ap.add_argument("--no-browser", action="store_true",
                     help="skip gate W6, the width sweep, which needs a browser")
+    ap.add_argument("--base-url", default="",
+                    help="site origin, e.g. https://example.org. Sets CNAME and "
+                         "absolute sitemap URLs. Unset until Dan rules the domain.")
     a = ap.parse_args()
 
     if not os.path.exists("web_templates/chapter.html.j2"):
         sys.exit("web_build.py must run from the repository root "
                  "(web_templates/ not found)")
 
-    print_html, web_html, meta, path = render(a.chapter, a.out, a.preview)
-    meta["spec"] = build_specimens(meta, open(a.chapter, encoding="utf-8").read())
-    index = render_index(a.out, meta)
-    ref_pages, ref = build_reference(a.out, meta, open(a.chapter, encoding="utf-8").read())
-    search_html, doc_count, index_bytes = build_search(a.out, meta, a.chapter, ref)
-    print(f"\nChapter {meta['chapter_number']}: {meta['chapter_title']}")
-    print(f"  {meta['part_label']}")
-    print(f"  wrote {path}")
-    print(f"  wrote {index}")
-    print(f"  wrote glossary, sources, objects, search "
-          f"({doc_count} search docs, {index_bytes / 1024:.1f} kB)\n")
+    notes = []
+    if a.site:
+        found, notes = discover_chapters()
+        chapters = [p for _, p in found]
+        print("Discovering locked chapters:")
+        for n in notes:
+            print("  " + n)
+        if not chapters:
+            print(chr(10) + "WEB GATES FAILED"
+                  + chr(10) + "   W10: no locked chapter found to build")
+            return 1
+    elif a.chapter:
+        chapters = a.chapter
+    else:
+        ap.error("give a chapter path, or --site to build every locked chapter")
 
-    fails = []
-    fails += gate_w1(print_html, web_html)
-    fails += gate_w2(a.chapter, a.preview)
-    fails += gate_w3(web_html)
-    fails += gate_w4(web_html, meta)
-    fails += gate_w5(web_html, meta)
-    fails += gate_w7(meta, meta["structure"])
-    fails += gate_w8(ref, meta, web_html)
-    fails += gate_w9(meta["spec"], meta, open(index, encoding="utf-8").read())
-    all_pages = ([("index", open(index, encoding="utf-8").read()),
-                  ("search", search_html), ("chapter", web_html)]
-                 + [(n, h) for n, h in ref_pages.items()])
-    fails += gate_w9b(open(a.chapter, encoding="utf-8").read(), all_pages)
-    fails += gate_pages([p for p in all_pages if p[0] != "chapter"])
-    w6_fails, w6_ran = ([], False) if a.no_browser else gate_w6(path)
-    fails += w6_fails
+    print(f"{chr(10)}Building {len(chapters)} chapter(s) into {a.out}")
+    fails, metas = build_site(chapters, a.out, a.preview, a.no_browser,
+                              a.base_url, notes)
 
     verdict = "PASSED" if not fails else "FAILED"
     # The skip is stated in the verdict line rather than buried above it. Five of
     # this repository's recorded defects are a check that was believed to have
     # run and had not, so an optional gate has to be noisy about not running.
-    if not w6_ran:
+    if a.no_browser:
         verdict += ", W6 NOT RUN"
-    print(f"\nWEB GATES {verdict}")
+    print(f"{chr(10)}WEB GATES {verdict}")
     for f in fails:
         print("   " + f)
     return 0 if not fails else 1

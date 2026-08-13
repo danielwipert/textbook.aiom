@@ -1,0 +1,74 @@
+# Build, gate and publish the AIOM web edition.
+#
+# Decision 63: the web edition lives in this repository and its rendered output
+# is NEVER committed, so a chapter's text exists once in version control rather
+# than twice. This workflow is what makes that possible: it builds from source on
+# every push and publishes the result.
+#
+# THE GATES RUN HERE, NOT ONLY ON SOMEONE'S LAPTOP. That is the whole point of
+# putting the build in CI. In particular a headless browser IS installed, so gate
+# W6 actually runs: this repository's recurring failure is a check believed to
+# have run that had not, and a CI job that quietly skipped W6 would be exactly
+# that failure with a green tick on top.
+#
+# Publishing is gated twice over. web_build.py refuses any chapter that
+# status_check.py does not report at Stage 9 (Decision 64), and the deploy step
+# runs only if every gate passed.
+name: web
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: web-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install the pinned toolchain
+        run: pip install -r requirements.txt
+
+      - name: Install a headless browser for gate W6
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Build the site and run every gate
+        run: python3 web_build.py --site --out build/web
+
+      - name: Prove the gates still measure what they claim
+        run: python3 web_gates_selftest.py
+
+      - name: Upload the built site
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

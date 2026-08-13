@@ -181,6 +181,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `web_templates/` | Jinja2 templates. `chapter.html.j2` is the reader; `index.html.j2` is a placeholder front page, not the Phase W3 landing page. **Chrome lives OUTSIDE `<article id="chapter-text">` and the boundary is load bearing:** gate W1 measures the article and nothing else. |
 | `ledger.py` | Reads `AIOM_Continuity_Ledger.md` as data. The web glossary, object index and promise list are the SAME record gate G3 enforces, not a second list scraped from chapter HTML. Read only; appending is `continuity.py --update` at Stage 9. |
 | `book_structure.py` | The four parts and fifteen chapters, PARSED from `AIOM_Structure_v1.md` rather than retyped. The site's navigation and its table of contents come from here, so the book's own structure document is the single source for the book's shape. |
+| `.github/workflows/web.yml` | Builds the site, runs every gate, runs the self-test, and publishes to GitHub Pages from `main`. **It installs a headless browser so gate W6 actually runs in CI**, because a job that quietly skipped it would be this repo's signature failure with a green tick on top. |
 | `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `copyedit_export.py` | Chapter HTML to a copy-editing `.docx` plus a round-trip manifest. Stage 6 happens in Word; this is how it gets there. Excludes the source register by design. |
@@ -662,6 +663,21 @@ rulings. What binds outside that document:
   absorbed-cost inference. A first draft of the landing page printed it in full,
   and gate W3 caught it only because the note contains straight apostrophes, which
   is luck rather than a check. Only bibliographic fields may be published.
+- **Phase W5 is built, 2026-08-13. `web_build.py --site` builds the WHOLE site**,
+  discovering every locked chapter from `Drafts/`, and emits sitemap, robots, 404
+  and (with `--base-url`) CNAME. ELEVEN gates. Gate W10 is deploy readiness: every
+  locked chapter built, no `noindex` page in a publish build, sitemap complete,
+  assets present.
+- **DISCOVERY MUST NEVER BE ABLE TO PICK A STALE FORK, AND ONE IS STILL SITTING
+  THERE.** `Drafts/Ch01_.../00_Stage0_Draft/` holds `DRAFT-AIOM_ch01.html`, a
+  superseded copy with `lang="en"` and no source register: exactly the Decision 50
+  hazard. `discover_chapters()` excludes `DRAFT-*`, `_*` and `*.print.html` by
+  name, fails if more than one candidate remains, and PRINTS WHAT IT SKIPPED on
+  every build so the choice is never silent. Deleting the stale file is Dan's.
+- **THE TWO-CHAPTER PATH IS PROVEN BEFORE CHAPTER 2 EXISTS.** `web_gates_selftest.py`
+  synthesises a second locked chapter in a throwaway tree and asserts the site
+  builds two chapter pages with both in the sitemap. Code that works for one
+  chapter is not thereby known to work for two.
 - **Print gates do not carry over and web gates are not print gates.** Pagination
   is the bulk of the print suite (gates 1, 4, 8, 12, 13, 14 and `place.py`) and
   none of it exists on the web. What carries is anything that is a property of
