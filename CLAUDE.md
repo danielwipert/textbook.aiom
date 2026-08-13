@@ -611,7 +611,7 @@ rulings. What binds outside that document:
   non-greedy defect the print-side scanner was written to avoid, which is the
   hyphenation-scan failure repeating. Run it after any change to `web_build.py`.
 - **Phase W3 is built and green, 2026-08-13.** The front door, the whole-book
-  navigation rail, and gate W7. EIGHT gates now.
+  navigation rail, and gate W7. SEVEN gates now.
 - **GATE W7 GUARDS THE ONE PLACE THE BOOK CAN SILENTLY SPLIT IN TWO.** The site's
   navigation is parsed from `AIOM_Structure_v1.md`; a chapter's published title
   comes from its own locked HTML. Those two can disagree, and the chapter and the
@@ -631,7 +631,7 @@ rulings. What binds outside that document:
   because CLAUDE.md section 9 rules that later chapters withhold deliberately.
   Those descriptions are PLACEHOLDER until Dan writes real ones.
 - **Phase W4 is built and green, 2026-08-13.** Glossary, per-chapter sources,
-  object index, promises between chapters, and client-side search. NINE gates.
+  object index, promises between chapters, and client-side search. EIGHT gates.
 - **GATE W8 GUARDS THE REFERENCE LAYER AGAINST THE CHAPTER IT DESCRIBES.** W8a
   requires the ledger's definition of a term to be character-identical to the
   chapter's key-term text, because a definition is exactly the kind of text that
@@ -665,7 +665,7 @@ rulings. What binds outside that document:
   is luck rather than a check. Only bibliographic fields may be published.
 - **Phase W5 is built, 2026-08-13. `web_build.py --site` builds the WHOLE site**,
   discovering every locked chapter from `Drafts/`, and emits sitemap, robots, 404
-  and (with `--base-url`) CNAME. ELEVEN gates. Gate W10 is deploy readiness: every
+  and (with `--base-url`) CNAME. TEN gates. Gate W10 is deploy readiness: every
   locked chapter built, no `noindex` page in a publish build, sitemap complete,
   assets present.
 - **DISCOVERY MUST NEVER BE ABLE TO PICK A STALE FORK, AND ONE IS STILL SITTING
@@ -687,7 +687,18 @@ rulings. What binds outside that document:
   still unruled; `--base-url` is unset, so no hostname is invented and the sitemap
   emits site-relative paths that become absolute the moment one is supplied.
 - **Phase W6 is built, 2026-08-13: dark mode and the figure token pass.**
-  FOURTEEN gates. `AIOM_web.css` v0.3.
+  THIRTEEN gates. `AIOM_web.css` v0.3.
+- **A GATE IS ONE W-NUMBER, NOT ONE CHECK, AND THIS COUNT DRIFTED FOR FIVE
+  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W13, so it is
+  THIRTEEN gates, and every phase count above is stated on that basis. Sub-lettered
+  checks are parts of their gate, never gates: `W1a` and `W1b` are one gate, and so
+  are `W4a` through `W4f`, `W7a` and `W7b`, `W8a` through `W8c`, and `W9a` and
+  `W9b`. The Phase W1 and W2 entry was right at SIX and every entry after it ran
+  one high, because W1's two channels were silently counted as two gates while no
+  other gate's sub-parts ever were. Corrected 2026-08-13, on Dan's ruling, after a
+  README draft asserted fourteen and the number was checked against the build
+  output for the first time. **Re-derive this from `web_build.py` output rather
+  than copying it forward, which is how it got to five documents.**
 - **DARK MODE IS DESIGNED, NOT INVERTED.** The ground becomes a deep navy black
   derived from the book's own navy, which keeps the two-colour identity. A theme
   toggle sits in every topbar; the preference is applied in `<head>` before first

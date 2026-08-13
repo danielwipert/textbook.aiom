@@ -67,7 +67,7 @@ remote is now the only copy of anything.
 
 Verified after the rewrite rather than claimed: zero hits for all ten paths
 across the full history OF A FRESH CLONE rather than of the working copy,
-`status_check.py` at 13 of 13, all fourteen web gates passing, 61 of 61
+`status_check.py` at 13 of 13, all thirteen web gates passing, 61 of 61
 self-test controls behaving, and `git_hygiene.py` reporting nothing stranded.
 
 The record of the pre-rewrite state follows and its hashes are dead.
@@ -82,7 +82,7 @@ rule 1), then a fetch, then `git log origin/main ^HEAD` empty, then
 `git merge-base --is-ancestor` confirming `main` was a strict ancestor. After the
 push, `git rev-list --left-right --count origin/main...<branch>` reports `0 0`.
 The build, the self-test and `status_check.py` were all re-run ON `main` after
-the merge: fourteen gates pass, sixty-one controls behave, Chapter 1 reports 13
+the merge: thirteen gates pass, sixty-one controls behave, Chapter 1 reports 13
 of 13.
 
 `claude/textbook-website-design-h9nk9t` is now FULLY MERGED and safe to delete.
@@ -1005,7 +1005,7 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
    Redo the sum if any of those four tokens changes.
 
    **Phase W3, the front door, is BUILT AND GREEN.** Landing page, whole-book
-   navigation rail, `book_structure.py`, and gate W7. EIGHT gates now, and
+   navigation rail, `book_structure.py`, and gate W7. SEVEN gates now, and
    thirty-four negative controls.
 
    **THREE RULES CAME OUT OF W3 AND THEY BIND LATER PHASES.** (1) Gate W7 guards
@@ -1028,7 +1028,7 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
 
    **Phase W4, the reference layer and search, is BUILT AND GREEN.** Glossary,
    per-chapter sources, object index, promises between chapters, client-side
-   search. `ledger.py` reads the continuity ledger as data. NINE gates, and
+   search. `ledger.py` reads the continuity ledger as data. EIGHT gates, and
    thirty-eight negative controls.
 
    **GATE W8 GUARDS THE REFERENCE LAYER AGAINST THE CHAPTER.** W8a requires the
@@ -1059,13 +1059,13 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
    those notes carry fact-check finding IDs and verbatim quotations of sentences
    the book CUT, so a first draft of the specimen band came within one build of
    publishing retracted claims on the most public surface in the project. Gate W3
-   caught it only through stray apostrophes, which is luck. Ten gates now,
+   caught it only through stray apostrophes, which is luck. Nine gates now,
    forty-four negative controls.
 
    **Phase W5, the site build and deploy, is BUILT.** `web_build.py --site`
    discovers every locked chapter and builds the whole site, plus sitemap,
    robots.txt, 404 and CNAME. `.github/workflows/web.yml` builds, gates, runs the
-   self-test and publishes to GitHub Pages from `main`. ELEVEN gates, forty-nine
+   self-test and publishes to GitHub Pages from `main`. TEN gates, forty-nine
    negative controls.
 
    **A STALE FORK IS STILL SITTING IN CHAPTER 1'S LIVE-TEXT FOLDER.**
@@ -1085,7 +1085,7 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
    Outbound anchor links stay legal, because the sources page exists to link out.
 
    **Phase W6, dark mode and the figure token pass, is BUILT AND GREEN.**
-   FOURTEEN gates, sixty-one negative controls. `AIOM_web.css` v0.3.
+   THIRTEEN gates, sixty-one negative controls. `AIOM_web.css` v0.3.
 
    **THE PRINT PALETTE FAILS WCAG AA AND THE WEB CORRECTS IT.** Five foreground
    tokens fail against paper and its tints, `--folio` worst at 2.38:1. Print has
@@ -1326,7 +1326,13 @@ has already paid for repeatedly. Read them there, not from memory:
 - **THE DESIGN MIRRORS ITS MARGINS.** Main text starts at x0 68.4 on odd pages,
   57.6 on even. Any new geometry check must derive the edge per page or it will
   read green while measuring nothing.
-- The QA suite is FOURTEEN gates. Three checks written in this repo have been
+- The PRINT QA suite is FIFTEEN gates, 1 through 15, and the WEB suite is
+  THIRTEEN, W1 through W13. Both numbers were wrong in this file until
+  2026-08-13: this line said fourteen for print, which went stale when gate 15
+  was added on 2026-08-12, and the web counts ran one high for five phases. A
+  gate is one number, never one check, so sub-lettered checks like `W8a` are
+  parts of a gate. Re-derive both from build output rather than copying them
+  forward. Three checks written in this repo have been
   wrong in a way that read as green, and gate 12 has now been wrong twice. Every
   one was found by changing the input, never by re-reading the code. Treat a
   green gate on unchanged input as weak evidence.
