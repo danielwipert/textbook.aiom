@@ -175,7 +175,11 @@ sources are dated. Constructed material is labelled as constructed.
 | Path | What it is |
 |---|---|
 | `AIOM_build.py` | Font staging, WeasyPrint render, fifteen QA gates, toolchain preflight. One command. |
-| `AIOM_book.css` | The locked design system. |
+| `AIOM_book.css` | The locked design system, print. |
+| `web_build.py` | The web edition renderer and its five gates. Reads the same locked chapter HTML and reuses `footnotes.py`, `cite_format.py` and `status_check.py`. Both artifacts descend from ONE `footnotes.inject()` call, so text equivalence is structural rather than hoped for. Run from the repository root. |
+| `AIOM_web.css` | The web presentation layer, v0.1. Tokens are inherited from `AIOM_book.css`, never chosen. Sole control of web appearance, same rule as print. |
+| `web_templates/` | Jinja2 templates. `chapter.html.j2` is the reader; `index.html.j2` is a placeholder front page, not the Phase W3 landing page. **Chrome lives OUTSIDE `<article id="chapter-text">` and the boundary is load bearing:** gate W1 measures the article and nothing else. |
+| `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `copyedit_export.py` | Chapter HTML to a copy-editing `.docx` plus a round-trip manifest. Stage 6 happens in Word; this is how it gets there. Excludes the source register by design. |
 | `copyedit_import.py` | The copy-edited `.docx` back into the chapter HTML, block by block, by span. Applies what is unambiguous and refuses the rest rather than guessing. |
@@ -574,6 +578,25 @@ rulings. What binds outside that document:
 - **Only locked chapters publish, enforced by gate W2 against `status_check.py`,
   not by intention.** In-flight chapters build to a local `noindex` preview path
   that CI never publishes.
+- **Phase W1 is built and green, 2026-08-13.** Five gates run on every build:
+  W1 text equivalence in two channels, W2 lock status, W3 typographic marks
+  (ports print gates 2 and 15), W4 structure and links, W5 document attributes.
+  Chapter 1 renders at 43,204 characters of prose identical to print, six notes
+  identical, all six slots anchored. Build with:
+  `python3 web_build.py Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`
+- **EVERY WEB GATE HAS A NEGATIVE CONTROL, AND THIS IS WHY.** `web_gates_selftest.py`
+  injects one fault at a time and asserts the owning gate fails. On its first run
+  five of twenty-five controls did not fire: four mark controls landed in `<head>`,
+  which the extractor skips, so gate W3 had never seen them, and the sidenote
+  deletion control deleted nothing. Both were faults in the CONTROLS rather than
+  the gates, which is the point: without the controls, a green W3 was evidence of
+  nothing. It also found a real defect, W1b's note extractor carrying the same
+  non-greedy defect the print-side scanner was written to avoid, which is the
+  hyphenation-scan failure repeating. Run it after any change to `web_build.py`.
+- **Print gates do not carry over and web gates are not print gates.** Pagination
+  is the bulk of the print suite (gates 1, 4, 8, 12, 13, 14 and `place.py`) and
+  none of it exists on the web. What carries is anything that is a property of
+  the text: gates 2 and 15 became W3, and Decision 59 became W5.
 
 ### Rules that came from a check being wrong
 

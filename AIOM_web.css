@@ -1,0 +1,428 @@
+/* ============================================================
+   AIOM_web.css
+   VERSION: 0.1  (Phase W1)
+   DATE:    2026-08-13
+
+   The web presentation layer. Companion to AIOM_book.css, which remains the
+   sole control of the PRINT appearance and is not touched by anything here.
+
+   Decision 62 adopts this file. Phase W1 is the pipeline and the gates, so this
+   stylesheet is deliberately restrained: correct typography, the inherited
+   palette, working sidenotes, and a responsive measure. The visual direction
+   proper is Phase W2 and will supersede most of what follows.
+
+   TOKENS ARE INHERITED, NOT CHOSEN. Every colour below is the value of record
+   from AIOM_book.css v7.1 section 2. The web looking like the book is the point.
+
+   Two rules carried over from the print stylesheet's header, and they hold here
+   for the same reason:
+     - This file is the sole control of web appearance. Chapter HTML carries
+       content only, and no chapter ever gains a scoped <style> block.
+     - A Unicode hex escape in a content: string consumes the following space as
+       an escape terminator. Use literal UTF-8 characters.
+   ============================================================ */
+
+/* ---------- 1. FONTS ---------- */
+/* Self-hosted from fonts/use/, copied into assets/fonts/ by web_build.py.
+   No CDN, no network at render time, same six faces the print book embeds. */
+@font-face { font-family: "Jost"; src: url("fonts/Jost-Medium.ttf");   font-weight: 500; font-display: swap; }
+@font-face { font-family: "Jost"; src: url("fonts/Jost-SemiBold.ttf"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Text.ttf");     font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Italic.ttf");   font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Medium.ttf");   font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-SemiBold.ttf"); font-weight: 600; font-style: normal; font-display: swap; }
+
+/* ---------- 2. DESIGN TOKENS ---------- */
+:root {
+  --paper:     #F4ECDD;
+  --navy:      #16314F;
+  --amber:     #B4551F;
+  --amber-fig: #C0521A;
+  --teal:      #0E7A72;
+  --ink:       #2B2620;
+  --folio:     #9B8F7C;
+  --axis:      #6E6353;
+  --tint-def:  #EDE3D0;
+  --tint-thm:  #F7EDE2;
+  --tint-fig:  #E7DECB;
+  --hairline:  #DCCFB4;
+  --kt-head:   #DCCFB4;
+
+  --measure:   34rem;   /* the text column */
+  --gutter:    17rem;   /* the sidenote margin */
+  --rail:      15rem;   /* the contents rail */
+  --step:      1.6rem;  /* vertical rhythm unit */
+}
+
+/* ---------- 3. RESET AND PAGE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Plex", system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}
+
+a { color: var(--navy); text-decoration-color: var(--hairline); text-underline-offset: 0.18em; }
+a:hover { text-decoration-color: var(--amber); }
+
+/* ---------- 4. CHROME ---------- */
+.progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 40; }
+.progress i {
+  display: block; height: 100%; background: var(--amber);
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: 30;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  /* Opaque, not translucent. At 88 percent with an 8px blur the body text read
+     straight through the bar on a raster check, which is the kind of defect
+     that survives every mechanical gate and dies only to looking at the page. */
+  background: var(--paper);
+  border-bottom: 1px solid var(--hairline);
+}
+.brand {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: 0.82rem; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+}
+.rail-toggle {
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.78rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--navy); background: none;
+  border: 1px solid var(--hairline); border-radius: 2px;
+  padding: 0.35rem 0.7rem; cursor: pointer;
+}
+.rail-toggle:hover { border-color: var(--amber); color: var(--amber); }
+
+.preview-flag {
+  margin: 0; padding: 0.6rem 1.5rem;
+  background: var(--amber); color: var(--paper);
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.foot {
+  border-top: 1px solid var(--hairline);
+  margin-top: calc(var(--step) * 3);
+  padding: 2rem 1.5rem 4rem;
+  color: var(--folio); font-size: 0.82rem;
+}
+.foot p { max-width: var(--measure); margin-inline: auto; }
+
+/* ---------- 5. LAYOUT ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+}
+.reading { padding: calc(var(--step) * 2) 1.5rem 0; min-width: 0; }
+
+#chapter-text {
+  /* The article is the measure plus the sidenote gutter. Notes float out of the
+     text column into the gutter, so the prose keeps a book measure while the
+     apparatus stays beside the sentence that called it. */
+  max-width: calc(var(--measure) + var(--gutter));
+  margin-inline: auto;
+  padding-right: var(--gutter);
+}
+
+.rail {
+  position: sticky; top: 4.2rem;
+  max-height: calc(100vh - 5.5rem);
+  overflow-y: auto;
+  padding: calc(var(--step) * 2) 1rem 2rem 1.5rem;
+  font-size: 0.8rem; line-height: 1.45;
+}
+.rail-head {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--folio); margin: 0 0 0.9rem;
+}
+.rail ol { list-style: none; margin: 0; padding: 0; }
+.rail-slots > li { margin-bottom: 0.55rem; }
+.rail a {
+  display: block; padding: 0.16rem 0 0.16rem 0.7rem;
+  border-left: 2px solid transparent;
+  color: var(--axis); text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+.rail-slots > li > a {
+  font-family: "Jost", sans-serif; font-weight: 500;
+  letter-spacing: 0.02em; color: var(--navy);
+}
+.rail a:hover { color: var(--amber); border-left-color: var(--hairline); }
+.rail a.here { color: var(--amber); border-left-color: var(--amber); }
+.rail-sections { margin: 0.3rem 0 0.7rem 0.7rem; }
+.rail-sections a { font-size: 0.76rem; }
+.rail-num { color: var(--folio); font-variant-numeric: tabular-nums; }
+
+/* ---------- 6. CHAPTER OPENING ---------- */
+.part-label {
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.78rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 0.6rem;
+}
+.chapter-title {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: clamp(2.1rem, 5.5vw, 3.1rem); line-height: 1.08;
+  letter-spacing: -0.015em; color: var(--navy);
+  margin: 0 0 calc(var(--step) * 1.6);
+  text-wrap: balance;
+}
+
+.slot-label {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.74rem;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--folio);
+  margin: calc(var(--step) * 2.4) 0 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.case-title {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: 1.55rem; line-height: 1.2; color: var(--navy);
+  margin: 0.7rem 0 0.4rem; text-wrap: balance;
+}
+.provenance {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.76rem;
+  letter-spacing: 0.02em; color: var(--amber);
+  margin: 0 0 var(--step);
+}
+
+h3.section {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: 1.28rem; line-height: 1.25; color: var(--navy);
+  margin: calc(var(--step) * 2) 0 0.6rem;
+  display: flex; gap: 0.7rem; align-items: baseline;
+  text-wrap: balance;
+}
+h3.section .num { color: var(--amber); font-variant-numeric: tabular-nums; flex: none; }
+
+.tail-head, .keyterms-head {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.74rem;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--folio);
+  margin: calc(var(--step) * 2.4) 0 var(--step);
+  padding-bottom: 0.4rem; border-bottom: 1px solid var(--hairline);
+}
+
+/* ---------- 7. BODY PROSE ---------- */
+#chapter-text p { margin: 0 0 var(--step); }
+#chapter-text b { font-weight: 600; color: var(--navy); }
+/* .nb switches hyphenation off for a proper noun (Decision 58). The web is not
+   justified so it does not hyphenate, and the class is inert here. It is styled
+   to nothing deliberately: removing it from the chapter HTML would break print. */
+.nb { }
+
+/* ---------- 8. SIDENOTES ---------- */
+.fnref { text-decoration: none; }
+.fnref sup {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.62em;
+  color: var(--amber); padding-left: 0.12em;
+}
+.fnref:hover sup { color: var(--navy); }
+
+.note {
+  display: block; float: right; clear: right;
+  width: calc(var(--gutter) - 2.2rem);
+  margin-right: calc((var(--gutter) - 1.2rem) * -1);
+  margin-bottom: 0.9rem;
+  font-size: 0.76rem; line-height: 1.45; color: var(--axis);
+  text-align: left;
+}
+.note .note-n {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  color: var(--amber); text-decoration: none; padding-right: 0.15em;
+}
+.note i { font-style: italic; }
+.note:target, .note-n:target { background: var(--tint-thm); }
+
+/* ---------- 9. APPARATUS ---------- */
+.definition {
+  background: var(--tint-def);
+  border-left: 2px solid var(--amber);
+  padding: 1rem 1.2rem 0.4rem;
+  margin: 0 0 var(--step);
+}
+.definition .lab, .theorem .lab, .model .mlab, .dated .date {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.68rem;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--amber);
+  margin: 0 0 0.35rem;
+}
+.definition .term {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.02rem;
+  color: var(--navy); margin: 0 0 0.4rem;
+}
+.definition p:last-child { margin-bottom: 0.8rem; }
+
+.theorem {
+  background: var(--tint-thm);
+  border: 1px solid var(--hairline); border-left: 3px solid var(--navy);
+  padding: 1.1rem 1.3rem 0.6rem;
+  margin: var(--step) 0;
+}
+.theorem .lab { color: var(--navy); }
+.theorem .stmt {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.02rem;
+  line-height: 1.3; color: var(--navy); margin: 0 0 0.7rem;
+}
+.theorem .cond, .theorem .conseq { margin: 0 0 0.5rem; }
+.theorem ol.ante { list-style: none; margin: 0 0 0.6rem; padding: 0; }
+.theorem ol.ante li {
+  display: flex; gap: 0.6rem; margin-bottom: 0.3rem;
+  padding-left: 0.9rem;
+}
+.theorem .mk { color: var(--amber); flex: none; font-variant-numeric: tabular-nums; }
+
+.dated {
+  border: 1px solid var(--hairline);
+  padding: 1rem 1.2rem 0.3rem;
+  margin: var(--step) 0;
+}
+.model {
+  background: var(--tint-fig);
+  padding: 1rem 1.2rem 0.3rem;
+  margin: var(--step) 0;
+}
+.model .mlab:not(:first-child) { margin-top: 1rem; }
+
+.diagnostic {
+  margin: 0 0 0.5rem !important;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--teal);
+  color: var(--navy);
+}
+
+/* ---------- 10. FIGURES ---------- */
+#chapter-text figure { margin: calc(var(--step) * 1.5) 0; }
+#chapter-text figure svg { width: 100%; height: auto; display: block; }
+figcaption {
+  font-size: 0.78rem; line-height: 1.45; color: var(--axis);
+  margin-top: 0.6rem; padding-top: 0.5rem;
+  border-top: 1px solid var(--hairline);
+}
+.fignum {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  color: var(--amber-fig); padding-right: 0.45em;
+}
+
+/* ---------- 11. KEY TERMS ---------- */
+.kt-list { display: grid; gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+.kt { background: var(--paper); padding: 0.9rem 1.1rem; }
+.kt-h { background: var(--kt-head); margin: -0.9rem -1.1rem 0.6rem; padding: 0.4rem 1.1rem; }
+.kt-t { font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--navy); }
+.kt p { margin: 0 !important; font-size: 0.92rem; }
+
+/* ---------- 12. QUESTIONS AND PROBLEMS ---------- */
+.dq { display: grid; grid-template-columns: 2rem 1fr; gap: 0.6rem; margin-bottom: 1rem; }
+.dq-n {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.05rem;
+  color: var(--amber); font-variant-numeric: tabular-nums;
+}
+.dq-b p { margin: 0 !important; }
+
+.problem { border-top: 1px solid var(--hairline); padding-top: 1.1rem; margin-top: var(--step); }
+.plab {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber);
+  margin: 0 0 0.3rem !important;
+}
+.ptitle {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.1rem;
+  color: var(--navy); margin: 0 0 0.6rem !important;
+}
+.pnote { font-size: 0.85rem; color: var(--axis); }
+
+table.inv {
+  width: 100%; border-collapse: collapse; font-size: 0.8rem;
+  margin: var(--step) 0;
+}
+table.inv th, table.inv td {
+  border: 1px solid var(--hairline); padding: 0.5rem 0.6rem;
+  text-align: left; vertical-align: top;
+}
+table.inv th {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--kt-head); color: var(--navy);
+}
+table.inv td.blank { background: var(--tint-fig); min-width: 7rem; }
+.table-scroll { overflow-x: auto; }
+
+.summary { border-left: 2px solid var(--teal); padding-left: 1.2rem; }
+
+/* ---------- 13. RESPONSIVE ---------- */
+/* Below the two-column threshold the sidenote returns inline, indented and
+   ruled, rather than being hidden. An apparatus a reader cannot reach on a
+   phone is an apparatus the book does not have. */
+@media (max-width: 1180px) {
+  :root { --gutter: 0rem; }
+  #chapter-text { padding-right: 0; max-width: var(--measure); }
+  .note {
+    float: none; width: auto; margin-right: 0;
+    margin: 0.7rem 0 1rem; padding: 0.7rem 0 0.7rem 0.9rem;
+    border-left: 2px solid var(--hairline);
+  }
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .rail {
+    display: none; position: static; max-height: none;
+    padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid var(--hairline);
+  }
+  .rail.open { display: block; }
+}
+@media (min-width: 901px) {
+  .rail-toggle { display: none; }
+}
+@media (max-width: 620px) {
+  html { font-size: 16px; }
+  :root { --step: 1.35rem; }
+  .reading { padding-inline: 1.1rem; }
+  .dq { grid-template-columns: 1.5rem 1fr; }
+}
+
+/* ---------- 14. PRINT FROM THE BROWSER ---------- */
+/* Not the book. The book is AIOM_build.py and WeasyPrint. This only stops a
+   browser print of a web page from carrying the site chrome. */
+@media print {
+  [data-chrome] { display: none !important; }
+  .layout { display: block; }
+  #chapter-text { max-width: none; padding-right: 0; }
+  .note { float: none; width: auto; margin: 0.5rem 0; }
+}
+
+/* ---------- 15. PLACEHOLDER FRONT PAGE ---------- */
+/* Phase W1 only. Superseded by the Phase W3 landing page. */
+.toc { max-width: var(--measure); margin-inline: auto; }
+.toc-note { color: var(--axis); font-size: 0.88rem; margin-bottom: calc(var(--step) * 1.5); }
+.toc-list { list-style: none; margin: 0; padding: 0; }
+.toc-list li { border-top: 1px solid var(--hairline); padding: 1rem 0; }
+.toc-list a { display: block; text-decoration: none; }
+.toc-num {
+  display: block; font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 0.2rem;
+}
+.toc-title { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.5rem; color: var(--navy); }
+.toc-list a:hover .toc-title { color: var(--amber); }
+.toc-part { display: block; font-size: 0.8rem; color: var(--folio); margin-top: 0.25rem; }

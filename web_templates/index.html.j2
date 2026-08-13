@@ -1,0 +1,48 @@
+{#
+  index.html.j2  |  placeholder front door  |  Phase W1
+
+  This is NOT the landing page. The front door is Phase W3 and needs the visual
+  direction settled first. This exists so the chapter page's brand link has a
+  target and so the build produces a navigable site rather than one orphan page.
+#}<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Operations Management</title>
+<link rel="stylesheet" href="assets/aiom_web.css">
+</head>
+<body>
+
+<header class="topbar" data-chrome>
+  <span class="brand">AI Operations Management</span>
+</header>
+
+<div class="layout">
+  <main class="reading">
+    <article class="toc">
+      <p class="part-label">A founding textbook</p>
+      <h1 class="chapter-title">AI Operations Management</h1>
+      <p class="toc-note">Chapters appear here as they lock. This front page is a
+         placeholder: the landing page is Phase W3.</p>
+      <ol class="toc-list">
+        {% for c in chapters %}
+        <li>
+          <a href="{{ c.slug }}/">
+            <span class="toc-num">Chapter {{ c.number }}</span>
+            <span class="toc-title">{{ c.title }}</span>
+          </a>
+          <span class="toc-part">{{ c.part_label }}</span>
+        </li>
+        {% endfor %}
+      </ol>
+    </article>
+  </main>
+</div>
+
+<footer class="foot" data-chrome>
+  <p>Locked chapters only. Decision 64.</p>
+</footer>
+
+</body>
+</html>

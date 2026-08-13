@@ -2,7 +2,8 @@
 
 Status: **ADOPTED 2026-08-13.** All five opening decisions are ruled and are
 logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numbering
-authority. Section 7 records them. Phase W1 is unblocked and is the next work.
+authority. Section 7 records them. **Phase W1 is built and green as of 2026-08-13;
+Phase W2, the reader design, is the next work.** Section 8 records what W1 learned.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -133,11 +134,15 @@ check that reads green while measuring nothing, or two artifacts of one chapter
 that silently disagree. A second renderer is a machine for producing exactly
 that, so the web build carries a control the print build never needed:
 
-- **Gate W1, text equivalence.** Extract the body text of the web page and the
-  body text of the print render, normalize whitespace, and require them to be
-  character-identical. Any divergence fails the build. The web edition is a
-  second *presentation*, never a second text, and this is the check that keeps
-  it honest.
+- **Gate W1, text equivalence.** AS BUILT, and this is sharper than the sentence
+  that stood here before W1: the comparison is against the PRINT HTML, the exact
+  document WeasyPrint receives, not against text extracted from the PDF. Both
+  artifacts descend from one `footnotes.inject()` call, so the gate measures the
+  web transform rather than pdfplumber's line joining, and it needs no tolerance.
+  Two channels, both exact. Channel A is the prose with all footnote apparatus
+  removed from both sides. Channel B is the ordered list of note texts. Any
+  divergence in either fails the build. The web edition is a second
+  *presentation*, never a second text, and this is the check that keeps it honest.
 - **Gate W2, lock status.** `web_build.py` refuses to publish a chapter that
   `status_check.py` does not report at Stage 9. Publishing an unlocked chapter
   means publishing pre-fact-check prose to the open internet. A `--preview` flag
@@ -218,11 +223,15 @@ only locked chapter. The web edition should be built the same way: prove the who
 pipeline on one chapter before scaling it.
 
 - **Phase W0, decisions. CLOSED 2026-08-13.** Section 7, Decisions 60 to 64.
-- **Phase W1, the pipeline. NEXT.** `web_build.py`, `AIOM_web.css`, and gates W1 to W5,
-  rendering Chapter 1 only. Success is defined by gate W1 passing: the web text is
-  character-identical to the locked print text. Design is deliberately plain at
-  this phase. This is the load-bearing work and it is where the risk is.
-- **Phase W2, the reader.** The full reading experience on Chapter 1: slot rail,
+- **Phase W1, the pipeline. BUILT AND GREEN 2026-08-13.** `web_build.py`,
+  `AIOM_web.css` v0.1, `web_templates/`, and gates W1 to W5 rendering Chapter 1.
+  Chapter 1 reports 43,204 characters of prose identical to print, six footnotes
+  identical, all six slots anchored, twenty-six unique anchors, both figures
+  captioned and referenced. `web_gates_selftest.py` runs twenty-seven negative
+  controls and all twenty-seven behave. What W1 deliberately did NOT do: the
+  visual direction, which is W2, and the inspiration site, which is still
+  unreviewed. See section 8 for what W1 learned.
+- **Phase W2, the reader. NEXT.** The full reading experience on Chapter 1: slot rail,
   sidenotes, margin definitions, progress, motion, responsive behaviour, keyboard
   layer. Design review against the same standard the print book gets.
 - **Phase W3, the front door.** Landing page, table of contents, about, the
@@ -302,3 +311,67 @@ pixels rather than reasoning:
   section 4.
 - **Which figures earn an interactive island.** Figure 1.1, the seat model against
   the event model, is the obvious first candidate.
+
+---
+
+## 8. What Phase W1 learned
+
+Recorded here rather than left in a commit message, because each of these binds
+the phases that follow.
+
+**Equivalence was made structural rather than checked after the fact.** The first
+design compared the web output against the chapter source. The shipped design
+compares it against the PRINT artifact, because both now descend from one
+`footnotes.inject()` call: the web renderer transforms the exact HTML WeasyPrint
+receives. That turns gate W1 from a comparison of two implementations into a
+check on the web transform, which is the thing that can actually go wrong.
+
+**Gate W1 has two channels because one would have been blurry.** Channel A is the
+prose with all footnote apparatus removed from both sides. Channel B is the
+ordered list of note texts. Combining them into a single comparison would have
+forced a tolerance, and a check with a tolerance is a check that can be talked
+into passing. Both channels are exact, and the exclusions are named in the
+docstring: SVG figure internals, which are copied byte for byte, and the audit
+block, which print also drops.
+
+**THE SELF-TEST IS NOT OPTIONAL AND IT PAID FOR ITSELF ON THE FIRST RUN.** Five of
+twenty-five controls did not fire. Four were gate W3's typographic marks, injected
+into the chapter title, which lives in `<head>`, which the extractor skips: gate
+W3 reported green on four faults it had never seen. The fifth deleted no sidenote
+at all. Both were faults in the CONTROLS, not the gates, and that is precisely the
+point. Without them, a green W3 was evidence about nothing, which is the failure
+CLAUDE.md records five times over. Every gate added in W2 or later gets a control
+in the same commit.
+
+**A check rewritten from memory reacquires the defect the original was fixed for.**
+The print-side footnote scanner was written to count nested spans, with a comment
+explaining that a non-greedy regex truncates a note containing `<span class="url">`.
+The web-side note extractor was then written twenty lines later as a non-greedy
+regex. There is now ONE `find_spans` used by both sides. This is the same shape as
+the hyphenation scan that was rewritten with gate 12's page-boundary blind spot.
+
+**Two faults were found by the gates during the build, and both were real.** Gate
+W1a failed at char 0 because the print extractor was reading `<title>`. Gate W4c
+found the teaching-body anchor pointing at a target that no longer existed,
+because section numbering ran after slot anchoring and overwrote the id. Neither
+was visible by reading the code.
+
+**A raster check found what no gate could see.** The sticky header was set at 88
+percent opacity with an 8px blur, and body text read straight through it. This is
+the web's version of the rule already in force for print: a chapter whose
+pagination moves must have its pages READ, not merely gated. Screenshots are part
+of a web design review, not a nicety.
+
+**Chrome outside the article is a load-bearing boundary, not a layout choice.**
+Gate W1 measures `<article id="chapter-text">` and nothing else, so navigation
+labels, the rail, the footer and the progress bar can say anything. Nothing may be
+added INSIDE the article, which is why the teaching-body slot takes the first
+numbered section's anchor rather than gaining a visible label of its own.
+
+**Open, and carried into W2:**
+
+- The visual direction. W1's stylesheet is v0.1 and restrained by intent.
+- The sidenote gutter reads as dead space where a stretch of prose calls no note,
+  which is a real design problem at this measure and not a bug.
+- The inspiration site is still unreviewed. Section 6 stands unchanged.
+- No dark mode, deliberately. It is Phase W6 with the SVG token pass.

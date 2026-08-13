@@ -33,3 +33,6 @@ fonttools==4.63.0
 # library. Version recorded from the environment that exported Chapter 1
 # round 3 and round-tripped it at zero reported changes.
 python-docx==1.2.0
+
+# Web edition (Decision 62). web_build.py templates; no Node toolchain.
+jinja2==3.1.6

@@ -1,0 +1,115 @@
+{#
+  chapter.html.j2  |  the chapter reader  |  Phase W1
+
+  Everything the reader needs to navigate sits OUTSIDE <article id="chapter-text">.
+  That boundary is load bearing: gate W1 measures the text inside the article and
+  nothing else, so chrome can say whatever it needs to without the gate mistaking
+  it for the chapter. Add navigation labels here freely. Never add text inside the
+  article, because that is the book.
+#}<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ chapter_title }} | AI Operations Management</title>
+{% if preview %}
+<meta name="robots" content="noindex, nofollow">
+{% endif %}
+<link rel="stylesheet" href="../assets/aiom_web.css">
+</head>
+<body>
+
+<div class="progress" data-chrome aria-hidden="true"><i id="progress-bar"></i></div>
+
+<header class="topbar" data-chrome>
+  <a class="brand" href="../">AI Operations Management</a>
+  <button class="rail-toggle" id="rail-toggle" aria-expanded="false" aria-controls="rail">Contents</button>
+</header>
+
+{% if preview %}
+<p class="preview-flag" data-chrome>Preview build. This chapter is not locked and is not published.</p>
+{% endif %}
+
+<div class="layout">
+
+  <nav class="rail" id="rail" data-chrome aria-label="Chapter contents">
+    <p class="rail-head">Chapter {{ chapter_number }}</p>
+    <ol class="rail-slots">
+      {% for s in slots %}
+      <li><a href="#{{ s.id }}" data-rail="{{ s.id }}">{{ s.label }}</a>
+        {% if s.key == 'teaching-body' and sections %}
+        <ol class="rail-sections">
+          {% for sec in sections %}
+          <li><a href="#{{ sec.id }}" data-rail="{{ sec.id }}"><span class="rail-num">{{ sec.num }}</span> {{ sec.title }}</a></li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
+
+  <main class="reading">
+    <article id="chapter-text">
+<p class="part-label">{{ part_label }}</p>
+<h1 class="chapter-title">{{ chapter_title }}</h1>
+{{ body|safe }}
+    </article>
+  </main>
+
+</div>
+
+<footer class="foot" data-chrome>
+  <p>AI Operations Management. Chapter {{ chapter_number }}, {{ chapter_title }}.
+     {{ notes|length }} source note{{ '' if notes|length == 1 else 's' }}.</p>
+</footer>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress-bar');
+  var art = document.getElementById('chapter-text');
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-rail]'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('data-rail')] = a; });
+
+  function progress() {
+    var top = art.offsetTop;
+    var span = art.offsetHeight - window.innerHeight;
+    var seen = window.scrollY - top;
+    var pct = span > 0 ? Math.min(1, Math.max(0, seen / span)) : 0;
+    bar.style.transform = 'scaleX(' + pct + ')';
+  }
+  window.addEventListener('scroll', progress, { passive: true });
+  window.addEventListener('resize', progress);
+  progress();
+
+  if ('IntersectionObserver' in window) {
+    var seen = new Set();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { seen.add(e.target.id); } else { seen.delete(e.target.id); }
+      });
+      links.forEach(function (a) { a.classList.remove('here'); });
+      var first = links.filter(function (a) { return seen.has(a.getAttribute('data-rail')); })[0];
+      if (first) { first.classList.add('here'); }
+    }, { rootMargin: '-10% 0px -70% 0px' });
+    Object.keys(byId).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) { io.observe(el); }
+    });
+  }
+
+  var toggle = document.getElementById('rail-toggle');
+  var rail = document.getElementById('rail');
+  toggle.addEventListener('click', function () {
+    var open = rail.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  rail.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { rail.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+</script>
+
+</body>
+</html>
