@@ -7,6 +7,72 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**THE READING SCALE, `AIOM_web.css` v0.4, 2026-08-13. MERGED TO `main` AND
+LEVEL.** Dan asked why Chapter 1's text column ran so thin on the site. It does
+not, and the first answer given was wrong because it reasoned from the CSS
+instead of rendering the page. Measured in a browser against the chapter's own
+prose in its own face, the column is **71 characters**, near the top of the 45 to
+75 band; the stylesheet had claimed 66 since v0.2, which was the half-em rule of
+thumb rather than a measurement. Mobile measures 49 characters at 390px and
+needed nothing at all.
+
+What reads as thin is the ratio, not the measure: before v0.4 the column held 28
+per cent of a 1920px window. **Only three things can move it, the measure, the
+type size, and the alignment rule.** Capping the reading area cannot, because a
+centred child of a centred container lands in the same place at every cap, and
+the variant built to test that rendered pixel-identical to the build it was meant
+to improve.
+
+v0.4 buys presence with type size instead: the root is
+`clamp(17px, 8px + 0.625vw, 20px)`, so the column grows from 544px to 640px while
+holding 71 characters and spending no readability. Below 1440px nothing moves,
+and phones stay at 16px. `--note` narrows to 14rem and `--rail` does NOT: the
+first attempt narrowed both and wrapped the contents rail, and the rail is
+content while the note track is clearance. The breakpoint lands at **1420px**,
+below the 1440px it was, so a 1440px window GAINS margin notes.
+
+**THE SECTION 17 SUM WAS WRONG AND HAD BEEN SINCE PHASE W2.** It gave 1411px
+while omitting the `.reading` padding, a whole term, and it never showed because
+the media query sat at 1440px and a 29px cushion nobody had reasoned about
+covered the gap. That is worse than the 1240px breakpoint it replaced: a
+breakpoint set by eye announces itself as a guess, while a sum that is off by a
+term and lands inside its own safety margin reads as rigour until a token moves.
+Re-derived in rem, since the fluid root makes every term scale together.
+
+**THE DEFECT THIS AREA PRODUCES CANNOT BE A GATE.** A floated note hanging past
+the window edge does not make the page scroll, so W6 is blind to it, and it is
+exactly what the 1240px breakpoint shipped. Verified instead by sweeping 24
+widths from 1400px to 2560px and comparing each floated note's right edge with
+the viewport. Re-run that after any change to `--note`, `--note-gap`, `--measure`,
+`--rail`, `.reading`'s padding, or either stop of the clamp. The script is not
+committed; it is about fifteen lines of Playwright and is quicker to rewrite than
+to find.
+
+Three commits, fast-forwarded to `main` from `claude/website-edits-upsmk4`.
+Verified in this order before anything was pushed: `git_hygiene.py` first
+(CLAUDE.md section 9 rule 1), then a fetch, then `git log origin/main ^HEAD`
+empty. Fourteen web gates pass with W6 RUN rather than skipped, 74 of 74
+self-test controls behave, and `status_check.py` reports Chapter 1 at 13 of 13.
+CLAUDE.md and `AIOM_Web_Edition_Plan_v1.0.md` both carry the corrected
+arithmetic; the plan gains section 15.
+
+**ONE OPTION IS BOOKED AND UNRULED: the margin could be filled rather than
+reserved.** Chapter 1 calls six notes across 6,853 words, so the side track is
+empty for almost the whole chapter, and the layout is built for a book with heavy
+marginalia that the book does not yet have. Moving figure captions or key-term
+glosses into the margin would make the space read as designed rather than as
+leftover. It is a decision about Chapters 2 to 15, not about CSS, and it is the
+only option that answers Dan's original complaint without touching a
+measurement.
+
+**NOTE FOR THE NEXT SESSION: `playwright` IS NOT IN `requirements.txt`.** Gate W6
+and the width sweep both need it, and it had to be pip-installed by hand. The
+container's Chromium is at
+`/opt/pw-browsers/chromium-1194/chrome-linux/chrome` and the pip version expects
+a newer build, so `p.chromium.launch()` fails and `executable_path` must be
+passed explicitly. Worth pinning, which would also stop W6 silently reporting
+SKIPPED in a fresh container.
+
 **EDITING A LOCKED CHAPTER IS SOLVED END TO END, 2026-08-13. This is the headline
 and it is what unblocks everything else.** Dan is an iterative writer who will be
 revising Chapter 1 forever, and until today every edit to it cost a trip through
