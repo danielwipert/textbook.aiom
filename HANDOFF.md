@@ -7,6 +7,71 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**THE REPOSITORY IS PUBLIC AND THE SITE IS LIVE, 2026-08-13. HISTORY WAS
+REWRITTEN THAT DAY AND EVERY SHA WRITTEN BEFORE IT IS DEAD.** Any commit hash in
+an entry below this one refers to the pre-rewrite history and will not resolve.
+The tree is unchanged apart from the removals recorded here; only the hashes
+moved.
+
+`main` is at the rewritten tip and carries the LICENSE. 182 commits, down from
+183 because one became empty when its only content was purged. The remote holds
+`main` and `claude/book-website-privacy-check-ewd96o` and nothing else.
+
+**WHAT WAS REMOVED, AND WHY IT IS NOT A SECRETS INCIDENT.** A sweep before going
+public found NO secrets: no keys, tokens, credentials, emails, phone numbers or
+internal hosts, in the tree or across all 183 commits, and every document's
+metadata carries only its generator name. What it found was material that should
+not be published even though none of it is secret. Ten files were purged from
+all history with `git-filter-repo` and force-pushed:
+
+- Four Northmoor files that gave away the Part III problem sets.
+  `northmoor_answer_keys.md` is the worked solutions, `northmoor_checks.py`
+  prints them when run, `northmoor_emit.py` builds the answer text inline, and
+  `northmoor_gen.py` carries the engineered causes as named constants, so
+  reading it alone hands over Property B. Dan holds copies outside the repo.
+  **THE GENERATOR IS GONE FROM THE REPO, SO THE DATASET CANNOT BE REBUILT HERE.**
+  `northmoor_construction_note.md` still names it and the seed, which stays true
+  as a statement of how the data was made.
+- Six superseded Chapter 1 drafts that stated withdrawn claims as the book's own
+  assertion: the three files in `archive/`, and the three that sat beside the
+  live text. Removing those three leaves `00_Stage0_Draft/` holding exactly one
+  file, which is what Decision 50 always required.
+
+**THE LOCKED CHAPTER'S BODY PROSE WAS CLEAN AND WAS VERIFIED SO, NOT ASSUMED.**
+The five withdrawn sentences were pulled out of the register notes and grepped
+across every artifact including PDFs and `.docx`. All five appear in
+`AIOM_Ch01_redraft.html` only inside its register notes, never in the prose,
+confirmed by splitting the file at the Decision 51 boundary. The stage artifacts
+that still carry them are kept deliberately: a file under `08_Stage6_Copy_Edit`
+named round4 reads as a working proof rather than as the book, and the claim
+inventories and checklist are the record of the withdrawal doing its job.
+
+**FOUR BRANCHES WERE DELETED AND ONE CARRIED WORK, ABANDONED ON DAN'S RULING.**
+`chapter-1-status-gli2c0`, `stage-7-explanation-sdsb38` and
+`textbook-website-design-h9nk9t` were fully merged. `chapter-1-handoff-review-sbkq2u`
+held three commits `main` did not have, last touched 2026-08-05: a reading-copy
+PDF, a copy-edit worksheet and `build_copyedit_worksheet.py`, all written into
+Process v1 folder names that the v2 renumbering retired, and all superseded by
+the `copyedit_export.py` and `copyedit_import.py` pair. Dan ruled abandon.
+
+**CLAUDE COULD NOT DELETE BRANCHES AND THIS WILL RECUR.** The session's git
+credentials permit push and force-push but return 403 on any ref deletion. Force
+-push was proven on Claude's own branch before `main` was touched, rather than
+assumed. Branch deletion is Dan's to do, in the GitHub UI or from his own
+terminal, and a session that needs it should ask early rather than discover it
+mid-rewrite.
+
+**A PRE-REWRITE BUNDLE OF ALL 183 COMMITS WAS TAKEN AND IS ALREADY GONE.** It
+lived in the container scratchpad, which is reclaimed with the container. The
+remote is now the only copy of anything.
+
+Verified after the rewrite rather than claimed: zero hits for all ten paths
+across the full history OF A FRESH CLONE rather than of the working copy,
+`status_check.py` at 13 of 13, all fourteen web gates passing, 61 of 61
+self-test controls behaving, and `git_hygiene.py` reporting nothing stranded.
+
+The record of the pre-rewrite state follows and its hashes are dead.
+
 **MERGED TO `main` AND LEVEL, 2026-08-13.** `main` carries the whole web edition,
 twelve commits, fast-forwarded from `claude/textbook-website-design-h9nk9t`,
 which was then levelled back onto `main` so nothing sits on the branch alone. No
@@ -777,25 +842,79 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work), 8 (the
-web edition, built through W6 and waiting on Dan), 5 (process hardening),
-3 (design gaps), 7 (Decision 28).** Everything else below is
+**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work), 9 (the
+case bank's withdrawn claim, which blocks nothing but corrupts Ch4 and Ch11 if
+missed), 8 (the web edition, now LIVE and waiting on Dan for a domain, a README
+and the author band), 10 (the Northmoor CSVs, for the Part III build),
+5 (process hardening), 3 (design gaps), 7 (Decision 28).** Everything else below is
 closed and kept as record. The numbering is left alone deliberately: these numbers
 are cited in commit messages and in the checklist, and renumbering would break
 those references for cosmetic tidiness. **THE WEB EDITION IS BUILT THROUGH PHASE
 W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
 
+9. **A WITHDRAWN CLAIM IS SITTING IN THE CASE BANK, UPSTREAM OF TWO UNWRITTEN
+   CHAPTERS. Booked 2026-08-13 for the Chapter 4 drafting session, on Dan's
+   ruling, and deliberately kept out of the pre-public cleanup so the two
+   changes stay separable.**
+
+   `AIOM_Case_Bank_v1.md`, in CASE 4.6, asserts flatly that GitHub "began billing
+   premium requests that had previously carried no separate charge." That is the
+   exact sentence SF3 narrowed on 2026-08-06, because the changelog documents the
+   change rather than the arrangement preceding it. The case bank is not a
+   superseded draft. It is a live working document, and CLAUDE.md schedules that
+   source for reuse in Chapters 4 and 11, so the next chapter to draft from it
+   inherits the unsupported form.
+
+   **THIS IS THE FIFTH INSTANCE OF A SHAPE CLAUDE.md ALREADY CALLS A DRAFTING
+   ATTRACTOR.** SF8, SF9 and SF10 were reverted during a copy edit with every date
+   and figure intact, FC2 repeated it on a second vendor, and this is the same
+   thing surviving in the source document rather than in the prose. It was found
+   by a privacy sweep rather than by any check, which is the point: nothing
+   mechanical looks at the case bank.
+
+   Fixing it is a case-bank edit, not a chapter edit, so it re-runs nothing.
+
+10. **FOUR OF THE SIX NORTHMOOR CSVs CARRY WORKED RESULTS RATHER THAN RAW
+   INPUTS. Booked 2026-08-13 for the Part III build session.**
+
+   `budget_vs_actual.csv` has `variance_pct` and `anomaly`, `routing.csv` has
+   `saving_vs_frontier`, `routing_scenarios.csv` has `option_B_cost`, and
+   `capstone_netting.csv` is the netting worked line by line. Only
+   `raw_events.csv` and `multiprovider_export.csv` are pure inputs.
+
+   This is probably deliberate design rather than leakage, since the Ch13
+   diagnostic packet and the Ch15 CFO briefing are supposed to show figures, and
+   these files were left in place on that reasoning when the answer keys were
+   purged. **NOBODY HAS ACTUALLY RULED WHICH ARE STUDENT INPUTS AND WHICH ARE
+   WORKED EXHIBITS**, and deleting the wrong ones would break Part III. That
+   ruling belongs to whoever builds the Part III problem sets, and it now has to
+   be made without the generator, which is no longer in the repository.
+
 8. **BUILT THROUGH W6 AND ON `main`, 2026-08-13. Waiting on Dan for three
    things, none of which Claude can supply.** The web edition, opened the same
    day.
 
+   **LIVE AS OF 2026-08-13 at `https://danielwipert.github.io/textbook.aiom/`.**
+   The repository is public, Pages is on with the source set to GitHub Actions,
+   and run 5 of the `web` workflow deployed the rewritten `main` with both jobs
+   green. **GATE W6 GENUINELY RAN IN CI**, printing its twenty-width sweep with
+   its negative control firing, which is the one thing worth checking on a CI
+   run here. The published artifact is `ch01/`, the landing page, glossary,
+   search, sources, objects, sitemap, robots, 404 and the six self-hosted fonts:
+   one chapter, because W2 refuses everything not at Stage 9.
+
+   **CLAUDE HAS NEVER LOADED THE LIVE SITE AND CANNOT.** The container's egress
+   proxy blocks `github.io`. Every statement above comes from the workflow logs
+   and the deploy API, not from a page anyone fetched. Someone should open it.
+
    **WHAT DAN OWES, in the order it blocks things:**
-   - **THE DOMAIN.** The only thing between here and a live site. `--base-url`
-     writes the CNAME and makes the sitemap absolute. Unset today, so no hostname
-     is invented and the sitemap emits site-relative paths.
-   - **Enabling GitHub Pages in the repository settings.** A one-time click only
-     Dan can make. The workflow is committed and will publish on the next push to
-     `main` once Pages is on.
+   - **THE DOMAIN.** `--base-url` writes the CNAME and makes the sitemap
+     absolute. Unset today, so no hostname is invented and the sitemap emits
+     site-relative paths that become absolute the moment one is supplied. The
+     site is live without it on the github.io address.
+   - **A README.** The repository is public and has none, so the first thing a
+     visitor sees is a file listing. Deferred by Dan on 2026-08-13 as a writing
+     task carrying his name rather than a mechanical fix.
    - **The author band: real biography and a portrait.** It currently carries a
      name, an organization and the method, because that is all this repository
      states and nothing about the author was invented. The monogram is a
@@ -807,11 +926,12 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
      no WCAG floor, so `AIOM_book.css` IS UNTOUCHED and those remain the values of
      record; `AIOM_web.css` carries text derivatives darkened by the minimum
      needed. The numbers are in `AIOM_web.css` section 2 and plan section 14.
-   - **A stale fork still sits in Chapter 1's live-text folder.**
-     `DRAFT-AIOM_ch01.html` carries `lang="en"` and no source register: the
-     Decision 50 hazard exactly. Discovery excludes it by name and prints that it
-     did so on every build, but an exclusion rule is a guard, not a fix.
-     **Deleting it is Dan's call and it should be made.**
+   - **The stale fork is GONE, closed 2026-08-13.** `DRAFT-AIOM_ch01.html` was
+     purged from all history in the pre-public rewrite, along with the two
+     superseded markdown drafts beside it, so `00_Stage0_Draft/` now holds
+     exactly one file. The `LIVE_EXCLUDE` guard in `web_build.py` STAYS and its
+     comment was corrected to say why: the hazard is structural, and the next
+     chapter can reintroduce it.
 
    The original opening record follows. Dan asked for the book to exist
    as a website, with `messyjobs.ai` as the inspiration. Plan in
