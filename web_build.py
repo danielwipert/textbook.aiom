@@ -687,9 +687,11 @@ def gate_w5(web_html, meta, label="chapter"):
 
 
 # A chapter's live text is the ONE html in its Stage 0 folder. Decision 50
-# permits exactly one per chapter, and Chapter 1's folder still holds a stale
-# superseded fork (DRAFT-AIOM_ch01.html: lang="en", no source register). Auto
-# discovery must never be able to choose it, so excluded prefixes are named here
+# permits exactly one per chapter. Chapter 1's folder held a stale superseded
+# fork (DRAFT-AIOM_ch01.html: lang="en", no source register) until it was
+# removed on 2026-08-13; the guard stays because the hazard is structural, not
+# specific to that file, and the next chapter can reintroduce it. Auto discovery
+# must never be able to choose such a fork, so excluded prefixes are named here
 # and gate W10 reports every file it skipped on every build.
 LIVE_EXCLUDE = ("DRAFT-", "_")
 LIVE_EXCLUDE_SUFFIX = (".print.html",)
