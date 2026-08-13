@@ -1,6 +1,6 @@
 /* ============================================================
    AIOM_web.css
-   VERSION: 0.3  (Phase W6, dark mode and the figure token pass)
+   VERSION: 0.4  (the reading scale: fluid type on large screens)
    DATE:    2026-08-13
 
    The web presentation layer. Companion to AIOM_book.css, which remains the
@@ -20,7 +20,11 @@
    (c) The apparatus was tightened: definition, theorem, dated, model.
    (d) Motion was added, and it is applied BY SCRIPT so a reader without
        JavaScript sees everything rather than nothing. See section 16.
-   (e) Measure narrowed from 34rem to 32rem, about 66 characters at this size.
+   (e) Measure narrowed from 34rem to 32rem. The header claimed 66 characters at
+       this size until v0.4 measured it in a browser against this chapter's own
+       prose in its own face and found 71. The claim was arithmetic from a rule
+       of thumb rather than a measurement, which is the failure this repository
+       keeps finding in its own checks.
 
    TOKENS ARE INHERITED, NOT CHOSEN, with one measured accessibility correction
    and a designed dark palette. See section 2, which carries the numbers.
@@ -39,6 +43,32 @@
    the theme without the locked chapter being edited. Gate W12 checks that every
    SVG colour on every page is a token; gate W13 checks contrast in both themes
    and that the two dark blocks agree.
+
+   v0.4 (2026-08-13) is the reading scale. THE COLUMN WAS NEVER TOO NARROW. It
+   measures 71 characters, near the top of the 45 to 75 band, and it was reported
+   as thin because at 1920px it occupied 28 per cent of the window with 556px of
+   air on each side. Three things can move that column: the measure, the type
+   size, and the alignment rule. Capping the reading area cannot, because a
+   centred child of a centred container lands in the same place at every cap,
+   and a variant that capped it rendered pixel-identical to the build it was
+   meant to improve.
+
+   What changed:
+
+   (f) THE ROOT SIZE IS FLUID FROM 1440px UP, 17px to 20px. The column grows to
+       640px at 1920px while staying 71 characters, so presence is bought with
+       type size rather than with measure, and no readability is spent. Below
+       1440px nothing moves at all. See section 3.
+   (g) --note narrows from 15.5rem to 14rem, and --rail does NOT. This is not
+       taste. Fluid type scales the sidenote along with the column, which pushes
+       the width at which a margin note fits; leaving both at 15.5rem moved the
+       breakpoint to about 1565px and a 1512px laptop would have lost its margin
+       notes. The rail was narrowed too in the first attempt and the contents
+       wrapped: "Ch. 3 A Science and Its Discipline" broke across two lines and
+       so did the word count. The rail is content and the note track is
+       clearance, so the clearance is what gives way. Section 17 now solves to
+       1411px, and the query sits at 1420px rather than the 1440px it was, so a
+       1440px window GAINS margin notes it did not have.
    ============================================================ */
 
 /* ---------- 1. FONTS ---------- */
@@ -107,8 +137,8 @@
      police the two dark blocks agreeing on it: keep them in step by hand. */
   --grain:     0.13;
 
-  --measure:   32rem;    /* the text column, about 66 characters */
-  --note:      15.5rem;  /* the sidenote */
+  --measure:   32rem;    /* the text column, 71 characters, measured not assumed */
+  --note:      14rem;    /* the sidenote */
   --note-gap:  2.25rem;  /* text column to sidenote */
   --rail:      15.5rem;  /* the contents rail */
   --bar:       3.25rem;  /* sticky topbar height, for scroll-padding */
@@ -169,8 +199,26 @@
 /* ---------- 3. RESET AND PAGE ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
+/* THE ROOT SIZE IS THE READING SCALE, AND EVERY LENGTH IN THIS FILE IS IN rem,
+   so this one declaration sets the size of the whole page. It is fluid from
+   1440px up and flat below, which is the v0.4 change.
+
+   THE STOPS ARE ARITHMETIC. 8px + 0.625vw passes through 17px at exactly 1440px
+   and 20px at exactly 1920px, so the clamp floor takes over below 1440 and the
+   ceiling above 1920, and neither bound is a place where the size jumps. A
+   1512px laptop lands at 17.45px. Recompute both stops if either bound moves.
+
+   The measure stays 32rem throughout, so the column grows from 544px to 640px
+   while holding 71 characters. Growing a column by growing its type costs no
+   readability; growing it by widening the measure does.
+
+   The unit is px rather than rem, which is the v0.1 choice kept deliberately.
+   Browser zoom and text-size-adjust both still work. A reader's default font
+   SIZE setting is ignored, and making it fluid does not change that either way:
+   it would be a separate ruling, and it would make the section 17 sum depend on
+   a value this file cannot see. */
 html {
-  font-size: 17px;
+  font-size: clamp(17px, 8px + 0.625vw, 20px);
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--bar) + 1.5rem);
   -webkit-text-size-adjust: 100%;
@@ -984,13 +1032,37 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 /* Below the threshold the sidenote returns inline, indented and ruled, rather
    than being hidden. An apparatus a reader cannot reach on a phone is an
    apparatus the book does not have. */
-/* THE BREAKPOINT IS ARITHMETIC, NOT TASTE. A margin note needs
-   --note + --note-gap = 17.75rem = 302px of side track. The side track is
-   (viewport - --rail - --measure) / 2, so the note fits only from
-   263 + 544 + 604 = 1411px up. It was set at 1240px in the first draft, which
-   left a 170px band where the note ran off the right edge of the window. Any
-   change to --note, --note-gap, --measure or --rail must redo this sum. */
-@media (max-width: 1440px) {
+/* THE BREAKPOINT IS ARITHMETIC, NOT TASTE, AND IT IS SOLVED IN rem BECAUSE THE
+   ROOT SIZE IS NOW FLUID. Every term scales with the root, so the sum is a
+   multiple of it rather than a pixel count.
+
+   A margin note needs --note + --note-gap = 16.25rem of side track. The side
+   track is (viewport - --rail - 2 x .reading padding - --measure) / 2, which is
+   (viewport - 15.5 - 3 - 32 rem) / 2 = (viewport - 50.5rem) / 2. So the note
+   fits from (50.5 + 2 x 16.25) = 83rem up.
+
+   The root is 17px wherever this can bind, because the clamp in section 3 is
+   flat below 1440px, so 83rem = 1411px and the query sits at 1420px. Above
+   1440px the root grows but the viewport grows faster: the condition there is
+   viewport >= 83 x (8 + 0.00625 x viewport), which solves to 1380px and is
+   therefore satisfied everywhere the fluid range exists. The flat region is the
+   binding one, and that is the only case this sum has to state.
+
+   TWO EARLIER VERSIONS OF THIS SUM WERE WRONG. The first set it at 1240px by
+   eye, leaving a 170px band where the note ran off the right edge of the
+   window. The second computed 15.5 + 32 + 2 x 17.75 = 83rem and omitted the
+   .reading padding entirely, which the 1440px query then covered by accident
+   rather than by design.
+
+   THAT SECOND SUM ALSO CAME TO 83rem, AND THE MATCH IS A COINCIDENCE, NOT A
+   COPIED LINE. It reached it by dropping 3rem of padding from a 17.75rem note
+   track; this one reaches it by carrying the padding and a 16.25rem note track.
+   The two agree on the total and disagree about every term in it. Anyone
+   checking this sum should re-derive it rather than recognise the number.
+
+   Any change to --note, --note-gap, --measure, --rail, .reading's padding, or
+   either stop of the section 3 clamp must redo this. */
+@media (max-width: 1420px) {
   .reading { grid-template-columns: minmax(0, 1fr); justify-items: center; }
   #chapter-text, .toc { grid-column: 1; width: 100%; max-width: var(--measure); }
   .note {
@@ -1016,6 +1088,12 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 }
 @media (min-width: 901px) { .rail-toggle { display: none; } }
 @media (max-width: 620px) {
+  /* THIS OVERRIDES THE SECTION 3 CLAMP AND IS MEANT TO. It wins on order, not
+     on specificity, so it must stay below section 3 in the file. A phone reads
+     at 16px, which sets 49 characters at 390px and 45 at 360px, and the fluid
+     range never reaches this far down anyway. The measure never binds here:
+     the column is the viewport less the padding, so type size is the only
+     lever a phone has. */
   html { font-size: 16px; }
   :root { --step: 1.35rem; }
   .reading { padding-inline: 1.15rem; }
