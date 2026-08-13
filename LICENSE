@@ -1,0 +1,91 @@
+AI Operations Management
+Copyright (c) 2026 Daniel S. Wipert, Chorus AI Systems
+
+
+This repository holds three kinds of material under three different licenses.
+Which one applies depends on the file. Read this before reusing anything.
+
+
+===============================================================================
+1. THE MANUSCRIPT AND ALL BOOK CONTENT: ALL RIGHTS RESERVED
+===============================================================================
+
+Copyright (c) 2026 Daniel S. Wipert. All rights reserved.
+
+This section covers the book itself and everything written in service of it:
+
+  Drafts/                    chapter text, working drafts, and stage artifacts
+  Northmoor/                 the constructed dataset and its notes
+  archive/                   superseded drafts and retired working files
+  web_templates/             site templates, including the landing page text
+  AIOM_book.css              the print design system
+  AIOM_web.css               the web presentation layer
+  AIOM_*.md                  specifications, ledgers, plans, and standards
+  AIOM_*.docx, AIOM_*.xlsx   the addendum and the validation matrix
+  CLAUDE.md, HANDOFF.md      project instructions and session records
+
+The two stylesheets are placed here rather than under the code license because
+they are the book's visual identity rather than general-purpose tooling.
+
+No license is granted in this material. You may read it and you may quote
+briefly from it with attribution, as fair use and ordinary scholarly practice
+allow. You may not reproduce it at length, redistribute it, publish it, adapt
+it, translate it, or use it to train a model, without written permission.
+
+The repository is public so that the web edition can be built and served from
+it. Public visibility is not a grant of any right in the text.
+
+
+===============================================================================
+2. THE BUILD AND QA TOOLING: MIT LICENSE
+===============================================================================
+
+Copyright (c) 2026 Daniel S. Wipert
+
+This section covers the Python at the repository root and the CI configuration:
+the print build and its fifteen gates, the web build and its fourteen gates, the
+gate self-test, and the supporting passes for placement, footnotes, citations,
+continuity, status, voice, copy-edit round trips, and git hygiene. It also
+covers .github/workflows/.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Running the tooling against the manuscript does not grant any right in the
+manuscript. Section 1 governs the text regardless of what produced it.
+
+
+===============================================================================
+3. THE FONTS: SIL OPEN FONT LICENSE 1.1
+===============================================================================
+
+fonts/ holds IBM Plex Sans and Jost, both under the SIL Open Font License 1.1,
+and neither is covered by sections 1 or 2. Their license texts are committed
+beside them as the OFL requires:
+
+  fonts/OFL-IBMPlexSans.txt
+  fonts/OFL-Jost.txt
+
+The fonts are committed so that a print or web render needs no network access.
+
+
+===============================================================================
+CONTACT
+===============================================================================
+
+For permission to reuse anything under section 1, or if you are unsure which
+section covers a file, open an issue on this repository.
