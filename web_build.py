@@ -309,6 +309,13 @@ def to_sidenotes(body):
 
 TABLE_RE = re.compile(r'<table class="inv">.*?</table>', re.S)
 
+DEF_OPEN_RE = re.compile(
+    r'<aside class="definition">\s*<p class="lab">Definition</p>\s*'
+    r'<p class="term">(.*?)</p>', re.S)
+KT_OPEN_RE = re.compile(
+    r'<div class="kt"><div class="kt-h"><span class="kt-t">(.*?)</span>', re.S)
+BOLD_RE = re.compile(r"<b>(.*?)</b>", re.S)
+
 # The design system's colours, by value. Chapter figures carry literal hex, as
 # AIOM_book.css section 2 records, because print needs no indirection.
 FIGURE_TOKENS = {
@@ -373,6 +380,80 @@ def wrap_tables(body):
         lambda m: f'<div class="table-scroll">{m.group(0)}</div>', body)
 
 
+def term_key(text):
+    """Normalize a term for matching a bold run against a defined term.
+
+    Case is folded, whitespace collapsed, and ONE leading article dropped,
+    because the chapter writes "the consumption event" in prose and
+    "Consumption event" on the callout, and both name the same object.
+
+    TRAILING PUNCTUATION IS DELIBERATELY NOT STRIPPED. The craft section sets
+    "Meter:" in bold as a worksheet label, and stripping the colon would let it
+    match a term named Meter and turn a form field into a definition link. The
+    cost of leaving it is that a term genuinely written with trailing
+    punctuation goes unlinked, which is a missing link rather than a wrong one.
+    """
+    t = re.sub(r"<[^>]+>", "", text)
+    t = re.sub(r"\s+", " ", t).strip().lower()
+    return re.sub(r"^(the|a|an) ", "", t)
+
+
+def slugify(text):
+    s = re.sub(r"[^a-z0-9]+", "-", term_key(text)).strip("-")
+    return s or "term"
+
+
+def link_terms(body):
+    """Make a bolded key term a link to the definition that owns it.
+
+    Two passes. Definition callouts and key-term entries gain an id, then every
+    bold run whose normalized text names one of them is wrapped in an anchor.
+    A bold run that names nothing is left exactly as it was, which is most of
+    them: the craft section sets its worksheet labels in bold, and those are
+    form fields rather than terms.
+
+    THE DEFINITION CALLOUT WINS OVER THE KEY-TERM ENTRY when a term has both,
+    because the callout sits beside the prose that introduces the term and the
+    key-term list sits at the end of the chapter. A term that has only a
+    key-term entry still links, to that, since the alternative is a page where
+    four bolded terms are links and a fifth identical-looking one is not.
+
+    Adds attributes and an element, and no text, so gate W1 is unaffected. That
+    is the test for whether a presentation change belongs in this transform.
+    """
+    targets, used = {}, set()
+
+    def anchor(match, tag_len, prefix, name):
+        slug = f"{prefix}-{slugify(name)}"
+        n, base = 2, slug
+        while slug in used:
+            slug, n = f"{base}-{n}", n + 1
+        used.add(slug)
+        key = term_key(name)
+        # Definitions are registered first, so they are never overwritten here.
+        targets.setdefault(key, slug)
+        head = match.group(0)
+        return head[:tag_len] + f' id="{slug}"' + head[tag_len:]
+
+    body = DEF_OPEN_RE.sub(
+        lambda m: anchor(m, len("<aside class=\"definition\""), "def", m.group(1)),
+        body)
+    body = KT_OPEN_RE.sub(
+        lambda m: anchor(m, len("<div class=\"kt\""), "kt", m.group(1)), body)
+
+    linked = []
+
+    def bold(m):
+        slug = targets.get(term_key(m.group(1)))
+        if not slug:
+            return m.group(0)
+        linked.append(m.group(1))
+        return (f'<a class="termlink" href="#{slug}">{m.group(0)}</a>')
+
+    body = BOLD_RE.sub(bold, body)
+    return body, linked, targets
+
+
 def transform(print_html):
     """Print HTML to web body HTML, plus everything the template needs."""
     m = BODY_RE.search(print_html)
@@ -392,6 +473,14 @@ def transform(print_html):
     body, notes = to_sidenotes(body)
     body = wrap_tables(body)
     body = tokenize_svg(body)
+    body, termlinks, termtargets = link_terms(body)
+    # A silent zero here is the shape this repository keeps finding: the
+    # chapter rewords a term, nothing matches, every link disappears, and no
+    # gate notices because a missing anchor breaks nothing. Report, do not fail.
+    if termtargets and not termlinks:
+        print("  WARNING: term linking matched nothing, though "
+              f"{len(termtargets)} defined term(s) exist. Has a term been "
+              "reworded in the chapter?")
 
     figures = []
     for fm in FIGNUM_RE.finditer(body):
@@ -415,7 +504,10 @@ def transform(print_html):
         # rounded estimate and is labelled as one in the rail, not presented as
         # a measurement of this text.
         "minutes": max(1, round(words / 230)),
-        "key_terms": len(re.findall(r'<div class="kt">', body)),
+        # The opener tolerates attributes: link_terms() gives every .kt block
+        # an id, so a pattern demanding an immediate ">" would count zero here
+        # and report a chapter with no key terms.
+        "key_terms": len(re.findall(r'<div class="kt"[^>]*>', body)),
         "figures": len(figures),
         "problems": len(re.findall(r'<div class="problem">', body)),
         "questions": len(re.findall(r'<div class="dq">', body)),
@@ -428,6 +520,7 @@ def transform(print_html):
         "notes": notes,
         "figures": figures,
         "counts": meta_counts,
+        "termlinks": termlinks,
         "part_label": re.sub(r"<[^>]+>", "", part.group(1)).strip() if part else "",
         "chapter_title": re.sub(r"<[^>]+>", "", title.group(1)).strip() if title else "",
         "chapter_number": num,
@@ -1068,7 +1161,20 @@ def gate_w8(ref, meta, web_html):
     # is the third time in this file that a hand-rolled non-greedy match over
     # nested elements has been the defect. find_spans now takes a tag.
     chapter_terms = {}
-    for _, _, inner in find_spans(web_html, r'<div class="kt">', "div"):
+    # The opener tolerates attributes for the same reason the count above does.
+    # link_terms() adds an id to every .kt block, and an opener demanding an
+    # immediate ">" would match nothing, leaving W8a comparing an EMPTY set of
+    # chapter terms against the ledger and reporting a pass. A gate that
+    # measures nothing is this repository's signature failure, so the two
+    # openers must move together.
+    #
+    # AND THE OPENER MUST CONSUME THE WHOLE TAG, not just enough to identify it.
+    # find_spans returns the text after the opener MATCH, so a `[ >]` opener
+    # left the remainder of the tag, id and all, inside the block. W8a then
+    # reported all eight terms as differing from the ledger. That was this gate
+    # doing its job on the change that broke it, and it is the reason the
+    # pattern is `[^>]*>` rather than the shorter thing that looked equivalent.
+    for _, _, inner in find_spans(web_html, r'<div class="kt"[^>]*>', "div"):
         head = find_spans(inner, r'<div class="kt-h">', "div")
         if not head:
             continue
@@ -1209,6 +1315,8 @@ def render(chapter_path, outdir, preview=False):
     src = open(chapter_path, encoding="utf-8").read()
     print_html, _ = footnotes.inject(src, url_policy=URL_POLICY)
     meta = transform(print_html)
+    print(f"  term links: {len(meta['termlinks'])} bolded term(s) linked to "
+          f"the definition that owns them")
 
     book = book_structure.load_book()
     locked = locked_chapters()

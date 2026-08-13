@@ -467,6 +467,30 @@ p.slot-label { scroll-margin-top: calc(var(--bar) + 1.5rem); }
 /* ---------- 8. BODY PROSE ---------- */
 #chapter-text p { margin: 0 0 var(--step); }
 #chapter-text b { font-weight: 600; color: var(--navy); }
+
+/* A bolded key term links to the definition that owns it. The anchor is added
+   by web_build.link_terms(), never in the chapter, which carries no links.
+
+   THE TERM MUST NOT READ AS A LINK UNTIL THE READER LOOKS FOR ONE. Bold marks
+   a term at first use, and it already carries meaning in the prose; painting it
+   amber like an ordinary link would put a second signal on the same word and
+   turn a page of definitions into a page of link decoration, which is close to
+   what standing rule 5 forbids. The resting state is therefore identical to
+   unlinked bold, and the affordance is a hairline that only fills in on hover.
+   The underline is set in the accent so the hover state names the apparatus it
+   leads to, matching the amber rule on the callout itself. */
+a.termlink {
+  color: inherit; text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.18s ease-out;
+}
+a.termlink:hover, a.termlink:focus-visible { border-bottom-color: var(--amber); }
+a.termlink:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+/* The landing spot. Same device the sidenote, the glossary row and the sources
+   entry already use, so arriving at a definition feels like arriving anywhere
+   else in the book rather than like a new mechanism. */
+.definition:target, .kt:target { background: var(--tint-thm); }
 /* .nb switches hyphenation off for a proper noun (Decision 58). The web is not
    justified so it does not hyphenate, and the class is inert here. It is styled
    to nothing deliberately: removing it from the chapter HTML would break print. */
