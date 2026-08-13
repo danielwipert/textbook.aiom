@@ -7,9 +7,11 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**MERGED TO `main` AND LEVEL, 2026-08-13.** `main` is at `35b9dce` and carries
-the whole web edition, twelve commits, fast-forwarded from
-`claude/textbook-website-design-h9nk9t`. Verified rather than assumed, in this
+**MERGED TO `main` AND LEVEL, 2026-08-13.** `main` carries the whole web edition,
+twelve commits, fast-forwarded from `claude/textbook-website-design-h9nk9t`,
+which was then levelled back onto `main` so nothing sits on the branch alone. No
+commit SHA is pinned here: the commit that writes this line moves `main` past any
+SHA it could name, and a stale hash in a handoff is worse than none. Verified rather than assumed, in this
 order and before anything was pushed: `git_hygiene.py` first (CLAUDE.md section 9
 rule 1), then a fetch, then `git log origin/main ^HEAD` empty, then
 `git merge-base --is-ancestor` confirming `main` was a strict ancestor. After the
@@ -29,8 +31,8 @@ scope claim from what was done, never from what was intended", and it is the
 sixth instance in this repository. `git_hygiene.py`, run at session close as the
 rule requires, found four branches:
 
-  main                                     the trunk, now at 35b9dce
-  claude/textbook-website-design-h9nk9t    FULLY MERGED, safe to delete
+  main                                     the trunk, carries everything
+  claude/textbook-website-design-h9nk9t    LEVEL with main, safe to delete
   claude/chapter-1-status-gli2c0           fully merged, safe to delete
   claude/stage-7-explanation-sdsb38        fully merged, safe to delete
   claude/chapter-1-handoff-review-sbkq2u   +3, NOT merged, ruled superseded
