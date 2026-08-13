@@ -106,12 +106,25 @@ def format_note(entry, url_policy="full"):
             # note reads as a typewriter artifact next to the prose above it.
             parts.append(f'“{entry["title"]},”')
         if entry.get("container"):
-            # An article's year parenthetical attaches to the journal name
-            # with no intervening comma.
+            # An article's volume, issue, year parenthetical and page range all
+            # attach to the journal name as one unit, with no intervening comma:
+            #   Journal 140, no. 2 (2025): 889-942
+            # HOUSE DEVIATION FROM CHICAGO, ruled 2026-08-12: Chicago sets a page
+            # range with an en dash, and gate 2 fails the build on U+2013, so the
+            # range takes a hyphen. Store it that way in the register too; this
+            # emits whatever the entry holds and does not substitute the dash.
             if t == "article":
+                seg = f'<i>{entry["container"]}</i>'
+                if entry.get("volume"):
+                    seg += f' {entry["volume"]}'
+                    if entry.get("issue"):
+                        seg += f', no. {entry["issue"]}'
                 yr = _date(entry.get("date"))
-                parts.append(f'<i>{entry["container"]}</i>'
-                             + (f" ({yr})" if yr else ""))
+                if yr:
+                    seg += f" ({yr})"
+                if entry.get("pages"):
+                    seg += f': {entry["pages"]}'
+                parts.append(seg)
             else:
                 parts.append(f'<i>{entry["container"]}</i>')
 

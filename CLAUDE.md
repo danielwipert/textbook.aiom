@@ -274,7 +274,13 @@ that fail most often:
   tolerance. Catches unbreakable strings, oversized SVG text, table cells that
   will not wrap.
 - **Gate 2, em and en dashes.** Fails on any `U+2014` or `U+2013`. Note this is
-  stricter than the standing rule, which bans em dashes only. Open question Q2.
+  stricter than the standing rule, which bans em dashes only. Q2 asked what happens
+  where Chicago requires an en dash. **RULED 2026-08-12 for number ranges: the
+  hyphen wins and the gate stands.** A journal page range therefore sets as
+  `889-942`, which is correct Chicago in every respect except the dash, and the
+  register must STORE the range with a hyphen. An entry holding an en dash fails
+  the build rather than passing silently, which is the right failure mode. Q2
+  remains open for any other construction Chicago would set with an en dash.
 - **Gate 4, definition callout splits.** Fails a callout sitting flush at the top
   margin, the signature of one that broke across a page. **Remedy: run
   `place.py`.** Do not try to fix this in CSS. WeasyPrint 69 ignores

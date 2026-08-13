@@ -174,6 +174,25 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 | Stage 9 | Locked | not run | 0 |
 
 ---
+
+## REOPENED 2026-08-13: Gate G2 and everything after it
+
+Grounds: Dan ruled the QJE citation gains volume, issue and page range, with a hyphen rather than Chicago's en dash so gate 2 holds. Applied in cite_format.py, which is shared tooling, so the change reaches every journal citation in all fifteen chapters. A citation change re-runs the fact check and G2 under the scoped re-run matrix.
+
+Every step from Gate G2 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Gate G2 | Production gate | passed | 18 |
+| Stage 6 | Copy edit | not run | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
@@ -2709,6 +2728,42 @@ Status: [x]        Date cleared: 2026-08-12
 - [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+## G2 RE-RUN 2026-08-12, THIRD OF THE DAY. **PASSED at fifteen gates.**
+
+Run after Dan ruled the QJE citation gains volume, issue and pages. Fifteen gates
+pass, 25 pages held, zero straight marks, 95 hyphenated line ends with none inside
+a brand name and none at a page turn.
+
+**THE HOUSE DEVIATION IS THE POINT OF THIS RUN, AND IT IS NOW SETTLED FOR THE
+BOOK.** Chicago sets a journal page range with an en dash and gate 2 fails the
+build on U+2013, so Dan ruled the range takes a hyphen. Footnote 6 now reads
+"Quarterly Journal of Economics 140, no. 2 (2025): 889-942." That is correct
+Chicago in every respect except the dash, and the deviation is deliberate,
+recorded, and enforced by a gate rather than by memory.
+
+**THE FIX WAS TREATED AS THE PG2a CLASS, NOT AS A ONE-LINE PATCH.** `cite_format.py`
+is shared tooling and the last change to it broke a second thing inside the same
+six footnotes it was correcting. So the formatter was exercised directly before any
+build, checking for a doubled comma, a stray colon, an en dash and an em dash in
+the emitted string; then built; then diffed.
+
+PAGE READ, SCOPED AND PROVED. The pre-change render was kept and the two were
+diffed page by page: **exactly one page differs, 17**, and page 17 was read at 150
+dpi. The other twenty-four are byte-identical to a render already read in full
+today. The diff is what licenses the scope; without it this would be an assertion.
+
+Page 17 confirmed: the citation sets the journal in italic with volume and issue
+roman, the year parenthetical attaches with no intervening comma, the range follows
+a colon, and footnote 6 stays on its calling page.
+
+**WHAT THIS LEAVES FOR THE OTHER FOURTEEN CHAPTERS.** Every journal citation in the
+book now emits volume, issue and pages when the register holds them, and the
+register must store the range with a hyphen. An entry that stores an en dash will
+fail gate 2 at build time rather than passing silently, which is the right failure
+mode.
+
+ARCHIVED 2026-08-13, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 ## G2 RE-RUN 2026-08-12, SECOND OF THE DAY. **PASSED at fifteen gates.**
 
