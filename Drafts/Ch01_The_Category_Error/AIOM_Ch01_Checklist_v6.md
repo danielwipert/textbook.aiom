@@ -155,6 +155,25 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 | Stage 9 | Locked | not run | 0 |
 
 ---
+
+## REOPENED 2026-08-12: Gate G2 and everything after it
+
+Grounds: Stage 7 external check 2 findings FC8 and FC9 applied, plus FC1 closed, all citation-lane under the scoped re-run matrix, which sends them to the fact check and G2 and leaves dev, voice and design intact. The footnote 5 attribution and date, the July 17 antecedent in the body, and the cut of the unsupported absorption sentence all change the render, so the G2 pass of 2026-08-12 was taken against text that no longer exists.
+
+Every step from Gate G2 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Gate G2 | Production gate | passed | 18 |
+| Stage 6 | Copy edit | passed | 0 |
+| Stage 7 | Final fact check 2 | not run | 0 |
+| Gate G3 | Continuity gate | not run | 0 |
+| Stage 8 | Final read | not run | 0 |
+| Stage 9 | Locked | not run | 0 |
+
+---
 ## Stage 0. Draft
 
 Owner: Claude
@@ -2691,6 +2710,58 @@ Status: [x]        Date cleared: 2026-08-12
 
 Findings:
 
+## G2 RE-RUN 2026-08-12, SECOND OF THE DAY. **PASSED at fifteen gates.**
+
+Run after FC8, FC9 and the FC1 closure, all citation-lane. Fourth G2 on this
+chapter. Fifteen gates pass, 25 pages held, zero straight marks, voicecheck
+mechanical PASS and house style PASS on all five checks.
+
+**THE PAGE READ IS SCOPED, AND THE SCOPE IS PROVED RATHER THAN ASSERTED.** Four
+pages were read at 150 dpi against this build: 2, 11, 12 and 13. The other
+twenty-one were NOT re-read, and the reason is not that they were assumed
+unchanged. The pre-edit render survives as the Stage 7 packet input, so the two
+renders were diffed page by page on extracted text. Exactly four pages differ, and
+those four are the four that were read. The remaining twenty-one are byte-identical
+to the render that received a complete twenty-five-page read earlier the same day,
+recorded in the G2 entry above.
+
+This is the first scoped page read on this chapter, and it is offered only because
+the diff makes the claim checkable. **A SCOPED READ IS LEGITIMATE ONLY WITH THE
+DIFF BESIDE IT.** Without one it is the false scope claim of 2026-08-10 wearing a
+better argument.
+
+FIGURE GEOMETRY carries forward on the same evidence: figures 1.1 and 1.2 sit on
+pages 5, 6 and 7, all three byte-identical across the two renders, and the pixel
+sampling on the earlier build found #C0521A alone in figure 1.1 and #C0521A with
+#0E7A72 in figure 1.2.
+
+WHAT THE FOUR PAGES CONFIRMED.
+
+  p2   the paragraph now closes on "The newest models consumed far more tokens on
+       long-horizon tasks than a flat monthly price could cover." The unsupported
+       absorption sentence is gone and footnote 1 still sits on its calling page.
+  p11  both edits render. The body now ends "Those reports were published on July
+       17, 2025." before the paragraph opening "Eleven days later", so the interval
+       is verifiable from the page. Footnote 5 now attributes rather than asserts,
+       and no longer contradicts the body two paragraphs above it. Footnotes 4 and
+       5 both on the calling page.
+  p12  section head 1.4 carries its body, not stranded.
+  p13  the five questions redistributed across the page break with no widow, no
+       orphan and no stranded head, which gate 14 confirms at zero.
+
+HYPHENATION SCAN with page turns included: 95 line ends, zero inside any of the
+nine `.nb` brand names, zero at a page turn. Unchanged from the earlier run, which
+is consistent with a reflow confined to four pages.
+
+**A CRAFT QUESTION IS RAISED AND NOT RULED HERE.** Cutting the absorption sentence
+changed a paragraph close, which is criterion C5, and the scoped re-run matrix
+leaves Stage 4 intact for a citation-lane edit. The assessment recorded for Dan:
+the new close is stronger, because the retained sentence is the sourced one and it
+ends on the load-bearing clause, while the cut sentence was the inference. If Dan
+disagrees, the remedy is a Stage 4 reopen, not a restoration of the claim.
+
+ARCHIVED 2026-08-12, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 ## G2 RE-RUN 2026-08-12. **PASSED, on the reconciled text, at fifteen gates.**
 
 Third G2 run on this chapter. It was reopened because the 2026-08-11 pass was taken
@@ -3138,7 +3209,7 @@ page footnotes shifted pagination.
 
 Owner: Dan
 
-Status: [x]        Date cleared: 2026-08-12
+Status: [ ]        Date cleared: 
 
 > **CLOSED 2026-08-12 ON DAN'S RULING: "I have no more edits."** This is the second
 > closure of this step and it is the one in force. WHAT THE TICK MEANS: fourteen
@@ -3174,6 +3245,8 @@ Status: [x]        Date cleared: 2026-08-12
 > Line level, on prose that has stopped moving. Decision 24 places this late. Revisit the placement after Chapter 4.
 
 Findings:
+
+ARCHIVED 2026-08-12, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 PROOF ISSUED 2026-08-06 for Dan's copy edit, with the return path built and
 tested before it was sent.
@@ -4318,6 +4391,98 @@ different prompts beat one thorough check and that the disagreement is the value
 SF3 itself exists because two checks disagreed. This is one check.
 
 ---
+
+### EXTERNAL CHECK 2, received and ruled 2026-08-12
+
+Run on a different prompt from check 1, per the Stage 3 finding that the
+disagreement between two checks is the value. **FED A RENDER, NOT THE HTML**, and
+that is why neither of check 1's two production flags reappeared: both were
+phantoms of HTML extraction. The procedural fix is now evidenced rather than
+argued.
+
+Verdict as received: the factual spine holds, one must-fix, six author queries.
+**THE SOURCE HALF IS RECORDED AS RECEIVED AND IS NOT CONFIRMED IN THIS REPO.** What
+follows is confined to what can be ruled here, which is whether prose stays inside
+its register note.
+
+**FC8, footnote 5 asserted an unconfirmed company action and misdated it. APPLIED.**
+The footnote read "in addition to five-hour limits that were already in force and
+had been tightened on July 17, 2025", which contradicts the body two paragraphs
+above and pins the event to the report's PUBLICATION date. Confirmed against the
+register without a source: the `techcrunch-2025-anthropic-tightening` note already
+ruled that "the chapter attributes the tightening to what subscribers encountered
+rather than to a company action the company acknowledged". The body honoured that;
+the footnote had drifted out of it. **SEVENTH INSTANCE IN THIS CHAPTER of a ruled
+narrowing restored in later prose**, after SF2, SF7, SF8, SF9, SF10 and FC2.
+
+**FC1 CLOSED IN THE SAME EDIT, AND THE TWO CHECKS FOUND ONE ROOT CAUSE FROM
+OPPOSITE ENDS.** Check 1 found "Eleven days later" counting from nothing the reader
+had been given; check 2 found the footnote asserting July 17 as the event date. Both
+are the chapter conflating a publication date with an event date. The body now ends
+the preceding paragraph "Those reports were published on July 17, 2025.", which
+supplies the antecedent and makes the interval verifiable on the page.
+
+**CHECK 2 IS INTERNALLY INCONSISTENT ON THIS POINT AND IT MATTERS.** Its arithmetic
+section validates "eleven days later" on a July 17 to July 28 reading while its
+must-fix says July 17 is the wrong date for the event. Both cannot be load-bearing.
+The resolution is that the interval is correct only when measured from the report,
+which is exactly why the report date had to enter the prose. **A CHECK CAN BE RIGHT
+IN ONE SECTION AND WRONG IN ANOTHER, so read a fact check for internal consistency
+before acting on it.**
+
+**FC9, the absorption sentence. APPLIED, and upgraded from check 2's "query" to a
+finding.** The chapter said "Cursor had been paying the difference, but the
+difference had become too expensive to absorb", presented as Truell's explanation.
+The `truell-2025-pricing` note runs 5,177 characters and contains ZERO occurrences
+of absorb, paying the difference, or too expensive. What it carries is the
+order-of-magnitude spread between hardest and simple requests and the statement
+that most users' costs stayed fairly constant. The sentence was an inferred
+economic mechanism attributed to a source, which is the SF2 shape a second time.
+Cut; the sourced sentence before it carries the point alone.
+
+**REJECTED: match the source headline's em dash.** Check 2 asks the Brandom title
+to carry the em dash the published headline uses. Standing rule 1 bans em dashes
+everywhere including citations and gate 2 fails the build on any U+2014. The
+register note already records the decision: "Source title normalized: the published
+headline carries an em dash before the word Without, removed here to satisfy the
+voice gate." The checker cannot see the register, so raising it was reasonable, and
+the note answering it is the write-the-ruling-back discipline working exactly as
+intended. The headline-style capitalization is also correct Chicago, not an error.
+
+**REFRAMED AND OPEN FOR DAN: the QJE citation is a TOOLING gap, not a sourcing
+gap.** Check 2 asks for volume, issue and pages. The register already holds volume
+140, issue 2, pages 889-942 and the DOI. `cite_format.py` reads `doi` and never
+reads `volume`, `issue` or `pages`, so the formatter drops data already captured,
+on every journal citation in all fifteen chapters. **IT COLLIDES WITH GATE 2, which
+is why it needs a ruling rather than a patch:** Chicago sets page ranges with an en
+dash and gate 2 fails on U+2013. Emitting 889 en-dash 942 breaks the build;
+emitting a hyphen is a deliberate house deviation. This is open question Q2
+arriving with a concrete case attached.
+
+**OPEN, NOT CLOSEABLE HERE: the "early May" preview-bill timing in footnote 3.**
+Check 2 could reach only secondary coverage. No source host is reachable from a
+Claude session, so this is not offered as verified either way.
+
+**OUT OF LANE, recorded so it is not lost.** The THM-009 numbering question is a
+Stage 2 or Stage 5 matter, not a fact check, and standing rule 4a bears on it: the
+ID is what a reader follows to the verbatim registry form. Appendix A reproduces
+all 28 theorems and lemmas. A half-sentence gloss is defensible and is Dan's call.
+The cross-reference checks to Chapters 3, 4, 6 and 14 are G3's, which runs after
+Stage 8.
+
+**AGREEMENT TALLY.** Five precision flags from check 1, seven items from check 2,
+overlapping on one, the July 17 date. That matches the 2026-08-06 pair, which
+agreed on one of six. Check 2 did NOT re-raise FC2 through FC5, which is evidence
+those repairs held rather than an absence of attention.
+
+RE-RUN CONSEQUENCE. All three edits are citation-lane, so Stage 7 and G2 re-run and
+dev, voice and design stay intact. G2 was reopened and re-passed the same day. Every
+ruling is written back into its register note with the sentence it added and the
+condition that would reverse it.
+
+**STAGE 7 REMAINS OPEN AND IS DAN'S TO CLOSE.** Two external checks have run and
+their findings are applied or ruled. What is left is Dan's judgment on the two open
+items above, the QJE formatter ruling and the early-May timing.
 
 ## Gate G3. Continuity gate
 
