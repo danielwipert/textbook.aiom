@@ -7,6 +7,40 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**EDITING A LOCKED CHAPTER IS SOLVED END TO END, 2026-08-13. This is the headline
+and it is what unblocks everything else.** Dan is an iterative writer who will be
+revising Chapter 1 forever, and until today every edit to it cost a trip through
+a thirteen-step lifecycle and held CI red for the duration. Three pieces, built
+in the order Dan ruled, each independent of the others.
+
+1. **SAFE. Gate W14, claim preservation, reads `AIOM_Claim_Ledger.md`** and fails
+   the build when a ruled sentence goes missing or a withdrawn one returns. It is
+   the only gate in either suite that reads MEANING, and it exists because five
+   recorded incidents changed meaning while every date and figure stayed intact,
+   so nothing mechanical could see them. Verified against all six historical
+   reverts rather than invented faults.
+2. **DECOUPLED. `snapshot.py` publishes each chapter's LAST LOCK, never the
+   working tree.** Reopen Chapter 1, leave it open for a week, push freely: the
+   site keeps serving the lock SILENTLY and CI stays green. Before this, a reopen
+   failed the whole site build with "no locked chapter found".
+3. **FAST. `amend.py` edits a locked chapter in one command,** about twenty
+   seconds, reopening nothing. Dan's edit is approved by definition and
+   supersedes. Only the mechanical gates run, and `--supersede` retires a
+   fact-check ruling he overturns.
+
+**THE WEB SUITE IS NOW FOURTEEN GATES, W1 THROUGH W14, WITH 74 NEGATIVE
+CONTROLS.** Re-derive both from build output rather than copying them forward:
+the count in this file was wrong for five phases before anyone checked it.
+
+**THE DESIGN ACCENT PASS ALSO LANDED, 2026-08-13.** Dan's brief was "New Yorker
+meets Comptoir des Cotonniers", accents not an overhaul. Paper grain on the
+ground, a department rule on `.eyebrow`, and nine spot marks drawn as INSTRUMENTS
+rather than jokes, because C6 rules out the New Yorker's wit even as the book
+borrows its technique. **Marks are chrome only, ruled by Dan and enforced by gate
+W4g**, which was needed because W1 cannot see a mark: an SVG carries no text, so
+text equivalence with print stays perfect while a reading page fills with
+ornament. `AIOM_book.css` is untouched throughout, so print is unaffected.
+
 **THE REPOSITORY IS PUBLIC AND THE SITE IS LIVE, 2026-08-13. HISTORY WAS
 REWRITTEN THAT DAY AND EVERY SHA WRITTEN BEFORE IT IS DEAD.** Any commit hash in
 an entry below this one refers to the pre-rewrite history and will not resolve.
@@ -67,7 +101,7 @@ remote is now the only copy of anything.
 
 Verified after the rewrite rather than claimed: zero hits for all ten paths
 across the full history OF A FRESH CLONE rather than of the working copy,
-`status_check.py` at 13 of 13, all web gates passing, 61 of 61
+`status_check.py` at 13 of 13, all web gates passing, every
 self-test controls behaving, and `git_hygiene.py` reporting nothing stranded.
 
 The record of the pre-rewrite state follows and its hashes are dead.
@@ -82,7 +116,7 @@ rule 1), then a fetch, then `git log origin/main ^HEAD` empty, then
 `git merge-base --is-ancestor` confirming `main` was a strict ancestor. After the
 push, `git rev-list --left-right --count origin/main...<branch>` reports `0 0`.
 The build, the self-test and `status_check.py` were all re-run ON `main` after
-the merge: thirteen gates pass, sixty-one controls behave, Chapter 1 reports 13
+the merge: the gates pass, the controls behave, Chapter 1 reports 13
 of 13.
 
 `claude/textbook-website-design-h9nk9t` is now FULLY MERGED and safe to delete.
@@ -842,10 +876,12 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work), 8 (the
-web edition, now LIVE and waiting on Dan for a domain, a README and the author
-band), 10 (the Northmoor CSVs, for the Part III build), 5 (process hardening),
-3 (design gaps), 7 (Decision 28). Thread 9 closed the day it opened.**
+**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work and now
+genuinely unblocked), 8 (the web edition, LIVE and waiting on Dan for a domain
+and the author band), 10 (the Northmoor CSVs, for the Part III build),
+5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed the day
+it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread: see the
+top of Repository state.**
 Everything else below is
 closed and kept as record. The numbering is left alone deliberately: these numbers
 are cited in commit messages and in the checklist, and renumbering would break
@@ -940,13 +976,17 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
      absolute. Unset today, so no hostname is invented and the sitemap emits
      site-relative paths that become absolute the moment one is supplied. The
      site is live without it on the github.io address.
-   - **A README.** The repository is public and has none, so the first thing a
-     visitor sees is a file listing. Deferred by Dan on 2026-08-13 as a writing
-     task carrying his name rather than a mechanical fix.
+   - **DONE 2026-08-13: the README.** Written after Dan ruled the three questions
+     it turned on: no argument restated (only a link, since nothing gates a
+     README and a paraphrase of the book's claim would sit unchecked on a public
+     surface), name and affiliation only, and the one-locked-chapter state stated
+     as a property of gate W2 rather than as an apology.
    - **The author band: real biography and a portrait.** It currently carries a
      name, an organization and the method, because that is all this repository
      states and nothing about the author was invented. The monogram is a
-     typographic placeholder standing in for a photograph.
+     typographic placeholder standing in for a photograph. NOTE it is also one of
+     only two bands left deliberately unmarked in the accent pass, the hero being
+     the other, because each already carries its own object.
 
    **TWO FINDINGS DAN SHOULD SEE:**
    - **The print palette fails WCAG AA.** Five foreground tokens fall below the
@@ -1085,8 +1125,9 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
    Outbound anchor links stay legal, because the sources page exists to link out.
 
    **Phase W6, dark mode and the figure token pass, is BUILT AND GREEN.**
-   THIRTEEN gates, sixty-one negative controls. `AIOM_web.css` v0.3. W14 was
-   added 2026-08-13, taking the suite to FOURTEEN and the controls to 67.
+   THIRTEEN gates, sixty-one negative controls. `AIOM_web.css` v0.3. The suite
+   later reached FOURTEEN gates and 74 controls on the same day, through W14
+   (claim preservation) and W4g (no spot mark on a chapter page).
 
    **THE PRINT PALETTE FAILS WCAG AA AND THE WEB CORRECTS IT.** Five foreground
    tokens fail against paper and its tints, `--folio` worst at 2.38:1. Print has
@@ -1253,6 +1294,28 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
 ## Standing reminders
 
 **Rules that bite.**
+
+- **TO EDIT A LOCKED CHAPTER, USE `amend.py`. Do not reopen it.** A reopen is for
+  producing a chapter; an amendment is for changing one that exists.
+  `python3 amend.py Ch01 -m "what changed"` runs the mechanical gates, appends
+  the record, re-commits, and the chapter never leaves Stage 9. Add
+  `--supersede ID "reason"` if the edit deliberately overturns a fact-check
+  ruling, which retires it in `AIOM_Claim_Ledger.md` rather than switching W14
+  off.
+- **THE AMENDMENT MUST TOUCH THE CHECKLIST OR THE SITE SERVES STALE TEXT.**
+  `snapshot.py` resolves what publishes as the newest commit whose CHECKLIST
+  reported Stage 9. `amend.py` handles this; a hand edit to the chapter HTML
+  alone does NOT, and the build will print a WARNING naming that chapter.
+- **WHAT PUBLISHES IS THE LAST LOCK, NOT THE WORKING TREE.** Editing Chapter 1
+  has no effect on the live site until it re-locks. This is deliberate and Dan
+  ruled it silent: no revision banner, no reader-visible state.
+  `--from-worktree` previews edits in flight and CI never uses it.
+- **CI NEEDS `fetch-depth: 0`.** At the default depth of 1 the walk over
+  checklist commits sees nothing, every chapter resolves to never-locked, and the
+  build fails. It looks exactly like a speed optimization someone should remove.
+- **A DRAWN MARK IS JUDGED AT THE SIZE IT SHIPS AT.** Render the contact sheet at
+  2.35rem, not at display size. Three of the nine marks were redrawn on that
+  basis and one took three attempts.
 
 - **The build and `place.py` want the chapter in DIFFERENT places, and CLAUDE.md
   section 5 now carries the runnable form.** Do not reconstruct it from memory
