@@ -1061,6 +1061,26 @@ BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
    stylesheet and no remote image can be added without failing the build.
    Outbound anchor links stay legal, because the sources page exists to link out.
 
+   **Phase W6, dark mode and the figure token pass, is BUILT AND GREEN.**
+   FOURTEEN gates, sixty-one negative controls. `AIOM_web.css` v0.3.
+
+   **THE PRINT PALETTE FAILS WCAG AA AND THE WEB CORRECTS IT.** Five foreground
+   tokens fail against paper and its tints, `--folio` worst at 2.38:1. Print has
+   no WCAG floor, so `AIOM_book.css` IS UNTOUCHED and the print values remain the
+   values of record; `AIOM_web.css` carries web text derivatives darkened by the
+   minimum needed. Only `--folio` moves visibly. **This is worth Dan's attention
+   as a finding, not just an implementation detail.**
+
+   **CHAPTER FIGURES ARE RETOKENIZED ON THE WAY TO THE WEB**, never in the
+   chapter, by `tokenize_svg()`. It adds attributes and no text, so gate W1 is
+   unaffected, and the locked chapter is untouched.
+
+   **GATE W13 SPENT ITS FIRST RUN MEASURING NOTHING**, because its regex captured
+   `--folio` while every lookup used `folio`. The self-test control caught it, and
+   the fixed gate immediately found a real defect: the theorem panel's roman
+   numerals were 2.19:1 on the navy band in LIGHT mode. That is the fifth time in
+   this sub-project that a control has caught a gate rather than a page.
+
    **ONE THING IS STILL OUTSTANDING AND IT IS DAN'S: THE DOMAIN.** `--base-url`
    is unset, so no hostname is invented and the sitemap emits site-relative paths
    that become absolute the moment one is supplied. Nothing else blocks a deploy.

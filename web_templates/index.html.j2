@@ -26,6 +26,7 @@
 <title>AI Operations Management</title>
 <meta name="description" content="A founding textbook. AI Business Economics is the science. AI Operations Management is the practice discipline that acts on it.">
 <link rel="stylesheet" href="assets/aiom_web.css">
+{% include "_theme.html.j2" %}
 </head>
 <body class="home">
 
@@ -37,6 +38,7 @@
     <a href="#contents">Contents</a>
     <a href="search/">Search</a>
   </nav>
+  {% include "_theme_button.html.j2" %}
   <a class="cta" href="#editions">Get the book</a>
 </header>
 
@@ -70,27 +72,27 @@
              aria-label="Two cost models against rising usage. Under the seat model cost is flat. Under the event model cost accumulates with every consumption event.">
           <defs>
             <linearGradient id="evfill" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#B4551F" stop-opacity="0.30"/>
-              <stop offset="1" stop-color="#B4551F" stop-opacity="0.06"/>
+              <stop offset="0" stop-color="var(--amber)" stop-opacity="0.30"/>
+              <stop offset="1" stop-color="var(--amber)" stop-opacity="0.06"/>
             </linearGradient>
           </defs>
-          <line x1="56" y1="272" x2="470" y2="272" stroke="#6E6353" stroke-width="1"/>
-          <line x1="56" y1="32" x2="56" y2="272" stroke="#6E6353" stroke-width="1"/>
-          <text x="56" y="300" fill="#6E6353" font-size="12" font-family="Jost, sans-serif">Usage</text>
-          <text x="56" y="22" fill="#6E6353" font-size="12" font-family="Jost, sans-serif">Cost to serve</text>
+          <line x1="56" y1="272" x2="470" y2="272" stroke="var(--axis)" stroke-width="1"/>
+          <line x1="56" y1="32" x2="56" y2="272" stroke="var(--axis)" stroke-width="1"/>
+          <text x="56" y="300" fill="var(--axis)" font-size="12" font-family="Jost, sans-serif">Usage</text>
+          <text x="56" y="22" fill="var(--axis)" font-size="12" font-family="Jost, sans-serif">Cost to serve</text>
           <path id="ev-area" fill="url(#evfill)" d=""/>
-          <path id="ev-line" fill="none" stroke="#B4551F" stroke-width="2.5" d=""/>
+          <path id="ev-line" fill="none" stroke="var(--amber)" stroke-width="2.5" d=""/>
           <line id="seat-line" x1="56" y1="212" x2="470" y2="212"
-                stroke="#16314F" stroke-width="2.5"/>
+                stroke="var(--navy)" stroke-width="2.5"/>
           <line id="cursor" x1="56" y1="32" x2="56" y2="272"
-                stroke="#0E7A72" stroke-width="1" stroke-dasharray="3 3"/>
-          <circle id="ev-dot" cx="56" cy="272" r="4.5" fill="#B4551F"/>
-          <circle id="seat-dot" cx="56" cy="212" r="4.5" fill="#16314F"/>
+                stroke="var(--teal)" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle id="ev-dot" cx="56" cy="272" r="4.5" fill="var(--amber)"/>
+          <circle id="seat-dot" cx="56" cy="212" r="4.5" fill="var(--navy)"/>
           <!-- Labels sit in their own gutter beyond the plot, so the moving
                markers can never run underneath them. -->
-          <text x="482" y="216" fill="#16314F"
+          <text x="482" y="216" fill="var(--navy)"
                 font-size="12" font-family="Jost, sans-serif" font-weight="600">Seat model</text>
-          <text id="ev-lab" x="482" y="60" fill="#B4551F"
+          <text id="ev-lab" x="482" y="60" fill="var(--amber)"
                 font-size="12" font-family="Jost, sans-serif" font-weight="600">Event model</text>
         </svg>
         <p class="fig-control">

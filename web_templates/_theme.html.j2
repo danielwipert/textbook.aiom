@@ -1,0 +1,55 @@
+{#
+  _theme.html.j2  |  theme selection  |  Phase W6
+
+  Included in <head> of every page and NOT deferred. It has to run before first
+  paint, or a reader who chose dark sees a flash of the light ground on every
+  navigation. That is why the stored preference is applied here rather than in
+  the page's main script at the end of body.
+
+  Three states, in order of precedence: an explicit choice in localStorage, then
+  the operating system preference, then light. The CSS carries the same order,
+  so a reader who has chosen nothing follows their system and a reader who has
+  chosen something keeps it even when the system disagrees.
+#}<script>
+(function () {
+  try {
+    var t = localStorage.getItem("aiom-theme");
+    if (t === "dark" || t === "light") {
+      document.documentElement.setAttribute("data-theme", t);
+    }
+  } catch (e) { /* private mode, or storage disabled. Fall back to the system. */ }
+
+  function label() {
+    var el = document.documentElement;
+    var explicit = el.getAttribute("data-theme");
+    var dark = explicit
+      ? explicit === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var b = document.getElementById("theme-toggle");
+    if (b) {
+      b.textContent = dark ? "Light" : "Dark";
+      b.setAttribute("aria-label",
+        dark ? "Switch to the light theme" : "Switch to the dark theme");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    label();
+    var b = document.getElementById("theme-toggle");
+    if (!b) { return; }
+    b.addEventListener("click", function () {
+      var el = document.documentElement;
+      var explicit = el.getAttribute("data-theme");
+      var dark = explicit
+        ? explicit === "dark"
+        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var next = dark ? "light" : "dark";
+      el.setAttribute("data-theme", next);
+      try { localStorage.setItem("aiom-theme", next); } catch (e) {}
+      label();
+    });
+    window.matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", label);
+  });
+})();
+</script>

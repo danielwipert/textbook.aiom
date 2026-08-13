@@ -1,6 +1,6 @@
 /* ============================================================
    AIOM_web.css
-   VERSION: 0.2  (Phase W2, the reader)
+   VERSION: 0.3  (Phase W6, dark mode and the figure token pass)
    DATE:    2026-08-13
 
    The web presentation layer. Companion to AIOM_book.css, which remains the
@@ -22,8 +22,8 @@
        JavaScript sees everything rather than nothing. See section 16.
    (e) Measure narrowed from 34rem to 32rem, about 66 characters at this size.
 
-   TOKENS ARE INHERITED, NOT CHOSEN. Every colour below is the value of record
-   from AIOM_book.css v7.1 section 2. The web looking like the book is the point.
+   TOKENS ARE INHERITED, NOT CHOSEN, with one measured accessibility correction
+   and a designed dark palette. See section 2, which carries the numbers.
 
    Two rules carried over from the print stylesheet's header, and they hold here
    for the same reason:
@@ -32,9 +32,13 @@
      - A Unicode hex escape in a content: string consumes the following space as
        an escape terminator. Use literal UTF-8 characters.
 
-   NOT IN THIS FILE, DELIBERATELY: dark mode. The warm paper has no correct
-   automatic inverse and the SVG figures carry literal hex fills, so it is
-   Phase W6 together with the figure token pass.
+   v0.3 (2026-08-13) adds dark mode and the figure token pass. The header
+   previously said dark mode was deliberately absent; that is no longer true and
+   the sentence is removed rather than left to mislead. Chapter figures are
+   retokenized on the way to the web by web_build.tokenize_svg, so they follow
+   the theme without the locked chapter being edited. Gate W12 checks that every
+   SVG colour on every page is a token; gate W13 checks contrast in both themes
+   and that the two dark blocks agree.
    ============================================================ */
 
 /* ---------- 1. FONTS ---------- */
@@ -48,20 +52,57 @@
 @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-SemiBold.ttf"); font-weight: 600; font-style: normal; font-display: swap; }
 
 /* ---------- 2. DESIGN TOKENS ---------- */
+/* TOKENS ARE INHERITED FROM AIOM_book.css, WITH ONE DOCUMENTED CORRECTION.
+   Five of the print palette's foreground colours fail WCAG AA for normal text
+   against the paper and its tints, measured rather than guessed:
+
+     amber      #B4551F  worst 3.69 : 1   ->  #9E4B1B  4.52
+     amber-fig  #C0521A  worst 3.52      ->  #A44616  4.53
+     teal       #0E7A72  worst 3.88      ->  #0D6F68  4.50
+     folio      #9B8F7C  worst 2.38      ->  #696154  4.57
+     axis       #6E6353  worst 4.40      ->  #6C6151  4.53
+
+   Print has no WCAG floor and different physics, so THE PRINT VALUES ABOVE
+   REMAIN THE VALUES OF RECORD and AIOM_book.css is untouched. These are web text
+   derivatives, darkened by the minimum needed and no more: four of the five move
+   by 2 to 15 percent and are imperceptible side by side. Only --folio moves
+   visibly, and it moves toward legibility. Gate W13 enforces the floor in both
+   themes, so this cannot silently regress.
+
+   DARK MODE IS DESIGNED, NOT INVERTED. The warm paper has no correct automatic
+   inverse. The ground becomes a deep navy black derived from the book's own
+   navy, which keeps the two-colour identity: this is the same book, at night.
+   Every dark value was checked against every dark surface before being written.
+
+   THE DARK BLOCK APPEARS TWICE, once for the system preference and once for the
+   explicit toggle, and gate W13 fails the build if the two ever disagree. CSS
+   has no way to declare it once. */
 :root {
   --paper:     #F4ECDD;
   --navy:      #16314F;
-  --amber:     #B4551F;
-  --amber-fig: #C0521A;
-  --teal:      #0E7A72;
+  --amber:     #9E4B1B;   /* print #B4551F */
+  --amber-fig: #A44616;   /* print #C0521A */
+  --teal:      #0D6F68;   /* print #0E7A72 */
   --ink:       #2B2620;
-  --folio:     #9B8F7C;
-  --axis:      #6E6353;
+  --folio:     #696154;   /* print #9B8F7C */
+  --axis:      #6C6151;   /* print #6E6353 */
   --tint-def:  #EDE3D0;
   --tint-thm:  #F7EDE2;
   --tint-fig:  #E7DECB;
   --hairline:  #DCCFB4;
   --kt-head:   #DCCFB4;
+  /* The inverted band has its own tokens because in dark mode it cannot simply
+     be "navy ground, paper text": that would render as a glaring light block on
+     a dark page. It is a surface that is always a step away from the ground. */
+  --invert-bg:    #16314F;
+  --invert-fg:    #F4ECDD;
+  --invert-muted: #E7DECB;
+  /* The accent ON the inverted band is not --amber. In the light theme --amber
+     is #9E4B1B, and dark amber on a navy ground measures 2.19:1, which gate W13
+     caught the moment the gate itself was fixed. The band is dark in BOTH
+     themes, so its accent is the light amber in both. */
+  --invert-accent: #E08A55;
+  --shadow:    rgba(43, 38, 32, 0.10);
 
   --measure:   32rem;    /* the text column, about 66 characters */
   --note:      15.5rem;  /* the sidenote */
@@ -70,6 +111,52 @@
   --bar:       3.25rem;  /* sticky topbar height, for scroll-padding */
   --step:      1.55rem;  /* vertical rhythm unit */
   --beat:      calc(var(--step) * 2.6);  /* space above a slot opening */
+}
+
+/* DARK, BLOCK 1 OF 2: the system preference, unless the reader has chosen light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:     #0F1D2B;
+    --navy:      #F2F7FB;
+    --amber:     #E08A55;
+    --amber-fig: #E08A55;
+    --teal:      #57BDB1;
+    --ink:       #E3E9EF;
+    --folio:     #93A7B8;
+    --axis:      #B3C4D2;
+    --tint-def:  #16283A;
+    --tint-thm:  #1A2E42;
+    --tint-fig:  #1E3348;
+    --hairline:  #2C4459;
+    --kt-head:   #2C4459;
+    --invert-bg:    #21374C;
+    --invert-fg:    #E3E9EF;
+    --invert-muted: #A9BCCC;
+    --invert-accent: #E08A55;
+    --shadow:    rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* DARK, BLOCK 2 OF 2: the explicit toggle. Identical to block 1 by rule. */
+:root[data-theme="dark"] {
+    --paper:     #0F1D2B;
+    --navy:      #F2F7FB;
+    --amber:     #E08A55;
+    --amber-fig: #E08A55;
+    --teal:      #57BDB1;
+    --ink:       #E3E9EF;
+    --folio:     #93A7B8;
+    --axis:      #B3C4D2;
+    --tint-def:  #16283A;
+    --tint-thm:  #1A2E42;
+    --tint-fig:  #1E3348;
+    --hairline:  #2C4459;
+    --kt-head:   #2C4459;
+    --invert-bg:    #21374C;
+    --invert-fg:    #E3E9EF;
+    --invert-muted: #A9BCCC;
+    --invert-accent: #E08A55;
+    --shadow:    rgba(0, 0, 0, 0.35);
 }
 
 /* ---------- 3. RESET AND PAGE ---------- */
@@ -579,38 +666,39 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 
 /* The inverted band. The only strong value change on the page. */
 .invert {
-  background: var(--navy); color: var(--paper);
+  background: var(--invert-bg); color: var(--invert-fg);
   margin: calc(var(--step) * 2) calc(50% - 50vw) 0;
   padding: calc(var(--step) * 3) calc(50vw - 50% + 1.5rem);
 }
 .invert-inner { max-width: 68rem; margin: 0 auto; }
-.invert .eyebrow { color: var(--tint-fig); }
+.invert .eyebrow { color: var(--invert-muted); }
 .invert h2 {
   font-family: "Jost", sans-serif; font-weight: 600;
   font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.1;
-  letter-spacing: -0.015em; color: var(--paper); margin: 0 0 1rem;
+  letter-spacing: -0.015em; color: var(--invert-fg); margin: 0 0 1rem;
   text-wrap: balance;
 }
-.invert-lede { max-width: 44rem; margin: 0 0 1.8rem; color: var(--tint-fig); font-size: 1rem; line-height: 1.6; }
-.invert-note { max-width: 44rem; margin: 1.5rem 0 0; color: var(--tint-fig); font-size: 0.88rem; }
+.invert-lede { max-width: 44rem; margin: 0 0 1.8rem; color: var(--invert-muted); font-size: 1rem; line-height: 1.6; }
+.invert-note { max-width: 44rem; margin: 1.5rem 0 0; color: var(--invert-muted); font-size: 0.88rem; }
 /* The theorem panel is the chapter's own markup, so its colours are overridden
    here rather than the panel being rebuilt. Rule 4a: the panel is a rendering of
    the registry statement and is never re-set in different words. */
 .invert-panel .theorem {
-  background: rgba(244, 236, 221, 0.06);
-  border: 1px solid rgba(244, 236, 221, 0.22);
-  border-left: 3px solid var(--amber);
+  background: color-mix(in srgb, var(--invert-fg) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--invert-fg) 22%, transparent);
+  border-left: 3px solid var(--invert-accent);
   padding: 1.4rem 1.6rem; margin: 0; max-width: 52rem;
 }
-.invert-panel .theorem .lab { color: var(--tint-fig); }
+.invert-panel .theorem .lab { color: var(--invert-muted); }
 .invert-panel .theorem .stmt {
-  color: var(--paper); border-bottom-color: rgba(244, 236, 221, 0.22);
+  color: var(--invert-fg);
+  border-bottom-color: color-mix(in srgb, var(--invert-fg) 22%, transparent);
   font-size: 1.15rem;
 }
 .invert-panel .theorem .cond,
 .invert-panel .theorem .conseq,
-.invert-panel .theorem li { color: var(--tint-fig); }
-.invert-panel .theorem .mk { color: var(--amber); }
+.invert-panel .theorem li { color: var(--invert-muted); }
+.invert-panel .theorem .mk { color: var(--invert-accent); }
 
 .band { max-width: 68rem; margin: 0 auto; padding: calc(var(--step) * 2.6) 0; border-top: 1px solid var(--hairline); }
 .invert + .band { border-top: 0; }
@@ -662,7 +750,7 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 .author-grid { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 2rem; align-items: start; }
 .author-mark {
   aspect-ratio: 1; display: grid; place-items: center;
-  background: var(--navy); color: var(--paper);
+  background: var(--invert-bg); color: var(--invert-fg);
 }
 .author-mark span {
   font-family: "Jost", sans-serif; font-weight: 600; font-size: 2.2rem;
@@ -913,3 +1001,21 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 .foot-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0 0 0.9rem; }
 .foot-links a { color: var(--navy); font-size: 0.82rem; }
 .foot-cta { margin: 0.4rem 0 0; }
+
+/* ---------- 20. THE THEME TOGGLE ---------- */
+/* Small, quiet, and always the last control in the bar. The label says what a
+   click WILL do, not what the theme currently is, which is the version people
+   read correctly without thinking about it. */
+.theme-toggle {
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.72rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--axis); background: none;
+  border: 1px solid var(--hairline); border-radius: 2px;
+  padding: 0.32rem 0.6rem; cursor: pointer; white-space: nowrap;
+}
+.theme-toggle:hover { border-color: var(--amber); color: var(--amber); }
+@media (max-width: 620px) {
+  /* The chapter bar already carries a brand and a Contents button. A fourth
+     control overflowed the row at 320px once and gate W6 caught it. */
+  body:not(.home) .theme-toggle { display: none; }
+}

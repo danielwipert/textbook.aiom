@@ -686,6 +686,32 @@ rulings. What binds outside that document:
 - **Hosted on GitHub Pages, published from `main`. Decision 65.** The domain is
   still unruled; `--base-url` is unset, so no hostname is invented and the sitemap
   emits site-relative paths that become absolute the moment one is supplied.
+- **Phase W6 is built, 2026-08-13: dark mode and the figure token pass.**
+  FOURTEEN gates. `AIOM_web.css` v0.3.
+- **DARK MODE IS DESIGNED, NOT INVERTED.** The ground becomes a deep navy black
+  derived from the book's own navy, which keeps the two-colour identity. A theme
+  toggle sits in every topbar; the preference is applied in `<head>` before first
+  paint, so there is no flash on navigation.
+- **THE PRINT PALETTE FAILS WCAG AA AND THE WEB CORRECTS IT, MEASURED NOT
+  GUESSED.** Five foreground tokens fail against paper and its tints: `--folio`
+  worst at 2.38:1, then `--amber-fig`, `--amber`, `--teal`, `--axis`. Print has no
+  WCAG floor and different physics, so **`AIOM_book.css` is untouched and the print
+  values remain the values of record.** `AIOM_web.css` carries web text
+  derivatives darkened by the minimum needed; four of five move imperceptibly and
+  only `--folio` moves visibly. Gate W13 enforces the floor in both themes.
+- **CHAPTER FIGURES ARE RETOKENIZED ON THE WAY TO THE WEB, never in the chapter.**
+  `tokenize_svg()` maps each literal hex to the token that owns it, so figures
+  follow the theme while the locked chapter stays untouched. It adds attributes
+  and no text, so gate W1 is unaffected. Verified rather than assumed: `var()`
+  DOES resolve in an SVG presentation attribute and DOES follow a theme change.
+  An unregistered colour is left literal on purpose and failed by gate W12,
+  because silently rewriting it would hide the drift.
+- **GATE W13 SPENT ITS FIRST RUN MEASURING NOTHING.** Its token regex captured
+  `--folio` while every lookup used `folio`, so the contrast loop skipped every
+  pair and printed a pass. The self-test control caught it, and the fixed gate
+  immediately found a real defect: in the LIGHT theme the theorem panel's roman
+  numerals were dark amber on the navy band at 2.19:1. The inverted band now has
+  its own `--invert-accent`, because that band is dark in both themes.
 - **Print gates do not carry over and web gates are not print gates.** Pagination
   is the bulk of the print suite (gates 1, 4, 8, 12, 13, 14 and `place.py`) and
   none of it exists on the web. What carries is anything that is a property of

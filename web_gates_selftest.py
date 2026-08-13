@@ -395,6 +395,49 @@ def main():
     print("\nW10, the site build and deploy readiness")
     _multi_chapter_control(case)
 
+    print("\nW12 and W13, the theme layer")
+    case("W12 clean on the real pages",
+         lambda: quiet(wb.gate_w12, [("index", open("build/web/index.html",
+                                                    encoding="utf-8").read())]), False)
+    # A colour the design system does not own. tokenize_svg leaves it literal on
+    # purpose, because silently rewriting an unknown colour would hide the drift.
+    case("an unregistered colour in a figure",
+         lambda: quiet(wb.gate_w12,
+                       [("probe", '<svg><rect fill="#FF00AA"/></svg>')]))
+    case("a tokenized figure passes",
+         lambda: quiet(wb.gate_w12,
+                       [("probe", '<svg><rect fill="var(--amber)"/></svg>')]), False)
+    # tokenize_svg must map a known colour and leave an unknown one alone.
+    out = wb.tokenize_svg('<svg><rect fill="#B4551F"/><rect fill="#FF00AA"/></svg>')
+    case("tokenize_svg maps known and preserves unknown",
+         lambda: [] if 'fill="var(--amber)"' in out and '#FF00AA' in out
+         else ["mapping wrong: " + out], False)
+
+    case("W13 clean on the real stylesheet",
+         lambda: quiet(wb.gate_w13, "AIOM_web.css"), False)
+    css = open("AIOM_web.css", encoding="utf-8").read()
+
+    def probe_css(text, name):
+        path = os.path.join("build", name)
+        os.makedirs("build", exist_ok=True)
+        open(path, "w", encoding="utf-8").write(text)
+        return path
+
+    # A foreground pushed below the AA floor, which is what a well-meant
+    # "let us lighten that grey" edit looks like.
+    bad = css.replace("  --folio:     #696154;", "  --folio:     #B7AEA0;", 1)
+    assert bad != css
+    case("a light token dropped below the AA floor",
+         lambda: quiet(wb.gate_w13, probe_css(bad, "w13-aa.css")))
+
+    # The two dark blocks are written twice because CSS cannot declare them once,
+    # so they will drift the first time someone edits one of them.
+    bad = css.replace(':root[data-theme="dark"] {\n    --paper:     #0F1D2B;',
+                      ':root[data-theme="dark"] {\n    --paper:     #000000;', 1)
+    assert bad != css
+    case("the two dark token blocks drifting apart",
+         lambda: quiet(wb.gate_w13, probe_css(bad, "w13-drift.css")))
+
     missed = [n for ok, n, _ in results if not ok]
     print(f"\n{len(results) - len(missed)}/{len(results)} controls behaved as "
           f"specified")

@@ -307,6 +307,53 @@ def to_sidenotes(body):
 
 TABLE_RE = re.compile(r'<table class="inv">.*?</table>', re.S)
 
+# The design system's colours, by value. Chapter figures carry literal hex, as
+# AIOM_book.css section 2 records, because print needs no indirection.
+FIGURE_TOKENS = {
+    "#F4ECDD": "paper", "#16314F": "navy", "#B4551F": "amber",
+    "#C0521A": "amber-fig", "#0E7A72": "teal", "#2B2620": "ink",
+    "#9B8F7C": "folio", "#6E6353": "axis", "#EDE3D0": "tint-def",
+    "#F7EDE2": "tint-thm", "#E7DECB": "tint-fig", "#DCCFB4": "hairline",
+}
+FIG_COLOUR_RE = re.compile(
+    r'\b(fill|stroke|stop-color)="(#[0-9A-Fa-f]{3,8})"')
+
+
+def tokenize_svg(body):
+    """Replace literal hex in chapter figures with the token that owns it.
+
+    Phase W6. The chapter HTML is the LOCKED source shared with print, so it is
+    never edited: this is a presentation transform on the way to the web, and it
+    adds attributes and no text, which is the test for whether a transform
+    belongs here at all. Gate W1 is unaffected.
+
+    Verified before being relied on rather than assumed: var() DOES resolve in an
+    SVG presentation attribute and DOES follow a theme change, checked in a
+    headless browser against computed style in both colour schemes.
+
+    A colour the design system does not own is left alone and reported by gate
+    W12, because silently rewriting an unknown colour would hide exactly the
+    drift the gate exists to catch.
+    """
+    def repl(m):
+        attr, hexv = m.group(1), m.group(2).upper()
+        token = FIGURE_TOKENS.get(hexv)
+        return f'{attr}="var(--{token})"' if token else m.group(0)
+
+    def do_svg(sm):
+        return FIG_COLOUR_RE.sub(repl, sm.group(0))
+
+    return SVG_RE.sub(do_svg, body)
+
+
+def figure_colours(body):
+    """Every literal colour still present in a figure, with its context."""
+    out = []
+    for sm in SVG_RE.finditer(body):
+        for m in FIG_COLOUR_RE.finditer(sm.group(0)):
+            out.append(m.group(2).upper())
+    return out
+
 
 def wrap_tables(body):
     """Put each inventory table in its own horizontally scrollable box.
@@ -342,6 +389,7 @@ def transform(print_html):
     body, slots, sections = add_anchors(body)
     body, notes = to_sidenotes(body)
     body = wrap_tables(body)
+    body = tokenize_svg(body)
 
     figures = []
     for fm in FIGNUM_RE.finditer(body):
@@ -686,6 +734,116 @@ SUBRESOURCE_RE = re.compile(
     r'<(?:script|img|iframe|video|audio|source|embed|track)\b[^>]*\bsrc="([^"]+)"'
     r"|<link\b[^>]*\bhref=\"([^\"]+)\""
     r"|url\(\s*['\"]?([^)'\"]+)", re.I)
+
+
+def gate_w12(pages):
+    """Every colour in every SVG on every page is a design token. Phase W6.
+
+    Chapter figures are drawn with literal hex, which print needs and the web
+    cannot theme; tokenize_svg() maps each value to the token that owns it, and
+    anything it could not map is still literal when this runs. That is either a
+    colour outside the design system or a token nobody registered, and both are
+    drift worth failing on.
+
+    IT SCANS EVERY PAGE, and the first version did not. It looked only at the
+    chapter body, so the landing page's hero figure kept literal hex and rendered
+    in light-mode colours on the dark ground while the gate reported green. That
+    is the same failure already recorded against gates W3 and W5 in Phase W3: a
+    gate handed one page is evidence about one page.
+    """
+    fails = []
+    for label, html in pages:
+        left = figure_colours(html)
+        if left:
+            counts = {c: left.count(c) for c in sorted(set(left))}
+            fails.append(f"W12: the {label} page uses SVG colour(s) outside the "
+                         f"design system: {counts}. Register the value in "
+                         f"FIGURE_TOKENS or use var(--token) in the figure.")
+    if not fails:
+        print(f"W12. figure colours ...... every SVG colour on {len(pages)} "
+              f"page(s) is a design token and follows the theme")
+    return fails
+
+
+# The group is the BARE token name. It captured "--folio" while every
+# lookup used "folio", so `fg not in pal` was true for all of them and the
+# contrast loop skipped every pair while the gate printed a pass. The
+# self-test control caught it on its first run, which is the entire reason
+# the controls exist.
+TOKEN_RE = re.compile(r"^\s*--([a-z-]+):\s*(#[0-9A-Fa-f]{6})\s*;", re.M)
+AA_NORMAL = 4.5
+
+
+def _lum(hexv):
+    hexv = hexv.lstrip("#")
+    parts = [int(hexv[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+    f = lambda c: c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (f(c) for c in parts)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast(a, b):
+    la, lb = _lum(a), _lum(b)
+    hi, lo = max(la, lb), min(la, lb)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+FOREGROUNDS = ("ink", "navy", "amber", "amber-fig", "teal", "folio", "axis")
+SURFACES = ("paper", "tint-def", "tint-thm", "tint-fig")
+
+
+def gate_w13(css_path="AIOM_web.css"):
+    """Colour contrast in BOTH themes, and the two dark blocks agreeing.
+
+    Phase W6. Dark mode doubles the palette, and a second palette is a second
+    place for an accessibility regression to hide. Every foreground token is
+    checked against every surface token at the WCAG AA floor for normal text.
+    The check is conservative: some pairs never co-occur, so passing it is
+    stronger than the design strictly needs, which is the right direction.
+
+    It also compares the two dark blocks. CSS cannot declare them once, so they
+    are written twice and will drift the first time someone edits one of them.
+    """
+    css = open(css_path, encoding="utf-8").read()
+    fails = []
+
+    def block(pattern):
+        m = re.search(pattern, css, re.S)
+        return dict(TOKEN_RE.findall(m.group(1))) if m else {}
+
+    light = block(r":root \{(.*?)\n\}")
+    dark_media = block(r'@media \(prefers-color-scheme: dark\) \{\s*'
+                       r':root:not\(\[data-theme="light"\]\) \{(.*?)\n  \}')
+    dark_attr = block(r':root\[data-theme="dark"\] \{(.*?)\n\}')
+
+    if not light or not dark_media or not dark_attr:
+        return ["W13: could not parse the token blocks from " + css_path]
+    if dark_media != dark_attr:
+        diff = {k for k in set(dark_media) | set(dark_attr)
+                if dark_media.get(k) != dark_attr.get(k)}
+        fails.append(f"W13: the two dark token blocks disagree on {sorted(diff)}. "
+                     f"They must be identical; CSS cannot declare them once.")
+
+    for name, pal in (("light", light), ("dark", dark_media)):
+        for fg in FOREGROUNDS:
+            for bg in SURFACES:
+                if fg not in pal or bg not in pal:
+                    continue
+                r = contrast(pal[fg], pal[bg])
+                if r < AA_NORMAL:
+                    fails.append(f"W13: {name} theme, --{fg} on --{bg} is "
+                                 f"{r:.2f}:1, below the AA floor of {AA_NORMAL}")
+        for pair in (("invert-fg", "invert-bg"), ("invert-muted", "invert-bg"),
+                     ("invert-accent", "invert-bg")):
+            if all(k in pal for k in pair):
+                r = contrast(pal[pair[0]], pal[pair[1]])
+                if r < AA_NORMAL:
+                    fails.append(f"W13: {name} theme, --{pair[0]} on "
+                                 f"--{pair[1]} is {r:.2f}:1, below AA")
+    if not fails:
+        print(f"W13. colour contrast .... both themes clear AA for normal text "
+              f"across {len(FOREGROUNDS)}x{len(SURFACES)} pairs, dark blocks agree")
+    return fails
 
 
 def gate_w11(outdir):
@@ -1384,6 +1542,8 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         fails += w6
     fails += gate_w10(outdir, metas, notes, preview)
     fails += gate_w11(outdir)
+    fails += gate_w12(pages + site_pages)
+    fails += gate_w13()
     return fails, metas
 
 

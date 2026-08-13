@@ -5,9 +5,9 @@ logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numberi
 authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 2026-08-13, and Phase W3, the front door, followed the same day. Phase W4, the
 reference layer and search, followed, and Phase W5, the site build and deploy,
-is built. Host and analytics are ruled as Decisions 65 and 66.
-Only the DOMAIN is outstanding.**
-Sections 8 through 11 record what each phase learned.
+is built, and Phase W6, dark mode and the figure token pass, closes the plan.
+Host and analytics are ruled as Decisions 65 and 66. Only the DOMAIN is
+outstanding.** Sections 8 through 14 record what each phase learned.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -251,7 +251,7 @@ pipeline on one chapter before scaling it.
   search index.
 - **Phase W5, deploy. BUILT 2026-08-13, pending Dan's domain and host rulings.** Domain, hosting, analytics posture, and the build hook that
   publishes a chapter when it locks.
-- **Phase W6, dark mode and the SVG token pass.** Separable, and deliberately last.
+- **Phase W6, dark mode and the SVG token pass. BUILT AND GREEN 2026-08-13.**
 
 Phases W1 and W2 are the sub-project. W3 to W6 are comparatively mechanical once
 W1 holds.
@@ -678,3 +678,70 @@ version control rather than twice.
   somebody adds one. Every subresource must be same-origin. Outbound anchor links
   are exempt: a link a reader chooses to follow is not a request the page makes
   for them, and the sources page exists to link out to every cited source.
+
+---
+
+## 14. What Phase W6 learned
+
+**THE PRINT PALETTE FAILS WCAG AA, AND THAT WAS FOUND BY MEASURING BEFORE
+BUILDING.** Dark mode doubles the palette, so the sensible first move was to
+check the palette that already existed. Five of seven foreground tokens fail the
+AA floor for normal text against the paper and its tints: `--folio` at 2.38:1,
+`--amber-fig` at 3.52, `--amber` at 3.69, `--teal` at 3.88, `--axis` at 4.40.
+
+Print has no WCAG floor and different physics, so `AIOM_book.css` IS UNTOUCHED
+and those values remain the values of record. `AIOM_web.css` carries web text
+derivatives darkened by the minimum needed and no more, solved rather than
+guessed: four of the five move by 2 to 15 percent and are imperceptible side by
+side, and only `--folio` moves visibly, toward legibility. **This is a finding
+Dan should see, not merely an implementation detail**, because the same numbers
+describe the printed book even though the standard does not apply to it.
+
+**DARK MODE IS DESIGNED, NOT INVERTED.** The warm paper has no correct automatic
+inverse. The ground becomes a deep navy black derived from the book's own navy,
+which keeps the two-colour identity: the same book, at night. Every dark value
+was checked against every dark surface before being written, so the palette
+passed the gate by construction rather than by correction.
+
+**THE INVERTED BAND NEEDED ITS OWN TOKENS, AND THE REASON IS INSTRUCTIVE.** In
+light mode it is navy ground with paper text. Rendering that literally in dark
+mode would put a glaring light block on a dark page, so the band has
+`--invert-bg`, `--invert-fg`, `--invert-muted` and `--invert-accent`, and is a
+surface always one step from the ground rather than a colour inversion.
+
+**CHAPTER FIGURES ARE RETOKENIZED ON THE WAY TO THE WEB, NEVER IN THE CHAPTER.**
+The figures carry literal hex because print needs no indirection, and the locked
+chapter is shared with print and is not edited. `tokenize_svg()` maps each value
+to the token that owns it during the web transform, which adds attributes and no
+text, so gate W1 is unaffected. Verified rather than assumed, in a headless
+browser against computed style in both colour schemes: `var()` DOES resolve in an
+SVG presentation attribute and DOES follow a theme change.
+
+**GATE W13 SPENT ITS FIRST RUN MEASURING NOTHING.** Its token regex captured
+`--folio` while every lookup used `folio`, so `fg not in pal` was true for every
+pair, the contrast loop skipped all of them, and the gate printed a pass. The
+self-test control caught it immediately. The fixed gate then found a real defect
+on its first honest run: in the LIGHT theme the theorem panel's roman numerals
+were dark amber on the navy band at 2.19:1, because the earlier hand-check had
+used the dark-mode amber by mistake. **That is a gate that was wrong, caught by a
+control, revealing a design defect that a human eye had already passed over
+twice.** It is the fifth time in this sub-project that a control has caught a
+gate rather than a page.
+
+**GATE W12 REPEATED THE ONE-PAGE LESSON AND WAS FIXED THE SAME WAY.** Its first
+version inspected only the chapter body, so the landing page's hero figure kept
+its literal hex and rendered in light-mode colours on the dark ground while the
+gate reported green. It now scans every emitted page, exactly as `gate_pages()`
+had to in Phase W3.
+
+**The theme preference is applied in `<head>`, before first paint.** Deferring it
+to the page script produces a flash of the light ground on every navigation.
+Three states in strict order: an explicit choice, then the system preference,
+then light. The toggle's label says what a click WILL do rather than what the
+theme currently is.
+
+### Open after W6
+
+- **The domain remains the only thing between here and a live site.**
+- The author band still needs real biography and a portrait.
+- No praise or adoption surface exists yet.
