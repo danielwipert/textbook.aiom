@@ -1,6 +1,6 @@
 /* ============================================================
    AIOM_web.css
-   VERSION: 0.4  (the reading scale: fluid type on large screens)
+   VERSION: 0.5  (the body roman becomes a true Regular)
    DATE:    2026-08-13
 
    The web presentation layer. Companion to AIOM_book.css, which remains the
@@ -69,6 +69,15 @@
        clearance, so the clearance is what gives way. Section 17 now solves to
        1411px, and the query sits at 1420px rather than the 1440px it was, so a
        1440px window GAINS margin notes it did not have.
+
+   v0.5 (2026-08-13) makes the body roman a true Regular 400. Dan read the page
+   at 1920 in Chrome and said the type felt heavy, and that the weight seemed to
+   change with the window. THE WEIGHT NEVER CHANGED: computed font-weight is 400
+   at every width and nothing here varies it. What changed was the v0.4 size,
+   and the same face set larger reads heavier. Chasing it found a defect older
+   than v0.4, described at the @font-face in section 1: the roman was Plex Sans
+   Text at usWeightClass 450 while its italic was a true 400, so the two had
+   never matched. Print keeps Text and only the web moves.
    ============================================================ */
 
 /* ---------- 1. FONTS ---------- */
@@ -76,7 +85,24 @@
    No CDN, no network at render time, same six faces the print book embeds. */
 @font-face { font-family: "Jost"; src: url("fonts/Jost-Medium.ttf");   font-weight: 500; font-display: swap; }
 @font-face { font-family: "Jost"; src: url("fonts/Jost-SemiBold.ttf"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Text.ttf");     font-weight: 400; font-style: normal; font-display: swap; }
+/* THE ROMAN IS A TRUE REGULAR ON THE WEB AND PLEX SANS TEXT IN PRINT, AND THAT
+   DIVERGENCE IS DELIBERATE. Ruled by Dan 2026-08-13. IBM Plex Sans Text is a
+   distinct face at usWeightClass 450, half a step above Regular, and it was
+   declared here as font-weight 400 from v0.1, so web body prose was heavier than
+   it announced. The italic beside it is a true 400, so roman and italic have
+   never matched each other either.
+
+   Print keeps Text. Its physics are different, ink on paper gains no weight the
+   way a backlit screen does, the print design system is locked at v7.1, and a
+   change there re-runs Stage 5 and G2 on every chapter. This is the same
+   division already in force for colour: five foreground tokens are darkened here
+   for WCAG while AIOM_book.css keeps the print values of record.
+
+   METRICALLY SAFE, VERIFIED NOT ASSUMED. Both faces are Plex 3.005, the same
+   release as every other face in fonts/use/, and the measure holds at 71
+   characters across the swap: a 77-character test string moves 0.9 per cent, so
+   the section 17 arithmetic is untouched. */
+@font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Regular.ttf");  font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Italic.ttf");   font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Medium.ttf");   font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-SemiBold.ttf"); font-weight: 600; font-style: normal; font-display: swap; }
