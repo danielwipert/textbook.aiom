@@ -967,7 +967,21 @@ BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
    defect: the web note extractor had been written as a non-greedy regex twenty
    lines after the print scanner was written to avoid exactly that.
 
-   **Phase W2, the reader design, is IN PROGRESS on this branch.**
+   **Phase W2, the reader design, is BUILT AND GREEN.** Slot rail with reading
+   metadata, sidenotes in the margin, tightened apparatus, keyboard layer, motion.
+   Gate W6 was added in W2: a twenty-width overflow sweep, the web analogue of
+   print gate 1. It is the ONLY optional gate, because it needs a headless
+   browser, and it reports SKIPPED plus "W6 NOT RUN" on the verdict line rather
+   than passing quietly. It found the P3 inventory table forcing the whole
+   document to scroll sideways below 390px. Twenty-nine negative controls now.
+
+   **A RESPONSIVE BREAKPOINT HERE IS ARITHMETIC.** A margin note needs
+   `--note + --note-gap` of side track and the side track is
+   `(viewport - --rail - --measure) / 2`, so notes fit only from 1411px up. It had
+   been set by eye at 1240px, leaving a 170px band where notes ran off the window.
+   Redo the sum if any of those four tokens changes.
+
+   **Phase W3, the front door, is next.**
 
    **STILL BLOCKED AND IT IS NOT A CODE PROBLEM: `messyjobs.ai` is refused by the
    container's egress proxy** (`gateway answered 403 to CONNECT`, confirmed against
