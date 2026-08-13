@@ -1,10 +1,12 @@
-# AIOM Web Edition: proposal v0.1
+# AIOM Web Edition: plan v1.0
 
-Status: **PROPOSAL, NOT ADOPTED.** Written 2026-08-13 on branch
-`claude/textbook-website-design-h9nk9t`. Nothing here is a ruling. The decisions
-in section 7 are Dan's, and no code should be written against this document
-until they are ruled. Not yet listed in the CLAUDE.md repository map, because the
-map records adopted artifacts.
+Status: **ADOPTED 2026-08-13.** All five opening decisions are ruled and are
+logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numbering
+authority. Section 7 records them. Phase W1 is unblocked and is the next work.
+
+The web edition is a second PRESENTATION of the book, never a second text. That
+sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
+than intended.
 
 ---
 
@@ -40,8 +42,8 @@ Dan ruled out. It would also be the fifth instance of the failure CLAUDE.md
 section 10 names: a ruled claim narrowing reverted with every date and figure
 intact, so no check on values can see it go.
 
-**Recommendation: retire the markdown pipeline permanently and build the web
-edition from the locked chapter HTML, which is Decision 50 already.** The
+**RULED as Decision 61: the markdown pipeline is retired permanently, and the web
+edition is built from the locked chapter HTML, which is Decision 50 already.** The
 uploaded folder is worth keeping only as evidence that the idea was tried. The
 one part worth carrying forward is the *directive vocabulary* in `aiom_md.py`
 (theorem, lemma, figure, definition, evidence, problem, provenance), which is a
@@ -96,19 +98,33 @@ Drafts/ChNN_*/00_Stage0_Draft/AIOM_ChNN_redraft.html   <-- the single source
                  +-- reuses footnotes.py, cite_format.py, status_check.py
 ```
 
-**Language: Python, plus Jinja2, plus vanilla JavaScript.** No Node toolchain.
-The repository is already a Python build system with a pinned `requirements.txt`
-and a one-command build, and `web_build.py` sits beside `AIOM_build.py` and
-imports the same citation modules. An Astro or Next.js site would be faster to
-make pretty and would introduce a second dependency universe, a second idea of
-what a build is, and a standing temptation to keep chapter content in the site
-repo. That temptation is exactly what Decision 50 exists to prevent. Jinja2 is
-the only new pinned dependency.
+**Language: Python, plus Jinja2, plus vanilla JavaScript. Decision 62.** No Node
+toolchain. The repository is already a Python build system with a pinned
+`requirements.txt` and a one-command build, and `web_build.py` sits beside
+`AIOM_build.py` and imports the same citation modules. The decisive argument is
+that citation formatting, gate W1's PDF extraction, and lock status are all
+already Python, so a JavaScript build would not remove Python from the build. It
+would put the language boundary in the middle of the citation path, and a second
+implementation of citation text is a second source of truth for it. Jinja2 is the
+only new pinned dependency.
+
+**The toolchain does not constrain the design, and this was tested rather than
+assumed.** Scroll-driven animation (`animation-timeline: scroll()`), cross-page
+morphing (`@view-transition`), container queries, `text-wrap: pretty`, variable
+font interpolation and `scroll-snap` are browser platform features, available to
+any static page regardless of what emitted it. The one place a framework could
+have raised the ceiling is rich interactive figures, and Decision 62 keeps that
+door open by permitting a self-contained island on any figure that earns one.
+Figure 1.1 is the obvious first candidate: a usage slider where the reader drags
+consumption and watches the seat-model line stay flat while the event-model area
+accumulates. That is a thing the PDF structurally cannot do, and this book is full
+of that shape.
 
 **Output: a fully static site.** HTML, CSS, self-hosted fonts, inline SVG, one
 small JavaScript bundle for the reader chrome and search. It hosts on Cloudflare
 Pages or GitHub Pages behind a custom domain, costs nothing to run, and cannot
-break at request time.
+break at request time. Rendered output is never committed (Decision 63), so a
+chapter's text exists once in version control rather than twice.
 
 ### The gate that matters most
 
@@ -201,8 +217,8 @@ Chapter 1 is the exemplar the other fourteen are drafted against, and it is the
 only locked chapter. The web edition should be built the same way: prove the whole
 pipeline on one chapter before scaling it.
 
-- **Phase W0, decisions.** Section 7. Nothing is built first.
-- **Phase W1, the pipeline.** `web_build.py`, `AIOM_web.css`, and gates W1 to W5,
+- **Phase W0, decisions. CLOSED 2026-08-13.** Section 7, Decisions 60 to 64.
+- **Phase W1, the pipeline. NEXT.** `web_build.py`, `AIOM_web.css`, and gates W1 to W5,
   rendering Chapter 1 only. Success is defined by gate W1 passing: the web text is
   character-identical to the locked print text. Design is deliberately plain at
   this phase. This is the load-bearing work and it is where the risk is.
@@ -249,30 +265,40 @@ even if they share a visual language, which is Decision W-A.
 
 ---
 
-## 7. Decisions, in the order they block work
+## 7. Decisions, all ruled 2026-08-13
 
-**W-A. Is the whole book free on the web, or is the site a marketing surface with
-sample chapters?** This is first because it changes the build, not just the
-content. Full text means a pure static site and no auth. Samples plus purchase
-means a store, a paywall or an email gate, and a decision about which chapters are
-open. Full text hosted openly also interacts with the PDF and ebook editions and
-with any university press conversation, which is a business question rather than a
-technical one. *No recommendation offered: this is a business ruling.*
+Logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`. Summarized here; that
+file carries the full text and is authoritative.
 
-**W-B. Retire the markdown pipeline permanently?** Recommendation: yes. Delete
-nothing that is already archived, and add a line to the CLAUDE.md repository map
-recording that `archive/AIOM_ch01_markdown_noncanonical.md` is a pre-fact-check
-draft that must never be used as a source, so the next session does not
-rediscover this. Section 1 is the reasoning.
+| | Question | Ruling |
+|---|---|---|
+| **W-A** | Free full text, or marketing site with samples? | **Decision 60.** Full text free. The paid product is print and ebook plus the apparatus: Appendix A, Northmoor, solutions, instructor materials. Chapters publish as they lock. No free-forever promise is published, so a press conversation stays open. |
+| **W-B** | Retire the markdown pipeline? | **Decision 61.** Retired permanently. `aiom_md.py` stays deleted. The archived markdown is kept for its diff value, with a hard warning naming the three retracted claims it carries. |
+| **W-C** | Python or a JavaScript framework? | **Decision 62.** Python and Jinja2, no Node, plus self-contained interactive islands for any figure that earns one. |
+| **W-D** | One repository or two? | **Decision 63.** This one. Rendered output is not committed. CI builds, gates, and publishes. |
+| **W-E** | Which chapters may the site show? | **Decision 64.** Locked only, enforced by gate W2, with a local `noindex` preview path for in-flight chapters. |
 
-**W-C. Python and Jinja2, or a JavaScript framework?** Recommendation: Python and
-Jinja2, one new pinned dependency, for the reasons in section 3.
+Two carry-forward warnings came out of these rulings and are recorded with them:
 
-**W-D. Does the web edition live in this repository or its own?** Recommendation:
-this one. The web build must import `footnotes.py` and `cite_format.py` and must
-read the chapter HTML directly, and any split creates the copy that drifts.
-Publishing is a deploy step, not a second repository.
+1. **`archive/AIOM_ch01_markdown_noncanonical.md` must never be read for prose.**
+   Section 1 is the reasoning, and `archive/README.md` carries the warning at the
+   file itself.
+2. **The web render is never the artifact for an external fact check.** It is
+   HTML, so it reproduces the extraction phantoms that produced both production
+   flags on Chapter 1's first check: the dropped `<li>` contents of the theorem
+   panel, and the empty table cells collapsing leftward. Stages 3 and 7 keep
+   getting the PDF.
 
-**W-E. Which chapters may the site show, and when?** Recommendation: locked
-chapters only, enforced by gate W2 rather than by intention. Today that is Chapter
-1 alone, which is enough to build and prove everything.
+### What is still open, and belongs to Phase W2
+
+Not decisions in the sense above, because they are design questions that want
+pixels rather than reasoning:
+
+- **The visual direction itself.** Nothing is settled beyond the inherited palette
+  and the two committed typefaces.
+- **The inspiration site was never reviewed.** Section 6 stands. `messyjobs.ai` is
+  refused by the container's egress proxy and no part of this plan derives from it.
+- **Dark mode**, deferred to Phase W6 with the SVG token pass, on the reasoning in
+  section 4.
+- **Which figures earn an interactive island.** Figure 1.1, the seat model against
+  the event model, is the obvious first candidate.

@@ -196,7 +196,8 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_Maturity_Model_v1.md` | Stage definitions. Ch13 craft. |
 | `AIOM_Case_Bank_v1.md` | Cited cases with reuse policy. |
 | `AIOM_Northmoor_Dataset_v1.md` | Capstone dataset design. |
-| `AIOM_Workplan_v5.md` | Current workplan and per-chapter tracker. Supersedes v4, which is retired. |
+| `AIOM_Workplan_v5.md` | Current workplan and per-chapter tracker. Supersedes v4, which is retired. **The decision-numbering authority.** Decisions run to 64. |
+| `AIOM_Web_Edition_Plan_v1.0.md` | The web edition: architecture, the web gates, the site, and phasing. Adopted 2026-08-13 with Decisions 60 to 64. The web is a second PRESENTATION of the book, never a second text, and gate W1 is what makes that true rather than intended. |
 | `AIOM_Validation_Matrix_v1.xlsx` | The 28-row Appendix A trace matrix. Working artifact, never book content. Distinct from the full 228-object registry, which lives in Drive. |
 | `Drafts/ChNN_<Name>/` | Chapter working directories, one per chapter, plus `Case_Part_I` through `III`. Each holds thirteen stage folders on Process v2 numbering and the chapter checklist. The live text sits in `00_Stage0_Draft/`. **There is no `chapters/` directory**, and this row claimed one until 2026-08-10. |
 | `fonts/` | Committed fonts (IBM Plex Sans, Jost) plus their OFL licenses. `fonts/use/` holds the six faces the CSS loads, so rendering needs no network staging. |
@@ -546,6 +547,33 @@ after the manuscript.
   long enough to diverge by roughly 150 lines, and Decision 56 was applied to the
   wrong copy and had to be reverted and re-applied. Stage-folder render PDFs are
   kept: they are artifacts of a step, not competing texts.
+
+### The web edition, adopted 2026-08-13
+
+The book ships as a print PDF and as a website, from ONE source. Full plan in
+`AIOM_Web_Edition_Plan_v1.0.md`; Decisions 60 to 64 in the Workplan are the
+rulings. What binds outside that document:
+
+- **The web is a second PRESENTATION, never a second text.** `web_build.py` and
+  `AIOM_web.css` sit beside `AIOM_build.py` and `AIOM_book.css` and read the same
+  locked chapter HTML, reusing `footnotes.py` and `cite_format.py` rather than
+  reimplementing citations. **Gate W1 requires the web body text to be
+  character-identical to the print body text.** A second renderer is a machine for
+  producing two artifacts of one chapter that silently disagree, which is this
+  repo's signature failure, and W1 is the control against it.
+- **THE ARCHIVED MARKDOWN CHAPTER MUST NEVER BE READ FOR PROSE.**
+  `archive/AIOM_ch01_markdown_noncanonical.md` is a PRE-FACT-CHECK draft. It
+  carries the SF2 continuation mechanism, the FC9 absorbed-cost inference, and the
+  word "introduced" that a register note forbids, in prose that reads well and
+  whose dates and figures are all correct. It is kept only for diffing against
+  pre-fact-check prose. Decision 61 retires the markdown pipeline permanently;
+  `aiom_md.py` was deleted 2026-08-10 and is not restored.
+- **The web render is never the artifact for an external fact check.** It is HTML,
+  so it reproduces the extraction phantoms that produced both production flags on
+  Chapter 1's first check. Stages 3 and 7 keep getting the PDF.
+- **Only locked chapters publish, enforced by gate W2 against `status_check.py`,
+  not by intention.** In-flight chapters build to a local `noindex` preview path
+  that CI never publishes.
 
 ### Rules that came from a check being wrong
 

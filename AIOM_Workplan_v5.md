@@ -410,6 +410,55 @@ Decisions 22 onward live here.
   Accepted cost: a table may open a page while its instruction closes the one
   before. Chapter 1 goes from 19 pages to 20.
 
+- **Decision 60. RULED 2026-08-13.** The web edition carries the full text, free.
+  The paid product is the print and ebook editions plus the apparatus the site
+  does not carry: Appendix A reproducing the 28 theorems and lemmas, the Northmoor
+  dataset and capstone materials, problem solutions, and instructor materials.
+  Chapters publish as they lock, and the site publishes no free-forever promise,
+  so a press conversation stays open. Rationale: the book's differentiator is that
+  every empirical claim is cited, formalized, or cut, and only the full text with
+  its per-chapter source register demonstrates that. A discipline is established
+  by adoption and citation rather than by unit sales.
+
+- **Decision 61. RULED 2026-08-13.** The enriched-markdown pipeline is retired
+  permanently. `aiom_md.py` stays deleted and is not restored. Markdown is never a
+  committed chapter source on either the book path or the web path, because after
+  Stage 0 a chapter passes through twelve steps that all operate on the HTML, so a
+  committed markdown source goes stale at Stage 1 and stays stale for the
+  chapter's life. `archive/AIOM_ch01_markdown_noncanonical.md` is KEPT, for its
+  diff value against pre-fact-check prose, and its warning is strengthened: it
+  carries the SF2 continuation mechanism, the FC9 absorbed-cost inference, and the
+  forbidden word "introduced", in prose that reads well and whose dates and
+  figures are all correct. It must never be read for prose.
+
+- **Decision 62. RULED 2026-08-13.** The web edition is built by `web_build.py`
+  with Jinja2 templates and a web stylesheet, in Python, with no Node toolchain.
+  Any figure that earns interactivity gets a self-contained island on its own
+  page. Rationale: citation formatting (`footnotes.py`, `cite_format.py`), the
+  text-equivalence gate (`pdfplumber`), and lock status (`status_check.py`) are
+  all already Python, so a JavaScript build would not remove Python from the build
+  but would put the language boundary in the middle of the citation path. The
+  toolchain does not constrain the design: scroll-driven animation, view
+  transitions, container queries and the rest are browser platform features
+  available to any static page.
+
+- **Decision 63. RULED 2026-08-13.** The web edition lives in this repository,
+  beside the print build. Rendered output is NOT committed, exactly as `build/`
+  is not, so the full text of a chapter exists once in version control rather than
+  twice. Deployment is a CI workflow that installs `requirements.txt`, builds,
+  runs the web gates, and publishes, so the gates run on every push rather than
+  on memory.
+
+- **Decision 64. RULED 2026-08-13.** The site shows locked chapters only, enforced
+  mechanically rather than by intention. Gate W2 asks `status_check.py` and
+  refuses any chapter not at Stage 9. A `--preview` flag builds an in-flight
+  chapter to a local, `noindex`, unlinked path, and CI never publishes it.
+  CARRY FORWARD: the web render must never be the artifact for an external fact
+  check. Both production flags on Chapter 1's first check were phantoms of HTML
+  extraction, which dropped the `<li>` contents of the theorem panel and collapsed
+  empty table cells leftward. A web page is HTML and reproduces both. Stages 3 and
+  7 keep getting the PDF.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

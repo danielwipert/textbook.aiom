@@ -17,4 +17,17 @@ Drafts tree.
 - `AIOM_ch01_markdown_noncanonical.md`: the enriched-markdown form of Chapter 1
   from the Web Version folder. HTML is the source of truth for every chapter on
   both the book path and the web path, never markdown, so this file is not a
-  source of record. Kept for reference only.
+  source of record. **DO NOT READ THIS FILE FOR PROSE. It is a PRE-FACT-CHECK
+  draft and it carries claims Dan ruled out.** Verified 2026-08-13 against the
+  locked chapter. It contains "after which usage continued to bill against real
+  rates", the automatic-continuation mechanism Stage 3 removed at SF2; "the
+  upstream cost of serving heavy users under a flat price had become untenable",
+  the inferred absorbed-cost explanation Stage 7 cut at FC9; and "Anthropic
+  introduced and then tightened usage limits", where the register note on
+  `techcrunch-2025-anthropic-limits` forbids the word "introduced". Every date and
+  figure in the file is correct and the prose reads well, which is exactly why it
+  is dangerous: nothing mechanical catches a ruled narrowing being reverted. It
+  also predates the Stage 6 copy edit, Decision 58 (`.nb`), Decision 59
+  (`lang="en-US"`), and gate 15. Kept, under Decision 61, for one purpose only:
+  diffing against pre-fact-check prose, under the rule that a chapter whose fact
+  check predates a copy edit must be diffed against the audited artifact.
