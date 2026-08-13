@@ -103,6 +103,9 @@
      themes, so its accent is the light amber in both. */
   --invert-accent: #E08A55;
   --shadow:    rgba(43, 38, 32, 0.10);
+  /* Paper tooth. Not a colour, so W13's hex regex cannot see it and cannot
+     police the two dark blocks agreeing on it: keep them in step by hand. */
+  --grain:     0.13;
 
   --measure:   32rem;    /* the text column, about 66 characters */
   --note:      15.5rem;  /* the sidenote */
@@ -134,6 +137,9 @@
     --invert-muted: #A9BCCC;
     --invert-accent: #E08A55;
     --shadow:    rgba(0, 0, 0, 0.35);
+    /* Lower on a dark ground: identical noise reads as banding rather than
+       as tooth once the surface it sits on is dark. */
+    --grain:     0.08;
   }
 }
 
@@ -157,6 +163,7 @@
     --invert-muted: #A9BCCC;
     --invert-accent: #E08A55;
     --shadow:    rgba(0, 0, 0, 0.35);
+    --grain:     0.08;
 }
 
 /* ---------- 3. RESET AND PAGE ---------- */
@@ -169,9 +176,28 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* THE PAPER COLOUR MOVES TO html AND THE GRAIN SITS BETWEEN html AND body.
+   A fixed overlay painted ON TOP of the page would put noise over every line of
+   type; at this opacity that is nearly invisible, but "nearly" is not a standard
+   worth adopting for a book. Painting it behind the content instead means the
+   tooth belongs to the ground, and a tinted panel covers it, which is right:
+   a panel is a different stock laid on the paper. */
+html { background: var(--paper); }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='120'%20height='120'%3E%3Cfilter%20id='g'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='4'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='120'%20height='120'%20filter='url%28%23g%29'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
 body {
   margin: 0;
-  background: var(--paper);
+  background: transparent;
   color: var(--ink);
   font-family: "Plex", system-ui, sans-serif;
   font-weight: 400;
@@ -599,11 +625,28 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 }
 .cta:hover { background: var(--amber); }
 
+/* THE DEPARTMENT LINE. A magazine rubric: letterspaced small caps with a short
+   rule running into it. The rule is currentColor, so it follows the eyebrow
+   wherever the eyebrow goes, including onto the inverted band where the text is
+   --invert-muted rather than --amber. inline-block rather than flex on purpose:
+   flex would change the layout model of every <p class="eyebrow"> on the site. */
 .eyebrow {
   font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.7rem;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber);
-  margin: 0 0 0.8rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber);
+  margin: 0 0 0.85rem;
 }
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem; height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+  vertical-align: 0.3em;
+  margin-right: 0.6rem;
+}
+/* The part card already carries a large numeral directly above this line, so a
+   rule as well is one mark too many in a space that is already spoken for. */
+.part-card .eyebrow::before { content: none; }
 
 /* Hero: text left, live model right, and it uses the whole measure. */
 .hero {

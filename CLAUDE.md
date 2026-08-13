@@ -789,6 +789,31 @@ rulings. What binds outside that document:
   README draft asserted fourteen and the number was checked against the build
   output for the first time. **Re-derive this from `web_build.py` output rather
   than copying it forward, which is how it got to five documents.**
+- **THE ACCENT PASS, 2026-08-13: paper grain and the department line.** Dan's
+  brief was "New Yorker meets Comptoir des Cotonniers", accents rather than an
+  overhaul, and **marks in chrome only**. Two things landed. `--grain` puts a
+  whisper of tooth on the ground through an inline SVG turbulence data URI, and
+  `.eyebrow` gained a short rule running into it, which is the magazine rubric.
+  Both borrow the TECHNIQUE and refuse the REGISTER, which is the same rule
+  `AIOM_Voice_and_Craft_v1.md` already applies to the four prose exemplars: a
+  New Yorker spot drawing would import a whimsy that C6 rules out, so any future
+  spot marks are drawn as instruments rather than as jokes.
+- **THE GRAIN SITS BEHIND THE CONTENT, NOT OVER IT.** The paper colour moved to
+  `html` so `body::before` can carry the texture at `z-index: -1`. A fixed
+  overlay painted on top would put noise over every line of type, which at this
+  opacity is nearly invisible, and "nearly" is not a standard for a book. A
+  tinted panel therefore covers the grain, which is correct: a panel is a
+  different stock laid on the paper.
+- **`--grain` IS A GAP IN GATE W13 AND THE TWO DARK BLOCKS MUST BE KEPT IN STEP
+  BY HAND.** W13's token regex captures `--name: #rrggbb;` only, so a unitless
+  opacity is invisible to it, including to the control that checks the two dark
+  blocks agree. Any future non-hex token inherits the same gap.
+- **THE FIRST GRAIN VALUE DID NOTHING AND WAS ONLY CAUGHT BY MEASURING.** At 0.055
+  the rendered spread was 5 levels out of 255, which is indistinguishable from a
+  flat fill. The value was swept against screenshots at 1x and 2x and set to 0.13
+  light and 0.08 dark, the dark value lower because identical noise reads as
+  banding once the ground is dark. Judge this by rendering and measuring, never
+  by reading the number.
 - **DARK MODE IS DESIGNED, NOT INVERTED.** The ground becomes a deep navy black
   derived from the book's own navy, which keeps the two-colour identity. A theme
   toggle sits in every topbar; the preference is applied in `<head>` before first
