@@ -7,211 +7,55 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/textbook-website-design-h9nk9t`. **THREE COMMITS
-AHEAD OF `main`, NOTHING BEHIND.** `git rev-list --left-right --count
-origin/main...HEAD` reports `0 3`, checked after a fetch rather than assumed. The
-three are the web edition proposal, Decisions 60 to 64 with the plan adopted, and
-Phase W1. **NOT YET MERGED UP.** Merging is Dan's call: this is a new sub-project
-rather than a chapter, and nothing on `main` depends on it.
+**MERGED TO `main` AND LEVEL, 2026-08-13.** `main` is at `35b9dce` and carries
+the whole web edition, twelve commits, fast-forwarded from
+`claude/textbook-website-design-h9nk9t`. Verified rather than assumed, in this
+order and before anything was pushed: `git_hygiene.py` first (CLAUDE.md section 9
+rule 1), then a fetch, then `git log origin/main ^HEAD` empty, then
+`git merge-base --is-ancestor` confirming `main` was a strict ancestor. After the
+push, `git rev-list --left-right --count origin/main...<branch>` reports `0 0`.
+The build, the self-test and `status_check.py` were all re-run ON `main` after
+the merge: fourteen gates pass, sixty-one controls behave, Chapter 1 reports 13
+of 13.
 
-The remote is clean and now holds two branches:
+`claude/textbook-website-design-h9nk9t` is now FULLY MERGED and safe to delete.
 
-  main                                     the trunk, at 2b22b3f
-  claude/textbook-website-design-h9nk9t    this one, +3, pushed
+**A CLAIM IN THIS FILE WAS WRONG AND IT WAS WRITTEN THIS SESSION.** The previous
+revision said "the remote is clean and now holds two branches" and "the 2026-08-12
+stranding is FULLY RESOLVED, all three leftover branches are gone from the
+remote." Neither was true. It was written from intention rather than from a
+sweep, which is the exact failure CLAUDE.md section 10 records under "write a
+scope claim from what was done, never from what was intended", and it is the
+sixth instance in this repository. `git_hygiene.py`, run at session close as the
+rule requires, found four branches:
 
-**THE 2026-08-12 STRANDING IS FULLY RESOLVED.** All three leftover branches named
-in the previous handoff are gone from the remote. The durable lesson survives its
-occasion and is repeated here because it will recur: **A DELETED BRANCH IS NOT
+  main                                     the trunk, now at 35b9dce
+  claude/textbook-website-design-h9nk9t    FULLY MERGED, safe to delete
+  claude/chapter-1-status-gli2c0           fully merged, safe to delete
+  claude/stage-7-explanation-sdsb38        fully merged, safe to delete
+  claude/chapter-1-handoff-review-sbkq2u   +3, NOT merged, ruled superseded
+
+Deletion is Dan's: `git push --delete` returns 403 from this environment.
+
+**THE ONE BRANCH `main` DOES NOT HAVE, AND WHAT IS ACTUALLY ON IT.**
+`claude/chapter-1-handoff-review-sbkq2u` carries three commits from 2026-08-05,
+inspected rather than guessed at: a Chapter 1 reading-copy PDF, a copy-edit
+worksheet `.docx` and its manifest, a HANDOFF revision, and
+`build_copyedit_worksheet.py` at 304 lines. That script is the Process v1
+predecessor of `copyedit_export.py` and `copyedit_import.py`, both of which are at
+the repository root and have since round-tripped a real chapter. The branch was
+already ruled superseded and marked for deletion. It was NOT merged here, and
+that is a deliberate choice rather than an oversight. Recovery tip is `68bc904` if
+the worksheet script is ever wanted.
+
+**THE DURABLE LESSON, repeated because it will recur: A DELETED BRANCH IS NOT
 GONE WHILE A SESSION HOLDING IT IS STILL ALIVE.** A long-running container carries
 a local ref and full push rights, so a push from an old session recreates what was
-just deleted, and `git push --delete` returns 403 from this environment so Claude
-cannot undo it. Close the sessions, then delete.
+just deleted. Close the sessions, then delete.
 
-**THE WEB EDITION IS THE ACTIVE SUB-PROJECT.** Chapter 1 is locked and Chapter 2
-is still the next DRAFTING target, but on 2026-08-13 Dan opened the web edition as
-a parallel sub-project and it is where this branch's work is. Thread 8 below is the
-live record.
-
-**"MERGE MAIN UP" WAS ASKED FOR IN THIS CONTAINER ON 2026-08-12 AND THE ANSWER WAS
-THE OPPOSITE DIRECTION.** `main` was EIGHTEEN commits ahead and this branch held
-nothing `main` lacked, because the reconciliation session had already merged it.
-Fast-forwarding `main` to the branch head, the phrase's usual meaning here, would
-have been a no-op at best. The fetch-first rule and `git_hygiene.py` both caught it
-before anything was pushed. This is the second consecutive session where the
-inherited fast-forward assumption was false, so treat it as dead rather than as
-unlucky.
-
-Historical, from the 2026-08-12 reconciliation session:
-
-**FOUR SESSIONS WORKED CHAPTER 1 BETWEEN 2026-08-10 AND 2026-08-12 WITHOUT SEEING
-EACH OTHER, AND THE RESULT WAS THREE DISAGREEING RECORDS OF ONE CHAPTER.** Dan
-ruled `claude/stage-7-explanation-sdsb38` the base, and this branch is the
-reconciliation: `main` merged in first, then `stage-7` merged on top, with the
-Stage 6 copy edits CE3 to CE6 layered over the Stage 7 fact-check narrowings FC2
-to FC5. Nothing was discarded from either side.
-
-**CLOSED 2026-08-12. `claude/stage-6-edits-rof1yb` IS MERGED AND ITS WORK IS IN
-THIS TEXT.** It had held three commits nothing else contained: the Stage 6
-closure at 9 of 13, the Stage 7 packet, SF11, and `factcheck_packet.py`. All are
-now on `main`. Dan ruled option B: take everything, but leave the Stage 6 tick
-OPEN, because the closure was made on 2026-08-10 and then stranded while two
-sessions that could not see it applied four further copy edits. The closure text
-is preserved verbatim in the checklist under a header reading RECORDED BUT NOT IN
-FORCE. Re-closing Stage 6 is one character in the checklist and it is Dan's.
-
-Worth keeping as a warning about handoffs rather than about branches:
-`stage-7`'s HANDOFF asserted it REPLACED that branch. The git graph said
-otherwise. Both branched from `e233c12`, and `stage-7` never contained those
-three commits, so a handoff written in good faith sent the next reader past work
-that was still stranded. **VERIFY A SUPERSESSION CLAIM WITH
-`git merge-base --is-ancestor` BEFORE BELIEVING IT.** A branch is superseded when
-the graph says so, never when a document says so.
-
-**THE FAST-FORWARD ASSUMPTION THIS FILE CARRIED SINCE THE BEGINNING IS DEAD.**
-Every entry before 2026-08-12 says `main` carries no commits of its own so every
-merge is a clean fast-forward. Told "merge main up", the 2026-08-12 session ran
-the fetch first and found `main` six commits AHEAD with one of its own
-outstanding. A force would have destroyed two HANDOFF refreshes, two proof rounds
-and 190 lines of checklist record. **"Merge main up" is a request to make the two
-level, NOT a licence to force. If `git log origin/main ^HEAD` is non-empty, STOP
-AND READ WHAT IS THERE.**
-
-**USE `python3 git_hygiene.py` BEFORE EVERY MERGE AND EVERY SESSION CLOSE. DO NOT
-HAND-ROLL THE SWEEP.** Ruled 2026-08-12 and written into CLAUDE.md section 9,
-along with the rest of the git rules, because keeping the repository coherent is
-Claude's job and it cost Dan a drafting session.
-
-**THE HAND-ROLLED SWEEP THIS FILE USED TO CARRY WAS WRONG, AND ITS NUMBERS ARE
-CORRECTED HERE.** It reported nine branches carrying 149 commits `main` did not
-have. **That was a shallow-clone artifact.** The container clones with
-`fetch --depth 50`, so an older branch's common ancestor sits beyond the
-boundary, `git merge-base` fails, and `git rev-list origin/main..<branch>` counts
-the branch's WHOLE history as unmerged. After `git fetch --unshallow`:
-
-  claimed   9 branches, 149 commits stranded
-  actual    3 branches,  24 commits stranded, and 13 branches FULLY MERGED
-
-Four of the seven "dead" branches were fully merged the whole time. A sweep that
-reports noise as danger is worse than no sweep, because it spends the reader's
-trust. `git_hygiene.py` deepens before measuring, every run.
-
-**BRANCH CLEANUP IS DONE. THE REPOSITORY IS THREE BRANCHES.** Dan deleted eleven
-fully merged branches and then two of the three that carried unmerged work, all
-on 2026-08-12, after every item worth keeping had been extracted onto `main`.
-What remains:
-
-  main                             the trunk
-  claude/chapter-1-status-gli2c0   the 2026-08-12 working branch, level with main
-  claude/chapter-1-handoff-review-sbkq2u   +3, STILL PRESENT, superseded
-
-The third is a leftover rather than a decision: Dan ruled all three for deletion
-and two went. It holds a reading copy, a copy-edit worksheet and its builder, all
-Process v1 artifacts superseded by `copyedit_export.py`. Nothing in it is wanted.
-Delete it whenever convenient. Recovery point if that judgment is ever wrong:
-tip `68bc904`.
-
-**THE TWO DELETED BRANCHES CARRIED UNMERGED COMMITS, so their tips are recorded
-here rather than in a commit message that scrolls away:**
-
-  chapter-1-prose-style-x0bzze  tip 84d6d04  +20  style guide, gate 15 and the
-                                                  five house-style checks all
-                                                  EXTRACTED first; vocabulary
-                                                  ledger PRESERVED under archive/
-  handoff-review-ownf6v         tip a52f95f  +1   copyedit_docx.py, ancestor of
-                                                  copyedit_export.py
-
-Unreachable objects survive on the remote for a window, and a recorded SHA is
-what makes recovery a procedure rather than a hope: `git fetch origin <sha>`.
-
-**THE NEAR MISS WORTH REMEMBERING.** The 2026-08-12 audit first called the
-placed-vocabulary ledger "least urgent, possibly superseded". That was true when
-written and false four hours later, because adopting the prose style guide the
-same day made its section 2.4 live, and 2.4 only works across fifteen chapters if
-something records which terms have already been placed. Deleting the branch would
-have destroyed a live requirement four hours after adopting the policy that needs
-it. **A SUPERSEDED VERDICT HAS A DATE ON IT. Re-check it against what the repo
-adopted since, not against what it looked like when the verdict was written.**
-
-**BRANCH DELETION IS BLOCKED FROM THE CLAUDE ENVIRONMENT AND IS DAN'S.**
-`git push --delete` returns HTTP 403 for every branch, singly and in bulk; the
-GitHub MCP server exposes `create_branch` with no delete counterpart; the proxy
-reports no relay failures, so the remote is refusing rather than the transport
-failing. Report the denial, do not route around it.
-
-**CONCURRENT SESSIONS COLLIDE ON NAMES, TWICE OVER.** Both Stage 6 sessions
-numbered findings from CE1, so one session's CE2 to CE5 are renumbered CE3 to CE6
-with the mapping recorded in the checklist. Both also produced a file called
-round 6. Number a finding or an artifact only after checking what the checklist
-already owns.
-
-**THE STRANDED-COMMIT LESSON, WHICH IS WHY `git_hygiene.py` EXISTS.** If a later
-session finds the live text missing an edit this file claims, do not conclude it
-was lost. Run `python3 git_hygiene.py --deep`, which deepens the shallow clone
-first and lists every branch holding commits `main` does not have, plus the files
-that live only on each. The hand-rolled version of that sweep used to be printed
-here and was wrong; see the correction above.
-
-Historical note from the third 2026-08-10 session, kept because the recovery
-procedure above is drawn from it:
-
-**A COMMIT WAS STRANDED ON THE PREVIOUS BRANCH AND NEARLY LOST.** Stage 6 CE1 was committed to
-`claude/chapter-1-status-gli2c0` AFTER that branch had already been levelled with
-`main`, so `main` never received it, and the next session cloned a container whose
-live text did not contain the edit. The session opened believing Stage 6 edits
-were in progress and found a clean tree, no pull requests, no issues, and no
-returned proof. The edit was recovered by fast-forward, but only because every
-branch was searched for commits `main` did not have, using the snippet above.
-
-Two things follow. **Merge up before the branch is retired, not after the last
-commit you happen to remember**, and **when a session reports work that is not in
-the tree, search every branch before concluding it was lost.** Note also that
-`origin/claude/stage-6-edits-rof1yb` did not exist on the remote at session start
-while a local tracking ref for it did, so the first sync reading looked clean and
-meant nothing. That is the THIRD instance of a worthless pre-fetch sync reading.
-
-Historical note from the second session, kept because the reasoning still holds:
-**`main` WAS MERGED UP AT THAT SESSION'S CLOSE and `main` and that branch were
-LEVEL.** The branch started level with `main`, took four commits, and `main` was
-fast-forwarded to the branch head. Every merge so far has been a clean
-fast-forward, because `main` carries no commits of its own, and that was verified
-before pushing rather than assumed: `git rev-list --left-right --count
-origin/main...HEAD` reported `0 4`, and `git log origin/main ^HEAD` was empty,
-which is what proves `main` is a strict ancestor. A specific SHA for the head is
-deliberately not recorded here: it goes stale on the next commit.
-
-**THE REMOTE-TRACKING REFS IN A FRESH CONTAINER CAN BE STALE. FETCH BEFORE YOU
-DIAGNOSE SYNC STATE. THIS HAS NOW HAPPENED TWICE.** The container clones with
-`fetch --depth 50` at setup. On 2026-08-09 that stored `origin/main` at `2090bcf`
-while the real remote was eighteen commits further on at `95dc1f3`, and reading
-the stale ref produced two false conclusions: that `main` was behind, and that
-the 2026-08-08 entry's claim of a fast-forward was wrong. Both were incorrect.
-
-**The second 2026-08-10 session hit the identical stale value.** A fresh
-container again showed `origin/main` at `2090bcf`; `git fetch origin main` moved
-it to the true head in one step. The ref was thirteen commits out of date and
-would have made a level branch look far ahead. Two instances of the same stale
-SHA is not coincidence, it is what the shallow clone stores, so treat any sync
-reading taken before a fetch as worthless.
-
-The lesson is not about that entry, it is about the tooling. `git log origin/main`
-and `git rev-list origin/main...HEAD` both read the local tracking ref, and in this
-environment that ref can be an old snapshot rather than the remote. Run
-`git fetch origin main` first, then:
-
-```
-git fetch origin main                                   # ALWAYS FIRST
-git status                                              # working tree
-git rev-list --left-right --count origin/main...HEAD    # main behind / ahead
-git log --oneline origin/main ^HEAD                     # empty = ff is safe
-python3 status_check.py                                 # authoritative status
-```
-
-This is the same failure the repo has hit repeatedly in its own checks: a reading
-that looks authoritative, taken from an input nobody re-derived. It cost a false
-claim in a handoff, which is the one file that must not carry one. The 2026-08-10
-session added a second instance of the same shape in a different place, a scope
-claim in the Stage 5 record naming a page that had not been read; see the chapter
-status below.
+**THE WEB EDITION IS COMPLETE THROUGH PHASE W6 AND IS ON `main`.** Chapter 2 is
+the next DRAFTING target and is unblocked. Thread 8 below is the live record of
+the web sub-project.
 
 ## Chapter 1 status: **LOCKED 2026-08-13, 13 of 13.** THE FIRST LOCKED CHAPTER
 
@@ -931,14 +775,43 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF 2026-08-13, in order: 8 (the web edition), 6 (Chapter 2),
-5 (process hardening), 3 (design gaps), 7 (Decision 28).** Everything else below is
+**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work), 8 (the
+web edition, built through W6 and waiting on Dan), 5 (process hardening),
+3 (design gaps), 7 (Decision 28).** Everything else below is
 closed and kept as record. The numbering is left alone deliberately: these numbers
 are cited in commit messages and in the checklist, and renumbering would break
-those references for cosmetic tidiness. **THE WEB EDITION IS THE WORK ON THIS
-BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
+those references for cosmetic tidiness. **THE WEB EDITION IS BUILT THROUGH PHASE
+W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
 
-8. **LIVE. The web edition, opened 2026-08-13.** Dan asked for the book to exist
+8. **BUILT THROUGH W6 AND ON `main`, 2026-08-13. Waiting on Dan for three
+   things, none of which Claude can supply.** The web edition, opened the same
+   day.
+
+   **WHAT DAN OWES, in the order it blocks things:**
+   - **THE DOMAIN.** The only thing between here and a live site. `--base-url`
+     writes the CNAME and makes the sitemap absolute. Unset today, so no hostname
+     is invented and the sitemap emits site-relative paths.
+   - **Enabling GitHub Pages in the repository settings.** A one-time click only
+     Dan can make. The workflow is committed and will publish on the next push to
+     `main` once Pages is on.
+   - **The author band: real biography and a portrait.** It currently carries a
+     name, an organization and the method, because that is all this repository
+     states and nothing about the author was invented. The monogram is a
+     typographic placeholder standing in for a photograph.
+
+   **TWO FINDINGS DAN SHOULD SEE:**
+   - **The print palette fails WCAG AA.** Five foreground tokens fall below the
+     4.5:1 floor against paper and its tints, `--folio` worst at 2.38:1. Print has
+     no WCAG floor, so `AIOM_book.css` IS UNTOUCHED and those remain the values of
+     record; `AIOM_web.css` carries text derivatives darkened by the minimum
+     needed. The numbers are in `AIOM_web.css` section 2 and plan section 14.
+   - **A stale fork still sits in Chapter 1's live-text folder.**
+     `DRAFT-AIOM_ch01.html` carries `lang="en"` and no source register: the
+     Decision 50 hazard exactly. Discovery excludes it by name and prints that it
+     did so on every build, but an exclusion rule is a guard, not a fix.
+     **Deleting it is Dan's call and it should be made.**
+
+   The original opening record follows. Dan asked for the book to exist
    as a website, with `messyjobs.ai` as the inspiration. Plan in
    `AIOM_Web_Edition_Plan_v1.0.md`, rulings as Decisions 60 to 64 in the Workplan,
    durable rules mirrored into CLAUDE.md section 10.
