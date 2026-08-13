@@ -1055,10 +1055,15 @@ BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
    **CI INSTALLS A HEADLESS BROWSER ON PURPOSE**, so gate W6 actually runs. A CI
    job running `--no-browser` would be a green tick on a suite with a known hole.
 
-   **THREE THINGS ARE OUTSTANDING AND ALL THREE ARE DAN'S: the domain, the host
-   confirmation, and the analytics posture.** `--base-url` is unset, so no
-   hostname is invented; the sitemap emits site-relative paths until one is
-   supplied. Nothing on the site contacts any third party today.
+   **HOST AND ANALYTICS ARE RULED, 2026-08-13: Decisions 65 and 66.** GitHub
+   Pages, published from `main`. No analytics, and gate W11 now enforces it:
+   every subresource must be same-origin, so no analytics script, no CDN
+   stylesheet and no remote image can be added without failing the build.
+   Outbound anchor links stay legal, because the sources page exists to link out.
+
+   **ONE THING IS STILL OUTSTANDING AND IT IS DAN'S: THE DOMAIN.** `--base-url`
+   is unset, so no hostname is invented and the sitemap emits site-relative paths
+   that become absolute the moment one is supplied. Nothing else blocks a deploy.
 
    **STILL BLOCKED AND IT IS NOT A CODE PROBLEM: `messyjobs.ai` is refused by the
    container's egress proxy** (`gateway answered 403 to CONNECT`, confirmed against

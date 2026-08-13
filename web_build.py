@@ -682,6 +682,42 @@ def discover_chapters(root="Drafts"):
     return found, notes
 
 
+SUBRESOURCE_RE = re.compile(
+    r'<(?:script|img|iframe|video|audio|source|embed|track)\b[^>]*\bsrc="([^"]+)"'
+    r"|<link\b[^>]*\bhref=\"([^\"]+)\""
+    r"|url\(\s*['\"]?([^)'\"]+)", re.I)
+
+
+def gate_w11(outdir):
+    """No third-party requests from any page. Decisions 66 and 62.
+
+    Decision 66 rules out analytics, and the build has always self-hosted its
+    fonts rather than calling a CDN. Both are currently true because nobody has
+    added anything, which is an intention rather than a control. This is the
+    control: every SUBRESOURCE the site fetches must be same-origin.
+
+    Anchor hrefs are deliberately NOT checked. The sources page links out to every
+    cited source, and that is the point of a bibliography: a link a reader chooses
+    to follow is not a request the page makes on their behalf.
+    """
+    fails = []
+    scanned = 0
+    for path in sorted(glob.glob(os.path.join(outdir, "**", "*.html"),
+                                 recursive=True)) + \
+            sorted(glob.glob(os.path.join(outdir, "**", "*.css"), recursive=True)):
+        scanned += 1
+        text = open(path, encoding="utf-8").read()
+        for m in SUBRESOURCE_RE.finditer(text):
+            url = next((g for g in m.groups() if g), "")
+            if re.match(r"https?://|//", url.strip()):
+                fails.append(f"W11: {os.path.relpath(path, outdir)} fetches a "
+                             f"third-party subresource: {url[:70]}")
+    if not fails:
+        print(f"W11. third-party requests  none across {scanned} file(s). "
+              f"No analytics, no CDN, fonts self-hosted")
+    return fails
+
+
 def gate_w10(outdir, metas, notes, preview):
     """Deploy readiness. Is what is about to be published complete and correct?"""
     fails = [n for n in notes if "FAIL" in n]
@@ -1347,6 +1383,7 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         w6, _ = gate_w6(index)
         fails += w6
     fails += gate_w10(outdir, metas, notes, preview)
+    fails += gate_w11(outdir)
     return fails, metas
 
 

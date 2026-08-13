@@ -109,6 +109,32 @@ def _multi_chapter_control(case):
     case("a publish build carries no noindex page",
          lambda: [f for f in fails if "noindex" in f], False)
 
+    # W11. Decision 66 rules out analytics and the build self-hosts its fonts.
+    # Both were true only because nobody had added anything, which is an
+    # intention. These controls are what make it a check.
+    case("W11 clean on the real site",
+         lambda: quiet(wb.gate_w11, "build/web"), False)
+    for label, snippet in (
+            ("an analytics script", '<script src="https://plausible.io/js/x.js"></script>'),
+            ("a CDN stylesheet", '<link rel="stylesheet" href="https://cdn.example/x.css">'),
+            ("a remote image", '<img src="https://example.org/pixel.gif">')):
+        probe = os.path.join("build", "w11-probe")
+        shutil.rmtree(probe, ignore_errors=True)
+        os.makedirs(probe, exist_ok=True)
+        open(os.path.join(probe, "index.html"), "w", encoding="utf-8").write(
+            "<html><body>" + snippet + "</body></html>")
+        case(label + " is refused",
+             lambda d=probe: quiet(wb.gate_w11, d))
+    # An outbound LINK is not a request the page makes, and must stay legal:
+    # the sources page links to every cited source and that is its job.
+    probe = os.path.join("build", "w11-link")
+    shutil.rmtree(probe, ignore_errors=True)
+    os.makedirs(probe, exist_ok=True)
+    open(os.path.join(probe, "index.html"), "w", encoding="utf-8").write(
+        '<html><body><a href="https://example.org/paper">Open source</a></body></html>')
+    case("an outbound anchor link stays legal",
+         lambda: quiet(wb.gate_w11, probe), False)
+
 
 def quiet(fn, *a, **kw):
     """Run a gate without its progress lines. Returns its failure list."""

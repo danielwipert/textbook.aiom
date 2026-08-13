@@ -203,7 +203,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_Maturity_Model_v1.md` | Stage definitions. Ch13 craft. |
 | `AIOM_Case_Bank_v1.md` | Cited cases with reuse policy. |
 | `AIOM_Northmoor_Dataset_v1.md` | Capstone dataset design. |
-| `AIOM_Workplan_v5.md` | Current workplan and per-chapter tracker. Supersedes v4, which is retired. **The decision-numbering authority.** Decisions run to 64. |
+| `AIOM_Workplan_v5.md` | Current workplan and per-chapter tracker. Supersedes v4, which is retired. **The decision-numbering authority.** Decisions run to 66. |
 | `AIOM_Web_Edition_Plan_v1.0.md` | The web edition: architecture, the web gates, the site, and phasing. Adopted 2026-08-13 with Decisions 60 to 64. The web is a second PRESENTATION of the book, never a second text, and gate W1 is what makes that true rather than intended. |
 | `AIOM_Validation_Matrix_v1.xlsx` | The 28-row Appendix A trace matrix. Working artifact, never book content. Distinct from the full 228-object registry, which lives in Drive. |
 | `Drafts/ChNN_<Name>/` | Chapter working directories, one per chapter, plus `Case_Part_I` through `III`. Each holds thirteen stage folders on Process v2 numbering and the chapter checklist. The live text sits in `00_Stage0_Draft/`. **There is no `chapters/` directory**, and this row claimed one until 2026-08-10. |
@@ -678,6 +678,14 @@ rulings. What binds outside that document:
   synthesises a second locked chapter in a throwaway tree and asserts the site
   builds two chapter pages with both in the sitemap. Code that works for one
   chapter is not thereby known to work for two.
+- **NO ANALYTICS AND NO CDN, ENFORCED BY GATE W11.** Decision 66. Every
+  subresource the site fetches must be same-origin: no analytics script, no CDN
+  stylesheet, no remote image, and fonts stay self-hosted. Outbound ANCHOR links
+  are deliberately exempt, because a link a reader chooses to follow is not a
+  request the page makes for them, and the sources page exists to link out.
+- **Hosted on GitHub Pages, published from `main`. Decision 65.** The domain is
+  still unruled; `--base-url` is unset, so no hostname is invented and the sitemap
+  emits site-relative paths that become absolute the moment one is supplied.
 - **Print gates do not carry over and web gates are not print gates.** Pagination
   is the bulk of the print suite (gates 1, 4, 8, 12, 13, 14 and `place.py`) and
   none of it exists on the web. What carries is anything that is a property of

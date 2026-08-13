@@ -459,6 +459,24 @@ Decisions 22 onward live here.
   empty table cells leftward. A web page is HTML and reproduces both. Stages 3 and
   7 keep getting the PDF.
 
+- **Decision 65. RULED 2026-08-13.** The web edition is hosted on GitHub Pages,
+  published from `main` by `.github/workflows/web.yml`. Chosen over Cloudflare
+  Pages and Netlify because it needs no third-party account and no API token in
+  repository secrets, and because the source already lives here, so there is one
+  fewer system to keep in sync. A custom domain is a DNS record plus the CNAME
+  the build already emits from `--base-url`. The domain itself is still unruled,
+  and until it is, no hostname is invented: the sitemap emits site-relative paths.
+
+- **Decision 66. RULED 2026-08-13.** No analytics. The site makes no third-party
+  request of any kind, which the search page already states to the reader in as
+  many words. For a book whose selling point is that every claim is auditable,
+  sending readers to a tracker would undercut the pitch, and the host's own
+  request counts answer most of what is actually worth knowing. ENFORCED BY GATE
+  W11 rather than by intention: every subresource the site fetches must be
+  same-origin. Outbound anchor links are deliberately exempt, because a link a
+  reader chooses to follow is not a request the page makes on their behalf, and
+  the sources page exists to link out to every cited source.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

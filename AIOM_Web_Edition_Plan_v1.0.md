@@ -5,8 +5,8 @@ logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numberi
 authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 2026-08-13, and Phase W3, the front door, followed the same day. Phase W4, the
 reference layer and search, followed, and Phase W5, the site build and deploy,
-is built. Only the domain, the host confirmation and the analytics posture are
-outstanding, and all three are Dan's.**
+is built. Host and analytics are ruled as Decisions 65 and 66.
+Only the DOMAIN is outstanding.**
 Sections 8 through 11 record what each phase learned.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
@@ -670,8 +670,11 @@ version control rather than twice.
 - **The domain.** `--base-url` sets the CNAME and makes sitemap URLs absolute. It
   is unset, so no hostname is invented and the sitemap emits site-relative paths,
   which are valid and become absolute the moment a domain is supplied.
-- **The host.** The workflow targets GitHub Pages because it needs no third-party
-  account and no secret. Cloudflare Pages would need an API token in repository
-  secrets.
-- **The analytics posture.** Nothing is included. The site currently sends
-  no request to any third party, and the search page says so.
+- **The host. RULED as Decision 65: GitHub Pages**, published from `main`. Chosen
+  over Cloudflare Pages and Netlify because it needs no third-party account and no
+  API token in repository secrets.
+- **The analytics posture. RULED as Decision 66: none.** ENFORCED BY GATE W11
+  rather than by intention, because "we did not add a tracker" is true only until
+  somebody adds one. Every subresource must be same-origin. Outbound anchor links
+  are exempt: a link a reader chooses to follow is not a request the page makes
+  for them, and the sources page exists to link out to every cited source.
