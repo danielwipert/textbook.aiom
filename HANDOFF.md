@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-12. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-13. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
@@ -19,6 +19,11 @@ it, which reports `0 0`. The fast-forward was clean and nothing was forced:
 **THIS BRANCH IS NOW FULLY MERGED AND SAFE TO DELETE ONCE THIS SESSION CLOSES.**
 Delete it in the same pass as `claude/chapter-1-status-gli2c0`, and read the
 paragraph below first, because the ordering is the whole point.
+
+**CHAPTER 1 LOCKED ON THIS BRANCH AND `main` HAS IT.** Levelled after every commit
+rather than at the end, on the rule that every stranding incident here has the same
+shape: a session levels its branch, commits once more, and ends. Verified after the
+last push: `git rev-list --left-right --count origin/main...HEAD` reports `0 0`.
 
 **A PUSH FROM THIS CONTAINER RECREATED A BRANCH DAN HAD DELETED, AND CLAUDE CANNOT
 UNDO IT.** The 2026-08-12 cleanup left three branches and this was not among them.
@@ -220,10 +225,41 @@ session added a second instance of the same shape in a different place, a scope
 claim in the Stage 5 record naming a page that had not been read; see the chapter
 status below.
 
-## Chapter 1 status: 9 of 13, STAGE 6 CLOSED. ONLY STAGE 7 AND STAGE 8 REMAIN OF DAN'S
+## Chapter 1 status: **LOCKED 2026-08-13, 13 of 13.** THE FIRST LOCKED CHAPTER
 
-`status_check.py` reports 9/13 STATUS CONSISTENT. CSS v7.1. Stages 3, 4 and 5
-cleared 2026-08-10 and are undisturbed. G2 re-passed at fifteen gates 2026-08-12.
+`status_check.py` reports 13/13 STATUS CONSISTENT. 25 pages, 7,069 words on the
+Decision 33 measure, fifteen gates green against CSS v7.1, `voicecheck.py`
+mechanically clean and house style clean on all five checks, G3 passing against a
+populated ledger.
+
+**WHAT LOCK MEANS FOR ANYONE OPENING THIS FILE NEXT: do not edit Chapter 1.** No
+change without an explicit `reopen.py`, which re-runs every step from the one
+owning the change. The full lock record, including what lock does NOT mean, is
+under Stage 9 in the checklist and should be read before any reopen is considered.
+
+**THE LEDGER NOW HOLDS A CHAPTER, WHICH CHANGES WHAT G3 DOES.** Eight owned terms,
+five forward references to Chapters 2, 3, 4, 6 and 14, and one registry gloss for
+THM-009. Until today G3 compared every chapter against an empty ledger and could
+not fail. From Chapter 2 onward it can, and it will: those five forward references
+are now promises a later chapter is held to, and "category error" plus seven other
+terms may not be redefined.
+
+**THE CRAFT BASELINE BAND IS IN FORCE FOR THE FIRST TIME**, set from the locked
+text and written into `AIOM_Voice_and_Craft_v1.md` section 4. From 2026-08-05 until
+today no chapter was read against a band, deliberately, because the earlier numbers
+measured a chapter the copy edit had replaced. **Chapter 2 is the first chapter
+read against one.** Two things in that block stop it being misused: the numbers are
+advisory proxies and never thresholds, and the band contains a known flat stretch
+at 1.1 that Stage 4 ruled a deliberate choice, so the mean is a description of what
+shipped rather than a target.
+
+**TWO ITEMS WERE OPEN AT LOCK AND STAY OPEN.** The "early May" preview-bill timing
+in footnote 3, which external check 2 could reach only through secondary coverage
+and which no Claude session can verify, and the THM-009 numbering question, which
+is a Stage 2 or Stage 5 matter rather than a fact check. **A locked chapter with
+two open items is an honest record; one claiming none would not be.**
+
+Historical, and the record of how it got here:
 
 **STAGE 6 IS CLOSED, ON DAN'S RULING OF 2026-08-12: "I have no more edits."**
 Second closure of this step and the one in force. Fourteen copy edits raised, ruled
@@ -907,6 +943,12 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
+**LIVE THREADS AS OF 2026-08-13, in order: 6 (Chapter 2), 5 (process hardening),
+3 (design gaps), 7 (Decision 28).** Everything else below is closed and kept as
+record. The numbering is left alone deliberately: these numbers are cited in commit
+messages and in the checklist, and renumbering would break those references for
+cosmetic tidiness. **CHAPTER 2 IS THE WORK NOW.**
+
 00. **CLOSED 2026-08-12. The prose style guide is adopted and its checks are
     running.** Three items were recovered from `chapter-1-prose-style-x0bzze`,
     stranded there since 2026-08-05. Dan ruled option B: adopt the guide, retire
@@ -962,61 +1004,11 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
    - **Gaps G-I and G-II still mean callout placement and slot openings must be
      READ whenever pagination moves.** It moved again with the copy edits.
 
-2. **Chapter 1 Stages 7 and 8 are DAN'S, and they are all that is left of his.
-   Stage 7 is the live one.**
-
-   **STAGE 6 IS CLOSED, 2026-08-12.** Dan ruled it: "I have no more edits." The
-   record is under Stage 6 in the checklist, including the CE10 to CE14 entries
-   reconstructed at the moment of closing. If a further round is ever wanted, the
-   proof is `AIOM_Ch1_CopyEdit_round9.docx` with the round-9 manifest, **DO NOT USE
-   ROUNDS 3 TO 8**, and taking one enters as CE15 and reopens the step.
-
-   **THE STAGE 7 PACKET IS BUILT AND WAITING**, in
-   `09_Stage7_Final_Fact_Check_2/`: a 25-page render, green at the gate count of
-   `AIOM_Ch1_Stage7_Claim_Inventory.md` pairing all six cited passages with the
-   register entry behind each key, notes verbatim. Mechanical checks are banked on
-   its first page and need not be repeated. **`factcheck_packet.py` at the repo
-   root regenerates it**, which closed the old open thread about whether the
-   packet was worth having on every chapter. It is: fifteen chapters need thirty.
-
-   **EXTERNAL CHECK 1 IS APPLIED, CHECK 2 IS OWED**, on a different prompt, per
-   the Stage 3 finding that the disagreement between two checks is the value. One
-   check is not the step. **FC1 IS THE ONE OPEN CHAPTER DEFECT**; its decidable
-   half needs no source and should be fixed in the same pass as its sourced half
-   rather than twice. **FEED THE CHECKER A PDF, NEVER THE HTML**: check 1's two
-   production flags were both phantoms of HTML extraction and cost a render to
-   disprove.
-
-   **SF11, THE FIFTH INSTANCE OF A RECORD OUTLIVING THE PROSE IT DESCRIBES.** The
-   `altman-2025-pro` note claimed the sentence "now reads 'OpenAI's chief
-   executive, Sam Altman, stated publicly'". It had not since 2026-08-08, when the
-   round-1 copy-edit return rewrote it, the same round that produced SF8 to SF10.
-   The SF1 ruling was unaffected and the prose did not change; only the note was
-   stale. Fixed on the A2 precedent, appending the drift beneath the dated line.
-
-   **A REFINEMENT TO THE RE-EXPORT RULE, MEASURED RATHER THAN REASONED.** The rule
-   said any edit to the live text invalidates the outstanding export. SF11 edits
-   the live text and does not: the register sits after every exported block and is
-   excluded from the export, so a register-only edit shifts no body span. Narrower
-   form: an edit invalidates the export when it falls at or before an exported
-   block, which every prose edit does and a register-only edit does not.
-
-   THREE THINGS TO CARRY INTO THE ROUND:
-
-   - **Any edit that changes the live text invalidates the current proof.** CE1
-     shortened it by three characters and staled 64 spans. Re-export after
-     applying a round, and run the span check rather than relying on the round
-     trip, which cannot see staleness.
-
-   - **Diff the return against the ruled sentences before crediting it.** Three
-     ruled Stage 3 narrowings and one ruled Stage 4 fix were silently reverted
-     by the LAST copy edit, and nothing mechanical saw any of them: every date
-     and figure survived intact. The quoted sentences are in the register notes
-     and the checklist. This is the single highest-risk moment left in the
-     chapter, because Stage 6 is the step that caused the reopen.
-   - **The theorem panel blocks export but the importer refuses edits to them.**
-     That is standing rule 4a working as designed. If a panel line reads badly
-     the remedy is the prose beside it, never the panel.
+2. **CLOSED 2026-08-13. Chapter 1 is LOCKED.** Stage 6 closed 2026-08-12, Stage 7
+   and Stage 8 closed 2026-08-13 on Dan's rulings, G3 passed and Stage 9 locked the
+   chapter. Two items were open at lock and remain so, named under the chapter
+   status above. The Stage 6 proof round 9 and the Stage 7 packet are kept as
+   artifacts of their steps, not as live work.
 
 3. **Gaps G-I and G-II are not closed, and bind any future design work.** Both require a chapter whose
    pagination or callout placement moves to be READ rather than gated, and this
@@ -1024,14 +1016,14 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
    stranded head GROUP, and a floated callout can still collide with a block panel
    unseen.
 
-4. **G3 and Stage 9, both Claude's, after Dan's three steps.** Stage 9 carries a
-   BOOKED PENDING-ACTIONS LIST in the checklist, because these are owed at lock and
-   are easy to lose: re-set the craft baseline band from the locked text (NOTHING
-   READS AGAINST A BAND UNTIL THIS IS DONE); do NOT let `continuity.py --update`
-   record "flow" among Chapter 1's terms, since Chapter 2 owns it and a mis-logged
-   entry would fail G3 on Chapter 2; and check whether "category error" should be
-   logged as a Chapter 1 term, since it became the eighth key term on 2026-08-10,
-   after the ledger design was written.
+4. **CLOSED 2026-08-13. G3 and Stage 9 are done, and all three booked pending
+   actions were discharged.** The craft band is set from the locked text, "category
+   error" is logged as a Chapter 1 owned term on Dan's ruling, and "flow" is absent
+   from the ledger, which turned out to be structurally impossible rather than
+   narrowly avoided: `continuity.py` reads the key-term register, never prose. The
+   THM-009 gloss was written by hand, because `--update` writes a placeholder
+   deliberately and leaving it would make check 4 compare later chapters against
+   nothing.
 
 5. **Remaining process hardening** (Dan approved, still to build):
    - **The ruled-sentence sweep as a gate.** About fifteen lines: compare every
@@ -1058,13 +1050,35 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
      HTML in the live-text directory and is not gitignored. Delete it after every
      run until the tool is changed.
 
-6. **Chapter 2 (The Flow).** Drafts against the amended band, 6,500 to 7,500, and
-   is the first chapter written under the craft standard from Stage 0, so its
-   acknowledgment box is a live requirement rather than a retrospective one. TWO
-   THINGS IT MUST CARRY FROM DAY ONE: `<html lang="en-US">` (Decision 59; there is
-   no CSS lever and no gate reports its absence) and `.nb` on proper nouns
-   (Decision 58). And it is read against NO craft band until Stage 9 re-sets one
-   from the locked Chapter 1.
+6. **Chapter 2 (The Flow). THIS IS THE NEXT WORK, and it is the first chapter
+   drafted under the full standard.** Word band 6,500 to 7,500 (Decision 33,
+   amended 2026-08-09), counted as the whole rendered chapter less the source
+   register and SVG labels; `voicecheck.py` prints the number.
+
+   **WHAT CHAPTER 2 INHERITS THAT CHAPTER 1 NEVER HAD:**
+
+   - **A craft baseline band in force**, set from the locked Chapter 1 and written
+     into `AIOM_Voice_and_Craft_v1.md` section 4. Chapter 2 is the first chapter
+     read against one. Read the two guards in that block before using it.
+   - **A ledger that can fail G3.** Eight owned terms may not be redefined, and
+     five forward promises are recorded. Chapter 2 owns "flow" and must define it;
+     Chapter 1 deliberately does not.
+   - **Both prose standards, dividing cleanly.** `AIOM_Voice_and_Craft_v1.md` for
+     C1 to C6, `AIOM_Prose_Style_Guide_v1.md` for everything else, and **Part 5 is
+     the answer to prose that reads denser than its ideas.** Read both BEFORE
+     drafting, not at Stage 4.
+   - **Fifteen gates**, including gate 15 for typographic marks, and a citation
+     formatter that emits volume, issue and pages with a hyphenated range.
+
+   **TWO THINGS IT MUST CARRY FROM DAY ONE:** `<html lang="en-US">` (Decision 59;
+   there is no CSS lever and no gate reports its absence) and `.nb` on proper nouns
+   (Decision 58).
+
+   **THE PROVING QUESTION FOR CHAPTER 2 IS WHETHER THE STANDARD PAYS.** Chapter 1
+   was drafted before the craft standard existed and was re-drafted against it,
+   which cost a full reopen from Stage 0. Chapter 2 is the first chapter to have
+   the standard from Stage 0. If it still needs a Stage 4 rewrite, the standard is
+   not doing the work at drafting time and that is worth knowing early.
 
 7. **Decision 28**, Northmoor properties G, H, I. Gates Ch9, Ch12, Ch13 problem
    sets only.
@@ -1117,6 +1131,29 @@ has already paid for repeatedly. Read them there, not from memory:
 - write every fact-check ruling back into the register note, with the condition
   that would reverse it
 - judge a proposed remedy separately from the finding it answers
+
+- **`reopen.py` RESETS BY POSITION IN THE LIFECYCLE, NOT BY THE SCOPED RE-RUN
+  MATRIX, AND IT IS UNFIXED.** A reopen at a late step clears every step after it in
+  the step order, including ones the matrix would leave intact. On 2026-08-13 two
+  citation-lane G2 reopens silently cleared Dan's ruled Stage 6 closure, and the
+  loss was invisible until a passed Stage 7 appeared above an open Stage 6. **CHECK
+  THE STEPS BELOW A REOPEN POINT AGAINST THE MATRIX BEFORE ACCEPTING THE RESET.**
+- **THE PART 5 RULE 1 PROXY IN `voicecheck.py` IS DEFECTIVE. DO NOT QUOTE ITS
+  NUMBERS.** It counts fronted adverbial phrases as subject-verb separations, and a
+  fronted adverbial is right-branching and permitted, so both its baseline and its
+  after-reading measure something the rule does not cover. Unfixed, and the one open
+  defect in the ported house-style checks. The sound measure beside it, long
+  comma-fenced asides, does work.
+- **A COLOUR CHECK NEEDS A TOLERANCE SMALLER THAN THE DISTANCE BETWEEN THE TOKENS
+  IT MUST SEPARATE, or an exact match.** The figure geometry check first reported
+  identical hit counts for `--amber-fig` and `--amber`, which differ by 12 in red,
+  under a tolerance of 14. Two different colours cannot both match every pixel; that
+  impossibility is what exposed it, not re-reading the code.
+- **DATES IN RECORDS COME FROM THE COMMIT CLOCK, NOT FROM MEMORY.** A session
+  crossing midnight UTC wrote several records a day old on 2026-08-13. `reopen.py`
+  auto-dated correctly throughout; only hand-typed dates were wrong. This matters
+  because the standing control is to re-check every gate tick against the date of
+  the last edit that could move it, and that control is worthless if dates drift.
 
 **Tooling facts learned the hard way.**
 
