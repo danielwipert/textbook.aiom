@@ -2,8 +2,9 @@
 
 Status: **ADOPTED 2026-08-13.** All five opening decisions are ruled and are
 logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numbering
-authority. Section 7 records them. **Phase W1 is built and green as of 2026-08-13;
-Phase W2, the reader design, is the next work.** Section 8 records what W1 learned.
+authority. Section 7 records them. **Phases W1 and W2 are built and green as of
+2026-08-13; Phase W3, the front door, is the next work.** Sections 8 and 9 record
+what W1 and W2 learned.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -154,6 +155,13 @@ that, so the web build carries a control the print build never needed:
   unique, every `<cite src>` key resolves in the chapter's register, every figure
   is referenced in the prose it sits beside.
 - **Gate W5, `lang="en-US"`.** Decision 59. Cheap, and invisible when omitted.
+- **Gate W6, horizontal overflow.** ADDED IN W2. Loads the page at twenty viewport
+  widths from 320px to 2560px and fails if the document scrolls sideways. The web
+  analogue of print gate 1, and worse in its symptom: print puts one element off
+  the paper, while a horizontal document scroll drags every block on the page with
+  it. The only optional gate, because it needs a headless browser. It prints
+  SKIPPED, appends "W6 NOT RUN" to the verdict line, and is never counted as
+  passed. Skip it deliberately with `--no-browser`.
 
 Gate W1 is the whole discipline of this project transposed into a new medium. I
 would build it before building a single page.
@@ -231,10 +239,10 @@ pipeline on one chapter before scaling it.
   controls and all twenty-seven behave. What W1 deliberately did NOT do: the
   visual direction, which is W2, and the inspiration site, which is still
   unreviewed. See section 8 for what W1 learned.
-- **Phase W2, the reader. NEXT.** The full reading experience on Chapter 1: slot rail,
+- **Phase W2, the reader. BUILT AND GREEN 2026-08-13.** The full reading experience on Chapter 1: slot rail,
   sidenotes, margin definitions, progress, motion, responsive behaviour, keyboard
   layer. Design review against the same standard the print book gets.
-- **Phase W3, the front door.** Landing page, table of contents, about, the
+- **Phase W3, the front door. NEXT.** Landing page, table of contents, about, the
   author. Depends on the section 6 input and on Decision W-A below.
 - **Phase W4, the reference layer and search.** Glossary, object index, sources,
   search index.
@@ -375,3 +383,57 @@ numbered section's anchor rather than gaining a visible label of its own.
   which is a real design problem at this measure and not a bug.
 - The inspiration site is still unreviewed. Section 6 stands unchanged.
 - No dark mode, deliberately. It is Phase W6 with the SVG token pass.
+
+---
+
+## 9. What Phase W2 learned
+
+**The dead gutter was a layout error, not a taste problem.** v0.1 made the article
+the measure PLUS a sidenote gutter and centred that whole block, so the prose sat
+left of optical centre and the empty gutter read as a mistake wherever a stretch
+of prose called no note. The reading area is now a three-track grid with the
+article in the middle track at exactly the measure. With no note the page is
+symmetrical, and a note floats into the track beside it. The same change stopped a
+note from landing on the right border of a full-measure box such as `.dated`.
+
+**A RESPONSIVE BREAKPOINT IS ARITHMETIC AND SHOULD BE WRITTEN DOWN AS ARITHMETIC.**
+A margin note needs `--note + --note-gap` of side track, and the side track is
+`(viewport - --rail - --measure) / 2`, so notes fit only from 1411px up. The first
+draft put the breakpoint at 1240px by eye, leaving a 170px band where every note
+ran off the right edge of the window. The sum now sits in a comment beside the
+media query, because the next person to change the measure will not rederive it.
+
+**GATE W6 EXISTS BECAUSE THE WIDTH SWEEP FOUND SOMETHING NO RENDER SHOWED.** A
+sweep across twenty viewport widths caught the P3 inventory table forcing the
+whole document to scroll sideways below 390px. On the web that defect is worse
+than its print analogue: print gate 1 puts one element off the paper, while a
+horizontal document scroll drags every other block on the page with it. The table
+is now wrapped in its own scroll box by `wrap_tables`, which adds an element and
+no text, so gate W1 is unaffected. That is the test for whether a presentation
+change belongs in the transform at all.
+
+**W6 is the only optional gate and it had to be made noisy.** It needs a headless
+browser. It prints SKIPPED, appends "W6 NOT RUN" to the verdict line, and is never
+counted as a pass. An optional gate that quietly reports success is the exact
+failure this repository keeps finding in its own suite.
+
+**Motion is applied by script, never in the markup.** A markup-side `opacity: 0`
+plus a scroll observer means a reader with JavaScript disabled gets a blank
+column. The script adds the class itself. The observer's `rootMargin` is zero for
+a related reason: a negative bottom inset delays the reveal slightly and buys a
+bug, because an element sitting entirely inside the inset band at maximum scroll
+never intersects and stays invisible with no way to recover it.
+
+**Every gate added in a later phase gets its negative control in the same commit.**
+W6 shipped with two, and the self-test is now at twenty-nine controls.
+
+### Open, and carried into W3 or later
+
+- **The inspiration site is STILL unreviewed.** Section 6 stands unchanged. This is
+  now the oldest open item on the project and it belongs to the front door, which
+  is the surface it would most inform.
+- The scrollable table has no visual affordance beyond the cut column edge.
+- The rail scrolls away with the page in the last screen of a chapter, which is
+  correct sticky behaviour and may still want handling.
+- Search, the glossary, the object index and the sources page are all Phase W4.
+- Dark mode and the SVG token pass remain Phase W6.

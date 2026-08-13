@@ -578,12 +578,26 @@ rulings. What binds outside that document:
 - **Only locked chapters publish, enforced by gate W2 against `status_check.py`,
   not by intention.** In-flight chapters build to a local `noindex` preview path
   that CI never publishes.
-- **Phase W1 is built and green, 2026-08-13.** Five gates run on every build:
-  W1 text equivalence in two channels, W2 lock status, W3 typographic marks
-  (ports print gates 2 and 15), W4 structure and links, W5 document attributes.
-  Chapter 1 renders at 43,204 characters of prose identical to print, six notes
-  identical, all six slots anchored. Build with:
+- **Phases W1 and W2 are built and green, 2026-08-13.** SIX gates run on every
+  build: W1 text equivalence in two channels, W2 lock status, W3 typographic
+  marks (ports print gates 2 and 15), W4 structure and links, W5 document
+  attributes, W6 horizontal overflow across a twenty-width sweep. Chapter 1
+  renders at 43,204 characters of prose identical to print, six notes identical,
+  all six slots anchored. Build with:
   `python3 web_build.py Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`
+- **GATE W6 IS THE ONLY OPTIONAL GATE AND IT IS LOUD ABOUT IT.** It needs a
+  headless browser, which nothing else in the build does, so it prints SKIPPED and
+  appends "W6 NOT RUN" to the verdict line rather than quietly passing. `--no-browser`
+  skips it deliberately. It is the web analogue of print gate 1: the symptom is
+  not ink off the paper but the whole document scrolling sideways, dragging every
+  other block with it. It found the P3 inventory table doing exactly that below
+  390px, which no amount of looking at a desktop render would have shown.
+- **A RESPONSIVE BREAKPOINT IS ARITHMETIC, NOT TASTE.** The sidenote needs
+  `--note + --note-gap` of side track, and the side track is
+  `(viewport - --rail - --measure) / 2`. The first draft set the breakpoint by eye
+  at 1240px when the arithmetic says 1411px, leaving a 170px band where notes ran
+  off the right edge of the window. Any change to those four tokens must redo the
+  sum. The comment in `AIOM_web.css` section 15 carries it.
 - **EVERY WEB GATE HAS A NEGATIVE CONTROL, AND THIS IS WHY.** `web_gates_selftest.py`
   injects one fault at a time and asserts the owning gate fails. On its first run
   five of twenty-five controls did not fire: four mark controls landed in `<head>`,

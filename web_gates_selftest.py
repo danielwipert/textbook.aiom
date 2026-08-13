@@ -184,6 +184,32 @@ def main():
     bad = re.sub(r"<title>.*?</title>", "", web_html, count=1, flags=re.S)
     case("title removed", lambda: quiet(wb.gate_w5, bad, meta))
 
+    print("\nW6, horizontal overflow across the width sweep")
+    page = "build/web-selftest/ch01/index.html"
+    clean, ran = wb.gate_w6(page)
+    if not ran:
+        print("  [SKIP] W6 could not run, no headless browser. NOT a pass.")
+        results.append((True, "W6 skipped, reported as skipped", []))
+    else:
+        results.append((not clean, "W6 clean on the real page", clean))
+        print(f"  [{'ok  ' if not clean else 'MISS'}] "
+              f"{'W6 clean on the real page':<46} "
+              f"{clean[0][:70] if clean else 'no failure reported'}")
+        # A block wider than any phone, of the kind the P3 inventory table was
+        # before wrap_tables put it in its own scroll box.
+        import os
+        bad_page = "build/web-selftest/overflow.html"
+        src = open(page, encoding="utf-8").read().replace(
+            "</article>",
+            '<div style="width:3000px;height:20px">x</div></article>', 1)
+        os.makedirs(os.path.dirname(bad_page), exist_ok=True)
+        open(bad_page, "w", encoding="utf-8").write(src)
+        f6, _ = wb.gate_w6(bad_page)
+        results.append((bool(f6), "a 3000px block widens the page", f6))
+        print(f"  [{'ok  ' if f6 else 'MISS'}] "
+              f"{'a 3000px block widens the page':<46} "
+              f"{f6[0][:70] if f6 else 'no failure reported'}")
+
     missed = [n for ok, n, _ in results if not ok]
     print(f"\n{len(results) - len(missed)}/{len(results)} controls behaved as "
           f"specified")

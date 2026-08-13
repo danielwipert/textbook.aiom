@@ -1,15 +1,26 @@
 /* ============================================================
    AIOM_web.css
-   VERSION: 0.1  (Phase W1)
+   VERSION: 0.2  (Phase W2, the reader)
    DATE:    2026-08-13
 
    The web presentation layer. Companion to AIOM_book.css, which remains the
    sole control of the PRINT appearance and is not touched by anything here.
 
-   Decision 62 adopts this file. Phase W1 is the pipeline and the gates, so this
-   stylesheet is deliberately restrained: correct typography, the inherited
-   palette, working sidenotes, and a responsive measure. The visual direction
-   proper is Phase W2 and will supersede most of what follows.
+   v0.2 (2026-08-13) is the reader design. What changed from v0.1 and why:
+
+   (a) THE TEXT COLUMN IS NOW DEAD CENTRED AND NOTES FLOAT OUT OF IT. v0.1 made
+       the article the measure PLUS a sidenote gutter and centred that, so the
+       prose sat left of optical centre and the empty gutter read as a mistake
+       wherever a stretch of prose called no note. The reading area is now a
+       three-track grid, the article occupies the middle track at exactly the
+       measure, and a sidenote floats into the track beside it. With no note the
+       page is symmetrical. This also stops a note from landing on the right
+       border of a full-measure box such as .dated or .model.
+   (b) Slot openings became a real beat rather than a small label.
+   (c) The apparatus was tightened: definition, theorem, dated, model.
+   (d) Motion was added, and it is applied BY SCRIPT so a reader without
+       JavaScript sees everything rather than nothing. See section 16.
+   (e) Measure narrowed from 34rem to 32rem, about 66 characters at this size.
 
    TOKENS ARE INHERITED, NOT CHOSEN. Every colour below is the value of record
    from AIOM_book.css v7.1 section 2. The web looking like the book is the point.
@@ -20,6 +31,10 @@
        content only, and no chapter ever gains a scoped <style> block.
      - A Unicode hex escape in a content: string consumes the following space as
        an escape terminator. Use literal UTF-8 characters.
+
+   NOT IN THIS FILE, DELIBERATELY: dark mode. The warm paper has no correct
+   automatic inverse and the SVG figures carry literal hex fills, so it is
+   Phase W6 together with the figure token pass.
    ============================================================ */
 
 /* ---------- 1. FONTS ---------- */
@@ -48,10 +63,13 @@
   --hairline:  #DCCFB4;
   --kt-head:   #DCCFB4;
 
-  --measure:   34rem;   /* the text column */
-  --gutter:    17rem;   /* the sidenote margin */
-  --rail:      15rem;   /* the contents rail */
-  --step:      1.6rem;  /* vertical rhythm unit */
+  --measure:   32rem;    /* the text column, about 66 characters */
+  --note:      15.5rem;  /* the sidenote */
+  --note-gap:  2.25rem;  /* text column to sidenote */
+  --rail:      15.5rem;  /* the contents rail */
+  --bar:       3.25rem;  /* sticky topbar height, for scroll-padding */
+  --step:      1.55rem;  /* vertical rhythm unit */
+  --beat:      calc(var(--step) * 2.6);  /* space above a slot opening */
 }
 
 /* ---------- 3. RESET AND PAGE ---------- */
@@ -60,12 +78,8 @@
 html {
   font-size: 17px;
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: calc(var(--bar) + 1.5rem);
   -webkit-text-size-adjust: 100%;
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
 body {
@@ -82,17 +96,20 @@ body {
 a { color: var(--navy); text-decoration-color: var(--hairline); text-underline-offset: 0.18em; }
 a:hover { text-decoration-color: var(--amber); }
 
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
 /* ---------- 4. CHROME ---------- */
 .progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 40; }
 .progress i {
   display: block; height: 100%; background: var(--amber);
   transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 0.08s linear;
 }
 
 .topbar {
   position: sticky; top: 0; z-index: 30;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: 0.85rem 1.5rem;
+  height: var(--bar); padding: 0 1.5rem;
   /* Opaque, not translucent. At 88 percent with an 8px blur the body text read
      straight through the bar on a raster check, which is the kind of defect
      that survives every mechanical gate and dies only to looking at the page. */
@@ -101,131 +118,165 @@ a:hover { text-decoration-color: var(--amber); }
 }
 .brand {
   font-family: "Jost", sans-serif; font-weight: 600;
-  font-size: 0.82rem; letter-spacing: 0.09em; text-transform: uppercase;
+  font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--navy); text-decoration: none;
 }
+.topbar-here {
+  font-size: 0.78rem; color: var(--folio);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  flex: 1; text-align: right;
+}
 .rail-toggle {
-  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.78rem;
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.76rem;
   letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--navy); background: none;
   border: 1px solid var(--hairline); border-radius: 2px;
-  padding: 0.35rem 0.7rem; cursor: pointer;
+  padding: 0.32rem 0.7rem; cursor: pointer;
 }
 .rail-toggle:hover { border-color: var(--amber); color: var(--amber); }
 
 .preview-flag {
-  margin: 0; padding: 0.6rem 1.5rem;
+  margin: 0; padding: 0.55rem 1.5rem;
   background: var(--amber); color: var(--paper);
   font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.8rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .foot {
   border-top: 1px solid var(--hairline);
-  margin-top: calc(var(--step) * 3);
-  padding: 2rem 1.5rem 4rem;
-  color: var(--folio); font-size: 0.82rem;
+  margin-top: calc(var(--step) * 4);
+  padding: 2rem 1.5rem 5rem;
+  color: var(--folio); font-size: 0.8rem;
 }
-.foot p { max-width: var(--measure); margin-inline: auto; }
+.foot-inner { max-width: var(--measure); margin-inline: auto; }
+.foot p { margin: 0 0 0.4rem; }
+.keyhint kbd {
+  font-family: "Jost", sans-serif; font-size: 0.72rem; font-weight: 500;
+  border: 1px solid var(--hairline); border-radius: 2px;
+  padding: 0.05rem 0.3rem; margin: 0 0.1rem; color: var(--axis);
+}
 
 /* ---------- 5. LAYOUT ---------- */
-.layout {
+.layout { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); }
+
+/* Three tracks. The article sits in the middle at exactly the measure, so it is
+   optically centred in the reading area. The right track is where a sidenote
+   goes, and it is empty when no note is called, which is the correct result
+   rather than a hole. */
+.reading {
   display: grid;
-  grid-template-columns: var(--rail) minmax(0, 1fr);
-  gap: 0;
-  align-items: start;
+  grid-template-columns:
+    minmax(0, 1fr) minmax(0, var(--measure)) minmax(0, 1fr);
+  padding: calc(var(--step) * 2) 1.5rem 0;
 }
-.reading { padding: calc(var(--step) * 2) 1.5rem 0; min-width: 0; }
+#chapter-text { grid-column: 2; min-width: 0; }
 
-#chapter-text {
-  /* The article is the measure plus the sidenote gutter. Notes float out of the
-     text column into the gutter, so the prose keeps a book measure while the
-     apparatus stays beside the sentence that called it. */
-  max-width: calc(var(--measure) + var(--gutter));
-  margin-inline: auto;
-  padding-right: var(--gutter);
-}
-
+/* ---------- 6. THE RAIL ---------- */
 .rail {
-  position: sticky; top: 4.2rem;
-  max-height: calc(100vh - 5.5rem);
-  overflow-y: auto;
-  padding: calc(var(--step) * 2) 1rem 2rem 1.5rem;
+  position: sticky; top: var(--bar);
+  max-height: calc(100vh - var(--bar));
+  overflow-y: auto; overscroll-behavior: contain;
+  padding: calc(var(--step) * 2) 1.1rem 3rem 1.5rem;
   font-size: 0.8rem; line-height: 1.45;
 }
 .rail-head {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.72rem;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--folio); margin: 0 0 0.9rem;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 0.15rem;
+}
+.rail-title {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1rem;
+  line-height: 1.2; color: var(--navy); margin: 0 0 0.7rem;
+}
+.rail-meta {
+  margin: 0 0 1.2rem; padding-bottom: 1rem;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--folio); font-size: 0.73rem; line-height: 1.5;
 }
 .rail ol { list-style: none; margin: 0; padding: 0; }
-.rail-slots > li { margin-bottom: 0.55rem; }
+.rail-slots > li { margin-bottom: 0.5rem; }
 .rail a {
-  display: block; padding: 0.16rem 0 0.16rem 0.7rem;
-  border-left: 2px solid transparent;
+  display: block; padding: 0.16rem 0 0.16rem 0.75rem;
+  border-left: 2px solid var(--hairline);
   color: var(--axis); text-decoration: none;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color 0.18s, border-color 0.18s;
 }
 .rail-slots > li > a {
   font-family: "Jost", sans-serif; font-weight: 500;
-  letter-spacing: 0.02em; color: var(--navy);
+  letter-spacing: 0.01em; color: var(--navy);
 }
-.rail a:hover { color: var(--amber); border-left-color: var(--hairline); }
+.rail a:hover { color: var(--amber); }
 .rail a.here { color: var(--amber); border-left-color: var(--amber); }
-.rail-sections { margin: 0.3rem 0 0.7rem 0.7rem; }
-.rail-sections a { font-size: 0.76rem; }
+.rail-sections { margin: 0.25rem 0 0.7rem 0.75rem; }
+.rail-sections a { font-size: 0.76rem; padding-left: 0.7rem; }
 .rail-num { color: var(--folio); font-variant-numeric: tabular-nums; }
+.rail a.here .rail-num { color: var(--amber); }
 
-/* ---------- 6. CHAPTER OPENING ---------- */
+/* ---------- 7. CHAPTER OPENING ---------- */
 .part-label {
-  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.78rem;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--amber); margin: 0 0 0.6rem;
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.76rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 0.7rem;
 }
 .chapter-title {
   font-family: "Jost", sans-serif; font-weight: 600;
-  font-size: clamp(2.1rem, 5.5vw, 3.1rem); line-height: 1.08;
-  letter-spacing: -0.015em; color: var(--navy);
-  margin: 0 0 calc(var(--step) * 1.6);
+  font-size: clamp(2.3rem, 6vw, 3.4rem); line-height: 1.05;
+  letter-spacing: -0.02em; color: var(--navy);
+  margin: 0 0 var(--beat);
+  padding-bottom: var(--step);
+  border-bottom: 2px solid var(--navy);
   text-wrap: balance;
 }
 
+/* A slot opening is a beat in the chapter, not a caption. The six-slot skeleton
+   is the book's structural signature and the web can show it plainly, which the
+   PDF cannot without spending a page on it. */
 .slot-label {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.74rem;
-  letter-spacing: 0.13em; text-transform: uppercase;
-  color: var(--folio);
-  margin: calc(var(--step) * 2.4) 0 0.5rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--hairline);
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--amber);
+  margin: var(--beat) 0 0.9rem;
+  display: flex; align-items: center; gap: 0.9rem;
+}
+.slot-label::after {
+  content: ""; flex: 1; height: 1px; background: var(--hairline);
 }
 .case-title {
   font-family: "Jost", sans-serif; font-weight: 600;
-  font-size: 1.55rem; line-height: 1.2; color: var(--navy);
-  margin: 0.7rem 0 0.4rem; text-wrap: balance;
+  font-size: 1.75rem; line-height: 1.15; color: var(--navy);
+  margin: 0 0 0.5rem; text-wrap: balance;
 }
 .provenance {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.76rem;
-  letter-spacing: 0.02em; color: var(--amber);
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.78rem;
+  line-height: 1.45; color: var(--axis);
   margin: 0 0 var(--step);
+  padding-left: 0.85rem; border-left: 2px solid var(--amber);
 }
 
 h3.section {
   font-family: "Jost", sans-serif; font-weight: 600;
-  font-size: 1.28rem; line-height: 1.25; color: var(--navy);
-  margin: calc(var(--step) * 2) 0 0.6rem;
-  display: flex; gap: 0.7rem; align-items: baseline;
-  text-wrap: balance;
+  font-size: 1.32rem; line-height: 1.22; color: var(--navy);
+  margin: calc(var(--step) * 2.1) 0 0.7rem;
+  display: flex; gap: 0.8rem; align-items: baseline;
+  text-wrap: balance; scroll-margin-top: calc(var(--bar) + 1.5rem);
 }
-h3.section .num { color: var(--amber); font-variant-numeric: tabular-nums; flex: none; }
+h3.section .num {
+  color: var(--amber); font-variant-numeric: tabular-nums; flex: none;
+}
 
 .tail-head, .keyterms-head {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.74rem;
-  letter-spacing: 0.13em; text-transform: uppercase; color: var(--folio);
-  margin: calc(var(--step) * 2.4) 0 var(--step);
-  padding-bottom: 0.4rem; border-bottom: 1px solid var(--hairline);
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber);
+  margin: var(--beat) 0 0.9rem;
+  display: flex; align-items: center; gap: 0.9rem;
 }
+.tail-head::after, .keyterms-head::after {
+  content: ""; flex: 1; height: 1px; background: var(--hairline);
+}
+.summary-sec, .keyterms, .problems-sec { scroll-margin-top: calc(var(--bar) + 1.5rem); }
+p.slot-label { scroll-margin-top: calc(var(--bar) + 1.5rem); }
 
-/* ---------- 7. BODY PROSE ---------- */
+/* ---------- 8. BODY PROSE ---------- */
 #chapter-text p { margin: 0 0 var(--step); }
 #chapter-text b { font-weight: 600; color: var(--navy); }
 /* .nb switches hyphenation off for a proper noun (Decision 58). The web is not
@@ -233,196 +284,252 @@ h3.section .num { color: var(--amber); font-variant-numeric: tabular-nums; flex:
    to nothing deliberately: removing it from the chapter HTML would break print. */
 .nb { }
 
-/* ---------- 8. SIDENOTES ---------- */
+/* ---------- 9. SIDENOTES ---------- */
+/* The note floats out of the text column into the track beside it. Float rather
+   than absolute positioning, because float with clear:right cannot overlap a
+   preceding note and absolute positioning can. */
 .fnref { text-decoration: none; }
 .fnref sup {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.62em;
-  color: var(--amber); padding-left: 0.12em;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.64em;
+  color: var(--amber); padding-left: 0.1em;
 }
-.fnref:hover sup { color: var(--navy); }
+.fnref:hover sup, .fnref.lit sup { color: var(--navy); }
 
 .note {
   display: block; float: right; clear: right;
-  width: calc(var(--gutter) - 2.2rem);
-  margin-right: calc((var(--gutter) - 1.2rem) * -1);
-  margin-bottom: 0.9rem;
-  font-size: 0.76rem; line-height: 1.45; color: var(--axis);
-  text-align: left;
+  width: var(--note);
+  margin-right: calc((var(--note) + var(--note-gap)) * -1);
+  margin-bottom: 1rem;
+  font-size: 0.75rem; line-height: 1.5; color: var(--axis);
+  border-top: 1px solid var(--hairline); padding-top: 0.5rem;
+  transition: background-color 0.4s;
 }
 .note .note-n {
   font-family: "Jost", sans-serif; font-weight: 600;
   color: var(--amber); text-decoration: none; padding-right: 0.15em;
 }
 .note i { font-style: italic; }
-.note:target, .note-n:target { background: var(--tint-thm); }
+.note.lit, .note:target { background: var(--tint-thm); }
 
-/* ---------- 9. APPARATUS ---------- */
+/* ---------- 10. APPARATUS ---------- */
 .definition {
   background: var(--tint-def);
-  border-left: 2px solid var(--amber);
-  padding: 1rem 1.2rem 0.4rem;
+  border-left: 3px solid var(--amber);
+  padding: 1rem 1.2rem;
   margin: 0 0 var(--step);
 }
 .definition .lab, .theorem .lab, .model .mlab, .dated .date {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.68rem;
-  letter-spacing: 0.13em; text-transform: uppercase; color: var(--amber);
-  margin: 0 0 0.35rem;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.66rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber);
+  margin: 0 0 0.5rem;
 }
 .definition .term {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.02rem;
-  color: var(--navy); margin: 0 0 0.4rem;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.08rem;
+  color: var(--navy); margin: 0 0 0.35rem;
 }
-.definition p:last-child { margin-bottom: 0.8rem; }
+.definition p:last-child { margin-bottom: 0; }
+.definition p { font-size: 0.95rem; }
 
 .theorem {
   background: var(--tint-thm);
   border: 1px solid var(--hairline); border-left: 3px solid var(--navy);
-  padding: 1.1rem 1.3rem 0.6rem;
+  padding: 1.15rem 1.35rem;
   margin: var(--step) 0;
 }
 .theorem .lab { color: var(--navy); }
 .theorem .stmt {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.02rem;
-  line-height: 1.3; color: var(--navy); margin: 0 0 0.7rem;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.08rem;
+  line-height: 1.28; color: var(--navy); margin: 0 0 0.8rem;
+  padding-bottom: 0.7rem; border-bottom: 1px solid var(--hairline);
 }
-.theorem .cond, .theorem .conseq { margin: 0 0 0.5rem; }
-.theorem ol.ante { list-style: none; margin: 0 0 0.6rem; padding: 0; }
+.theorem .cond { margin: 0 0 0.6rem; }
+.theorem .conseq { margin: 0.2rem 0 0; }
+.theorem ol.ante { list-style: none; margin: 0 0 0.5rem; padding: 0; }
 .theorem ol.ante li {
-  display: flex; gap: 0.6rem; margin-bottom: 0.3rem;
-  padding-left: 0.9rem;
+  display: flex; gap: 0.65rem; margin-bottom: 0.35rem; padding-left: 0.9rem;
 }
-.theorem .mk { color: var(--amber); flex: none; font-variant-numeric: tabular-nums; }
+.theorem .mk {
+  color: var(--amber); flex: none; font-variant-numeric: tabular-nums;
+  min-width: 1.6rem;
+}
+.theorem p, .theorem li { font-size: 0.95rem; }
 
 .dated {
   border: 1px solid var(--hairline);
-  padding: 1rem 1.2rem 0.3rem;
-  margin: var(--step) 0;
+  padding: 1rem 1.2rem; margin: var(--step) 0;
 }
+.dated p:last-child { margin-bottom: 0; }
+
 .model {
   background: var(--tint-fig);
-  padding: 1rem 1.2rem 0.3rem;
-  margin: var(--step) 0;
+  padding: 1.1rem 1.3rem; margin: var(--step) 0;
 }
-.model .mlab:not(:first-child) { margin-top: 1rem; }
+.model p:last-child { margin-bottom: 0; }
+.model .mlab:not(:first-child) {
+  margin-top: 1.2rem; padding-top: 0.9rem; border-top: 1px solid var(--hairline);
+}
 
 .diagnostic {
-  margin: 0 0 0.5rem !important;
+  margin: 0 0 0.45rem !important;
   padding-left: 1.1rem;
   border-left: 2px solid var(--teal);
   color: var(--navy);
 }
 
-/* ---------- 10. FIGURES ---------- */
-#chapter-text figure { margin: calc(var(--step) * 1.5) 0; }
+/* ---------- 11. FIGURES ---------- */
+#chapter-text figure { margin: calc(var(--step) * 1.7) 0; }
 #chapter-text figure svg { width: 100%; height: auto; display: block; }
 figcaption {
-  font-size: 0.78rem; line-height: 1.45; color: var(--axis);
-  margin-top: 0.6rem; padding-top: 0.5rem;
+  font-size: 0.78rem; line-height: 1.5; color: var(--axis);
+  margin-top: 0.7rem; padding-top: 0.55rem;
   border-top: 1px solid var(--hairline);
 }
 .fignum {
   font-family: "Jost", sans-serif; font-weight: 600;
-  color: var(--amber-fig); padding-right: 0.45em;
+  color: var(--amber-fig); padding-right: 0.4em;
 }
 
-/* ---------- 11. KEY TERMS ---------- */
-.kt-list { display: grid; gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
-.kt { background: var(--paper); padding: 0.9rem 1.1rem; }
-.kt-h { background: var(--kt-head); margin: -0.9rem -1.1rem 0.6rem; padding: 0.4rem 1.1rem; }
-.kt-t { font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--navy); }
-.kt p { margin: 0 !important; font-size: 0.92rem; }
+/* ---------- 12. KEY TERMS ---------- */
+.kt-list {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px; background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+.kt { background: var(--paper); padding: 0 1rem 0.9rem; display: flex; flex-direction: column; }
+.kt-h {
+  background: var(--kt-head); margin: 0 -1rem 0.7rem; padding: 0.4rem 1rem;
+}
+.kt-t {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.92rem;
+  color: var(--navy);
+}
+.kt p { margin: 0 !important; font-size: 0.87rem; line-height: 1.5; }
 
-/* ---------- 12. QUESTIONS AND PROBLEMS ---------- */
-.dq { display: grid; grid-template-columns: 2rem 1fr; gap: 0.6rem; margin-bottom: 1rem; }
+/* ---------- 13. QUESTIONS AND PROBLEMS ---------- */
+.dq { display: grid; grid-template-columns: 2rem 1fr; gap: 0.7rem; margin-bottom: 1.1rem; }
 .dq-n {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.05rem;
-  color: var(--amber); font-variant-numeric: tabular-nums;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.1rem;
+  color: var(--amber); font-variant-numeric: tabular-nums; line-height: 1.5;
 }
 .dq-b p { margin: 0 !important; }
 
-.problem { border-top: 1px solid var(--hairline); padding-top: 1.1rem; margin-top: var(--step); }
+.problem {
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.2rem; margin-top: calc(var(--step) * 1.4);
+}
 .plab {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.7rem;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber);
-  margin: 0 0 0.3rem !important;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber);
+  margin: 0 0 0.35rem !important;
 }
 .ptitle {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.1rem;
-  color: var(--navy); margin: 0 0 0.6rem !important;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.15rem;
+  color: var(--navy); margin: 0 0 0.7rem !important;
 }
 .pnote { font-size: 0.85rem; color: var(--axis); }
 
+/* The table scrolls inside its own box rather than widening the page. Below
+   about 390px four columns cannot fit, and without this the whole document
+   scrolled sideways, which breaks every other block on the phone instead of
+   just the table. The wrapper is added by web_build.wrap_tables. */
+.table-scroll { overflow-x: auto; margin: var(--step) 0; }
 table.inv {
-  width: 100%; border-collapse: collapse; font-size: 0.8rem;
-  margin: var(--step) 0;
+  width: 100%; min-width: 26rem;
+  border-collapse: collapse; font-size: 0.78rem;
 }
 table.inv th, table.inv td {
   border: 1px solid var(--hairline); padding: 0.5rem 0.6rem;
   text-align: left; vertical-align: top;
 }
 table.inv th {
-  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.72rem;
-  letter-spacing: 0.05em; text-transform: uppercase;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
   background: var(--kt-head); color: var(--navy);
 }
-table.inv td.blank { background: var(--tint-fig); min-width: 7rem; }
-.table-scroll { overflow-x: auto; }
+table.inv td.blank { background: var(--tint-fig); min-width: 6rem; }
 
-.summary { border-left: 2px solid var(--teal); padding-left: 1.2rem; }
+.summary { border-left: 3px solid var(--teal); padding-left: 1.2rem; }
+.summary p:last-child { margin-bottom: 0; }
 
-/* ---------- 13. RESPONSIVE ---------- */
-/* Below the two-column threshold the sidenote returns inline, indented and
-   ruled, rather than being hidden. An apparatus a reader cannot reach on a
-   phone is an apparatus the book does not have. */
-@media (max-width: 1180px) {
-  :root { --gutter: 0rem; }
-  #chapter-text { padding-right: 0; max-width: var(--measure); }
+/* ---------- 14. PLACEHOLDER FRONT PAGE ---------- */
+/* Phase W1 leftover. Superseded by the Phase W3 landing page. */
+.toc { grid-column: 2; }
+.toc-note { color: var(--axis); font-size: 0.88rem; margin-bottom: calc(var(--step) * 1.5); }
+.toc-list { list-style: none; margin: 0; padding: 0; }
+.toc-list li { border-top: 1px solid var(--hairline); padding: 1.1rem 0; }
+.toc-list a { display: block; text-decoration: none; }
+.toc-num {
+  display: block; font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 0.25rem;
+}
+.toc-title { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.6rem; color: var(--navy); }
+.toc-list a:hover .toc-title { color: var(--amber); }
+.toc-part { display: block; font-size: 0.8rem; color: var(--folio); margin-top: 0.3rem; }
+
+/* ---------- 15. RESPONSIVE ---------- */
+/* Below the threshold the sidenote returns inline, indented and ruled, rather
+   than being hidden. An apparatus a reader cannot reach on a phone is an
+   apparatus the book does not have. */
+/* THE BREAKPOINT IS ARITHMETIC, NOT TASTE. A margin note needs
+   --note + --note-gap = 17.75rem = 302px of side track. The side track is
+   (viewport - --rail - --measure) / 2, so the note fits only from
+   263 + 544 + 604 = 1411px up. It was set at 1240px in the first draft, which
+   left a 170px band where the note ran off the right edge of the window. Any
+   change to --note, --note-gap, --measure or --rail must redo this sum. */
+@media (max-width: 1440px) {
+  .reading { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  #chapter-text, .toc { grid-column: 1; width: 100%; max-width: var(--measure); }
   .note {
     float: none; width: auto; margin-right: 0;
-    margin: 0.7rem 0 1rem; padding: 0.7rem 0 0.7rem 0.9rem;
-    border-left: 2px solid var(--hairline);
+    margin: 0.8rem 0 1.1rem; padding: 0.6rem 0 0.2rem 0.9rem;
+    border-top: 0; border-left: 2px solid var(--hairline);
   }
 }
 @media (max-width: 900px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .rail {
     display: none; position: static; max-height: none;
-    padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid var(--hairline);
+    padding: 1.2rem 1.5rem 1.5rem; border-bottom: 1px solid var(--hairline);
   }
   .rail.open { display: block; }
+  .topbar-here { display: none; }
 }
-@media (min-width: 901px) {
-  .rail-toggle { display: none; }
-}
+@media (min-width: 901px) { .rail-toggle { display: none; } }
 @media (max-width: 620px) {
   html { font-size: 16px; }
   :root { --step: 1.35rem; }
-  .reading { padding-inline: 1.1rem; }
-  .dq { grid-template-columns: 1.5rem 1fr; }
+  .reading { padding-inline: 1.15rem; }
+  .topbar { padding-inline: 1.15rem; }
+  .brand { font-size: 0.7rem; letter-spacing: 0.06em; }
+  .kt-list { grid-template-columns: minmax(0, 1fr); }
+  .dq { grid-template-columns: 1.6rem 1fr; }
+  table.inv { font-size: 0.72rem; }
 }
 
-/* ---------- 14. PRINT FROM THE BROWSER ---------- */
+/* ---------- 16. MOTION ---------- */
+/* The .reveal class is added BY SCRIPT, never in the markup. A reader with
+   JavaScript disabled therefore sees every block at full opacity instead of a
+   blank page, which is what a markup-side opacity:0 would have produced. */
+.reveal { opacity: 0; transform: translateY(10px); }
+.reveal.shown {
+  opacity: 1; transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal.shown { opacity: 1; transform: none; transition: none; }
+  .progress i { transition: none; }
+  * { animation-duration: 0.01ms !important; }
+}
+
+/* ---------- 17. PRINT FROM THE BROWSER ---------- */
 /* Not the book. The book is AIOM_build.py and WeasyPrint. This only stops a
    browser print of a web page from carrying the site chrome. */
 @media print {
   [data-chrome] { display: none !important; }
-  .layout { display: block; }
-  #chapter-text { max-width: none; padding-right: 0; }
+  .layout, .reading { display: block; }
+  #chapter-text { max-width: none; }
   .note { float: none; width: auto; margin: 0.5rem 0; }
+  .reveal { opacity: 1; transform: none; }
 }
-
-/* ---------- 15. PLACEHOLDER FRONT PAGE ---------- */
-/* Phase W1 only. Superseded by the Phase W3 landing page. */
-.toc { max-width: var(--measure); margin-inline: auto; }
-.toc-note { color: var(--axis); font-size: 0.88rem; margin-bottom: calc(var(--step) * 1.5); }
-.toc-list { list-style: none; margin: 0; padding: 0; }
-.toc-list li { border-top: 1px solid var(--hairline); padding: 1rem 0; }
-.toc-list a { display: block; text-decoration: none; }
-.toc-num {
-  display: block; font-family: "Jost", sans-serif; font-weight: 600;
-  font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase;
-  color: var(--amber); margin-bottom: 0.2rem;
-}
-.toc-title { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.5rem; color: var(--navy); }
-.toc-list a:hover .toc-title { color: var(--amber); }
-.toc-part { display: block; font-size: 0.8rem; color: var(--folio); margin-top: 0.25rem; }

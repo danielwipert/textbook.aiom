@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""web_build.py  |  the web edition renderer  |  Phase W1
+"""web_build.py  |  the web edition renderer  |  Phases W1 and W2
 
 Adopted by Decision 62. Companion to AIOM_build.py, reading the SAME locked
 chapter HTML. The web is a second PRESENTATION of the book, never a second text.
@@ -15,11 +15,18 @@ than hoped for. Both artifacts descend from one call to footnotes.inject():
                 |
                 +-- web transform --> web HTML               (this file)
 
-The web transform does three things and nothing else: it lifts the body, it
-turns each <span class="fn"> into a numbered sidenote, and it adds id attributes
-for anchors. Everything else is copied through byte for byte. Gate W1 then
-proves the transform preserved the text, which is a check on this file rather
-than a check on the author.
+The web transform does four things and nothing else: it lifts the body, it turns
+each <span class="fn"> into a numbered sidenote, it adds id attributes for
+anchors, and it wraps each inventory table in a scroll box. Everything else is
+copied through byte for byte. Every one of the four adds elements or attributes
+and NO TEXT, which is the test for whether a presentation change belongs here.
+Gate W1 then proves the transform preserved the text, which is a check on this
+file rather than a check on the author.
+
+Six gates. W1 text equivalence, W2 lock status, W3 typographic marks, W4
+structure and links, W5 document attributes, W6 horizontal overflow across a
+width sweep. W6 needs a headless browser and is the only optional one; it reports
+SKIPPED and is never counted as passed.
 
 Citation text is never reimplemented here. It comes from footnotes.py and
 cite_format.py, which is the whole reason this is Python.
@@ -27,6 +34,7 @@ cite_format.py, which is the whole reason this is Python.
 Usage:
     python3 web_build.py Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html
     python3 web_build.py <chapter.html> --out build/web --preview
+    python3 web_build.py <chapter.html> --no-browser   # skip gate W6
 """
 import argparse
 import glob
@@ -283,6 +291,25 @@ def to_sidenotes(body):
     return "".join(out), notes
 
 
+TABLE_RE = re.compile(r'<table class="inv">.*?</table>', re.S)
+
+
+def wrap_tables(body):
+    """Put each inventory table in its own horizontally scrollable box.
+
+    Found by the gate W6 width sweep, not by eye: the four-column P3 table
+    cannot fit below about 390px and was forcing the whole PAGE to scroll
+    sideways, which breaks every other block on the phone rather than just the
+    table. Scrolling the table inside its own box confines the problem to the
+    element that has it.
+
+    This adds an element and no text, so gate W1 is unaffected, which is the
+    test for whether a presentation change belongs in this transform at all.
+    """
+    return TABLE_RE.sub(
+        lambda m: f'<div class="table-scroll">{m.group(0)}</div>', body)
+
+
 def transform(print_html):
     """Print HTML to web body HTML, plus everything the template needs."""
     m = BODY_RE.search(print_html)
@@ -300,6 +327,7 @@ def transform(print_html):
 
     body, slots, sections = add_anchors(body)
     body, notes = to_sidenotes(body)
+    body = wrap_tables(body)
 
     figures = []
     for fm in FIGNUM_RE.finditer(body):
@@ -311,12 +339,31 @@ def transform(print_html):
         nm = re.search(r"Chapter\s+(\d+)", tm.group(1))
         num = nm.group(1) if nm else ""
 
+    # Reading metadata for the rail. This is CHROME and lives outside
+    # <article id="chapter-text">, so it cannot reach gate W1. Counted from the
+    # transformed body rather than stated by hand, because a hand-kept count is
+    # a claim that goes stale silently.
+    prose = extract_text(body, skip_attrs=("data-note",))
+    words = len(prose.split())
+    meta_counts = {
+        "words": words,
+        # 230 wpm is a common estimate for adult non-fiction reading. It is a
+        # rounded estimate and is labelled as one in the rail, not presented as
+        # a measurement of this text.
+        "minutes": max(1, round(words / 230)),
+        "key_terms": len(re.findall(r'<div class="kt">', body)),
+        "figures": len(figures),
+        "problems": len(re.findall(r'<div class="problem">', body)),
+        "questions": len(re.findall(r'<div class="dq">', body)),
+    }
+
     return {
         "body": body.strip(),
         "slots": slots,
         "sections": sections,
         "notes": notes,
         "figures": figures,
+        "counts": meta_counts,
         "part_label": re.sub(r"<[^>]+>", "", part.group(1)).strip() if part else "",
         "chapter_title": re.sub(r"<[^>]+>", "", title.group(1)).strip() if title else "",
         "chapter_number": num,
@@ -514,6 +561,68 @@ def gate_w5(web_html, meta):
     return fails
 
 
+WIDTHS = [320, 360, 390, 414, 480, 620, 768, 900, 1024, 1180, 1240, 1300,
+          1366, 1411, 1440, 1441, 1512, 1600, 1920, 2560]
+
+
+def gate_w6(page_path):
+    """Horizontal overflow across a width sweep. The web analogue of print gate 1.
+
+    Print gate 1 fails a page whose content exceeds the measure, because an
+    unbreakable string or an oversized table runs off the paper. The web has the
+    same defect with a different symptom: the document scrolls sideways and every
+    block on the page is dragged with it, not just the one that overflowed.
+
+    Requires a headless browser, which the build does not otherwise need, so it
+    is OPTIONAL. It reports SKIPPED and is counted as skipped, never as passed.
+    A gate that did not run is not a gate that passed, and an optional gate that
+    quietly reports success is the exact failure this repository keeps finding in
+    its own suite.
+
+    Returns (fails, ran).
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("W6. horizontal overflow .. SKIPPED, playwright not installed")
+        return [], False
+
+    exe = next((p for p in glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")
+                if os.path.exists(p)), None)
+    fails = []
+    try:
+        with sync_playwright() as p:
+            kw = {"args": ["--no-sandbox"]}
+            if exe:
+                kw["executable_path"] = exe
+            b = p.chromium.launch(**kw)
+            pg = b.new_page(viewport={"width": 1512, "height": 900})
+            url = "file://" + os.path.abspath(page_path)
+            for w in WIDTHS:
+                pg.set_viewport_size({"width": w, "height": 900})
+                pg.goto(url)
+                pg.wait_for_timeout(120)
+                r = pg.evaluate(
+                    "() => {const d=document.documentElement; const o=[];"
+                    "document.querySelectorAll('#chapter-text *').forEach(e=>{"
+                    "  if (e.getBoundingClientRect().right > d.clientWidth + 1)"
+                    "    o.push(e.className || e.tagName);});"
+                    "return {sw:d.scrollWidth, cw:d.clientWidth,"
+                    "        over:[...new Set(o)].slice(0,3)};}")
+                if r["sw"] > r["cw"] + 1:
+                    fails.append(f"W6: page scrolls sideways at {w}px "
+                                 f"({r['sw']} > {r['cw']}), widest: {r['over']}")
+            b.close()
+    except Exception as exc:
+        print(f"W6. horizontal overflow .. SKIPPED, browser unavailable ({exc.__class__.__name__})")
+        return [], False
+
+    if not fails:
+        print(f"W6. horizontal overflow .. clean at {len(WIDTHS)} widths, "
+              f"{WIDTHS[0]}px to {WIDTHS[-1]}px")
+    return fails, True
+
+
 # ----------------------------------------------------------------------- build
 
 def _env():
@@ -563,6 +672,8 @@ def main():
     ap.add_argument("--out", default="build/web", help="output directory")
     ap.add_argument("--preview", action="store_true",
                     help="build an unlocked chapter to a local noindex page")
+    ap.add_argument("--no-browser", action="store_true",
+                    help="skip gate W6, the width sweep, which needs a browser")
     a = ap.parse_args()
 
     if not os.path.exists("web_templates/chapter.html.j2"):
@@ -584,8 +695,16 @@ def main():
     fails += gate_w3(web_html)
     fails += gate_w4(web_html, meta)
     fails += gate_w5(web_html, meta)
+    w6_fails, w6_ran = ([], False) if a.no_browser else gate_w6(path)
+    fails += w6_fails
 
-    print("\nWEB GATES " + ("PASSED" if not fails else "FAILED"))
+    verdict = "PASSED" if not fails else "FAILED"
+    # The skip is stated in the verdict line rather than buried above it. Five of
+    # this repository's recorded defects are a check that was believed to have
+    # run and had not, so an optional gate has to be noisy about not running.
+    if not w6_ran:
+        verdict += ", W6 NOT RUN"
+    print(f"\nWEB GATES {verdict}")
     for f in fails:
         print("   " + f)
     return 0 if not fails else 1

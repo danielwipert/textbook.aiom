@@ -1,5 +1,5 @@
 {#
-  chapter.html.j2  |  the chapter reader  |  Phase W1
+  chapter.html.j2  |  the chapter reader  |  Phase W2
 
   Everything the reader needs to navigate sits OUTSIDE <article id="chapter-text">.
   That boundary is load bearing: gate W1 measures the text inside the article and
@@ -12,6 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ chapter_title }} | AI Operations Management</title>
+<meta name="description" content="Chapter {{ chapter_number }} of AI Operations Management. {{ part_label }}.">
 {% if preview %}
 <meta name="robots" content="noindex, nofollow">
 {% endif %}
@@ -23,6 +24,7 @@
 
 <header class="topbar" data-chrome>
   <a class="brand" href="../">AI Operations Management</a>
+  <span class="topbar-here" id="topbar-here"></span>
   <button class="rail-toggle" id="rail-toggle" aria-expanded="false" aria-controls="rail">Contents</button>
 </header>
 
@@ -34,6 +36,12 @@
 
   <nav class="rail" id="rail" data-chrome aria-label="Chapter contents">
     <p class="rail-head">Chapter {{ chapter_number }}</p>
+    <p class="rail-title">{{ chapter_title }}</p>
+    <p class="rail-meta">
+      {{ "{:,}".format(counts.words) }} words, about {{ counts.minutes }} minutes<br>
+      {{ counts.key_terms }} key terms, {{ notes|length }} sources<br>
+      {{ counts.figures }} figures, {{ counts.questions }} questions, {{ counts.problems }} problems
+    </p>
     <ol class="rail-slots">
       {% for s in slots %}
       <li><a href="#{{ s.id }}" data-rail="{{ s.id }}">{{ s.label }}</a>
@@ -60,22 +68,26 @@
 </div>
 
 <footer class="foot" data-chrome>
-  <p>AI Operations Management. Chapter {{ chapter_number }}, {{ chapter_title }}.
-     {{ notes|length }} source note{{ '' if notes|length == 1 else 's' }}.</p>
+  <div class="foot-inner">
+    <p>AI Operations Management, Chapter {{ chapter_number }}. {{ part_label }}.</p>
+    <p>{{ notes|length }} source note{{ '' if notes|length == 1 else 's' }}, each cited to the chapter register.</p>
+    <p class="keyhint"><kbd>j</kbd> <kbd>k</kbd> move by section, <kbd>c</kbd> contents, <kbd>Esc</kbd> close.</p>
+  </div>
 </footer>
 
 <script>
 (function () {
-  var bar = document.getElementById('progress-bar');
+  'use strict';
   var art = document.getElementById('chapter-text');
+  var bar = document.getElementById('progress-bar');
+  var here = document.getElementById('topbar-here');
   var links = Array.prototype.slice.call(document.querySelectorAll('[data-rail]'));
-  var byId = {};
-  links.forEach(function (a) { byId[a.getAttribute('data-rail')] = a; });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---- progress ---- */
   function progress() {
-    var top = art.offsetTop;
     var span = art.offsetHeight - window.innerHeight;
-    var seen = window.scrollY - top;
+    var seen = window.scrollY - art.offsetTop;
     var pct = span > 0 ? Math.min(1, Math.max(0, seen / span)) : 0;
     bar.style.transform = 'scaleX(' + pct + ')';
   }
@@ -83,30 +95,94 @@
   window.addEventListener('resize', progress);
   progress();
 
-  if ('IntersectionObserver' in window) {
-    var seen = new Set();
+  /* ---- which section am I in ---- */
+  var targets = links.map(function (a) {
+    return document.getElementById(a.getAttribute('data-rail'));
+  }).filter(Boolean);
+
+  function mark() {
+    var y = window.scrollY + 140, current = null;
+    targets.forEach(function (el) {
+      if (el.getBoundingClientRect().top + window.scrollY <= y) { current = el; }
+    });
+    links.forEach(function (a) { a.classList.remove('here'); });
+    if (!current) { here.textContent = ''; return; }
+    var link = links.filter(function (a) {
+      return a.getAttribute('data-rail') === current.id;
+    })[0];
+    if (link) {
+      link.classList.add('here');
+      here.textContent = link.textContent.trim();
+    }
+  }
+  window.addEventListener('scroll', mark, { passive: true });
+  mark();
+
+  /* ---- reveal on first view ----
+     The class is added HERE rather than in the markup, so a reader without
+     JavaScript sees every block instead of a blank column. */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var blocks = art.querySelectorAll(
+      'figure, .theorem, .definition, .model, .dated, .kt-list, table.inv, .summary');
+    Array.prototype.forEach.call(blocks, function (el) { el.classList.add('reveal'); });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { seen.add(e.target.id); } else { seen.delete(e.target.id); }
+        if (e.isIntersecting) { e.target.classList.add('shown'); io.unobserve(e.target); }
       });
-      links.forEach(function (a) { a.classList.remove('here'); });
-      var first = links.filter(function (a) { return seen.has(a.getAttribute('data-rail')); })[0];
-      if (first) { first.classList.add('here'); }
-    }, { rootMargin: '-10% 0px -70% 0px' });
-    Object.keys(byId).forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) { io.observe(el); }
-    });
+    }, { rootMargin: '0px', threshold: 0 });
+    /* rootMargin is deliberately zero. A negative bottom inset delays the
+       reveal slightly and buys a bug: an element that sits entirely inside the
+       inset band at maximum scroll never intersects, so it stays at opacity 0
+       with no way for the reader to recover it. */
+    Array.prototype.forEach.call(blocks, function (el) { io.observe(el); });
   }
 
+  /* ---- sidenote highlighting, both directions ---- */
+  art.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a.fnref, a.note-n') : null;
+    if (!a) { return; }
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (!el) { return; }
+    art.querySelectorAll('.lit').forEach(function (n) { n.classList.remove('lit'); });
+    el.classList.add('lit');
+    var partner = document.getElementById(
+      id.indexOf('fnref-') === 0 ? id.replace('fnref-', 'fn-') : id.replace('fn-', 'fnref-'));
+    if (partner) { partner.classList.add('lit'); }
+  });
+
+  /* ---- rail toggle ---- */
   var toggle = document.getElementById('rail-toggle');
   var rail = document.getElementById('rail');
-  toggle.addEventListener('click', function () {
-    var open = rail.classList.toggle('open');
+  function setRail(open) {
+    rail.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  rail.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') { rail.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+  }
+  toggle.addEventListener('click', function () { setRail(!rail.classList.contains('open')); });
+  rail.addEventListener('click', function (e) { if (e.target.tagName === 'A') { setRail(false); } });
+
+  /* ---- keyboard ---- */
+  function step(dir) {
+    var y = window.scrollY + 130;
+    var tops = targets.map(function (el) {
+      return el.getBoundingClientRect().top + window.scrollY;
+    });
+    var i = -1;
+    tops.forEach(function (t, n) { if (t <= y + 4) { i = n; } });
+    var next = Math.min(targets.length - 1, Math.max(0, i + dir));
+    if (dir < 0 && i >= 0 && tops[i] < y - 12) { next = i; }
+    if (targets[next]) {
+      targets[next].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    }
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) { return; }
+    var t = e.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA' || e.target.isContentEditable) { return; }
+    if (e.key === 'j') { e.preventDefault(); step(1); }
+    else if (e.key === 'k') { e.preventDefault(); step(-1); }
+    else if (e.key === 'c') { e.preventDefault(); setRail(!rail.classList.contains('open')); }
+    else if (e.key === 'Escape') { setRail(false); }
   });
 })();
 </script>
