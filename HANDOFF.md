@@ -187,8 +187,9 @@ The tree is unchanged apart from the removals recorded here; only the hashes
 moved.
 
 `main` is at the rewritten tip and carries the LICENSE. 182 commits, down from
-183 because one became empty when its only content was purged. The remote holds
-`main` and `claude/book-website-privacy-check-ewd96o` and nothing else.
+183 because one became empty when its only content was purged. The remote held
+`main` and `claude/book-website-privacy-check-ewd96o` and nothing else at the
+time this was written; that second branch was deleted by Dan on 2026-08-13.
 
 **WHAT WAS REMOVED, AND WHY IT IS NOT A SECRETS INCIDENT.** A sweep before going
 public found NO secrets: no keys, tokens, credentials, emails, phone numbers or
@@ -1440,12 +1441,17 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
   `git-receive-pack`, and `DELETE /repos/.../git/refs/heads/...` on the REST API
   returns 403, while ordinary pushes to the same remote succeed. The proxy
   README rules 403s as organization policy, to be reported rather than routed
-  around. **Do not spend a third attempt on this.** Report the branch name and
-  let Dan run the one-liner. As of 2026-08-13 that is
-  `claude/book-website-privacy-check-ewd96o`, fully merged, sitting at the
-  pre-merge `main` tip and holding nothing unique. This matters because the
-  2026-08-12 stranding was made hard to see by thirteen merged and undeleted
-  branches, so the cleanup rule is real even though Claude cannot execute it.
+  around. **Do not spend attempts on this.** Report the branch name and let Dan
+  run the one-liner. Confirmed twice on 2026-08-13, on two different branches,
+  by two different routes: it is the operation that is denied, not the
+  credential or the syntax. **THE LOCAL BRANCH CAN STILL BE DELETED**, and
+  should be, so `git branch --list` does not disagree with the remote.
+  Outstanding as of 2026-08-13: `claude/website-edits-upsmk4`, fully merged and
+  sitting exactly at `main`, deleted locally and awaiting
+  `git push origin --delete claude/website-edits-upsmk4` from Dan. This matters
+  because the 2026-08-12 stranding was made hard to see by thirteen merged and
+  undeleted branches, so the cleanup rule is real even though Claude cannot
+  execute it.
 - **A LOCAL `main` CAN BE STALE IN A WAY EVERY SECTION 9 CHECK MISSES.** On
   2026-08-13 `git merge --ff-only` refused with 69 and 193 divergent commits
   after `git_hygiene.py`, a fetch, `git log origin/main ^HEAD` and
