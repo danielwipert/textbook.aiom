@@ -76,6 +76,34 @@ FIGCAP_RE = re.compile(r"<figcaption>.*?</figcaption>", re.S)
 ID_ATTR_RE = re.compile(r'\bid="([^"]+)"')
 HREF_RE = re.compile(r'\bhref="#([^"]+)"')
 
+
+class AnchorCollector(HTMLParser):
+    """Collect ids the way a browser does: from START TAGS only.
+
+    A regex over the raw HTML is NOT equivalent and the difference is a whole
+    class of dead link. `\\bid="x"` matches inside `</p id="x">`, which is an
+    attribute on a closing tag; every parser discards it, so the id is in the
+    file and never in the DOM. Gates W4b and W4c used the regex and therefore
+    counted two dead anchors as live targets and reported "all resolve" for two
+    rail links that did nothing when clicked. Found 2026-08-13, by Dan clicking
+    one, which is the only check that had ever actually followed the link.
+    """
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.ids = []
+
+    def handle_starttag(self, tag, attrs):
+        for k, v in attrs:
+            if k == "id" and v:
+                self.ids.append(v)
+
+
+def anchor_ids(html):
+    p = AnchorCollector()
+    p.feed(html)
+    return p.ids
+
 # The six-slot skeleton. CLAUDE.md section 3 fixes it for all fifteen chapters,
 # but the chapter HTML does not mark all six the same way: three carry a
 # p.slot-label, two open a semantic <section>, and the teaching body is not
@@ -278,8 +306,20 @@ def add_anchors(body):
         if not m:
             continue
         tag = m.group(0)
-        body = body[:m.start()] + tag[:-1] + f' id="slot-{key}"' + tag[-1:] \
-            + body[m.end():]
+        # THE id GOES IN THE OPENING TAG, AND WHICH CHARACTER THAT IS DEPENDS ON
+        # THE PATTERN. Three SLOTS patterns match a bare opening tag
+        # (`<section class="keyterms">`) and two match a WHOLE element
+        # (`<p class="slot-label">Craft section</p>`), because that is the only
+        # way to tell one slot label from another. Writing the attribute before
+        # the last character of the match assumed the first shape, so for the
+        # other two it produced `</p id="slot-craft-section">`: an attribute on
+        # a CLOSING tag, which every HTML parser discards. The id was in the
+        # file and never in the DOM, so the Opening case and Craft section rail
+        # links did nothing when clicked. Cutting at the first ">" is correct
+        # for both shapes.
+        cut = tag.index(">")
+        body = (body[:m.start()] + tag[:cut] + f' id="slot-{key}"' + tag[cut:]
+                + body[m.end():])
         slots.append({"key": key, "label": label, "id": f"slot-{key}"})
     return body, slots, sections
 
@@ -694,7 +734,16 @@ def gate_pages(pages):
 def gate_w4_links(html, label):
     """Anchor uniqueness and internal link resolution, for any page."""
     fails = []
-    ids = ID_ATTR_RE.findall(html)
+    # Parsed rather than regexed, for the reason in AnchorCollector: an id on a
+    # closing tag satisfies the regex and reaches no DOM. Both id readers moved
+    # together deliberately, because a hardened chapter gate beside a soft
+    # page gate would leave the landing page carrying the defect the chapter is
+    # now protected from.
+    ids = anchor_ids(html)
+    stringy = set(ID_ATTR_RE.findall(html)) - set(ids)
+    if stringy:
+        fails.append(f"W4 [{label}]: id attribute(s) in the markup but not on "
+                     f"any element: {sorted(stringy)}")
     dupes = sorted({i for i in ids if ids.count(i) > 1})
     if dupes:
         fails.append(f"W4 [{label}]: duplicate id attribute(s): {dupes}")
@@ -758,7 +807,14 @@ def gate_w4(web_html, meta):
     else:
         print(f"W4a. six-slot skeleton .... all {len(SLOTS)} slots anchored")
 
-    ids = ID_ATTR_RE.findall(web_html)
+    # Parsed, not regexed. See AnchorCollector: an id written into a CLOSING
+    # tag matches the regex and never reaches the DOM, which is exactly the
+    # defect this gate passed twice.
+    ids = anchor_ids(web_html)
+    stringy = set(ID_ATTR_RE.findall(web_html)) - set(ids)
+    if stringy:
+        fails.append(f"W4: id attribute(s) present in the markup but not on any "
+                     f"element, so no link can reach them: {sorted(stringy)}")
     dupes = sorted({i for i in ids if ids.count(i) > 1})
     if dupes:
         fails.append(f"W4: duplicate id attribute(s): {dupes}")

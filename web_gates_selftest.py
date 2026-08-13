@@ -250,6 +250,21 @@ def main():
     case("an internal link with no target",
          lambda: quiet(wb.gate_w4, bad, meta))
 
+    # THE CONTROL FOR THE REAL DEFECT OF 2026-08-13, reproduced rather than
+    # invented. add_anchors wrote the slot id before the last character of the
+    # match, which for the two patterns that match a whole element put the
+    # attribute on the CLOSING tag: `</p id="slot-craft-section">`. Parsers
+    # discard it, so the id was in the file and never in the DOM and two rail
+    # links did nothing when clicked, while W4b counted them as anchors and W4c
+    # reported that every link resolved. Both read ids with a regex. They parse
+    # now, and this control is what proves the parse is doing the work.
+    bad = web_html.replace('<p class="slot-label" id="slot-craft-section">',
+                           '<p class="slot-label">', 1)
+    bad = bad.replace("Craft section</p>",
+                      'Craft section</p id="slot-craft-section">', 1)
+    case("a slot id written onto a closing tag, so no link can reach it",
+         lambda: quiet(wb.gate_w4, bad, meta))
+
     m4 = copy.deepcopy(meta)
     m4["figures"] = m4["figures"] + ["1.9"]
     case("a figure captioned but never referenced",
