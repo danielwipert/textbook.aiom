@@ -1021,6 +1021,24 @@ BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
    rendered chapter. (3) The sources page is where URLs live, built with
    `url_policy="full"`; the chapter page matches print so gate W1 stays exact.
 
+   **THE LANDING PAGE WAS REBUILT 2026-08-13 after an editorial review.** Dan
+   asked for a publisher-grade critique and the verdict was that the front door
+   was inert: no author, no images, one value repeated four times, incompleteness
+   advertised twice, and the book's three best assets (the figures, the formal
+   spine, the sourcing discipline) invisible until a reader was already reading.
+   All seven items were taken. The page now runs argument, proof, evidence,
+   author, contents, conversion, with a LIVE draggable model in the hero and one
+   inverted navy band carrying the theorem verbatim.
+
+   **TWO NEW GATES, AND W9b IS THE IMPORTANT ONE.** W9a requires the theorem and
+   the specimen paragraph on the landing page to be verbatim from the chapter.
+   W9b forbids the register's `note` field from appearing on ANY published page:
+   those notes carry fact-check finding IDs and verbatim quotations of sentences
+   the book CUT, so a first draft of the specimen band came within one build of
+   publishing retracted claims on the most public surface in the project. Gate W3
+   caught it only through stray apostrophes, which is luck. Ten gates now,
+   forty-four negative controls.
+
    **Phase W5, deploy, is next.**
 
    **STILL BLOCKED AND IT IS NOT A CODE PROBLEM: `messyjobs.ai` is refused by the

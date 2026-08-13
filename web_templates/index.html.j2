@@ -1,20 +1,23 @@
 {#
-  index.html.j2  |  the front door  |  Phase W3
+  index.html.j2  |  the front door  |  Phase W3, rebuilt after the W4 editorial review
 
-  EVERY LINE OF COPY ON THIS PAGE COMES FROM RULED MATERIAL. The two named layers
-  are CLAUDE.md section 1. Each part's description is its Purpose line from
-  AIOM_Structure_v1.md, parsed by book_structure.py rather than retyped. Chapter
-  titles come from the same place, and gate W7 fails the build if a locked
-  chapter's own title disagrees with it.
+  THE PAGE QUOTES THE BOOK. IT NEVER PARAPHRASES IT. The theorem and the specimen
+  paragraph are lifted verbatim from the locked chapter by build_specimens(), and
+  gate W9 fails the build if the page and the chapter ever disagree. Rule 4a
+  forbids paraphrasing a registry statement inside a chapter, and a marketing
+  surface is where that rule matters most, because it is where a reader forms
+  their idea of what the book says.
 
-  What is deliberately NOT here: any chapter's "Big idea", "Competency" or
-  "Anchor theorem" line. Those are internal planning shorthand, and CLAUDE.md
-  section 9 rules that later chapters withhold things deliberately and must not be
-  front-run by an earlier surface. A chapter is a title and a lock state here,
-  nothing more.
+  Part descriptions are the FIRST SENTENCE of each Purpose line in
+  AIOM_Structure_v1.md. No chapter's "Big idea", "Competency" or "Anchor theorem"
+  line appears, because later chapters withhold things deliberately.
 
-  The framing copy is DRAFT and awaits Dan's ruling. It is marked as such in
-  AIOM_Web_Edition_Plan_v1.0.md section 10 rather than presented as settled.
+  THE AUTHOR BAND AND THE HERO FRAMING ARE DRAFT AND AWAIT DAN'S RULING. What is
+  here comes from CLAUDE.md section 1 and from the chapter itself. Nothing about
+  the author's background is invented: the band carries only what this repository
+  states, and the places that need real copy are marked in the plan, section 12.
+
+  Section order is argument, proof, evidence, author, contents, conversion.
 #}<!doctype html>
 <html lang="en-US">
 <head>
@@ -29,10 +32,9 @@
 <header class="topbar" data-chrome>
   <a class="brand" href="./">AI Operations Management</a>
   <nav class="topnav">
-    <a href="#parts">The book</a>
-    <a href="#read">Read</a>
-    <a href="glossary/">Glossary</a>
-    <a href="sources/">Sources</a>
+    <a href="#argument">The argument</a>
+    <a href="#evidence">Method</a>
+    <a href="#contents">Contents</a>
     <a href="search/">Search</a>
   </nav>
   <a class="cta" href="#editions">Get the book</a>
@@ -40,38 +42,153 @@
 
 <main>
 
+  <!-- 1. THE ARGUMENT, with the model made draggable. -->
   <section class="hero">
-    <p class="eyebrow">A founding textbook</p>
-    <h1>Most organizations bought AI as software. They are operating a metered resource.</h1>
-    <p class="lede">
-      A seat has a price fixed at signature. A consumption event has a cost every
-      time it runs. Managing the first while operating the second is a category
-      error, and it is the reason the bill arrives on the provider’s schedule
-      rather than the buyer’s.
-    </p>
-    <div class="hero-layers">
-      <div>
-        <p class="layer-name">AI Business Economics</p>
-        <p class="layer-role">is the science.</p>
-      </div>
-      <div>
-        <p class="layer-name">AI Operations Management</p>
-        <p class="layer-role">is the practice discipline that acts on it.</p>
-      </div>
+    <div class="hero-text">
+      <p class="eyebrow">A founding textbook</p>
+      <h1>Most organizations bought AI as software.<br>They are operating a metered resource.</h1>
+      <p class="lede">
+        A seat has a price fixed at signature. A consumption event has a cost every
+        time it runs. Managing the first while operating the second is a category
+        error, and it is why the bill arrives on the provider’s schedule rather
+        than the buyer’s.
+      </p>
+      <p class="hero-actions">
+        {% if first_locked %}
+        <a class="btn" href="{{ first_locked.slug }}/">Read Chapter {{ first_locked.number }}, {{ first_locked.title }}</a>
+        {% endif %}
+        <a class="btn btn-quiet" href="#contents">See the structure</a>
+      </p>
+      <p class="hero-meta">Free to read. {{ counts.minutes }} minutes.
+         {{ counts.key_terms }} key terms, {{ counts.figures }} figures,
+         every claim sourced.</p>
     </div>
-    <p class="hero-actions">
-      {% if first_locked %}
-      <a class="btn" href="{{ first_locked.slug }}/">Start reading: {{ first_locked.title }}</a>
-      {% endif %}
-      <a class="btn btn-quiet" href="#parts">See the structure</a>
-    </p>
+
+    <figure class="hero-fig" id="model">
+      <div class="fig-frame">
+        <svg id="model-svg" viewBox="0 0 560 320" role="img"
+             aria-label="Two cost models against rising usage. Under the seat model cost is flat. Under the event model cost accumulates with every consumption event.">
+          <defs>
+            <linearGradient id="evfill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#B4551F" stop-opacity="0.30"/>
+              <stop offset="1" stop-color="#B4551F" stop-opacity="0.06"/>
+            </linearGradient>
+          </defs>
+          <line x1="56" y1="272" x2="470" y2="272" stroke="#6E6353" stroke-width="1"/>
+          <line x1="56" y1="32" x2="56" y2="272" stroke="#6E6353" stroke-width="1"/>
+          <text x="56" y="300" fill="#6E6353" font-size="12" font-family="Jost, sans-serif">Usage</text>
+          <text x="56" y="22" fill="#6E6353" font-size="12" font-family="Jost, sans-serif">Cost to serve</text>
+          <path id="ev-area" fill="url(#evfill)" d=""/>
+          <path id="ev-line" fill="none" stroke="#B4551F" stroke-width="2.5" d=""/>
+          <line id="seat-line" x1="56" y1="212" x2="470" y2="212"
+                stroke="#16314F" stroke-width="2.5"/>
+          <line id="cursor" x1="56" y1="32" x2="56" y2="272"
+                stroke="#0E7A72" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle id="ev-dot" cx="56" cy="272" r="4.5" fill="#B4551F"/>
+          <circle id="seat-dot" cx="56" cy="212" r="4.5" fill="#16314F"/>
+          <!-- Labels sit in their own gutter beyond the plot, so the moving
+               markers can never run underneath them. -->
+          <text x="482" y="216" fill="#16314F"
+                font-size="12" font-family="Jost, sans-serif" font-weight="600">Seat model</text>
+          <text id="ev-lab" x="482" y="60" fill="#B4551F"
+                font-size="12" font-family="Jost, sans-serif" font-weight="600">Event model</text>
+        </svg>
+        <p class="fig-control">
+          <label for="usage">Usage</label>
+          <input id="usage" type="range" min="0" max="100" value="34" step="1">
+          <span class="fig-read" id="usage-read">34%</span>
+        </p>
+        <p class="fig-say" id="fig-say"></p>
+      </div>
+      <figcaption>An illustration of the two models, not a measurement. Under the
+        seat model, cost is fixed at signature and does not follow usage. Under
+        the event model, cost is the accumulation of every consumption event.
+        Chapter 1 draws this as Figure 1.1.</figcaption>
+    </figure>
   </section>
 
-  <section class="band" id="parts">
+  <!-- 2. THE FORMAL SPINE, inverted, quoted verbatim. -->
+  <section class="invert" id="argument">
+    <div class="invert-inner">
+      <p class="eyebrow">The formal spine</p>
+      <h2>The claim is a theorem, not an opinion.</h2>
+      <p class="invert-lede">Every argument in this book traces to a registry of
+        theorems, lemmas and propositions. The registry justifies the book; it
+        does not organize it. This is the anchor of Chapter 1, reproduced exactly
+        as the chapter sets it.</p>
+      <div class="invert-panel">
+        {{ spec.theorem|safe }}
+      </div>
+      <p class="invert-note">A theorem here applies only when its stated
+        conditions hold. That is what makes it usable, and what makes it
+        falsifiable.</p>
+    </div>
+  </section>
+
+  <!-- 3. THE EVIDENCE DISCIPLINE, shown rather than claimed. -->
+  <section class="band" id="evidence">
+    <div class="band-head">
+      <p class="eyebrow">Method</p>
+      <h2>Every claim is cited, formalized, or cut.</h2>
+      <p class="band-meta">No fourth option</p>
+    </div>
+    <p class="note-line">That rule is easy to state and expensive to keep. Here is
+       one paragraph from Chapter 1 exactly as it is published, with the note it
+       carries and the register entry that produced the note. This is the reading
+       experience and the sourcing apparatus, unedited.</p>
+
+    <div class="specimen">
+      <div class="spec-page">
+        <p class="spec-tag">As published</p>
+        {{ spec.spec_para|safe }}
+      </div>
+      <div class="spec-reg">
+        <p class="spec-tag">The register entry behind it</p>
+        <p class="reg-key">{{ spec.reg_key }}</p>
+        <p class="reg-title">{{ spec.reg_title }}</p>
+        {% if spec.reg_accessed %}<p class="reg-acc">Accessed {{ spec.reg_accessed }}</p>{% endif %}
+        <p class="reg-cite">{{ spec.reg_cite|safe }}.</p>
+        {% if spec.reg_has_note %}
+        <p class="reg-note">Behind this entry the register also holds an editorial
+           note: what the source does and does not support, which sentences it
+           licenses, and the condition that would reverse each ruling. That note
+           is the working record of the fact checks and stays unpublished, but it
+           is the reason the sentence beside it reads exactly as it does.</p>
+        {% endif %}
+        <p class="reg-more"><a href="sources/">Every source in the book</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. THE AUTHOR. -->
+  <section class="band author" id="author">
+    <div class="band-head">
+      <p class="eyebrow">Author</p>
+      <h2>Who is writing this</h2>
+    </div>
+    <div class="author-grid">
+      <div class="author-mark" aria-hidden="true"><span>DW</span></div>
+      <div class="author-text">
+        <p class="author-name">Daniel S. Wipert</p>
+        <p class="author-role">Chorus AI Systems</p>
+        <p>AI Operations Management is written as a founding text: the discipline
+           it describes does not yet have a standard curriculum, a shared
+           vocabulary, or an agreed set of measurements, and this book is an
+           attempt to supply all three.</p>
+        <p>The method is deliberately slow. A chapter passes thirteen steps before
+           it is published here, including a developmental edit, two independent
+           source and fact checks, a voice and craft pass, a design review, and a
+           continuity gate against every chapter already locked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. THE CONTENTS. -->
+  <section class="band" id="contents">
     <div class="band-head">
       <p class="eyebrow">Inside the book</p>
       <h2>Four parts, {{ chapter_count }} chapters</h2>
-      <p class="band-meta">{{ locked_count }} of {{ chapter_count }} published</p>
+      <p class="band-meta">{{ locked_count }} published, the rest in preparation</p>
     </div>
     <div class="parts-grid">
       {% for p in book %}
@@ -94,29 +211,12 @@
       </article>
       {% endfor %}
     </div>
+    <p class="note-line">A chapter appears here when it locks, and it locks only
+       after all thirteen steps pass. Chapters are published in order, and nothing
+       is published early to fill the page.</p>
   </section>
 
-  <section class="band" id="read">
-    <div class="band-head">
-      <p class="eyebrow">Read</p>
-      <h2>Published chapters</h2>
-    </div>
-    <ol class="toc-list">
-      {% for p in book %}{% for c in p.chapters %}{% if c.locked %}
-      <li>
-        <a href="{{ c.slug }}/">
-          <span class="toc-num">Part {{ p.numeral }} &middot; Chapter {{ c.number }}</span>
-          <span class="toc-title">{{ c.title }}</span>
-        </a>
-        <span class="toc-part">{{ p.name }}</span>
-      </li>
-      {% endif %}{% endfor %}{% endfor %}
-    </ol>
-    <p class="note-line">Chapters appear here as they lock. A chapter is published
-       only after it has passed thirteen steps, including two independent source
-       and fact checks.</p>
-  </section>
-
+  <!-- 6. CONVERSION. -->
   <section class="band" id="editions">
     <div class="band-head">
       <p class="eyebrow">Editions</p>
@@ -125,8 +225,12 @@
     <div class="editions">
       <div class="edition">
         <h3>This website</h3>
-        <p>The complete text of every published chapter, with its sources.</p>
+        <p>The complete text of every published chapter, its figures, its
+           sidenotes, and the full source register behind them.</p>
         <p class="price">Free</p>
+        {% if first_locked %}
+        <p class="edition-cta"><a class="btn" href="{{ first_locked.slug }}/">Start reading</a></p>
+        {% endif %}
       </div>
       <div class="edition">
         <h3>Print and ebook</h3>
@@ -143,9 +247,104 @@
 <footer class="foot" data-chrome>
   <div class="foot-inner">
     <p>AI Operations Management. Daniel S. Wipert, Chorus AI Systems.</p>
-    <p>{{ locked_count }} of {{ chapter_count }} chapters published.</p>
+    <p><a href="glossary/">Glossary</a> &middot; <a href="sources/">Sources</a>
+       &middot; <a href="objects/">Registry objects</a>
+       &middot; <a href="search/">Search</a></p>
   </div>
 </footer>
+
+<script>
+(function () {
+  'use strict';
+  /* The two models, drawn. This is a DIAGRAM OF A MODEL, not data: there are no
+     units on either axis and no figure is claimed. Under the seat model cost is
+     constant in usage; under the event model cost is the accumulation of events.
+     Both are definitional, which is exactly what Chapter 1 argues. */
+  var svg = document.getElementById('model-svg');
+  if (!svg) { return; }
+  var slider = document.getElementById('usage');
+  var read = document.getElementById('usage-read');
+  var say = document.getElementById('fig-say');
+  var evLine = document.getElementById('ev-line');
+  var evArea = document.getElementById('ev-area');
+  var evDot = document.getElementById('ev-dot');
+  var seatDot = document.getElementById('seat-dot');
+  var cursor = document.getElementById('cursor');
+
+  var X0 = 56, X1 = 470, Y0 = 272, YTOP = 40, SEAT_Y = 212;
+  var SEAT_COST = (Y0 - SEAT_Y) / (Y0 - YTOP);       /* flat, in chart units */
+
+  function costAt(u) { return u * u * 1.15; }         /* accumulating, convex */
+
+  function draw(pct) {
+    var u = pct / 100;
+    var pts = [], n = 60;
+    for (var i = 0; i <= n; i++) {
+      var t = (i / n) * u;
+      var x = X0 + (X1 - X0) * t;
+      var y = Y0 - (Y0 - YTOP) * Math.min(1, costAt(t));
+      pts.push((i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1));
+    }
+    var d = pts.join(' ');
+    evLine.setAttribute('d', d);
+    var lastX = X0 + (X1 - X0) * u;
+    evArea.setAttribute('d', d + ' L' + lastX.toFixed(1) + ' ' + Y0 + ' L' + X0 + ' ' + Y0 + ' Z');
+    var evY = Y0 - (Y0 - YTOP) * Math.min(1, costAt(u));
+    evDot.setAttribute('cx', lastX); evDot.setAttribute('cy', evY);
+    document.getElementById('ev-lab').setAttribute(
+      'y', Math.max(52, Math.min(196, evY + 4)));
+    seatDot.setAttribute('cx', lastX);
+    cursor.setAttribute('x1', lastX); cursor.setAttribute('x2', lastX);
+    read.textContent = pct + '%';
+
+    var ev = Math.min(1, costAt(u));
+    if (pct < 4) {
+      say.textContent = 'At rest the two models agree. Nothing has been consumed yet.';
+    } else if (ev < SEAT_COST * 0.75) {
+      say.textContent = 'Light use. The seat price covers the resource, and the '
+        + 'buyer has no reason to look at a meter.';
+    } else if (ev < SEAT_COST) {
+      say.textContent = 'The gap is closing. The flat price still holds, but the '
+        + 'assumption behind it is being tested.';
+    } else {
+      say.textContent = 'Consumption has passed what the flat price assumed. From '
+        + 'here the arrangement is unstable, and it resolves in one direction: '
+        + 'the provider corrects the price.';
+    }
+    say.classList.toggle('over', ev >= SEAT_COST);
+  }
+
+  slider.addEventListener('input', function () { draw(+slider.value); });
+  draw(+slider.value);
+
+  /* One unprompted sweep on first view, so a reader who never touches the
+     control still sees what the figure is for. It runs once, and never if the
+     reader has asked for reduced motion or has already moved the slider. */
+  var touched = false;
+  slider.addEventListener('pointerdown', function () { touched = true; });
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) { return; }
+        io.disconnect();
+        var start = null, from = +slider.value, to = 88;
+        function step(ts) {
+          if (touched) { return; }
+          if (!start) { start = ts; }
+          var k = Math.min(1, (ts - start) / 2200);
+          var eased = 1 - Math.pow(1 - k, 3);
+          slider.value = Math.round(from + (to - from) * eased);
+          draw(+slider.value);
+          if (k < 1) { requestAnimationFrame(step); }
+        }
+        setTimeout(function () { requestAnimationFrame(step); }, 600);
+      });
+    }, { threshold: 0.4 });
+    io.observe(document.getElementById('model'));
+  }
+})();
+</script>
 
 </body>
 </html>

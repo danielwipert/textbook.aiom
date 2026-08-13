@@ -881,6 +881,130 @@ def render(chapter_path, outdir, preview=False):
     return print_html, web_html, meta, os.path.join(chdir, "index.html")
 
 
+def build_specimens(meta, chapter_html):
+    """Lift real material out of the locked chapter for the landing page.
+
+    THE FRONT PAGE QUOTES THE BOOK. IT NEVER PARAPHRASES IT. A marketing surface
+    that restates a theorem in plainer words is the exact failure CLAUDE.md rule
+    4a forbids inside a chapter, and it is worse on the front page, because that
+    is where a reader forms their idea of what the book says. Everything returned
+    here is lifted verbatim from the chapter or from its own register, and gate
+    W9 fails the build if the landing page and the chapter ever disagree.
+
+    Returns the theorem panel, one specimen paragraph with its sidenote, and the
+    register note that produced that sidenote.
+    """
+    body = meta["body"]
+
+    thm = find_spans(body, r'<div class="theorem">', "div")
+    theorem = body[thm[0][0]:thm[0][1]] if thm else ""
+
+    # The paragraph that calls the first sidenote, taken whole with its note.
+    spec_para, note_text = "", ""
+    for s, e, inner in find_spans(body, r"<p>", "p"):
+        if 'id="fnref-1"' in inner:
+            spec_para = body[s:e]
+            n = find_spans(spec_para, NOTE_OPEN, "span")
+            if n:
+                note_text = _plain(re.sub(r'<a class="note-n".*?</a>', "",
+                                          n[0][2], flags=re.S))
+            break
+
+    # The register entry behind that note, from the chapter's own Decision 51
+    # block. The editorial note is what makes the sourcing discipline visible:
+    # it records what the source does and does not support.
+    src = footnotes.load_sources(chapter_html)
+    key = ""
+    m = re.search(r'<cite src="([^";]+)', chapter_html)
+    if m:
+        key = m.group(1).strip()
+    entry = src.get(key, {})
+    # THE REGISTER'S `note` FIELD IS NEVER PUBLISHED. It is internal audit prose:
+    # it carries fact-check finding IDs, instructions to future checkers, and,
+    # decisively, VERBATIM QUOTATIONS OF SENTENCES THE BOOK HAS CUT. The note on
+    # this very entry quotes the SF2 continuation mechanism and the FC9
+    # absorbed-cost inference, both retracted. Putting it on the landing page
+    # would publish the book's retracted claims on its most public surface.
+    # Gate W9b enforces this rather than leaving it to whoever writes the next
+    # template. Only the bibliographic fields, which are reader-facing and
+    # already on the sources page, are carried.
+    import cite_format
+    return {
+        "theorem": theorem,
+        "spec_para": spec_para,
+        "spec_note": note_text,
+        "reg_key": key,
+        "reg_title": entry.get("title", ""),
+        "reg_url": entry.get("url", ""),
+        "reg_accessed": entry.get("accessed", ""),
+        "reg_cite": cite_format.format_note(entry, url_policy="full") if entry else "",
+        "reg_has_note": bool((entry.get("note") or "").strip()),
+    }
+
+
+def gate_w9(spec, meta, index_html):
+    """The landing page against the chapter it advertises.
+
+    Same shape as gate W8, one surface further out. The front page carries the
+    theorem and a specimen paragraph, and both must be present in the chapter
+    character for character. A marketing page that drifts from the book is how a
+    reader ends up quoting a sentence the book does not contain.
+    """
+    fails = []
+    chapter_text = extract_text(meta["body"], skip_attrs=("data-note",))
+    idx_text = extract_text(index_html)
+
+    checks = [("theorem", extract_text(spec["theorem"])),
+              ("specimen paragraph",
+               extract_text(spec["spec_para"], skip_attrs=("data-note",)))]
+    for label, text in checks:
+        if not text:
+            fails.append(f"W9: no {label} could be lifted from the chapter")
+        elif text not in chapter_text:
+            fails.append(f"W9: the {label} is not present verbatim in the chapter")
+        elif text not in idx_text:
+            fails.append(f"W9: the {label} was lifted but is not on the landing "
+                         f"page, so the page and the chapter disagree")
+    if spec["spec_note"] and spec["spec_note"] not in idx_text:
+        fails.append("W9: the specimen sidenote text is not on the landing page")
+    if not fails:
+        print(f"W9a. landing specimens ... theorem and specimen paragraph "
+              f"verbatim from chapter {meta['chapter_number']}")
+    return fails
+
+
+def gate_w9b(chapter_html, pages):
+    """No register note text on any published page.
+
+    The register's `note` field is the fact checkers' working record. It carries
+    finding IDs, instructions to later checkers, and VERBATIM QUOTATIONS OF
+    SENTENCES THE BOOK HAS CUT: the note behind Chapter 1's first citation quotes
+    both the SF2 continuation mechanism and the FC9 absorbed-cost inference, each
+    of which was retracted on Dan's ruling.
+
+    Publishing any of it would put the book's retracted claims on its most public
+    surface. This was nearly done: a first draft of the landing page printed the
+    note in full, and gate W3 caught it only because the note contains straight
+    apostrophes, which is luck rather than a check. This is the check.
+    """
+    src = footnotes.load_sources(chapter_html)
+    fails = []
+    for key, entry in src.items():
+        note = re.sub(r"\s+", " ", (entry.get("note") or "")).strip()
+        if len(note) < 40:
+            continue
+        probe = note[:60]
+        for label, html in pages:
+            if probe in re.sub(r"\s+", " ", extract_text(html)):
+                fails.append(f"W9b: register note for {key!r} is published on the "
+                             f"{label} page. Notes are internal and quote cut "
+                             f"claims; only bibliographic fields may be published.")
+    if not fails:
+        print(f"W9b. register notes ...... none of {len(src)} internal notes "
+              f"appear on any published page")
+    return fails
+
+
 def build_reference(outdir, meta, chapter_html):
     """Glossary, sources, and object index. Phase W4.
 
@@ -1038,7 +1162,7 @@ def render_index(outdir, meta):
     out = _env().get_template("index.html.j2").render(
         book=meta["book"], locked_count=meta["locked_count"],
         chapter_count=sum(len(p["chapters"]) for p in meta["book"]),
-        first_locked=first)
+        first_locked=first, spec=meta["spec"], counts=meta["counts"])
     open(os.path.join(outdir, "index.html"), "w", encoding="utf-8").write(out)
     return os.path.join(outdir, "index.html")
 
@@ -1058,6 +1182,7 @@ def main():
                  "(web_templates/ not found)")
 
     print_html, web_html, meta, path = render(a.chapter, a.out, a.preview)
+    meta["spec"] = build_specimens(meta, open(a.chapter, encoding="utf-8").read())
     index = render_index(a.out, meta)
     ref_pages, ref = build_reference(a.out, meta, open(a.chapter, encoding="utf-8").read())
     search_html, doc_count, index_bytes = build_search(a.out, meta, a.chapter, ref)
@@ -1076,10 +1201,12 @@ def main():
     fails += gate_w5(web_html, meta)
     fails += gate_w7(meta, meta["structure"])
     fails += gate_w8(ref, meta, web_html)
-    fails += gate_pages(
-        [("index", open(index, encoding="utf-8").read()),
-         ("search", search_html)]
-        + [(n, h) for n, h in ref_pages.items()])
+    fails += gate_w9(meta["spec"], meta, open(index, encoding="utf-8").read())
+    all_pages = ([("index", open(index, encoding="utf-8").read()),
+                  ("search", search_html), ("chapter", web_html)]
+                 + [(n, h) for n, h in ref_pages.items()])
+    fails += gate_w9b(open(a.chapter, encoding="utf-8").read(), all_pages)
+    fails += gate_pages([p for p in all_pages if p[0] != "chapter"])
     w6_fails, w6_ran = ([], False) if a.no_browser else gate_w6(path)
     fails += w6_fails
 

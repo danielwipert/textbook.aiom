@@ -557,3 +557,69 @@ roughly 40 kB for one chapter, so the whole book will still ship in one request.
 - No author, about, or praise surface yet.
 - Deploy, the domain, and the CI workflow are W5. Dark mode and the SVG token pass
   remain W6.
+
+---
+
+## 12. The editorial review, and the landing page rebuild
+
+Dan asked for a publisher-grade critique of the mock-up before any further work.
+The verdict was that the reading experience and the reference layer were strong
+and the front door was inert: no author anywhere above the footer, no image or
+figure of any kind, one value and one rhythm repeated four times, incompleteness
+advertised twice in the two places a visitor looks for confidence, and a "Published
+chapters" band holding a single item. The deepest problem was that the book's three
+best assets, the figures, the formal spine and the sourcing discipline, were all
+invisible until a reader was already reading.
+
+All seven items were taken. The page now runs **argument, proof, evidence, author,
+contents, conversion**, which is the order a reader needs rather than the order the
+material happens to exist in.
+
+**The hero carries a live model.** The seat line stays flat while the event curve
+accumulates, and a slider drives both. It sweeps once on first view and then waits.
+It is a DIAGRAM OF A MODEL, not data: there are no units on either axis and no
+figure is claimed, and the caption says so. Both curves are definitional, which is
+exactly what Chapter 1 argues.
+
+**One inverted band gives the page a middle.** Navy ground, carrying THM-009 in
+the chapter's own panel markup with only its colours overridden. Rule 4a again:
+the panel is a rendering of the registry statement and is never re-set in
+different words.
+
+**GATE W9a: THE LANDING PAGE QUOTES THE BOOK AND NEVER PARAPHRASES IT.** The
+theorem and one specimen paragraph are lifted from the locked chapter by
+`build_specimens()` and must appear verbatim in both. Rule 4a forbids paraphrase
+inside a chapter; the front page is where it would do the most damage, because it
+is where a reader forms their idea of what the book says.
+
+**GATE W9b IS THE ONE THAT MATTERS, AND IT EXISTS BECAUSE THE FIRST DRAFT WAS
+WRONG.** The specimen band was built to show the register entry behind a citation,
+including its editorial note, because that note is the most persuasive artifact
+this project has. It is also unpublishable. Register notes carry fact-check
+finding IDs, instructions to later checkers, and VERBATIM QUOTATIONS OF SENTENCES
+THE BOOK HAS CUT: the note behind Chapter 1's first citation quotes both the SF2
+continuation mechanism and the FC9 absorbed-cost inference. Publishing it would
+have put the book's retracted claims on its most public surface. Gate W3 caught
+the draft only because register notes contain straight apostrophes, which is luck
+and not a check. W9b is the check: no register note text on any published page,
+only bibliographic fields.
+
+The band still makes the point. It shows the paragraph as published with its real
+sidenote, the bibliographic record, and a description of what the note field holds
+without quoting any of it.
+
+**The count is reframed rather than hidden.** Not "1 of 15 published" beside the
+contents headline, but "1 published, the rest in preparation" with a line
+explaining that a chapter locks only after thirteen steps and that nothing is
+published early to fill the page. Same fact, and it now reads as rigour.
+
+### Still open after the rebuild
+
+- **THE AUTHOR BAND AND THE HERO FRAMING ARE DRAFT AND NEED DAN'S RULING.** Nothing
+  about the author is invented: the band carries only what this repository states,
+  which is a name, an organization, and the method. **It needs real biography, a
+  real claim to authority, and a portrait**, and none of that can be written here.
+- The author monogram is a typographic placeholder standing in for a photograph.
+- No praise, endorsement, or adoption surface exists. For a founding textbook that
+  will matter, and it cannot be built until there is something real to put in it.
+- Part descriptions remain one-sentence placeholders.

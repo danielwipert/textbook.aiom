@@ -650,6 +650,18 @@ rulings. What binds outside that document:
 - **A NON-GREEDY REGEX OVER NESTED ELEMENTS HAS NOW BEEN THE DEFECT THREE TIMES IN
   `web_build.py`.** `find_spans(doc, opener, tag)` is the balanced scanner and it
   takes a tag. Reach for it rather than writing `(.*?)</div>`.
+- **THE LANDING PAGE QUOTES THE BOOK AND NEVER PARAPHRASES IT, enforced by gate
+  W9a.** The theorem and a specimen paragraph are lifted verbatim from the locked
+  chapter and must appear in both. Rule 4a forbids paraphrasing a registry
+  statement inside a chapter; a marketing surface is where that matters most,
+  because it is where a reader forms their idea of what the book says.
+- **THE REGISTER'S `note` FIELD IS NEVER PUBLISHED, enforced by gate W9b.** It is
+  the fact checkers' working record: finding IDs, instructions to later checkers,
+  and VERBATIM QUOTATIONS OF SENTENCES THE BOOK HAS CUT. The note behind Chapter
+  1's first citation quotes both the SF2 continuation mechanism and the FC9
+  absorbed-cost inference. A first draft of the landing page printed it in full,
+  and gate W3 caught it only because the note contains straight apostrophes, which
+  is luck rather than a check. Only bibliographic fields may be published.
 - **Print gates do not carry over and web gates are not print gates.** Pagination
   is the bulk of the print suite (gates 1, 4, 8, 12, 13, 14 and `place.py`) and
   none of it exists on the web. What carries is anything that is a property of

@@ -243,6 +243,42 @@ def main():
     case("the object index claims an object the chapter never renders",
          lambda: quiet(wb.gate_w8, r8, meta, web_html))
 
+    print("\nW9, the landing page against the chapter")
+    chapter_src = open(CHAPTER, encoding="utf-8").read()
+    spec = wb.build_specimens(meta, chapter_src)
+    index_html = open("build/web/index.html", encoding="utf-8").read()
+    case("W9a clean", lambda: quiet(wb.gate_w9, spec, meta, index_html), False)
+
+    # Marketing copy that paraphrases the book. Rule 4a forbids this inside a
+    # chapter, and the front page is where it would do the most damage.
+    s9 = copy.deepcopy(spec)
+    s9["theorem"] = s9["theorem"].replace("resource-consuming", "resource-hungry")
+    assert s9["theorem"] != spec["theorem"]
+    case("the theorem paraphrased on the landing page",
+         lambda: quiet(wb.gate_w9, s9, meta, index_html))
+
+    s9 = copy.deepcopy(spec)
+    s9["spec_para"] = s9["spec_para"].replace("apologized", "admitted fault")
+    assert s9["spec_para"] != spec["spec_para"]
+    case("the specimen paragraph reworded",
+         lambda: quiet(wb.gate_w9, s9, meta, index_html))
+
+    case("a landing page that dropped the theorem",
+         lambda: quiet(wb.gate_w9, spec, meta,
+                       index_html.replace("resource-consuming operating activity",
+                                          "REMOVED", 1)))
+
+    # W9b. The register note quotes claims the book CUT. Publishing it would put
+    # retracted claims on the most public surface the project has.
+    case("W9b clean",
+         lambda: quiet(wb.gate_w9b, chapter_src, [("index", index_html)]), False)
+    import footnotes as _fn
+    note = next(e["note"] for e in _fn.load_sources(chapter_src).values()
+                if (e.get("note") or "").strip())
+    leaked = index_html.replace("</main>", f"<p>{note[:200]}</p></main>", 1)
+    case("a register note published on the landing page",
+         lambda: quiet(wb.gate_w9b, chapter_src, [("index", leaked)]))
+
     print("\nW6, horizontal overflow across the width sweep")
     page = "build/web-selftest/ch01/index.html"
     clean, ran = wb.gate_w6(page)
