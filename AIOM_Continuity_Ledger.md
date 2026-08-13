@@ -95,6 +95,14 @@ not appear here; only the owner does.
 | Term | Owner | Definition as given |
 |---|---|---|
 
+| Category error | 1 | The error of managing a metered resource as if it were licensed software. It rests on a false assumption: that the access price fixes the total cost. The tool is the right one and the vendor is not at fault. The economic model applied to the tool is wrong. |
+| Consumption event | 1 | A single use of an AI system that consumes metered computing resources and creates an underlying cost greater than zero, whether or not the buyer is charged for it separately. A consumption event may be measured in tokens, requests, credits, compute time, or another equivalent unit. It is the basic unit of consumption tracked in AI Operations Management. |
+| Resource consumption model | 1 | The economic model in which deployed AI is consumed as a metered resource. Each use creates a consumption event, and cost accrues with each event. It contrasts with the software access model. |
+| Software access model | 1 | A purchasing model in which an organization pays a fixed price for access to software, usually per seat or subscription. Because additional use creates little or no additional cost, the organization manages who has access rather than how much of the software each user consumes. |
+| Access price | 1 | The stated amount an organization pays for the right to use an AI capability, usually per seat or subscription. It does not include additional costs based on how much AI the organization actually uses. |
+| Metered resource | 1 | A resource whose consumption is measured per unit of use, here in tokens or their equivalents. |
+| Flat-rate objection | 1 | The claim that a flat per-seat price makes AI equivalent to licensed software; answered by meter relocation. |
+| Meter relocation | 1 | The placement of consumption metering on the provider’s side of a flat-rate subscription. The buyer pays a fixed price for access, while the provider continues to measure actual use. The provider sets the flat rate based on expected consumption and may change the price, allowance, or usage limits when actual consumption exceeds that expectation. |
 <!-- CONTINUITY:TERMS -->
 
 ---
@@ -108,6 +116,11 @@ promise was kept.
 | From | To | Promise | Status |
 |---|---|---|---|
 
+| 1 | 2 | This is the first chapter; problem sets begin reaching back to earlier chapters in Chapter 2. | open |
+| 1 | 3 | Each of these subjects has its own purpose and literature, and Chapter 3 explains where each ends and AI Operations Management begins. | open |
+| 1 | 4 | Chapter 4 examines these instruments in detail. | open |
+| 1 | 6 | It returns in Chapter 6 as the book’s anchor case on realized value. | open |
+| 1 | 14 | Chapter 14 distinguishes the subject of this book from these neighboring disciplines. | open |
 <!-- CONTINUITY:FORWARD -->
 
 ---
@@ -123,6 +136,7 @@ tracks the surrounding prose gloss.
 | Object | First used | Gloss as given |
 |---|---|---|
 
+| THM-009 | Ch1 | deployed AI is a resource-consuming operating activity, not merely software access |
 <!-- CONTINUITY:REGISTRY -->
 
 ---
@@ -146,4 +160,5 @@ One line per chapter as it locks, so the ledger's own currency is visible.
 | Chapter | Locked | Terms owned | Forward refs made | Registry objects |
 |---|---|---|---|---|
 
+| 1 | 2026-08-13 | 8 | 5 | 1 |
 <!-- CONTINUITY:LOG -->

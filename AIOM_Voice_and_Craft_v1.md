@@ -194,6 +194,42 @@ Chapter 1 sets the baseline band. Later chapters are compared against it rather
 than against an absolute threshold, because the right numbers for a craft-heavy
 chapter and a proof-heavy chapter are not the same.
 
+### The band, SET 2026-08-13 FROM THE LOCKED CHAPTER 1
+
+Taken at Stage 9 from the locked text, not from any earlier draft. This is the
+first band in force: from 2026-08-05 to lock there was deliberately none, because
+the numbers recorded at Stage 4 on 2026-08-06 measured a chapter the copy edit
+later replaced, and grading Chapter 2 against a text that no longer existed would
+have been worse than grading it against nothing.
+
+  corpus                86 paragraphs, 342 sentences, 4,884 words of craft prose
+  chapter               7,069 words on the Decision 33 measure
+  C4 sentence length    mean 14.3, median 14, stdev 6.2, min 3, max 33
+  C4 distribution       short (<12w) 36%, long (>35w) 0%
+  C4 uniformity         longest run within 4 words: 5 sentences
+  C3 economy            throat-clearing openers 0, copulas 2.2 per 100 words,
+                        nominalizations 58.1 per 1,000
+  C1 particulars        numerals 5.5 per 1,000 words, proper nouns 9.8 per 1,000
+  C5 close              trailing qualifier 2 of 86, cross-reference 1 of 86
+
+**HOW TO USE IT, AND HOW NOT TO.** These are advisory proxies, permanently, and no
+number here is a pass-or-fail threshold. A later chapter reading outside the band
+raises a question to be answered by reading the prose, never a defect by itself. A
+proof-heavy chapter should be expected to sit outside several of these.
+
+**THE WEAKEST-SECTION NUMBERS MATTER MORE THAN THE CHAPTER AVERAGE**, which is why
+`voicecheck.py` prints a per-section table. In the locked chapter the spread runs
+from mean 13.0 in 1.4 to mean 16.1 in 1.1, and 1.1 also carries the lowest share of
+short sentences at 20 percent. That section was ruled a deliberate choice at Stage 4
+NC4, with no edit, so the band contains a known flat stretch rather than a uniform
+ideal. Do not read the mean as a target.
+
+**THE BAND INHERITS CHAPTER 1'S ONE UNVERIFIED JUDGMENT.** Stage 2 and Stage 4 were
+both closed with their second-model gut-check still open, on Dan's ruling, so these
+numbers describe a chapter whose craft verdict rests on one read by the model that
+drafted it and wrote this standard. The band is a description of what was shipped,
+not a proof that what was shipped was right.
+
 ---
 
 ## 5. Worked exemplars

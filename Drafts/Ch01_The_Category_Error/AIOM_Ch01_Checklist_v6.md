@@ -4686,11 +4686,70 @@ that mechanism in the past week.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-13
 
 > Frozen. Continuity ledger committed. No change without an explicit reopen, which re-runs every stage from the one that owns the change.
 
 Findings:
+
+## LOCKED 2026-08-13. **CHAPTER 1 IS THE FIRST LOCKED CHAPTER OF THIS BOOK.**
+
+All thirteen steps complete. `status_check.py` reports 13/13 STATUS CONSISTENT.
+25 pages, 7,069 words on the Decision 33 measure, fifteen gates green against CSS
+v7.1, `voicecheck.py` mechanically clean and house style clean on all five checks.
+
+**ALL THREE BOOKED PENDING ACTIONS ARE DISCHARGED, and each is recorded with what
+was actually done rather than that it was done.**
+
+1. **THE CRAFT BASELINE BAND IS SET, FROM THE LOCKED TEXT.** Written into
+   `AIOM_Voice_and_Craft_v1.md` section 4 as a dated block. This is the first band
+   in force for the book: from 2026-08-05 to lock there was deliberately none,
+   because the 2026-08-06 numbers measured a chapter the copy edit replaced.
+   Chapter 2 is therefore the first chapter that can be read against a band, and it
+   is read against THIS one. The block states the two things that stop it being
+   misused: the numbers are advisory proxies and never thresholds, and the band
+   carries a KNOWN FLAT STRETCH at 1.1, ruled a deliberate choice at Stage 4 NC4,
+   so the mean is a description and not a target.
+
+2. **"flow" IS NOT IN THE LEDGER, and the concern turned out to be structurally
+   impossible rather than merely avoided.** `continuity.py` collects owned terms
+   from the key-term register only, not from prose, so it cannot pick up a word the
+   chapter uses without defining. The eight terms logged are exactly the eight in
+   Slot 5. Verified before running `--update`, not after.
+
+3. **"category error" IS LOGGED as a Chapter 1 owned term, on Dan's ruling of
+   2026-08-13.** It became the eighth key term on 2026-08-10, after the ledger
+   design was written, which is why it needed a decision at all. The consequence is
+   deliberate and one-way: no later chapter may redefine it.
+
+**THE LEDGER NOW HOLDS CHAPTER 1**, and G3 was re-run against the populated ledger
+rather than left on its empty-ledger pass: 8 owned terms, 5 forward references all
+logged, 1 registry gloss, zero drift. Check 2 now reports "0 not yet logged", which
+is the real post-lock state.
+
+**THE THM-009 GLOSS WAS WRITTEN BY HAND, as the tool requires.** `--update` writes
+"(gloss to be recorded)" deliberately, and leaving that placeholder would have made
+check 4 compare later chapters against nothing. The recorded wording is the
+chapter's own, taken verbatim from the summary rather than composed for the ledger:
+"deployed AI is a resource-consuming operating activity, not merely software
+access." Any later chapter citing THM-009 must gloss it in those words.
+
+**WHAT LOCK DOES NOT MEAN.** It does not mean the chapter was verified against its
+sources inside this repo; no source host is reachable from a Claude session, so
+Stages 3 and 7 were structurally external and their source halves are recorded as
+received. It does not mean the craft verdict was independently checked: Stage 2 and
+Stage 4 both closed with their second-model gut-check open, on Dan's ruling, and
+the baseline band inherits that. And it does not mean nothing is outstanding: the
+"early May" preview-bill timing in footnote 3 and the THM numbering question were
+both open at Stage 7's close and remain open. **A LOCKED CHAPTER WITH TWO OPEN
+ITEMS IS AN HONEST RECORD; A LOCKED CHAPTER CLAIMING NONE WOULD NOT BE.**
+
+**REOPENING.** No change without an explicit reopen, which re-runs every step from
+the one owning the change. Use `reopen.py`, and note the defect found on 2026-08-13:
+it resets by POSITION IN THE LIFECYCLE, not by the scoped re-run matrix, so a
+reopen at a late step clears earlier ones the matrix would leave intact. Check the
+resulting state against the matrix before accepting it.
+
 
 PENDING ACTIONS BOOKED FOR THIS STEP. Recorded here because they are owed AT lock
 and are easy to lose between now and then.
