@@ -1,47 +1,148 @@
 {#
-  index.html.j2  |  placeholder front door  |  Phase W1
+  index.html.j2  |  the front door  |  Phase W3
 
-  This is NOT the landing page. The front door is Phase W3 and needs the visual
-  direction settled first. This exists so the chapter page's brand link has a
-  target and so the build produces a navigable site rather than one orphan page.
+  EVERY LINE OF COPY ON THIS PAGE COMES FROM RULED MATERIAL. The two named layers
+  are CLAUDE.md section 1. Each part's description is its Purpose line from
+  AIOM_Structure_v1.md, parsed by book_structure.py rather than retyped. Chapter
+  titles come from the same place, and gate W7 fails the build if a locked
+  chapter's own title disagrees with it.
+
+  What is deliberately NOT here: any chapter's "Big idea", "Competency" or
+  "Anchor theorem" line. Those are internal planning shorthand, and CLAUDE.md
+  section 9 rules that later chapters withhold things deliberately and must not be
+  front-run by an earlier surface. A chapter is a title and a lock state here,
+  nothing more.
+
+  The framing copy is DRAFT and awaits Dan's ruling. It is marked as such in
+  AIOM_Web_Edition_Plan_v1.0.md section 10 rather than presented as settled.
 #}<!doctype html>
 <html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Operations Management</title>
+<meta name="description" content="A founding textbook. AI Business Economics is the science. AI Operations Management is the practice discipline that acts on it.">
 <link rel="stylesheet" href="assets/aiom_web.css">
 </head>
-<body>
+<body class="home">
 
 <header class="topbar" data-chrome>
-  <span class="brand">AI Operations Management</span>
+  <a class="brand" href="./">AI Operations Management</a>
+  <nav class="topnav">
+    <a href="#parts">The book</a>
+    <a href="#read">Read</a>
+    <a href="#editions">Editions</a>
+  </nav>
+  <a class="cta" href="#editions">Get the book</a>
 </header>
 
-<div class="layout">
-  <main class="reading">
-    <article class="toc">
-      <p class="part-label">A founding textbook</p>
-      <h1 class="chapter-title">AI Operations Management</h1>
-      <p class="toc-note">Chapters appear here as they lock. This front page is a
-         placeholder: the landing page is Phase W3.</p>
-      <ol class="toc-list">
-        {% for c in chapters %}
-        <li>
-          <a href="{{ c.slug }}/">
-            <span class="toc-num">Chapter {{ c.number }}</span>
-            <span class="toc-title">{{ c.title }}</span>
-          </a>
-          <span class="toc-part">{{ c.part_label }}</span>
-        </li>
-        {% endfor %}
-      </ol>
-    </article>
-  </main>
-</div>
+<main>
+
+  <section class="hero">
+    <p class="eyebrow">A founding textbook</p>
+    <h1>Most organizations bought AI as software. They are operating a metered resource.</h1>
+    <p class="lede">
+      A seat has a price fixed at signature. A consumption event has a cost every
+      time it runs. Managing the first while operating the second is a category
+      error, and it is the reason the bill arrives on the provider’s schedule
+      rather than the buyer’s.
+    </p>
+    <div class="hero-layers">
+      <div>
+        <p class="layer-name">AI Business Economics</p>
+        <p class="layer-role">is the science.</p>
+      </div>
+      <div>
+        <p class="layer-name">AI Operations Management</p>
+        <p class="layer-role">is the practice discipline that acts on it.</p>
+      </div>
+    </div>
+    <p class="hero-actions">
+      {% if first_locked %}
+      <a class="btn" href="{{ first_locked.slug }}/">Start reading: {{ first_locked.title }}</a>
+      {% endif %}
+      <a class="btn btn-quiet" href="#parts">See the structure</a>
+    </p>
+  </section>
+
+  <section class="band" id="parts">
+    <div class="band-head">
+      <p class="eyebrow">Inside the book</p>
+      <h2>Four parts, {{ chapter_count }} chapters</h2>
+      <p class="band-meta">{{ locked_count }} of {{ chapter_count }} published</p>
+    </div>
+    <div class="parts-grid">
+      {% for p in book %}
+      <article class="part-card">
+        <p class="part-numeral" aria-hidden="true">{{ p.numeral }}</p>
+        <p class="eyebrow">Part {{ p.numeral }}</p>
+        <h3>{{ p.name }}</h3>
+        <p class="part-purpose">{{ p.purpose }}</p>
+        <ol class="part-chapters">
+          {% for c in p.chapters %}
+          <li>
+            {% if c.locked %}
+            <a href="{{ c.slug }}/"><span class="ch-n">{{ c.number }}</span> {{ c.title }}</a>
+            {% else %}
+            <span class="soon"><span class="ch-n">{{ c.number }}</span> {{ c.title }}</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="band" id="read">
+    <div class="band-head">
+      <p class="eyebrow">Read</p>
+      <h2>Published chapters</h2>
+    </div>
+    <ol class="toc-list">
+      {% for p in book %}{% for c in p.chapters %}{% if c.locked %}
+      <li>
+        <a href="{{ c.slug }}/">
+          <span class="toc-num">Part {{ p.numeral }} &middot; Chapter {{ c.number }}</span>
+          <span class="toc-title">{{ c.title }}</span>
+        </a>
+        <span class="toc-part">{{ p.name }}</span>
+      </li>
+      {% endif %}{% endfor %}{% endfor %}
+    </ol>
+    <p class="note-line">Chapters appear here as they lock. A chapter is published
+       only after it has passed thirteen steps, including two independent source
+       and fact checks.</p>
+  </section>
+
+  <section class="band" id="editions">
+    <div class="band-head">
+      <p class="eyebrow">Editions</p>
+      <h2>The text is free to read here</h2>
+    </div>
+    <div class="editions">
+      <div class="edition">
+        <h3>This website</h3>
+        <p>The complete text of every published chapter, with its sources.</p>
+        <p class="price">Free</p>
+      </div>
+      <div class="edition">
+        <h3>Print and ebook</h3>
+        <p>The typeset book, plus the apparatus this site does not carry: the
+           theorem and lemma appendix, the capstone dataset, problem solutions,
+           and instructor materials.</p>
+        <p class="price">In preparation</p>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer class="foot" data-chrome>
-  <p>Locked chapters only. Decision 64.</p>
+  <div class="foot-inner">
+    <p>AI Operations Management. Daniel S. Wipert, Chorus AI Systems.</p>
+    <p>{{ locked_count }} of {{ chapter_count }} chapters published.</p>
+  </div>
 </footer>
 
 </body>

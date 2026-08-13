@@ -179,6 +179,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `web_build.py` | The web edition renderer and its five gates. Reads the same locked chapter HTML and reuses `footnotes.py`, `cite_format.py` and `status_check.py`. Both artifacts descend from ONE `footnotes.inject()` call, so text equivalence is structural rather than hoped for. Run from the repository root. |
 | `AIOM_web.css` | The web presentation layer, v0.1. Tokens are inherited from `AIOM_book.css`, never chosen. Sole control of web appearance, same rule as print. |
 | `web_templates/` | Jinja2 templates. `chapter.html.j2` is the reader; `index.html.j2` is a placeholder front page, not the Phase W3 landing page. **Chrome lives OUTSIDE `<article id="chapter-text">` and the boundary is load bearing:** gate W1 measures the article and nothing else. |
+| `book_structure.py` | The four parts and fifteen chapters, PARSED from `AIOM_Structure_v1.md` rather than retyped. The site's navigation and its table of contents come from here, so the book's own structure document is the single source for the book's shape. |
 | `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `copyedit_export.py` | Chapter HTML to a copy-editing `.docx` plus a round-trip manifest. Stage 6 happens in Word; this is how it gets there. Excludes the source register by design. |
@@ -607,6 +608,26 @@ rulings. What binds outside that document:
   nothing. It also found a real defect, W1b's note extractor carrying the same
   non-greedy defect the print-side scanner was written to avoid, which is the
   hyphenation-scan failure repeating. Run it after any change to `web_build.py`.
+- **Phase W3 is built and green, 2026-08-13.** The front door, the whole-book
+  navigation rail, and gate W7. EIGHT gates now.
+- **GATE W7 GUARDS THE ONE PLACE THE BOOK CAN SILENTLY SPLIT IN TWO.** The site's
+  navigation is parsed from `AIOM_Structure_v1.md`; a chapter's published title
+  comes from its own locked HTML. Those two can disagree, and the chapter and the
+  nav would each render correctly while naming different chapters. W7 fails the
+  build on that, and on a structure document that stops parsing as four parts and
+  fifteen chapters.
+- **A GATE THAT ONLY EVER SEES ONE PAGE IS EVIDENCE ABOUT ONE PAGE.** W3 and W5
+  were handed the chapter and nothing else, so the landing page was ungated from
+  the moment it existed and shipped four straight apostrophes W3 would have failed
+  instantly. `gate_pages()` now runs the page-level checks over every emitted page.
+  Add a page, add it there.
+- **PLANNING PROSE IS NOT PUBLISHABLE PROSE.** The site's part descriptions come
+  from the Purpose lines in `AIOM_Structure_v1.md`, and only the FIRST SENTENCE is
+  published. The rest is production talk: Part III's continues into
+  "Worked-example fading: completion problems early in the part". Chapter "Big
+  idea", "Competency" and "Anchor theorem" lines are never published at all,
+  because CLAUDE.md section 9 rules that later chapters withhold deliberately.
+  Those descriptions are PLACEHOLDER until Dan writes real ones.
 - **Print gates do not carry over and web gates are not print gates.** Pagination
   is the bulk of the print suite (gates 1, 4, 8, 12, 13, 14 and `place.py`) and
   none of it exists on the web. What carries is anything that is a property of

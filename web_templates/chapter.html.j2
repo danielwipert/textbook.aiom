@@ -25,6 +25,7 @@
 <header class="topbar" data-chrome>
   <a class="brand" href="../">AI Operations Management</a>
   <span class="topbar-here" id="topbar-here"></span>
+  <a class="cta" href="../#editions">Get the book</a>
   <button class="rail-toggle" id="rail-toggle" aria-expanded="false" aria-controls="rail">Contents</button>
 </header>
 
@@ -35,26 +36,41 @@
 <div class="layout">
 
   <nav class="rail" id="rail" data-chrome aria-label="Chapter contents">
-    <p class="rail-head">Chapter {{ chapter_number }}</p>
-    <p class="rail-title">{{ chapter_title }}</p>
-    <p class="rail-meta">
-      {{ "{:,}".format(counts.words) }} words, about {{ counts.minutes }} minutes<br>
-      {{ counts.key_terms }} key terms, {{ notes|length }} sources<br>
-      {{ counts.figures }} figures, {{ counts.questions }} questions, {{ counts.problems }} problems
-    </p>
-    <ol class="rail-slots">
-      {% for s in slots %}
-      <li><a href="#{{ s.id }}" data-rail="{{ s.id }}">{{ s.label }}</a>
-        {% if s.key == 'teaching-body' and sections %}
-        <ol class="rail-sections">
-          {% for sec in sections %}
-          <li><a href="#{{ sec.id }}" data-rail="{{ sec.id }}"><span class="rail-num">{{ sec.num }}</span> {{ sec.title }}</a></li>
+    <a class="rail-back" href="../">All parts</a>
+    {% for p in book %}
+    <p class="rail-part">Part {{ p.numeral }} <span>{{ p.name }}</span></p>
+    <ol class="rail-chapters">
+      {% for c in p.chapters %}
+      {% if c.number|string == chapter_number %}
+      <li class="rail-current">
+        <span class="rail-ch here">Ch. {{ c.number }} {{ c.short }}</span>
+        <p class="rail-meta">
+          {{ "{:,}".format(counts.words) }} words, about {{ counts.minutes }} minutes<br>
+          {{ counts.key_terms }} key terms, {{ notes|length }} sources,
+          {{ counts.figures }} figures
+        </p>
+        <ol class="rail-slots">
+          {% for s in slots %}
+          <li><a href="#{{ s.id }}" data-rail="{{ s.id }}">{{ s.label }}</a>
+            {% if s.key == 'teaching-body' and sections %}
+            <ol class="rail-sections">
+              {% for sec in sections %}
+              <li><a href="#{{ sec.id }}" data-rail="{{ sec.id }}"><span class="rail-num">{{ sec.num }}</span> {{ sec.title }}</a></li>
+              {% endfor %}
+            </ol>
+            {% endif %}
+          </li>
           {% endfor %}
         </ol>
-        {% endif %}
       </li>
+      {% elif c.locked %}
+      <li><a class="rail-ch" href="../{{ c.slug }}/">Ch. {{ c.number }} {{ c.short }}</a></li>
+      {% else %}
+      <li><span class="rail-ch soon">Ch. {{ c.number }} {{ c.short }}</span></li>
+      {% endif %}
       {% endfor %}
     </ol>
+    {% endfor %}
   </nav>
 
   <main class="reading">
@@ -72,6 +88,7 @@
     <p>AI Operations Management, Chapter {{ chapter_number }}. {{ part_label }}.</p>
     <p>{{ notes|length }} source note{{ '' if notes|length == 1 else 's' }}, each cited to the chapter register.</p>
     <p class="keyhint"><kbd>j</kbd> <kbd>k</kbd> move by section, <kbd>c</kbd> contents, <kbd>Esc</kbd> close.</p>
+    <p class="foot-cta"><a class="cta" href="../#editions">Get the book</a></p>
   </div>
 </footer>
 

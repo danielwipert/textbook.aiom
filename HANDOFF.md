@@ -981,7 +981,29 @@ BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
    been set by eye at 1240px, leaving a 170px band where notes ran off the window.
    Redo the sum if any of those four tokens changes.
 
-   **Phase W3, the front door, is next.**
+   **Phase W3, the front door, is BUILT AND GREEN.** Landing page, whole-book
+   navigation rail, `book_structure.py`, and gate W7. EIGHT gates now, and
+   thirty-four negative controls.
+
+   **THREE RULES CAME OUT OF W3 AND THEY BIND LATER PHASES.** (1) Gate W7 guards
+   the joint where the book could split in two: a chapter's title comes from its
+   locked HTML, the navigation's comes from `AIOM_Structure_v1.md`, and nothing
+   else would notice them disagreeing. (2) A gate handed one page is evidence
+   about one page: W3 and W5 had only ever seen the chapter, so the landing page
+   was ungated and shipped four straight apostrophes. `gate_pages()` now covers
+   every emitted page, and a new page must be added there. (3) Planning prose is
+   not publishable prose: only the FIRST SENTENCE of a part's Purpose line is
+   published, and no chapter's "Big idea" line is published at all.
+
+   **Decision W-F, ruled 2026-08-13: the web keeps IBM Plex Sans.** Dan supplied
+   screenshots of `messyjobs.ai` and its structure was adopted, its typography and
+   palette were not.
+
+   **THE LANDING PAGE COPY IS DRAFT AND NEEDS DAN'S RULING.** Hero, lede and
+   editions section are written from ruled material but are not themselves ruled.
+   Part descriptions are one-sentence placeholders.
+
+   **Phase W4, the reference layer and search, is next.**
 
    **STILL BLOCKED AND IT IS NOT A CODE PROBLEM: `messyjobs.ai` is refused by the
    container's egress proxy** (`gateway answered 403 to CONNECT`, confirmed against

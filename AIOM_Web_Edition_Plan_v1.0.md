@@ -3,8 +3,9 @@
 Status: **ADOPTED 2026-08-13.** All five opening decisions are ruled and are
 logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numbering
 authority. Section 7 records them. **Phases W1 and W2 are built and green as of
-2026-08-13; Phase W3, the front door, is the next work.** Sections 8 and 9 record
-what W1 and W2 learned.
+2026-08-13, and Phase W3, the front door, followed the same day. Phase W4, the
+reference layer and search, is the next work.** Sections 8, 9 and 10 record what
+each phase learned.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -242,9 +243,9 @@ pipeline on one chapter before scaling it.
 - **Phase W2, the reader. BUILT AND GREEN 2026-08-13.** The full reading experience on Chapter 1: slot rail,
   sidenotes, margin definitions, progress, motion, responsive behaviour, keyboard
   layer. Design review against the same standard the print book gets.
-- **Phase W3, the front door. NEXT.** Landing page, table of contents, about, the
+- **Phase W3, the front door. BUILT AND GREEN 2026-08-13.** Landing page, table of contents, about, the
   author. Depends on the section 6 input and on Decision W-A below.
-- **Phase W4, the reference layer and search.** Glossary, object index, sources,
+- **Phase W4, the reference layer and search. NEXT.** Glossary, object index, sources,
   search index.
 - **Phase W5, deploy.** Domain, hosting, analytics posture, and the build hook that
   publishes a chapter when it locks.
@@ -437,3 +438,67 @@ W6 shipped with two, and the self-test is now at twenty-nine controls.
   correct sticky behaviour and may still want handling.
 - Search, the glossary, the object index and the sources page are all Phase W4.
 - Dark mode and the SVG token pass remain Phase W6.
+
+---
+
+## 10. What Phase W3 learned
+
+**The book's shape is parsed, not retyped.** `book_structure.py` reads the four
+parts and fifteen chapters out of `AIOM_Structure_v1.md`, which CLAUDE.md already
+names as the authority on chapter structure. A Python literal would have been a
+second copy of the book's own table of contents, and two copies of one thing that
+silently disagree is this project's signature failure.
+
+**GATE W7 GUARDS THE JOINT WHERE THE BOOK COULD SPLIT IN TWO.** A chapter's
+published title comes from its own locked HTML. The navigation's comes from the
+structure document. Those can drift, and nothing else would notice: the chapter
+renders correctly, the nav renders correctly, and they name different chapters.
+W7 fails the build on a disagreement, and on a structure document that stops
+parsing as four parts and fifteen chapters.
+
+**A GATE THAT ONLY EVER SEES ONE PAGE IS EVIDENCE ABOUT ONE PAGE.** Gates W3 and
+W5 had only ever been handed the chapter. The landing page was therefore ungated
+from the moment it existed, and it shipped four straight apostrophes that W3 would
+have failed instantly had it been looking. Two of the four came from the structure
+document, which is planning prose and was never held to the typographic standard.
+`gate_pages()` now runs the page-level checks over every page the build emits.
+
+**PLANNING PROSE IS NOT PUBLISHABLE PROSE, and the difference is not stylistic.**
+The part descriptions are Purpose lines from the structure document, and only the
+FIRST SENTENCE is published. Part III's line continues "Chapter titles use the
+manifesto's own verbs. The capstone dataset is introduced at the top of this part
+with its construction note. Worked-example fading: completion problems early in
+the part, unguided by its end." That is a note to the drafter. No chapter's "Big
+idea", "Competency" or "Anchor theorem" line is published at all, because CLAUDE.md
+section 9 rules that later chapters withhold things deliberately and an earlier
+surface must not front-run them.
+
+**Gate W6 found a regression introduced by the W3 stylesheet itself**, and its
+failure message was misleading in the same way print gate 12's is. Adding a buy
+CTA to the chapter bar overflowed the row at 320px, and the gate blamed the
+inventory table, because an element inside an `overflow-x` container legitimately
+extends past the viewport. W6 now excludes elements a scroll container clips, so
+it names the element that actually caused the page to scroll.
+
+**What was adopted from the inspiration site, now that it could be seen.** The
+rail carries the WHOLE book rather than the current chapter, with the current one
+expanded to its slots. The landing page uses a hairline part-card grid with the
+numeral as a graphic mark. A persistent buy CTA sits in the bar, which Decision 60
+requires somewhere. What was NOT adopted: the palette, which stays inherited from
+the locked print system; justified text, which produces rivers; and the lead-capture
+chat widget, which is the wrong register for this book.
+
+**Decision W-F, ruled 2026-08-13: the web keeps IBM Plex Sans.** The inspiration
+sets body text in a serif. AIOM's body face was established by metric fingerprint
+against the v5 design proof, and diverging would mean a reader who buys the PDF and
+reads the site sees two visibly different books. Structure was adopted; typography
+was not.
+
+### Open, and carried into W4
+
+- **The landing page copy is DRAFT and needs Dan's ruling.** The hero, the lede and
+  the editions section are written from ruled material but are not themselves ruled.
+  The part descriptions are one-sentence placeholders.
+- The site has no author, about, or praise surface. The inspiration has all three.
+- Search, the glossary, the object index and the per-chapter sources page are W4.
+- Dark mode and the SVG token pass remain W6.

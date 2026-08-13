@@ -44,6 +44,7 @@ import shutil
 import sys
 from html.parser import HTMLParser
 
+import book_structure
 import footnotes
 import status_check
 
@@ -437,6 +438,33 @@ def _report_first_divergence(a, b):
     print(f"     web  : ...{b[max(0, i - 60):i + 60]!r}")
 
 
+def is_locked(chapter_dir):
+    """Does this chapter's checklist report Stage 9 passed?
+
+    One reading of lock status, used by gate W2 and by the navigation, so the
+    site cannot link a chapter the gate would refuse to publish.
+    """
+    found = sorted(glob.glob(os.path.join(chapter_dir, "AIOM_Ch*_Checklist*.md")))
+    if not found:
+        return False, None
+    steps = status_check.parse(found[-1])
+    lock = next((s for s in steps if s["id"] == "Stage 9"), None)
+    return bool(lock and lock["status"]), found[-1]
+
+
+def locked_chapters():
+    """Chapter numbers reporting Stage 9, scanned from the Drafts tree."""
+    out = {}
+    for d in sorted(glob.glob("Drafts/Ch[0-9][0-9]_*")):
+        m = re.search(r"Ch(\d\d)_", os.path.basename(d))
+        if not m:
+            continue
+        locked, path = is_locked(d)
+        if locked:
+            out[int(m.group(1))] = path
+    return out
+
+
 def gate_w2(chapter_path, preview):
     """Lock status. Decision 64: locked chapters only, and a machine says so."""
     chdir = os.path.dirname(os.path.dirname(os.path.abspath(chapter_path)))
@@ -456,7 +484,40 @@ def gate_w2(chapter_path, preview):
             f"(Decision 64). Use --preview for a local noindex build."]
 
 
-def gate_w3(web_html):
+def gate_pages(pages):
+    """Run the page-level gates over EVERY emitted page, not just the chapter.
+
+    Added at W3, and it closed a real hole rather than a theoretical one. Gates
+    W3 and W5 had only ever been handed the chapter, so the landing page was
+    ungated from the moment it existed, and it shipped four straight apostrophes
+    that gate W3 would have failed instantly had it been looking. A suite that
+    checks one of two artifacts is evidence about one of two artifacts.
+    """
+    fails = []
+    for label, html in pages:
+        fails += gate_w3(html, label)
+        fails += gate_w5(html, None, label)
+        fails += gate_w4_links(html, label)
+    return fails
+
+
+def gate_w4_links(html, label):
+    """Anchor uniqueness and internal link resolution, for any page."""
+    fails = []
+    ids = ID_ATTR_RE.findall(html)
+    dupes = sorted({i for i in ids if ids.count(i) > 1})
+    if dupes:
+        fails.append(f"W4 [{label}]: duplicate id attribute(s): {dupes}")
+    dead = sorted({h for h in HREF_RE.findall(html) if h not in set(ids)})
+    if dead:
+        fails.append(f"W4 [{label}]: internal link(s) with no target: {dead}")
+    if not fails:
+        print(f"W4f. {label} links ....... {len(ids)} unique id(s), all "
+              f"internal links resolve")
+    return fails
+
+
+def gate_w3(web_html, label="chapter"):
     """Typographic marks. Ports print gates 2 and 15 to the web output.
 
     Both are properties of the text, so both apply. Run against the extracted
@@ -487,11 +548,12 @@ def gate_w3(web_html):
                            ("'", "straight apostrophe", "U+0027")):
         hits = [m.start() for m in re.finditer(re.escape(ch), text)]
         if hits:
-            fails.append(f"W3: {len(hits)} {name} ({code}) in the web text, "
-                         f"first at char {hits[0]}: "
+            fails.append(f"W3 [{label}]: {len(hits)} {name} ({code}) in the "
+                         f"text, first at char {hits[0]}: "
                          f"{text[max(0, hits[0] - 40):hits[0] + 40]!r}")
     if not fails:
-        print("W3. typographic marks ..... no em dash, en dash, or straight mark")
+        print(f"W3. typographic marks ..... {label}: no em dash, en dash, or "
+              f"straight mark")
     return fails
 
 
@@ -540,7 +602,7 @@ def gate_w4(web_html, meta):
     return fails
 
 
-def gate_w5(web_html, meta):
+def gate_w5(web_html, meta, label="chapter"):
     """Document attributes. Decision 59 is invisible when omitted."""
     fails = []
     lang = LANG_RE.search(web_html)
@@ -554,10 +616,47 @@ def gate_w5(web_html, meta):
         fails.append("W5: no viewport meta, the page will not be responsive")
     if 'charset="utf-8"' not in web_html.lower():
         fails.append("W5: no charset declaration")
-    if not meta["chapter_number"]:
+    if meta is not None and not meta["chapter_number"]:
         fails.append("W5: chapter number not derivable from the source <title>")
+    fails = [f.replace("W5:", f"W5 [{label}]:") for f in fails]
     if not fails:
-        print(f"W5. document attributes ... lang=en-US, title, viewport, charset")
+        print(f"W5. document attributes ... {label}: lang=en-US, title, "
+              f"viewport, charset")
+    return fails
+
+
+def gate_w7(meta, book):
+    """The book spine, and the one place it can silently drift.
+
+    The site's navigation is parsed from AIOM_Structure_v1.md rather than retyped,
+    so the structural checks below are what stand between a changed heading and a
+    site quietly missing a quarter of the book.
+
+    The second half matters more. A chapter's published title comes from its own
+    locked HTML, and the navigation's comes from the structure document. Those two
+    can disagree, and nothing else in this repository would notice: the chapter
+    would render correctly, the nav would render correctly, and they would name
+    different chapters. That is this repository's signature failure with a new
+    surface, so it fails the build.
+    """
+    fails = ["W7: " + f for f in book_structure.check(book)]
+    if not fails:
+        print(f"W7a. book spine ........... {len(book)} parts, "
+              f"{len(book_structure.flat(book))} chapters, parsed from "
+              f"{book_structure.STRUCTURE}")
+
+    num = int(meta["chapter_number"]) if meta["chapter_number"] else None
+    entry = next((c for c in book_structure.flat(book) if c["number"] == num), None)
+    if entry is None:
+        fails.append(f"W7: chapter {num} is not in the book structure")
+    elif entry["title"] != meta["chapter_title"]:
+        fails.append(
+            f"W7: chapter {num} title disagrees. "
+            f"{book_structure.STRUCTURE} says {entry['title']!r}, "
+            f"the locked chapter HTML says {meta['chapter_title']!r}")
+    else:
+        print(f"W7b. title agreement ...... chapter {num} matches the structure "
+              f"document")
     return fails
 
 
@@ -602,11 +701,21 @@ def gate_w6(page_path):
                 pg.set_viewport_size({"width": w, "height": 900})
                 pg.goto(url)
                 pg.wait_for_timeout(120)
+                # An element inside an overflow-x container legitimately
+                # extends past the viewport and is NOT the cause of a page
+                # scroll. Reporting it sends the reader after the wrong element,
+                # which is the defect already recorded against print gate 12's
+                # failure message. Those ancestors are excluded.
                 r = pg.evaluate(
                     "() => {const d=document.documentElement; const o=[];"
-                    "document.querySelectorAll('#chapter-text *').forEach(e=>{"
-                    "  if (e.getBoundingClientRect().right > d.clientWidth + 1)"
-                    "    o.push(e.className || e.tagName);});"
+                    "const clipped = e => {for (let n=e.parentElement; n && n!==d;"
+                    "  n=n.parentElement) {const ox=getComputedStyle(n).overflowX;"
+                    "  if (ox==='auto'||ox==='scroll'||ox==='hidden') return true;}"
+                    "  return false;};"
+                    "document.querySelectorAll('body *').forEach(e=>{"
+                    "  if (e.getBoundingClientRect().right > d.clientWidth + 1"
+                    "      && !clipped(e))"
+                    "    o.push(e.tagName + '.' + (e.className||''));});"
                     "return {sw:d.scrollWidth, cw:d.clientWidth,"
                     "        over:[...new Set(o)].slice(0,3)};}")
                 if r["sw"] > r["cw"] + 1:
@@ -640,11 +749,36 @@ def render(chapter_path, outdir, preview=False):
     print_html, _ = footnotes.inject(src, url_policy=URL_POLICY)
     meta = transform(print_html)
 
+    book = book_structure.load_book()
+    locked = locked_chapters()
+    nav = []
+    for p in book:
+        nav.append({
+            "numeral": p["numeral"], "name": p["name"],
+            # First sentence only, and typographically corrected. The rest of a
+            # Purpose line is production talk. See book_structure.public_purpose.
+            "purpose": book_structure.public_purpose(p["purpose"]),
+            "chapters": [{
+                "number": c["number"],
+                "title": book_structure.curl(c["title"]),
+                "short": book_structure.curl(book_structure.short_title(c["title"])),
+                "slug": f"ch{c['number']:02d}",
+                # A chapter is a LINK only if it is locked. Decision 64 is
+                # enforced by gate W2 at build time; this is the same rule at
+                # navigation time, so the site cannot offer a door that the gate
+                # would refuse to open.
+                "locked": c["number"] in locked,
+            } for c in p["chapters"]],
+        })
+    meta["book"] = nav
+    meta["locked_count"] = len(locked)
+
     web_html = _env().get_template("chapter.html.j2").render(
         preview=preview, **meta)
 
     slug = f"ch{int(meta['chapter_number']):02d}" if meta["chapter_number"] else "ch"
     meta["slug"] = slug
+    meta["structure"] = book
     chdir = os.path.join(outdir, slug)
     os.makedirs(chdir, exist_ok=True)
     os.makedirs(os.path.join(outdir, "assets", "fonts"), exist_ok=True)
@@ -656,12 +790,22 @@ def render(chapter_path, outdir, preview=False):
     return print_html, web_html, meta, os.path.join(chdir, "index.html")
 
 
-def render_index(outdir, chapters):
-    """Placeholder front page, so the chapter's brand link has a target.
+def render_index(outdir, meta):
+    """The front door. Phase W3.
 
-    Not the landing page. That is Phase W3 and waits on the visual direction.
+    Copy on this page is DRAFT and marked so in the plan. What is here comes from
+    ruled material and nothing else: the two named layers are CLAUDE.md section 1
+    verbatim, and each part's description is its Purpose line from
+    AIOM_Structure_v1.md. Nothing on this page is invented, and no chapter's "Big
+    idea" line appears, because those are internal planning shorthand and later
+    chapters withhold things deliberately.
     """
-    out = _env().get_template("index.html.j2").render(chapters=chapters)
+    first = next((c for p in meta["book"] for c in p["chapters"] if c["locked"]),
+                 None)
+    out = _env().get_template("index.html.j2").render(
+        book=meta["book"], locked_count=meta["locked_count"],
+        chapter_count=sum(len(p["chapters"]) for p in meta["book"]),
+        first_locked=first)
     open(os.path.join(outdir, "index.html"), "w", encoding="utf-8").write(out)
     return os.path.join(outdir, "index.html")
 
@@ -681,9 +825,7 @@ def main():
                  "(web_templates/ not found)")
 
     print_html, web_html, meta, path = render(a.chapter, a.out, a.preview)
-    index = render_index(a.out, [] if a.preview else [{
-        "slug": meta["slug"], "number": meta["chapter_number"],
-        "title": meta["chapter_title"], "part_label": meta["part_label"]}])
+    index = render_index(a.out, meta)
     print(f"\nChapter {meta['chapter_number']}: {meta['chapter_title']}")
     print(f"  {meta['part_label']}")
     print(f"  wrote {path}")
@@ -695,6 +837,8 @@ def main():
     fails += gate_w3(web_html)
     fails += gate_w4(web_html, meta)
     fails += gate_w5(web_html, meta)
+    fails += gate_w7(meta, meta["structure"])
+    fails += gate_pages([("index", open(index, encoding="utf-8").read())])
     w6_fails, w6_ran = ([], False) if a.no_browser else gate_w6(path)
     fails += w6_fails
 

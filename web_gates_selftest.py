@@ -184,6 +184,32 @@ def main():
     bad = re.sub(r"<title>.*?</title>", "", web_html, count=1, flags=re.S)
     case("title removed", lambda: quiet(wb.gate_w5, bad, meta))
 
+    print("\nW7, the book spine")
+    import book_structure
+    real = book_structure.load_book()
+    case("W7 clean", lambda: quiet(wb.gate_w7, meta, real), False)
+
+    # The failure this gate exists for: the chapter renders correctly, the
+    # navigation renders correctly, and they name different chapters.
+    drifted = copy.deepcopy(real)
+    drifted[0]["chapters"][0]["title"] = "The Categorical Error"
+    case("chapter title drifts from the structure doc",
+         lambda: quiet(wb.gate_w7, meta, drifted))
+
+    short = copy.deepcopy(real)[:3]
+    case("a part lost from the structure doc",
+         lambda: quiet(wb.gate_w7, meta, short))
+
+    gap = copy.deepcopy(real)
+    gap[0]["chapters"] = gap[0]["chapters"][1:]
+    case("chapter 1 missing from the structure doc",
+         lambda: quiet(wb.gate_w7, meta, gap))
+
+    noPurpose = copy.deepcopy(real)
+    noPurpose[1]["purpose"] = ""
+    case("a part with no purpose line",
+         lambda: quiet(wb.gate_w7, meta, noPurpose))
+
     print("\nW6, horizontal overflow across the width sweep")
     page = "build/web-selftest/ch01/index.html"
     clean, ran = wb.gate_w6(page)

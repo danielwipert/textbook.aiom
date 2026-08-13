@@ -120,6 +120,7 @@ a:hover { text-decoration-color: var(--amber); }
   font-family: "Jost", sans-serif; font-weight: 600;
   font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--navy); text-decoration: none;
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .topbar-here {
   font-size: 0.78rem; color: var(--folio);
@@ -451,23 +452,171 @@ table.inv td.blank { background: var(--tint-fig); min-width: 6rem; }
 .summary { border-left: 3px solid var(--teal); padding-left: 1.2rem; }
 .summary p:last-child { margin-bottom: 0; }
 
-/* ---------- 14. PLACEHOLDER FRONT PAGE ---------- */
-/* Phase W1 leftover. Superseded by the Phase W3 landing page. */
-.toc { grid-column: 2; }
-.toc-note { color: var(--axis); font-size: 0.88rem; margin-bottom: calc(var(--step) * 1.5); }
+/* ---------- 14. THE RAIL, WHOLE BOOK ---------- */
+/* Adopted from the inspiration site: the rail carries the WHOLE book, not the
+   current chapter, so a reader always sees the shape of the thing they are in.
+   Fifteen chapters in four parts is a selling point and the previous rail hid it. */
+.rail-back {
+  display: block; padding: 0 0 0.9rem; margin-bottom: 0.9rem;
+  border-bottom: 1px solid var(--hairline); border-left: 0;
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.74rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--folio);
+  text-decoration: none;
+}
+.rail-back::before { content: "\2190"; padding-right: 0.45em; }
+.rail-back:hover { color: var(--amber); }
+
+.rail-part {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.66rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber);
+  margin: 1.3rem 0 0.5rem;
+}
+.rail-part span { color: var(--folio); }
+.rail-chapters { list-style: none; margin: 0; padding: 0; }
+.rail-ch {
+  display: block; padding: 0.22rem 0 0.22rem 0.75rem;
+  border-left: 2px solid var(--hairline);
+  color: var(--navy); text-decoration: none; font-size: 0.79rem;
+  transition: color 0.18s, border-color 0.18s;
+}
+a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
+.rail-ch.soon { color: var(--folio); border-left-color: transparent; }
+.rail-ch.here {
+  color: var(--amber); border-left-color: var(--amber);
+  font-family: "Jost", sans-serif; font-weight: 600;
+}
+.rail-current { background: var(--tint-thm); padding: 0.3rem 0.6rem 0.5rem; margin: 0.2rem 0; }
+.rail-current .rail-ch.here { padding-left: 0.55rem; }
+
+/* ---------- 15. THE FRONT DOOR ---------- */
+.home main { padding: 0 1.5rem; }
+.topnav { display: flex; gap: 1.6rem; margin-left: auto; }
+.topnav a {
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.76rem;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+}
+.topnav a:hover { color: var(--amber); }
+.cta {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.74rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--navy); color: var(--paper); text-decoration: none;
+  padding: 0.45rem 0.9rem; border-radius: 2px; white-space: nowrap;
+}
+.cta:hover { background: var(--amber); }
+
+.eyebrow {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.7rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber);
+  margin: 0 0 0.8rem;
+}
+/* Same container width as .band, so the hero text and every section rule below
+   it share one left edge. At 56rem they did not, and the mismatch read as a
+   misalignment rather than as a design. */
+.hero {
+  max-width: 68rem; margin: 0 auto;
+  padding: calc(var(--step) * 4) 0 calc(var(--step) * 3);
+}
+.hero h1 {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: clamp(2.2rem, 5.4vw, 4rem); line-height: 1.04;
+  letter-spacing: -0.022em; color: var(--navy);
+  margin: 0 0 1.4rem; text-wrap: balance; max-width: 20ch;
+}
+.lede {
+  font-size: 1.12rem; line-height: 1.55; max-width: 42rem;
+  margin: 0 0 calc(var(--step) * 1.8); color: var(--ink);
+}
+.hero-layers {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px; background: var(--hairline);
+  border: 1px solid var(--hairline);
+  margin-bottom: calc(var(--step) * 1.8);
+}
+.hero-layers > div { background: var(--paper); padding: 1.1rem 1.3rem; }
+.layer-name {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.12rem;
+  color: var(--navy); margin: 0 0 0.2rem;
+}
+.layer-role { margin: 0; color: var(--axis); font-size: 0.95rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0; }
+.btn {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  background: var(--amber); color: var(--paper); text-decoration: none;
+  padding: 0.7rem 1.2rem; border-radius: 2px;
+}
+.btn:hover { background: var(--navy); }
+.btn-quiet {
+  background: none; color: var(--navy);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+.btn-quiet:hover { background: none; color: var(--amber); box-shadow: inset 0 0 0 1px var(--amber); }
+
+.band { max-width: 68rem; margin: 0 auto; padding: calc(var(--step) * 2.6) 0; border-top: 1px solid var(--hairline); }
+.band-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 1.5rem; margin-bottom: calc(var(--step) * 1.4); }
+.band-head .eyebrow { flex-basis: 100%; margin-bottom: 0.5rem; }
+.band h2 {
+  font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem); line-height: 1.1;
+  letter-spacing: -0.015em; color: var(--navy); margin: 0;
+}
+.band-meta { margin: 0 0 0 auto; color: var(--folio); font-size: 0.84rem; }
+
+/* The part cards, adopted from the inspiration: a hairline grid, a numeral used
+   as a graphic mark, an eyebrow, a title, a description. The description is the
+   part's Purpose line from AIOM_Structure_v1.md and is not invented copy. */
+.parts-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px; background: var(--hairline); border: 1px solid var(--hairline);
+}
+.part-card { background: var(--paper); padding: 1.5rem 1.3rem; }
+.part-numeral {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 2.6rem;
+  line-height: 1; color: var(--hairline); margin: 0 0 0.9rem;
+}
+.part-card h3 {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.3rem;
+  line-height: 1.15; color: var(--navy); margin: 0 0 0.7rem; text-wrap: balance;
+}
+.part-purpose { font-size: 0.86rem; line-height: 1.5; color: var(--axis); margin: 0 0 1.1rem; }
+.part-chapters { list-style: none; margin: 0; padding: 0.9rem 0 0; border-top: 1px solid var(--hairline); }
+.part-chapters li { margin-bottom: 0.5rem; font-size: 0.86rem; line-height: 1.35; }
+.part-chapters a { color: var(--navy); text-decoration: none; }
+.part-chapters a:hover { color: var(--amber); }
+.part-chapters .soon { color: var(--folio); }
+.ch-n {
+  display: inline-block; min-width: 1.5rem;
+  font-family: "Jost", sans-serif; font-weight: 600; color: var(--amber);
+  font-variant-numeric: tabular-nums;
+}
+.part-chapters .soon .ch-n { color: var(--hairline); }
+
 .toc-list { list-style: none; margin: 0; padding: 0; }
 .toc-list li { border-top: 1px solid var(--hairline); padding: 1.1rem 0; }
+.toc-list li:first-child { border-top: 0; }
 .toc-list a { display: block; text-decoration: none; }
 .toc-num {
   display: block; font-family: "Jost", sans-serif; font-weight: 600;
   font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--amber); margin-bottom: 0.25rem;
 }
-.toc-title { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.6rem; color: var(--navy); }
+.toc-title { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.7rem; color: var(--navy); }
 .toc-list a:hover .toc-title { color: var(--amber); }
-.toc-part { display: block; font-size: 0.8rem; color: var(--folio); margin-top: 0.3rem; }
+.toc-part { display: block; font-size: 0.82rem; color: var(--folio); margin-top: 0.3rem; }
+.note-line { margin: calc(var(--step) * 1.4) 0 0; color: var(--axis); font-size: 0.86rem; max-width: 42rem; }
 
-/* ---------- 15. RESPONSIVE ---------- */
+.editions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+.edition { background: var(--paper); padding: 1.4rem 1.4rem 1.6rem; }
+.edition h3 { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.2rem; color: var(--navy); margin: 0 0 0.6rem; }
+.edition p { margin: 0 0 0.7rem; font-size: 0.92rem; line-height: 1.55; color: var(--axis); }
+.price {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber);
+  margin: 0 !important;
+}
+
+/* ---------- 16. RESPONSIVE ---------- */
 /* Below the threshold the sidenote returns inline, indented and ruled, rather
    than being hidden. An apparatus a reader cannot reach on a phone is an
    apparatus the book does not have. */
@@ -486,8 +635,12 @@ table.inv td.blank { background: var(--tint-fig); min-width: 6rem; }
     border-top: 0; border-left: 2px solid var(--hairline);
   }
 }
+@media (max-width: 1100px) {
+  .parts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 900px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
+  .topnav { display: none; }
   .rail {
     display: none; position: static; max-height: none;
     padding: 1.2rem 1.5rem 1.5rem; border-bottom: 1px solid var(--hairline);
@@ -504,10 +657,17 @@ table.inv td.blank { background: var(--tint-fig); min-width: 6rem; }
   .brand { font-size: 0.7rem; letter-spacing: 0.06em; }
   .kt-list { grid-template-columns: minmax(0, 1fr); }
   .dq { grid-template-columns: 1.6rem 1fr; }
+  .parts-grid, .hero-layers, .editions { grid-template-columns: minmax(0, 1fr); }
+  .home main { padding-inline: 1.15rem; }
+  .cta { font-size: 0.68rem; padding: 0.4rem 0.7rem; }
+  /* The chapter bar already carries a brand and a Contents button, and a third
+     item overflowed the row at 320px. Gate W6 found it. The CTA is not lost: the
+     chapter footer carries it at every width. */
+  body:not(.home) .topbar .cta { display: none; }
   table.inv { font-size: 0.72rem; }
 }
 
-/* ---------- 16. MOTION ---------- */
+/* ---------- 17. MOTION ---------- */
 /* The .reveal class is added BY SCRIPT, never in the markup. A reader with
    JavaScript disabled therefore sees every block at full opacity instead of a
    blank page, which is what a markup-side opacity:0 would have produced. */
@@ -523,7 +683,7 @@ table.inv td.blank { background: var(--tint-fig); min-width: 6rem; }
   * { animation-duration: 0.01ms !important; }
 }
 
-/* ---------- 17. PRINT FROM THE BROWSER ---------- */
+/* ---------- 18. PRINT FROM THE BROWSER ---------- */
 /* Not the book. The book is AIOM_build.py and WeasyPrint. This only stops a
    browser print of a web page from carrying the site chrome. */
 @media print {
