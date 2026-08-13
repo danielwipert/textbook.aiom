@@ -7,6 +7,24 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**SESSION CLOSED 2026-08-13, THE WEBSITE-EDITS SESSION. Everything is on `main`
+and there is nothing else anywhere.** The remote holds ONE branch, `main`, for
+the first time in this project's history. `git_hygiene.py` reports nothing
+stranded and no branch safe to delete, the tree is clean, local and remote are
+`0 0`, and `status_check.py` reports Chapter 1 locked at 13 of 13, STATUS
+CONSISTENT. **No work sits on a branch. There is nothing to merge up.**
+
+Four changes shipped this session, all to the reading surface, none to the
+chapter text: the v0.4 reading scale, the v0.5 body roman, term linking, and
+the documentation for each. Every one is described below. **Chapter 1's text
+was not edited at all, so no lifecycle step was touched and no amendment was
+needed**, which is the point of the presentation layer being a separate file.
+
+**Next session starts on `main` and starts on CHAPTER 2**, unless Dan brings
+more website edits, in which case the pattern this session settled into worked
+well: change, gates, self-test, render a sheet, commit with the reasoning in the
+message, then update the three documents.
+
 **TERM LINKING, 2026-08-13. ON `main`.** A bolded key term in the chapter text
 is now a link to the definition callout that owns it. Built by
 `web_build.link_terms()`, which gives each callout and key-term entry an id and
@@ -1016,12 +1034,22 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF 2026-08-13, in order: 6 (CHAPTER 2, now the work and now
-genuinely unblocked), 8 (the web edition, LIVE and waiting on Dan for a domain
-and the author band), 10 (the Northmoor CSVs, for the Part III build),
-5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed the day
-it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread: see the
-top of Repository state.**
+**LIVE THREADS AS OF THE 2026-08-13 SESSION CLOSE, in order: 6 (CHAPTER 2, now
+the work and now genuinely unblocked), 8 (the web edition, LIVE and waiting on
+Dan for a domain and the author band), 10 (the Northmoor CSVs, for the Part III
+build), 5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed
+the day it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread:
+see the top of Repository state.**
+
+**Three small items were booked by the website-edits session and none of them
+blocks anything.** They belong to thread 8. (a) `playwright` is not pinned in
+`requirements.txt`, so gate W6 reports SKIPPED in a fresh container until it is
+installed by hand; pinning it would close a quiet-pass hole. (b) The dark-theme
+`:target` landing tint moves only 4 to 8 levels and may be too subtle, but it is
+shared with the sidenote, the glossary row and the sources entry, so changing it
+changes all four. (c) The term-linking match rules have been exercised against
+Chapter 1 only, so Chapter 2 is the first real test of the leading-article rule
+and the trailing-punctuation refusal.
 Everything else below is
 closed and kept as record. The numbering is left alone deliberately: these numbers
 are cited in commit messages and in the checklist, and renumbering would break
@@ -1445,13 +1473,13 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
   run the one-liner. Confirmed twice on 2026-08-13, on two different branches,
   by two different routes: it is the operation that is denied, not the
   credential or the syntax. **THE LOCAL BRANCH CAN STILL BE DELETED**, and
-  should be, so `git branch --list` does not disagree with the remote.
-  Outstanding as of 2026-08-13: `claude/website-edits-upsmk4`, fully merged and
-  sitting exactly at `main`, deleted locally and awaiting
-  `git push origin --delete claude/website-edits-upsmk4` from Dan. This matters
-  because the 2026-08-12 stranding was made hard to see by thirteen merged and
-  undeleted branches, so the cleanup rule is real even though Claude cannot
-  execute it.
+  should be, so `git branch --list` does not disagree with the remote. Nothing
+  is outstanding as of the 2026-08-13 session close: Dan deleted both branches
+  when asked and the remote holds `main` alone. This matters because the
+  2026-08-12 stranding was made hard to see by thirteen merged and undeleted
+  branches, so the cleanup rule is real even though Claude cannot execute it.
+  **The working pattern that settled this: Claude finishes, verifies fully
+  merged, deletes the local branch, and hands Dan the one-liner.**
 - **A LOCAL `main` CAN BE STALE IN A WAY EVERY SECTION 9 CHECK MISSES.** On
   2026-08-13 `git merge --ff-only` refused with 69 and 193 divergent commits
   after `git_hygiene.py`, a fetch, `git log origin/main ^HEAD` and
