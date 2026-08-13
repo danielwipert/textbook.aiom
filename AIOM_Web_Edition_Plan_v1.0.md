@@ -7,9 +7,9 @@ authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 reference layer and search, followed, and Phase W5, the site build and deploy,
 is built, and Phase W6, dark mode and the figure token pass, closes the plan.
 Host and analytics are ruled as Decisions 65 and 66. Only the DOMAIN is
-outstanding.** Sections 8 through 15 record what each phase learned, and section
-15 is the v0.4 reading scale, which came from a question Dan asked about the text
-column rather than from a phase.
+outstanding.** Sections 8 through 16 record what each phase learned. Sections 15
+and 16 are the v0.4 reading scale and the v0.5 body roman, which came from two
+questions Dan asked about the reading surface rather than from a phase.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -815,8 +815,53 @@ viewport widths and comparing each floated note's right edge with the viewport,
 which is how v0.4 was verified across 24 widths from 1400px to 2560px. A green
 W6 is evidence about sideways scroll and about nothing else.
 
-### Open after v0.4
+## 16. The body roman, v0.5
 
+Dan read the chapter at 1920 in Chrome and said the type felt heavy, and that
+the weight seemed to change with the window.
+
+**THE WEIGHT NEVER CHANGED.** Computed `font-weight` is 400 at every viewport
+width and nothing in either stylesheet varies it. What v0.4 made fluid is the
+root SIZE, and the same face set larger reads heavier. At 1920 the clamp sits at
+its ceiling, so that is the heaviest the page ever gets. The observation was
+right and the cause was one step away from it, which is worth recording as a
+shape: **a reader reports the symptom accurately and names the wrong mechanism,
+and the job is to measure before agreeing or disagreeing.**
+
+**CHASING IT FOUND A DEFECT OLDER THAN v0.4.** The body roman was
+`IBMPlexSans-Text.ttf`, whose `usWeightClass` is 450, declared as
+`font-weight: 400` since v0.1. Web body prose had always been half a step
+heavier than it announced, and the italic beside it is a true 400, so the roman
+and its own italic had never matched. Neither fact was visible in the CSS, which
+says 400 in both places. It took reading the font's own OS/2 table.
+
+**NO GATE IN EITHER SUITE COULD HAVE CAUGHT IT, AND NONE CAN CATCH ITS RETURN.**
+A face substitution changes no text, so gate W1's equivalence holds perfectly.
+Print gate 5 inspects the faces embedded in the PDF, not the weight a web
+stylesheet declares. Six phases of green builds passed over it. No gate is
+proposed, because the line changes about once a year and a check nobody
+exercises is the failure mode this project already knows too well, but the hole
+is recorded here rather than left to be rediscovered.
+
+**ONLY THE WEB MOVES.** Print keeps Text: ink on paper does not gain weight the
+way a backlit screen does, the print design system is locked at v7.1, and the
+re-run matrix makes any change there re-run Stage 5 and G2 on every chapter.
+This is the division already in force for colour, where five foreground tokens
+are darkened for WCAG while `AIOM_book.css` keeps the print values of record.
+
+**A FONT SWAP IS VERIFIED BY MEASURING A STRING, NEVER BY LOOKING**, because a
+face that fails to load renders identically to a face that changed nothing. Text
+sets the 77-character probe at 723.34px and Regular at 716.59px; the built page
+reports the second. The same measurement shows the measure survives at 71
+characters, a 0.9 per cent move, so the section 17 arithmetic is untouched. The
+print build was re-run for the same reason: gate 5 reporting no unexpected face
+is what proves the new file is embedded nowhere in the book.
+
+### Open after v0.5
+
+- **If the page now reads a shade light, the answer is not to go back.** Nudge
+  `--ink` darker instead. Perceived weight is partly contrast, and there is
+  ample AA headroom above the W13 floor, so the face need not be touched again.
 - **The margin could be filled rather than reserved, and this is unruled.**
   Chapter 1 calls six notes across 6,853 words, so the side track is empty for
   almost the whole chapter. The layout is built for a book with heavy marginalia

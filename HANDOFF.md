@@ -7,6 +7,44 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**THE BODY ROMAN, `AIOM_web.css` v0.5, 2026-08-13. ON `main`.** Dan read the
+chapter at 1920 in Chrome and said the type felt heavy, and that the weight
+seemed to change with the window. **THE WEIGHT NEVER CHANGED**: computed
+`font-weight` is 400 at every width and nothing varies it. What v0.4 made fluid
+is the SIZE, and the same face set larger reads heavier. The symptom was
+reported accurately and the mechanism named was the wrong one, which is a shape
+worth expecting: measure before agreeing or disagreeing.
+
+Chasing it found a defect older than v0.4. The body roman was
+`IBMPlexSans-Text.ttf`, `usWeightClass` 450, declared as `font-weight: 400`
+since v0.1, so web body prose had always been half a step heavier than it
+announced, and the italic beside it is a true 400, so **the roman and its own
+italic had never matched**. Neither fact is visible in the CSS, which says 400
+in both places. It took reading the font's OS/2 table. The web roman is now
+`IBMPlexSans-Regular.ttf`, Plex 3.005, the same release as every other face in
+`fonts/use/`. Print keeps Text and is unchanged.
+
+**NO GATE IN EITHER SUITE COULD HAVE CAUGHT THIS AND NONE CAN CATCH ITS
+RETURN.** A face substitution changes no text, so W1's equivalence holds
+perfectly, and print gate 5 inspects the faces embedded in the PDF rather than
+the weight a web stylesheet declares. Six phases of green builds passed over it.
+No gate is proposed, deliberately, but the hole is recorded in CLAUDE.md and in
+plan section 16.
+
+**VERIFY A FONT SWAP BY MEASURING A STRING, NEVER BY LOOKING**, because a face
+that fails to load renders identically to one that changed nothing. Text sets
+the 77-character probe at 723.34px and Regular at 716.59px; the built page
+reports the second. The measure survives at 71 characters, a 0.9 per cent move,
+so the section 17 arithmetic is untouched. The PRINT build was re-run for the
+same reason, since "print is unaffected" was a claim: all fifteen print gates
+pass and gate 5 reports no unexpected face, proving the new file is embedded
+nowhere in the book. `web_build.py` globs `fonts/use/*.ttf`, so a web-only face
+must still be a TTF and still sits in the directory print reads from.
+
+**If the page ever reads a shade LIGHT, the answer is not to go back.** Nudge
+`--ink` darker: perceived weight is partly contrast and there is ample AA
+headroom above the W13 floor.
+
 **THE READING SCALE, `AIOM_web.css` v0.4, 2026-08-13. MERGED TO `main` AND
 LEVEL.** Dan asked why Chapter 1's text column ran so thin on the site. It does
 not, and the first answer given was wrong because it reasoned from the CSS

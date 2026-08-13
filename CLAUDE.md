@@ -672,6 +672,32 @@ rulings. What binds outside that document:
   "Ch. 3 A Science and Its Discipline" across two lines. Only `--note` narrows,
   15.5rem to 14rem, and the breakpoint lands at 1420px, BELOW the 1440px it was,
   so a 1440px window gains margin notes it did not have.
+- **THE WEB BODY ROMAN IS A TRUE REGULAR 400 AND PRINT KEEPS PLEX SANS TEXT.
+  v0.5, ruled by Dan 2026-08-13.** IBM Plex Sans Text is a distinct face at
+  `usWeightClass` 450, half a step above Regular, and `AIOM_web.css` declared it
+  as `font-weight: 400` from v0.1, so web body prose was heavier than it
+  announced. The italic beside it is a true 400, so **the roman and its own
+  italic never matched.** Print is unchanged: ink on paper does not gain weight
+  the way a backlit screen does, the print system is locked at v7.1, and the
+  re-run matrix makes any change there re-run Stage 5 and G2 on every chapter.
+  This is the division already in force for colour.
+- **NO GATE IN EITHER SUITE CAN SEE A TYPEFACE SUBSTITUTION, AND THIS ONE SAT
+  THERE THROUGH SIX PHASES OF GREEN BUILDS.** A face swap changes no text, so
+  W1's equivalence holds perfectly, and print gate 5 inspects the faces embedded
+  in the PDF rather than the weight a web stylesheet declares. It is an open hole
+  with no gate proposed, because the line changes about once a year.
+- **VERIFY A FONT SWAP BY MEASURING A STRING, NEVER BY LOOKING.** A face that
+  fails to load renders identically to a face that changed nothing, so "it looks
+  right" is not evidence. Measure a fixed test string: Plex Sans Text sets the
+  77-character probe at 723.34px and Regular at 716.59px at the same size. Check
+  the built page reports the second number. The same check proves the measure
+  survived, which it does at 71 characters, a 0.9 per cent move that leaves the
+  section 17 arithmetic untouched.
+- **AND RE-RUN THE PRINT BUILD, BECAUSE "PRINT IS UNAFFECTED" IS A CLAIM.** Gate
+  5 reporting no unexpected face is what proves a new file in `fonts/use/` is
+  embedded nowhere in the book. `web_build.py` globs `fonts/use/*.ttf`, so a web
+  face must be a TTF to be staged at all, which also means it sits in the same
+  directory print reads from.
 - **THE NOTE-OFF-THE-EDGE DEFECT IS NOT A GATE AND CANNOT BE.** A floated note
   hanging past the window does not make the page scroll, so W6 is blind to it, and
   it is the exact defect the 1240px breakpoint shipped. It is checked by sweeping
