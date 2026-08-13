@@ -189,6 +189,8 @@ sources are dated. Constructed material is labelled as constructed.
 | `factcheck_packet.py` | Builds the Stage 3 and Stage 7 packet: every cited passage paired with its register entry, notes reproduced verbatim, plus the mechanical checks run locally. It verifies nothing, because both stages are structurally external. Promoted to the root 2026-08-10 after the same throwaway work came due twice on one chapter. |
 | `AIOM_Continuity_Ledger.md` | The G3 record: terms owned per chapter, forward references and whether paid, registry glosses, Northmoor figures, and the canonical Founding Questions and maturity stages. Appended at lock, never edited to make a gate pass. |
 | `continuity.py` | Gate G3. Seven checks against the ledger. `--update` appends at Stage 9; `--pay N` marks promises kept. |
+| `AIOM_Claim_Ledger.md` | The W14 record: every ruled claim narrowing as REQUIRED text the chapter must contain and FORBIDDEN text it must not. Written from the CHAPTER, never from the register note's description of it. Adopted 2026-08-13. |
+| `claimcheck.py` | Gate W14 and a standalone pass. Does the chapter still say what the fact checks ruled? Answers the one class of damage no other check can see. |
 | `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
 | `renumber_stage_folders.py` | One-time Process v1 to v2 stage-folder migration. Run 2026-08-05 across all eighteen units. |
 | `git_hygiene.py` | Is any work stranded, and is the tree fit to hand over? Deepens the shallow clone FIRST, because an undeepened sweep counts merged branches as stranded. Run before every merge and every session close. See section 9. |
@@ -688,9 +690,35 @@ rulings. What binds outside that document:
   emits site-relative paths that become absolute the moment one is supplied.
 - **Phase W6 is built, 2026-08-13: dark mode and the figure token pass.**
   THIRTEEN gates. `AIOM_web.css` v0.3.
+- **GATE W14 IS THE ONLY GATE IN EITHER SUITE THAT READS MEANING, AND IT EXISTS
+  BECAUSE MEANING IS WHERE THIS PROJECT'S DAMAGE HAPPENS.** Added 2026-08-13.
+  SF8, SF9 and SF10 were reverted during a copy edit with every date and figure
+  intact, so nothing checking values could see it; FC2 repeated the shape and the
+  case bank carried a withdrawn claim for seventy days. Five instances, none
+  visible to any check that existed. W14 reads `AIOM_Claim_Ledger.md` and fails
+  the build when a REQUIRED sentence goes missing or a FORBIDDEN one returns.
+  Verified against all six historical reverts rather than against invented
+  faults, and its controls in the self-test reproduce the real ones.
+- **THE CLAIM LEDGER IS WRITTEN FROM THE CHAPTER, NEVER FROM THE REGISTER NOTE.**
+  Reading the notes directly was tried first and is wrong twice over. They use
+  the apostrophe as delimiter and possessive at once, so a quoted `the team's
+  heaviest users` cannot be parsed. Worse, **a note holds SUPERSEDED ruled forms
+  beside the current one**: the `altman-2025-pro` note carries two sentences
+  introduced by "the sentence now reads", and the `microsoft-2026-q2-call` note
+  records "over 4.7 million" where the chapter, after SF7, says "had passed 4.7
+  million". The first draft of the ledger copied that superseded form and W14
+  failed on it immediately, which is the trap working as intended. Notes record
+  how the text got here; the ledger states where it must be now.
+- **TWO REGISTER NOTES QUOTE SENTENCES THE CHAPTER DOES NOT CONTAIN.** Found
+  2026-08-13 while building W14. The SF3 note omits "for Copilot"; the
+  `altman-2025-pro` note keeps a pre-SF11 form. Both are the SF7 and SF11 drift
+  shape recurring inside the very notes that exist to prevent it. The chapter is
+  correct in both cases and the notes are imprecise, so nothing is broken, but
+  **the notes should be corrected at the next reopen** and the ledger records the
+  discrepancy at each entry.
 - **A GATE IS ONE W-NUMBER, NOT ONE CHECK, AND THIS COUNT DRIFTED FOR FIVE
-  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W13, so it is
-  THIRTEEN gates, and every phase count above is stated on that basis. Sub-lettered
+  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W14, so it is
+  FOURTEEN gates, and every phase count above is stated on that basis. Sub-lettered
   checks are parts of their gate, never gates: `W1a` and `W1b` are one gate, and so
   are `W4a` through `W4f`, `W7a` and `W7b`, `W8a` through `W8c`, and `W9a` and
   `W9b`. The Phase W1 and W2 entry was right at SIX and every entry after it ran

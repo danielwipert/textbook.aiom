@@ -67,7 +67,7 @@ remote is now the only copy of anything.
 
 Verified after the rewrite rather than claimed: zero hits for all ten paths
 across the full history OF A FRESH CLONE rather than of the working copy,
-`status_check.py` at 13 of 13, all thirteen web gates passing, 61 of 61
+`status_check.py` at 13 of 13, all web gates passing, 61 of 61
 self-test controls behaving, and `git_hygiene.py` reporting nothing stranded.
 
 The record of the pre-rewrite state follows and its hashes are dead.
@@ -1085,7 +1085,8 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
    Outbound anchor links stay legal, because the sources page exists to link out.
 
    **Phase W6, dark mode and the figure token pass, is BUILT AND GREEN.**
-   THIRTEEN gates, sixty-one negative controls. `AIOM_web.css` v0.3.
+   THIRTEEN gates, sixty-one negative controls. `AIOM_web.css` v0.3. W14 was
+   added 2026-08-13, taking the suite to FOURTEEN and the controls to 67.
 
    **THE PRINT PALETTE FAILS WCAG AA AND THE WEB CORRECTS IT.** Five foreground
    tokens fail against paper and its tints, `--folio` worst at 2.38:1. Print has
@@ -1327,7 +1328,7 @@ has already paid for repeatedly. Read them there, not from memory:
   57.6 on even. Any new geometry check must derive the edge per page or it will
   read green while measuring nothing.
 - The PRINT QA suite is FIFTEEN gates, 1 through 15, and the WEB suite is
-  THIRTEEN, W1 through W13. Both numbers were wrong in this file until
+  FOURTEEN, W1 through W14. Both numbers were wrong in this file until
   2026-08-13: this line said fourteen for print, which went stale when gate 15
   was added on 2026-08-12, and the web counts ran one high for five phases. A
   gate is one number, never one check, so sub-lettered checks like `W8a` are

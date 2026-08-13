@@ -52,6 +52,7 @@ import book_structure
 import footnotes
 import ledger
 import status_check
+import claimcheck
 
 # URLs are ruled out of print footnotes, and the web matches print so that
 # gate W1's note comparison is exact. The URL is not lost: it lives in the
@@ -543,6 +544,40 @@ def gate_w2(chapter_path, preview):
         return []
     return [f"W2: {name} does not report Stage 9 passed. Locked chapters only "
             f"(Decision 64). Use --preview for a local noindex build."]
+
+
+def gate_w14(chapter_path):
+    """Claim preservation. Does the chapter still say what the checks ruled?
+
+    THE ONLY GATE IN EITHER SUITE THAT READS MEANING RATHER THAN FORM, and it
+    exists because meaning is where this project's damage happens. SF8, SF9 and
+    SF10 were reverted during a copy edit with every date and figure intact, so
+    nothing that checks values could see it; FC2 repeated the shape, and the case
+    bank carried a withdrawn claim for seventy days. Five instances, none visible
+    to any check that existed.
+
+    The ruled sentences live in AIOM_Claim_Ledger.md rather than being scraped
+    from the register notes, for a reason worth keeping in front of whoever
+    edits this: a note holds SUPERSEDED ruled forms beside current ones, so the
+    obvious implementation demands sentences the chapter is right not to have.
+    claimcheck.py's docstring carries the full account.
+    """
+    chapter = claimcheck.chapter_id_for(chapter_path)
+    fails = claimcheck.check(chapter_path, chapter=chapter)
+    n_rul, n_req, n_forb, n_rev = claimcheck.summary(chapter_path, chapter=chapter)
+    if fails:
+        return fails
+    if n_rul == 0:
+        # Not a failure: a chapter can legitimately carry no rulings yet. But it
+        # must never read as a pass, because a deleted ledger section looks
+        # exactly like a chapter nobody has ruled on.
+        print(f"W14. claim preservation .. {chapter}: NO RULINGS IN THE LEDGER, "
+              f"nothing was checked")
+        return []
+    print(f"W14. claim preservation .. {chapter}: {n_rul} ruling(s) hold, "
+          f"{n_req} required present, {n_forb} withdrawn absent"
+          + (f", {n_rev} review-only NOT mechanical" if n_rev else ""))
+    return []
 
 
 def gate_pages(pages):
@@ -1513,6 +1548,7 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         fails += gate_w5(web_html, meta, "chapter " + meta["slug"])
         fails += gate_w7(meta, meta["structure"])
         fails += gate_w9b(src, [("chapter " + meta["slug"], web_html)])
+        fails += gate_w14(path)
         if not no_browser:
             w6, ran = gate_w6(page)
             fails += w6

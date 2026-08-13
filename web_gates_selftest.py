@@ -19,11 +19,13 @@ Run it after any change to web_build.py:
 """
 import copy
 import io
+import os
 import re
 import sys
 from contextlib import redirect_stdout
 
 import web_build as wb
+import claimcheck
 
 CHAPTER = ("Drafts/Ch01_The_Category_Error/00_Stage0_Draft/"
            "AIOM_Ch01_redraft.html")
@@ -437,6 +439,84 @@ def main():
     assert bad != css
     case("the two dark token blocks drifting apart",
          lambda: quiet(wb.gate_w13, probe_css(bad, "w13-drift.css")))
+
+    # ---------------------------------------------------------------- W14 ----
+    # THE CONTROLS THAT MATTER MOST IN THIS FILE, because W14 is the only gate
+    # in either suite that reads meaning, and because the damage it answers has
+    # already happened five times. Each control below reproduces a REAL revert
+    # from this chapter's history rather than an invented fault.
+    print("\nW14, claim preservation")
+    CH = ("Drafts/Ch01_The_Category_Error/00_Stage0_Draft/"
+          "AIOM_Ch01_redraft.html")
+
+    def probe_chapter(mutate, name):
+        """Write a damaged Ch01 into a ChNN-shaped path, since W14 infers the
+        chapter id from the path."""
+        raw = open(CH, encoding="utf-8").read()
+        lines = raw.split("\n")
+        cut = next(i for i, l in enumerate(lines) if "Decision 51" in l)
+        body, reg = "\n".join(lines[:cut]), "\n".join(lines[cut:])
+        new = mutate(body)
+        assert new != body, "injection was a no-op: " + name
+        d = os.path.join("build", "w14", name, "Ch01", "00_Stage0_Draft")
+        os.makedirs(d, exist_ok=True)
+        p = os.path.join(d, "probe.html")
+        open(p, "w", encoding="utf-8").write(new + "\n" + reg)
+        return p
+
+    case("W14 clean on the real chapter",
+         lambda: quiet(wb.gate_w14, CH), False)
+
+    # SF10, 2026-08-10: the consumption mechanism restored by a copy edit.
+    case("a ruled narrowing reverted (SF10)",
+         lambda: quiet(wb.gate_w14, probe_chapter(
+             lambda b: b.replace(
+                 "because subscribers used them more than the price had assumed",
+                 "because customers were consuming more computing resources "
+                 "than the monthly price covered"), "sf10")))
+
+    # FC9, 2026-08-13: the absorbed-cost inference, cut as unsupported.
+    case("a withdrawn claim restored (FC9)",
+         lambda: quiet(wb.gate_w14, probe_chapter(
+             lambda b: b.replace(
+                 "The credit was consumed in a handful of prompts",
+                 "Cursor had been paying the difference, but the difference "
+                 "had become too expensive to absorb. The credit was consumed "
+                 "in a handful of prompts"), "fc9")))
+
+    # SF1, 2026-08-06: the superlative both external checks raised.
+    case("a cut superlative returns (SF1)",
+         lambda: quiet(wb.gate_w14, probe_chapter(
+             lambda b: b.replace(
+                 "Chief executive Sam Altman said publicly",
+                 "The chief executive of the largest provider said publicly"),
+             "sf1")))
+
+    # NORMALIZATION IS LOAD BEARING AND THIS CONTROL IS WHY. Decision 58 wraps
+    # proper nouns in <span class="nb">, so the SF3 sentence contains markup in
+    # the middle. A checker comparing raw HTML would miss the revert entirely,
+    # and the first draft of this control did exactly that and reported a
+    # no-op.
+    case("a revert hidden by .nb markup (SF3)",
+         lambda: quiet(wb.gate_w14, probe_chapter(
+             lambda b: b.replace(
+                 'began enforcing monthly premium-request allowances for '
+                 '<span class="nb">Copilot</span> and letting customers pay '
+                 'for usage beyond them',
+                 "began billing premium requests that had previously carried "
+                 "no separate charge"), "sf3")))
+
+    # THE BLIND SPOT. An empty ledger section must never read as a pass. This
+    # control fails if gate_w14 reports success while checking nothing.
+    def empty_ledger_probe():
+        os.makedirs("build", exist_ok=True)
+        p = os.path.join("build", "w14-empty-ledger.md")
+        open(p, "w", encoding="utf-8").write("# AIOM Claim Ledger\n\n## Ch99\n")
+        return claimcheck.summary(CH, p, "Ch01")
+
+    case("an emptied ledger section reports checking nothing",
+         lambda: [] if empty_ledger_probe() == (0, 0, 0, 0)
+         else ["an empty ledger section did not report zero rulings"], False)
 
     missed = [n for ok, n, _ in results if not ok]
     print(f"\n{len(results) - len(missed)}/{len(results)} controls behaved as "

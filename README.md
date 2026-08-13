@@ -78,7 +78,7 @@ python3 AIOM_build.py _ch01_build.html --out build/Ch1.pdf
 rm -f _ch01_build.html _ch01_build.print.html
 ```
 
-**The website and its gates, W1 through W13:**
+**The website and its gates, W1 through W14:**
 
 ```bash
 python3 web_build.py --site --out build/web

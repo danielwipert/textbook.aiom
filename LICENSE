@@ -43,7 +43,7 @@ it. Public visibility is not a grant of any right in the text.
 Copyright (c) 2026 Daniel S. Wipert
 
 This section covers the Python at the repository root and the CI configuration:
-the print build and its fifteen gates, the web build and its fourteen gates, the
+the print build and its fifteen gates, the web build and its fourteen, the
 gate self-test, and the supporting passes for placement, footnotes, citations,
 continuity, status, voice, copy-edit round trips, and git hygiene. It also
 covers .github/workflows/.
