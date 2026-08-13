@@ -2704,7 +2704,7 @@ the mechanical gates confirm the layout under G2 below.
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-08-12
+Status: [x]        Date cleared: 2026-08-13
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
@@ -2729,7 +2729,7 @@ Status: [x]        Date cleared: 2026-08-12
 
 Findings:
 
-## G2 RE-RUN 2026-08-12, THIRD OF THE DAY. **PASSED at fifteen gates.**
+## G2 RE-RUN 2026-08-13, THIRD OF THIS SESSION. **PASSED at fifteen gates.**
 
 Run after Dan ruled the QJE citation gains volume, issue and pages. Fifteen gates
 pass, 25 pages held, zero straight marks, 95 hyphenated line ends with none inside
@@ -2765,7 +2765,7 @@ mode.
 
 ARCHIVED 2026-08-13, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
-## G2 RE-RUN 2026-08-12, SECOND OF THE DAY. **PASSED at fifteen gates.**
+## G2 RE-RUN 2026-08-13, SECOND OF THIS SESSION. **PASSED at fifteen gates.**
 
 Run after FC8, FC9 and the FC1 closure, all citation-lane. Fourth G2 on this
 chapter. Fifteen gates pass, 25 pages held, zero straight marks, voicecheck
@@ -3264,7 +3264,28 @@ page footnotes shifted pagination.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-12
+
+> **TICK RESTORED 2026-08-13 AFTER A TOOL DESTROYED IT, NOT A RULING.** Dan's
+> closure of 2026-08-12 stands and was never reversed. It was cleared mechanically
+> by `reopen.py --from "Gate G2"`, run twice on 2026-08-12 and 2026-08-13 for
+> citation-lane edits. **`reopen.py` RESETS BY POSITION IN THE LIFECYCLE, NOT BY THE
+> SCOPED RE-RUN MATRIX.** Stage 6 sits after G2 in the step order, so a G2 reopen
+> resets it, even though the matrix sends a citation-or-source edit only to the
+> fact check and G2 and leaves the rest intact. The edits that triggered those
+> reopens were FC8, FC9, the FC1 closure and the QJE citation, all citation-lane
+> and none of them a copy edit.
+>
+> The restoration is recorded rather than performed silently, and Dan can reverse
+> it: if he judges that cutting the absorption sentence at FC9 constitutes a copy
+> edit, Stage 6 reopens and the proof is round 9.
+>
+> **THIS IS A REAL DEFECT IN `reopen.py` AND IT IS UNFIXED.** Any scoped reopen
+> through that tool silently over-resets, and the loss is invisible unless someone
+> compares the resulting state against the matrix. It cost a ruled closure here and
+> would have gone unnoticed had the Stage 7 tick not produced a passed step sitting
+> above an open one. Until it takes a scope argument, CHECK THE STEPS BELOW A
+> REOPEN POINT AGAINST THE MATRIX BEFORE ACCEPTING THE RESET.
 
 > **CLOSED 2026-08-12 ON DAN'S RULING: "I have no more edits."** This is the second
 > closure of this step and it is the one in force. WHAT THE TICK MEANS: fourteen
@@ -4249,7 +4270,34 @@ passed 2026-08-12 against the text that carries them.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-13
+
+> **CLOSED 2026-08-13 ON DAN'S RULING. WHAT THIS TICK MEANS:** two external fact
+> checks were run on different prompts, nine findings were raised across them, and
+> every one is applied, disproved or ruled. FC1 to FC5 came from check 1; FC6 and
+> FC7 were its two production flags and were disproved; FC8 and FC9 came from
+> check 2. FC1 was closed by the same edit that fixed FC8. Every applied ruling is
+> written back into its register note with the sentence it added and the condition
+> that would reverse it.
+>
+> **WHAT THIS TICK DOES NOT MEAN.** It does not mean the source half was verified
+> in this repo. No source host is reachable from a Claude session, verified
+> 2026-08-06 against six of them, so Stage 7 is structurally external. What Claude
+> ruled is the part Claude can rule: whether prose stays inside what a register
+> note says. The checkers' source verifications are recorded as received.
+>
+> **TWO ITEMS ARE OPEN AT CLOSE AND ARE NOT CLAIMED AS RESOLVED.** First, the
+> "early May" preview-bill timing in footnote 3: check 2 could reach only secondary
+> coverage, and it is not offered as verified either way. Second, the THM-009
+> numbering question, which is out of this step's lane and belongs to Stage 2 or
+> Stage 5. Closing Stage 7 does not close either. A finding from any later read
+> enters as FC10 and reopens this step.
+>
+> **THE REVERSING CONDITION IS THE SAME ONE THAT FIRED ON STAGE 6.** This step was
+> closed once before, on 2026-08-10 at Stage 3's equivalent, and later work
+> invalidated it. If the live text changes in a way that touches a cited claim, the
+> tick is void whether or not anyone reopens it, because the fact check will have
+> audited a chapter that no longer exists.
 
 > Narrower than stage 2. Targets what changed since it, confirming nothing broke in revision.
 
@@ -4411,7 +4459,15 @@ Its limit, stated so it is not overtrusted: it sees only claims that were once
 ruled with a quoted sentence. FC3, FC4 and FC5 are prose drifting broader than a
 register note on claims never ruled, and nothing mechanical will find those.
 
-**BOTH PRODUCTION FLAGS WERE PHANTOMS, AND THE CAUSE IS PROCEDURAL.** The checker
+**FC6 AND FC7, THE TWO PRODUCTION FLAGS. BOTH PHANTOMS, AND THE CAUSE IS
+PROCEDURAL.** They are numbered here, on 2026-08-13 at the Stage 7 closure, because
+they had been left unnumbered as "disproved rather than ruled" and check 2's
+findings were then given FC8 and FC9, leaving an unexplained gap in the sequence. A
+reader meeting FC5 followed by FC8 would reasonably hunt for two missing findings.
+FC6 is the theorem-panel flag and FC7 the P3 table flag, both raised, both
+investigated, both disproved. Numbering them here rather than renumbering FC8 and
+FC9 is deliberate: three register notes already quote those two labels, and the
+quoted label is the control that makes a ruling traceable. The checker
 was given the chapter HTML rather than a render. Theorem 1's four antecedents
 render intact on page 9; the extraction dropped the `<li>` contents. P3's table is
 correct and its student-blank column is the first one, drawn as three fill rules
@@ -4447,7 +4503,7 @@ SF3 itself exists because two checks disagreed. This is one check.
 
 ---
 
-### EXTERNAL CHECK 2, received and ruled 2026-08-12
+### EXTERNAL CHECK 2, received and ruled 2026-08-13
 
 Run on a different prompt from check 1, per the Stage 3 finding that the
 disagreement between two checks is the value. **FED A RENDER, NOT THE HTML**, and

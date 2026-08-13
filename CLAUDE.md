@@ -275,7 +275,7 @@ that fail most often:
   will not wrap.
 - **Gate 2, em and en dashes.** Fails on any `U+2014` or `U+2013`. Note this is
   stricter than the standing rule, which bans em dashes only. Q2 asked what happens
-  where Chicago requires an en dash. **RULED 2026-08-12 for number ranges: the
+  where Chicago requires an en dash. **RULED 2026-08-13 for number ranges: the
   hyphen wins and the gate stands.** A journal page range therefore sets as
   `889-942`, which is correct Chicago in every respect except the dash, and the
   register must STORE the range with a hyphen. An entry holding an en dash fails
