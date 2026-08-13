@@ -36,3 +36,25 @@ python-docx==1.2.0
 
 # Web edition (Decision 62). web_build.py templates; no Node toolchain.
 jinja2==3.1.6
+
+# Gate W6, the width sweep, added to this file 2026-08-13. It is the ONLY gate
+# in either suite that needs a browser, and it was the only dependency not
+# pinned here: CI ran a bare `pip install playwright` and a fresh container had
+# nothing at all, so W6 printed SKIPPED while every other gate passed. That is
+# the shape this repository keeps finding, a check believed to have run that had
+# not, and the reason web_build.py appends "W6 NOT RUN" to the verdict rather
+# than passing quietly.
+#
+# PINNING THE LIBRARY PINS THE BROWSER, which is the real reason this line
+# matters. `playwright install chromium` fetches the build that matches the
+# installed library, so an unpinned library means an unpinned rendering engine
+# underneath a check that measures rendered layout across twenty viewport
+# widths. That is the same argument the header makes for WeasyPrint, and W6 is
+# as sensitive to it as gates 4 and 14 are.
+#
+# Version recorded from the environment that ran W6 clean at twenty widths on
+# Chapter 1 and verified the v0.4 breakpoint across the 1400 to 2560 sweep.
+# A container with browsers preinstalled elsewhere is handled in web_build.py,
+# which globs /opt/pw-browsers and passes executable_path rather than assuming
+# the library's own download path exists.
+playwright==1.62.0

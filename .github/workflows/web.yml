@@ -54,9 +54,13 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Install a headless browser for gate W6
-        run: |
-          pip install playwright
-          python -m playwright install --with-deps chromium
+        # The library itself is pinned in requirements.txt and installed by the
+        # step above. This step fetches only the browser BINARY, which pip does
+        # not carry, and the build it fetches is the one matching that pinned
+        # library. An unpinned `pip install playwright` used to sit here, which
+        # silently overrode the toolchain and left the rendering engine under a
+        # layout check free to move between runs.
+        run: python -m playwright install --with-deps chromium
 
       - name: Build the site and run every gate
         run: python3 web_build.py --site --out build/web

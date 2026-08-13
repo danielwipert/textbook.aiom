@@ -1041,10 +1041,15 @@ build), 5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed
 the day it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread:
 see the top of Repository state.**
 
-**Three small items were booked by the website-edits session and none of them
-blocks anything.** They belong to thread 8. (a) `playwright` is not pinned in
-`requirements.txt`, so gate W6 reports SKIPPED in a fresh container until it is
-installed by hand; pinning it would close a quiet-pass hole. (b) The dark-theme
+**Two small items are booked by the website-edits session and neither blocks
+anything.** They belong to thread 8. **Item (a), the unpinned `playwright`, was
+CLOSED on 2026-08-13**: it is now `playwright==1.62.0` in `requirements.txt`,
+and `.github/workflows/web.yml` no longer runs a bare `pip install playwright`
+that silently overrode the toolchain. Pinning the library pins the rendering
+engine, since `playwright install chromium` fetches the build matching the
+installed version, and W6 measures rendered layout across twenty widths. The
+browser binary is still a separate fetch, because pip does not carry it.
+(b) The dark-theme
 `:target` landing tint moves only 4 to 8 levels and may be too subtle, but it is
 shared with the sidenote, the glossary row and the sources entry, so changing it
 changes all four. (c) The term-linking match rules have been exercised against

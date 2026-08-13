@@ -271,9 +271,15 @@ is missing.
 System dependencies WeasyPrint requires: `libpango-1.0-0`, `libpangoft2-1.0-0`,
 `libcairo2`, `libgdk-pixbuf-2.0-0`, `libffi-dev`, `shared-mime-info`.
 Python: `weasyprint`, `pdfplumber`, `pdf2image`, `pillow`, `openpyxl`, `fonttools`,
-and `python-docx`, which the Stage 6 pair needs and which went unpinned until
-2026-08-10. All are pinned in `requirements.txt`; install from the file rather
-than from this list.
+`jinja2`, `python-docx`, which the Stage 6 pair needs and which went unpinned
+until 2026-08-10, and `playwright`, which gate W6 needs and which went unpinned
+until 2026-08-13. All are pinned in `requirements.txt`; install from the file
+rather than from this list. **Pinning `playwright` pins the rendering engine**,
+because `playwright install chromium` fetches the build matching the installed
+library, and W6 measures rendered layout across twenty viewport widths. The
+browser BINARY is not carried by pip, so a fresh environment still runs
+`python -m playwright install --with-deps chromium` after the requirements
+install, which is what `.github/workflows/web.yml` does.
 
 ---
 
