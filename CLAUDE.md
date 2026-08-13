@@ -192,6 +192,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_Claim_Ledger.md` | The W14 record: every ruled claim narrowing as REQUIRED text the chapter must contain and FORBIDDEN text it must not. Written from the CHAPTER, never from the register note's description of it. Adopted 2026-08-13. |
 | `claimcheck.py` | Gate W14 and a standalone pass. Does the chapter still say what the fact checks ruled? Answers the one class of damage no other check can see. |
 | `snapshot.py` | What the site publishes: each chapter's LAST LOCK, derived from the commits that touched its checklist, never the working tree. Materializes a Drafts-shaped tree so every path-dependent check runs unchanged. |
+| `amend.py` | Edit a LOCKED chapter in one command. Reopens nothing, the chapter never leaves Stage 9, and Dan's edit is approved by definition. Runs the mechanical gates only. `--supersede` retires a fact-check ruling he overturns. |
 | `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
 | `renumber_stage_folders.py` | One-time Process v1 to v2 stage-folder migration. Run 2026-08-05 across all eighteen units. |
 | `git_hygiene.py` | Is any work stranded, and is the tree fit to hand over? Deepens the shallow clone FIRST, because an undeepened sweep counts merged branches as stranded. Run before every merge and every session close. See section 9. |
@@ -448,6 +449,38 @@ Sequencing rules:
   not be batched with them: it runs early or it is worthless.
 - A reopen after Stage 9 re-runs every step from the one that owns the change.
 - No chapter is Locked until every step is complete.
+
+**AMENDMENT, THE POST-LOCK PATH. Ruled 2026-08-13, and it is the answer to a
+locked chapter that is still being written.** Dan is the author and the final
+editor. An edit he makes is approved by definition and SUPERSEDES, so it does
+NOT go through the lifecycle: `amend.py` reopens nothing, asks nothing about the
+merit of the edit, and the chapter never leaves Stage 9. The thirteen steps are
+for producing a chapter, not for changing a comma in one that exists.
+
+- **What still runs is the mechanical half only, about twenty seconds.** W14,
+  `voicecheck` mechanical, the print render with its fifteen gates, and the web
+  build with its fourteen. These have no opinion about the writing. They measure
+  the rendered object, and they catch what is invisible in the source because it
+  is not in the sentence that changed: a one-sentence reorder in this chapter
+  pushed footnotes off their calling pages ELEVEN PAGES LATER, twice. They report
+  and stop before committing damage; they never overrule the edit, and `--force`
+  commits anyway on Dan's authority.
+- **THE CHECKLIST IS TOUCHED ON EVERY AMENDMENT AND THAT IS LOAD BEARING.**
+  `snapshot.py` resolves what publishes as the newest commit whose CHECKLIST
+  reported Stage 9. An amendment that changed only the chapter HTML would leave
+  the lock commit behind and the site would serve the pre-amendment text with
+  nothing reporting it. Appending the record is what advances the snapshot, and
+  it also clears the divergence warning, because the record moves with the text.
+- **A fact-check ruling Dan overturns is SUPERSEDED, never bypassed.**
+  `--supersede ID "reason"` retires it in `AIOM_Claim_Ledger.md`, dated and
+  attributed, with the old text kept as history and its fields renamed out of
+  enforcement. Switching W14 off instead would leave the ledger claiming
+  protection that is not in force, which is the failure the gate exists to
+  prevent. `claimcheck.summary` counts only rulings that still enforce
+  something, for the same reason.
+- Stages 3 and 7 are unaffected and still bind: an amendment that introduces a
+  NEW empirical claim needs a source like any other, and standing rule 2 is not
+  a lifecycle step that an amendment can skip.
 
 **Scoped re-run matrix.** After a step passes, an edit re-runs only the steps it
 can invalidate:

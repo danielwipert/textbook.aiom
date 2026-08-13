@@ -518,6 +518,31 @@ def main():
          lambda: [] if empty_ledger_probe() == (0, 0, 0, 0)
          else ["an empty ledger section did not report zero rulings"], False)
 
+    # SUPERSESSION. Dan is the final editor and may overturn a fact-check
+    # ruling; amend.py retires it by renaming its fields out of enforcement and
+    # keeping them as history. Two things must both hold: the retired ruling
+    # stops being enforced, AND it stops being counted, because a progress line
+    # claiming protection that is no longer in force is this gate committing the
+    # exact failure it exists to catch.
+    def superseded_probe():
+        src = open("AIOM_Claim_Ledger.md", encoding="utf-8").read()
+        out = []
+        for line in src.split("\n"):
+            m = re.match(r"^-\s+(REQUIRED|FORBIDDEN|REVIEW):", line)
+            out.append(re.sub(r"^-\s+(REQUIRED|FORBIDDEN|REVIEW):",
+                              r"- SUPERSEDED-\1:", line) if m else line)
+        os.makedirs("build", exist_ok=True)
+        p = os.path.join("build", "w14-superseded.md")
+        open(p, "w", encoding="utf-8").write("\n".join(out))
+        return p
+
+    sup = superseded_probe()
+    case("a superseded ruling is no longer enforced",
+         lambda: quiet(claimcheck.check, CH, sup, "Ch01"), False)
+    case("a superseded ruling is no longer counted",
+         lambda: [] if claimcheck.summary(CH, sup, "Ch01") == (0, 0, 0, 0)
+         else ["superseded rulings are still counted as holding"], False)
+
     # ------------------------------------------------------- lock snapshots ---
     # What publishes is each chapter's last LOCK, never the working tree. These
     # controls guard the resolution itself, because a snapshot pointing at the

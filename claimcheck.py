@@ -141,10 +141,16 @@ def summary(chapter_path, ledger_path=LEDGER, chapter=None):
     chapter = chapter or chapter_id_for(chapter_path)
     ledger = load_ledger(ledger_path) if os.path.exists(ledger_path) else {}
     rulings = ledger.get(chapter, [])
-    return (len(rulings),
-            sum(len(r["required"]) for r in rulings),
-            sum(len(r["forbidden"]) for r in rulings),
-            sum(len(r["review"]) for r in rulings))
+    # ONLY RULINGS THAT STILL ENFORCE SOMETHING ARE COUNTED. A ruling Dan has
+    # superseded keeps its block in the ledger as history, with its fields
+    # renamed out of enforcement. Counting it here would report protection that
+    # is no longer in force, which is the precise failure this whole gate exists
+    # to prevent, committed by the gate's own progress line.
+    live = [r for r in rulings if r["required"] or r["forbidden"] or r["review"]]
+    return (len(live),
+            sum(len(r["required"]) for r in live),
+            sum(len(r["forbidden"]) for r in live),
+            sum(len(r["review"]) for r in live))
 
 
 def main(argv):
