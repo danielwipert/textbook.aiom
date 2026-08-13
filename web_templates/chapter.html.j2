@@ -87,7 +87,13 @@
   <div class="foot-inner">
     <p>AI Operations Management, Chapter {{ chapter_number }}. {{ part_label }}.</p>
     <p>{{ notes|length }} source note{{ '' if notes|length == 1 else 's' }}, each cited to the chapter register.</p>
-    <p class="keyhint"><kbd>j</kbd> <kbd>k</kbd> move by section, <kbd>c</kbd> contents, <kbd>Esc</kbd> close.</p>
+    <p class="keyhint"><kbd>j</kbd> <kbd>k</kbd> move by section, <kbd>c</kbd> contents, <kbd>/</kbd> search, <kbd>Esc</kbd> close.</p>
+    <p class="foot-links">
+      <a href="../glossary/">Glossary</a>
+      <a href="../sources/">Sources for this chapter</a>
+      <a href="../objects/">Registry objects</a>
+      <a href="../search/">Search</a>
+    </p>
     <p class="foot-cta"><a class="cta" href="../#editions">Get the book</a></p>
   </div>
 </footer>
@@ -199,6 +205,7 @@
     if (e.key === 'j') { e.preventDefault(); step(1); }
     else if (e.key === 'k') { e.preventDefault(); step(-1); }
     else if (e.key === 'c') { e.preventDefault(); setRail(!rail.classList.contains('open')); }
+    else if (e.key === '/') { e.preventDefault(); window.location.href = '../search/'; }
     else if (e.key === 'Escape') { setRail(false); }
   });
 })();

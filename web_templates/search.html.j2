@@ -1,0 +1,96 @@
+{% set page_title = "Search" %}
+{% set page_desc = "Search the text of AI Operations Management, its glossary and its sources." %}
+{% include "_ref_head.html.j2" %}
+<main>
+  <section class="band band-first">
+    <div class="band-head">
+      <p class="eyebrow">Reference</p>
+      <h2>Search</h2>
+      <p class="band-meta">{{ count }} entries indexed</p>
+    </div>
+    <p class="search-box">
+      <label class="visually-hidden" for="q">Search the book</label>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search chapters, terms, sources and objects">
+    </p>
+    <p class="note-line" id="search-status">The index covers published chapters
+       only, section by section, plus every glossary term, source and registry
+       object.</p>
+    <ol class="results" id="results"></ol>
+  </section>
+</main>
+{% set foot_note = "The whole index ships as one file and is queried in the browser. Nothing is sent anywhere." %}
+{% include "_ref_foot.html.j2" %}
+<script>
+(function () {
+  'use strict';
+  var q = document.getElementById('q');
+  var out = document.getElementById('results');
+  var status = document.getElementById('search-status');
+  var docs = [];
+  var loaded = false, failed = false;
+
+  fetch('../search-index.json').then(function (r) { return r.json(); })
+    .then(function (d) { docs = d.docs; loaded = true; run(); })
+    .catch(function () { failed = true; run(); });
+
+  function esc(s) { return s.replace(/[&<>]/g, function (c) {
+    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]; }); }
+
+  function snippet(body, terms) {
+    var low = body.toLowerCase(), at = -1;
+    for (var i = 0; i < terms.length && at < 0; i++) { at = low.indexOf(terms[i]); }
+    if (at < 0) { at = 0; }
+    var from = Math.max(0, at - 90);
+    var text = (from ? '…' : '') + body.slice(from, from + 240)
+             + (from + 240 < body.length ? '…' : '');
+    return esc(text).replace(new RegExp('(' + terms.map(function (t) {
+      return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'gi'),
+      '<mark>$1</mark>');
+  }
+
+  function run() {
+    var raw = q.value.trim().toLowerCase();
+    out.innerHTML = '';
+    /* A failed load must never be able to report "no results". That reads as
+       an answer about the book rather than as a broken page. */
+    if (failed) {
+      status.textContent = 'The search index could not be loaded. '
+        + 'Opening this page from a file path rather than a server will do that.';
+      return;
+    }
+    if (!loaded) { status.textContent = 'Loading the index.'; return; }
+    if (raw.length < 2) {
+      status.textContent = docs.length
+        + ' entries indexed. Type at least two characters.';
+      return;
+    }
+    var terms = raw.split(/\s+/);
+    var hits = [];
+    docs.forEach(function (d) {
+      var hay = (d.t + ' ' + d.b).toLowerCase();
+      var score = 0, all = true;
+      terms.forEach(function (t) {
+        var n = hay.split(t).length - 1;
+        if (!n) { all = false; }
+        score += n + (d.t.toLowerCase().indexOf(t) >= 0 ? 12 : 0);
+      });
+      if (all) { hits.push({ d: d, score: score }); }
+    });
+    hits.sort(function (a, b) { return b.score - a.score; });
+    status.textContent = hits.length
+      ? hits.length + ' result' + (hits.length === 1 ? '' : 's')
+      : 'No results for ' + q.value.trim() + '.';
+    hits.slice(0, 40).forEach(function (h) {
+      var li = document.createElement('li');
+      li.innerHTML = '<a href="../' + h.d.u + '"><span class="res-kind">'
+        + esc(h.d.k) + '</span><span class="res-title">' + esc(h.d.t)
+        + '</span></a><p class="res-body">' + snippet(h.d.b, terms) + '</p>';
+      out.appendChild(li);
+    });
+  }
+
+  q.addEventListener('input', run);
+  q.focus();
+})();
+</script>

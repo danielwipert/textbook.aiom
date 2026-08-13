@@ -1003,7 +1003,25 @@ BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
    editions section are written from ruled material but are not themselves ruled.
    Part descriptions are one-sentence placeholders.
 
-   **Phase W4, the reference layer and search, is next.**
+   **Phase W4, the reference layer and search, is BUILT AND GREEN.** Glossary,
+   per-chapter sources, object index, promises between chapters, client-side
+   search. `ledger.py` reads the continuity ledger as data. NINE gates, and
+   thirty-eight negative controls.
+
+   **GATE W8 GUARDS THE REFERENCE LAYER AGAINST THE CHAPTER.** W8a requires the
+   ledger's definition of a term to be character-identical to the chapter's
+   key-term text. A definition is exactly the text that can be reworded with no
+   date or figure changing, which is the shape that reverted four times on
+   Chapter 1.
+
+   **THREE THINGS TO CARRY.** (1) `find_spans(doc, opener, tag)` is the balanced
+   scanner and it takes a tag; a non-greedy regex over nested elements has now
+   been the defect three times in `web_build.py`. (2) The reference layer is
+   generated from records already enforced elsewhere, never scraped from the
+   rendered chapter. (3) The sources page is where URLs live, built with
+   `url_policy="full"`; the chapter page matches print so gate W1 stays exact.
+
+   **Phase W5, deploy, is next.**
 
    **STILL BLOCKED AND IT IS NOT A CODE PROBLEM: `messyjobs.ai` is refused by the
    container's egress proxy** (`gateway answered 403 to CONNECT`, confirmed against

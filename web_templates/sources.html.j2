@@ -1,0 +1,31 @@
+{% set page_title = "Sources" %}
+{% set page_desc = "Every source cited in AI Operations Management, in Chicago note form." %}
+{% include "_ref_head.html.j2" %}
+<main>
+  <section class="band band-first">
+    <div class="band-head">
+      <p class="eyebrow">Reference</p>
+      <h2>Sources</h2>
+      <p class="band-meta">{{ sources|selectattr('cited')|list|length }} cited</p>
+    </div>
+    <p class="note-line">Every empirical claim in this book is cited to a real
+       source, rewritten as a formal conditional, or cut. These are the sources,
+       in Chicago note form, generated from the register each chapter carries
+       rather than maintained as a separate list. Entries not marked as cited are
+       held in the register for a chapter still in preparation.</p>
+    <ol class="src-list">
+      {% for s in sources %}
+      <li id="src-{{ s.key|lower|replace('.', '-')|replace('_', '-') }}" class="{{ '' if s.cited else 'soon' }}">
+        <p class="src-text">{{ s.text|safe }}.</p>
+        <p class="src-meta">
+          <span class="src-key">{{ s.key }}</span>
+          {% if s.cited %}<span class="src-flag">Cited in Chapter {{ chapter_number }}</span>{% else %}<span class="src-flag soon">Held for a later chapter</span>{% endif %}
+          {% if s.url %}<a class="src-url" href="{{ s.url }}" rel="noopener">Open source</a>{% endif %}
+        </p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+</main>
+{% set foot_note = "Chicago 17, notes and bibliography, with access dates. Decision 39." %}
+{% include "_ref_foot.html.j2" %}

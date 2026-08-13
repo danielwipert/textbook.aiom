@@ -1,0 +1,27 @@
+{#
+  _ref_head.html.j2  |  shared chrome for the reference pages  |  Phase W4
+
+  Chrome only. These pages carry no book prose, so gate W1 has nothing to
+  measure here; the page-level gates W3, W4 and W5 do run over them, via
+  gate_pages(). Add a reference page, add it there.
+#}<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }} | AI Operations Management</title>
+<meta name="description" content="{{ page_desc }}">
+<link rel="stylesheet" href="../assets/aiom_web.css">
+</head>
+<body class="home ref">
+
+<header class="topbar" data-chrome>
+  <a class="brand" href="../">AI Operations Management</a>
+  <nav class="topnav">
+    <a href="../glossary/">Glossary</a>
+    <a href="../sources/">Sources</a>
+    <a href="../objects/">Objects</a>
+    <a href="../search/">Search</a>
+  </nav>
+  <a class="cta" href="../#editions">Get the book</a>
+</header>

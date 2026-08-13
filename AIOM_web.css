@@ -616,7 +616,113 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   margin: 0 !important;
 }
 
-/* ---------- 16. RESPONSIVE ---------- */
+/* ---------- 16. THE REFERENCE LAYER ---------- */
+.ref main { padding: 0 1.5rem; }
+.band-first { border-top: 0; padding-top: calc(var(--step) * 2.4); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Glossary. A definition list, because that is what it is. */
+.glossary { margin: calc(var(--step) * 1.4) 0 0; }
+.gl-row {
+  display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 0 2rem;
+  padding: 1.1rem 0; border-top: 1px solid var(--hairline);
+  scroll-margin-top: calc(var(--bar) + 1.5rem);
+}
+.gl-row:target { background: var(--tint-thm); }
+.glossary dt {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.08rem;
+  color: var(--navy);
+}
+.gl-owner {
+  display: block; margin-top: 0.3rem;
+  font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.68rem;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--amber); text-decoration: none;
+}
+.gl-owner.soon { color: var(--folio); }
+.glossary dd { margin: 0; font-size: 0.94rem; line-height: 1.55; }
+
+/* Sources. Chicago note form, hanging indent, key and status beneath. */
+.src-list { list-style: none; margin: calc(var(--step) * 1.4) 0 0; padding: 0; counter-reset: src; }
+.src-list li {
+  padding: 1rem 0 1rem 2.4rem; border-top: 1px solid var(--hairline);
+  position: relative; scroll-margin-top: calc(var(--bar) + 1.5rem);
+  counter-increment: src;
+}
+.src-list li::before {
+  content: counter(src); position: absolute; left: 0; top: 1rem;
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.85rem;
+  color: var(--amber); font-variant-numeric: tabular-nums;
+}
+.src-list li:target { background: var(--tint-thm); }
+.src-list li.soon .src-text { color: var(--axis); }
+.src-text { margin: 0 0 0.4rem; font-size: 0.95rem; line-height: 1.55; max-width: 46rem; }
+.src-text .url { word-break: break-all; color: var(--axis); font-size: 0.9em; }
+.src-meta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: baseline; }
+.src-key {
+  font-family: "Jost", sans-serif; font-size: 0.7rem; letter-spacing: 0.06em;
+  color: var(--navy); background: var(--tint-fig); padding: 0.1rem 0.4rem;
+}
+.src-flag {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.66rem;
+  letter-spacing: 0.13em; text-transform: uppercase; color: var(--teal);
+}
+.src-flag.soon { color: var(--folio); }
+.src-url { font-size: 0.76rem; color: var(--axis); }
+
+/* Objects and promises. */
+.obj-list, .promise-list { list-style: none; margin: calc(var(--step) * 1.4) 0 0; padding: 0; }
+.obj-list li, .promise-list li {
+  padding: 1.1rem 0; border-top: 1px solid var(--hairline);
+  scroll-margin-top: calc(var(--bar) + 1.5rem);
+}
+.obj-list li:target { background: var(--tint-thm); }
+.obj-id {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 0.12em; color: var(--navy); margin: 0 0 0.35rem;
+}
+.obj-gloss { margin: 0 0 0.4rem; font-size: 1.02rem; line-height: 1.45; max-width: 46rem; color: var(--ink); }
+.obj-where, .promise-route { margin: 0; font-size: 0.78rem; }
+.obj-where a { color: var(--amber); text-decoration: none; }
+.obj-where.soon { color: var(--folio); }
+.promise-route {
+  font-family: "Jost", sans-serif; font-weight: 600; color: var(--navy);
+  margin-bottom: 0.3rem; display: flex; gap: 0.7rem; align-items: baseline;
+}
+.promise-status {
+  font-size: 0.64rem; letter-spacing: 0.13em; text-transform: uppercase;
+  padding: 0.1rem 0.45rem; border: 1px solid var(--hairline); color: var(--folio);
+}
+.promise-status.paid { color: var(--teal); border-color: var(--teal); }
+.promise-status.open { color: var(--amber); border-color: var(--amber); }
+.promise-text { margin: 0; font-size: 0.94rem; line-height: 1.55; max-width: 46rem; color: var(--axis); }
+
+/* Search. */
+.search-box { margin: calc(var(--step) * 1.2) 0; }
+#q {
+  width: 100%; max-width: 40rem;
+  font-family: "Plex", sans-serif; font-size: 1.05rem; color: var(--ink);
+  background: var(--paper); border: 1px solid var(--hairline);
+  border-radius: 2px; padding: 0.75rem 0.9rem;
+}
+#q:focus { outline: none; border-color: var(--amber); }
+.results { list-style: none; margin: calc(var(--step) * 1.2) 0 0; padding: 0; }
+.results li { padding: 1rem 0; border-top: 1px solid var(--hairline); }
+.results a { text-decoration: none; display: block; }
+.res-kind {
+  display: block; font-family: "Jost", sans-serif; font-weight: 600;
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 0.2rem;
+}
+.res-title { font-family: "Jost", sans-serif; font-weight: 600; font-size: 1.08rem; color: var(--navy); }
+.results a:hover .res-title { color: var(--amber); }
+.res-body { margin: 0.35rem 0 0; font-size: 0.88rem; line-height: 1.5; color: var(--axis); max-width: 48rem; }
+.res-body mark { background: var(--tint-fig); color: var(--ink); }
+
+/* ---------- 17. RESPONSIVE ---------- */
 /* Below the threshold the sidenote returns inline, indented and ruled, rather
    than being hidden. An apparatus a reader cannot reach on a phone is an
    apparatus the book does not have. */
@@ -658,6 +764,8 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   .kt-list { grid-template-columns: minmax(0, 1fr); }
   .dq { grid-template-columns: 1.6rem 1fr; }
   .parts-grid, .hero-layers, .editions { grid-template-columns: minmax(0, 1fr); }
+  .gl-row { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .ref main { padding-inline: 1.15rem; }
   .home main { padding-inline: 1.15rem; }
   .cta { font-size: 0.68rem; padding: 0.4rem 0.7rem; }
   /* The chapter bar already carries a brand and a Contents button, and a third
@@ -667,7 +775,7 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   table.inv { font-size: 0.72rem; }
 }
 
-/* ---------- 17. MOTION ---------- */
+/* ---------- 18. MOTION ---------- */
 /* The .reveal class is added BY SCRIPT, never in the markup. A reader with
    JavaScript disabled therefore sees every block at full opacity instead of a
    blank page, which is what a markup-side opacity:0 would have produced. */
@@ -683,7 +791,7 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   * { animation-duration: 0.01ms !important; }
 }
 
-/* ---------- 18. PRINT FROM THE BROWSER ---------- */
+/* ---------- 19. PRINT FROM THE BROWSER ---------- */
 /* Not the book. The book is AIOM_build.py and WeasyPrint. This only stops a
    browser print of a web page from carrying the site chrome. */
 @media print {
@@ -693,3 +801,8 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   .note { float: none; width: auto; margin: 0.5rem 0; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Reference links in the chapter footer. */
+.foot-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0 0 0.9rem; }
+.foot-links a { color: var(--navy); font-size: 0.82rem; }
+.foot-cta { margin: 0.4rem 0 0; }

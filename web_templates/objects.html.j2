@@ -1,0 +1,56 @@
+{#
+  THE OBJECT INDEX IS AN APPENDIX, NEVER THE SPINE. CLAUDE.md rule 4: the
+  registry justifies the book, it does not organize it. Nothing links here from
+  the reading flow of a chapter, and no chapter is laid out around these.
+#}{% set page_title = "Registry objects" %}
+{% set page_desc = "The registry objects invoked by published chapters, and the promises chapters have made to each other." %}
+{% include "_ref_head.html.j2" %}
+<main>
+  <section class="band band-first">
+    <div class="band-head">
+      <p class="eyebrow">Appendix</p>
+      <h2>Registry objects</h2>
+      <p class="band-meta">{{ objects|length }} invoked</p>
+    </div>
+    <p class="note-line">The book rests on a formal registry of theorems, lemmas
+       and propositions. The registry justifies the book; it does not organize
+       it. Listed here are only the objects a published chapter actually invokes,
+       each with the wording that chapter uses. The full registry, and the
+       verbatim statements, are reproduced in the print appendix.</p>
+    <ul class="obj-list">
+      {% for o in objects %}
+      <li id="obj-{{ o.id|lower }}">
+        <p class="obj-id">{{ o.id }}</p>
+        <p class="obj-gloss">{{ o.gloss }}</p>
+        {% if o.href %}
+        <p class="obj-where"><a href="{{ o.href }}">First used in Chapter {{ o.chapter }}</a></p>
+        {% else %}
+        <p class="obj-where soon">First used in Chapter {{ o.chapter }}</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <p class="eyebrow">Continuity</p>
+      <h2>Promises between chapters</h2>
+      <p class="band-meta">{{ forward|selectattr('status', 'equalto', 'open')|list|length }} open</p>
+    </div>
+    <p class="note-line">A chapter that says a later chapter will do something has
+       made a promise. Each is logged when the promising chapter locks and marked
+       paid when the promised chapter locks.</p>
+    <ul class="promise-list">
+      {% for f in forward %}
+      <li>
+        <p class="promise-route">Chapter {{ f.frm }} to Chapter {{ f.to }}
+           <span class="promise-status {{ f.status }}">{{ f.status }}</span></p>
+        <p class="promise-text">{{ f.promise }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>
+{% set foot_note = "Registry glosses and forward references are held in the continuity ledger and checked by gate G3." %}
+{% include "_ref_foot.html.j2" %}

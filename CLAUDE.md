@@ -179,6 +179,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `web_build.py` | The web edition renderer and its five gates. Reads the same locked chapter HTML and reuses `footnotes.py`, `cite_format.py` and `status_check.py`. Both artifacts descend from ONE `footnotes.inject()` call, so text equivalence is structural rather than hoped for. Run from the repository root. |
 | `AIOM_web.css` | The web presentation layer, v0.1. Tokens are inherited from `AIOM_book.css`, never chosen. Sole control of web appearance, same rule as print. |
 | `web_templates/` | Jinja2 templates. `chapter.html.j2` is the reader; `index.html.j2` is a placeholder front page, not the Phase W3 landing page. **Chrome lives OUTSIDE `<article id="chapter-text">` and the boundary is load bearing:** gate W1 measures the article and nothing else. |
+| `ledger.py` | Reads `AIOM_Continuity_Ledger.md` as data. The web glossary, object index and promise list are the SAME record gate G3 enforces, not a second list scraped from chapter HTML. Read only; appending is `continuity.py --update` at Stage 9. |
 | `book_structure.py` | The four parts and fifteen chapters, PARSED from `AIOM_Structure_v1.md` rather than retyped. The site's navigation and its table of contents come from here, so the book's own structure document is the single source for the book's shape. |
 | `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
@@ -628,6 +629,27 @@ rulings. What binds outside that document:
   idea", "Competency" and "Anchor theorem" lines are never published at all,
   because CLAUDE.md section 9 rules that later chapters withhold deliberately.
   Those descriptions are PLACEHOLDER until Dan writes real ones.
+- **Phase W4 is built and green, 2026-08-13.** Glossary, per-chapter sources,
+  object index, promises between chapters, and client-side search. NINE gates.
+- **GATE W8 GUARDS THE REFERENCE LAYER AGAINST THE CHAPTER IT DESCRIBES.** W8a
+  requires the ledger's definition of a term to be character-identical to the
+  chapter's key-term text, because a definition is exactly the kind of text that
+  can be reworded with no date or figure changing, which is the shape that
+  reverted four times on Chapter 1. W8b requires every cited key to appear on the
+  sources page. W8c refuses an object index that claims an object no chapter
+  renders, because the Locked Registry workbook is not in this repo (rule 4a).
+- **THE REFERENCE LAYER IS GENERATED FROM RECORDS THAT ARE ALREADY ENFORCED**, never
+  by scraping the rendered chapter: the glossary and object index from the
+  continuity ledger, the sources from the chapter's own Decision 51 register
+  through `cite_format`. Scraping would have made the reference layer a second
+  reading of the book.
+- **THE SOURCES PAGE IS WHERE URLs LIVE.** Print rules them out of footnotes and
+  the chapter page matches print so gate W1's note comparison stays exact. The
+  bibliography is the right home for a URL, and it is built with
+  `url_policy="full"`.
+- **A NON-GREEDY REGEX OVER NESTED ELEMENTS HAS NOW BEEN THE DEFECT THREE TIMES IN
+  `web_build.py`.** `find_spans(doc, opener, tag)` is the balanced scanner and it
+  takes a tag. Reach for it rather than writing `(.*?)</div>`.
 - **Print gates do not carry over and web gates are not print gates.** Pagination
   is the bulk of the print suite (gates 1, 4, 8, 12, 13, 14 and `place.py`) and
   none of it exists on the web. What carries is anything that is a property of

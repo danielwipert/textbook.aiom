@@ -210,6 +210,39 @@ def main():
     case("a part with no purpose line",
          lambda: quiet(wb.gate_w7, meta, noPurpose))
 
+    print("\nW8, the reference layer against the chapter")
+    ref_pages, ref = wb.build_reference(
+        "build/web-selftest", meta, open(CHAPTER, encoding="utf-8").read())
+    case("W8 clean", lambda: quiet(wb.gate_w8, ref, meta, web_html), False)
+
+    # The failure W8a exists for: a definition reworded on one side only. No
+    # date or figure changes, so nothing that checks values would see it.
+    # ASSERTED, not assumed. The first version of this control replaced a word
+    # that does not occur in the alphabetically first definition, so it mutated
+    # nothing and reported the gate green. That is the third control in this file
+    # to fail by editing the wrong thing, which is why every mutation now asserts
+    # that it changed something before the gate is asked about it.
+    r8 = copy.deepcopy(ref)
+    was = r8["terms"][0]["definition"]
+    words = was.split()
+    words[1] = "reworded"
+    r8["terms"][0]["definition"] = " ".join(words)
+    assert r8["terms"][0]["definition"] != was
+    case("a glossary definition reworded",
+         lambda: quiet(wb.gate_w8, r8, meta, web_html))
+
+    r8 = copy.deepcopy(ref)
+    r8["terms"].append({"term": "Invented term", "definition": "Not in the book.",
+                        "chapter": 1, "href": "../ch01/"})
+    case("the ledger claims a term the chapter does not set",
+         lambda: quiet(wb.gate_w8, r8, meta, web_html))
+
+    r8 = copy.deepcopy(ref)
+    r8["objects"].append({"id": "THM-001", "gloss": "not invoked here",
+                          "chapter": 1, "href": "../ch01/"})
+    case("the object index claims an object the chapter never renders",
+         lambda: quiet(wb.gate_w8, r8, meta, web_html))
+
     print("\nW6, horizontal overflow across the width sweep")
     page = "build/web-selftest/ch01/index.html"
     clean, ran = wb.gate_w6(page)

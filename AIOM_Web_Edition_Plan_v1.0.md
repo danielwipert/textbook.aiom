@@ -4,8 +4,8 @@ Status: **ADOPTED 2026-08-13.** All five opening decisions are ruled and are
 logged as Decisions 60 through 64 in `AIOM_Workplan_v5.md`, which is the numbering
 authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 2026-08-13, and Phase W3, the front door, followed the same day. Phase W4, the
-reference layer and search, is the next work.** Sections 8, 9 and 10 record what
-each phase learned.
+reference layer and search, followed. Phase W5, deploy, is the next work.**
+Sections 8 through 11 record what each phase learned.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -245,9 +245,9 @@ pipeline on one chapter before scaling it.
   layer. Design review against the same standard the print book gets.
 - **Phase W3, the front door. BUILT AND GREEN 2026-08-13.** Landing page, table of contents, about, the
   author. Depends on the section 6 input and on Decision W-A below.
-- **Phase W4, the reference layer and search. NEXT.** Glossary, object index, sources,
+- **Phase W4, the reference layer and search. BUILT AND GREEN 2026-08-13.** Glossary, object index, sources,
   search index.
-- **Phase W5, deploy.** Domain, hosting, analytics posture, and the build hook that
+- **Phase W5, deploy. NEXT.** Domain, hosting, analytics posture, and the build hook that
   publishes a chapter when it locks.
 - **Phase W6, dark mode and the SVG token pass.** Separable, and deliberately last.
 
@@ -502,3 +502,58 @@ was not.
 - The site has no author, about, or praise surface. The inspiration has all three.
 - Search, the glossary, the object index and the per-chapter sources page are W4.
 - Dark mode and the SVG token pass remain W6.
+
+---
+
+## 11. What Phase W4 learned
+
+**Every page in the reference layer is generated from a record that is already
+enforced somewhere else.** The glossary and the object index come from
+`AIOM_Continuity_Ledger.md`, which gate G3 already checks every chapter against.
+The sources come from the chapter's own Decision 51 register through
+`cite_format`. Nothing is assembled by scraping the rendered chapter, which would
+have made the reference layer a second reading of the book rather than a view of
+its records. Scope is then correct automatically: ledger entries are appended at
+lock, so a term can only reach the site from a chapter Decision 64 already permits
+publishing.
+
+**GATE W8 GUARDS THE JOINT BETWEEN THE TWO.** W8a requires the ledger's definition
+of a term to be character-identical to the chapter's key-term text. That is the
+right check because a definition is precisely the kind of text that can be
+reworded with no date and no figure changing, which is the shape CLAUDE.md records
+as having reverted four times on Chapter 1 with nothing mechanical able to see it.
+W8b requires every cited key to appear on the sources page. W8c refuses an object
+index that claims an object no chapter renders.
+
+**THE SOURCES PAGE IS WHERE URLs BELONG.** Print rules URLs out of footnotes, and
+the chapter page matches print so that gate W1's note comparison stays exact and
+needs no tolerance. A bibliography is the right home for a URL, so the sources
+page is built with `url_policy="full"` while the chapter stays at `"none"`. One
+generator produces both.
+
+**A NON-GREEDY REGEX OVER NESTED ELEMENTS HAS NOW BEEN THE DEFECT THREE TIMES IN
+ONE FILE.** Gate W8a's first draft matched key terms with
+`<div class="kt">(.*?)</div>`, which closes on the nested `.kt-h` div and swallows
+the neighbouring terms. The balanced scanner already existed for exactly this and
+was not reached for. `find_spans(doc, opener, tag)` now takes a tag, and it is the
+tool for any nested element.
+
+**A FAILED SEARCH INDEX MUST NOT BE ABLE TO REPORT "NO RESULTS".** Opened from a
+file path the index fetch is blocked, and the first version answered a query with
+"No results for meter", which reads as a statement about the book rather than as a
+broken page. Load state is now tracked separately from result count. That is the
+same error this project spends most of its care preventing in gates, appearing in
+a user interface instead.
+
+**The search index is per SECTION, not per chapter.** A hit lands the reader on
+the passage rather than at the top of a 25,000 pixel page. Twenty-six entries and
+roughly 40 kB for one chapter, so the whole book will still ship in one request.
+
+### Open, and carried into W5
+
+- **The landing page copy is still DRAFT and still needs Dan's ruling.**
+- The object index holds one object, because Chapter 1 invokes one. It will look
+  thin until Part II lands, and that is honest rather than a defect.
+- No author, about, or praise surface yet.
+- Deploy, the domain, and the CI workflow are W5. Dark mode and the SVG token pass
+  remain W6.

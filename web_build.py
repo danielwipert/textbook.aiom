@@ -46,6 +46,7 @@ from html.parser import HTMLParser
 
 import book_structure
 import footnotes
+import ledger
 import status_check
 
 # URLs are ruled out of print footnotes, and the web matches print so that
@@ -180,9 +181,16 @@ def extract_text(doc, **kw):
 # ------------------------------------------------------------ balanced spans
 
 SPAN_EDGE = re.compile(r"<span\b|</span>")
+_EDGE_CACHE = {}
 
 
-def find_spans(doc, opener):
+def _edge(tag):
+    if tag not in _EDGE_CACHE:
+        _EDGE_CACHE[tag] = re.compile(rf"<{tag}\b|</{tag}>")
+    return _EDGE_CACHE[tag]
+
+
+def find_spans(doc, opener, tag="span"):
     """Locate every span matching `opener`, counting nested spans properly.
 
     Returns (start, end, inner) for each, where start is at the opening tag and
@@ -200,16 +208,17 @@ def find_spans(doc, opener):
     against the hyphenation scan: a check rewritten from memory reacquiring the
     defect the original was fixed for. The self-test caught it.
     """
+    edge, close = _edge(tag), f"</{tag}>"
     out = []
     for m in re.finditer(opener, doc):
         i, depth = m.end(), 1
         while depth:
-            nxt = SPAN_EDGE.search(doc, i)
+            nxt = edge.search(doc, i)
             if not nxt:
-                raise ValueError(f"unclosed span for {opener!r}")
-            depth += 1 if nxt.group(0) == "<span" else -1
+                raise ValueError(f"unclosed <{tag}> for {opener!r}")
+            depth += 1 if nxt.group(0) != close else -1
             i = nxt.end()
-        out.append((m.start(), i, doc[m.end():i - len("</span>")]))
+        out.append((m.start(), i, doc[m.end():i - len(close)]))
     return out
 
 
@@ -660,6 +669,88 @@ def gate_w7(meta, book):
     return fails
 
 
+def gate_w8(ref, meta, web_html):
+    """The reference layer against the chapter it claims to describe.
+
+    Three joints, each of which can drift silently:
+
+    W8a. The GLOSSARY is built from the continuity ledger, and the chapter sets
+    its own key terms. Those are two records of one definition. CLAUDE.md already
+    records that a ruled claim narrowing was reverted four times with every date
+    and figure intact, and a definition is exactly that kind of text: it can be
+    reworded without any value changing. So the ledger's definition must match
+    the chapter's key-term text, character for character.
+
+    W8b. The SOURCES page must carry every key the chapter actually cites. A
+    bibliography missing an entry the prose points at is a broken promise to the
+    reader, and it is invisible to every other check.
+
+    W8c. The OBJECT INDEX must not exceed what chapters invoke. The Locked
+    Registry workbook is not in this repository (CLAUDE.md rule 4a), so the site
+    cannot claim objects it has never seen a chapter render.
+    """
+    fails = []
+
+    # W8a. Key terms as the chapter sets them, name to definition.
+    # Balanced scan, not a non-greedy regex. A .kt block contains a nested
+    # .kt-h div, so `<div class="kt">(.*?)</div>` closes on the WRONG div and
+    # swallows the neighbouring terms. That was written and it failed here, which
+    # is the third time in this file that a hand-rolled non-greedy match over
+    # nested elements has been the defect. find_spans now takes a tag.
+    chapter_terms = {}
+    for _, _, inner in find_spans(web_html, r'<div class="kt">', "div"):
+        head = find_spans(inner, r'<div class="kt-h">', "div")
+        if not head:
+            continue
+        name = re.search(r'<span class="kt-t">(.*?)</span>', head[0][2], re.S)
+        if not name:
+            continue
+        body = inner[:head[0][0]] + inner[head[0][1]:]
+        chapter_terms[_plain(name.group(1))] = _plain(body)
+
+    num = int(meta["chapter_number"]) if meta["chapter_number"] else None
+    checked = 0
+    for t in ref["terms"]:
+        if t["chapter"] != num:
+            continue
+        got = chapter_terms.get(t["term"])
+        if got is None:
+            fails.append(f"W8a: ledger says chapter {num} owns {t['term']!r}, "
+                         f"but the chapter sets no such key term")
+            continue
+        checked += 1
+        if got != t["definition"]:
+            fails.append(
+                f"W8a: {t['term']!r} differs between the ledger and the chapter.\n"
+                f"       ledger:  {t['definition'][:100]}\n"
+                f"       chapter: {got[:100]}")
+    if not fails and checked:
+        print(f"W8a. glossary agreement ... {checked} term(s) identical in the "
+              f"ledger and the chapter")
+
+    # W8b. Every cited key is on the sources page.
+    on_page = {s["key"] for s in ref["sources"]}
+    missing = sorted({s["key"] for s in ref["sources"] if s["cited"]} - on_page)
+    cited = sorted(s["key"] for s in ref["sources"] if s["cited"])
+    if missing:
+        fails.append(f"W8b: cited source(s) absent from the sources page: {missing}")
+    else:
+        print(f"W8b. sources coverage ..... {len(cited)} cited of "
+              f"{len(on_page)} in the register, all listed")
+
+    # W8c. No object claimed that no chapter has rendered.
+    rendered = set(re.findall(r"\b((?:THM|LEM|PROP)-\d+)\b", web_html))
+    claimed = {o["id"] for o in ref["objects"] if o["chapter"] == num}
+    extra = sorted(claimed - rendered)
+    if extra:
+        fails.append(f"W8c: object index claims {extra} for chapter {num}, "
+                     f"which the chapter does not render")
+    elif claimed:
+        print(f"W8c. object index ......... {len(claimed)} object(s), each "
+              f"rendered by the chapter that invokes it")
+    return fails
+
+
 WIDTHS = [320, 360, 390, 414, 480, 620, 768, 900, 1024, 1180, 1240, 1300,
           1366, 1411, 1440, 1441, 1512, 1600, 1920, 2560]
 
@@ -790,6 +881,148 @@ def render(chapter_path, outdir, preview=False):
     return print_html, web_html, meta, os.path.join(chdir, "index.html")
 
 
+def build_reference(outdir, meta, chapter_html):
+    """Glossary, sources, and object index. Phase W4.
+
+    Every page here is generated from a record that already exists and is already
+    enforced somewhere else:
+
+      glossary  <- AIOM_Continuity_Ledger.md, the G3 record, appended at lock
+      sources   <- the chapter's own Decision 51 register, via cite_format
+      objects   <- the ledger's registry glosses
+
+    None of it is assembled by scraping the rendered chapter, which would have
+    made the reference layer a second reading of the book.
+
+    THE OBJECT INDEX IS AN APPENDIX, NEVER THE SPINE. CLAUDE.md rule 4: the
+    registry justifies the book, it does not organize it. This page is reached
+    from a chapter, no chapter is laid out around it, and it carries only what
+    chapters have actually invoked. The Locked Registry workbook is not in this
+    repository (rule 4a), so a full 228-object index cannot be built here and is
+    not pretended at.
+    """
+    import cite_format
+    led = ledger.load_ledger()
+    locked = set(locked_chapters())
+
+    def ch_link(n):
+        return f"../ch{n:02d}/" if n in locked else None
+
+    terms = sorted(
+        ({"term": t["term"], "definition": t["definition"],
+          "chapter": ledger.chapter_of(t["owner"]),
+          "href": ch_link(ledger.chapter_of(t["owner"]))}
+         for t in led["terms"]),
+        key=lambda t: t["term"].lower())
+
+    # Sources come from the chapter register with url_policy FULL. Print rules
+    # URLs out of footnotes; a bibliography is where they belong, and this is the
+    # bibliography. Gate W1 is unaffected because it compares the CHAPTER, and
+    # this page is not the chapter.
+    src = footnotes.load_sources(chapter_html)
+    cited = set()
+    for m in re.finditer(r'<cite src="([^"]+)">', chapter_html):
+        cited.update(k.strip() for k in m.group(1).split(";") if k.strip())
+    sources = sorted(
+        ({"key": k, "cited": k in cited,
+          "text": cite_format.format_note(src[k], url_policy="full"),
+          "url": src[k].get("url") or (
+              f'https://doi.org/{src[k]["doi"]}' if src[k].get("doi") else "")}
+         for k in src),
+        key=lambda s: s["text"].lower())
+
+    objects = sorted(
+        ({"id": o["object"], "gloss": o["gloss"],
+          "chapter": ledger.chapter_of(o["first_used"]),
+          "href": ch_link(ledger.chapter_of(o["first_used"]))}
+         for o in led["registry"]),
+        key=lambda o: o["id"])
+
+    forward = [{"frm": ledger.chapter_of(f["frm"]), "to": ledger.chapter_of(f["to"]),
+                "promise": f["promise"], "status": f["status"]}
+               for f in led["forward"]]
+
+    env = _env()
+    pages = {}
+    for name, tpl, ctx in (
+        ("glossary", "glossary.html.j2", {"terms": terms}),
+        ("sources", "sources.html.j2",
+         {"sources": sources, "chapter_title": meta["chapter_title"],
+          "chapter_number": meta["chapter_number"]}),
+        ("objects", "objects.html.j2", {"objects": objects, "forward": forward}),
+    ):
+        html = env.get_template(tpl).render(book=meta["book"], **ctx)
+        d = os.path.join(outdir, name)
+        os.makedirs(d, exist_ok=True)
+        open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(html)
+        pages[name] = html
+    return pages, {"terms": terms, "sources": sources, "objects": objects}
+
+
+def build_search(outdir, meta, chapter_html, ref):
+    """A prebuilt JSON index, queried client side.
+
+    The whole book at fifteen chapters of roughly seven thousand words is small
+    enough to ship in one request, so there is no server and nothing to operate.
+    Chapter prose is indexed per SECTION rather than per chapter, so a hit lands
+    the reader on the passage instead of at the top of a 25,000 pixel page.
+    """
+    docs = []
+    for t in ref["terms"]:
+        docs.append({"t": t["term"], "k": "term",
+                     "b": t["definition"],
+                     "u": f"glossary/#term-{slugify(t['term'])}"})
+    for s in ref["sources"]:
+        docs.append({"t": _plain(s["text"])[:90], "k": "source",
+                     "b": _plain(s["text"]),
+                     "u": f"sources/#src-{slugify(s['key'])}"})
+    for o in ref["objects"]:
+        docs.append({"t": o["id"], "k": "object", "b": o["gloss"],
+                     "u": f"objects/#obj-{slugify(o['id'])}"})
+
+    # Chapter prose, split at the numbered section heads.
+    body = meta["body"]
+    marks = [(m.start(), m.group(1), m.group(2))
+             for m in re.finditer(
+                 r'<h3 class="section" id="([^"]+)">'
+                 r'<span class="num">([\d.]+)</span>', body)]
+    bounds = [m[0] for m in marks] + [len(body)]
+    slug = meta["slug"]
+    for i, (_, sec_id, num) in enumerate(marks):
+        chunk = body[bounds[i]:bounds[i + 1]]
+        text = extract_text(chunk, skip_attrs=("data-note",))
+        head_text = SEC_NUM_RE.sub("", text[:70])
+        docs.append({"t": f"{num} {head_text}",
+                     "k": f"Chapter {meta['chapter_number']}",
+                     "b": text, "u": f"{slug}/#{sec_id}"})
+    head = extract_text(body[:bounds[0]] if marks else body,
+                        skip_attrs=("data-note",))
+    docs.append({"t": meta["chapter_title"], "k": f"Chapter {meta['chapter_number']}",
+                 "b": head, "u": f"{slug}/"})
+
+    import json
+    path = os.path.join(outdir, "search-index.json")
+    open(path, "w", encoding="utf-8").write(
+        json.dumps({"docs": docs}, ensure_ascii=False, separators=(",", ":")))
+    html = _env().get_template("search.html.j2").render(book=meta["book"],
+                                                        count=len(docs))
+    d = os.path.join(outdir, "search")
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(html)
+    return html, len(docs), os.path.getsize(path)
+
+
+# No trailing space is required. The heading markup is
+# <span class="num">1.5</span>What this book is not, so the extracted text
+# is "1.5What this book is not" and a pattern needing a space left the
+# number in, printing it twice in the search result title.
+SEC_NUM_RE = re.compile(r"^[\d.]+\s*")
+
+
+def slugify(s):
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
 def render_index(outdir, meta):
     """The front door. Phase W3.
 
@@ -826,10 +1059,14 @@ def main():
 
     print_html, web_html, meta, path = render(a.chapter, a.out, a.preview)
     index = render_index(a.out, meta)
+    ref_pages, ref = build_reference(a.out, meta, open(a.chapter, encoding="utf-8").read())
+    search_html, doc_count, index_bytes = build_search(a.out, meta, a.chapter, ref)
     print(f"\nChapter {meta['chapter_number']}: {meta['chapter_title']}")
     print(f"  {meta['part_label']}")
     print(f"  wrote {path}")
-    print(f"  wrote {index}\n")
+    print(f"  wrote {index}")
+    print(f"  wrote glossary, sources, objects, search "
+          f"({doc_count} search docs, {index_bytes / 1024:.1f} kB)\n")
 
     fails = []
     fails += gate_w1(print_html, web_html)
@@ -838,7 +1075,11 @@ def main():
     fails += gate_w4(web_html, meta)
     fails += gate_w5(web_html, meta)
     fails += gate_w7(meta, meta["structure"])
-    fails += gate_pages([("index", open(index, encoding="utf-8").read())])
+    fails += gate_w8(ref, meta, web_html)
+    fails += gate_pages(
+        [("index", open(index, encoding="utf-8").read()),
+         ("search", search_html)]
+        + [(n, h) for n, h in ref_pages.items()])
     w6_fails, w6_ran = ([], False) if a.no_browser else gate_w6(path)
     fails += w6_fails
 

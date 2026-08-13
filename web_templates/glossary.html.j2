@@ -1,0 +1,33 @@
+{% set page_title = "Glossary" %}
+{% set page_desc = "Every key term in AI Operations Management, with the chapter that owns it." %}
+{% include "_ref_head.html.j2" %}
+<main>
+  <section class="band band-first">
+    <div class="band-head">
+      <p class="eyebrow">Reference</p>
+      <h2>Glossary</h2>
+      <p class="band-meta">{{ terms|length }} terms</p>
+    </div>
+    <p class="note-line">A term is owned by the chapter that first defines it, and
+       a later chapter may use it freely but may not redefine it. These
+       definitions are the ones the continuity ledger records, which is the same
+       record the continuity gate checks every chapter against.</p>
+    <dl class="glossary">
+      {% for t in terms %}
+      <div class="gl-row" id="term-{{ t.term|lower|replace(' ', '-') }}">
+        <dt>
+          {{ t.term }}
+          {% if t.href %}
+          <a class="gl-owner" href="{{ t.href }}">Chapter {{ t.chapter }}</a>
+          {% else %}
+          <span class="gl-owner soon">Chapter {{ t.chapter }}</span>
+          {% endif %}
+        </dt>
+        <dd>{{ t.definition }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+</main>
+{% set foot_note = terms|length ~ " terms, appended to the continuity ledger as each chapter locks." %}
+{% include "_ref_foot.html.j2" %}
