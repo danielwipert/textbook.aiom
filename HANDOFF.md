@@ -903,9 +903,17 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
    search, sources, objects, sitemap, robots, 404 and the six self-hosted fonts:
    one chapter, because W2 refuses everything not at Stage 9.
 
+   **DAN CONFIRMED THE SITE RENDERS, 2026-08-13.** That confirmation is the only
+   evidence of it, and it should stay that way in the record rather than being
+   upgraded later into something Claude checked.
+
    **CLAUDE HAS NEVER LOADED THE LIVE SITE AND CANNOT.** The container's egress
-   proxy blocks `github.io`. Every statement above comes from the workflow logs
-   and the deploy API, not from a page anyone fetched. Someone should open it.
+   proxy blocks `github.io`, for `curl` and `WebFetch` alike. Every other
+   statement here about the deployment comes from the workflow logs and the
+   deploy API rather than from a page anyone fetched, and a later session will
+   hit the same wall: **a claim about how the site LOOKS can only come from Dan.**
+   The gates are what Claude can speak to, and they cover the artifact, not its
+   appearance in a browser.
 
    **WHAT DAN OWES, in the order it blocks things:**
    - **THE DOMAIN.** `--base-url` writes the CNAME and makes the sitemap
