@@ -754,6 +754,42 @@ rulings. What binds outside that document:
 - **A NON-GREEDY REGEX OVER NESTED ELEMENTS HAS NOW BEEN THE DEFECT THREE TIMES IN
   `web_build.py`.** `find_spans(doc, opener, tag)` is the balanced scanner and it
   takes a tag. Reach for it rather than writing `(.*?)</div>`.
+- **A `find_spans` OPENER MUST CONSUME THE WHOLE TAG, NOT JUST ENOUGH TO IDENTIFY
+  IT.** The function returns the text after the opener MATCH, so an opener widened
+  to `<div class="kt"[ >]` leaves the rest of the tag, id and all, inside the
+  block. Found 2026-08-13 when term linking gave every `.kt` block an id: W8a
+  immediately reported all eight key terms as differing from the ledger. Write
+  `[^>]*>`. **And the openers that read the same markup must move together**, or
+  the failure is silent in the other direction: an opener demanding an immediate
+  `>` matches nothing, and W8a compares an EMPTY set of chapter terms against the
+  ledger and reports a pass.
+- **A BOLDED KEY TERM LINKS TO THE DEFINITION THAT OWNS IT, and the chapter carries
+  no links.** `web_build.link_terms()` gives each definition callout and key-term
+  entry an id and wraps the matching bold runs, adding attributes and an element
+  and no text, so gate W1 is unaffected. The chapter HTML is shared with print and
+  is never edited for this.
+- **THE MATCH IS ON THE TERM, NEVER ON THE TAG, because bold does two jobs in this
+  book.** Five of Chapter 1's nineteen bold runs are terms; the other fourteen are
+  craft-section worksheet labels. Matching folds case, collapses whitespace and
+  drops ONE leading article, so prose "the consumption event" reaches the callout
+  headed "Consumption event". **Trailing punctuation is deliberately NOT stripped**,
+  because stripping the colon from the worksheet label "Meter:" would let it match
+  a term named Meter and turn a form field into a definition link. That trades a
+  missing link for a wrong one, and the missing link is the cheaper failure.
+- **A TERM WITH NO CALLOUT STILL LINKS, to its key-term entry.** "Resource
+  consumption model" is bolded and is a key term but has no callout, and leaving
+  it alone gives a page where four bolded terms are links and a fifth
+  identical-looking one is not. The callout wins when a term has both, because it
+  sits beside the prose that introduces the term.
+- **A LINKED TERM LOOKS EXACTLY LIKE UNLINKED BOLD AT REST.** Bold already carries
+  meaning in the prose, so an ordinary link colour would put a second signal on
+  the same word and turn a page of definitions into a page of link decoration,
+  which is close to what standing rule 5 forbids. The affordance is a hairline
+  that fills in on hover.
+- **THE TERM-LINK COUNT IS PRINTED AND A ZERO WARNS, because nothing else would
+  notice.** Reword a term, every link disappears, and no gate fails: a missing
+  anchor breaks nothing. It reports rather than fails, like the snapshot
+  divergence warning.
 - **THE LANDING PAGE QUOTES THE BOOK AND NEVER PARAPHRASES IT, enforced by gate
   W9a.** The theorem and a specimen paragraph are lifted verbatim from the locked
   chapter and must appear in both. Rule 4a forbids paraphrasing a registry

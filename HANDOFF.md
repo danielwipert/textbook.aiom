@@ -7,6 +7,41 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**TERM LINKING, 2026-08-13. ON `main`.** A bolded key term in the chapter text
+is now a link to the definition callout that owns it. Built by
+`web_build.link_terms()`, which gives each callout and key-term entry an id and
+wraps the matching bold runs: attributes and an element, no text, so gate W1a
+still reports the web prose character-identical to print at 43,204 chars. **The
+chapter HTML is shared with print and is never edited for this.**
+
+**THE MATCH IS ON THE TERM, NEVER ON THE TAG**, because bold does two jobs here.
+Five of Chapter 1's nineteen bold runs name a defined term; the other fourteen
+are the craft section's worksheet labels ("Meter:", "Step 3. The meter.") and two
+pieces of ordinary emphasis. Matching folds case, collapses whitespace and drops
+ONE leading article. **Trailing punctuation is deliberately not stripped**: it
+would let "Meter:" match a term named Meter and turn a form field into a link. A
+term with no callout still links, to its key-term entry, because otherwise four
+bolded terms are links and a fifth identical-looking one is not.
+
+**GATE W8a CAUGHT A REAL BUG IN THIS CHANGE AND THE NEAR MISS IS THE LESSON.**
+Giving every `.kt` block an id broke two patterns expecting the tag to close
+immediately. Widening one to `<div class="kt"[ >]` LOOKED equivalent and was not:
+`find_spans` returns the text after the opener MATCH, so the rest of the tag
+stayed inside the block and W8a reported all eight terms as differing from the
+ledger. It is `[^>]*>` in both places now, and the two must move together,
+because the drift failure is the opposite one and it is SILENT: an opener
+demanding an immediate `>` matches nothing and W8a compares an empty set and
+passes. Fourth time a hand-rolled pattern over this file's nested markup has
+been the defect.
+
+The build prints the term-link count and warns on zero, because rewording a term
+would delete every link with no gate failing.
+
+**Open: the dark-theme landing tint moves only 4 to 8 levels** and may be too
+subtle. It is the shared `:target` device, so changing it changes the sidenote,
+the glossary row and the sources entry too. And only Chapter 1 has exercised the
+matching rules; Chapter 2 is their first real test.
+
 **THE BODY ROMAN, `AIOM_web.css` v0.5, 2026-08-13. ON `main`.** Dan read the
 chapter at 1920 in Chrome and said the type felt heavy, and that the weight
 seemed to change with the window. **THE WEIGHT NEVER CHANGED**: computed

@@ -7,9 +7,10 @@ authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 reference layer and search, followed, and Phase W5, the site build and deploy,
 is built, and Phase W6, dark mode and the figure token pass, closes the plan.
 Host and analytics are ruled as Decisions 65 and 66. Only the DOMAIN is
-outstanding.** Sections 8 through 16 record what each phase learned. Sections 15
-and 16 are the v0.4 reading scale and the v0.5 body roman, which came from two
-questions Dan asked about the reading surface rather than from a phase.
+outstanding.** Sections 8 through 17 record what each phase learned. Sections 15
+through 17 are the v0.4 reading scale, the v0.5 body roman and term linking,
+which came from questions Dan asked about the reading surface rather than from
+a phase.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -869,3 +870,74 @@ is what proves the new file is embedded nowhere in the book.
   into the margin would make the space read as designed rather than as leftover.
   It is a decision about Chapters 2 to 15, not about CSS, and it is the only
   option that answers the original complaint without touching a measurement.
+
+---
+
+## 17. Term linking
+
+Dan asked that a bolded key term in the chapter text be a link to the definition
+box. It is, and the interesting parts are what had to be refused along the way.
+
+**THE CHAPTER CARRIES NO LINKS AND NEVER WILL.** `web_build.link_terms()` gives
+each definition callout and key-term entry an id and wraps the matching bold
+runs. It adds attributes and an element and no text, which is the same test
+`wrap_tables` and `tokenize_svg` already pass, and gate W1a confirms it: the web
+prose is still character-identical to print at 43,204 characters. The chapter
+HTML is shared with print, so a link written there would be a link the print
+build has to ignore.
+
+**THE MATCH IS ON THE TERM, NEVER ON THE TAG, because bold does two jobs in this
+book.** Five of Chapter 1's nineteen bold runs name a defined term. The other
+fourteen are the craft section's worksheet labels, "Meter:", "Step 3. The
+meter.", and two pieces of ordinary emphasis. Linking every `<b>` would have
+turned a worksheet into a menu.
+
+Matching folds case, collapses whitespace, and drops one leading article, so the
+prose "the consumption event" reaches the callout headed "Consumption event".
+**Trailing punctuation is deliberately not stripped.** Stripping the colon from
+"Meter:" would let it match a term named Meter and turn a form field into a
+definition link. The cost is that a term genuinely written with trailing
+punctuation goes unlinked, which is a missing link rather than a wrong one, and
+that is the cheaper of the two failures every time.
+
+**A TERM WITH NO CALLOUT STILL LINKS**, to its key-term entry at the end of the
+chapter. "Resource consumption model" is bolded and is a key term but has no
+callout, and leaving it alone produces a page where four bolded terms are links
+and a fifth identical-looking one is not. The callout wins when a term has both,
+because it sits beside the prose that introduces the term.
+
+**A LINKED TERM LOOKS EXACTLY LIKE UNLINKED BOLD AT REST.** Bold already carries
+meaning in the prose. An ordinary link colour would put a second signal on the
+same word and turn a page of definitions into a page of link decoration, which
+is close to what standing rule 5 forbids. The affordance is a hairline that
+fills in on hover, set in the accent so it names the apparatus it leads to.
+Landing reuses the `:target` tint the sidenote, the glossary row and the sources
+entry already use, so arriving at a definition feels like arriving anywhere else
+in the book. It was measured rather than eyeballed, after the grain lesson:
+light moves 237,227,208 to 247,237,226 and dark 22,40,58 to 26,46,66.
+
+**GATE W8a CAUGHT A REAL BUG IN THIS CHANGE, AND THE NEAR MISS IS THE LESSON.**
+Giving every `.kt` block an id broke two patterns that expected the tag to close
+immediately. Widening one of them to `<div class="kt"[ >]` looked equivalent and
+was not: `find_spans` returns the text after the opener MATCH, so the remainder
+of the tag stayed inside the block and W8a reported all eight key terms as
+differing from the ledger. The pattern is `[^>]*>` in both places now, with a
+comment saying the two must move together, **because the failure mode if they
+drift is the opposite and it is silent**: an opener demanding an immediate `>`
+matches nothing, and W8a then compares an empty set of chapter terms against the
+ledger and reports a pass. This is the fourth time a hand-rolled pattern over
+this file's nested markup has been the defect.
+
+**THE TERM-LINK COUNT IS PRINTED AND A ZERO WARNS.** Reword a term and every
+link disappears with no gate failing, because a missing anchor breaks nothing.
+It reports rather than fails, like the snapshot divergence warning, for the same
+reason: failing would couple the build to an editorial choice.
+
+### Open after term linking
+
+- **The dark-theme landing tint moves only 4 to 8 levels and may be too subtle.**
+  It is the same `:target` device the sidenote, glossary row and sources entry
+  use, so changing it changes all of them, which is why it was not touched here.
+- **Only Chapter 1 has been through this.** The matching rules are general, but
+  they have been exercised against one chapter's habits. Chapter 2 is the first
+  real test of whether the article rule and the punctuation refusal hold up.
