@@ -115,7 +115,7 @@ STAGES = [
 
     ("G2", "Production gate", "Claude",
      "Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below "
-     "mirror the fourteen numbered gates the tool prints, one for one, so a "
+     "mirror the fifteen numbered gates the tool prints, one for one, so a "
      "box cannot claim a check the tool does not perform. That drift is real: "
      "until 2026-08-05 this list claimed figure validation, widow and orphan "
      "detection, and a bottom-margin check that AIOM_build.py never ran, and "
@@ -171,7 +171,7 @@ STAGES = [
          "Check 5, Founding Question references match the canonical table exactly",
          "Check 6, maturity ladder language consistent with the locked five stages",
          "Check 7, Northmoor figures diffed against generator output",
-         "Ledger updated at lock (continuity.py --update), glosses written by hand",
+         "Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.",
      ]),
 
     ("8", "Final read", "Dan",

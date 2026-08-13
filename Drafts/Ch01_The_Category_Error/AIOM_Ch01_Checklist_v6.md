@@ -2706,7 +2706,7 @@ Owner: Claude
 
 Status: [x]        Date cleared: 2026-08-13
 
-> Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fourteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
+> Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fifteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
 - [x] Renders under WeasyPrint without error or warning
 - [x] Gate 1, zero right-margin overflow
@@ -4599,20 +4599,56 @@ items above, the QJE formatter ruling and the early-May timing.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-13
 
 > Mechanical, against the running continuity ledger. Catches chapter to chapter drift here rather than at manuscript integration, where the fix would mean reopening a locked chapter.
 
-- [ ] Check 1, no term redefined that an earlier chapter already owns
-- [ ] Check 2, every forward reference this chapter makes is logged
-- [ ] Check 3, every forward reference assigned to this chapter is paid
-- [ ] Check 4, registry IDs logged; recurring glosses worded identically
-- [ ] Check 5, Founding Question references match the canonical table exactly
-- [ ] Check 6, maturity ladder language consistent with the locked five stages
-- [ ] Check 7, Northmoor figures diffed against generator output
-- [ ] Ledger updated at lock (continuity.py --update), glosses written by hand
+- [x] Check 1, no term redefined that an earlier chapter already owns
+- [x] Check 2, every forward reference this chapter makes is logged
+- [x] Check 3, every forward reference assigned to this chapter is paid
+- [x] Check 4, registry IDs logged; recurring glosses worded identically
+- [x] Check 5, Founding Question references match the canonical table exactly
+- [x] Check 6, maturity ladder language consistent with the locked five stages
+- [x] Check 7, Northmoor figures diffed against generator output
+- [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
+
+## G3 RUN 2026-08-13. **PASSED, all seven checks.**
+
+`continuity.py` against `AIOM_Continuity_Ledger.md`, which holds zero entries. That
+is correct rather than a gap: entries are appended at Stage 9 and no chapter has
+locked, so Chapter 1 is the first chapter to reach this gate and has nothing to
+contradict.
+
+  1. term redefinition ...... 0
+  2. forward refs made ...... 5, none logged yet, which is expected before lock
+  3. promises owed by Ch1 ... 0 unpaid
+  4. registry glosses ....... 1 object, 0 drifted
+  5. Founding Questions ..... 0 misquoted
+  6. maturity ladder ........ 0 stage names used, 0 outside the locked five
+  7. Northmoor figures ...... chapter cites no Northmoor data
+
+THE FIVE FORWARD REFERENCES, all to be logged by `--update` at Stage 9: to Ch2 on
+problem sets reaching back, to Ch3 on where neighbouring subjects end, to Ch4 on
+the pricing instruments, to Ch6 on the anchor case returning, and to Ch14 on
+distinguishing neighbouring disciplines. THM-009 is cited with no gloss recorded
+yet, also a lock action.
+
+**WHAT A PASS MEANS ON THE FIRST CHAPTER, stated so it is not overread.** Six of
+the seven checks compare this chapter against a ledger that is empty, so they
+cannot fail on Chapter 1 in the way they will on Chapter 2. The gate's real work
+begins at the second chapter. What it does establish here is that the chapter makes
+no claim the ledger contradicts, that its registry gloss has not drifted, and that
+its five forward promises are captured so a later chapter can be held to them.
+
+**THE LEDGER BOX IS LEFT OPEN DELIBERATELY AND ITS TEXT WAS CORRECTED.** Running
+`--update` is a Stage 9 action, not a G3 check, but the box read "Ledger updated at
+lock" with no deferral marker, so `status_check.py` would have forced either a
+false tick or a failed gate. Both the generator and this list now say DO BEFORE
+ticking Stage 9. Same class as the gate 15 box drift found earlier today: a
+checklist line that does not say what it means makes the tick lie.
+
 
 ---
 
@@ -4620,11 +4656,29 @@ Findings:
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-13
 
 > The chapter read whole, typeset, at reading pace, in one sitting. Pass or fail on the whole, per Decision 30. No lists of small fixes. A failure names one structural reason and the chapter returns to the stage that owns it.
 
 Findings:
+
+**PASSED 2026-08-13 ON DAN'S RULING.** Decision 30 makes this step pass or fail on
+the whole, so a pass records that the chapter was read entire, typeset, at reading
+pace, and that no structural reason to return it was found. There is no list of
+small fixes by design: had one existed, the chapter would have gone back to the
+stage that owns it rather than accumulating a punch list here.
+
+**WHAT IT WAS READ AGAINST.** The current live text at 25 pages, fifteen gates
+green against CSS v7.1, with the Stage 7 edits FC8, FC9 and the FC1 closure applied
+and the QJE citation carrying volume, issue and pages. That is the state recorded
+at G2 on 2026-08-13.
+
+**THE REVERSING CONDITION.** This tick is a claim about a specific render. Any
+later change to the live text voids it, because the read will have been of a
+chapter that no longer exists. That is not hypothetical here: this chapter has had
+a fact check, a copy-edit closure and three production gates invalidated by exactly
+that mechanism in the past week.
+
 
 ---
 
