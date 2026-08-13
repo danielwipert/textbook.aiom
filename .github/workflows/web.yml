@@ -35,7 +35,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # FULL HISTORY IS REQUIRED, NOT AN OPTIMIZATION TO REMOVE. What publishes
+      # is each chapter's last LOCK, and snapshot.py finds that by walking the
+      # commits that touched the chapter's checklist. At the default depth of 1
+      # that walk sees nothing, lock_commit returns None for every chapter, and
+      # the build fails with "no chapter has ever locked". Anyone tempted to
+      # restore a shallow fetch for speed should read snapshot.py first.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:

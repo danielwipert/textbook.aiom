@@ -53,6 +53,7 @@ import footnotes
 import ledger
 import status_check
 import claimcheck
+import snapshot
 
 # URLs are ruled out of print footnotes, and the web matches print so that
 # gate W1's note comparison is exact. The URL is not lost: it lives in the
@@ -1596,6 +1597,10 @@ def main():
                     help="build an unlocked chapter to a local noindex page")
     ap.add_argument("--no-browser", action="store_true",
                     help="skip gate W6, the width sweep, which needs a browser")
+    ap.add_argument("--from-worktree", action="store_true",
+                    help="build --site from the working tree instead of each "
+                         "chapter's last lock. Local preview of edits in "
+                         "flight; CI never uses it.")
     ap.add_argument("--base-url", default="",
                     help="site origin, e.g. https://example.org. Sets CNAME and "
                          "absolute sitemap URLs. Unset until Dan rules the domain.")
@@ -1607,7 +1612,38 @@ def main():
 
     notes = []
     if a.site:
-        found, notes = discover_chapters()
+        # WHAT PUBLISHES IS THE LAST LOCK, NOT THE WORKING TREE. Ruled
+        # 2026-08-13. Before this, reopening a locked chapter failed the whole
+        # site build and held CI red for the length of a revision, which made
+        # editing a published chapter an event. snapshot.py materializes each
+        # chapter's locked state into a Drafts-shaped tree, so discovery, W2,
+        # the checklist lookup and claimcheck all run unchanged against it.
+        root = "Drafts"
+        if not a.from_worktree:
+            snap_chapters, snap_notes = snapshot.materialize(root, "build/_snapshots")
+            notes.extend(snap_notes)
+            if not snap_chapters:
+                print("Discovering locked chapters:")
+                for n in snap_notes:
+                    print("  " + n)
+                print(chr(10) + "WEB GATES FAILED"
+                      + chr(10) + "   W10: no chapter has ever locked, "
+                      "nothing to publish")
+                return 1
+            for name, still_locked, changed in snapshot.divergence(root, snap_chapters):
+                if still_locked:
+                    notes.append(
+                        "WARNING %s: text changed since it locked but its "
+                        "checklist still reports Stage 9. An edit to a locked "
+                        "chapter should reopen it." % name)
+                else:
+                    notes.append(
+                        "%s: revision in flight, %d file(s) differ from the "
+                        "published lock. The site keeps serving the lock."
+                        % (name, len(changed)))
+            root = "build/_snapshots"
+        found, disc_notes = discover_chapters(root)
+        notes.extend(disc_notes)
         chapters = [p for _, p in found]
         print("Discovering locked chapters:")
         for n in notes:

@@ -78,10 +78,13 @@ python3 AIOM_build.py _ch01_build.html --out build/Ch1.pdf
 rm -f _ch01_build.html _ch01_build.print.html
 ```
 
-**The website and its gates, W1 through W14:**
+**The website and its gates, W1 through W14.** `--site` publishes each chapter's
+last locked state rather than the working tree, so a chapter can be under
+revision without affecting what is live:
 
 ```bash
 python3 web_build.py --site --out build/web
+python3 web_build.py --site --from-worktree   # local preview of edits in flight
 python3 web_gates_selftest.py           # negative controls for every web gate
 ```
 

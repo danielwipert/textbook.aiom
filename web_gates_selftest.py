@@ -518,6 +518,54 @@ def main():
          lambda: [] if empty_ledger_probe() == (0, 0, 0, 0)
          else ["an empty ledger section did not report zero rulings"], False)
 
+    # ------------------------------------------------------- lock snapshots ---
+    # What publishes is each chapter's last LOCK, never the working tree. These
+    # controls guard the resolution itself, because a snapshot pointing at the
+    # wrong commit would publish silently and correctly-looking.
+    print("\nLock snapshots, what actually publishes")
+    import snapshot as snap
+    CH1_DIR = "Drafts/Ch01_The_Category_Error"
+    CH1_CL = os.path.join(CH1_DIR, "AIOM_Ch01_Checklist_v6.md")
+
+    lock = snap.lock_commit(CH1_CL)
+    case("chapter 1's lock commit resolves",
+         lambda: [] if lock and len(lock[0]) == 40 else ["no lock commit found"],
+         False)
+
+    snap_root = "build/selftest-snap"
+    chapters, snotes = snap.materialize("Drafts", snap_root)
+    case("only chapters that have locked are materialized",
+         lambda: [] if [c[2] for c in chapters] == ["Ch01_The_Category_Error"]
+         else ["materialized " + str([c[2] for c in chapters])], False)
+    # Two distinct skips, both correct and both silent-if-unstated: a chapter
+    # with no checklist has not been started, a chapter with one that never
+    # reported Stage 9 is in progress. Neither publishes and neither is a
+    # failure. The first draft of this control asserted the wrong message and
+    # the self-test caught it, which is the self-test doing its job on itself.
+    case("an unlocked chapter is skipped with a stated reason, not failed",
+         lambda: [] if any("Ch02" in n and ("never locked" in n
+                                            or "no checklist" in n)
+                           for n in snotes)
+         else ["Ch02 was not reported as skipped at all"], False)
+
+    # THE CONTROL THAT MATTERS: the published bytes must be the LOCKED bytes.
+    # A snapshot that silently resolved to HEAD would pass every other check in
+    # this file while publishing unreviewed text.
+    def snapshot_matches_lock():
+        import subprocess
+        live = os.path.join(snap_root, "Ch01_The_Category_Error",
+                            "00_Stage0_Draft", "AIOM_Ch01_redraft.html")
+        if not os.path.exists(live):
+            return ["the live text was not materialized"]
+        blob = subprocess.run(
+            ["git", "show", "%s:%s/00_Stage0_Draft/AIOM_Ch01_redraft.html"
+             % (lock[0], CH1_DIR)], capture_output=True)
+        return ([] if blob.stdout == open(live, "rb").read()
+                else ["materialized text differs from the lock commit's blob"])
+
+    case("the materialized text IS the lock commit's text",
+         snapshot_matches_lock, False)
+
     missed = [n for ok, n, _ in results if not ok]
     print(f"\n{len(results) - len(missed)}/{len(results)} controls behaved as "
           f"specified")

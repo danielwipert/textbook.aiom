@@ -191,6 +191,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `continuity.py` | Gate G3. Seven checks against the ledger. `--update` appends at Stage 9; `--pay N` marks promises kept. |
 | `AIOM_Claim_Ledger.md` | The W14 record: every ruled claim narrowing as REQUIRED text the chapter must contain and FORBIDDEN text it must not. Written from the CHAPTER, never from the register note's description of it. Adopted 2026-08-13. |
 | `claimcheck.py` | Gate W14 and a standalone pass. Does the chapter still say what the fact checks ruled? Answers the one class of damage no other check can see. |
+| `snapshot.py` | What the site publishes: each chapter's LAST LOCK, derived from the commits that touched its checklist, never the working tree. Materializes a Drafts-shaped tree so every path-dependent check runs unchanged. |
 | `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
 | `renumber_stage_folders.py` | One-time Process v1 to v2 stage-folder migration. Run 2026-08-05 across all eighteen units. |
 | `git_hygiene.py` | Is any work stranded, and is the tree fit to hand over? Deepens the shallow clone FIRST, because an undeepened sweep counts merged branches as stranded. Run before every merge and every session close. See section 9. |
@@ -690,6 +691,34 @@ rulings. What binds outside that document:
   emits site-relative paths that become absolute the moment one is supplied.
 - **Phase W6 is built, 2026-08-13: dark mode and the figure token pass.**
   THIRTEEN gates. `AIOM_web.css` v0.3.
+- **WHAT PUBLISHES IS EACH CHAPTER'S LAST LOCK, NEVER THE WORKING TREE. Ruled
+  2026-08-13, and it is what makes a locked chapter editable.** Before it,
+  reopening Chapter 1 failed the entire site build with "W10: no locked chapter
+  found", so CI stayed red for the length of any revision and nothing else could
+  deploy. `snapshot.py` resolves each chapter's lock as the newest commit whose
+  version of its checklist reported Stage 9, materializes that state into a
+  Drafts-shaped tree, and the build runs against that. Editing the working tree
+  now has no effect on the live site at all. **The site keeps serving the old
+  snapshot SILENTLY while a revision is open**, which is Dan's ruling and is what
+  a publisher does. `--from-worktree` builds the working tree for local preview
+  and CI never uses it.
+- **THE SNAPSHOT IS DERIVED, NOT STORED, AND BOTH ALTERNATIVES WERE REJECTED FOR
+  NAMED REASONS.** A committed `published/` copy would put the chapter text in
+  the repository twice, which is the Decision 50 hazard with no possible gate,
+  because the two copies are SUPPOSED to differ while a revision is open. An
+  explicit lock tag can be forgotten, and a forgotten tag publishes a stale
+  chapter with nothing reporting it. Deriving from the checklist cannot be
+  forgotten and needs no new artifact.
+- **CI MUST FETCH FULL HISTORY AND THIS IS NOT AN OPTIMIZATION TO REMOVE.**
+  `actions/checkout` defaults to depth 1, at which the walk over checklist
+  commits sees nothing, every chapter resolves to "never locked", and the build
+  fails. `.github/workflows/web.yml` sets `fetch-depth: 0` with a comment saying
+  why.
+- **THE HOLE THE SNAPSHOT LEAVES IS REPORTED, NOT HIDDEN.** If a locked
+  chapter's text is edited without reopening its checklist, the record has
+  stopped being true while the snapshot stays correct. Every build prints a
+  WARNING naming that chapter. It is deliberately NOT a failure, because failing
+  would reintroduce the exact coupling this removes.
 - **GATE W14 IS THE ONLY GATE IN EITHER SUITE THAT READS MEANING, AND IT EXISTS
   BECAUSE MEANING IS WHERE THIS PROJECT'S DAMAGE HAPPENS.** Added 2026-08-13.
   SF8, SF9 and SF10 were reverted during a copy edit with every date and figure
