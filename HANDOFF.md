@@ -7,42 +7,30 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-Active working branch: `claude/stage-7-explanation-sdsb38`, **LEVEL WITH `main`,
-NOTHING OUTSTANDING.** `main` was merged up on Dan's instruction 2026-08-12 and
-took three commits: the gate 15 correction with the G2 reopen and the
-`gen_checklists.py` fix, this file's previous refresh, and the G2 pass. Verified by
-`git_hygiene.py` before the push and by `git rev-list --left-right --count` after
-it, which reports `0 0`. The fast-forward was clean and nothing was forced:
-`git log origin/main ^HEAD` was empty and `git merge-base --is-ancestor` confirmed
-`main` was a strict ancestor, both checked before pushing rather than assumed.
+Active working branch: `claude/textbook-website-design-h9nk9t`. **THREE COMMITS
+AHEAD OF `main`, NOTHING BEHIND.** `git rev-list --left-right --count
+origin/main...HEAD` reports `0 3`, checked after a fetch rather than assumed. The
+three are the web edition proposal, Decisions 60 to 64 with the plan adopted, and
+Phase W1. **NOT YET MERGED UP.** Merging is Dan's call: this is a new sub-project
+rather than a chapter, and nothing on `main` depends on it.
 
-**THIS BRANCH IS NOW FULLY MERGED AND SAFE TO DELETE ONCE THIS SESSION CLOSES.**
-Delete it in the same pass as `claude/chapter-1-status-gli2c0`, and read the
-paragraph below first, because the ordering is the whole point.
+The remote is clean and now holds two branches:
 
-**CHAPTER 1 LOCKED ON THIS BRANCH AND `main` HAS IT.** Levelled after every commit
-rather than at the end, on the rule that every stranding incident here has the same
-shape: a session levels its branch, commits once more, and ends. Verified after the
-last push: `git rev-list --left-right --count origin/main...HEAD` reports `0 0`.
+  main                                     the trunk, at 2b22b3f
+  claude/textbook-website-design-h9nk9t    this one, +3, pushed
 
-**A PUSH FROM THIS CONTAINER RECREATED A BRANCH DAN HAD DELETED, AND CLAUDE CANNOT
-UNDO IT.** The 2026-08-12 cleanup left three branches and this was not among them.
-A session that had been running since before the cleanup pushed again, and the push
-reported `* [new branch]`. The remote now holds four:
+**THE 2026-08-12 STRANDING IS FULLY RESOLVED.** All three leftover branches named
+in the previous handoff are gone from the remote. The durable lesson survives its
+occasion and is repeated here because it will recur: **A DELETED BRANCH IS NOT
+GONE WHILE A SESSION HOLDING IT IS STILL ALIVE.** A long-running container carries
+a local ref and full push rights, so a push from an old session recreates what was
+just deleted, and `git push --delete` returns 403 from this environment so Claude
+cannot undo it. Close the sessions, then delete.
 
-  main                                     the trunk
-  claude/stage-7-explanation-sdsb38        LEVEL, merged up, safe to delete
-  claude/chapter-1-status-gli2c0           fully merged, safe to delete
-  claude/chapter-1-handoff-review-sbkq2u   +3, superseded, recovery tip `68bc904`
-
-Only the last carries anything `main` does not have, and it is already ruled for
-deletion as a Process v1 leftover.
-
-Deletion is Dan's: `git push --delete` returns 403 from this environment. **The
-lesson is narrower than "clean up branches" and worth stating exactly: A DELETED
-BRANCH IS NOT GONE WHILE A SESSION HOLDING IT IS STILL ALIVE.** A long-running
-container carries a local ref and full push rights, so cleanup and open sessions
-have to be sequenced. Close the sessions, then delete.
+**THE WEB EDITION IS THE ACTIVE SUB-PROJECT.** Chapter 1 is locked and Chapter 2
+is still the next DRAFTING target, but on 2026-08-13 Dan opened the web edition as
+a parallel sub-project and it is where this branch's work is. Thread 8 below is the
+live record.
 
 **"MERGE MAIN UP" WAS ASKED FOR IN THIS CONTAINER ON 2026-08-12 AND THE ANSWER WAS
 THE OPPOSITE DIRECTION.** `main` was EIGHTEEN commits ahead and this branch held
@@ -943,11 +931,50 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF 2026-08-13, in order: 6 (Chapter 2), 5 (process hardening),
-3 (design gaps), 7 (Decision 28).** Everything else below is closed and kept as
-record. The numbering is left alone deliberately: these numbers are cited in commit
-messages and in the checklist, and renumbering would break those references for
-cosmetic tidiness. **CHAPTER 2 IS THE WORK NOW.**
+**LIVE THREADS AS OF 2026-08-13, in order: 8 (the web edition), 6 (Chapter 2),
+5 (process hardening), 3 (design gaps), 7 (Decision 28).** Everything else below is
+closed and kept as record. The numbering is left alone deliberately: these numbers
+are cited in commit messages and in the checklist, and renumbering would break
+those references for cosmetic tidiness. **THE WEB EDITION IS THE WORK ON THIS
+BRANCH. CHAPTER 2 REMAINS THE NEXT DRAFTING TARGET AND IS UNBLOCKED.**
+
+8. **LIVE. The web edition, opened 2026-08-13.** Dan asked for the book to exist
+   as a website, with `messyjobs.ai` as the inspiration. Plan in
+   `AIOM_Web_Edition_Plan_v1.0.md`, rulings as Decisions 60 to 64 in the Workplan,
+   durable rules mirrored into CLAUDE.md section 10.
+
+   **What the uploaded `Web Version/` folder turned out to be, because this is the
+   finding that shaped everything after it.** Four files. Two were byte-identical
+   to files already in the repo. The third, `aiom_md.py`, was deleted on
+   2026-08-10 on Dan's ruling. The fourth, `AIOM_ch01.md`, is byte-identical to
+   `archive/AIOM_ch01_markdown_noncanonical.md` and is a PRE-FACT-CHECK draft
+   carrying the SF2 continuation mechanism, the FC9 absorbed-cost inference, and
+   the forbidden word "introduced". Building a public site from it would have
+   shipped claims Dan ruled out, with every date and figure intact so nothing
+   mechanical would have seen it. The archive README now names all three.
+
+   **Phase W0 (decisions) CLOSED. Phase W1 (pipeline and gates) BUILT AND GREEN.**
+   `web_build.py`, `AIOM_web.css`, `web_templates/`, `web_gates_selftest.py`.
+   Chapter 1 reports 43,204 characters of prose identical to print and six
+   footnotes identical. Build it with:
+
+       python3 web_build.py Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html
+
+   **RUN `web_gates_selftest.py` AFTER ANY CHANGE TO `web_build.py`.** On its first
+   run five of twenty-five negative controls did not fire, four of them because
+   gate W3's fault was injected into `<title>`, which the extractor skips. The gate
+   had been reporting green on faults it had never seen. It also surfaced a real
+   defect: the web note extractor had been written as a non-greedy regex twenty
+   lines after the print scanner was written to avoid exactly that.
+
+   **Phase W2, the reader design, is IN PROGRESS on this branch.**
+
+   **STILL BLOCKED AND IT IS NOT A CODE PROBLEM: `messyjobs.ai` is refused by the
+   container's egress proxy** (`gateway answered 403 to CONNECT`, confirmed against
+   the proxy status endpoint; a text-extraction proxy was blocked the same way).
+   No part of the plan or the design derives from that site. Closing it needs one
+   of: the domain allowlisted in the environment, screenshots from Dan, or a
+   sentence on what appealed. Ask again before W2 is called finished.
 
 00. **CLOSED 2026-08-12. The prose style guide is adopted and its checks are
     running.** Three items were recovered from `chapter-1-prose-style-x0bzze`,
