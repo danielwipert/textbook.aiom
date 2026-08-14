@@ -55,6 +55,21 @@ rendering to a file, in which case it passes. It cannot hide the first case to
 achieve the second, which is the only property that made it safe to ship while
 main was red.
 
+**CI ANSWERED IT: THE RUNNER RENDERS ARCHIVO.** The run is green, W16a, W16b and
+W16c all ran there, 97 of 97 controls passed there, and the site deployed.
+**That is a positive result and not a silence**, because the fallback leg is
+what would have fired had the runner been substituting a face, and it is the one
+leg that cannot be satisfied by a page rendering in the platform's font. So the
+original red was the comparison, not the rendering.
+
+**WHAT REMAINS UNEXPLAINED, RECORDED AS UNEXPLAINED: why that runner's browser
+measured about two per cent away from the font file's own hmtx metrics** when
+this container's measures within 0.165 per cent. Some shaping or advance
+handling differs between the two Chromium builds. It no longer decides
+anything, because no comparison in the gate crosses that boundary now, but it is
+the reason the boundary must not be crossed again by a later check that wants a
+convenient reference number.
+
 **THE TOLERANCE IS 0.5 PER CENT AND THE OBVIOUS 1 PER CENT WOULD HAVE BEEN
 USELESS.** Kerning moves a measured string at most 0.165 per cent from the font's
 own metrics, which invites a round one per cent. **Liberation Sans, which is what
