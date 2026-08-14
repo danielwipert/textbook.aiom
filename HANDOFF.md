@@ -108,42 +108,45 @@ neither is one. W3 runs over `llms.txt` too. **87 controls now.**
 the whole book as one scrapeable document, which is a different decision from
 publishing a map of it, and it belongs with the domain ruling.
 
-**THE WEBSITE-EDITS SESSION, 2026-08-13. Everything is on `main` and there is
-nothing else anywhere.** This entry has been closed and reopened several times as
-Dan found more, so treat it as a RUNNING RECORD and check the git log for the
-true tail rather than trusting any count written here. The remote holds ONE
+**THE WEBSITE-EDITS SESSION, CLOSED 2026-08-13. Everything is on `main` and
+there is nothing else anywhere.** It was closed and reopened several times as
+Dan kept finding things, and every count written inside it went stale each time,
+so the numbers here are DERIVED at the final close rather than remembered:
+**19 commits, of which 8 changed the site or the build and 11 are records.**
+Check the git log rather than trusting a number in prose. The remote holds ONE
 branch, `main`, for the first time in this project's history. `git_hygiene.py` reports nothing
 stranded and no branch safe to delete, the tree is clean, local and remote are
 `0 0`, and `status_check.py` reports Chapter 1 locked at 13 of 13, STATUS
 CONSISTENT. **No work sits on a branch. There is nothing to merge up.**
 
-**Ten changes shipped and NOT ONE TOUCHED THE CHAPTER TEXT**, so no lifecycle
+**Eight changes shipped and NOT ONE TOUCHED THE CHAPTER TEXT**, so no lifecycle
 step moved and no amendment was needed. That is the point of the presentation
 layer being a separate file, and it is the first session about this chapter that
 cost the lifecycle nothing.
 
-Four to the reading surface: the v0.4 reading scale, the v0.5 body roman, term
-linking, and the documentation for each. One to the toolchain: **`playwright` is
-pinned**, and the workflow's bare `pip install playwright`, which ran after the
-requirements install and would have overridden it, is gone. Three to
-correctness, all in the last hour: the two dead rail anchors and the two gates
-that had called them live, **gate W15**, and the live 404 page plus W15's HTTP
-half. All eight are described below.
+Three to the reading surface: the v0.4 reading scale, the v0.5 body roman, and
+term linking. One to the toolchain: **`playwright` is pinned**, and the
+workflow's bare `pip install playwright`, which ran after the requirements
+install and would have overridden it, is gone. Four to correctness: the two dead
+rail anchors and the two gates that had called them live, **gate W15**, the live
+404 page plus W15's HTTP half, and **`llms.txt`** with the one URL policy it
+forced. All eight are described below.
 
 **THE SUITE ENDED AT FIFTEEN GATES AND 87 CONTROLS**, up from fourteen and 74.
 W15 is the only check in either suite that EXERCISES the site rather than
 measuring it, and W10's address resolution is the only one that follows a link
 outside an HTML page.
 
-**THE PATTERN IS WORTH MORE THAN ANY OF THE EIGHT. Five began by checking
+**THE PATTERN IS WORTH MORE THAN ANY OF THE EIGHT. Six began by checking
 something the repository already asserted, and the assertion was wrong every
 time.** The column was 71 characters where the stylesheet said 66. The body
 roman was weight 450 where the CSS said 400. The section 17 breakpoint sum had
 been missing a whole term since Phase W2, covered by a cushion nobody had
 reasoned about. Two gates agreed that a rail link resolved when it went
 nowhere. Every page was believed to load its stylesheet, and the 404 page never
-had. **None of those was findable by reading the code, because the code
-asserted the wrong thing in each case.**
+had. The sitemap and robots.txt each stated an address for this site that
+pointed outside it. **None of those was findable by reading the code, because
+the code asserted the wrong thing in each case.**
 
 They were found by rendering the page, measuring the result, clicking the link,
 and serving the tree at the address it actually deploys to. That is the lesson
