@@ -33,8 +33,27 @@ IS A RULE.**
 3. **The swapped-file control reported no failure, because the gate compared the
    build against itself.** Expected metrics came from the staged copy, which is
    the same file the browser loads, so any consistent substitution agreed with
-   itself. They now come from `fonts/use/`, which also catches a stale asset
-   directory.
+   itself.
+
+**AND THE FOURTH WAS FOUND BY CI, NOT BY THE CONTROLS: W16b WAS GREEN HERE AND
+RED ON EVERY PAGE IN CI.** It compared a browser measurement against the font
+file's own `hmtx` metrics, which answers two independent questions at once, which
+face rendered and how the renderer measures it. The runner disagreed by about two
+per cent in both directions and **could not be reproduced here, because the
+pinned browser build will not download into this container**. The fix is a
+division rather than a tolerance: a file is compared to a file, by SHA-256, in
+W16a, and every W16b comparison now has both sides rendered in the same browser,
+in the same page, at the same moment, so whatever the renderer does to one it
+does to all of them. Its third leg is the page's own fallback chain with the
+declared face removed, which is what absence looks like on that page and needs no
+knowledge of which face a platform substitutes.
+
+**THIS IS ALSO WHY THE FIX COULD BE PUSHED WITHOUT KNOWING WHICH WAY CI WOULD
+GO.** Either the runner was rendering a fallback, in which case the new fallback
+leg fails and says so plainly, or the old failure was an artifact of comparing a
+rendering to a file, in which case it passes. It cannot hide the first case to
+achieve the second, which is the only property that made it safe to ship while
+main was red.
 
 **THE TOLERANCE IS 0.5 PER CENT AND THE OBVIOUS 1 PER CENT WOULD HAVE BEEN
 USELESS.** Kerning moves a measured string at most 0.165 per cent from the font's

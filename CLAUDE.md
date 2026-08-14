@@ -731,20 +731,32 @@ rulings. What binds outside that document:
     body family; elsewhere, to a family the stylesheet declares, since the
     landing page's marks legitimately set Jost. This is W12's rule for colour
     applied to type.
-- **THE EXPECTED METRICS COME FROM `fonts/use/`, NEVER FROM THE STAGED COPY, and
-  the control is what proved it matters.** Reading the staged file compares the
-  build against itself: swap `assets/fonts/Archivo-Regular.ttf` for another face
-  and both sides of the comparison move together, which is exactly what happened
-  when the control was first run and reported no failure. Sourcing the
-  expectation from the repository also catches a stale asset directory left by an
-  earlier build.
-- **W16'S TOLERANCE IS 0.5 PER CENT AND ONE PER CENT WOULD HAVE BEEN USELESS.**
-  The browser kerns and a font's `hmtx` table does not, so the two disagree by at
-  most 0.165 per cent across the four faces measured, which invites a round one
-  per cent. **Liberation Sans, which is what generic `sans-serif` resolves to on
-  the build container, sets the probe 0.91 per cent from Archivo**, so a one per
-  cent band would pass the single most likely fallback of all. Measure the
-  fallback before setting the tolerance, not just the kerning.
+- **A FILE IS COMPARED TO A FILE AND A RENDERING TO A RENDERING. THE FIRST
+  VERSION MIXED THEM AND WAS GREEN HERE AND RED IN CI ON EVERY PAGE.** W16b
+  originally measured a probe string in the browser against the font file's own
+  `hmtx` metrics, which answers two independent questions at once, which face
+  rendered and how the renderer measures it, so a failure cannot say which one
+  moved and a pass cannot be trusted on an untested machine. **The CI runner
+  disagreed by about two per cent in both directions and could not be reproduced
+  here, because the pinned browser build will not download into this container.**
+  Now the staged font file is compared to the committed one by SHA-256 in W16a,
+  which is where a file question belongs, and every W16b comparison has both
+  sides measured in the same browser, in the same page, at the same moment.
+- **W16b's THIRD LEG IS THE PAGE'S OWN FALLBACK CHAIN WITH THE DECLARED FACE
+  REMOVED.** Body prose must measure the same as a reference span forced to the
+  declared family AND different from that fallback. It needs no knowledge of
+  which face a platform substitutes, which is what makes it portable, and it is
+  the leg that answers the question the CI failure raised: is the reader actually
+  seeing the book's face.
+- **W16'S TOLERANCE IS 0.5 PER CENT, AND WHAT IT HAS TO CLEAR CHANGED WHEN THE
+  DESIGN DID.** Now that both sides of every comparison are rendered in the same
+  browser, the same face measured twice agrees to floating-point noise, so the
+  number's only job is to stay BELOW the distance to a fallback. **Liberation
+  Sans, which is what generic `sans-serif` resolves to on the build container,
+  sets the probe 0.91 per cent from Archivo**, and that is the closest fallback
+  measured. Under the first design the floor was kerning instead, at most 0.165
+  per cent, and a round one per cent would have passed that same Liberation Sans.
+  **Measure the fallback before setting a tolerance, never just the noise.**
 - **A GATE THAT REPORTS SKIPPED WHEN IT HITS ITS OWN FAULT IS SWITCHED OFF BY THE
   DEFECT IT EXISTS TO CATCH.** W16b's first version read the expected metrics
   inside the browser block, so deleting the font file raised, hit the broad

@@ -353,16 +353,19 @@ def _w16_controls(results):
                     os.remove(path)
         return os.path.join(tmp, css_rel)
 
-    def static(label, patch):
-        """Patch the stylesheet, then require W16a to report it."""
+    def static(label, patch=None, after=None):
+        """Patch the stylesheet or the staged assets, then require W16a to report it."""
         css_path = fresh()
-        text = open(css_path, encoding="utf-8").read()
-        patched = patch(text)
-        if patched == text:
-            results.append((False, label + " (INJECTION DID NOT APPLY)", []))
-            print(f"  [MISS] {label:<46} the control never changed the stylesheet")
-            return
-        open(css_path, "w", encoding="utf-8").write(patched)
+        if patch:
+            text = open(css_path, encoding="utf-8").read()
+            patched = patch(text)
+            if patched == text:
+                results.append((False, label + " (INJECTION DID NOT APPLY)", []))
+                print(f"  [MISS] {label:<46} the control never changed the stylesheet")
+                return
+            open(css_path, "w", encoding="utf-8").write(patched)
+        if after:
+            after(tmp)
         fails = quiet(wb.gate_w16a, css_path, tmp)
         results.append((bool(fails), label, fails))
         print(f"  [{'ok  ' if fails else 'MISS'}] {label:<46} "
@@ -407,6 +410,15 @@ def _w16_controls(results):
     static("a declared face that is not staged",
            lambda c: c.replace("fonts/Archivo-Regular.ttf",
                                "fonts/Archivo-NotStaged.ttf", 1))
+    # A face swapped under its own name: same filename, same declared weight,
+    # different font. THIS BELONGS TO W16a AND NOT TO THE BROWSER. It was first
+    # written as a width measurement against the committed file's metrics, which
+    # asks the renderer a question only the filesystem can answer; a file is
+    # compared to a file, by hash.
+    static("the staged file swapped for another face",
+           after=lambda t: shutil.copy("fonts/use/IBMPlexSans-Regular.ttf",
+                                       os.path.join(t, "assets", "fonts",
+                                                    "Archivo-Regular.ttf")))
     static("an italic file declared font-style normal",
            lambda c: c.replace('url("fonts/Archivo-Italic.ttf");   font-weight: 400; '
                                'font-style: italic',
@@ -433,12 +445,6 @@ def _w16_controls(results):
     served("--body-face names an undeclared family",
            lambda c: c.replace("--body-face: \"Archivo\"",
                                "--body-face: \"NoSuchFace\"", 1))
-    # The one fault the width measurement alone can catch: same name, same
-    # weight class, different face. W16a passes this and is supposed to.
-    served("the staged file swapped for another face",
-           after=lambda t: shutil.copy("fonts/use/IBMPlexSans-Regular.ttf",
-                                       os.path.join(t, "assets", "fonts",
-                                                    "Archivo-Regular.ttf")))
     # The defect tokenize_svg was extended to prevent on 2026-08-14: a chapter
     # figure label left in the print family while the prose beside it moved.
     served("a chapter figure label left in the print face",
