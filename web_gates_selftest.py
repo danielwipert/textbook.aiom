@@ -145,6 +145,81 @@ def quiet(fn, *a, **kw):
 
 
 
+
+def _llms_controls(results):
+    """Negative controls for the llms.txt and sitemap checks inside W10.
+
+    A LIST OF ADDRESSES NOBODY FOLLOWS IS THE SAME DEFECT AS AN ANCHOR NOBODY
+    CLICKS, and W15 cannot cover these: it drives a browser over the emitted
+    HTML pages, and neither llms.txt nor sitemap.xml is one. The faults are the
+    ways a generated link list rots: a page that moved, a path that escapes the
+    deploy prefix (the shape the 404 page shipped), a fragment that no longer
+    exists, and a chapter claimed but never built.
+    """
+    import os
+    import shutil
+
+    src, tmp = "build/web", "build/w10-selftest"
+    base = "/textbook.aiom"
+    metas = [{"chapter_number": "1", "chapter_title": "The Category Error",
+              "slug": "ch01"}]
+
+    def run(label, mutate):
+        shutil.rmtree(tmp, ignore_errors=True)
+        shutil.copytree(src, tmp)
+        path = os.path.join(tmp, "llms.txt")
+        llms = open(path, encoding="utf-8").read()
+        # The tree is rebuilt at the base under test, so these controls do not
+        # depend on which --base-path the last real build happened to use.
+        llms = llms.replace("](/", "](" + base + "/") if base not in llms else llms
+        mutated = mutate(tmp, llms)
+        fails = quiet(wb.gate_w10, tmp, metas, [], False, mutated, base)
+        hit = [f for f in fails if "llms.txt" in f or "sitemap" in f]
+        results.append((bool(hit), label, hit))
+        print(f"  [{'ok  ' if hit else 'MISS'}] {label:<46} "
+              f"{hit[0][:70] if hit else 'no failure reported'}")
+
+    clean = quiet(wb.gate_w10, src, metas, [], False,
+                  open(os.path.join(src, "llms.txt"), encoding="utf-8").read(),
+                  _built_base())
+    results.append((not clean, "W10 clean on the real site", clean))
+    print(f"  [{'ok  ' if not clean else 'MISS'}] "
+          f"{'W10 clean on the real site':<46} "
+          f"{clean[0][:70] if clean else 'no failure reported'}")
+
+    run("llms.txt missing entirely", lambda d, s: "")
+    run("a listed page that is not in the build",
+        lambda d, s: s.replace(base + "/glossary/", base + "/nowhere/"))
+    run("a listed path outside the deploy prefix",
+        lambda d, s: s.replace(base + "/glossary/", "/glossary/"))
+    run("a fragment that is not an anchor on the target",
+        lambda d, s: s.replace("#contents", "#nope"))
+    run("a chapter listed that was never published",
+        lambda d, s: s.replace("## Chapters\n",
+                               "## Chapters\n\n- [Chapter 2: The Flow]("
+                               + base + "/ch02/): x.\n"))
+
+    def bad_sitemap(d, s):
+        f = os.path.join(d, "sitemap.xml")
+        x = open(f, encoding="utf-8").read()
+        open(f, "w", encoding="utf-8").write(x.replace("objects/", "ghost/"))
+        return s
+
+    run("a sitemap address that resolves to nothing", bad_sitemap)
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
+def _built_base():
+    """The prefix build/web was actually built at, read from its own llms.txt.
+
+    The clean control must use the same base the tree carries, or it would
+    report every address as escaping a prefix the tree never had.
+    """
+    import re
+    txt = open("build/web/llms.txt", encoding="utf-8").read()
+    m = re.search(r"\]\((/[^)/]*)?/(?:ch\d\d|glossary)/", txt)
+    return (m.group(1) or "") if m else ""
+
 def _w15_controls(results):
     """Negative controls for gate W15, which follows links in a real browser.
 
@@ -511,6 +586,9 @@ def main():
         print(f"  [{'ok  ' if f6 else 'MISS'}] "
               f"{'a 3000px block widens the page':<46} "
               f"{f6[0][:70] if f6 else 'no failure reported'}")
+
+    print("\nW10, llms.txt and the sitemap as lists of addresses")
+    _llms_controls(results)
 
     print("\nW15, in-page navigation")
     _w15_controls(results)

@@ -1099,7 +1099,7 @@ def gate_w11(outdir):
     return fails
 
 
-def gate_w10(outdir, metas, notes, preview):
+def gate_w10(outdir, metas, notes, preview, llms="", base_path=""):
     """Deploy readiness. Is what is about to be published complete and correct?"""
     fails = [n for n in notes if "FAIL" in n]
     fails = [f"W10: {f}" for f in fails]
@@ -1115,6 +1115,54 @@ def gate_w10(outdir, metas, notes, preview):
         page = os.path.join(outdir, m["slug"], "index.html")
         if not os.path.exists(page):
             fails.append(f"W10: {page} was not written")
+
+    # llms.txt and sitemap.xml are LISTS OF ADDRESSES, and an address in a list
+    # nobody follows is the same defect as an anchor nobody clicks. Both are
+    # resolved back to files in the tree here. W15 cannot do it: it drives a
+    # browser over the emitted HTML pages, and neither of these is one.
+    def _resolve(url, where, out):
+        path = re.sub(r"^https?://[^/]+", "", url).split("#")[0]
+        prefix = "/" + base_path.strip("/") if base_path.strip("/") else ""
+        if prefix and not path.startswith(prefix + "/") and path != prefix:
+            out.append(f"W10: {where} points at {url}, which is outside the "
+                       f"deploy prefix {prefix} and would leave the site")
+            return None
+        rel = path[len(prefix):].strip("/")
+        cand = os.path.join(outdir, rel) if rel else outdir
+        if os.path.isdir(cand):
+            cand = os.path.join(cand, "index.html")
+        elif not os.path.splitext(cand)[1]:
+            cand = os.path.join(cand, "index.html")
+        if not os.path.exists(cand):
+            out.append(f"W10: {where} points at {url}, which is not in the "
+                       f"build ({os.path.relpath(cand, outdir)} is missing)")
+            return None
+        return cand
+
+    if llms:
+        listed = []
+        for m in re.finditer(r"\[([^\]]+)\]\(([^)]+)\)", llms):
+            listed.append((m.group(1), m.group(2)))
+            target = _resolve(m.group(2), "llms.txt", fails)
+            frag = m.group(2).split("#")[1] if "#" in m.group(2) else ""
+            if target and frag and frag not in set(anchor_ids(
+                    open(target, encoding="utf-8").read())):
+                fails.append(f"W10: llms.txt points at #{frag}, which is not an "
+                             f"anchor on {os.path.relpath(target, outdir)}")
+        named = {n for n, _ in listed if n.startswith("Chapter ")}
+        want = {f"Chapter {m['chapter_number']}: {m['chapter_title']}"
+                for m in metas}
+        if named != want:
+            fails.append(f"W10: llms.txt lists {sorted(named)} but the build "
+                         f"published {sorted(want)}")
+    else:
+        fails.append("W10: llms.txt was not written")
+
+    smap = os.path.join(outdir, "sitemap.xml")
+    if os.path.exists(smap):
+        for m in re.finditer(r"<loc>([^<]+)</loc>",
+                             open(smap, encoding="utf-8").read()):
+            _resolve(m.group(1), "sitemap.xml", fails)
 
     # A publish build must carry no noindex page. A preview build must carry
     # nothing else.
@@ -1143,6 +1191,111 @@ def gate_w10(outdir, metas, notes, preview):
     return fails
 
 
+
+def site_url(base_url, base_path, path=""):
+    """The address a published page has, under one policy for every emitter.
+
+    THE 404 PAGE, THE SITEMAP AND robots.txt EACH GOT THIS WRONG SEPARATELY,
+    which is what a policy repeated in three places buys. With no domain ruled
+    the sitemap emitted `/ch01/`, and on a GitHub Pages PROJECT site served at
+    `/textbook.aiom/` that points at the root of the USER site, exactly as the
+    404 page's stylesheet did. One function now answers the question.
+
+    With a domain: absolute, origin plus prefix. Without one: root-absolute with
+    the prefix, which is valid and becomes absolute the moment a domain is
+    supplied. Nothing here invents a hostname.
+
+    base_path is derived from base_url's own path when both are given, so the
+    origin is taken WITHOUT its path or the prefix would appear twice.
+    """
+    prefix = "/" + base_path.strip("/") if base_path.strip("/") else ""
+    tail = "/" + path.lstrip("/") if path else "/"
+    if base_url:
+        origin = re.sub(r"^(https?://[^/]+).*$", r"\1", base_url.rstrip("/"))
+        return origin + prefix + tail
+    return prefix + tail
+
+
+def write_llms_txt(outdir, metas, book, base_url, base_path, index_html):
+    """/llms.txt, the machine-readable map of the site.
+
+    The llmstxt.org convention: an H1 name, a blockquote summary, optional
+    prose, then H2 sections of links. It is markdown so a model can read it
+    without parsing the site, and it is emitted at the root because that is
+    where a reader looks for it.
+
+    IT QUOTES THE SITE AND WRITES NOTHING NEW, which is the same rule gate W9a
+    puts on the landing page. The summary is lifted from the landing page's own
+    hero, extracted from the rendered index rather than retyped, so the two
+    cannot drift into saying different things about the book. Everything else is
+    built from records already enforced elsewhere: the chapter list from what
+    actually locked and built, the counts from the transformed body, the part
+    names from the structure document.
+
+    WHAT IT MUST NOT CARRY. Chapter "Big idea", "Competency" and "Anchor
+    theorem" lines are never published, because CLAUDE.md section 9 rules that
+    later chapters withhold deliberately, and a file addressed to a machine is
+    not an exemption from that. Register notes are never published either, which
+    gate W9b enforces across every page. Only a part's FIRST Purpose sentence is
+    public, and that rule is applied by book_structure.public_purpose.
+    """
+    head = re.search(r"<h1>(.*?)</h1>", index_html, re.S)
+    lede = re.search(r'<p class="lede">(.*?)</p>', index_html, re.S)
+    if not head or not lede:
+        raise ValueError("llms.txt: the landing page hero could not be read, so "
+                         "the summary would be invented rather than quoted")
+
+    def flat(html):
+        return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html)).strip()
+
+    url = lambda p: site_url(base_url, base_path, p)
+    lines = [
+        "# AI Operations Management",
+        "",
+        f"> {flat(head.group(0))} {flat(lede.group(1))}",
+        "",
+        "A founding academic textbook establishing AI Operations Management as a "
+        "discipline, in fifteen chapters across four parts. Chapters are "
+        f"published as they lock, and {len(metas)} of 15 "
+        f"{'is' if len(metas) == 1 else 'are'} available now. The web edition "
+        "and the print PDF are two presentations of ONE source text: the body "
+        "text is character-identical between them, which the build enforces "
+        "rather than intends.",
+        "",
+        "## Chapters",
+        "",
+    ]
+    for m in metas:
+        c = m["counts"]
+        lines.append(
+            f"- [Chapter {m['chapter_number']}: {m['chapter_title']}]"
+            f"({url(m['slug'] + '/')}): {m['part_label']}. "
+            f"{c['words']:,} words, {c['key_terms']} key terms, "
+            f"{len(m['notes'])} sources, {c['figures']} figures.")
+
+    lines += [
+        "",
+        "## Reference",
+        "",
+        f"- [Glossary]({url('glossary/')}): every key term, in the words the "
+        f"chapter that owns it uses.",
+        f"- [Sources]({url('sources/')}): every cited source in full "
+        f"bibliographic form, with links.",
+        f"- [Object index]({url('objects/')}): the formal registry objects each "
+        f"chapter renders.",
+        f"- [Search]({url('search/')}): full-text search across published "
+        f"chapters.",
+        "",
+        "## Optional",
+        "",
+        f"- [The whole structure]({url('')}#contents): all four parts and "
+        f"fifteen chapters, including those not yet published.",
+        "",
+    ]
+    text = "\n".join(lines)
+    open(os.path.join(outdir, "llms.txt"), "w", encoding="utf-8").write(text)
+    return text
+
 def write_deploy_files(outdir, metas, base_url, base_path=""):
     """robots.txt, sitemap.xml, 404.html, and CNAME when a domain is set.
 
@@ -1152,9 +1305,9 @@ def write_deploy_files(outdir, metas, base_url, base_path=""):
     """
     pages = ["", "search/", "glossary/", "sources/", "objects/"] + \
             [m["slug"] + "/" for m in metas]
-    root = base_url.rstrip("/") if base_url else ""
     urls = "\n".join(
-        f"  <url><loc>{root}/{p}</loc></url>" for p in pages)
+        f"  <url><loc>{site_url(base_url, base_path, p)}</loc></url>"
+        for p in pages)
     open(os.path.join(outdir, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -1162,8 +1315,8 @@ def write_deploy_files(outdir, metas, base_url, base_path=""):
 
     open(os.path.join(outdir, "robots.txt"), "w", encoding="utf-8").write(
         "User-agent: *\n"
-        "Allow: /\n"
-        + (f"Sitemap: {root}/sitemap.xml\n" if root else "Sitemap: /sitemap.xml\n"))
+        f"Allow: {site_url(base_url, base_path)}\n"
+        f"Sitemap: {site_url(base_url, base_path, 'sitemap.xml')}\n")
 
     open(os.path.join(outdir, "404.html"), "w", encoding="utf-8").write(
         _env().get_template("404.html.j2").render(base=base_path))
@@ -1974,6 +2127,12 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
           + (f", CNAME for {base_url}" if base_url else ", no CNAME (no domain set)"))
 
     index_html = open(index, encoding="utf-8").read()
+    # llms.txt is written AFTER the landing page, because it quotes that page's
+    # hero rather than restating it.
+    llms = write_llms_txt(outdir, metas, lead.get("book", []), base_url,
+                          base_path, index_html)
+    print(f"  llms.txt: {len(metas)} chapter(s) and the reference layer, "
+          f"{len(llms)} bytes")
     site_pages = ([("index", index_html), ("search", search_html)]
                   + [(n, h) for n, h in ref_pages.items()])
 
@@ -1984,7 +2143,8 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
     if not no_browser:
         w6, _ = gate_w6(index)
         fails += w6
-    fails += gate_w10(outdir, metas, notes, preview)
+    fails += gate_w3(llms, "llms.txt")
+    fails += gate_w10(outdir, metas, notes, preview, llms, base_path)
     # W15 walks the finished tree, so it runs after W10 has confirmed the tree
     # is complete. Following a link on a page that was never emitted would fail
     # for the wrong reason and send the reader after the wrong defect.
