@@ -103,13 +103,21 @@ def chapter_id_for(path):
     return m.group(1) if m else None
 
 
-def check(chapter_path, ledger_path=LEDGER, chapter=None):
-    """Returns a list of failure strings. Empty list means the chapter holds."""
+def _failures(chapter_path, ledger_path=LEDGER, chapter=None):
+    """[(ruling_id, message)] for every ruling this chapter breaks.
+
+    check() wants the messages and amend.py --rule wants the identities, and both
+    must be answers to ONE evaluation. Deriving the id set by regexing check()'s
+    prose would create a second reader of the same question, which is how this
+    repository's recurring defect starts. The id is None for the setup failures,
+    which belong to no ruling.
+    """
     chapter = chapter or chapter_id_for(chapter_path)
     if chapter is None:
-        return ["W14: cannot infer a chapter id from %s" % chapter_path]
+        return [(None, "W14: cannot infer a chapter id from %s" % chapter_path)]
     if not os.path.exists(ledger_path):
-        return ["W14: %s not found; the claim ledger is required" % ledger_path]
+        return [(None, "W14: %s not found; the claim ledger is required"
+                 % ledger_path)]
 
     ledger = load_ledger(ledger_path)
     if chapter not in ledger:
@@ -123,17 +131,37 @@ def check(chapter_path, ledger_path=LEDGER, chapter=None):
     for r in ledger[chapter]:
         for want in r["required"]:
             if normalize(want) not in body:
-                fails.append(
+                fails.append((r["id"],
                     "W14: %s %s: REQUIRED text is missing from %s. A ruled "
                     "narrowing has been reverted or reworded.\n        wanted: %r"
-                    % (chapter, r["id"], os.path.basename(chapter_path), want))
+                    % (chapter, r["id"], os.path.basename(chapter_path), want)))
         for bad in r["forbidden"]:
             if normalize(bad) in body:
-                fails.append(
+                fails.append((r["id"],
                     "W14: %s %s: FORBIDDEN text is present in %s. A withdrawn "
                     "claim has returned.\n        found: %r"
-                    % (chapter, r["id"], os.path.basename(chapter_path), bad))
+                    % (chapter, r["id"], os.path.basename(chapter_path), bad)))
     return fails
+
+
+def check(chapter_path, ledger_path=LEDGER, chapter=None):
+    """Returns a list of failure strings. Empty list means the chapter holds."""
+    return [m for _, m in _failures(chapter_path, ledger_path, chapter)]
+
+
+def broken_rulings(chapter_path, ledger_path=LEDGER, chapter=None):
+    """The IDs of the rulings this chapter currently breaks, sorted.
+
+    THIS SEES ONLY WHAT THE GATE SEES, which is the whole caveat on amend.py
+    --rule. A ruling is broken here when a REQUIRED string is absent or a
+    FORBIDDEN string is present, both matched literally. A withdrawn claim
+    restated in DIFFERENT WORDS breaks the ruling in substance and appears in
+    neither set, so it is never retired and never reported. That is not a defect
+    in this function; it is the reason SF8 exists as a separate entry from SF2,
+    and the reason REVIEW rulings say they are enforced by reading.
+    """
+    return sorted({rid for rid, _ in _failures(chapter_path, ledger_path, chapter)
+                   if rid})
 
 
 def summary(chapter_path, ledger_path=LEDGER, chapter=None):

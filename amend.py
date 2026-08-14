@@ -32,8 +32,23 @@ no longer in force or it silently protects nothing. `--supersede ID "reason"`
 retires that ruling in AIOM_Claim_Ledger.md, dated and attributed, keeping the
 old text as history.
 
+--rule IS THE SAME RULING APPLIED IN ADVANCE. Naming each ID by hand costs a
+round trip: the gate fails, the IDs are read off the failure, and the command is
+retyped. That is friction with no decision inside it, because the answer is
+already known. Dan's edit supersedes whatever it breaks, so --rule retires
+exactly the rulings this edit breaks, dated and attributed like any other
+supersede, and the history is kept. It can never retire a ruling that still
+holds, because the set comes from the same evaluation W14 runs.
+
+WHAT --rule CANNOT DO, and it is the same blind spot the gate has. A withdrawn
+claim RESTATED IN DIFFERENT WORDS matches no forbidden string. It breaks the
+ruling in substance, W14 stays silent, and --rule retires nothing because
+nothing failed. This is exactly how SF2 came back as SF8. The mechanical half
+got faster; the reading half did not move.
+
     python3 amend.py Ch01 -m "tighten the opening case"
     python3 amend.py Ch01 -m "restate the GitHub act one" --supersede SF3 "..."
+    python3 amend.py Ch01 -m "rewrite the opening case" --rule
 """
 
 import argparse
@@ -150,6 +165,9 @@ def main():
     ap.add_argument("--supersede", nargs=2, action="append", default=[],
                     metavar=("RULING_ID", "REASON"),
                     help="retire a fact-check ruling this edit overturns")
+    ap.add_argument("--rule", action="store_true",
+                    help="retire whichever rulings this edit breaks, on Dan's "
+                         "authority, without naming them first")
     ap.add_argument("--no-print", action="store_true",
                     help="skip the print render and its fifteen gates")
     ap.add_argument("--force", action="store_true",
@@ -177,11 +195,36 @@ def main():
         sys.exit("\nno uncommitted change to %s. Nothing to amend." % live)
 
     # ---- the ruling Dan overturns, applied BEFORE W14 runs -------------------
+    # A dry run must not write the ledger. It did until --rule existed, and the
+    # trap was survivable only because naming an ID by hand is deliberate.
+    # Retiring rulings AUTOMATICALLY makes an unnoticed ledger edit easy to
+    # produce, so the guard goes in with the flag that creates the hazard.
+    def retire(rid, reason, note=""):
+        if rid in superseded:
+            return
+        if a.dry_run:
+            print("  would supersede %s in %s%s" % (rid, LEDGER, note))
+        else:
+            supersede(rid, reason, today)
+            print("  superseded %s in %s%s" % (rid, LEDGER, note))
+        superseded.append(rid)
+
     superseded = []
     for rid, reason in a.supersede:
-        supersede(rid, reason, today)
-        superseded.append(rid)
-        print("  superseded %s in %s" % (rid, LEDGER))
+        retire(rid, reason)
+
+    if a.rule:
+        # Only rulings the edit ACTUALLY breaks are retired. The set comes from
+        # the same evaluation W14 runs, so this can never retire a ruling that
+        # still holds. What it cannot see is a withdrawn claim restated in
+        # different words: that breaks a ruling in substance while matching no
+        # string, so it is neither retired here nor reported by the gate.
+        broken = claimcheck.broken_rulings(live)
+        if not broken:
+            print("  --rule: no ruling broken by this edit, nothing retired")
+        for rid in broken:
+            retire(rid, "Dan's edit supersedes. %s" % a.message.rstrip().rstrip("."),
+                   " (--rule)")
 
     # ---- the mechanical half. No opinion about the writing. ------------------
     print("\nMechanical checks. These measure the artifact, never the edit.")
@@ -245,9 +288,19 @@ def main():
                 if l.strip():
                     print("   " + l.strip()[:140])
         if any(n == "W14" for n, _ in failures):
-            print("\n  W14 objects because the edit changed a sentence a fact "
-                  "check ruled.\n  If that is deliberate, re-run with:"
-                  "\n     --supersede <RULING_ID> \"why\"")
+            if a.rule and a.dry_run:
+                # A dry run retires nothing, so the rulings --rule WOULD have
+                # cleared are still failing here. Saying so is the difference
+                # between a preview and a false alarm.
+                print("\n  W14 objects because the edit changed a sentence a "
+                      "fact check ruled.\n  --dry-run retired nothing, so these "
+                      "are the same rulings listed above as\n  \"would "
+                      "supersede\". The real run clears them.")
+            else:
+                print("\n  W14 objects because the edit changed a sentence a fact "
+                      "check ruled.\n  If that is deliberate, re-run with:"
+                      "\n     --supersede <RULING_ID> \"why\", or --rule to "
+                      "retire whatever this edit breaks")
         if any(n == "print" for n, _ in failures):
             print("\n  If gate 4 reported a split callout, the remedy is:"
                   "\n     python3 place.py %s" % live)

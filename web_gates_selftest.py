@@ -836,13 +836,23 @@ def main():
                  "than the monthly price covered"), "sf10")))
 
     # FC9, 2026-08-13: the absorbed-cost inference, cut as unsupported.
+    #
+    # THIS CONTROL INJECTS STRUCTURALLY RATHER THAN AT A SENTENCE, and the
+    # reason is a real failure on 2026-08-14. It used to anchor on "The credit
+    # was consumed in a handful of prompts", ordinary prose carrying no ruling,
+    # and an amendment rewrote that paragraph. The injection became a no-op and
+    # the control stopped testing anything. A FORBIDDEN control does not care
+    # WHERE the withdrawn claim sits, only that W14 finds it in the body, so it
+    # anchors on the first paragraph tag and survives any rewrite.
+    #
+    # The REQUIRED controls above need no such fix: each mutates its own ruled
+    # sentence, which must be present or W14 would already be failing.
     case("a withdrawn claim restored (FC9)",
          lambda: quiet(wb.gate_w14, probe_chapter(
              lambda b: b.replace(
-                 "The credit was consumed in a handful of prompts",
-                 "Cursor had been paying the difference, but the difference "
-                 "had become too expensive to absorb. The credit was consumed "
-                 "in a handful of prompts"), "fc9")))
+                 "<p>",
+                 "<p>Cursor had been paying the difference, but the difference "
+                 "had become too expensive to absorb. ", 1), "fc9")))
 
     # SF1, 2026-08-06: the superlative both external checks raised.
     case("a cut superlative returns (SF1)",
