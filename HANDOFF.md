@@ -78,40 +78,62 @@ three are invisible to every other gate**: an anchor on an element that is
 `display:none`, and a click swallowed by a handler. That is what makes W15 a
 gate rather than a duplicate of W4's hardened parse.
 
-**THE WEBSITE-EDITS SESSION, 2026-08-13. Everything is on `main` and there is
-nothing else anywhere.** It was closed once and reopened twice, for the
-playwright pin and then for the dead rail anchors above, so treat the summary
-below as the running record rather than a final one. The counts here are the
-work as of the last entry. The remote holds ONE branch, `main`, for
-the first time in this project's history. `git_hygiene.py` reports nothing
+**THE WEBSITE-EDITS SESSION, CLOSED 2026-08-13. Everything is on `main` and
+there is nothing else anywhere.** The remote holds ONE branch, `main`, for the
+first time in this project's history. `git_hygiene.py` reports nothing
 stranded and no branch safe to delete, the tree is clean, local and remote are
 `0 0`, and `status_check.py` reports Chapter 1 locked at 13 of 13, STATUS
 CONSISTENT. **No work sits on a branch. There is nothing to merge up.**
 
-Four changes shipped to the reading surface, none of them to the chapter text:
-the v0.4 reading scale, the v0.5 body roman, term linking, and the
-documentation for each. A fifth closed a toolchain hole: **`playwright` is now
-pinned**, and the workflow's bare `pip install playwright`, which ran after the
-requirements install and would have overridden it, is gone. A sixth fixed the
-two dead rail anchors and the two gates that had reported them sound. All six
-are described below. **Chapter 1's text was not edited at all, so no lifecycle step
-was touched and no amendment was needed**, which is the point of the
-presentation layer being a separate file.
+**Eight changes shipped and NOT ONE TOUCHED THE CHAPTER TEXT**, so no lifecycle
+step moved and no amendment was needed. That is the point of the presentation
+layer being a separate file, and it is the first session about this chapter that
+cost the lifecycle nothing.
 
-**THE PATTERN THAT RAN THROUGH ALL SIX IS WORTH REUSING: every one began by
-measuring or by exercising the page, and four of the six began by checking
-something the repository already believed it knew.** The column was 71 characters and the stylesheet said
-66. The body roman was weight 450 and the CSS said 400. The section 17
-breakpoint sum had been missing a whole term since Phase W2 and was covered by a
-cushion nobody had reasoned about. None of those was found by reading the code,
-which asserted the wrong number in each case. They came from rendering the page
-and measuring the result, which is the lesson the drawn spot marks and the
-hyphenation scan had already taught in other corners of this project. The rail
-anchors extend it: two gates asserted a link resolved, and the only check that
-settled it was clicking the link.
+Four to the reading surface: the v0.4 reading scale, the v0.5 body roman, term
+linking, and the documentation for each. One to the toolchain: **`playwright` is
+pinned**, and the workflow's bare `pip install playwright`, which ran after the
+requirements install and would have overridden it, is gone. Three to
+correctness, all in the last hour: the two dead rail anchors and the two gates
+that had called them live, **gate W15**, and the live 404 page plus W15's HTTP
+half. All eight are described below.
+
+**THE SUITE ENDED THE SESSION AT FIFTEEN GATES AND 80 CONTROLS**, up from
+fourteen and 74, and the two additions are the only checks in either suite that
+EXERCISE the site rather than measure it.
+
+**THE PATTERN IS WORTH MORE THAN ANY OF THE EIGHT. Five began by checking
+something the repository already asserted, and the assertion was wrong every
+time.** The column was 71 characters where the stylesheet said 66. The body
+roman was weight 450 where the CSS said 400. The section 17 breakpoint sum had
+been missing a whole term since Phase W2, covered by a cushion nobody had
+reasoned about. Two gates agreed that a rail link resolved when it went
+nowhere. Every page was believed to load its stylesheet, and the 404 page never
+had. **None of those was findable by reading the code, because the code
+asserted the wrong thing in each case.**
+
+They were found by rendering the page, measuring the result, clicking the link,
+and serving the tree at the address it actually deploys to. That is the lesson
+the drawn spot marks and the hyphenation scan had already taught elsewhere,
+arriving three more times in one session.
+
+**THE GENERALISED FORM, AND THE ONE TO CARRY INTO CHAPTER 2: this project's
+checks measure artifacts and rarely exercise them.** Both defects a human found
+this session had survived six phases of green builds. W15 closes the navigation
+and the subresource half of that gap. Nothing yet closes typography, which is
+how the body roman sat half a step heavy through the same six phases, and no
+gate is proposed for it because the line changes about once a year.
+
+**WHAT CLAUDE CAN AND CANNOT SEE OF THE SITE, since it decided two findings.**
+It CAN render, click, measure and serve the built tree in real headless
+Chromium, which is the artifact CI publishes from the same commit. It CANNOT
+load the published URL: the egress proxy answers 403 to CONNECT for
+`danielwipert.github.io`, logged by name. **So nothing between CI and the reader
+is checkable here**: a failed deploy, Pages caching, or a settings change. That
+last mile is Dan's.
 
 **Next session starts on `main` and starts on CHAPTER 2**, unless Dan brings
-more website edits, in which case the working rhythm was: change, gates,
+more website edits, in which case the rhythm that worked was: change, gates,
 self-test, render a sheet at the size it ships at, commit with the reasoning in
 the message, then update the three documents.
 
@@ -1131,20 +1153,30 @@ build), 5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed
 the day it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread:
 see the top of Repository state.**
 
-**Two small items are booked by the website-edits session and neither blocks
-anything.** They belong to thread 8. **Item (a), the unpinned `playwright`, was
-CLOSED on 2026-08-13**: it is now `playwright==1.62.0` in `requirements.txt`,
-and `.github/workflows/web.yml` no longer runs a bare `pip install playwright`
-that silently overrode the toolchain. Pinning the library pins the rendering
-engine, since `playwright install chromium` fetches the build matching the
-installed version, and W6 measures rendered layout across twenty widths. The
-browser binary is still a separate fetch, because pip does not carry it.
-(b) The dark-theme
-`:target` landing tint moves only 4 to 8 levels and may be too subtle, but it is
-shared with the sidenote, the glossary row and the sources entry, so changing it
-changes all four. (c) The term-linking match rules have been exercised against
-Chapter 1 only, so Chapter 2 is the first real test of the leading-article rule
-and the trailing-punctuation refusal.
+**Three small items are booked by the website-edits session and none blocks
+anything.** They belong to thread 8.
+
+- **(a) The dark-theme `:target` landing tint moves only 4 to 8 levels** and may
+  be too subtle. It is shared with the sidenote, the glossary row and the
+  sources entry, so changing it changes all four.
+- **(b) The term-linking match rules have been exercised against Chapter 1
+  only.** Chapter 2 is the first real test of the leading-article rule and the
+  trailing-punctuation refusal.
+- **(c) A CUSTOM DOMAIN WILL BREAK THE 404 PAGE IN THE OTHER DIRECTION.**
+  `--base-path` is derived in CI from the repository name, which is right for a
+  Pages project site at `/textbook.aiom/`. The day a domain is ruled and the
+  site serves at the root, that prefix must become EMPTY or the 404 page starts
+  reaching for `/textbook.aiom/assets/` on a host that has no such path. The
+  workflow comment says so at the line that sets it. **Gate W15 catches it**,
+  because it serves at whatever prefix the build was given, so this fails loudly
+  rather than shipping. Ruled at the same time as the domain, not before.
+
+**The unpinned `playwright` was booked here and CLOSED on 2026-08-13**: it is
+now `playwright==1.62.0` in `requirements.txt`, and `.github/workflows/web.yml`
+no longer runs a bare `pip install playwright` that silently overrode the
+toolchain. Pinning the library pins the rendering engine, since
+`playwright install chromium` fetches the build matching the installed version.
+The browser binary is still a separate fetch, because pip does not carry it.
 Everything else below is
 closed and kept as record. The numbering is left alone deliberately: these numbers
 are cited in commit messages and in the checklist, and renumbering would break
