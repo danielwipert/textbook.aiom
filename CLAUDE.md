@@ -631,10 +631,14 @@ rulings. What binds outside that document:
   renders at 43,204 characters of prose identical to print, six notes identical,
   all six slots anchored. Build with:
   `python3 web_build.py Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`
-- **W6 AND W15 ARE THE TWO OPTIONAL GATES AND THEY ARE LOUD ABOUT IT.** Both need
-  a headless browser, which nothing else in the build does, so each prints SKIPPED
-  and the verdict line gains "W6 AND W15 NOT RUN" rather than quietly passing.
-  `--no-browser` skips them deliberately. It is the web analogue of print gate 1: the symptom is
+- **W6, W15 AND W16's SERVED HALF ARE THE OPTIONAL CHECKS AND THEY ARE LOUD ABOUT
+  IT.** All need a headless browser, which nothing else in the build does, so each
+  prints SKIPPED and the verdict line gains "W6, W15, W16b AND W16c NOT RUN"
+  rather than quietly passing. **The skip notice names the parts, not the gate,
+  because W16a does run**: it reads the stylesheet against the committed font
+  files and needs no browser, and a notice overstating what was skipped is the
+  same defect as one understating it.
+  `--no-browser` skips them deliberately. W6 is the web analogue of print gate 1: the symptom is
   not ink off the paper but the whole document scrolling sideways, dragging every
   other block with it. It found the P3 inventory table doing exactly that below
   390px, which no amount of looking at a desktop render would have shown.
@@ -706,22 +710,54 @@ rulings. What binds outside that document:
   took the measure to 76 characters, past the top of the 45 to 75 band. **Compare
   faces by rendering the book's own prose, never by reading a description of the
   face**, which is the same rule already in force for the drawn marks.
-- **NO GATE IN EITHER SUITE CAN SEE A TYPEFACE SUBSTITUTION, AND THIS ONE SAT
-  THERE THROUGH SIX PHASES OF GREEN BUILDS.** A face swap changes no text, so
-  W1's equivalence holds perfectly, and print gate 5 inspects the faces embedded
-  in the PDF rather than the weight a web stylesheet declares. **The v0.5 entry
-  left this hole open on the reasoning that the line changes about once a year.
-  It then changed twice in two days**, v0.5 on 2026-08-13 and v0.6 on 2026-08-14,
-  so that reasoning is withdrawn rather than left standing. What exists now is a
-  self-test control over the figure remap and a documented manual probe
-  measurement for the CSS face; **a gate over the served page's computed body
-  family is unbuilt and unruled**, and until it exists a face swap is verified by
-  the probe or it is not verified.
-- **VERIFY A FONT SWAP BY MEASURING A STRING, NEVER BY LOOKING.** A face that
-  fails to load renders identically to a face that changed nothing, so "it looks
-  right" is not evidence. Measure a fixed probe string in the SERVED page at a
-  fixed size and check it reports the incoming face's number, not the outgoing
-  one. At v0.6 the 73-character probe sets at 3310.9px per 100px of type in
+- **GATE W16 CLOSES THE TYPEFACE HOLE, 2026-08-14 ON DAN'S RULING.** A face swap
+  changes no text, so W1's equivalence holds perfectly, and print gate 5 inspects
+  the faces embedded in the PDF rather than the weight a web stylesheet declares.
+  The body face was half a step heavier than it announced for six phases, and the
+  v0.5 entry left the hole open on the reasoning that the line changes about once
+  a year. It then changed twice in two days. Three checks, each answering a
+  different way this fails:
+  - **W16a, the declaration against the file.** Every `@font-face` is staged, its
+    `usWeightClass` is the weight declared, and its italic bit is the style
+    declared. Static, so it always runs. **Its control is the real defect**: Plex
+    Sans Text at 450 declared as 400, which it fails.
+  - **W16b, the served page against the declaration.** Body prose computes to the
+    family `--body-face` names, a FontFace at that family AND weight AND style is
+    `loaded`, and a probe string measures within tolerance of the COMMITTED
+    file's own metrics. All three, because each catches what the others miss:
+    `getComputedStyle` reports the family REQUESTED whether or not anything
+    loaded, so it cannot see a fallback at all.
+  - **W16c, figure labels.** Inside a chapter, an SVG label must resolve to the
+    body family; elsewhere, to a family the stylesheet declares, since the
+    landing page's marks legitimately set Jost. This is W12's rule for colour
+    applied to type.
+- **THE EXPECTED METRICS COME FROM `fonts/use/`, NEVER FROM THE STAGED COPY, and
+  the control is what proved it matters.** Reading the staged file compares the
+  build against itself: swap `assets/fonts/Archivo-Regular.ttf` for another face
+  and both sides of the comparison move together, which is exactly what happened
+  when the control was first run and reported no failure. Sourcing the
+  expectation from the repository also catches a stale asset directory left by an
+  earlier build.
+- **W16'S TOLERANCE IS 0.5 PER CENT AND ONE PER CENT WOULD HAVE BEEN USELESS.**
+  The browser kerns and a font's `hmtx` table does not, so the two disagree by at
+  most 0.165 per cent across the four faces measured, which invites a round one
+  per cent. **Liberation Sans, which is what generic `sans-serif` resolves to on
+  the build container, sets the probe 0.91 per cent from Archivo**, so a one per
+  cent band would pass the single most likely fallback of all. Measure the
+  fallback before setting the tolerance, not just the kerning.
+- **A GATE THAT REPORTS SKIPPED WHEN IT HITS ITS OWN FAULT IS SWITCHED OFF BY THE
+  DEFECT IT EXISTS TO CATCH.** W16b's first version read the expected metrics
+  inside the browser block, so deleting the font file raised, hit the broad
+  `except`, and printed "SKIPPED, browser unavailable" while a browser sat there
+  running. The control caught it. Any check whose setup can fail on the fault it
+  hunts needs that setup outside the catch-all, or the fault reads as an absence.
+- **VERIFY A FONT SWAP BY MEASURING A STRING, NEVER BY LOOKING. THIS IS NOW GATE
+  W16b AND IT RUNS ON EVERY BUILD.** A face that fails to load renders
+  identically to a face that changed nothing, so "it looks right" is not
+  evidence. The method, kept here because it is what the gate does and what to do
+  by hand when the browser is unavailable: measure a fixed probe string in the
+  SERVED page at a fixed size and check it reports the incoming face's number,
+  not the outgoing one. At v0.6 the 73-character probe sets at 3310.9px per 100px of type in
   Archivo against 3388.3px in Plex Regular, a 2.4 per cent move. **Select an
   actual body paragraph when measuring, and print what you selected.** The first
   run of this check at v0.6 caught the provenance line, which is Jost at 0.76rem,
@@ -1005,12 +1041,12 @@ rulings. What binds outside that document:
   **the notes should be corrected at the next reopen** and the ledger records the
   discrepancy at each entry.
 - **A GATE IS ONE W-NUMBER, NOT ONE CHECK, AND THIS COUNT DRIFTED FOR FIVE
-  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W15, so it is
-  FIFTEEN gates as of 2026-08-13, when W15 was added. Phase counts above are
+  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W16, so it is
+  SIXTEEN gates as of 2026-08-14, when W16 was added. Phase counts above are
   stated as they stood at that phase and are not restated here. Sub-lettered
   checks are parts of their gate, never gates: `W1a` and `W1b` are one gate, and so
-  are `W4a` through `W4f`, `W7a` and `W7b`, `W8a` through `W8c`, and `W9a` and
-  `W9b`. The Phase W1 and W2 entry was right at SIX and every entry after it ran
+  are `W4a` through `W4g`, `W7a` and `W7b`, `W8a` through `W8c`, `W9a` and
+  `W9b`, and `W16a` through `W16c`. The Phase W1 and W2 entry was right at SIX and every entry after it ran
   one high, because W1's two channels were silently counted as two gates while no
   other gate's sub-parts ever were. Corrected 2026-08-13, on Dan's ruling, after a
   README draft asserted fourteen and the number was checked against the build

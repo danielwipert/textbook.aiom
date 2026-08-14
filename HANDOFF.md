@@ -7,6 +7,49 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**GATE W16 CLOSES THE TYPEFACE HOLE, 2026-08-14, RULED BY DAN THE SAME DAY IT WAS
+BOOKED. THE WEB SUITE IS W1 THROUGH W16, SIXTEEN GATES, 97 SELF-TEST CONTROLS.**
+Re-derived from build output, which is the standing rule for this count. W16a
+reads each `@font-face` against the committed file, so it needs no browser and
+always runs; W16b reads the served page; W16c reads figure labels. The verdict
+line now says "W6, W15, W16b AND W16c NOT RUN", naming the parts rather than the
+gate, because W16a did run.
+
+**THE GATE FOUND THREE DEFECTS IN ITSELF BEFORE IT FOUND ANYTHING ELSE, AND EACH
+IS A RULE.**
+
+1. **It reported a 5.14 per cent phantom on the landing page.**
+   `getComputedStyle().font` serializes to an EMPTY STRING in Chromium, so
+   `span.style.font = cs.font` set nothing and the probe inherited the BODY's
+   size rather than the paragraph's. It read correct on the chapter page, where
+   those two sizes happen to be equal, and wrong on the landing page, where they
+   are not. **Copy font properties one at a time; the shorthand is not reliable
+   in either direction.**
+2. **Deleting the font file made it print "SKIPPED, browser unavailable" while a
+   browser sat there running.** The expected metrics were read inside the browser
+   block, so the missing file raised and hit the catch-all. **A check whose setup
+   can fail on the fault it hunts must have that setup outside the catch-all, or
+   the fault reads as an absence.**
+3. **The swapped-file control reported no failure, because the gate compared the
+   build against itself.** Expected metrics came from the staged copy, which is
+   the same file the browser loads, so any consistent substitution agreed with
+   itself. They now come from `fonts/use/`, which also catches a stale asset
+   directory.
+
+**THE TOLERANCE IS 0.5 PER CENT AND THE OBVIOUS 1 PER CENT WOULD HAVE BEEN
+USELESS.** Kerning moves a measured string at most 0.165 per cent from the font's
+own metrics, which invites a round one per cent. **Liberation Sans, which is what
+generic `sans-serif` resolves to on the build container, sets the probe 0.91 per
+cent from Archivo**, so a one per cent band would have passed the single most
+likely fallback of all. Measure the FALLBACK before setting the tolerance, not
+only the kerning.
+
+**Nine controls, and the first is the real defect**: Plex Sans Text at
+usWeightClass 450 declared as font-weight 400, the thing that survived six phases
+of green builds. The rest are the classes it implies, one per way a face can be
+wrong. Two of them fired only after the gate was fixed, which is the controls
+doing their job rather than confirming it.
+
 **THE WEB BODY FACE IS ARCHIVO, CSS v0.6, RULED BY DAN 2026-08-14. Branch
 `claude/chapter-text-font-uv7ywk`, pushed, not merged.** v0.5 had made the roman
 a true Regular 400 the day before, which fixed the weight and left the shape, and
@@ -1268,17 +1311,9 @@ anything.** They belong to thread 8.
   workflow comment says so at the line that sets it. **Gate W15 catches it**,
   because it serves at whatever prefix the build was given, so this fails loudly
   rather than shipping. Ruled at the same time as the domain, not before.
-- **(e) A GATE OVER THE SERVED PAGE'S BODY FACE IS UNBUILT AND UNRULED, booked
-  2026-08-14 by the Archivo change.** Nothing in either suite can see a typeface
-  substitution: W1 compares text and a face swap changes none, and print gate 5
-  inspects the PDF rather than what a web stylesheet declares. The v0.5 entry left
-  this open on the reasoning that the line changes about once a year, and it then
-  changed twice in two days, so that reasoning is gone. The shape it would take is
-  already written: load the served chapter, read `getComputedStyle` on a real body
-  paragraph, and compare a probe string's width against a recorded figure, which is
-  the manual check that verified v0.6. It is perhaps twenty lines, it belongs to
-  W6's browser pass since the browser is already up, and it needs a W-number, which
-  is Dan's. Belongs to thread 8.
+- **(e) CLOSED THE DAY IT OPENED, 2026-08-14. A gate over the served page's body
+  face is now W16.** It was booked as unbuilt and unruled that morning and Dan
+  ruled it built that afternoon. See the top of Repository state.
 
 **The unpinned `playwright` was booked here and CLOSED on 2026-08-13**: it is
 now `playwright==1.62.0` in `requirements.txt`, and `.github/workflows/web.yml`

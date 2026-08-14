@@ -23,7 +23,7 @@ and NO TEXT, which is the test for whether a presentation change belongs here.
 Gate W1 then proves the transform preserved the text, which is a check on this
 file rather than a check on the author.
 
-FIFTEEN gates, W1 through W15. A gate is one W-number: sub-lettered checks are
+SIXTEEN gates, W1 through W16. A gate is one W-number: sub-lettered checks are
 parts of their gate, never gates of their own. This list had said "eleven" and
 stopped at W10 since Phase W5, which is the count drift CLAUDE.md records; it is
 derived from the build's own output rather than copied forward.
@@ -34,15 +34,21 @@ across a width sweep, W7 the book spine, W8 the reference layer against the
 chapter, W9 the landing page quoted verbatim and no register note published,
 W10 deploy readiness, W11 no third-party request, W12 figure colours are tokens,
 W13 colour contrast in both themes, W14 claim preservation, W15 in-page
-navigation.
+navigation, W16 typeface integrity.
 
-W6 and W15 need a headless browser and are the only optional gates. Each reports
-SKIPPED, the verdict line gains "W6 AND W15 NOT RUN", and neither is ever
-counted as passed.
+W6, W15 and the served half of W16 need a headless browser and are the only
+optional checks. Each reports SKIPPED, the verdict line gains "W6, W15, W16b AND
+W16c NOT RUN", and none is ever counted as passed. W16a reads the stylesheet
+against the committed font files and needs no browser, so it always runs, and
+the skip notice names the parts that were skipped rather than the whole gate.
 
 W14 is the only gate that reads MEANING. W15 is the only one that EXERCISES the
 site rather than measuring it, and it exists because two rail anchors were dead
-for six phases while every other gate reported the navigation sound.
+for six phases while every other gate reported the navigation sound. W16 is the
+only one that measures how the text is SET rather than what it says, and it
+exists for the same reason in a different register: the body face was half a
+step heavier than the stylesheet declared, also for six phases, and no gate
+could see it because a face swap changes no text.
 
 Citation text is never reimplemented here. It comes from footnotes.py and
 cite_format.py, which is the whole reason this is Python.
@@ -1750,6 +1756,353 @@ def gate_w6(page_path):
     return fails, True
 
 
+# --------------------------------------------------------- W16, typeface integrity
+# The committed faces, which is where the staging copy comes from and where W16
+# takes its expected metrics from. Named once rather than spelled in two places.
+FONT_SRC = "fonts/use"
+
+FACE_RE = re.compile(r"@font-face\s*\{([^}]*)\}")
+BODY_FACE_RE = re.compile(r"--body-face\s*:\s*([^;]+);")
+
+# A fixed string of this book's own prose, so a figure from one run is comparable
+# with a figure from the next. Prose rather than a pangram: a pangram's letter
+# frequencies are nothing like a page of text, and the number is meant to be a
+# fingerprint of the face as this book actually sets it.
+FACE_PROBE = ("The consumption event is the unit of account in AI operations "
+              "management.")
+
+# HOW THIS NUMBER WAS CHOSEN, BECAUSE A TOLERANCE PICKED BY FEEL IS A GATE THAT
+# PASSES WHAT IT WAS BUILT TO CATCH. The browser kerns and the font's own hmtx
+# table does not, so the two disagree slightly even when nothing is wrong: across
+# Archivo roman, Archivo italic, Jost and Plex the measured gap is at most 0.165
+# per cent. One per cent looked like the safe round number and is NOT usable:
+# Liberation Sans, which is what generic sans-serif resolves to on the build
+# container, sets this probe 0.91 per cent from Archivo, so a one per cent band
+# would pass the single most likely fallback of all. Half a per cent clears the
+# worst observed kerning gap three times over and fails that fallback.
+FACE_TOLERANCE = 0.005
+
+
+def declared_faces(css_text):
+    """Every @font-face as (family, weight, style, file), from the stylesheet."""
+    out = []
+    for m in FACE_RE.finditer(css_text):
+        block = m.group(1)
+
+        def field(name, default=None):
+            hit = re.search(name + r"\s*:\s*([^;]+);", block)
+            return hit.group(1).strip().strip('"\'') if hit else default
+
+        url = re.search(r'url\(["\']?([^"\')]+)["\']?\)', block)
+        if not url:
+            continue
+        out.append((field("font-family"), field("font-weight", "400"),
+                    field("font-style", "normal"),
+                    os.path.basename(url.group(1))))
+    return out
+
+
+def declared_body_family(css_text):
+    """The first family of --body-face, which is where the body face is named."""
+    m = BODY_FACE_RE.search(css_text)
+    if not m:
+        return None
+    return m.group(1).split(",")[0].strip().strip('"\'')
+
+
+def probe_em(path, text=FACE_PROBE):
+    """Set width of the probe in em, summed from the font file's own metrics."""
+    from fontTools.ttLib import TTFont
+    font = TTFont(path)
+    upm = font["head"].unitsPerEm
+    cmap = font.getBestCmap()
+    hmtx = font["hmtx"]
+    return sum(hmtx[cmap[ord(c)]][0] for c in text if ord(c) in cmap) / upm
+
+
+def gate_w16a(css_path, outdir):
+    """Does each declared face match the file it points at, and is that file here?
+
+    THE DEFECT THIS IS BUILT FROM IS REAL AND IT SURVIVED SIX PHASES OF GREEN
+    BUILDS. IBM Plex Sans Text is a distinct face at usWeightClass 450, and
+    AIOM_web.css declared it as font-weight 400 from v0.1, so web body prose was
+    half a step heavier than the stylesheet said and its italic, a true 400, had
+    never matched its own roman. Nothing could see it: a face swap changes no
+    text, so W1's equivalence holds perfectly, and print gate 5 inspects the
+    faces embedded in the PDF rather than the weight a web stylesheet claims.
+
+    Three things are checked per declaration, and each is a way that claim has
+    been or could be wrong: the file is actually staged into the build, so the
+    browser can fetch it; the file's own usWeightClass is the weight declared;
+    and its italic bit is the style declared. Static, so it needs no browser and
+    always runs.
+    """
+    try:
+        from fontTools.ttLib import TTFont  # noqa: F401
+    except ImportError:
+        return ["W16a: fontTools is not installed, so no declaration was checked. "
+                "It is pinned in requirements.txt; install from the file."]
+
+    css = open(css_path, encoding="utf-8").read()
+    faces = declared_faces(css)
+    if not faces:
+        return [f"W16a: no @font-face found in {css_path}. Either the stylesheet "
+                f"lost its faces or this gate stopped being able to read them, "
+                f"and the second is worse."]
+
+    fails = []
+    for family, weight, style, filename in faces:
+        staged = os.path.join(outdir, "assets", "fonts", filename)
+        if not os.path.exists(staged):
+            fails.append(f"W16a: {family} {weight} {style} declares {filename}, "
+                         f"which is not staged in the build. The browser would "
+                         f"fall back and no text would change.")
+            continue
+        font = TTFont(staged)
+        real = font["OS/2"].usWeightClass
+        italic = bool(font["OS/2"].fsSelection & 1)
+        if str(real) != str(weight):
+            fails.append(f"W16a: {filename} is declared font-weight {weight} and "
+                         f"its usWeightClass is {real}. Prose set in it is "
+                         f"{'heavier' if real > int(weight) else 'lighter'} than "
+                         f"the stylesheet says.")
+        if italic != (style == "italic"):
+            fails.append(f"W16a: {filename} is declared font-style {style} and "
+                         f"the file's italic bit is {italic}.")
+    if not fails:
+        print(f"W16a. face declarations .. {len(faces)} face(s), each staged and "
+              f"matching its file on weight and style")
+    return fails
+
+
+def gate_w16(outdir, css_path="AIOM_web.css", base_path=""):
+    """Is the page actually SET in the face the stylesheet declares?
+
+    W16a reads the declaration. This reads the rendered page, because the two are
+    different questions: a declaration can be perfect and the face still absent,
+    and getComputedStyle reports the family that was ASKED FOR whether or not
+    anything loaded. Three checks, each answering a different way this fails.
+
+    W16b, the body face. The computed family of real body prose is the family
+    --body-face names; a FontFace at that family, weight AND style is registered
+    with status loaded, which is what a 404 or an unstaged file breaks; and the
+    probe measures within tolerance of the COMMITTED file's metrics, taken from
+    fonts/use/ rather than from the staged copy the page just loaded, which is
+    what a same-named local font, a stale asset directory or a swapped staged
+    file breaks. Comparing against the staged copy would compare the build with
+    itself and agree with any consistent substitution. All three, because each catches what the others
+    miss. **The paragraph is selected as prose and the selection is reported**:
+    the first hand-written version of this measurement took #chapter-text p,
+    which is the provenance line in Jost, and cheerfully reported a face and a
+    measure belonging to neither the body nor the question.
+
+    W16c, figure labels. Chapter figures carry a literal font-family in the
+    locked HTML, which web_build.tokenize_svg remaps on the way out. Left
+    unremapped, every label sits in the print face while the prose beside it does
+    not, and no other gate can see it. Inside a chapter article a label must
+    resolve to the body family; elsewhere, where the landing page's marks
+    legitimately set Jost, it must resolve to some family the stylesheet
+    declares. That is gate W12's rule for colour applied to type.
+
+    OPTIONAL, exactly like W6 and W15 and for the same reason: it needs a
+    headless browser. It reports SKIPPED and is counted as skipped, never as
+    passed. It is served over HTTP rather than read from file:// so that the 404
+    page, whose asset paths are root-absolute by necessity, is measured in the
+    configuration it actually ships in.
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("W16b. served typefaces ... SKIPPED, playwright not installed")
+        return [], False
+
+    css = open(css_path, encoding="utf-8").read()
+    body_family = declared_body_family(css)
+    if not body_family:
+        return ([f"W16b: {css_path} declares no --body-face, so there is nothing "
+                 f"to hold the page to."], True)
+    families = {f[0] for f in declared_faces(css)}
+    # The probe is compared against the file that ACTUALLY APPLIES to the
+    # paragraph measured, keyed on its computed weight and style, rather than
+    # against the 400 roman on the assumption that body prose is always that.
+    # A page whose prose is set at a weight the stylesheet never declares is a
+    # finding in itself: the browser synthesizes one, which is a substitution by
+    # another name.
+    by_style = {(f[0], f[1], f[2]): f[3] for f in declared_faces(css)}
+    if (body_family, "400", "normal") not in by_style:
+        return ([f"W16b: no 400 normal @font-face for {body_family}, which is "
+                 f"the family --body-face names."], True)
+    expected_cache = {}
+
+    def expected_em(weight, style):
+        """Metrics from the COMMITTED file in fonts/use/, never from the staged
+        copy the page just loaded. Reading the staged copy would compare the
+        build against itself: swap the file in assets/ for a different face and
+        both sides of the comparison move together, which is exactly what the
+        control demonstrated. Sourcing the expectation from the repository makes
+        a staged copy that is not the committed file a failure, which also covers
+        a stale asset directory left by an earlier build.
+
+        Returns None if the stylesheet declares no such face, and False if the
+        committed file cannot be read. Those are different findings and are
+        reported differently."""
+        key = (body_family, str(weight), style)
+        if key not in by_style:
+            return None
+        if key not in expected_cache:
+            try:
+                expected_cache[key] = probe_em(
+                    os.path.join(FONT_SRC, by_style[key]))
+            except Exception:
+                expected_cache[key] = False
+        return expected_cache[key]
+
+    exe = next((p for p in glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")
+                if os.path.exists(p)), None)
+    pages = sorted(glob.glob(os.path.join(outdir, "**", "*.html"), recursive=True))
+    fails, checked, labels = [], [], 0
+    try:
+        with _serve(outdir, base_path) as origin, sync_playwright() as pw:
+            kw = {"args": ["--no-sandbox"]}
+            if exe:
+                kw["executable_path"] = exe
+            b = pw.chromium.launch(**kw)
+            pg = b.new_page(viewport={"width": 1512, "height": 900})
+            for path in pages:
+                label = os.path.relpath(path, outdir)
+                pg.goto(origin + "/" + label.replace(os.sep, "/"),
+                        wait_until="networkidle")
+                r = pg.evaluate(READ_FACES, [FACE_PROBE, body_family])
+                if r.get("nobody"):
+                    # A page with no running prose is not a failure. The gate
+                    # says so rather than passing it silently, because "checked
+                    # nothing" and "checked and found nothing wrong" are the two
+                    # readings this repository keeps confusing.
+                    checked.append(f"{label}: no body prose")
+                    continue
+                checked.append(f"{label}: {r['selected']}")
+                if r["family"] != body_family:
+                    fails.append(f"W16b [{label}]: body prose computes to "
+                                 f"{r['family']!r}, and --body-face names "
+                                 f"{body_family!r}.")
+                elif not r["loaded"]:
+                    fails.append(f"W16b [{label}]: {body_family} is asked for and "
+                                 f"no loaded FontFace answers to it, so the page "
+                                 f"is set in a fallback. getComputedStyle cannot "
+                                 f"see this; it reports what was requested.")
+                else:
+                    expected = expected_em(r["weight"], r["style"])
+                    if expected is False:
+                        fails.append(
+                            f"W16b [{label}]: the committed file for "
+                            f"{body_family} {r['weight']} {r['style']} could "
+                            f"not be read from {FONT_SRC}/, so the page was "
+                            f"rendered but nothing could be compared to it.")
+                    elif expected is None:
+                        fails.append(
+                            f"W16b [{label}]: body prose is set at "
+                            f"{body_family} {r['weight']} {r['style']}, which "
+                            f"the stylesheet declares no face for. The browser "
+                            f"synthesizes one, which is a substitution under "
+                            f"another name.")
+                    else:
+                        off = r["probe"] / expected - 1
+                        if abs(off) > FACE_TOLERANCE:
+                            fails.append(
+                                f"W16b [{label}]: the probe sets "
+                                f"{off * 100:+.2f}% from {body_family} "
+                                f"{r['weight']} {r['style']}'s own metrics "
+                                f"({r['probe']:.3f} em against {expected:.3f}), "
+                                f"past the {FACE_TOLERANCE * 100:.1f}% "
+                                f"tolerance. The name resolves to something "
+                                f"that is not the staged file.")
+                for name, fam, inside in r["svg"]:
+                    labels += 1
+                    if inside and fam != body_family:
+                        fails.append(
+                            f"W16c [{label}]: a figure label in the chapter is "
+                            f"set in {fam!r} while the prose beside it is "
+                            f"{body_family!r}. tokenize_svg remaps the locked "
+                            f"chapter's literal family on the way out; this one "
+                            f"was missed.")
+                    elif not inside and fam not in families:
+                        fails.append(
+                            f"W16c [{label}]: SVG text {name!r} is set in "
+                            f"{fam!r}, which the stylesheet does not declare.")
+            b.close()
+    except Exception as exc:
+        print(f"W16b. served typefaces ... SKIPPED, browser unavailable "
+              f"({exc.__class__.__name__})")
+        return [], False
+
+    if not fails:
+        prose = [c for c in checked if "no body prose" not in c]
+        print(f"W16b. served typefaces ... {body_family} on {len(prose)} of "
+              f"{len(checked)} page(s), loaded, probe within "
+              f"{FACE_TOLERANCE * 100:.1f}% of the committed file")
+        print(f"W16c. figure labels ..... {labels} SVG text run(s), each in a "
+              f"declared face")
+    return fails, True
+
+
+# SELECTING THE PARAGRAPH IS THE WHOLE CHECK, so it is done deliberately and the
+# choice is returned to be printed beside the result. Running prose is taken as
+# the LONGEST <p> on the page carrying at least 120 characters, which is a
+# property of the text rather than of a class name: the first version required a
+# class-less <p> inside the article and therefore checked two of the seven
+# emitted pages, leaving the whole reference layer unmeasured while reading green.
+# Length is also what excludes the provenance line, a 7pt Jost rubric that an
+# earlier hand-written version of this measurement selected and then reported a
+# face and a measure belonging to neither the body nor the question.
+READ_FACES = """([probe, wanted]) => {
+  const first = s => s.split(',')[0].trim().replace(/^["']|["']$/g, '');
+  const p = [...document.querySelectorAll('p')]
+    .filter(e => e.textContent.trim().length > 120)
+    .sort((a, b) => b.textContent.trim().length - a.textContent.trim().length)[0];
+  const svg = [...document.querySelectorAll('svg text')].map(t => [
+    (t.textContent || '').trim().slice(0, 24),
+    first(getComputedStyle(t).fontFamily),
+    !!t.closest('#chapter-text')]);
+  if (!p) return {nobody: true, svg};
+  const cs = getComputedStyle(p);
+  const s = document.createElement('span');
+  s.style.cssText = 'position:absolute;visibility:hidden;white-space:pre';
+  // THE FONT PROPERTIES ARE COPIED ONE BY ONE AND NOT THROUGH THE SHORTHAND.
+  // getComputedStyle().font serializes to an EMPTY STRING in Chromium, so
+  // `s.style.font = cs.font` silently sets nothing and the probe inherits the
+  // BODY's size instead of the paragraph's. The first version did that and read
+  // correct on the chapter page, where the two sizes happen to be equal, then
+  // reported a 5.14 per cent phantom on the landing page, where they are not.
+  // Spacing is pinned to normal so the probe measures the FACE and not a
+  // tracking rule that might sit on the paragraph.
+  s.style.fontFamily = cs.fontFamily;
+  s.style.fontSize = cs.fontSize;
+  s.style.fontWeight = cs.fontWeight;
+  s.style.fontStyle = cs.fontStyle;
+  s.style.letterSpacing = 'normal';
+  s.style.wordSpacing = 'normal';
+  s.textContent = probe;
+  document.body.appendChild(s);
+  const em = s.getBoundingClientRect().width / parseFloat(cs.fontSize);
+  s.remove();
+  // document.fonts reports what LOADED, which is the one question
+  // getComputedStyle cannot answer: it echoes the request either way.
+  // MATCHED ON WEIGHT AND STYLE AS WELL AS FAMILY. Testing the family alone is
+  // too loose: a family declares four faces here, so deleting the roman still
+  // left the italic loaded and the check read true. The width measurement
+  // caught that control anyway, which is the argument for having both, but a
+  // check that passes through the fault it names is not doing its job.
+  const loaded = [...document.fonts].some(
+    f => f.family.replace(/^["']|["']$/g, '') === wanted
+         && f.weight === cs.fontWeight && f.style === cs.fontStyle
+         && f.status === 'loaded');
+  return {family: first(cs.fontFamily), probe: em, loaded, svg,
+          weight: cs.fontWeight, style: cs.fontStyle,
+          selected: (p.className ? '.' + p.className.split(' ')[0] + ' ' : '')
+                    + p.textContent.trim().slice(0, 36) + '...'};
+}"""
+
+
 # ----------------------------------------------------------------------- build
 
 def _env():
@@ -1804,7 +2157,7 @@ def render(chapter_path, outdir, preview=False):
     os.makedirs(os.path.join(outdir, "assets", "fonts"), exist_ok=True)
     open(os.path.join(chdir, "index.html"), "w", encoding="utf-8").write(web_html)
     shutil.copyfile("AIOM_web.css", os.path.join(outdir, "assets", "aiom_web.css"))
-    for f in glob.glob("fonts/use/*.ttf"):
+    for f in glob.glob(os.path.join(FONT_SRC, "*.ttf")):
         shutil.copyfile(f, os.path.join(outdir, "assets", "fonts",
                                         os.path.basename(f)))
     return print_html, web_html, meta, os.path.join(chdir, "index.html")
@@ -2171,6 +2524,13 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
     fails += gate_w11(outdir)
     fails += gate_w12(pages + site_pages)
     fails += gate_w13()
+    # W16a reads the stylesheet against the staged files and needs no browser, so
+    # it runs on every build. W16b and W16c read the rendered page and do, so they
+    # sit with W6 and W15 behind the same switch.
+    fails += gate_w16a("AIOM_web.css", outdir)
+    if not no_browser:
+        w16, _ = gate_w16(outdir, "AIOM_web.css", base_path)
+        fails += w16
     return fails, metas
 
 
@@ -2184,7 +2544,7 @@ def main():
     ap.add_argument("--preview", action="store_true",
                     help="build an unlocked chapter to a local noindex page")
     ap.add_argument("--no-browser", action="store_true",
-                    help="skip gates W6 and W15, which need a headless browser")
+                    help="skip W6, W15, W16b and W16c, which need a headless browser")
     ap.add_argument("--base-path", default="",
                     help="the path the site is served under, e.g. /textbook.aiom "
                          "for a GitHub Pages project site. Empty for the root.")
@@ -2269,7 +2629,11 @@ def main():
     # this repository's recorded defects are a check that was believed to have
     # run and had not, so an optional gate has to be noisy about not running.
     if a.no_browser:
-        verdict += ", W6 AND W15 NOT RUN"
+        # Named precisely rather than as "W16", because W16a DID run: it reads
+        # the stylesheet against the staged files and needs no browser. A skip
+        # notice that overstates what was skipped is the same defect as one that
+        # understates it.
+        verdict += ", W6, W15, W16b AND W16c NOT RUN"
     print(f"{chr(10)}WEB GATES {verdict}")
     for f in fails:
         print("   " + f)

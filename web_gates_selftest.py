@@ -312,6 +312,143 @@ def _w15_controls(results):
 
     shutil.rmtree(tmp, ignore_errors=True)
 
+def _w16_controls(results):
+    """Negative controls for gate W16, typeface integrity.
+
+    THE FIRST FAULT IS THE REAL ONE AND IT IS WHY THE GATE EXISTS. IBM Plex Sans
+    Text sits at usWeightClass 450 and AIOM_web.css declared it as font-weight
+    400 from v0.1 through v0.4, so web body prose was half a step heavier than
+    the stylesheet said and its italic, a true 400, never matched its own roman.
+    It survived six phases of green builds and was found by Dan reading the page.
+    The control declares that exact pairing again and requires W16a to fail it.
+
+    THE REST ARE THE CLASSES THAT FAULT IMPLIES, one per way a face can be wrong:
+    a declared file that is not staged, so the browser silently falls back; an
+    italic declared as a roman; a face whose file cannot be fetched, which
+    getComputedStyle reports as loaded because it echoes the request; a
+    --body-face naming a family nothing declares; a figure label left in the
+    print family, which is the defect tokenize_svg was extended to prevent; and a
+    file swapped for a different face under the same name, which is the only one
+    of the seven that the width measurement alone can catch.
+
+    THE BROWSER CONTROLS RUN AGAINST A TWO-PAGE TREE, the chapter and the landing
+    page, because each control loads every page in the tree and the faults are
+    injected into those two. The static controls run against the whole build.
+    """
+    import glob
+    import os
+    import shutil
+
+    src = "build/web"
+    tmp = "build/web-selftest-face"
+    css_rel = os.path.join("assets", "aiom_web.css")
+
+    def fresh(trim=False):
+        shutil.rmtree(tmp, ignore_errors=True)
+        shutil.copytree(src, tmp)
+        if trim:
+            for path in glob.glob(os.path.join(tmp, "**", "*.html"), recursive=True):
+                rel = os.path.relpath(path, tmp).replace(os.sep, "/")
+                if rel not in ("index.html", "ch01/index.html"):
+                    os.remove(path)
+        return os.path.join(tmp, css_rel)
+
+    def static(label, patch):
+        """Patch the stylesheet, then require W16a to report it."""
+        css_path = fresh()
+        text = open(css_path, encoding="utf-8").read()
+        patched = patch(text)
+        if patched == text:
+            results.append((False, label + " (INJECTION DID NOT APPLY)", []))
+            print(f"  [MISS] {label:<46} the control never changed the stylesheet")
+            return
+        open(css_path, "w", encoding="utf-8").write(patched)
+        fails = quiet(wb.gate_w16a, css_path, tmp)
+        results.append((bool(fails), label, fails))
+        print(f"  [{'ok  ' if fails else 'MISS'}] {label:<46} "
+              f"{fails[0][:70] if fails else 'no failure reported'}")
+
+    def served(label, patch=None, page=None, after=None):
+        """Patch the stylesheet or a page, then require W16b or W16c to report it."""
+        css_path = fresh(trim=True)
+        if patch:
+            target = css_path if page is None else os.path.join(tmp, page)
+            text = open(target, encoding="utf-8").read()
+            patched = patch(text)
+            if patched == text:
+                results.append((False, label + " (INJECTION DID NOT APPLY)", []))
+                print(f"  [MISS] {label:<46} the control never changed the file")
+                return
+            open(target, "w", encoding="utf-8").write(patched)
+        if after:
+            after(tmp)
+        fails, ran = quiet(wb.gate_w16, tmp, css_path, "")
+        if not ran:
+            print(f"  [SKIP] {label:<46} no headless browser. NOT a pass.")
+            results.append((True, label + " skipped", []))
+            return
+        results.append((bool(fails), label, fails))
+        print(f"  [{'ok  ' if fails else 'MISS'}] {label:<46} "
+              f"{fails[0][:70] if fails else 'no failure reported'}")
+
+    # The clean run first. A control suite whose baseline fails is measuring the
+    # baseline, not the faults.
+    css_path = fresh()
+    clean = quiet(wb.gate_w16a, css_path, tmp)
+    results.append((not clean, "W16a clean on the real stylesheet", clean))
+    print(f"  [{'ok  ' if not clean else 'MISS'}] "
+          f"{'W16a clean on the real stylesheet':<46} "
+          f"{clean[0][:70] if clean else 'no failure reported'}")
+
+    # THE REAL DEFECT: Text is usWeightClass 450, declared as 400.
+    static("the v0.1 to v0.4 defect, Text declared 400",
+           lambda c: c.replace('url("fonts/Archivo-Regular.ttf");  font-weight: 400',
+                               'url("fonts/IBMPlexSans-Text.ttf");  font-weight: 400', 1))
+    static("a declared face that is not staged",
+           lambda c: c.replace("fonts/Archivo-Regular.ttf",
+                               "fonts/Archivo-NotStaged.ttf", 1))
+    static("an italic file declared font-style normal",
+           lambda c: c.replace('url("fonts/Archivo-Italic.ttf");   font-weight: 400; '
+                               'font-style: italic',
+                               'url("fonts/Archivo-Italic.ttf");   font-weight: 400; '
+                               'font-style: normal', 1))
+
+    css_path = fresh(trim=True)
+    clean, ran = quiet(wb.gate_w16, tmp, css_path, "")
+    if not ran:
+        print("  [SKIP] W16b and W16c could not run, no headless browser. NOT a pass.")
+        results.append((True, "W16b and W16c skipped, reported as skipped", []))
+        shutil.rmtree(tmp, ignore_errors=True)
+        return
+    results.append((not clean, "W16b and W16c clean on the real site", clean))
+    print(f"  [{'ok  ' if not clean else 'MISS'}] "
+          f"{'W16b and W16c clean on the real site':<46} "
+          f"{clean[0][:70] if clean else 'no failure reported'}")
+
+    # A face that cannot be fetched. getComputedStyle still reports Archivo,
+    # which is exactly why the gate asks document.fonts instead.
+    served("the body face fails to load",
+           after=lambda t: os.remove(os.path.join(t, "assets", "fonts",
+                                                  "Archivo-Regular.ttf")))
+    served("--body-face names an undeclared family",
+           lambda c: c.replace("--body-face: \"Archivo\"",
+                               "--body-face: \"NoSuchFace\"", 1))
+    # The one fault the width measurement alone can catch: same name, same
+    # weight class, different face. W16a passes this and is supposed to.
+    served("the staged file swapped for another face",
+           after=lambda t: shutil.copy("fonts/use/IBMPlexSans-Regular.ttf",
+                                       os.path.join(t, "assets", "fonts",
+                                                    "Archivo-Regular.ttf")))
+    # The defect tokenize_svg was extended to prevent on 2026-08-14: a chapter
+    # figure label left in the print family while the prose beside it moved.
+    served("a chapter figure label left in the print face",
+           lambda h: h.replace('font-family="var(--body-face)"',
+                               'font-family="Plex"', 1),
+           page="ch01/index.html")
+
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
 def main():
     print_html, web_html, meta, _ = wb.render(CHAPTER, "build/web-selftest")
 
@@ -595,6 +732,9 @@ def main():
 
     print("\nW10, the site build and deploy readiness")
     _multi_chapter_control(case)
+
+    print("\nW16, typeface integrity")
+    _w16_controls(results)
 
     print("\nW12 and W13, the theme layer")
     case("W12 clean on the real pages",
