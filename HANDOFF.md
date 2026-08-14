@@ -15,15 +15,17 @@ site. **No step of it was settled by reading a description of a typeface**, whic
 is the rule the drawn marks already follow and which now has a second instance
 behind it.
 
-**MERGED TO MAIN 2026-08-14, CI GREEN, SITE DEPLOYED. One loose end, and it is
-not a code one: the remote branch `claude/chapter-text-font-uv7ywk` could not be
-deleted from the Claude container.** `git push --delete` gets "the remote end
-hung up unexpectedly", the REST call answers 403 "Write access to this GitHub
+**MERGED TO MAIN 2026-08-14, CI GREEN, SITE DEPLOYED, BRANCH RETIRED. The repo is
+one branch, `main`, with nothing stranded and nothing outstanding.**
+
+**A BRANCH CANNOT BE DELETED FROM A CLAUDE SESSION, AND THAT IS AN ENVIRONMENT
+LIMIT RATHER THAN A MISSING STEP.** `git push --delete` gets "the remote end hung
+up unexpectedly", the REST ref delete answers 403 "Write access to this GitHub
 API path is not permitted through this proxy", and the GitHub MCP server offers
-`create_branch` with no delete. It is fully merged and its tip is an ancestor of
-main, so nothing is stranded; it needs deleting from the GitHub UI or from a
-machine without this proxy. **Assume the same limit for every future branch
-retirement from a Claude session.**
+`create_branch` with no delete. Dan deleted `claude/chapter-text-font-uv7ywk`
+from the GitHub UI. **Merge up, verify with `git_hygiene.py` that the branch is
+fully merged, then ASK for the deletion rather than reporting it done**, and
+`git fetch --prune` afterwards so the local tracking ref goes with it.
 
 **GATE W16 CLOSES THE TYPEFACE HOLE, 2026-08-14, RULED BY DAN THE SAME DAY IT WAS
 BOOKED. THE WEB SUITE IS W1 THROUGH W16, SIXTEEN GATES, 97 SELF-TEST CONTROLS.**
