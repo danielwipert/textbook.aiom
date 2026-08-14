@@ -7,6 +7,14 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**ARCHIVO IS CONFIRMED ON THE PUBLISHED PAGE. Dan read the live Chapter 1
+opening on 2026-08-14 and approved the face.** That closes the v0.5 to v0.6
+sequence: the complaint was raised from a rendered page, the replacement was
+chosen from a rendered specimen, and the result was confirmed on the deployed
+site. **No step of it was settled by reading a description of a typeface**, which
+is the rule the drawn marks already follow and which now has a second instance
+behind it.
+
 **MERGED TO MAIN 2026-08-14, CI GREEN, SITE DEPLOYED. One loose end, and it is
 not a code one: the remote branch `claude/chapter-text-font-uv7ywk` could not be
 deleted from the Claude container.** `git push --delete` gets "the remote end
