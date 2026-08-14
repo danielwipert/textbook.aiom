@@ -5063,3 +5063,14 @@ the mirrored-margin bug in gates 12 and 14 was fixed. Stage 5.
 Stage 0 this time. Read `AIOM_Voice_and_Craft_v1.md` before drafting, tick the
 Stage 0 acknowledgment box on the strength of having done so, and expect Stage 4
 to be read adversarially and by section against C1 through C6.
+
+---
+
+## Amendments after lock
+
+Edits made after Stage 9 by Dan, the author and final editor, whose
+edit is approved by definition and supersedes. No step is reopened.
+The mechanical gates were run and passed on each one; nothing here
+was reviewed for editorial merit, because that judgment is Dan's and
+was already exercised. Written by `amend.py`.
+**2026-08-14.** revise the light and heavy user paragraph in the opening case. Superseded fact-check ruling(s): CE11, SF2, SF8. See `AIOM_Claim_Ledger.md`.

@@ -88,13 +88,15 @@ chapter when it was written.
 
 ### SF2 :: continuation mechanism removed :: 2026-08-06 :: Stage 3
 - SOURCE-KEY: truell-2025-pricing
-- FORBIDDEN: after which usage continued to bill against real rates
+- SUPERSEDED-FORBIDDEN: after which usage continued to bill against real rates
 - REVERSES-IF: a passage from the post describing the default billing behaviour on exhaustion.
+- SUPERSEDED 2026-08-14: retired by Dan, the final editor, whose edit supersedes. Reason: Dan's wording carries the continuation mechanism; the Stage 3 removal is overturned. The lines above are kept as history and are no longer enforced by W14.
 
 ### SF8 :: the SF2 mechanism restored in different words :: 2026-08-10 :: Stage 3
 - SOURCE-KEY: truell-2025-pricing
-- FORBIDDEN: billed each additional request at API rates
+- SUPERSEDED-FORBIDDEN: billed each additional request at API rates
 - REVERSES-IF: same as SF2. This entry exists because the mechanism returned once already, in different words, through a copy edit.
+- SUPERSEDED 2026-08-14: retired by Dan, the final editor, whose edit supersedes. Reason: Same mechanism as SF2, restated; retired with it. The lines above are kept as history and are no longer enforced by W14.
 
 ### SF9 :: depletion scope :: 2026-08-10 :: Stage 3
 - SOURCE-KEY: truell-2025-pricing
@@ -103,9 +105,10 @@ chapter when it was written.
 
 ### CE11 :: ruled sentence, current form :: 2026-08-12 :: Stage 6
 - SOURCE-KEY: truell-2025-pricing
-- REQUIRED: The credit was consumed in a handful of prompts for the team's heaviest users, the people getting the most value.
-- REQUIRED: Additional usage was then priced at the same rates
+- SUPERSEDED-REQUIRED: The credit was consumed in a handful of prompts for the team's heaviest users, the people getting the most value.
+- SUPERSEDED-REQUIRED: Additional usage was then priced at the same rates
 - REVERSES-IF: nothing. This is the SF8 and SF9 ruled content restructured for prose style guide Part 5 rule 3. Only clause order changed; no value, date or claim moved.
+- SUPERSEDED 2026-08-14: retired by Dan, the final editor, whose edit supersedes. Reason: Dan's revision restates the passage; the ruled Stage 6 form is replaced by his wording. The lines above are kept as history and are no longer enforced by W14.
 
 ### FC9 :: inferred mechanism cut :: 2026-08-13 :: Stage 7
 - SOURCE-KEY: truell-2025-pricing
