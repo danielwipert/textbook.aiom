@@ -773,6 +773,32 @@ rulings. What binds outside that document:
   the click. **No reading of the markup settles any of those.** Its three
   controls are exactly those three faults, and two of them are invisible to
   every other gate.
+- **ONE URL POLICY FOR EVERY EMITTER: `site_url(base_url, base_path, path)`.**
+  Absolute when a domain is set, root-absolute with the deploy prefix otherwise,
+  taking the origin WITHOUT its path so the prefix cannot appear twice. **Three
+  emitters had answered this question separately and two had it wrong**: the
+  sitemap emitted `/ch01/` and robots.txt pointed at `/sitemap.xml`, which on a
+  project site at `/textbook.aiom/` both address the root of the USER site, the
+  same defect as the 404 page's stylesheet. A policy repeated in three places is
+  a policy that is wrong in two of them.
+- **`/llms.txt` IS GENERATED AND QUOTES THE SITE, never written by hand.** The
+  llmstxt.org convention: an H1 name, a blockquote summary, then H2 sections of
+  links. Its summary is lifted from the landing page's own hero, extracted from
+  the rendered index rather than retyped, so the two cannot drift into
+  describing the book differently. Everything else comes from records already
+  enforced: the chapter list from what locked and built, the counts from the
+  transformed body, the part names from the structure document. This is gate
+  W9a's rule applied to a second marketing surface.
+- **llms.txt WITHHOLDS WHAT EVERY OTHER PAGE WITHHOLDS.** No chapter "Big idea",
+  "Competency" or "Anchor theorem" line, because section 9 rules that later
+  chapters withhold deliberately and **a file addressed to a machine is not an
+  exemption from that**. No register note either, which W9b enforces everywhere.
+  Only a part's first Purpose sentence is public, via `public_purpose`.
+- **A LIST OF ADDRESSES NOBODY FOLLOWS IS THE SAME DEFECT AS AN ANCHOR NOBODY
+  CLICKS.** Gate W10 resolves every address in `llms.txt` and `sitemap.xml` back
+  to a file in the tree, checks a fragment is a real anchor on its target, and
+  checks the chapters listed are exactly the chapters built. **W15 cannot cover
+  these**: it drives a browser over emitted HTML pages, and neither file is one.
 - **THE 404 PAGE IS THE ONE PAGE THAT CANNOT USE A RELATIVE PATH, and it shipped
   broken because of it.** GitHub Pages serves it for ANY missing address at any
   depth, so `../assets` resolves differently every time. Root-absolute is wrong

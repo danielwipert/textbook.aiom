@@ -7,10 +7,11 @@ authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 reference layer and search, followed, and Phase W5, the site build and deploy,
 is built, and Phase W6, dark mode and the figure token pass, closes the plan.
 Host and analytics are ruled as Decisions 65 and 66. Only the DOMAIN is
-outstanding.** Sections 8 through 18 record what each phase learned. Sections 15
-through 18 came from Dan reading and using the site rather than from a phase:
-the v0.4 reading scale, the v0.5 body roman, term linking, and two dead
-navigation anchors that six phases of green builds had reported as sound.
+outstanding.** Sections 8 through 19 record what each phase learned. Sections 15
+through 19 came from Dan reading, using and asking about the site rather than
+from a phase: the v0.4 reading scale, the v0.5 body roman, term linking, two
+dead navigation anchors that six phases of green builds had reported as sound,
+and llms.txt, which exposed the deploy-prefix defect in two more emitters.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -1041,3 +1042,66 @@ surface on the run that found the real defect, and leaving it to chance is how a
 gate acquires a false positive that gets it switched off.
 
 The suite is W1 through W15, FIFTEEN gates, with 80 self-test controls.
+
+---
+
+## 19. llms.txt, and one URL policy
+
+Dan asked for an `llms.txt`. The file is small and the interesting part is what
+building it turned up.
+
+**IT QUOTES THE SITE AND WRITES NOTHING NEW.** The llmstxt.org convention is an
+H1 name, a blockquote summary, optional prose, then H2 sections of links, in
+markdown, so a model can take in what the site is without parsing it. The
+summary here is lifted from the landing page's own hero, extracted from the
+rendered index rather than retyped, so the two cannot drift into describing the
+book differently. Everything else is built from records already enforced: the
+chapter list from what actually locked and built, the counts from the
+transformed body, the part names from the structure document through
+`public_purpose`. This is the rule gate W9a puts on the landing page, applied to
+the second marketing surface the site now has.
+
+**IT WITHHOLDS WHAT EVERY OTHER PAGE WITHHOLDS.** No chapter "Big idea",
+"Competency" or "Anchor theorem" line, because CLAUDE.md section 9 rules that
+later chapters withhold deliberately, and **a file addressed to a machine is not
+an exemption from that**. No register note, which W9b already enforces across
+every page. The temptation with a machine-readable file is to be maximally
+helpful and hand over everything; the pedagogical rule does not bend for a
+different reader.
+
+**WRITING IT EXPOSED THE 404 DEFECT IN TWO MORE PLACES.** With no domain ruled,
+the sitemap emitted `/ch01/` and robots.txt pointed at `/sitemap.xml`. Served
+from a Pages PROJECT site at `/textbook.aiom/`, both address the root of the
+USER site, exactly as the 404 page's stylesheet did in section 18. Three
+emitters had each answered the same question separately and two had it wrong,
+which is the argument against a policy living in three places rather than one.
+`site_url(base_url, base_path, path)` is now the single answer: absolute when a
+domain is set, root-absolute with the deploy prefix otherwise, and the origin is
+taken WITHOUT its path or the prefix appears twice. All four shapes were
+verified: no domain and no prefix, no domain with a prefix, a domain at the
+root, and a domain that already carries a subdirectory.
+
+**A LIST OF ADDRESSES NOBODY FOLLOWS IS THE SAME DEFECT AS AN ANCHOR NOBODY
+CLICKS.** Gate W10 now resolves every address in `llms.txt` and `sitemap.xml`
+back to a file in the tree, fails an address that escapes the deploy prefix,
+checks that a fragment is a real anchor on its target, and checks that the
+chapters listed are exactly the chapters built. **W15 cannot cover either file**,
+because it drives a browser over the emitted HTML pages and neither of these is
+one. W3 runs over `llms.txt` as well, since the marks rule is a property of
+published text whatever the file extension.
+
+Seven controls were written after watching all seven faults fire against the
+real gate rather than against a sketch of it: the file missing, a page that
+moved, a path escaping the prefix, a stale fragment, a chapter claimed but never
+built, and a sitemap address resolving to nothing. The suite is 87 controls.
+
+### Open after llms.txt
+
+- **`llms-full.txt` is unruled and was deliberately not built.** The convention
+  has a companion carrying the entire text as one plain file. That publishes the
+  whole book as a single scrapeable document, which is a different decision from
+  publishing a map of it, and it belongs with the domain ruling rather than
+  ahead of it.
+- **The summary is only as good as the landing page hero it quotes**, which is
+  the correct coupling but worth knowing: rewriting the hero rewrites what every
+  model reads first about this book.

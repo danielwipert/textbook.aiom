@@ -78,14 +78,46 @@ three are invisible to every other gate**: an anchor on an element that is
 `display:none`, and a click swallowed by a handler. That is what makes W15 a
 gate rather than a duplicate of W4's hardened parse.
 
-**THE WEBSITE-EDITS SESSION, CLOSED 2026-08-13. Everything is on `main` and
-there is nothing else anywhere.** The remote holds ONE branch, `main`, for the
-first time in this project's history. `git_hygiene.py` reports nothing
+**LLMS.TXT AND ONE URL POLICY, 2026-08-13. ON `main`.** `/llms.txt` publishes
+the llmstxt.org map of the site: an H1 name, a blockquote summary, then H2
+sections of links, in markdown. **It quotes the site and writes nothing new**,
+taking its summary from the landing page's own hero, extracted from the rendered
+index rather than retyped, so the two cannot drift. The chapter list comes from
+what actually locked and built, the counts from the transformed body, the part
+names from the structure document.
+
+**IT WITHHOLDS WHAT EVERY OTHER PAGE WITHHOLDS**: no chapter "Big idea",
+"Competency" or "Anchor theorem" line, because CLAUDE.md section 9 rules that
+later chapters withhold deliberately and **a file addressed to a machine is not
+an exemption from that**, and no register note, which W9b enforces everywhere.
+
+**WRITING IT FOUND THE 404 DEFECT IN TWO MORE EMITTERS.** With no domain ruled
+the sitemap emitted `/ch01/` and robots.txt pointed at `/sitemap.xml`, both of
+which address the root of the USER site when served at `/textbook.aiom/`. Three
+emitters had answered the same question separately and two had it wrong.
+`site_url(base_url, base_path, path)` is now the single answer, verified across
+all four shapes.
+
+**GATE W10 RESOLVES EVERY ADDRESS IN `llms.txt` AND `sitemap.xml` BACK TO A
+FILE**, fails one that escapes the deploy prefix, checks a fragment is a real
+anchor on its target, and checks the chapters listed are exactly the chapters
+built. W15 cannot cover either file: it drives a browser over emitted HTML and
+neither is one. W3 runs over `llms.txt` too. **87 controls now.**
+
+**`llms-full.txt` IS UNRULED AND WAS DELIBERATELY NOT BUILT.** It would publish
+the whole book as one scrapeable document, which is a different decision from
+publishing a map of it, and it belongs with the domain ruling.
+
+**THE WEBSITE-EDITS SESSION, 2026-08-13. Everything is on `main` and there is
+nothing else anywhere.** This entry has been closed and reopened several times as
+Dan found more, so treat it as a RUNNING RECORD and check the git log for the
+true tail rather than trusting any count written here. The remote holds ONE
+branch, `main`, for the first time in this project's history. `git_hygiene.py` reports nothing
 stranded and no branch safe to delete, the tree is clean, local and remote are
 `0 0`, and `status_check.py` reports Chapter 1 locked at 13 of 13, STATUS
 CONSISTENT. **No work sits on a branch. There is nothing to merge up.**
 
-**Eight changes shipped and NOT ONE TOUCHED THE CHAPTER TEXT**, so no lifecycle
+**Ten changes shipped and NOT ONE TOUCHED THE CHAPTER TEXT**, so no lifecycle
 step moved and no amendment was needed. That is the point of the presentation
 layer being a separate file, and it is the first session about this chapter that
 cost the lifecycle nothing.
@@ -98,9 +130,10 @@ correctness, all in the last hour: the two dead rail anchors and the two gates
 that had called them live, **gate W15**, and the live 404 page plus W15's HTTP
 half. All eight are described below.
 
-**THE SUITE ENDED THE SESSION AT FIFTEEN GATES AND 80 CONTROLS**, up from
-fourteen and 74, and the two additions are the only checks in either suite that
-EXERCISE the site rather than measure it.
+**THE SUITE ENDED AT FIFTEEN GATES AND 87 CONTROLS**, up from fourteen and 74.
+W15 is the only check in either suite that EXERCISES the site rather than
+measuring it, and W10's address resolution is the only one that follows a link
+outside an HTML page.
 
 **THE PATTERN IS WORTH MORE THAN ANY OF THE EIGHT. Five began by checking
 something the repository already asserted, and the assertion was wrong every
@@ -1153,7 +1186,7 @@ build), 5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed
 the day it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread:
 see the top of Repository state.**
 
-**Three small items are booked by the website-edits session and none blocks
+**Four small items are booked by the website-edits session and none blocks
 anything.** They belong to thread 8.
 
 - **(a) The dark-theme `:target` landing tint moves only 4 to 8 levels** and may
@@ -1162,6 +1195,10 @@ anything.** They belong to thread 8.
 - **(b) The term-linking match rules have been exercised against Chapter 1
   only.** Chapter 2 is the first real test of the leading-article rule and the
   trailing-punctuation refusal.
+- **(d) `llms-full.txt` is unruled.** The llmstxt.org convention has a companion
+  carrying the entire text as one plain file. It publishes the whole book as a
+  single scrapeable document, which is a different decision from publishing a
+  map of it, and it belongs with the domain ruling rather than ahead of it.
 - **(c) A CUSTOM DOMAIN WILL BREAK THE 404 PAGE IN THE OTHER DIRECTION.**
   `--base-path` is derived in CI from the repository name, which is right for a
   Pages project site at `/textbook.aiom/`. The day a domain is ruled and the
