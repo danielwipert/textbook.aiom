@@ -7,6 +7,45 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**THE POST-LOCK EDITING RUN IS OPEN. Dan is revising every paragraph of Chapter
+1 and the process is CLAUDE.md section 8, "POST-LOCK (POST-LIVE) AUTHOR EDITS".**
+Branch `claude/chapter-1-editing-versioning-tfixx1`, pushed, `main` not yet
+merged up. The working protocol is four steps and Claude does not negotiate the
+prose: apply verbatim to the one live text, run `amend.py Ch01 -m "..." --rule`,
+report one line. The only thing raised unprompted is a NEW empirical claim with
+no source, because standing rule 2 is not a lifecycle step and no gate reads it.
+
+**`--rule` WAS BUILT 2026-08-14 ON DAN'S RULING AND IS THE DEFAULT FOR THIS
+RUN.** It retires whatever rulings an edit breaks in one pass, so the gate no
+longer costs a round trip. It retires only what actually broke, from the same
+evaluation W14 runs. Two fixes went in with it: `--dry-run` no longer writes the
+ledger, and `amend.py` stopped printing a hardcoded web-gate count that had been
+stale since W15.
+
+**THE FIRST AMENDMENT OF THE RUN IS `da595e7`, AND IT DEMONSTRATED THE BLIND SPOT
+RATHER THAN A RULE WORKING.** Dan's revision of the light-and-heavy-user
+paragraph reintroduced the SF2 and SF8 continuation mechanism IN DIFFERENT WORDS.
+W14 matched no forbidden string and stayed silent; it failed only on CE11, whose
+required sentences were gone. SF2 and SF8 were retired by hand because `--rule`
+could not have named them. **This is the third instance of that shape.** It is
+the standing argument for reading the passage as well as running the gate, and it
+is now recorded in CLAUDE.md section 8 rather than only here.
+
+**A SELF-TEST CONTROL WAS ANCHORED ON PROSE AND THE EDIT KILLED IT.** The FC9
+control injected after "The credit was consumed in a handful of prompts", which
+`da595e7` deleted, so the injection became a no-op and the control tested
+nothing. It asserted rather than passing, which is the design working. It now
+injects at the first paragraph tag. **A FORBIDDEN control must never anchor on
+prose carrying no ruling**; the REQUIRED controls are safe because each mutates
+its own ruled sentence. Still 97 of 97.
+
+**THE FULL TOOLCHAIN INSTALLS AND RUNS IN THIS CONTAINER, INCLUDING THE
+BROWSER.** `pip install -r requirements.txt` plus `poppler-utils` and the Pango
+and Cairo libraries. Contrary to the note below about the pinned browser, a
+Chromium sits at `/opt/pw-browsers` and `web_build.py` globs it, so **W6, W15 and
+W16b all RAN rather than skipping**: 20 widths clean, 33 links followed across 7
+pages served over HTTP, Archivo confirmed on the page by measurement.
+
 **ARCHIVO IS CONFIRMED ON THE PUBLISHED PAGE. Dan read the live Chapter 1
 opening on 2026-08-14 and approved the face.** That closes the v0.5 to v0.6
 sequence: the complaint was raised from a rendered page, the replacement was

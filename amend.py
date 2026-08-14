@@ -262,7 +262,11 @@ def main():
     r = run(["python3", "web_build.py", "--site", "--from-worktree",
              "--out", "build/web"])
     ok = r.returncode == 0
-    print("  web build + 14 gates ....... %s" % ("pass" if ok else "FAIL"))
+    # The COUNT is deliberately not printed here. It was hardcoded at 14 and went
+    # stale the day W15 landed, then again at W16. web_build.py prints its own
+    # verdict, including which optional gates did not run, and that is the one
+    # place the number is derived rather than copied.
+    print("  web build + gates .......... %s" % ("pass" if ok else "FAIL"))
     if not ok:
         failures.append(("web", r.stdout))
 

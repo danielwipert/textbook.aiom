@@ -457,21 +457,28 @@ Sequencing rules:
 - A reopen after Stage 9 re-runs every step from the one that owns the change.
 - No chapter is Locked until every step is complete.
 
-**AMENDMENT, THE POST-LOCK PATH. Ruled 2026-08-13, and it is the answer to a
-locked chapter that is still being written.** Dan is the author and the final
-editor. An edit he makes is approved by definition and SUPERSEDES, so it does
-NOT go through the lifecycle: `amend.py` reopens nothing, asks nothing about the
-merit of the edit, and the chapter never leaves Stage 9. The thirteen steps are
-for producing a chapter, not for changing a comma in one that exists.
+**POST-LOCK (POST-LIVE) AUTHOR EDITS, THE AMENDMENT PATH. Ruled 2026-08-13, and
+it is the answer to a locked chapter that is still being written.** Dan is the
+author and the final editor. An edit he makes is approved by definition and
+SUPERSEDES, so it does NOT go through the lifecycle: `amend.py` reopens nothing,
+asks nothing about the merit of the edit, and the chapter never leaves Stage 9.
+The thirteen steps are for producing a chapter, not for changing a comma in one
+that exists. This is the ONLY path by which a locked or published chapter
+changes, and it applies whatever the size of the edit: a comma and a rewrite of
+every paragraph in the chapter run the same way.
 
-- **What still runs is the mechanical half only, about twenty seconds.** W14,
-  `voicecheck` mechanical, the print render with its fifteen gates, and the web
-  build with its fourteen. These have no opinion about the writing. They measure
-  the rendered object, and they catch what is invisible in the source because it
-  is not in the sentence that changed: a one-sentence reorder in this chapter
-  pushed footnotes off their calling pages ELEVEN PAGES LATER, twice. They report
-  and stop before committing damage; they never overrule the edit, and `--force`
-  commits anyway on Dan's authority.
+- **What still runs is the mechanical half only, about thirty to forty-five
+  seconds.** W14, `voicecheck` mechanical, the print render with its fifteen
+  gates, and the web build with its full suite. These have no opinion about the
+  writing. They measure the rendered object, and they catch what is invisible in
+  the source because it is not in the sentence that changed: a one-sentence
+  reorder in this chapter pushed footnotes off their calling pages ELEVEN PAGES
+  LATER, twice. They report and stop before committing damage; they never
+  overrule the edit, and `--force` commits anyway on Dan's authority.
+- **THE COST IS PER RUN, NOT PER PARAGRAPH, SO EDITS ARE BATCHED.** Ten
+  paragraphs cost what one costs. A separate amendment per paragraph buys
+  nothing and produces a commit log and a checklist record nobody can read.
+  Batch by slot, or by however much Dan sends at once.
 - **THE CHECKLIST IS TOUCHED ON EVERY AMENDMENT AND THAT IS LOAD BEARING.**
   `snapshot.py` resolves what publishes as the newest commit whose CHECKLIST
   reported Stage 9. An amendment that changed only the chapter HTML would leave
@@ -485,9 +492,41 @@ for producing a chapter, not for changing a comma in one that exists.
   protection that is not in force, which is the failure the gate exists to
   prevent. `claimcheck.summary` counts only rulings that still enforce
   something, for the same reason.
+- **`--rule` IS THAT RULING APPLIED IN ADVANCE, AND IT IS THE DEFAULT FOR AN
+  EDITING RUN. Added 2026-08-14 on Dan's ruling.** Naming each ID by hand costs
+  a round trip containing no decision: the gate fails, the IDs are read off the
+  failure, the command is retyped. Dan's edit supersedes whatever it breaks, so
+  `--rule` retires exactly those, dated and attributed and kept as history like
+  any named supersede. It can never retire a ruling that still holds, because
+  the set comes from `claimcheck.broken_rulings`, the same evaluation W14 runs.
+- **WHAT `--rule` CANNOT SEE IS THE SAME BLIND SPOT W14 HAS, and it is the
+  reason the reading half did not get faster.** A withdrawn claim RESTATED IN
+  DIFFERENT WORDS matches no forbidden string. It breaks the ruling in
+  substance, the gate stays silent, and `--rule` retires nothing because nothing
+  failed. This is precisely how SF2 came back as SF8, and it happened a third
+  time on 2026-08-14, when an amendment reintroduced the continuation mechanism
+  in new words. SF2 and SF8 were retired by hand that day because the gate could
+  not have named them.
 - Stages 3 and 7 are unaffected and still bind: an amendment that introduces a
   NEW empirical claim needs a source like any other, and standing rule 2 is not
-  a lifecycle step that an amendment can skip.
+  a lifecycle step that an amendment can skip. **This is the one thing Claude
+  still raises unprompted during an editing run**, in a line rather than a
+  review, because no gate reads it and Dan cannot rule on what he is not told.
+  Everything else about the prose is his and is not commented on.
+
+**THE WORKING PROTOCOL FOR AN EDITING RUN, ruled 2026-08-14.** Dan sends
+paragraphs and Claude does not negotiate them.
+
+1. Dan sends replacement prose, as many paragraphs at a time as he likes.
+2. Claude applies it VERBATIM to the one live text. Not a copy, not a fork, not
+   a working draft to diff against. If the previous wording is needed it comes
+   from `git show <sha>:<path>`, which puts no second file on disk.
+3. Claude runs `python3 amend.py Ch01 -m "what changed" --rule`.
+4. Claude reports ONE line: committed, or what broke in the render.
+
+No proposed alternatives, no ruling-by-ruling analysis, no second opinion on the
+writing. Dan already ran the chapter through the thirteen steps; the amendment
+path exists because he is past them.
 
 **Scoped re-run matrix.** After a step passes, an edit re-runs only the steps it
 can invalidate:
