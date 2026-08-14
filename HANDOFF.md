@@ -15,17 +15,12 @@ site. **No step of it was settled by reading a description of a typeface**, whic
 is the rule the drawn marks already follow and which now has a second instance
 behind it.
 
-**MERGED TO MAIN 2026-08-14, CI GREEN, SITE DEPLOYED, BRANCH RETIRED. The repo is
-one branch, `main`, with nothing stranded and nothing outstanding.**
-
-**A BRANCH CANNOT BE DELETED FROM A CLAUDE SESSION, AND THAT IS AN ENVIRONMENT
-LIMIT RATHER THAN A MISSING STEP.** `git push --delete` gets "the remote end hung
-up unexpectedly", the REST ref delete answers 403 "Write access to this GitHub
-API path is not permitted through this proxy", and the GitHub MCP server offers
-`create_branch` with no delete. Dan deleted `claude/chapter-text-font-uv7ywk`
-from the GitHub UI. **Merge up, verify with `git_hygiene.py` that the branch is
-fully merged, then ASK for the deletion rather than reporting it done**, and
-`git fetch --prune` afterwards so the local tracking ref goes with it.
+**MERGED TO MAIN 2026-08-14, CI GREEN, SITE DEPLOYED, BRANCH RETIRED.** `main` is
+at `d411ec9`, the working tree is clean, the remote holds `main` alone and
+`git_hygiene.py` reports nothing stranded. `status_check.py` reports Chapter 1 at
+13 of 13, STATUS CONSISTENT. The branch deletion needed Dan again, for the third
+time and by a third route; the rule is in Standing reminders and was not
+relitigated.
 
 **GATE W16 CLOSES THE TYPEFACE HOLE, 2026-08-14, RULED BY DAN THE SAME DAY IT WAS
 BOOKED. THE WEB SUITE IS W1 THROUGH W16, SIXTEEN GATES, 97 SELF-TEST CONTROLS.**
@@ -1337,12 +1332,26 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF THE 2026-08-13 SESSION CLOSE, in order: 6 (CHAPTER 2, now
-the work and now genuinely unblocked), 8 (the web edition, LIVE and waiting on
-Dan for a domain and the author band), 10 (the Northmoor CSVs, for the Part III
-build), 5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed
-the day it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread:
-see the top of Repository state.**
+**LIVE THREADS AS OF THE 2026-08-14 SESSION CLOSE, in order: 6 (CHAPTER 2, now
+the work, unblocked, and the only thing anyone is waiting on), 8 (the web
+edition, LIVE and waiting on Dan for a domain and the author band), 10 (the
+Northmoor CSVs, for the Part III build), 5 (process hardening), 3 (design gaps),
+7 (Decision 28). Thread 9 closed the day it opened and so did item (e) below.
+THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread: see the top of
+Repository state.**
+
+**NOTHING IN THE WEB EDITION IS OUTSTANDING AS OF THIS CLOSE.** The typeface
+question that ran for two days is settled and confirmed on the published page,
+and the hole it exposed is now gate W16. **CHAPTER 2 IS THE WORK.** Before
+drafting it, read `AIOM_Voice_and_Craft_v1.md` and `AIOM_Prose_Style_Guide_v1.md`
+rather than consulting them at Stage 4, which is what CLAUDE.md section 2
+requires and what the craft standard binding from Stage 0 means.
+
+**AND CHAPTER 2 HAS NO BAND TO BE READ AGAINST YET.** The craft baseline reset is
+a Stage 9 pending action on Chapter 1, deferred by Dan so it comes from the
+locked text, and Chapter 1 has been locked since 2026-08-13. It is available to
+take whenever he wants it. Until it is taken, a chapter is read against the six
+criteria themselves and against no numbers.
 
 **Five small items are booked by the website-edits sessions and none blocks
 anything.** They belong to thread 8.
@@ -1799,8 +1808,14 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
   by two different routes: it is the operation that is denied, not the
   credential or the syntax. **THE LOCAL BRANCH CAN STILL BE DELETED**, and
   should be, so `git branch --list` does not disagree with the remote. Nothing
-  is outstanding as of the 2026-08-13 session close: Dan deleted both branches
-  when asked and the remote holds `main` alone. This matters because the
+  is outstanding as of the 2026-08-14 session close: Dan deleted
+  `claude/chapter-text-font-uv7ywk` when asked and the remote holds `main` alone.
+  **Confirmed a third time on 2026-08-14**, where the git delete refspec reported
+  "the remote end hung up unexpectedly" and the REST ref delete answered 403
+  "Write access to this GitHub API path is not permitted through this proxy". The
+  reconnected GitHub MCP server offers `create_branch` and no delete, so that
+  route is closed too. **Run `git fetch --prune` after Dan confirms**, or the
+  local tracking ref outlives the branch it tracks. This matters because the
   2026-08-12 stranding was made hard to see by thirteen merged and undeleted
   branches, so the cleanup rule is real even though Claude cannot execute it.
   **The working pattern that settled this: Claude finishes, verifies fully
