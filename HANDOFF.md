@@ -42,12 +42,24 @@ six phases. Neither is a gap in a particular gate. Both are the same gap: **the
 suite measures the artifact and never exercises it.** W1 compares text, W3 scans
 marks, W4 matches strings, W6 measures layout, and nothing clicked.
 
-**GATE W15 CLOSES IT, ruled by Dan the same day.** In-page navigation: it loads
-every emitted page, clears the hash, clicks every internal link and measures
-where the target lands. 33 links across 7 pages on the current site. **The suite
-is now W1 through W15, FIFTEEN gates, with 79 self-test controls**, and the
-count is derived from the build's own output rather than copied forward, which
-is the standing rule for it.
+**GATE W15 CLOSES IT, ruled by Dan the same day.** It loads every emitted page,
+clears the hash, clicks every internal link and measures where the target lands,
+AND serves the tree over HTTP at the prefix it deploys to, failing on any
+subresource 404. 33 links across 7 pages. **The suite is now W1 through W15,
+FIFTEEN gates, with 80 self-test controls**, derived from build output rather
+than copied forward, which is the standing rule for it.
+
+**THE HTTP HALF CAME FROM DAN ASKING WHETHER CLAUDE CAN ACTUALLY VIEW THE SITE.
+It cannot, and asking found a second live defect.** The published URL is
+unreachable here: the proxy answers 403 to CONNECT for `danielwipert.github.io`,
+logged by name. Every browser check before that had loaded the build from
+`file://`, the same artifact CI publishes but not the same CONFIGURATION.
+Serving at `/textbook.aiom/` exposed the 404 page linking its stylesheet as
+`/assets/aiom_web.css`, which on a project site points at the root of the USER
+site: the live 404 was unstyled with every link leading out of the book. It was
+the only root-absolute path in the build, and 404 is the one page that cannot
+use a relative one, since Pages serves it for any missing address at any depth.
+`--base-path` supplies the prefix and CI derives it from the repository name.
 
 W15 is the SECOND optional gate, since it needs the same headless browser W6
 does. `--no-browser` skips both and the verdict line reads "W6 AND W15 NOT RUN".

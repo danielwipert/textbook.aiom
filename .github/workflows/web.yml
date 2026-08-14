@@ -65,7 +65,19 @@ jobs:
         run: python -m playwright install --with-deps chromium
 
       - name: Build the site and run every gate
-        run: python3 web_build.py --site --out build/web
+        # --base-path is the prefix GitHub Pages serves a PROJECT site under,
+        # and it is DERIVED from the repository name rather than typed, so a
+        # rename cannot leave it stale. It is what the 404 page uses to reach its
+        # stylesheet: that page is served for any missing address at any depth,
+        # so it cannot use a relative path, and a root-absolute one would point
+        # at the root of the user site instead of at the book. Gate W15 serves
+        # the tree at this prefix and fails if any subresource 404s.
+        #
+        # IF A CUSTOM DOMAIN IS EVER SET, the site moves to the root and this
+        # must become empty, or the 404 page breaks in the other direction.
+        run: |
+          python3 web_build.py --site --out build/web \
+            --base-path "/${{ github.event.repository.name }}"
 
       - name: Prove the gates still measure what they claim
         run: python3 web_gates_selftest.py

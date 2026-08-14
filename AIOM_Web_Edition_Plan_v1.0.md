@@ -1014,4 +1014,30 @@ cannot reach the top of the window**, so arrival is accepted when the page is
 scrolled to its end and the target is on screen. Without that exception the last
 anchor on every page fails forever, which is how a gate gets switched off.
 
-The suite is W1 through W15, FIFTEEN gates, with 79 self-test controls.
+**AND ASKED TO ACTUALLY VIEW THE SITE, WHICH FOUND A SECOND LIVE DEFECT.** The
+published URL is unreachable from the Claude environment: the egress proxy
+answers 403 to CONNECT for `danielwipert.github.io`, logged by name. Every
+browser check to that point had therefore loaded the build from `file://`, which
+is the same artifact CI publishes but not the same CONFIGURATION. Serving it
+over HTTP at `/textbook.aiom/`, the prefix GitHub Pages actually uses, exposed
+the 404 page reaching its stylesheet at `/assets/aiom_web.css`. On a project
+site that resolves to the root of the USER site, so the live 404 came up
+unstyled with every link leading out of the book. It was the only file in the
+build with a root-absolute path, and it is the one page that cannot use a
+relative one, because Pages serves it for any missing address at any depth.
+
+**RULED: `--base-path`, and W15 extended to serve at it.** The prefix is derived
+in CI from the repository name rather than typed, so a rename cannot leave it
+stale, and it is empty when a custom domain serves the site at the root, which
+is the state `--base-url` already anticipates. W15 now mounts the tree under the
+prefix through a symlink, loads every page over HTTP and fails on any
+subresource 404. Serving at the ROOT is precisely the configuration that hides
+this class of defect, which is why the gate refuses to do it.
+
+Two smaller things in that gate are deliberate. The request logger is silenced,
+or the server would bury the gate output it exists to serve. And Chromium's
+unprompted `/favicon.ico` request is excluded by name: it happened not to
+surface on the run that found the real defect, and leaving it to chance is how a
+gate acquires a false positive that gets it switched off.
+
+The suite is W1 through W15, FIFTEEN gates, with 80 self-test controls.

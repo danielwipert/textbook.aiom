@@ -146,24 +146,38 @@ def quiet(fn, *a, **kw):
 
 
 def _w15_controls(results):
-    """Negative controls for gate W15, following links in a real browser.
+    """Negative controls for gate W15, which follows links in a real browser.
 
-    THE THREE FAULTS ARE THE REAL ONE AND THE TWO IT IMPLIES. The first
-    reproduces the defect of 2026-08-13 exactly, an id written onto a closing
-    tag. The other two are the reason W15 exists at all rather than W4's
-    hardened parse being enough: an anchor can be perfectly well formed and
-    still unreachable, and neither markup reading can see it.
+    THE FAULTS ARE THE REAL ONES AND THE CLASSES THEY IMPLY. The first
+    reproduces the defect of 2026-08-13 exactly, a slot id written onto a
+    closing tag. The last reproduces the second real defect of the same day, the
+    404 page reaching its stylesheet by a root-absolute path that resolves
+    outside a project site's prefix. The middle two are the reason W15 exists
+    rather than W4's hardened parse being enough: an anchor can be well formed
+    and still unreachable, and no reading of the markup sees that.
+
+    THE 404 PAGE IS REGENERATED AT THE BASE UNDER TEST rather than taken as
+    built, so these controls do not depend on which --base-path the last real
+    build happened to use. A control that passes or fails according to the
+    developer's last command line is not a control.
     """
     import os
+    import re
     import shutil
 
     src = "build/web"
     tmp = "build/web-selftest-nav"
 
-    def run(label, patch):
+    def fresh(base=""):
         shutil.rmtree(tmp, ignore_errors=True)
         shutil.copytree(src, tmp)
-        f = os.path.join(tmp, "ch01", "index.html")
+        open(os.path.join(tmp, "404.html"), "w", encoding="utf-8").write(
+            wb._env().get_template("404.html.j2").render(base=base))
+        return tmp
+
+    def run(label, rel, patch, base=""):
+        fresh(base)
+        f = os.path.join(tmp, rel)
         html = open(f, encoding="utf-8").read()
         patched = patch(html)
         if patched == html:
@@ -171,7 +185,7 @@ def _w15_controls(results):
             print(f"  [MISS] {label:<46} the control never changed the page")
             return
         open(f, "w", encoding="utf-8").write(patched)
-        fails, ran = wb.gate_w15(tmp)
+        fails, ran = wb.gate_w15(tmp, base)
         if not ran:
             print(f"  [SKIP] {label:<46} no headless browser. NOT a pass.")
             results.append((True, label + " skipped", []))
@@ -180,33 +194,46 @@ def _w15_controls(results):
         print(f"  [{'ok  ' if fails else 'MISS'}] {label:<46} "
               f"{fails[0][:70] if fails else 'no failure reported'}")
 
-    clean, ran = wb.gate_w15(src)
+    fresh("")
+    clean, ran = wb.gate_w15(tmp, "")
     if not ran:
         print("  [SKIP] W15 could not run, no headless browser. NOT a pass.")
         results.append((True, "W15 skipped, reported as skipped", []))
+        shutil.rmtree(tmp, ignore_errors=True)
         return
     results.append((not clean, "W15 clean on the real site", clean))
     print(f"  [{'ok  ' if not clean else 'MISS'}] "
           f"{'W15 clean on the real site':<46} "
           f"{clean[0][:70] if clean else 'no failure reported'}")
 
-    run("a slot id on a closing tag, the real 2026-08-13 defect",
+    ch = os.path.join("ch01", "index.html")
+
+    run("a slot id on a closing tag, the real defect", ch,
         lambda h: h.replace('<p class="slot-label" id="slot-craft-section">',
                             '<p class="slot-label">', 1)
                    .replace("Craft section</p>",
                             'Craft section</p id="slot-craft-section">', 1))
 
-    run("an anchor whose target is not rendered",
+    run("an anchor whose target is not rendered", ch,
         lambda h: h.replace('<section class="keyterms" id="slot-key-terms">',
                             '<section class="keyterms" id="slot-key-terms"'
                             ' style="display:none">', 1))
 
-    run("a click swallowed before it can navigate",
+    run("a click swallowed before it can navigate", ch,
         lambda h: h.replace(
             "</body>",
             "<script>document.addEventListener('click',function(e){"
             "var a=e.target.closest&&e.target.closest('a[href=\"#slot-summary\"]');"
             "if(a){e.preventDefault();}},true);</script></body>", 1))
+
+    # The second real defect of 2026-08-13. Served at a project prefix, a
+    # root-absolute asset path points at the root of the USER site, so the page
+    # comes up unstyled. It is invisible from file:// and invisible to W10 and
+    # W11, which check that the asset exists and is same-origin.
+    run("an asset that 404s under the deploy prefix", "404.html",
+        lambda h: re.sub(r'href="[^"]*aiom_web\.css"',
+                         'href="/assets/aiom_web.css"', h, count=1),
+        base="/textbook.aiom")
 
     shutil.rmtree(tmp, ignore_errors=True)
 

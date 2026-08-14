@@ -760,8 +760,11 @@ rulings. What binds outside that document:
 - **A NON-GREEDY REGEX OVER NESTED ELEMENTS HAS NOW BEEN THE DEFECT THREE TIMES IN
   `web_build.py`.** `find_spans(doc, opener, tag)` is the balanced scanner and it
   takes a tag. Reach for it rather than writing `(.*?)</div>`.
-- **GATE W15 FOLLOWS EVERY IN-PAGE LINK IN A REAL BROWSER. Added 2026-08-13 on
-  Dan's ruling, because nothing in either suite had ever exercised the site.**
+- **GATE W15 SERVES THE SITE AND USES IT. Added 2026-08-13 on Dan's ruling,
+  because nothing in either suite had ever exercised the site.** It does two
+  things a static reading cannot: it follows every in-page link in a real
+  browser, and it serves the tree over HTTP AT THE PREFIX IT DEPLOYS TO and
+  fails when any subresource 404s.
   It loads each emitted page, clears the hash, clicks each internal link and
   measures where the target lands. W4's hardened parse would catch the dead
   anchor that prompted it; W15 exists because the CLASS is larger than that
@@ -770,6 +773,21 @@ rulings. What binds outside that document:
   the click. **No reading of the markup settles any of those.** Its three
   controls are exactly those three faults, and two of them are invisible to
   every other gate.
+- **THE 404 PAGE IS THE ONE PAGE THAT CANNOT USE A RELATIVE PATH, and it shipped
+  broken because of it.** GitHub Pages serves it for ANY missing address at any
+  depth, so `../assets` resolves differently every time. Root-absolute is wrong
+  too: on a PROJECT site at `/textbook.aiom/` it points at the root of the USER
+  site. The live page therefore came up unstyled with every link leading out of
+  the book, and it was the only file in the build with a root-absolute path.
+  `--base-path` supplies the prefix, CI derives it from the repository name so a
+  rename cannot leave it stale, and it is empty when a custom domain serves the
+  site at the root.
+- **A `file://` RENDER CANNOT SEE A PATH-PREFIX BUG, WHICH IS WHY W15 SERVES
+  OVER HTTP.** Every screenshot and every browser check before this one loaded
+  the build from the filesystem, where a wrong absolute path is merely odd
+  rather than fatal. Serving the tree at its real prefix is what turned an
+  invisible defect into a failing gate. W10 checks the asset exists and W11
+  checks it is same-origin; neither has ever loaded a page.
 - **CLEAR THE HASH BEFORE FOLLOWING A LINK, or the check measures nothing.**
   Clicking a link whose hash is already current is a no-op in every browser, so
   a second visit to the same anchor would report the previous landing as a fresh

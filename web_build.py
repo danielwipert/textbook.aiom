@@ -56,6 +56,12 @@ Usage:
 """
 import argparse
 import glob
+import contextlib
+import functools
+import http.server
+import socketserver
+import tempfile
+import threading
 import os
 import re
 import shutil
@@ -1137,7 +1143,7 @@ def gate_w10(outdir, metas, notes, preview):
     return fails
 
 
-def write_deploy_files(outdir, metas, base_url):
+def write_deploy_files(outdir, metas, base_url, base_path=""):
     """robots.txt, sitemap.xml, 404.html, and CNAME when a domain is set.
 
     base_url is empty until Dan rules the domain. The sitemap then emits
@@ -1160,7 +1166,7 @@ def write_deploy_files(outdir, metas, base_url):
         + (f"Sitemap: {root}/sitemap.xml\n" if root else "Sitemap: /sitemap.xml\n"))
 
     open(os.path.join(outdir, "404.html"), "w", encoding="utf-8").write(
-        _env().get_template("404.html.j2").render())
+        _env().get_template("404.html.j2").render(base=base_path))
 
     if base_url:
         host = re.sub(r"^https?://", "", base_url).strip("/")
@@ -1210,7 +1216,56 @@ W15_MEASURE = r"""
 W15_BAND = (-8, 320)
 
 
-def gate_w15(outdir):
+
+@contextlib.contextmanager
+def _serve(outdir, base_path=""):
+    """Serve the built tree over HTTP at the prefix it deploys to.
+
+    ADDED 2026-08-13, ON DAN'S RULING, AFTER A DEFECT THAT ONLY EXISTS UNDER A
+    PREFIX. The 404 page linked its stylesheet as `/assets/aiom_web.css`. Loaded
+    from `file://` that is merely odd; served from a GitHub Pages PROJECT site at
+    `/textbook.aiom/` it resolves to the ROOT of the user site, so the live 404
+    page came up unstyled with every link leading out of the book. Nothing saw
+    it: W10 checks the asset exists, W11 checks it is same-origin, and the gates
+    had never loaded a page over HTTP at the deployed prefix.
+
+    The tree is mounted UNDER the prefix rather than served at the root, because
+    serving at the root is exactly the configuration that hides this class of
+    bug. A symlink is used so nothing is copied.
+    """
+    root = tempfile.mkdtemp(prefix="aiom-serve-")
+    prefix = "/" + base_path.strip("/") if base_path.strip("/") else ""
+    try:
+        if prefix:
+            mount = os.path.join(root, *prefix.strip("/").split("/"))
+            os.makedirs(os.path.dirname(mount), exist_ok=True)
+            os.symlink(os.path.abspath(outdir), mount)
+            docroot = root
+        else:
+            docroot = os.path.abspath(outdir)
+
+        class _Quiet(http.server.SimpleHTTPRequestHandler):
+            # The default handler logs every request to stderr, which would bury
+            # the gate output it is serving.
+            def log_message(self, *a, **kw):
+                pass
+
+        handler = functools.partial(_Quiet, directory=docroot)
+        # Port 0 lets the OS pick a free one, so concurrent runs cannot collide.
+        httpd = socketserver.TCPServer(("127.0.0.1", 0), handler)
+        httpd.daemon_threads = True
+        thread = threading.Thread(target=httpd.serve_forever, daemon=True)
+        thread.start()
+        try:
+            yield f"http://127.0.0.1:{httpd.server_address[1]}{prefix}"
+        finally:
+            httpd.shutdown()
+            httpd.server_close()
+            thread.join(timeout=5)
+    finally:
+        shutil.rmtree(root, ignore_errors=True)
+
+def gate_w15(outdir, base_path=""):
     """Navigation navigates. Follow every in-page link in a real browser.
 
     ADDED 2026-08-13, ON DAN'S RULING, AFTER TWO RAIL ANCHORS WERE DEAD FOR SIX
@@ -1246,17 +1301,36 @@ def gate_w15(outdir):
     pages = sorted(glob.glob(os.path.join(outdir, "**", "*.html"), recursive=True))
     fails, followed = [], 0
     try:
-        with sync_playwright() as pw:
+        with _serve(outdir, base_path) as origin, sync_playwright() as pw:
             kw = {"args": ["--no-sandbox"]}
             if exe:
                 kw["executable_path"] = exe
             b = pw.chromium.launch(**kw)
             pg = b.new_page(viewport={"width": 1512, "height": 900},
                             reduced_motion="reduce")
+            bad_res = []
+            pg.on("response",
+                  lambda r: bad_res.append((r.url, r.status)) if r.status >= 400
+                  else None)
             for path in pages:
                 label = os.path.relpath(path, outdir)
-                pg.goto("file://" + os.path.abspath(path))
-                pg.wait_for_timeout(120)
+                bad_res.clear()
+                pg.goto(origin + "/" + label.replace(os.sep, "/"),
+                        wait_until="networkidle")
+                pg.wait_for_timeout(80)
+                for u, s in bad_res:
+                    # Chromium requests /favicon.ico on its own, unprompted by
+                    # the page. The site ships none, so that 404 is not a defect
+                    # in anything the build emitted. Excluded explicitly rather
+                    # than left to chance: it happened not to surface on the run
+                    # that found this gate's first real defect, and relying on
+                    # that would be relying on luck.
+                    if u.endswith("/favicon.ico"):
+                        continue
+                    fails.append(
+                        f"W15 [{label}]: a subresource returned {s} when the "
+                        f"page is served at {base_path or chr(47)}: "
+                        f"{u.split(chr(47) + chr(47), 1)[-1].split(chr(47), 1)[-1]}")
                 hrefs = pg.eval_on_selector_all(
                     'a[href^="#"]',
                     'els => [...new Set(els.map(e => e.getAttribute("href")))]')
@@ -1299,8 +1373,9 @@ def gate_w15(outdir):
         return [], False
 
     if not fails:
-        print(f"W15. in-page navigation .. {followed} link(s) followed across "
-              f"{len(pages)} page(s), every one arrives")
+        print(f"W15. navigation and load . {followed} link(s) followed, "
+              f"{len(pages)} page(s) served at {base_path or chr(47)}, every "
+              f"link arrives and every subresource resolves")
     return fails, True
 
 def gate_w7(meta, book):
@@ -1852,7 +1927,7 @@ def render_index(outdir, meta):
 
 
 def build_site(chapter_paths, outdir, preview=False, no_browser=False,
-               base_url="", notes=()):
+               base_url="", notes=(), base_path=""):
     """Build the whole site from every chapter given, then gate it.
 
     W5 turned this from a one-chapter command into a site build. The gates that
@@ -1893,7 +1968,7 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         outdir, lead, open(chapter_paths[0], encoding="utf-8").read())
     search_html, docs, bytes_ = build_search(
         outdir, lead, chapter_paths[0], ref)
-    write_deploy_files(outdir, metas, base_url)
+    write_deploy_files(outdir, metas, base_url, base_path)
     print(f"  reference and search: {docs} search docs, {bytes_ / 1024:.1f} kB")
     print(f"  deploy files: sitemap, robots, 404"
           + (f", CNAME for {base_url}" if base_url else ", no CNAME (no domain set)"))
@@ -1914,7 +1989,7 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
     # is complete. Following a link on a page that was never emitted would fail
     # for the wrong reason and send the reader after the wrong defect.
     if not no_browser:
-        w15, _ = gate_w15(outdir)
+        w15, _ = gate_w15(outdir, base_path)
         fails += w15
     fails += gate_w11(outdir)
     fails += gate_w12(pages + site_pages)
@@ -1933,6 +2008,9 @@ def main():
                     help="build an unlocked chapter to a local noindex page")
     ap.add_argument("--no-browser", action="store_true",
                     help="skip gates W6 and W15, which need a headless browser")
+    ap.add_argument("--base-path", default="",
+                    help="the path the site is served under, e.g. /textbook.aiom "
+                         "for a GitHub Pages project site. Empty for the root.")
     ap.add_argument("--from-worktree", action="store_true",
                     help="build --site from the working tree instead of each "
                          "chapter's last lock. Local preview of edits in "
@@ -1993,9 +2071,21 @@ def main():
     else:
         ap.error("give a chapter path, or --site to build every locked chapter")
 
+    # THE DEPLOY PREFIX. A GitHub Pages PROJECT site serves at /<repo>/, and the
+    # 404 page is the one page that cannot use a relative path to reach an asset,
+    # because Pages serves it for any missing address at any depth. --base-path
+    # states that prefix; when it is not given it is taken from --base-url's own
+    # path, so supplying a domain that already carries a subdirectory does not
+    # need the same fact stated twice. Empty means the site is served at the root,
+    # which is what a custom domain gives.
+    base_path = a.base_path
+    if not base_path and a.base_url:
+        base_path = re.sub(r"^https?://[^/]+", "", a.base_url)
+    base_path = "/" + base_path.strip("/") if base_path.strip("/") else ""
+
     print(f"{chr(10)}Building {len(chapters)} chapter(s) into {a.out}")
     fails, metas = build_site(chapters, a.out, a.preview, a.no_browser,
-                              a.base_url, notes)
+                              a.base_url, notes, base_path)
 
     verdict = "PASSED" if not fails else "FAILED"
     # The skip is stated in the verdict line rather than buried above it. Five of
