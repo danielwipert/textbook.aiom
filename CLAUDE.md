@@ -760,6 +760,26 @@ rulings. What binds outside that document:
 - **A NON-GREEDY REGEX OVER NESTED ELEMENTS HAS NOW BEEN THE DEFECT THREE TIMES IN
   `web_build.py`.** `find_spans(doc, opener, tag)` is the balanced scanner and it
   takes a tag. Reach for it rather than writing `(.*?)</div>`.
+- **AN ID IS COLLECTED BY PARSING START TAGS, NEVER BY REGEX, and the difference
+  is a whole class of dead link.** `\bid="([^"]+)"` matches inside
+  `</p id="slot-craft-section">`, an attribute on a CLOSING tag that every parser
+  discards, so the id sits in the file and never reaches the DOM. Gates W4b and
+  W4c read ids that way and therefore counted two dead anchors as live targets
+  and reported "all internal links resolve" for two rail links that did nothing.
+  `AnchorCollector` in `web_build.py` is the reader; both the chapter check and
+  the page check use it, and they were changed together so the landing page does
+  not keep the defect the chapter is protected from. **A regex answers whether
+  text is present. It cannot answer whether an element exists.**
+- **A LINK IS VERIFIED BY FOLLOWING IT.** The two dead anchors were found on
+  2026-08-13 by Dan clicking one, after passing every build since Phase W1. No
+  check had ever followed a link; they had only looked for the string. When a
+  navigation change lands, drive the browser: click each link and assert where it
+  lands, which is about fifteen lines of Playwright.
+- **INSERTING AN ATTRIBUTE INTO A MATCH REQUIRES KNOWING WHETHER THE MATCH IS A
+  TAG OR AN ELEMENT.** Three `SLOTS` patterns match a bare opening tag and two
+  match a whole element, because matching the label text is the only way to tell
+  one slot from another. `add_anchors` wrote the id before the match's last
+  character, which is right only for the first shape. Cut at the first `>`.
 - **A `find_spans` OPENER MUST CONSUME THE WHOLE TAG, NOT JUST ENOUGH TO IDENTIFY
   IT.** The function returns the text after the opener MATCH, so an opener widened
   to `<div class="kt"[ >]` leaves the rest of the tag, id and all, inside the

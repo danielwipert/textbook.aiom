@@ -7,10 +7,10 @@ authority. Section 7 records them. **Phases W1 and W2 are built and green as of
 reference layer and search, followed, and Phase W5, the site build and deploy,
 is built, and Phase W6, dark mode and the figure token pass, closes the plan.
 Host and analytics are ruled as Decisions 65 and 66. Only the DOMAIN is
-outstanding.** Sections 8 through 17 record what each phase learned. Sections 15
-through 17 are the v0.4 reading scale, the v0.5 body roman and term linking,
-which came from questions Dan asked about the reading surface rather than from
-a phase.
+outstanding.** Sections 8 through 18 record what each phase learned. Sections 15
+through 18 came from Dan reading and using the site rather than from a phase:
+the v0.4 reading scale, the v0.5 body roman, term linking, and two dead
+navigation anchors that six phases of green builds had reported as sound.
 
 The web edition is a second PRESENTATION of the book, never a second text. That
 sentence is the whole plan, and gate W1 in section 3 is what makes it true rather
@@ -941,3 +941,61 @@ reason: failing would couple the build to an editorial choice.
 - **Only Chapter 1 has been through this.** The matching rules are general, but
   they have been exercised against one chapter's habits. Chapter 2 is the first
   real test of whether the article rule and the punctuation refusal hold up.
+
+---
+
+## 18. Two dead anchors, and the gate that called them live
+
+Dan clicked the Craft section link in the navigation rail and nothing happened.
+It was dead. So was Opening case, which nobody had clicked. Both had been dead
+since Phase W1 and every build in between reported the navigation sound.
+
+**THE BUG.** `add_anchors` wrote the slot id before the LAST CHARACTER of the
+pattern match. Three of the six `SLOTS` patterns match a bare opening tag, so
+that was right for them. The other two match a whole element, because matching
+the label text is the only way to tell one slot label from another, and for
+those it produced `</p id="slot-craft-section">`. That is an attribute on a
+closing tag. Every parser discards it, so the id was in the file and never in
+the DOM. The insertion cuts at the first `>` now, which is correct for both
+shapes.
+
+**THE GATE IS THE LARGER HALF.** W4b counted ids with `\bid="([^"]+)"` over the
+raw HTML. That regex matches inside a closing tag, so it counted two anchors no
+browser could see, and W4c took the same set as its link targets and reported
+that every internal link resolved. Two gates agreed, twice per build, for six
+phases, about links that went nowhere. **A regex answers whether text is
+present. It cannot answer whether an element exists**, and anchor resolution is
+entirely a question about elements.
+
+Both readers parse now. `AnchorCollector` subclasses `HTMLParser` and collects
+ids from start tags only, which is what a browser does. The gate also fails when
+an id appears in the markup but on no element, so the real fault is named at the
+point it occurs rather than surfacing later as a mysterious missing target. The
+chapter reader and the page reader were changed together on purpose: hardening
+one and leaving the other would have left the landing page carrying the defect
+the chapter is now protected from, which is the one-page lesson of Phase W3
+arriving for the third time.
+
+**A LINK IS VERIFIED BY FOLLOWING IT, AND NOTHING HERE EVER HAD.** Every check
+in this project looked for the string. The fix was verified by driving a browser
+through all twelve rail links and asserting where each one lands: every one now
+lands on its target, each at the same offset beneath the sticky bar. That is
+about fifteen lines of Playwright and it is the only method that would have
+found the defect. **Add it to the routine after any navigation change.**
+
+The self-test control reproduces the real malformed markup rather than an
+invented fault, so the suite is 75. It passes against the old regex readers,
+which is the whole reason it exists.
+
+### What this says about the gate suite
+
+This is the second defect in two days that no gate could see and a person found
+by using the site: the body roman was half a step heavy through six phases of
+green builds, and now two rail links were dead through the same six. Neither is
+a gap in a particular gate. Both are the same gap, which is that **the suite
+measures the artifact and never exercises it.** W1 compares text, W3 scans
+marks, W4 matches strings, W6 measures layout. Nothing clicks, and until this
+week nothing looked. No new gate is proposed here, because the fix for that is
+not another string check; it is that a navigation or typography change gets
+driven in a browser before it ships, and that is now written into CLAUDE.md as a
+working rule rather than as a gate.

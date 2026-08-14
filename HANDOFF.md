@@ -7,8 +7,47 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**SESSION CLOSED 2026-08-13, THE WEBSITE-EDITS SESSION. Everything is on `main`
-and there is nothing else anywhere.** The remote holds ONE branch, `main`, for
+**TWO DEAD RAIL ANCHORS, FIXED 2026-08-13, AND THE GATE THAT CALLED THEM LIVE.**
+Dan clicked the Craft section link in the navigation rail and nothing happened.
+Opening case was dead the same way and nobody had clicked it. Both had been dead
+since Phase W1, through every green build since.
+
+`add_anchors` wrote the slot id before the LAST CHARACTER of the pattern match.
+Three of the six `SLOTS` patterns match a bare opening tag, so that was right
+for them; the other two match a whole element, because matching the label text
+is the only way to tell one slot label from another, and for those it produced
+`</p id="slot-craft-section">`. An attribute on a CLOSING tag, which every
+parser discards, so the id was in the file and never in the DOM. It cuts at the
+first `>` now, correct for both shapes.
+
+**THE GATE IS THE LARGER HALF. W4b counted ids with a regex**, which matches
+inside a closing tag, so two anchors no browser could see counted as live
+targets, and W4c took that same set and reported that every internal link
+resolved. Both readers parse now, through `AnchorCollector`, and the gate also
+fails when an id is in the markup but on no element. Chapter reader and page
+reader were changed together, or the landing page would keep the defect the
+chapter is protected from. **A regex answers whether text is present; it cannot
+answer whether an element exists.**
+
+**A LINK IS VERIFIED BY FOLLOWING IT, AND NOTHING HERE EVER HAD.** The fix was
+checked by driving a browser through all twelve rail links and asserting where
+each lands. Roughly fifteen lines of Playwright, and the only method that would
+have caught this. Do it after any navigation change. The self-test control
+reproduces the real malformed markup rather than an invented fault, so the suite
+is now **75 controls**.
+
+**THIS IS THE SECOND DEFECT IN TWO DAYS THAT NO GATE COULD SEE AND A PERSON
+FOUND BY USING THE SITE**, after the body roman being half a step heavy through
+six phases. Neither is a gap in a particular gate. Both are the same gap: **the
+suite measures the artifact and never exercises it.** W1 compares text, W3 scans
+marks, W4 matches strings, W6 measures layout, and nothing clicks. Plan section
+18 records why no new gate is proposed for it.
+
+**THE WEBSITE-EDITS SESSION, 2026-08-13. Everything is on `main` and there is
+nothing else anywhere.** It was closed once and reopened twice, for the
+playwright pin and then for the dead rail anchors above, so treat the summary
+below as the running record rather than a final one. The counts here are the
+work as of the last entry. The remote holds ONE branch, `main`, for
 the first time in this project's history. `git_hygiene.py` reports nothing
 stranded and no branch safe to delete, the tree is clean, local and remote are
 `0 0`, and `status_check.py` reports Chapter 1 locked at 13 of 13, STATUS
@@ -18,20 +57,23 @@ Four changes shipped to the reading surface, none of them to the chapter text:
 the v0.4 reading scale, the v0.5 body roman, term linking, and the
 documentation for each. A fifth closed a toolchain hole: **`playwright` is now
 pinned**, and the workflow's bare `pip install playwright`, which ran after the
-requirements install and would have overridden it, is gone. All five are
-described below. **Chapter 1's text was not edited at all, so no lifecycle step
+requirements install and would have overridden it, is gone. A sixth fixed the
+two dead rail anchors and the two gates that had reported them sound. All six
+are described below. **Chapter 1's text was not edited at all, so no lifecycle step
 was touched and no amendment was needed**, which is the point of the
 presentation layer being a separate file.
 
-**THE PATTERN THAT RAN THROUGH ALL FIVE IS WORTH REUSING: every one began by
-measuring, and three of the five began by measuring something the repository
-already believed it knew.** The column was 71 characters and the stylesheet said
+**THE PATTERN THAT RAN THROUGH ALL SIX IS WORTH REUSING: every one began by
+measuring or by exercising the page, and four of the six began by checking
+something the repository already believed it knew.** The column was 71 characters and the stylesheet said
 66. The body roman was weight 450 and the CSS said 400. The section 17
 breakpoint sum had been missing a whole term since Phase W2 and was covered by a
 cushion nobody had reasoned about. None of those was found by reading the code,
 which asserted the wrong number in each case. They came from rendering the page
 and measuring the result, which is the lesson the drawn spot marks and the
-hyphenation scan had already taught in other corners of this project.
+hyphenation scan had already taught in other corners of this project. The rail
+anchors extend it: two gates asserted a link resolved, and the only check that
+settled it was clicking the link.
 
 **Next session starts on `main` and starts on CHAPTER 2**, unless Dan brings
 more website edits, in which case the working rhythm was: change, gates,
