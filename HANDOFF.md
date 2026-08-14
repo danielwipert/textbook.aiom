@@ -7,6 +7,16 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**MERGED TO MAIN 2026-08-14, CI GREEN, SITE DEPLOYED. One loose end, and it is
+not a code one: the remote branch `claude/chapter-text-font-uv7ywk` could not be
+deleted from the Claude container.** `git push --delete` gets "the remote end
+hung up unexpectedly", the REST call answers 403 "Write access to this GitHub
+API path is not permitted through this proxy", and the GitHub MCP server offers
+`create_branch` with no delete. It is fully merged and its tip is an ancestor of
+main, so nothing is stranded; it needs deleting from the GitHub UI or from a
+machine without this proxy. **Assume the same limit for every future branch
+retirement from a Claude session.**
+
 **GATE W16 CLOSES THE TYPEFACE HOLE, 2026-08-14, RULED BY DAN THE SAME DAY IT WAS
 BOOKED. THE WEB SUITE IS W1 THROUGH W16, SIXTEEN GATES, 97 SELF-TEST CONTROLS.**
 Re-derived from build output, which is the standing rule for this count. W16a
@@ -85,7 +95,7 @@ wrong. Two of them fired only after the gate was fixed, which is the controls
 doing their job rather than confirming it.
 
 **THE WEB BODY FACE IS ARCHIVO, CSS v0.6, RULED BY DAN 2026-08-14. Branch
-`claude/chapter-text-font-uv7ywk`, pushed, not merged.** v0.5 had made the roman
+`claude/chapter-text-font-uv7ywk`, MERGED to main 2026-08-14 and CI green.** v0.5 had made the roman
 a true Regular 400 the day before, which fixed the weight and left the shape, and
 the shape was the remaining objection: Plex is a technology company's
 documentation face and reads as the default choice rather than a chosen one.
