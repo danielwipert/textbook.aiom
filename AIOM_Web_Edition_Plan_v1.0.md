@@ -995,7 +995,23 @@ green builds, and now two rail links were dead through the same six. Neither is
 a gap in a particular gate. Both are the same gap, which is that **the suite
 measures the artifact and never exercises it.** W1 compares text, W3 scans
 marks, W4 matches strings, W6 measures layout. Nothing clicks, and until this
-week nothing looked. No new gate is proposed here, because the fix for that is
-not another string check; it is that a navigation or typography change gets
-driven in a browser before it ships, and that is now written into CLAUDE.md as a
-working rule rather than as a gate.
+week nothing looked.
+
+**RULED THE SAME DAY: make it a gate. W15, in-page navigation, is the fifteenth,
+and the second that needs a browser.** It loads every emitted page, clears the
+hash, clicks every internal link and measures where the target lands. Its three
+controls are the real defect and the two it implies, and two of those are
+invisible to every other gate: an anchor on an element that is `display:none`,
+and a click swallowed by a handler. W4's hardened parse catches the fault that
+prompted this. W15 catches the class.
+
+Two details in it are load bearing. **The hash must be cleared before each
+click**, because clicking a link whose hash is already current is a no-op in
+every browser, so without that a second visit to an anchor would report the
+previous landing as a fresh pass: this project's signature failure reappearing
+inside the gate written to end it. And **a target at the foot of the document
+cannot reach the top of the window**, so arrival is accepted when the page is
+scrolled to its end and the target is on screen. Without that exception the last
+anchor on every page fails forever, which is how a gate gets switched off.
+
+The suite is W1 through W15, FIFTEEN gates, with 79 self-test controls.

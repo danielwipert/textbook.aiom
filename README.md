@@ -78,7 +78,7 @@ python3 AIOM_build.py _ch01_build.html --out build/Ch1.pdf
 rm -f _ch01_build.html _ch01_build.print.html
 ```
 
-**The website and its gates, W1 through W14.** `--site` publishes each chapter's
+**The website and its gates, W1 through W15.** `--site` publishes each chapter's
 last locked state rather than the working tree, so a chapter can be under
 revision without affecting what is live:
 

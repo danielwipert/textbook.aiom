@@ -630,10 +630,10 @@ rulings. What binds outside that document:
   renders at 43,204 characters of prose identical to print, six notes identical,
   all six slots anchored. Build with:
   `python3 web_build.py Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html`
-- **GATE W6 IS THE ONLY OPTIONAL GATE AND IT IS LOUD ABOUT IT.** It needs a
-  headless browser, which nothing else in the build does, so it prints SKIPPED and
-  appends "W6 NOT RUN" to the verdict line rather than quietly passing. `--no-browser`
-  skips it deliberately. It is the web analogue of print gate 1: the symptom is
+- **W6 AND W15 ARE THE TWO OPTIONAL GATES AND THEY ARE LOUD ABOUT IT.** Both need
+  a headless browser, which nothing else in the build does, so each prints SKIPPED
+  and the verdict line gains "W6 AND W15 NOT RUN" rather than quietly passing.
+  `--no-browser` skips them deliberately. It is the web analogue of print gate 1: the symptom is
   not ink off the paper but the whole document scrolling sideways, dragging every
   other block with it. It found the P3 inventory table doing exactly that below
   390px, which no amount of looking at a desktop render would have shown.
@@ -760,6 +760,21 @@ rulings. What binds outside that document:
 - **A NON-GREEDY REGEX OVER NESTED ELEMENTS HAS NOW BEEN THE DEFECT THREE TIMES IN
   `web_build.py`.** `find_spans(doc, opener, tag)` is the balanced scanner and it
   takes a tag. Reach for it rather than writing `(.*?)</div>`.
+- **GATE W15 FOLLOWS EVERY IN-PAGE LINK IN A REAL BROWSER. Added 2026-08-13 on
+  Dan's ruling, because nothing in either suite had ever exercised the site.**
+  It loads each emitted page, clears the hash, clicks each internal link and
+  measures where the target lands. W4's hardened parse would catch the dead
+  anchor that prompted it; W15 exists because the CLASS is larger than that
+  fault. An anchor can be well formed and still unreachable: on an element that
+  is `display:none`, inside a collapsed rail, or under a handler that swallows
+  the click. **No reading of the markup settles any of those.** Its three
+  controls are exactly those three faults, and two of them are invisible to
+  every other gate.
+- **CLEAR THE HASH BEFORE FOLLOWING A LINK, or the check measures nothing.**
+  Clicking a link whose hash is already current is a no-op in every browser, so
+  a second visit to the same anchor would report the previous landing as a fresh
+  pass. W15 calls `history.replaceState` and scrolls to the top before each
+  click. This is the same shape as every other silent-pass defect here.
 - **AN ID IS COLLECTED BY PARSING START TAGS, NEVER BY REGEX, and the difference
   is a whole class of dead link.** `\bid="([^"]+)"` matches inside
   `</p id="slot-craft-section">`, an attribute on a CLOSING tag that every parser
@@ -908,8 +923,9 @@ rulings. What binds outside that document:
   **the notes should be corrected at the next reopen** and the ledger records the
   discrepancy at each entry.
 - **A GATE IS ONE W-NUMBER, NOT ONE CHECK, AND THIS COUNT DRIFTED FOR FIVE
-  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W14, so it is
-  FOURTEEN gates, and every phase count above is stated on that basis. Sub-lettered
+  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W15, so it is
+  FIFTEEN gates as of 2026-08-13, when W15 was added. Phase counts above are
+  stated as they stood at that phase and are not restated here. Sub-lettered
   checks are parts of their gate, never gates: `W1a` and `W1b` are one gate, and so
   are `W4a` through `W4f`, `W7a` and `W7b`, `W8a` through `W8c`, and `W9a` and
   `W9b`. The Phase W1 and W2 entry was right at SIX and every entry after it ran

@@ -40,8 +40,31 @@ is now **75 controls**.
 FOUND BY USING THE SITE**, after the body roman being half a step heavy through
 six phases. Neither is a gap in a particular gate. Both are the same gap: **the
 suite measures the artifact and never exercises it.** W1 compares text, W3 scans
-marks, W4 matches strings, W6 measures layout, and nothing clicks. Plan section
-18 records why no new gate is proposed for it.
+marks, W4 matches strings, W6 measures layout, and nothing clicked.
+
+**GATE W15 CLOSES IT, ruled by Dan the same day.** In-page navigation: it loads
+every emitted page, clears the hash, clicks every internal link and measures
+where the target lands. 33 links across 7 pages on the current site. **The suite
+is now W1 through W15, FIFTEEN gates, with 79 self-test controls**, and the
+count is derived from the build's own output rather than copied forward, which
+is the standing rule for it.
+
+W15 is the SECOND optional gate, since it needs the same headless browser W6
+does. `--no-browser` skips both and the verdict line reads "W6 AND W15 NOT RUN".
+CI installs the browser, so both run there.
+
+**Two details inside W15 are load bearing and must survive any rewrite.** The
+hash is cleared before each click, because clicking a link whose hash is already
+current is a no-op in every browser, and without that a second visit to an
+anchor reports the previous landing as a fresh pass. And a target at the foot of
+the document cannot reach the top of the window, so arrival is accepted when the
+page is at its end and the target is on screen; without that exception the last
+anchor on every page fails forever, which is how a gate gets switched off.
+
+Its three controls are the real defect and the two it implies. **Two of the
+three are invisible to every other gate**: an anchor on an element that is
+`display:none`, and a click swallowed by a handler. That is what makes W15 a
+gate rather than a duplicate of W4's hardened parse.
 
 **THE WEBSITE-EDITS SESSION, 2026-08-13. Everything is on `main` and there is
 nothing else anywhere.** It was closed once and reopened twice, for the
@@ -1645,10 +1668,13 @@ has already paid for repeatedly. Read them there, not from memory:
 - **THE DESIGN MIRRORS ITS MARGINS.** Main text starts at x0 68.4 on odd pages,
   57.6 on even. Any new geometry check must derive the edge per page or it will
   read green while measuring nothing.
-- The PRINT QA suite is FIFTEEN gates, 1 through 15, and the WEB suite is
-  FOURTEEN, W1 through W14. Both numbers were wrong in this file until
-  2026-08-13: this line said fourteen for print, which went stale when gate 15
-  was added on 2026-08-12, and the web counts ran one high for five phases. A
+- The PRINT QA suite is FIFTEEN gates, 1 through 15, and the WEB suite is also
+  FIFTEEN, W1 through W15, since W15 (in-page navigation) was added 2026-08-13.
+  Both numbers were wrong in this file earlier that day: this line said fourteen
+  for print, which went stale when gate 15 was added on 2026-08-12, and the web
+  counts ran one high for five phases before that. THE WEB NUMBER HAS NOW GONE
+  STALE TWICE FOR TWO DIFFERENT REASONS, once by miscounting sub-letters and
+  once by a gate being added, which is why the rule is to derive it. A
   gate is one number, never one check, so sub-lettered checks like `W8a` are
   parts of a gate. Re-derive both from build output rather than copying them
   forward. Three checks written in this repo have been

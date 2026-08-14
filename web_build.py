@@ -23,12 +23,26 @@ and NO TEXT, which is the test for whether a presentation change belongs here.
 Gate W1 then proves the transform preserved the text, which is a check on this
 file rather than a check on the author.
 
-Eleven gates. W1 text equivalence, W2 lock status, W3 typographic marks, W4
-structure and links, W5 document attributes, W6 horizontal overflow across a
-width sweep, W7 the book spine, W8 the reference layer against the chapter, W9a
-the landing page quoted verbatim, W9b no register note published, W10 deploy
-readiness. W6 needs a headless browser and is the only optional one; it reports
-SKIPPED and is never counted as passed.
+FIFTEEN gates, W1 through W15. A gate is one W-number: sub-lettered checks are
+parts of their gate, never gates of their own. This list had said "eleven" and
+stopped at W10 since Phase W5, which is the count drift CLAUDE.md records; it is
+derived from the build's own output rather than copied forward.
+
+W1 text equivalence with print, W2 lock status, W3 typographic marks, W4
+structure, anchors and links, W5 document attributes, W6 horizontal overflow
+across a width sweep, W7 the book spine, W8 the reference layer against the
+chapter, W9 the landing page quoted verbatim and no register note published,
+W10 deploy readiness, W11 no third-party request, W12 figure colours are tokens,
+W13 colour contrast in both themes, W14 claim preservation, W15 in-page
+navigation.
+
+W6 and W15 need a headless browser and are the only optional gates. Each reports
+SKIPPED, the verdict line gains "W6 AND W15 NOT RUN", and neither is ever
+counted as passed.
+
+W14 is the only gate that reads MEANING. W15 is the only one that EXERCISES the
+site rather than measuring it, and it exists because two rail anchors were dead
+for six phases while every other gate reported the navigation sound.
 
 Citation text is never reimplemented here. It comes from footnotes.py and
 cite_format.py, which is the whole reason this is Python.
@@ -1153,6 +1167,142 @@ def write_deploy_files(outdir, metas, base_url):
         open(os.path.join(outdir, "CNAME"), "w", encoding="utf-8").write(host + "\n")
 
 
+
+W15_FOLLOW = r"""
+(href) => {
+  const id = decodeURIComponent(href.slice(1));
+  const target = document.getElementById(id);
+  const link = document.querySelector('a[href="' + CSS.escape(href).replace(/\\#/, '#') + '"]')
+            || [...document.querySelectorAll('a[href^="#"]')]
+                 .find(a => a.getAttribute('href') === href);
+  if (!target) return {dead: true};
+  if (!link) return {nolink: true};
+  // The hash must be cleared first. Clicking a link whose hash is ALREADY
+  // current is a no-op in every browser, so without this a second visit to the
+  // same anchor would measure the previous landing and call it a pass.
+  history.replaceState(null, '', location.pathname);
+  window.scrollTo(0, 0);
+  link.click();
+  return {clicked: true};
+}
+"""
+
+W15_MEASURE = r"""
+(href) => {
+  const el = document.getElementById(decodeURIComponent(href.slice(1)));
+  const r = el.getBoundingClientRect();
+  const doc = document.documentElement;
+  return {
+    top: Math.round(r.top),
+    bottom: Math.round(r.bottom),
+    scrollY: Math.round(window.scrollY),
+    viewport: doc.clientHeight,
+    atEnd: Math.ceil(window.scrollY + doc.clientHeight) >= doc.scrollHeight - 2,
+    hidden: el.offsetParent === null && getComputedStyle(el).position !== 'fixed',
+  };
+}
+"""
+
+# How far below the top of the window a target may land and still count as
+# arrived. The sticky bar plus scroll-padding puts every correct landing near
+# 165px at the shipped type size, and the root size is fluid, so the band is
+# generous at the bottom and tight at the top.
+W15_BAND = (-8, 320)
+
+
+def gate_w15(outdir):
+    """Navigation navigates. Follow every in-page link in a real browser.
+
+    ADDED 2026-08-13, ON DAN'S RULING, AFTER TWO RAIL ANCHORS WERE DEAD FOR SIX
+    PHASES. The id for the Opening case and Craft section slots was written into
+    a CLOSING tag, which every parser discards, so the anchor was in the file and
+    never in the DOM. W4 read ids with a regex, counted both as live targets, and
+    reported that every internal link resolved. Two gates agreed, twice per
+    build, about links that went nowhere. Dan found them by clicking one.
+
+    W4 now parses start tags and would catch that exact fault. This gate exists
+    because the class is larger than the fault: an anchor can also be present and
+    unreachable, on an element that is display:none, inside a collapsed rail, or
+    under a handler that swallows the click, and no amount of reading the markup
+    settles any of those. **The only check that answers "does this link work" is
+    following the link.**
+
+    Runs with reduced motion so the scroll is instantaneous and the measurement
+    is deterministic. That is a shipped configuration rather than a test-only
+    one, since the stylesheet honours prefers-reduced-motion.
+
+    OPTIONAL, exactly like W6 and for the same reason: it needs a headless
+    browser that nothing else in the build requires. It reports SKIPPED and is
+    counted as skipped, never as passed.
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("W15. in-page navigation .. SKIPPED, playwright not installed")
+        return [], False
+
+    exe = next((p for p in glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")
+                if os.path.exists(p)), None)
+    pages = sorted(glob.glob(os.path.join(outdir, "**", "*.html"), recursive=True))
+    fails, followed = [], 0
+    try:
+        with sync_playwright() as pw:
+            kw = {"args": ["--no-sandbox"]}
+            if exe:
+                kw["executable_path"] = exe
+            b = pw.chromium.launch(**kw)
+            pg = b.new_page(viewport={"width": 1512, "height": 900},
+                            reduced_motion="reduce")
+            for path in pages:
+                label = os.path.relpath(path, outdir)
+                pg.goto("file://" + os.path.abspath(path))
+                pg.wait_for_timeout(120)
+                hrefs = pg.eval_on_selector_all(
+                    'a[href^="#"]',
+                    'els => [...new Set(els.map(e => e.getAttribute("href")))]')
+                for href in hrefs:
+                    if href == "#":
+                        fails.append(f"W15 [{label}]: a link with a bare '#' "
+                                     f"href, which navigates nowhere")
+                        continue
+                    r = pg.evaluate(W15_FOLLOW, href)
+                    if r.get("dead"):
+                        fails.append(f"W15 [{label}]: {href} has no target "
+                                     f"element, so the link does nothing")
+                        continue
+                    if r.get("nolink"):
+                        continue
+                    pg.wait_for_timeout(60)
+                    m = pg.evaluate(W15_MEASURE, href)
+                    followed += 1
+                    if m["hidden"]:
+                        fails.append(f"W15 [{label}]: {href} targets an element "
+                                     f"that is not rendered")
+                        continue
+                    lo, hi = W15_BAND
+                    if lo <= m["top"] <= hi:
+                        continue
+                    # A target near the foot of the document cannot reach the top
+                    # of the window, because there is nothing left to scroll. It
+                    # has arrived if the page is at its end and the target is on
+                    # screen. Without this the last anchor on every page fails.
+                    if m["atEnd"] and m["bottom"] > 0 and m["top"] < m["viewport"]:
+                        continue
+                    fails.append(
+                        f"W15 [{label}]: {href} did not arrive. After the click "
+                        f"the target sits {m['top']}px from the top of the "
+                        f"window (expected {lo} to {hi}), scrollY={m['scrollY']}")
+            b.close()
+    except Exception as exc:
+        print(f"W15. in-page navigation .. SKIPPED, browser unavailable "
+              f"({exc.__class__.__name__})")
+        return [], False
+
+    if not fails:
+        print(f"W15. in-page navigation .. {followed} link(s) followed across "
+              f"{len(pages)} page(s), every one arrives")
+    return fails, True
+
 def gate_w7(meta, book):
     """The book spine, and the one place it can silently drift.
 
@@ -1760,6 +1910,12 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         w6, _ = gate_w6(index)
         fails += w6
     fails += gate_w10(outdir, metas, notes, preview)
+    # W15 walks the finished tree, so it runs after W10 has confirmed the tree
+    # is complete. Following a link on a page that was never emitted would fail
+    # for the wrong reason and send the reader after the wrong defect.
+    if not no_browser:
+        w15, _ = gate_w15(outdir)
+        fails += w15
     fails += gate_w11(outdir)
     fails += gate_w12(pages + site_pages)
     fails += gate_w13()
@@ -1776,7 +1932,7 @@ def main():
     ap.add_argument("--preview", action="store_true",
                     help="build an unlocked chapter to a local noindex page")
     ap.add_argument("--no-browser", action="store_true",
-                    help="skip gate W6, the width sweep, which needs a browser")
+                    help="skip gates W6 and W15, which need a headless browser")
     ap.add_argument("--from-worktree", action="store_true",
                     help="build --site from the working tree instead of each "
                          "chapter's last lock. Local preview of edits in "
@@ -1846,7 +2002,7 @@ def main():
     # this repository's recorded defects are a check that was believed to have
     # run and had not, so an optional gate has to be noisy about not running.
     if a.no_browser:
-        verdict += ", W6 NOT RUN"
+        verdict += ", W6 AND W15 NOT RUN"
     print(f"{chr(10)}WEB GATES {verdict}")
     for f in fails:
         print("   " + f)

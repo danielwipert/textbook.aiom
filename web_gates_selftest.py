@@ -144,6 +144,72 @@ def quiet(fn, *a, **kw):
         return fn(*a, **kw)
 
 
+
+def _w15_controls(results):
+    """Negative controls for gate W15, following links in a real browser.
+
+    THE THREE FAULTS ARE THE REAL ONE AND THE TWO IT IMPLIES. The first
+    reproduces the defect of 2026-08-13 exactly, an id written onto a closing
+    tag. The other two are the reason W15 exists at all rather than W4's
+    hardened parse being enough: an anchor can be perfectly well formed and
+    still unreachable, and neither markup reading can see it.
+    """
+    import os
+    import shutil
+
+    src = "build/web"
+    tmp = "build/web-selftest-nav"
+
+    def run(label, patch):
+        shutil.rmtree(tmp, ignore_errors=True)
+        shutil.copytree(src, tmp)
+        f = os.path.join(tmp, "ch01", "index.html")
+        html = open(f, encoding="utf-8").read()
+        patched = patch(html)
+        if patched == html:
+            results.append((False, label + " (INJECTION DID NOT APPLY)", []))
+            print(f"  [MISS] {label:<46} the control never changed the page")
+            return
+        open(f, "w", encoding="utf-8").write(patched)
+        fails, ran = wb.gate_w15(tmp)
+        if not ran:
+            print(f"  [SKIP] {label:<46} no headless browser. NOT a pass.")
+            results.append((True, label + " skipped", []))
+            return
+        results.append((bool(fails), label, fails))
+        print(f"  [{'ok  ' if fails else 'MISS'}] {label:<46} "
+              f"{fails[0][:70] if fails else 'no failure reported'}")
+
+    clean, ran = wb.gate_w15(src)
+    if not ran:
+        print("  [SKIP] W15 could not run, no headless browser. NOT a pass.")
+        results.append((True, "W15 skipped, reported as skipped", []))
+        return
+    results.append((not clean, "W15 clean on the real site", clean))
+    print(f"  [{'ok  ' if not clean else 'MISS'}] "
+          f"{'W15 clean on the real site':<46} "
+          f"{clean[0][:70] if clean else 'no failure reported'}")
+
+    run("a slot id on a closing tag, the real 2026-08-13 defect",
+        lambda h: h.replace('<p class="slot-label" id="slot-craft-section">',
+                            '<p class="slot-label">', 1)
+                   .replace("Craft section</p>",
+                            'Craft section</p id="slot-craft-section">', 1))
+
+    run("an anchor whose target is not rendered",
+        lambda h: h.replace('<section class="keyterms" id="slot-key-terms">',
+                            '<section class="keyterms" id="slot-key-terms"'
+                            ' style="display:none">', 1))
+
+    run("a click swallowed before it can navigate",
+        lambda h: h.replace(
+            "</body>",
+            "<script>document.addEventListener('click',function(e){"
+            "var a=e.target.closest&&e.target.closest('a[href=\"#slot-summary\"]');"
+            "if(a){e.preventDefault();}},true);</script></body>", 1))
+
+    shutil.rmtree(tmp, ignore_errors=True)
+
 def main():
     print_html, web_html, meta, _ = wb.render(CHAPTER, "build/web-selftest")
 
@@ -418,6 +484,9 @@ def main():
         print(f"  [{'ok  ' if f6 else 'MISS'}] "
               f"{'a 3000px block widens the page':<46} "
               f"{f6[0][:70] if f6 else 'no failure reported'}")
+
+    print("\nW15, in-page navigation")
+    _w15_controls(results)
 
     print("\nW10, the site build and deploy readiness")
     _multi_chapter_control(case)
