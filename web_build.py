@@ -387,9 +387,19 @@ FIGURE_TOKENS = {
 FIG_COLOUR_RE = re.compile(
     r'\b(fill|stroke|stop-color)="(#[0-9A-Fa-f]{3,8})"')
 
+# The chapter's figure labels are set in the print body family, which the locked
+# HTML names literally, the same way it names its colours literally. The web body
+# family diverged from print's at v0.5 and diverged further at v0.6, so a label
+# left alone would sit in a different face from the prose beside it. It is
+# remapped to --body-face rather than to a family name, so AIOM_web.css stays the
+# only place the web's body face is chosen.
+FIG_FONT_RE = re.compile(r'\bfont-family="Plex"')
+FIG_FONT_SUB = 'font-family="var(--body-face)"'
+
 
 def tokenize_svg(body):
-    """Replace literal hex in chapter figures with the token that owns it.
+    """Replace literal hex and the literal body family in chapter figures with
+    the tokens that own them.
 
     Phase W6. The chapter HTML is the LOCKED source shared with print, so it is
     never edited: this is a presentation transform on the way to the web, and it
@@ -403,6 +413,13 @@ def tokenize_svg(body):
     A colour the design system does not own is left alone and reported by gate
     W12, because silently rewriting an unknown colour would hide exactly the
     drift the gate exists to catch.
+
+    The font remap is v0.6 and follows the same rule as the colours: it rewrites
+    only the family the print stylesheet owns, and only inside an <svg>. A label
+    naming any other family is left alone, where W12's counterpart for type does
+    not yet exist to report it. Archivo sets narrower than Plex, so a remapped
+    label can only get shorter inside a fixed viewBox, which is the safe
+    direction for a collision.
     """
     def repl(m):
         attr, hexv = m.group(1), m.group(2).upper()
@@ -410,7 +427,7 @@ def tokenize_svg(body):
         return f'{attr}="var(--{token})"' if token else m.group(0)
 
     def do_svg(sm):
-        return FIG_COLOUR_RE.sub(repl, sm.group(0))
+        return FIG_FONT_RE.sub(FIG_FONT_SUB, FIG_COLOUR_RE.sub(repl, sm.group(0)))
 
     return SVG_RE.sub(do_svg, body)
 

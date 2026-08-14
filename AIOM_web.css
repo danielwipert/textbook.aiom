@@ -1,7 +1,7 @@
 /* ============================================================
    AIOM_web.css
-   VERSION: 0.5  (the body roman becomes a true Regular)
-   DATE:    2026-08-13
+   VERSION: 0.6  (the body face becomes Archivo)
+   DATE:    2026-08-14
 
    The web presentation layer. Companion to AIOM_book.css, which remains the
    sole control of the PRINT appearance and is not touched by anything here.
@@ -78,6 +78,41 @@
    than v0.4, described at the @font-face in section 1: the roman was Plex Sans
    Text at usWeightClass 450 while its italic was a true 400, so the two had
    never matched. Print keeps Text and only the web moves.
+
+   v0.6 (2026-08-14) MAKES THE WEB BODY FACE ARCHIVO. Ruled by Dan. v0.5 fixed
+   the weight and left the shape, and the shape was the remaining objection: Plex
+   is the face of a technology company's documentation and reads as the default
+   choice rather than a chosen one. Archivo is a grotesque cut by Omnibus-Type
+   for text and headline at once, and it does three things here. It has a shape
+   without being mannered. Its x-height is 0.526 em against Plex Regular's 0.516
+   and its x-to-cap ratio is the highest of the seven faces compared, so it holds
+   presence at 17px without the extra weight v0.4 to v0.5 was spending to get
+   there. And it sets a grotesque under a geometric display, which is a contrast
+   with Jost rather than an echo of it.
+
+   THE MEASURE IS 73 CHARACTERS AT v0.6, MEASURED IN A BROWSER: 72.7, from the
+   average glyph advance of this chapter's own prose in this face at this size,
+   the same method v0.4 used to find 71. Archivo sets 2.4 per cent narrower than
+   Plex Regular, so the same 32rem column holds more of them, and it reads the
+   same at 1440 and at 1920 because both terms scale together. The column itself
+   did not move: --measure is unchanged, and so is every
+   other term of the section 17 sum, which is why the 1420px breakpoint stands.
+   Do not restate this number from memory; it is a property of this face at this
+   measure and it moves whenever either does.
+
+   PRINT IS UNCHANGED AND STAYS ON PLEX SANS TEXT. This is now the third division
+   between the two stylesheets, after colour and after the v0.5 roman, and it is
+   the same reasoning each time: the print system is locked at v7.1 and a change
+   there re-runs Stage 5 and G2 on every chapter. The print build was re-run for
+   this change so that gate 5 could report that no Archivo face is embedded
+   anywhere in the book, because "print is unaffected" is a claim until a gate
+   has said so.
+
+   THE FAMILY IS NAMED ONCE, IN --body-face. Three places consume it: this file
+   twice, and web_build.tokenize_svg, which remaps the chapter figures'
+   font-family on the way to the web the same way it remaps their colours. A
+   policy repeated in three places is a policy that is wrong in two of them, so
+   the three read one token rather than three copies of a name.
    ============================================================ */
 
 /* ---------- 1. FONTS ---------- */
@@ -85,23 +120,32 @@
    No CDN, no network at render time, same six faces the print book embeds. */
 @font-face { font-family: "Jost"; src: url("fonts/Jost-Medium.ttf");   font-weight: 500; font-display: swap; }
 @font-face { font-family: "Jost"; src: url("fonts/Jost-SemiBold.ttf"); font-weight: 600; font-display: swap; }
-/* THE ROMAN IS A TRUE REGULAR ON THE WEB AND PLEX SANS TEXT IN PRINT, AND THAT
-   DIVERGENCE IS DELIBERATE. Ruled by Dan 2026-08-13. IBM Plex Sans Text is a
-   distinct face at usWeightClass 450, half a step above Regular, and it was
-   declared here as font-weight 400 from v0.1, so web body prose was heavier than
-   it announced. The italic beside it is a true 400, so roman and italic have
-   never matched each other either.
+/* THE BODY FACE IS ARCHIVO ON THE WEB AND IBM PLEX SANS TEXT IN PRINT, AND THAT
+   DIVERGENCE IS DELIBERATE. Ruled by Dan 2026-08-14, superseding the v0.5 swap
+   to Plex Regular, which fixed the weight and left the shape. All four faces are
+   Archivo 2.001, one release, which is the same standard v0.5 applied to Plex:
+   mixing releases of a family is how a roman and its own italic stop matching.
 
-   Print keeps Text. Its physics are different, ink on paper gains no weight the
-   way a backlit screen does, the print design system is locked at v7.1, and a
-   change there re-runs Stage 5 and G2 on every chapter. This is the same
-   division already in force for colour: five foreground tokens are darkened here
-   for WCAG while AIOM_book.css keeps the print values of record.
+   THE WEIGHT LADDER IS INTACT AND THAT IS WHY THIS FACE AND NOT ANOTHER. The
+   design needs a true Regular 400, a drawn italic at that same 400, a 500 and a
+   600. Two of the seven faces compared carried no 600 and one had no static
+   italic at all, which rules them out on structure rather than on taste.
 
-   METRICALLY SAFE, VERIFIED NOT ASSUMED. Both faces are Plex 3.005, the same
-   release as every other face in fonts/use/, and the measure holds at 71
-   characters across the swap: a 77-character test string moves 0.9 per cent, so
-   the section 17 arithmetic is untouched. */
+   Print keeps Plex Sans Text. Its physics are different, ink on paper gains no
+   weight the way a backlit screen does, the print design system is locked at
+   v7.1, and a change there re-runs Stage 5 and G2 on every chapter. This is the
+   same division already in force for colour: five foreground tokens are darkened
+   here for WCAG while AIOM_book.css keeps the print values of record.
+
+   THE PLEX FACES ARE STILL DECLARED BELOW AND ARE NO LONGER USED BY THIS FILE.
+   They are kept because fonts/use/ is shared with print, which loads them, and
+   because a declared face is fetched only when something asks for it, so a dead
+   @font-face costs a reader nothing. Delete these four lines the moment print
+   and web stop sharing a directory, and not before. */
+@font-face { font-family: "Archivo"; src: url("fonts/Archivo-Regular.ttf");  font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/Archivo-Italic.ttf");   font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/Archivo-Medium.ttf");   font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("fonts/Archivo-SemiBold.ttf"); font-weight: 600; font-style: normal; font-display: swap; }
 @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Regular.ttf");  font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Italic.ttf");   font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSans-Medium.ttf");   font-weight: 500; font-style: normal; font-display: swap; }
@@ -163,7 +207,14 @@
      police the two dark blocks agreeing on it: keep them in step by hand. */
   --grain:     0.13;
 
-  --measure:   32rem;    /* the text column, 71 characters, measured not assumed */
+  --measure:   32rem;    /* the text column, 73 characters, measured not assumed */
+
+  /* THE BODY FACE IS NAMED HERE AND NOWHERE ELSE IN THIS FILE. The rules that
+     set running text read this token, and web_build.tokenize_svg substitutes it
+     into the chapter figures' font-family so a figure label cannot end up in a
+     different face from the prose beside it. Changing the face is this one line
+     plus its @font-face block in section 1. */
+  --body-face: "Archivo", system-ui, sans-serif;
   --note:      14rem;    /* the sidenote */
   --note-gap:  2.25rem;  /* text column to sidenote */
   --rail:      15.5rem;  /* the contents rail */
@@ -273,7 +324,7 @@ body {
   margin: 0;
   background: transparent;
   color: var(--ink);
-  font-family: "Plex", system-ui, sans-serif;
+  font-family: var(--body-face);
   font-weight: 400;
   line-height: 1.62;
   text-rendering: optimizeLegibility;
@@ -1060,7 +1111,7 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 .search-box { margin: calc(var(--step) * 1.2) 0; }
 #q {
   width: 100%; max-width: 40rem;
-  font-family: "Plex", sans-serif; font-size: 1.05rem; color: var(--ink);
+  font-family: var(--body-face); font-size: 1.05rem; color: var(--ink);
   background: var(--paper); border: 1px solid var(--hairline);
   border-radius: 2px; padding: 0.75rem 0.9rem;
 }

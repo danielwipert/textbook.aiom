@@ -614,6 +614,21 @@ def main():
          lambda: [] if 'fill="var(--amber)"' in out and '#FF00AA' in out
          else ["mapping wrong: " + out], False)
 
+    # v0.6. The web body face diverged from print's, so a figure label left in the
+    # print family would sit in a different face from the prose beside it. No gate
+    # can see a typeface substitution, which is why this is asserted directly:
+    # the remap must fire inside an <svg>, must leave a family the print
+    # stylesheet does not own alone, and must NOT touch text outside a figure.
+    fout = wb.tokenize_svg(
+        '<svg><text font-family="Plex">a</text>'
+        '<text font-family="Courier">b</text></svg>'
+        '<p style=\'font-family="Plex"\'>outside</p>')
+    case("tokenize_svg remaps the body family in figures only",
+         lambda: [] if ('<text font-family="var(--body-face)">a</text>' in fout
+                        and 'font-family="Courier"' in fout
+                        and fout.endswith('<p style=\'font-family="Plex"\'>outside</p>'))
+         else ["font remap wrong: " + fout], False)
+
     case("W13 clean on the real stylesheet",
          lambda: quiet(wb.gate_w13, "AIOM_web.css"), False)
     css = open("AIOM_web.css", encoding="utf-8").read()

@@ -184,6 +184,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `.github/workflows/web.yml` | Builds the site, runs every gate, runs the self-test, and publishes to GitHub Pages from `main`. **It installs a headless browser so gate W6 actually runs in CI**, because a job that quietly skipped it would be this repo's signature failure with a green tick on top. |
 | `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
+| `specimen.py` | Type specimen. Sets the chapter's own prose in candidate faces at the shipping size, embeds each face so the page needs no network, and reports set width, x-height and what the measure becomes. A face is chosen by reading this, never by reading a description of the face. |
 | `copyedit_export.py` | Chapter HTML to a copy-editing `.docx` plus a round-trip manifest. Stage 6 happens in Word; this is how it gets there. Excludes the source register by design. |
 | `copyedit_import.py` | The copy-edited `.docx` back into the chapter HTML, block by block, by span. Applies what is unambiguous and refuses the rest rather than guessing. |
 | `factcheck_packet.py` | Builds the Stage 3 and Stage 7 packet: every cited passage paired with its register entry, notes reproduced verbatim, plus the mechanical checks run locally. It verifies nothing, because both stages are structurally external. Promoted to the root 2026-08-10 after the same throwaway work came due twice on one chapter. |
@@ -211,7 +212,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `AIOM_Web_Edition_Plan_v1.0.md` | The web edition: architecture, the web gates, the site, and phasing. Adopted 2026-08-13 with Decisions 60 to 64. The web is a second PRESENTATION of the book, never a second text, and gate W1 is what makes that true rather than intended. |
 | `AIOM_Validation_Matrix_v1.xlsx` | The 28-row Appendix A trace matrix. Working artifact, never book content. Distinct from the full 228-object registry, which lives in Drive. |
 | `Drafts/ChNN_<Name>/` | Chapter working directories, one per chapter, plus `Case_Part_I` through `III`. Each holds thirteen stage folders on Process v2 numbering and the chapter checklist. The live text sits in `00_Stage0_Draft/`. **There is no `chapters/` directory**, and this row claimed one until 2026-08-10. |
-| `fonts/` | Committed fonts (IBM Plex Sans, Jost) plus their OFL licenses. `fonts/use/` holds the six faces the CSS loads, so rendering needs no network staging. |
+| `fonts/` | Committed fonts (IBM Plex Sans and Jost for print, Archivo and Jost for the web) plus their OFL licenses. `fonts/use/` holds every face either stylesheet loads, so rendering needs no network staging. Print and web do not load the same body family; `fonts/README.md` has the table and the reason. |
 
 When spec placeholders conflict with operative content, trust the operative
 content: the maturity model, Stage definitions, and chapter assignments win over
@@ -652,12 +653,14 @@ rulings. What binds outside that document:
   inside its own safety margin is indistinguishable from a correct one until a
   token moves. **When re-deriving it, enumerate every term that consumes
   horizontal space rather than the ones the previous comment listed.**
-- **THE MEASURE IS 71 CHARACTERS, MEASURED IN A BROWSER, NOT 66.** The stylesheet
-  claimed 66 from v0.2 until 2026-08-13, which was the 0.5em rule of thumb applied
-  to a 32rem column rather than anything measured. The real figure comes from the
+- **THE MEASURE IS MEASURED IN A BROWSER, NEVER CALCULATED: 71 CHARACTERS AT v0.4
+  AND 73 SINCE v0.6, AND IT WAS NEVER THE 66 THE STYLESHEET CLAIMED.** That 66
+  stood from v0.2 until 2026-08-13 and was the 0.5em rule of thumb applied to a
+  32rem column rather than anything measured. The real figure comes from the
   average glyph advance of this chapter's own prose in its own face at its own
-  size, and it sits near the top of the 45 to 75 band. **The column was never too
-  narrow.** What reads as thin on a wide screen is the ratio: before v0.4 it held
+  size, so **it is a property of the face and moves whenever the face does.**
+  Both figures sit in the upper half of the 45 to 75 band. **The column was never
+  too narrow.** What reads as thin on a wide screen is the ratio: before v0.4 it held
   28 per cent of a 1920px window with 556px of air on each side.
 - **ONLY THREE THINGS CAN MOVE THE TEXT COLUMN: the measure, the type size, and
   the alignment rule.** Capping the reading area cannot, because a centred child
@@ -667,8 +670,8 @@ rulings. What binds outside that document:
 - **v0.4 BUYS PRESENCE WITH TYPE SIZE RATHER THAN WITH MEASURE, 2026-08-13.** The
   root is `clamp(17px, 8px + 0.625vw, 20px)`, which passes through exactly 17px at
   1440 and exactly 20px at 1920, so neither clamp bound is a place where the size
-  jumps. The column grows from 544px to 640px while holding 71 characters, so
-  nothing is spent on readability. Below 1440px nothing moves, and the 620px rule
+  jumps. The column grows from 544px to 640px while holding its character count,
+  71 at v0.4 and 73 since the v0.6 face change, so nothing is spent on readability. Below 1440px nothing moves, and the 620px rule
   still holds phones at 16px and 49 characters. **Mobile was never the problem and
   is untouched.**
 - **THE RAIL IS CONTENT AND THE NOTE TRACK IS CLEARANCE, SO THE CLEARANCE GIVES
@@ -687,18 +690,53 @@ rulings. What binds outside that document:
   the way a backlit screen does, the print system is locked at v7.1, and the
   re-run matrix makes any change there re-run Stage 5 and G2 on every chapter.
   This is the division already in force for colour.
+- **THE WEB BODY FACE IS ARCHIVO AS OF v0.6, 2026-08-14, ruled by Dan.** v0.5
+  fixed the WEIGHT and left the SHAPE, and the shape was the remaining objection.
+  Print still sets Plex Sans Text, so the two stylesheets now diverge in three
+  places, on colour, on the v0.5 roman and on the face itself, for the same
+  reason each time. **The measure is 73 characters, measured, not 71**: Archivo
+  sets 2.4 per cent narrower, so the same 32rem column holds more of them.
+  `--measure` did not move and neither did any other term of the section 17 sum,
+  which is why the 1420px breakpoint stands and was re-swept rather than assumed.
+- **A BODY FACE IS CHOSEN AGAINST THE WEIGHT LADDER FIRST AND THE SHAPE SECOND.**
+  Seven faces were compared on real chapter prose at the shipping size. Three
+  were ruled out before taste entered: two carried no 600 and one had no static
+  italic at all, so each would have broken the design's ladder of 400, a drawn
+  italic at that same 400, 500 and 600. A fourth set 6.9 per cent narrower and
+  took the measure to 76 characters, past the top of the 45 to 75 band. **Compare
+  faces by rendering the book's own prose, never by reading a description of the
+  face**, which is the same rule already in force for the drawn marks.
 - **NO GATE IN EITHER SUITE CAN SEE A TYPEFACE SUBSTITUTION, AND THIS ONE SAT
   THERE THROUGH SIX PHASES OF GREEN BUILDS.** A face swap changes no text, so
   W1's equivalence holds perfectly, and print gate 5 inspects the faces embedded
-  in the PDF rather than the weight a web stylesheet declares. It is an open hole
-  with no gate proposed, because the line changes about once a year.
+  in the PDF rather than the weight a web stylesheet declares. **The v0.5 entry
+  left this hole open on the reasoning that the line changes about once a year.
+  It then changed twice in two days**, v0.5 on 2026-08-13 and v0.6 on 2026-08-14,
+  so that reasoning is withdrawn rather than left standing. What exists now is a
+  self-test control over the figure remap and a documented manual probe
+  measurement for the CSS face; **a gate over the served page's computed body
+  family is unbuilt and unruled**, and until it exists a face swap is verified by
+  the probe or it is not verified.
 - **VERIFY A FONT SWAP BY MEASURING A STRING, NEVER BY LOOKING.** A face that
   fails to load renders identically to a face that changed nothing, so "it looks
-  right" is not evidence. Measure a fixed test string: Plex Sans Text sets the
-  77-character probe at 723.34px and Regular at 716.59px at the same size. Check
-  the built page reports the second number. The same check proves the measure
-  survived, which it does at 71 characters, a 0.9 per cent move that leaves the
-  section 17 arithmetic untouched.
+  right" is not evidence. Measure a fixed probe string in the SERVED page at a
+  fixed size and check it reports the incoming face's number, not the outgoing
+  one. At v0.6 the 73-character probe sets at 3310.9px per 100px of type in
+  Archivo against 3388.3px in Plex Regular, a 2.4 per cent move. **Select an
+  actual body paragraph when measuring, and print what you selected.** The first
+  run of this check at v0.6 caught the provenance line, which is Jost at 0.76rem,
+  and dutifully reported a face and a measure belonging to neither the body nor
+  the question.
+- **THE CHAPTER'S FIGURES CARRY THE PRINT BODY FAMILY LITERALLY, AND IT IS
+  REMAPPED ON THE WAY OUT.** Ten `font-family="Plex"` attributes sit in the
+  locked Chapter 1 SVGs, exactly as its colours do. Once the web body face
+  diverged, a label left alone would have sat in a different face from the prose
+  beside it, so `tokenize_svg` substitutes `var(--body-face)` the same way it
+  substitutes colour tokens: an attribute changes, no text does, gate W1 is
+  unaffected, and the locked chapter is never edited. **`var()` resolves in an
+  SVG `font-family` presentation attribute**, verified in a browser against
+  computed style rather than assumed, which is how the colour remap was cleared
+  too.
 - **AND RE-RUN THE PRINT BUILD, BECAUSE "PRINT IS UNAFFECTED" IS A CLAIM.** Gate
   5 reporting no unexpected face is what proves a new file in `fonts/use/` is
   embedded nowhere in the book. `web_build.py` globs `fonts/use/*.ttf`, so a web

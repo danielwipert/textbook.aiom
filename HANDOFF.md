@@ -1,11 +1,69 @@
 # Session handoff
 
-Last updated: 2026-08-13. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-14. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
+
+**THE WEB BODY FACE IS ARCHIVO, CSS v0.6, RULED BY DAN 2026-08-14. Branch
+`claude/chapter-text-font-uv7ywk`, pushed, not merged.** v0.5 had made the roman
+a true Regular 400 the day before, which fixed the weight and left the shape, and
+the shape was the remaining objection: Plex is a technology company's
+documentation face and reads as the default choice rather than a chosen one.
+
+**THE FACE WAS CHOSEN FROM A RENDERED SPECIMEN, NOT FROM DESCRIPTIONS.** Seven
+candidates were set in real Chapter 1 prose at the shipping conditions, with a
+17px/20px toggle and a blind mode, and published as an artifact for Dan to read
+at his own window size. **The tool is committed as `specimen.py`**, because the
+rule it implements is now in CLAUDE.md and a rule with no implementation gets
+rebuilt from scratch by the next session. This is the
+drawn-marks rule applied to type: **render the sheet, do not reason about the
+shapes.** Three candidates were ruled out before taste entered, on the weight
+ladder: two carried no 600 and one had no static italic at all. A fourth took the
+measure to 76 characters, past the top of the 45 to 75 band.
+
+**FONT HOSTS ARE BLOCKED FROM THIS CONTAINER AND npm IS NOT.** The proxy answers
+403 to CONNECT for `fonts.googleapis.com` and `raw.githubusercontent.com`, so the
+OFL TTFs came from the `@expo-google-fonts/archivo` npm package, which ships the
+upstream files and the licence unmodified. Worth remembering: the registry is
+reachable for any Google Fonts family, which is the only font route that works
+from here.
+
+What changed, all of it web-only:
+
+- Four Archivo 2.001 faces in `fonts/use/`, `fonts/OFL-Archivo.txt`, and
+  `fonts/README.md` rewritten, since it was already one file stale and now has to
+  carry the print-versus-web split.
+- **`--body-face` is new and the family is named ONCE.** Three places consume it,
+  two rules in `AIOM_web.css` and `web_build.tokenize_svg`. The URL-policy lesson
+  applied before it could bite: a policy repeated in three places is wrong in two.
+- **The chapter's SVG figures carry `font-family="Plex"` ten times, and
+  `tokenize_svg` now remaps it** exactly as it remaps colours, to
+  `var(--body-face)`. Without it every figure label would have stayed in the
+  print face while the prose beside it moved. Attribute changes, no text changes,
+  W1 unaffected, locked chapter untouched. **`var()` resolves in an SVG
+  `font-family` presentation attribute**, checked in a browser, not assumed.
+- One new self-test control, **88 now**. It is asserted directly rather than
+  through a gate, because no gate can see a typeface substitution. It was proved
+  by injecting three faults, remap disabled, remap unscoped, remap over-broad,
+  and it fires on all three.
+
+**VERIFIED, AND THE FIRST ATTEMPT AT THE VERIFICATION WAS ITSELF WRONG TWICE.**
+The measurement selected `#chapter-text p`, which is the provenance line in Jost,
+and reported a face and a measure belonging to neither the body nor the question.
+The note sweep then reported "no floated notes" at every width including 1920,
+because it looked for `.sidenote` and the class is `.note`. Both were rewritten to
+name what they selected and print it. **A check that reads green while measuring
+nothing is still this repository's signature failure, and it produced two in one
+session.** What holds after the fixes: body renders Archivo 400 at 17px/1440 and
+20px/1920; the probe sets at 3310.9px against Plex Regular's 3388.3px, so the
+face genuinely loaded; the measure is 72.7 characters at every width; six notes
+float above 1420px and go inline at 1420 and below, none off the edge at any of
+21 widths; all fifteen web gates pass with W1 identical at 43,204 chars; 88/88
+self-test controls; and the print build passes its fifteen gates with `pdffonts`
+showing five faces, none of them Archivo.
 
 **TWO DEAD RAIL ANCHORS, FIXED 2026-08-13, AND THE GATE THAT CALLED THEM LIVE.**
 Dan clicked the Craft section link in the navigation rail and nothing happened.
@@ -1189,7 +1247,7 @@ build), 5 (process hardening), 3 (design gaps), 7 (Decision 28). Thread 9 closed
 the day it opened. THE POST-LOCK EDITING PROBLEM IS SOLVED and needs no thread:
 see the top of Repository state.**
 
-**Four small items are booked by the website-edits session and none blocks
+**Five small items are booked by the website-edits sessions and none blocks
 anything.** They belong to thread 8.
 
 - **(a) The dark-theme `:target` landing tint moves only 4 to 8 levels** and may
@@ -1210,6 +1268,17 @@ anything.** They belong to thread 8.
   workflow comment says so at the line that sets it. **Gate W15 catches it**,
   because it serves at whatever prefix the build was given, so this fails loudly
   rather than shipping. Ruled at the same time as the domain, not before.
+- **(e) A GATE OVER THE SERVED PAGE'S BODY FACE IS UNBUILT AND UNRULED, booked
+  2026-08-14 by the Archivo change.** Nothing in either suite can see a typeface
+  substitution: W1 compares text and a face swap changes none, and print gate 5
+  inspects the PDF rather than what a web stylesheet declares. The v0.5 entry left
+  this open on the reasoning that the line changes about once a year, and it then
+  changed twice in two days, so that reasoning is gone. The shape it would take is
+  already written: load the served chapter, read `getComputedStyle` on a real body
+  paragraph, and compare a probe string's width against a recorded figure, which is
+  the manual check that verified v0.6. It is perhaps twenty lines, it belongs to
+  W6's browser pass since the browser is already up, and it needs a W-number, which
+  is Dan's. Belongs to thread 8.
 
 **The unpinned `playwright` was booked here and CLOSED on 2026-08-13**: it is
 now `playwright==1.62.0` in `requirements.txt`, and `.github/workflows/web.yml`
