@@ -1105,3 +1105,61 @@ built, and a sitemap address resolving to nothing. The suite is 87 controls.
 - **The summary is only as good as the landing page hero it quotes**, which is
   the correct coupling but worth knowing: rewriting the hero rewrites what every
   model reads first about this book.
+
+---
+
+## The typeset PDF, added 2026-08-15 (Decision 67)
+
+The site publishes the print PDF, one per locked chapter, beside the page it
+sets. Until now the diagram at section 3 was true of the build and false of the
+deploy: two renderers descended from one source and only one of them reached a
+reader.
+
+**IT IS THE SAME RENDER, NOT AN AGREEING ONE.** `web_build.build_pdf()` renders
+from the string `footnotes.inject()` already returned for that chapter, which is
+the same string gate W1 compares the web page against. A separate print build run
+elsewhere would be a second artifact hoped to match, which is the failure W1
+exists to prevent, arriving by the back door.
+
+**A WHOLE-BOOK PDF IS NOT THIS AND WAS RULED OUT FOR NOW.** It needs continuous
+folios across chapters, front matter, cross-chapter figure numbering and the
+appendix, and several print gates assume a single chapter opening at page 1.
+Today it would be Chapter 1 labelled as the book. It is booked for the completed
+manuscript, and the site says "chapter" everywhere so nothing has to be walked
+back when it arrives.
+
+### Gate W17, and why the PDF needed one
+
+A published page is checked by anyone who opens it. A download is opened once,
+somewhere else, by a reader who does not report back, so it is the one artifact
+of this build that nobody reads. Three checks:
+
+- **W17a** runs `AIOM_build.qa()`, all fifteen print gates unchanged and
+  unforked, against the file the site actually serves. A second implementation
+  of those gates here would be a machine for producing two verdicts about one
+  file.
+- **W17b** checks page 1 carries that chapter's own title. Trivially true at one
+  locked chapter and the entire point at two.
+- **W17c** resolves every `.pdf` link on every emitted page to a file in the
+  tree, fails a chapter that publishes a download its own page does not link,
+  and fails a PDF in the tree that no page links at all. **W15 cannot cover
+  any of it**: it follows `a[href^="#"]`, because it measures where a click
+  lands, and a download has no landing to measure.
+
+**THE FIRST RUN OF W17a FAILED A CLEAN CHAPTER, and the reason is worth keeping.**
+`qa()` takes `source_html`, which gate 14 uses to tell a one-line paragraph from
+a widow. Passed nothing, it returns an empty set SILENTLY, every key-term name
+reads as a widow, and the gate reported a phantom on page 13: the same phantom
+Chapter 1 carried as a booked design defect for two days in August 2026. The
+clean baseline control in `web_gates_selftest.py` is what holds that wiring in
+place.
+
+**THE SKIP IS DECIDED BEFORE THE RENDER, NEVER BY CATCHING IT.** `print_toolchain()`
+asks `AIOM_build.preflight()` itself rather than keeping a second list of what
+the print build needs. Missing WeasyPrint, pdfplumber or `pdftoppm` prints
+`W17 SKIPPED`, publishes no download and names the skip in the verdict line; a
+render that fails with the toolchain present is a failure. CI installs
+`poppler-utils` for exactly this reason: without it the deploy would be green and
+carry no PDF at all. The suite is W1 through W17, SEVENTEEN gates, with 108
+controls, both counts read off the build and the self-test rather than carried
+forward from this document's own previous paragraph.

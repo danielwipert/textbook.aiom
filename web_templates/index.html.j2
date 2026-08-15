@@ -239,13 +239,23 @@
       <h2>The text is free to read here</h2>
     </div>
     <div class="editions">
+      {# THE PDF SITS UNDER THIS CARD RATHER THAN ON ONE OF ITS OWN. Ruled by
+         Dan 2026-08-15. It is a second format of the same free text, not a
+         third edition, and the card beside it still promises the apparatus a
+         chapter download does not carry. #}
       <div class="edition">
         <h3>This website</h3>
         <p>The complete text of every published chapter, its figures, its
-           sidenotes, and the full source register behind them.</p>
+           sidenotes, and the full source register behind them. Read it here, or
+           download any published chapter as the typeset PDF the print edition
+           is set from.</p>
         <p class="price">Free</p>
         {% if first_locked %}
-        <p class="edition-cta"><a class="btn" href="{{ first_locked.slug }}/">Start reading</a></p>
+        <p class="edition-cta"><a class="btn" href="{{ first_locked.slug }}/">Start reading</a>
+        {% if first_locked.pdf %}
+        <a class="btn btn-quiet" href="{{ first_locked.slug }}/{{ first_locked.pdf.file }}">Chapter {{ first_locked.number }} as a PDF</a>
+        {% endif %}
+        </p>
         {% endif %}
       </div>
       <div class="edition">

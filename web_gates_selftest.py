@@ -108,6 +108,17 @@ def _multi_chapter_control(case):
          lambda: [] if "/ch02/" in open(os.path.join(out, "sitemap.xml"),
                                         encoding="utf-8").read()
          else ["ch02 absent from sitemap"], False)
+    # The download is named from the chapter it belongs to, and W17c requires
+    # each chapter page to link its own. Both are one chapter's code paths until
+    # a second chapter exists, which is what this whole control is for.
+    if not wb.print_toolchain():
+        pdfs = [os.path.join(out, m["slug"], wb.pdf_name(m)) for m in metas]
+        case("each chapter publishes its own distinct PDF",
+             lambda: [] if len(set(pdfs)) == 2 and all(os.path.exists(p)
+                                                       for p in pdfs)
+             else ["missing or shared download: " + str(pdfs)], False)
+        case("W17c is clean across two chapters",
+             lambda: quiet(wb.gate_w17c, out, metas), False)
     case("a publish build carries no noindex page",
          lambda: [f for f in fails if "noindex" in f], False)
 
@@ -312,6 +323,127 @@ def _w15_controls(results):
 
     shutil.rmtree(tmp, ignore_errors=True)
 
+def _w17_controls(results, case):
+    """Negative controls for gate W17, the print edition.
+
+    THE PDF IS THE ONE PUBLISHED ARTIFACT NOBODY READS. A web page that breaks
+    is seen the moment someone opens it; a download is opened by a reader, once,
+    somewhere else, and whatever is wrong with it comes back as nothing at all.
+    So every way it can be wrong gets a control here.
+
+    THE BASELINE IS THE CONTROL FOR THE TRAP THIS GATE FELL INTO FIRST. Its
+    first run passed no source_html to AIOM_build.qa(), which silently returns
+    an empty set of whole paragraphs, so gate 14 read a key-term name at the top
+    of page 13 as a widow and failed a clean chapter. Nothing about that failure
+    said "you forgot an argument". If that wiring is ever dropped again, the
+    clean baseline below goes red, which is the only warning there will be.
+    """
+    import os
+    import shutil
+
+    skip = wb.print_toolchain()
+    if skip:
+        print(f"  [SKIP] W17 controls, {skip}. NOT a pass.")
+        results.append((True, "W17 skipped, reported as skipped", []))
+        return
+
+    out = "build/web-selftest-pdf"
+    shutil.rmtree(out, ignore_errors=True)
+    _, _, meta, _ = quiet(wb.render, CHAPTER, out, False, True)
+    pdf, notes = meta["pdf"], meta["note_count"]
+
+    case("W17 clean on the real artifact",
+         lambda: quiet(wb.gate_w17, pdf, meta, CHAPTER, notes), False)
+
+    # A print gate failing INSIDE the published file. An em dash is standing
+    # rule 1 and print gate 2, and it is the fault most likely to reach a PDF
+    # that no gate reads: the web page carrying the same character would be
+    # failed by W3, so a suite without W17 would fail the page and publish the
+    # download.
+    bad = "build/web-selftest-pdf-bad"
+    shutil.rmtree(bad, ignore_errors=True)
+    os.makedirs(os.path.join(bad, meta["slug"]), exist_ok=True)
+    src = open(CHAPTER, encoding="utf-8").read()
+    ph, _rep = wb.footnotes.inject(src, url_policy=wb.URL_POLICY)
+    # Written as an escape, never as the character. Standing rule 1 bans the em
+    # dash from every file in this repository, and a control that smuggles one
+    # into the source to test a gate that bans it has broken the rule it checks.
+    ph = ph.replace("<p>", "<p>A cost \u2014 and a meter.</p><p>", 1)
+    badpdf = quiet(wb.build_pdf, ph, meta, bad)
+    case("an em dash inside the published PDF",
+         lambda: quiet(wb.gate_w17, badpdf, meta, CHAPTER, notes))
+
+    # The footnote count the page reports against the footnotes the render put
+    # on the paper. Print gate 8 owns this, and it is the check that would catch
+    # a footnote pushed off its calling page, which is the damage a one sentence
+    # reorder in this chapter has caused twice, eleven pages from the edit.
+    case("a footnote count that disagrees with the render",
+         lambda: quiet(wb.gate_w17, pdf, meta, CHAPTER, notes + 1))
+
+    # W17b. Trivially true with one chapter locked, and the whole point at two.
+    case("another chapter's render published under this one",
+         lambda: quiet(wb.gate_w17, pdf, dict(meta, chapter_title="The Flow"),
+                       CHAPTER, notes))
+
+    # W17c, over a copy of the real site. Each fault here leaves every other
+    # gate in the suite green: a download that 404s is not a broken page.
+    tmp = "build/web-selftest-pdflinks"
+
+    def fresh():
+        shutil.rmtree(tmp, ignore_errors=True)
+        shutil.copytree("build/web", tmp)
+        return tmp
+
+    live = os.path.join("build/web", meta["slug"], wb.pdf_name(meta))
+    if not os.path.exists(live):
+        print("  [SKIP] W17c controls, build/web carries no PDF. NOT a pass.")
+        results.append((True, "W17c skipped, reported as skipped", []))
+        return
+
+    fresh()
+    case("W17c clean on the real site",
+         lambda: quiet(wb.gate_w17c, tmp, [meta]), False)
+
+    fresh()
+    os.remove(os.path.join(tmp, meta["slug"], wb.pdf_name(meta)))
+    case("the download deleted from the tree",
+         lambda: quiet(wb.gate_w17c, tmp, [meta]))
+
+    fresh()
+    page = os.path.join(tmp, meta["slug"], "index.html")
+    html = open(page, encoding="utf-8").read()
+    open(page, "w", encoding="utf-8").write(
+        html.replace(wb.pdf_name(meta), "AIOM_Ch01_Renamed.pdf"))
+    case("a download link with the wrong filename",
+         lambda: quiet(wb.gate_w17c, tmp, [meta]))
+
+    # The published-but-unreachable case. The file is there, every link that
+    # exists resolves, and no reader can get to it from the chapter.
+    fresh()
+    html = open(page, encoding="utf-8").read()
+    stripped = wb.PDF_HREF_RE.sub('href="#slot-summary"', html)
+    if stripped == html:
+        results.append((False, "a chapter that does not link its own PDF "
+                               "(INJECTION DID NOT APPLY)", []))
+        print("  [MISS] a chapter that does not link its own PDF   "
+              "the control never changed the page")
+    else:
+        open(page, "w", encoding="utf-8").write(stripped)
+        case("a chapter that does not link its own PDF",
+             lambda: quiet(wb.gate_w17c, tmp, [meta]))
+
+    # The renamed chapter's leftover. It deploys, it is a render of a title the
+    # book no longer uses, and every other gate is green on it.
+    fresh()
+    shutil.copy(os.path.join(tmp, meta["slug"], wb.pdf_name(meta)),
+                os.path.join(tmp, meta["slug"], "AIOM_Ch01_Old_Title.pdf"))
+    case("a stale download nothing links",
+         lambda: quiet(wb.gate_w17c, tmp, [meta]))
+
+    shutil.rmtree(tmp, ignore_errors=True)
+    shutil.rmtree(bad, ignore_errors=True)
+
+
 def _w16_controls(results):
     """Negative controls for gate W16, typeface integrity.
 
@@ -456,7 +588,12 @@ def _w16_controls(results):
 
 
 def main():
-    print_html, web_html, meta, _ = wb.render(CHAPTER, "build/web-selftest")
+    # pdf=False: this render feeds the W1 to W5 controls, which are about text
+    # and markup. The print edition has its own section at the end and does its
+    # own render there, so paying six seconds for a PDF nothing here reads would
+    # buy nothing.
+    print_html, web_html, meta, _ = wb.render(CHAPTER, "build/web-selftest",
+                                              pdf=False)
 
     results = []
 
@@ -741,6 +878,9 @@ def main():
 
     print("\nW16, typeface integrity")
     _w16_controls(results)
+
+    print("\nW17, the print edition")
+    _w17_controls(results, case)
 
     print("\nW12 and W13, the theme layer")
     case("W12 clean on the real pages",

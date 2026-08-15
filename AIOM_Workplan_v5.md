@@ -477,6 +477,22 @@ Decisions 22 onward live here.
   reader chooses to follow is not a request the page makes on their behalf, and
   the sources page exists to link out to every cited source.
 
+- **Decision 67. RULED 2026-08-15.** The site publishes the typeset PDF, one per
+  locked chapter, alongside the page. Chosen over a whole-book download, which
+  needs a book-level render that does not exist: continuous folios across
+  chapters, front matter, cross-chapter figure numbering, and the appendix. Today
+  such a file would be one chapter labelled as the book, and several print gates
+  assume a single chapter opening at page 1. The book PDF is booked for the
+  completed manuscript instead, and the link text says "chapter" so nothing has
+  to be walked back when it arrives. The download sits under the "This website"
+  edition card rather than on a card of its own, because it is a second format of
+  the same free text: the "Print and ebook" card still reads "In preparation" and
+  still promises the appendix, the dataset, the solutions and the instructor
+  materials that a chapter download does not carry. ENFORCED BY GATE W17: the
+  file the site serves is rendered from the SAME injected document the web page
+  is transformed from, so the two cannot be different readings of the chapter,
+  and it goes through all fifteen print gates before it can publish.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

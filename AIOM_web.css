@@ -451,6 +451,22 @@ a:hover { text-decoration-color: var(--amber); }
 .rail-num { color: var(--folio); font-variant-numeric: tabular-nums; }
 .rail a.here .rail-num { color: var(--amber); }
 
+/* The download, in the block that already carries this chapter's own numbers.
+   It has to opt out of `.rail a`, which sets every rail link as a padded block
+   with a border on its left edge: that treatment belongs to the list of places
+   in the chapter, and the download is not one of them.
+   The affordance is the arrow and the hover, which is exactly how .rail-back
+   states that it leaves the page. A hairline underline was tried first and is
+   wrong here: in prose the bold already says a linked term is a term, and in
+   this block, small and grey, an almost invisible rule is the only signal there
+   is. Tokens only, so gate W13's contrast pairs are unchanged. */
+a.rail-pdf {
+  display: inline-block; padding: 0.25rem 0 0; border-left: 0;
+  color: var(--folio); text-decoration: none;
+}
+a.rail-pdf::before { content: "\2193"; padding-right: 0.4em; }
+a.rail-pdf:hover { color: var(--amber); }
+
 /* ---------- 7. CHAPTER OPENING ---------- */
 .part-label {
   font-family: "Jost", sans-serif; font-weight: 500; font-size: 0.76rem;
