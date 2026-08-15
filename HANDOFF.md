@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-14. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-15. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
@@ -16,14 +16,19 @@ verbatim to the one live text, run `amend.py Ch01 -m "..." --rule`, report one
 line. The only thing raised unprompted is a NEW empirical claim with no source,
 because standing rule 2 is not a lifecycle step and no gate reads it.
 
-**THE LANDING PAGE HOOK IS NOW THE CHAPTER'S OWN SENTENCE, "Beneath every seat,
-a meter was running."** Chapter 1 paragraph 2 verbatim apart from its opening
-"But". This is gate W9a's rule applied to the one part of the page W9a does not
-reach: the hero was the last place on the site still paraphrasing the book
-rather than quoting it. The lede absorbed the old two-clause headline, so no
-argument was lost. "Most organizations" lost its "Most", an unsourced quantity
-of exactly the shape standing rule 2 governs inside the book. **`llms.txt`
-needed no edit**, because its summary is extracted from the rendered hero.
+**THE LANDING PAGE HERO IS DAN'S OWN COPY AS OF 2026-08-15, AND IT IS NO LONGER
+A QUOTATION.** The hook is "Beneath every seat, a meter is running." and the lede
+is his, replacing the version that lifted Chapter 1 paragraph 2 verbatim. The
+tense move alone ends the verbatim claim, so the template comment that asserted
+it was rewritten rather than left standing: a comment claiming a quotation that
+is not one is the same defect as a record claiming a check nobody ran. **Gate
+W9a is untouched and still passes**, because it governs the theorem and the
+specimen paragraph, both still lifted verbatim by `build_specimens()`. The hero
+was always outside its reach, which is why nothing failed. **`llms.txt` needed no
+edit**, because its summary is extracted from the rendered hero. Full suite green
+at sixteen gates with the browser checks running, and the headline breaks at its
+comma from 390px up, three mid-clause lines at 320px, unchanged from the previous
+hook.
 
 **A HEADLINE'S LINE BREAK IS SET BY TYPE SIZE, NOT BY `text-wrap`, AND THE SWEEP
 IS THE ONLY WAY TO KNOW.** The hook breaks at its comma from 360px up and goes
