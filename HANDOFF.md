@@ -9,11 +9,32 @@ automatically at the start of every session, alongside the voice and craft card.
 
 **THE POST-LOCK EDITING RUN IS OPEN. Dan is revising every paragraph of Chapter
 1 and the process is CLAUDE.md section 8, "POST-LOCK (POST-LIVE) AUTHOR EDITS".**
-Branch `claude/chapter-1-editing-versioning-tfixx1`, pushed, `main` not yet
-merged up. The working protocol is four steps and Claude does not negotiate the
-prose: apply verbatim to the one live text, run `amend.py Ch01 -m "..." --rule`,
-report one line. The only thing raised unprompted is a NEW empirical claim with
-no source, because standing rule 2 is not a lifecycle step and no gate reads it.
+Merged to `main` 2026-08-15 from
+`claude/chapter-1-editing-versioning-tfixx1`, four commits, fast-forward. The
+working protocol is four steps and Claude does not negotiate the prose: apply
+verbatim to the one live text, run `amend.py Ch01 -m "..." --rule`, report one
+line. The only thing raised unprompted is a NEW empirical claim with no source,
+because standing rule 2 is not a lifecycle step and no gate reads it.
+
+**THE LANDING PAGE HOOK IS NOW THE CHAPTER'S OWN SENTENCE, "Beneath every seat,
+a meter was running."** Chapter 1 paragraph 2 verbatim apart from its opening
+"But". This is gate W9a's rule applied to the one part of the page W9a does not
+reach: the hero was the last place on the site still paraphrasing the book
+rather than quoting it. The lede absorbed the old two-clause headline, so no
+argument was lost. "Most organizations" lost its "Most", an unsourced quantity
+of exactly the shape standing rule 2 governs inside the book. **`llms.txt`
+needed no edit**, because its summary is extracted from the rendered hero.
+
+**A HEADLINE'S LINE BREAK IS SET BY TYPE SIZE, NOT BY `text-wrap`, AND THE SWEEP
+IS THE ONLY WAY TO KNOW.** The hook breaks at its comma from 360px up and goes
+to three mid-clause lines at 320px. `text-wrap: balance` was ALREADY on the rule,
+so the bad break was the balanced result; `text-wrap: pretty` was measured and is
+a REGRESSION, dangling an "a" at 360, 390 and 430px, the widths that currently
+work. The only lever that moves 320px is the clamp minimum, sharply: 1.95rem
+still breaks badly, 1.85rem does not. **Dan ruled it left as is**, because that
+minimum binds below about 845px, so it would shrink the headline on every phone
+to fix the narrowest one, and a media query tuned to this sentence would need
+re-deriving at every copy change. Booked here so it is not rediscovered.
 
 **`--rule` WAS BUILT 2026-08-14 ON DAN'S RULING AND IS THE DEFAULT FOR THIS
 RUN.** It retires whatever rulings an edit breaks in one pass, so the gate no
