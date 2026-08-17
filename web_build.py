@@ -66,6 +66,7 @@ import contextlib
 import functools
 import hashlib
 import http.server
+import io
 import socketserver
 import tempfile
 import threading
@@ -1297,6 +1298,20 @@ def write_llms_txt(outdir, metas, book, base_url, base_path, index_html):
             f"{c['words']:,} words, {c['key_terms']} key terms, "
             f"{len(m['notes'])} sources, {c['figures']} figures.")
 
+    typeset = [m for m in metas if m.get("pdf")]
+    if typeset:
+        lines += ["", "## Typeset edition", ""]
+        for m in typeset:
+            # NOT named "Chapter N: Title". Gate W10 reads every llms.txt entry
+            # whose name opens with "Chapter " as a claim about which chapters
+            # published, and a second entry per chapter under that shape would
+            # make the file disagree with the build about how many there are.
+            lines.append(
+                f"- [{m['chapter_title']}, chapter {m['chapter_number']}, "
+                f"typeset PDF]({url(m['slug'] + '/' + m['pdf']['file'])}): "
+                f"the print edition of the same text, {m['pdf']['pages']} "
+                f"pages, {m['pdf']['kb']} kB.")
+
     lines += [
         "",
         "## Reference",
@@ -1327,8 +1342,13 @@ def write_deploy_files(outdir, metas, base_url, base_path=""):
     site-relative paths, which are valid and become absolute the moment a domain
     is supplied. Nothing here invents a hostname.
     """
+    # The typeset PDFs are listed alongside the pages. A search engine indexes a
+    # PDF like any other document, and leaving the download out of the sitemap
+    # would publish it and then hide it. Gate W10 resolves every loc back to a
+    # file in the tree, so a listed PDF that was never rendered fails the build.
     pages = ["", "search/", "glossary/", "sources/", "objects/"] + \
-            [m["slug"] + "/" for m in metas]
+            [m["slug"] + "/" for m in metas] + \
+            [f"{m['slug']}/{pdf_name(m)}" for m in metas if m.get("pdf")]
     urls = "\n".join(
         f"  <url><loc>{site_url(base_url, base_path, p)}</loc></url>"
         for p in pages)
@@ -2139,6 +2159,198 @@ READ_FACES = """([probe, wanted]) => {
 }"""
 
 
+# ------------------------------------------------------ W17, the print edition
+
+def pdf_name(meta):
+    """The filename the reader ends up with in their downloads folder.
+
+    Self-describing on purpose. A download called ch01.pdf is unfindable a week
+    later, and this is the one artifact of the build that leaves the site and
+    lives on someone else's disk under whatever name it was given here.
+    """
+    n = int(meta["chapter_number"]) if meta["chapter_number"] else 0
+    title = re.sub(r"[^A-Za-z0-9]+", "_",
+                   re.sub(r"<[^>]+>", "", meta["chapter_title"])).strip("_")
+    return f"AIOM_Ch{n:02d}_{title}.pdf"
+
+
+def print_toolchain():
+    """Empty when the print build can run here, or the reason it cannot.
+
+    ASKS THE PRINT BUILD ITSELF rather than keeping a second list of what the
+    print build needs. AIOM_build.preflight() is that list, and a copy of it
+    here would be a copy free to go stale in the direction that reads as a pass.
+    Its stdout is captured because this is one line of a web build, not the
+    front of a print one.
+    """
+    try:
+        import AIOM_build
+    except ImportError as exc:
+        return f"AIOM_build could not be imported ({exc})"
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        ok = AIOM_build.preflight()
+    if ok:
+        return ""
+    line = next((l for l in buf.getvalue().splitlines()
+                 if l.startswith("BUILD CANNOT RUN")), "")
+    return line.replace("BUILD CANNOT RUN. ", "") or "the print toolchain is incomplete"
+
+
+def build_pdf(print_html, meta, outdir):
+    """Render the chapter's print PDF into the site it is published from.
+
+    IT IS RENDERED FROM THE SAME STRING THE WEB PAGE WAS TRANSFORMED FROM. One
+    footnotes.inject() call per chapter feeds the web transform, gate W1's print
+    side, and this render, so the download and the page beside it cannot be two
+    readings of the chapter. That is the same structural equivalence W1 exists to
+    hold, extended to the third artifact.
+
+    base_url is the REPOSITORY ROOT, because the chapter's own stylesheet link is
+    the relative `AIOM_book.css` and the fonts it names live in fonts/use. Under
+    the snapshot build the chapter itself sits in build/_snapshots, where neither
+    is present, which is the same trap CLAUDE.md section 5 warns about for a build
+    run in place under Drafts: the render succeeds, loses the design system, and
+    reports dozens of false defects.
+
+    NOT WRAPPED IN A TRY. A render that fails is a failure, and a check that
+    reports its own fault as an absence is switched off by the defect it exists
+    to catch, which is exactly how W16b's first version behaved.
+    """
+    from weasyprint import HTML
+    import pdfplumber
+    path = os.path.join(outdir, meta["slug"], pdf_name(meta))
+    # A RENAMED CHAPTER LEAVES ITS OLD DOWNLOAD BEHIND, and the build directory
+    # is not cleaned between runs. The stale file would be linked by nothing and
+    # listed nowhere, and it would still deploy: a second, older, unmarked render
+    # of the same chapter sitting at a URL a reader may already have. Cleared
+    # here, and gate W17c fails any PDF in the tree that no page links, so the
+    # same fault arriving another way is reported rather than shipped.
+    for old in glob.glob(os.path.join(outdir, meta["slug"], "*.pdf")):
+        if os.path.basename(old) != os.path.basename(path):
+            os.remove(old)
+    HTML(string=print_html,
+         base_url=os.path.abspath(".") + os.sep).write_pdf(path)
+    with pdfplumber.open(path) as doc:
+        pages = len(doc.pages)
+    return {"file": pdf_name(meta), "path": path, "pages": pages,
+            "kb": max(1, round(os.path.getsize(path) / 1024))}
+
+
+def _letters(s):
+    return re.sub(r"[^a-z0-9]", "", s.lower())
+
+
+def gate_w17(pdf, meta, chapter_path, notes_expected):
+    """The print edition, gated as a published artifact.
+
+    ADDED 2026-08-15 ON DAN'S RULING, when the PDF became downloadable. Until
+    then the print artifact was built on someone's machine and read by a human
+    before it went anywhere; published from CI it is an artifact nobody looks at,
+    and this repository's signature failure is exactly that, a check believed to
+    have run that had not.
+
+    W17a RUNS THE PRINT SUITE ON THE FILE THE SITE SERVES, not on a render of the
+    same source made somewhere else. All fifteen gates, unchanged and unforked,
+    by calling AIOM_build.qa() on the emitted PDF. A second implementation of
+    them here would be a machine for producing two verdicts about one file.
+
+    source_html IS NOT OPTIONAL AND IS THE FIRST THING TO CHECK WHEN THIS FAILS.
+    Gate 14 excludes a one-line paragraph from its widow count by comparing the
+    line against the chapter's whole paragraphs, and qa() reads those from
+    source_html. Omitted, it returns an empty set SILENTLY, every key-term name
+    reads as a widow, and the gate fails a clean chapter. The first run of this
+    gate did exactly that and reported a phantom widow on page 13, which is the
+    same phantom Chapter 1 carried as a booked design defect for two days in
+    August 2026.
+
+    W17b asks whether the PDF in a chapter's directory is THAT chapter's PDF.
+    Trivially true today with one chapter locked and the whole point once two
+    are: nothing else in either suite would notice chapter 3's render written
+    into ch02.
+    """
+    import AIOM_build
+    fails = []
+
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        ok = AIOM_build.qa(pdf["path"], expected_footnotes=notes_expected,
+                           source_html=chapter_path)
+    if not ok:
+        for f in AIOM_build.LAST_FAILS:
+            fails.append(f"W17a [{meta['slug']}]: the published PDF fails a "
+                         f"print gate: {f}")
+
+    import pdfplumber
+    with pdfplumber.open(pdf["path"]) as doc:
+        first = doc.pages[0].extract_text() or ""
+    title = re.sub(r"<[^>]+>", "", meta["chapter_title"])
+    if _letters(title) not in _letters(first):
+        fails.append(f"W17b [{meta['slug']}]: page 1 of {pdf['file']} does not "
+                     f"carry the title {title!r}, so the PDF published under "
+                     f"this chapter is a render of something else")
+
+    if not fails:
+        print(f"W17a. print edition ...... {meta['slug']}: {pdf['file']}, "
+              f"{pdf['pages']} pp, {pdf['kb']} kB, all fifteen print gates pass")
+    return fails
+
+
+PDF_HREF_RE = re.compile(r'href="([^"]+\.pdf)"')
+
+
+def gate_w17c(outdir, metas):
+    """Every PDF link resolves, and every published chapter offers its own.
+
+    THE ONE LINK CLASS W15 CANNOT SEE. W15 follows a[href^="#"], because it
+    measures where a click lands inside a page, and a download has no landing to
+    measure. W4 reads only fragment hrefs for the same reason. So a chapter page
+    could offer a PDF that was never rendered, and every other gate in the suite
+    would pass: a missing download is not a broken page, it is a 404 the reader
+    finds and the build does not.
+    """
+    fails, links = [], 0
+    pages = sorted(glob.glob(os.path.join(outdir, "**", "*.html"),
+                             recursive=True))
+    linked = {}
+    for page in pages:
+        html = open(page, encoding="utf-8").read()
+        for href in PDF_HREF_RE.findall(html):
+            links += 1
+            target = os.path.normpath(
+                os.path.join(os.path.dirname(page), href))
+            linked.setdefault(os.path.basename(target), set()).add(
+                os.path.relpath(page, outdir))
+            if not os.path.exists(target):
+                fails.append(
+                    f"W17c [{os.path.relpath(page, outdir)}]: the download link "
+                    f"{href} points at a file that is not in the build")
+
+    for m in metas:
+        want = pdf_name(m)
+        page = os.path.join(m["slug"], "index.html")
+        if page not in linked.get(want, set()):
+            fails.append(f"W17c: chapter {m['chapter_number']} publishes "
+                         f"{want} but its own page does not link it, so the "
+                         f"download exists and no reader can reach it")
+
+    # And the other direction. A PDF nobody links is a file that deploys, sits at
+    # a URL, and is a render of nothing anyone can name: the shape a renamed
+    # chapter leaves behind. build_pdf clears that case at the source; this is
+    # what reports it if it arrives by another route.
+    for orphan in sorted(glob.glob(os.path.join(outdir, "**", "*.pdf"),
+                                   recursive=True)):
+        if not linked.get(os.path.basename(orphan)):
+            fails.append(f"W17c: {os.path.relpath(orphan, outdir)} is in the "
+                         f"build and no page links it, so it would deploy "
+                         f"unreachable and unmarked")
+
+    if not fails:
+        print(f"W17c. pdf links .......... {links} link(s) across "
+              f"{len(pages)} page(s), each resolves to a file in the build")
+    return fails
+
+
 # ----------------------------------------------------------------------- build
 
 def _env():
@@ -2151,12 +2363,24 @@ def _env():
                        autoescape=True, trim_blocks=True, lstrip_blocks=True)
 
 
-def render(chapter_path, outdir, preview=False):
+def render(chapter_path, outdir, preview=False, pdf=True):
     src = open(chapter_path, encoding="utf-8").read()
-    print_html, _ = footnotes.inject(src, url_policy=URL_POLICY)
+    print_html, notes = footnotes.inject(src, url_policy=URL_POLICY)
     meta = transform(print_html)
+    meta["note_count"] = len(notes)
     print(f"  term links: {len(meta['termlinks'])} bolded term(s) linked to "
           f"the definition that owns them")
+
+    # The chapter's own directory is made HERE rather than at the write below,
+    # because the PDF is rendered into it before the page that links the PDF is
+    # rendered at all. The page has to know the file name, the page count and
+    # the size, and inventing any of the three would put a number on the site
+    # that no artifact was measured for.
+    slug = f"ch{int(meta['chapter_number']):02d}" if meta["chapter_number"] else "ch"
+    meta["slug"] = slug
+    chdir = os.path.join(outdir, slug)
+    os.makedirs(chdir, exist_ok=True)
+    meta["pdf"] = build_pdf(print_html, meta, outdir) if pdf else None
 
     book = book_structure.load_book()
     locked = locked_chapters()
@@ -2185,11 +2409,7 @@ def render(chapter_path, outdir, preview=False):
     web_html = _env().get_template("chapter.html.j2").render(
         preview=preview, **meta)
 
-    slug = f"ch{int(meta['chapter_number']):02d}" if meta["chapter_number"] else "ch"
-    meta["slug"] = slug
     meta["structure"] = book
-    chdir = os.path.join(outdir, slug)
-    os.makedirs(chdir, exist_ok=True)
     os.makedirs(os.path.join(outdir, "assets", "fonts"), exist_ok=True)
     open(os.path.join(chdir, "index.html"), "w", encoding="utf-8").write(web_html)
     shutil.copyfile("AIOM_web.css", os.path.join(outdir, "assets", "aiom_web.css"))
@@ -2465,7 +2685,7 @@ def slugify(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
-def render_index(outdir, meta):
+def render_index(outdir, meta, metas=()):
     """The front door. Phase W3.
 
     Copy on this page is DRAFT and marked so in the plan. What is here comes from
@@ -2477,6 +2697,13 @@ def render_index(outdir, meta):
     """
     first = next((c for p in meta["book"] for c in p["chapters"] if c["locked"]),
                  None)
+    # The nav entry knows a chapter is locked; only the chapter's own build knows
+    # whether a PDF was rendered for it. Copied rather than mutated in place,
+    # because the nav list is shared with every chapter page already written.
+    if first:
+        built = {int(m["chapter_number"]): m for m in metas
+                 if m.get("chapter_number")}
+        first = dict(first, pdf=built.get(first["number"], {}).get("pdf"))
     out = _env().get_template("index.html.j2").render(
         book=meta["book"], locked_count=meta["locked_count"],
         chapter_count=sum(len(p["chapters"]) for p in meta["book"]),
@@ -2486,7 +2713,7 @@ def render_index(outdir, meta):
 
 
 def build_site(chapter_paths, outdir, preview=False, no_browser=False,
-               base_url="", notes=(), base_path=""):
+               base_url="", notes=(), base_path="", pdf_skip=None):
     """Build the whole site from every chapter given, then gate it.
 
     W5 turned this from a one-chapter command into a site build. The gates that
@@ -2498,9 +2725,22 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
     metas, pages, fails = [], [], []
     first_index = None
 
+    # pdf_skip IS RESOLVED BY THE CALLER, BEFORE ANY CHAPTER RENDERS, and the
+    # answer decides between a gate and a stated skip. It is never decided by
+    # catching an exception thrown by the render, because a check that reads its
+    # own missing toolchain as an absence of defects is switched off by exactly
+    # the fault it exists to catch. That is W16b's recorded failure and it is not
+    # repeated here. main() resolves it once so the skip notice and the verdict
+    # line cannot disagree about whether a PDF was published. None means nobody
+    # resolved it, which is what a direct caller such as the self-test passes,
+    # and it is answered here rather than assumed to be "the toolchain is fine".
+    if pdf_skip is None:
+        pdf_skip = print_toolchain()
+
     for path in chapter_paths:
         src = open(path, encoding="utf-8").read()
-        print_html, web_html, meta, page = render(path, outdir, preview)
+        print_html, web_html, meta, page = render(path, outdir, preview,
+                                                  pdf=not pdf_skip)
         meta["spec"] = build_specimens(meta, src)
         metas.append(meta)
         pages.append(("chapter " + meta["slug"], web_html))
@@ -2514,15 +2754,21 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         fails += gate_w7(meta, meta["structure"])
         fails += gate_w9b(src, [("chapter " + meta["slug"], web_html)])
         fails += gate_w14(path)
+        if meta["pdf"]:
+            fails += gate_w17(meta["pdf"], meta, path, meta["note_count"])
         if not no_browser:
             w6, ran = gate_w6(page)
             fails += w6
+
+    if pdf_skip:
+        print(f"W17. print edition ....... SKIPPED, {pdf_skip}. No PDF is "
+              f"published by this build")
 
     if not metas:
         return ["W10: no chapters were built, so there is nothing to publish"], []
 
     lead = metas[0]
-    index = render_index(outdir, lead)
+    index = render_index(outdir, lead, metas)
     ref_pages, ref = build_reference(
         outdir, lead, open(chapter_paths[0], encoding="utf-8").read())
     search_html, docs, bytes_ = build_search(
@@ -2551,6 +2797,8 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         fails += w6
     fails += gate_w3(llms, "llms.txt")
     fails += gate_w10(outdir, metas, notes, preview, llms, base_path)
+    if not pdf_skip:
+        fails += gate_w17c(outdir, metas)
     # W15 walks the finished tree, so it runs after W10 has confirmed the tree
     # is complete. Following a link on a page that was never emitted would fail
     # for the wrong reason and send the reader after the wrong defect.
@@ -2581,6 +2829,9 @@ def main():
                     help="build an unlocked chapter to a local noindex page")
     ap.add_argument("--no-browser", action="store_true",
                     help="skip W6, W15, W16b and W16c, which need a headless browser")
+    ap.add_argument("--no-pdf", action="store_true",
+                    help="skip the print edition and gate W17, which need the "
+                         "print toolchain. The site then publishes no download.")
     ap.add_argument("--base-path", default="",
                     help="the path the site is served under, e.g. /textbook.aiom "
                          "for a GitHub Pages project site. Empty for the root.")
@@ -2657,8 +2908,11 @@ def main():
     base_path = "/" + base_path.strip("/") if base_path.strip("/") else ""
 
     print(f"{chr(10)}Building {len(chapters)} chapter(s) into {a.out}")
+    # Resolved here, once, so the skip notice inside the build and the verdict
+    # line at the end are the same fact rather than two readings of it.
+    pdf_skip = "asked for with --no-pdf" if a.no_pdf else print_toolchain()
     fails, metas = build_site(chapters, a.out, a.preview, a.no_browser,
-                              a.base_url, notes, base_path)
+                              a.base_url, notes, base_path, pdf_skip)
 
     verdict = "PASSED" if not fails else "FAILED"
     # The skip is stated in the verdict line rather than buried above it. Five of
@@ -2670,6 +2924,8 @@ def main():
         # notice that overstates what was skipped is the same defect as one that
         # understates it.
         verdict += ", W6, W15, W16b AND W16c NOT RUN"
+    if pdf_skip:
+        verdict += ", W17 NOT RUN AND NO PDF PUBLISHED"
     print(f"{chr(10)}WEB GATES {verdict}")
     for f in fails:
         print("   " + f)

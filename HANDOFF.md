@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-14. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-15. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
@@ -16,14 +16,56 @@ verbatim to the one live text, run `amend.py Ch01 -m "..." --rule`, report one
 line. The only thing raised unprompted is a NEW empirical claim with no source,
 because standing rule 2 is not a lifecycle step and no gate reads it.
 
-**THE LANDING PAGE HOOK IS NOW THE CHAPTER'S OWN SENTENCE, "Beneath every seat,
-a meter was running."** Chapter 1 paragraph 2 verbatim apart from its opening
-"But". This is gate W9a's rule applied to the one part of the page W9a does not
-reach: the hero was the last place on the site still paraphrasing the book
-rather than quoting it. The lede absorbed the old two-clause headline, so no
-argument was lost. "Most organizations" lost its "Most", an unsourced quantity
-of exactly the shape standing rule 2 governs inside the book. **`llms.txt`
-needed no edit**, because its summary is extracted from the rendered hero.
+**THE SITE PUBLISHES THE TYPESET PDF AS OF 2026-08-15. Decision 67, and gate W17
+is what makes it publishable.** One PDF per locked chapter, rendered by
+`web_build.py` from the SAME `footnotes.inject()` output the web page is
+transformed from, so the download and the page cannot be two readings of the
+chapter. It is linked from the chapter rail and footer and from the editions
+card, and listed in `sitemap.xml` and `llms.txt`. A whole-book PDF was ruled out
+for now: it needs continuous folios, front matter and the appendix, and today it
+would be Chapter 1 labelled as the book.
+
+**THE WEB BUILD NOW NEEDS THE PRINT TOOLCHAIN, `poppler-utils` INCLUDED.**
+Without it the build does not fail: it prints `W17 SKIPPED`, publishes no
+download, and names the skip in the verdict line. CI installs poppler for exactly
+that reason, in a step whose comment says that removing it ships a book whose PDF
+nothing checked. `--no-pdf` is the deliberate local skip.
+
+**W17's FIRST RUN FAILED A CLEAN CHAPTER AND THE CAUSE IS A TRAP WORTH KNOWING.**
+`AIOM_build.qa()` takes `source_html`, which print gate 14 uses to tell a
+one-line paragraph from a widow; passed nothing it returns an empty set silently
+and every key-term name reads as a widow. It reported a phantom on page 13, which
+is the same phantom Chapter 1 carried as a booked design defect for two days last
+August. The clean baseline control in the self-test is the only thing that will
+catch that wiring being dropped again. Suite now 17 gates and 108 controls, both
+read off the build rather than copied forward.
+
+**THE LANDING PAGE HERO IS DAN'S OWN COPY, AND IT IS NO LONGER A QUOTATION.**
+The hook is "Beneath every seat, a meter is running.", ruled 2026-08-15,
+replacing the version that lifted Chapter 1 paragraph 2 verbatim. The tense move
+alone ends the verbatim claim, so the template comment that asserted it was
+rewritten rather than left standing: a comment claiming a quotation that is not
+one is the same defect as a record claiming a check nobody ran. **Gate W9a is
+untouched and still passes**, because it governs the theorem and the specimen
+paragraph, both still lifted verbatim by `build_specimens()`. The hero was always
+outside its reach, which is why nothing failed. **`llms.txt` needed no edit**,
+because its summary is extracted from the rendered hero. The headline breaks at
+its comma from 390px up, three mid-clause lines at 320px, unchanged from the
+previous hook.
+
+**THE LEDE BENEATH IT WAS REPLACED AGAIN ON 2026-08-17, AND THE REASON IS THE
+READER RATHER THAN THE SENTENCE.** Every lede this page has carried, including
+the 2026-08-15 one it supersedes, was written in the book's own vocabulary:
+consumption event, metered resource, category error. Inside Chapter 1 each of
+those is defined before it is used. On the landing page they arrive cold, and
+they ask a reader who has not yet agreed to read anything to decode three terms
+before the argument lands. The replacement is plainer on purpose and ends on an
+instruction rather than a description, which is a register this book uses
+nowhere else and is worth reading on the live page. **The two hero halves were
+ruled two days apart in two sessions that could not see each other**, which is
+why they arrived on separate branches and met in a merge conflict: the tense
+came from one and the lede from the other. Both are in `main` as of the merge
+that carried W17.
 
 **A HEADLINE'S LINE BREAK IS SET BY TYPE SIZE, NOT BY `text-wrap`, AND THE SWEEP
 IS THE ONLY WAY TO KNOW.** The hook breaks at its comma from 360px up and goes

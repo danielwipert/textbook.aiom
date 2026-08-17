@@ -176,12 +176,12 @@ sources are dated. Constructed material is labelled as constructed.
 |---|---|
 | `AIOM_build.py` | Font staging, WeasyPrint render, fifteen QA gates, toolchain preflight. One command. |
 | `AIOM_book.css` | The locked design system, print. |
-| `web_build.py` | The web edition renderer and its five gates. Reads the same locked chapter HTML and reuses `footnotes.py`, `cite_format.py` and `status_check.py`. Both artifacts descend from ONE `footnotes.inject()` call, so text equivalence is structural rather than hoped for. Run from the repository root. |
+| `web_build.py` | The web edition renderer and its seventeen gates. It also renders the typeset PDF each locked chapter publishes, from the same injected document the page is transformed from (Decision 67). Reads the same locked chapter HTML and reuses `footnotes.py`, `cite_format.py` and `status_check.py`. Both artifacts descend from ONE `footnotes.inject()` call, so text equivalence is structural rather than hoped for. Run from the repository root. |
 | `AIOM_web.css` | The web presentation layer, v0.1. Tokens are inherited from `AIOM_book.css`, never chosen. Sole control of web appearance, same rule as print. |
 | `web_templates/` | Jinja2 templates. `chapter.html.j2` is the reader; `index.html.j2` is a placeholder front page, not the Phase W3 landing page. **Chrome lives OUTSIDE `<article id="chapter-text">` and the boundary is load bearing:** gate W1 measures the article and nothing else. |
 | `ledger.py` | Reads `AIOM_Continuity_Ledger.md` as data. The web glossary, object index and promise list are the SAME record gate G3 enforces, not a second list scraped from chapter HTML. Read only; appending is `continuity.py --update` at Stage 9. |
 | `book_structure.py` | The four parts and fifteen chapters, PARSED from `AIOM_Structure_v1.md` rather than retyped. The site's navigation and its table of contents come from here, so the book's own structure document is the single source for the book's shape. |
-| `.github/workflows/web.yml` | Builds the site, runs every gate, runs the self-test, and publishes to GitHub Pages from `main`. **It installs a headless browser so gate W6 actually runs in CI**, because a job that quietly skipped it would be this repo's signature failure with a green tick on top. |
+| `.github/workflows/web.yml` | Builds the site, runs every gate, runs the self-test, and publishes to GitHub Pages from `main`. **It installs a headless browser so gate W6 actually runs in CI, and `poppler-utils` so gate W17 does**, because a job that quietly skipped either would be this repo's signature failure with a green tick on top. Without poppler the deploy is green and carries no PDF. |
 | `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `specimen.py` | Type specimen. Sets the chapter's own prose in candidate faces at the shipping size, embeds each face so the page needs no network, and reports set width, x-height and what the measure becomes. A face is chosen by reading this, never by reading a description of the face. |
@@ -281,6 +281,12 @@ library, and W6 measures rendered layout across twenty viewport widths. The
 browser BINARY is not carried by pip, so a fresh environment still runs
 `python -m playwright install --with-deps chromium` after the requirements
 install, which is what `.github/workflows/web.yml` does.
+
+**THE WEB BUILD NOW NEEDS THE PRINT TOOLCHAIN TOO, INCLUDING `poppler-utils`**,
+because it renders and gates the typeset PDF each chapter publishes. Without it
+the build does not fail: it prints `W17 SKIPPED`, publishes a site with no
+download, and says so in the verdict line. `--no-pdf` skips it deliberately and
+is named in that line the same way.
 
 ---
 
@@ -660,6 +666,39 @@ rulings. What binds outside that document:
 - **The web render is never the artifact for an external fact check.** It is HTML,
   so it reproduces the extraction phantoms that produced both production flags on
   Chapter 1's first check. Stages 3 and 7 keep getting the PDF.
+- **THE SITE PUBLISHES THE TYPESET PDF, ONE PER LOCKED CHAPTER. Decision 67,
+  ruled 2026-08-15.** `web_build.py` renders it from the SAME `footnotes.inject()`
+  output the web page is transformed from, which is the equivalence gate W1 holds
+  between page and print extended to the third artifact rather than a second
+  render hoped to agree. It lands in the chapter's own directory, is linked from
+  the chapter rail and footer and from the landing page's editions card, and is
+  listed in `sitemap.xml` and `llms.txt`. A whole-book PDF is NOT this: it needs
+  continuous folios, front matter and the appendix, and is booked for the
+  completed manuscript.
+- **GATE W17 GATES THE PDF, BECAUSE IT IS THE ONE PUBLISHED ARTIFACT NOBODY
+  READS.** A broken page is seen the moment it opens; a download is opened once,
+  elsewhere, by a reader who does not report back. W17a runs `AIOM_build.qa()`,
+  all fifteen print gates unchanged and unforked, on the file the site serves.
+  W17b checks page 1 carries that chapter's title, which is trivially true at one
+  chapter and the whole point at two. W17c resolves every `.pdf` link on every
+  page to a file in the tree and fails a chapter that publishes a download its
+  own page does not link. **W15 cannot cover W17c**: it follows `a[href^="#"]`,
+  because it measures where a click lands, and a download has no landing.
+- **`source_html` IS NOT OPTIONAL WHEN CALLING `AIOM_build.qa()`, AND OMITTING IT
+  FAILS A CLEAN CHAPTER.** Gate 14 excludes a one-line paragraph from its widow
+  count by comparing the line against the chapter's whole paragraphs, which it
+  reads from `source_html`; passed None it returns an empty set SILENTLY. W17's
+  first run did exactly that and reported a phantom widow on page 13, the same
+  phantom Chapter 1 carried as a booked design defect for two days in August
+  2026. The clean baseline in `web_gates_selftest.py` is the control for it.
+- **THE PRINT TOOLCHAIN IS RESOLVED BEFORE THE FIRST CHAPTER RENDERS, NEVER BY
+  CATCHING THE RENDER'S EXCEPTION.** Missing `weasyprint`, `pdfplumber` or
+  `pdftoppm` prints `W17 SKIPPED`, publishes no download, and names the skip in
+  the verdict line; a render that fails with the toolchain present is a FAILURE.
+  A check that reads its own missing dependency as an absence of defects is
+  switched off by the fault it exists to catch, which is W16b's recorded failure.
+  **CI installs `poppler-utils` for exactly this reason**: without it the deploy
+  would be green and carry no PDF at all.
 - **Only locked chapters publish, enforced by gate W2 against `status_check.py`,
   not by intention.** In-flight chapters build to a local `noindex` preview path
   that CI never publishes.
@@ -1092,12 +1131,12 @@ rulings. What binds outside that document:
   **the notes should be corrected at the next reopen** and the ledger records the
   discrepancy at each entry.
 - **A GATE IS ONE W-NUMBER, NOT ONE CHECK, AND THIS COUNT DRIFTED FOR FIVE
-  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W16, so it is
-  SIXTEEN gates as of 2026-08-14, when W16 was added. Phase counts above are
+  PHASES BEFORE ANYONE RE-DERIVED IT.** The web suite is W1 through W17, so it is
+  SEVENTEEN gates as of 2026-08-15, when W17 was added. Phase counts above are
   stated as they stood at that phase and are not restated here. Sub-lettered
   checks are parts of their gate, never gates: `W1a` and `W1b` are one gate, and so
   are `W4a` through `W4g`, `W7a` and `W7b`, `W8a` through `W8c`, `W9a` and
-  `W9b`, and `W16a` through `W16c`. The Phase W1 and W2 entry was right at SIX and every entry after it ran
+  `W9b`, `W16a` through `W16c`, and `W17a` through `W17c`. The Phase W1 and W2 entry was right at SIX and every entry after it ran
   one high, because W1's two channels were silently counted as two gates while no
   other gate's sub-parts ever were. Corrected 2026-08-13, on Dan's ruling, after a
   README draft asserted fourteen and the number was checked against the build

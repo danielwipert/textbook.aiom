@@ -50,6 +50,9 @@
           {{ "{:,}".format(counts.words) }} words, about {{ counts.minutes }} minutes<br>
           {{ counts.key_terms }} key terms, {{ notes|length }} sources,
           {{ counts.figures }} figures
+          {% if pdf %}
+          <br><a class="rail-pdf" href="{{ pdf.file }}">Typeset PDF, {{ pdf.pages }} pages</a>
+          {% endif %}
         </p>
         <ol class="rail-slots">
           {% for s in slots %}
@@ -89,6 +92,14 @@
   <div class="foot-inner">
     <p>AI Operations Management, Chapter {{ chapter_number }}. {{ part_label }}.</p>
     <p>{{ notes|length }} source note{{ '' if notes|length == 1 else 's' }}, each cited to the chapter register.</p>
+    {# The download is chrome, so it sits outside the article like every other
+       navigation label. It carries the page count and the size because a link
+       that says only "PDF" asks the reader to click to find out what it is, and
+       both numbers are measured off the rendered file rather than estimated. #}
+    {% if pdf %}
+    <p class="foot-pdf"><a href="{{ pdf.file }}">Download this chapter as a typeset PDF</a>,
+       {{ pdf.pages }} pages, {{ pdf.kb }} kB. The same text, set for print.</p>
+    {% endif %}
     <p class="keyhint"><kbd>j</kbd> <kbd>k</kbd> move by section, <kbd>c</kbd> contents, <kbd>/</kbd> search, <kbd>Esc</kbd> close.</p>
     <p class="foot-links">
       <a href="../glossary/">Glossary</a>

@@ -56,6 +56,16 @@ jobs:
       - name: Install the pinned toolchain
         run: pip install -r requirements.txt
 
+      - name: Install poppler for the print gates behind W17
+        # The PRINT suite runs here now, because the typeset PDF is published
+        # from this job. Its Python half is pinned in requirements.txt and
+        # installed above; pdftoppm is a system binary that pip does not carry,
+        # and print gates 9 and 14 need it. Without it web_build.py does not
+        # fail: it prints "W17 SKIPPED" and publishes a site with no download,
+        # which is the honest behaviour and the wrong one for a deploy. Removing
+        # this step therefore ships a book whose PDF nothing checked.
+        run: sudo apt-get update -qq && sudo apt-get install -y poppler-utils
+
       - name: Install a headless browser for gates W6, W15 and W16b/c
         # The library itself is pinned in requirements.txt and installed by the
         # step above. This step fetches only the browser BINARY, which pip does
