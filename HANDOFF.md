@@ -1,11 +1,90 @@
 # Session handoff
 
-Last updated: 2026-08-15. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-19. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
+
+**PROCESS v3 AND THE CONTINUOUS SUITE ARE ADOPTED AND BUILT, 2026-08-19.
+Decisions 68 and 69, ruled by Dan after a measured review of what Chapter 1's
+process actually cost.** Branch `claude/handoff-review-next-steps-7zl2xd`,
+pushed, CI not yet observed. Both memos are at the repository root and are the
+reasoning of record: `AIOM_Process_v3_Proposal_v1.0.md` and
+`AIOM_Continuous_Suite_Proposal_v1.0.md`.
+
+**WHAT THE REVIEW MEASURED, because the numbers are what settled it.** 231
+commits on Chapter 1, of which 47 touched the chapter text, 60 touched tooling
+and 186 touched records. 51,374 words of checklist about a 7,069-word chapter, a
+ratio of 7.3 to 1. 55 findings and 8 reopens. **Five of those eight reopens are
+one defect occurring five times**: G2 ran at position 8 of 13 with three
+text-changing steps scheduled after it, so the re-run matrix correctly sent the
+chapter back through the most expensive step on every late edit. That was
+designed-in rework, not bad luck.
+
+**DECISION 68, PROCESS v3: Stage 5 and Gate G2 now run after Stage 7.** Stage 5
+moves with the gate because every Stage 5 finding on Chapter 1 was fixed in CSS
+or markup and none by rewriting a sentence, so a design review before the copy
+edit reads a pagination the copy edit destroys. **No stage is renamed or
+renumbered**, so there is no v2-to-v3 mapping table to carry. **Chapter 1 does
+not migrate**: it is locked under v2 and keeps v2 folders and v2 record, which
+agree with each other. `renumber_stage_folders_v3.py` moved 68 folders across 17
+units and skipped Chapter 1 deliberately.
+
+**`reopen.py` NOW READS STEP ORDER FROM THE CHECKLIST INSTEAD OF A CONSTANT, and
+this is load bearing from today.** Two orders are in force at once. Verified both
+ways: reopening Stage 5 on Chapter 1's v2 checklist still resets Stages 6 and 7,
+and on a v3 checklist it correctly leaves them alone, which the old constant
+would have cleared while reporting success.
+
+**ONE COST OF v3 IS RECORDED AS A COST.** Stage 8 is no longer batchable with
+Stages 6 and 7, because Stage 5, G2 and G3 now sit between the final fact check
+and the final read. v3 buys one fewer reopen at the price of one more round trip.
+
+**DECISION 69, THE CONTINUOUS SUITE: `chapter_check.py` runs the mechanical suite
+on any chapter, in flight or locked, and `.github/workflows/chapter.yml` runs it
+on every push.** The suite already existed inside `amend.py` and refused anything
+not locked, so it was available to finished chapters and unavailable to the ones
+being drafted.
+
+**THE CHAPTER'S OWN CHECKLIST DECIDES WHAT BINDS, AND THAT IS THE WHOLE DESIGN.**
+A check fails the run only once the chapter has ticked the step that owns it:
+Stage 3 owns W14, Stage 4 owns `voicecheck`, Stage 5 owns the print render and
+its fifteen gates, G2 owns the web build, G3 owns `continuity.py`. A chapter at
+Stage 0 reports and cannot fail, so the suite is never red for the length of a
+draft, which would train everyone to ignore it. **Red means a tick is currently
+lying.** Verified both directions on a synthetic half-drafted chapter: with
+nothing passed it reported three failures and exited 0; ticking Stage 4 made
+`voicecheck` bind, exit 1, and name the step whose claim had just become false.
+
+**THE MANUAL BOXES ARE REPORTED STALE, NEVER TICKED, AND CHAPTER 1'S ARE STALE
+RIGHT NOW.** The two MANUAL G2 boxes and gaps G-I and G-II cannot run
+continuously. When the live text has moved since G2 was ticked the runner says so
+and names them, following the snapshot divergence warning's precedent of
+reporting rather than failing. Chapter 1 was amended on 2026-08-14 after G2 was
+ticked on 2026-08-13, so **its figure geometry and page-level raster review are
+outstanding and need Dan or a session with time to read pages.**
+
+**`chapter.yml` IS SEPARATE FROM `web.yml` ON PURPOSE.** That one builds through
+`snapshot.py`, so every chapter resolves to its last lock and gate W2 refuses
+anything unlocked. A pull request carrying a half-drafted Chapter 2 is gated
+against the published Chapter 1, so the deploy pipeline can never be the place an
+in-flight chapter is checked.
+
+**WHAT WAS VERIFIED BEFORE THE PUSH.** 108 of 108 web self-test controls, the
+full site build green at seventeen gates, `status_check.py` at 13 of 13 STATUS
+CONSISTENT, `chapter_check.py --all` reporting Chapter 1 clean, and `amend.py`
+exercised end to end through the shared suite on a no-op edit that was reverted.
+**CI has not been observed yet on this branch.**
+
+**THE NEXT PIECE OF THIS WORK IS NAMED AND NOT BUILT: the print suite has no
+negative controls.** `web_gates_selftest.py` has 108; the print suite has none,
+and three print gates have separately been caught reading green while measuring
+nothing. Section 12 of the continuous-suite memo says it plainly: running a check
+that measures nothing more often produces more confident silence, not more
+evidence. **Adopting Decision 69 makes that omission worse rather than better.**
+
 
 **THE POST-LOCK EDITING RUN IS OPEN. Dan is revising every paragraph of Chapter
 1 and the process is CLAUDE.md section 8, "POST-LOCK (POST-LIVE) AUTHOR EDITS".**
@@ -1434,7 +1513,18 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF THE 2026-08-14 SESSION CLOSE, in order: 6 (CHAPTER 2, now
+**LIVE THREADS AS OF THE 2026-08-19 SESSION CLOSE, in order: 6 (CHAPTER 2, still
+the work and still the only thing anyone is waiting on, and now the first chapter
+to run under Process v3 and the continuous suite), 11 (the print suite's missing
+negative controls, opened today by Decision 69 and named in its own memo as the
+thing that gets worse without them), 8 (the web edition, waiting on Dan for a
+domain and the author band), 10 (the Northmoor CSVs), 5 (process hardening, and
+two of its items were built today), 3 (design gaps), 7 (Decision 28). Chapter 1
+also carries two STALE manual G2 boxes as of today, reported by
+`chapter_check.py` and needing a human read.**
+
+**THE 2026-08-14 LIST FOLLOWS, superseded by the paragraph above and kept because
+its reasoning about each thread still holds:  6 (CHAPTER 2, now
 the work, unblocked, and the only thing anyone is waiting on), 8 (the web
 edition, LIVE and waiting on Dan for a domain and the author band), 10 (the
 Northmoor CSVs, for the Part III build), 5 (process hardening), 3 (design gaps),
