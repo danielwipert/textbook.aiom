@@ -108,6 +108,14 @@ STAGES = [
          "is available",
      ]),
 
+    ("6", "Copy edit", "Dan",
+     "Line level, on prose that has stopped moving. Decision 24 places this "
+     "late. Revisit the placement after Chapter 4.", []),
+
+    ("7", "Final fact check 2", "Dan",
+     "Narrower than stage 2. Targets what changed since it, confirming nothing "
+     "broke in revision.", []),
+
     ("5", "Design review", "Claude",
      "Blocked until D0 closes. Layout, figures, typography, running heads, "
      "callout placement, key-term register, against the locked design system.",
@@ -145,14 +153,6 @@ STAGES = [
          "MANUAL, not automated: rasterized page-level visual review "
          "(pdftoppm -png -r 150), read by a human",
      ]),
-
-    ("6", "Copy edit", "Dan",
-     "Line level, on prose that has stopped moving. Decision 24 places this "
-     "late. Revisit the placement after Chapter 4.", []),
-
-    ("7", "Final fact check 2", "Dan",
-     "Narrower than stage 2. Targets what changed since it, confirming nothing "
-     "broke in revision.", []),
 
     ("G3", "Continuity gate", "Claude",
      "Mechanical, against the running continuity ledger. Catches chapter to "

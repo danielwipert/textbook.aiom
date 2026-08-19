@@ -34,11 +34,14 @@ STEP_RE = re.compile(r"^## (Stage \d+|Gate G\d+)\.\s*(.+)$")
 STATUS_RE = re.compile(r"^Status:\s*\[( |x|~|!)\]\s*Date cleared:\s*(.*)$")
 SUBBOX_RE = re.compile(r"^- \[( |x)\]\s*(.+)$")
 
-# Document order, so "from Stage 2" can mean "Stage 2 and everything after it"
-# including the gates interleaved between stages.
-ORDER = ["Stage 0", "Gate G1", "Stage 1", "Stage 2", "Stage 3", "Stage 4",
-         "Stage 5", "Gate G2", "Stage 6", "Stage 7", "Gate G3", "Stage 8",
-         "Stage 9"]
+# "From Stage 2" means "Stage 2 and everything after it", including the gates
+# interleaved between stages. The order is READ FROM THE CHECKLIST rather than
+# hardcoded here, because two orders are now in force: Chapter 1 is locked under
+# Process v2, where Stage 5 and G2 precede the copy edit, and every chapter from
+# Chapter 2 runs under Process v3, where they follow the final fact check
+# (Decision 68). A constant could only ever be right for one of them, and would
+# reset the wrong steps on the other while reporting success. `status_check.py`
+# already treats the checklist as the authority on its own steps; this does too.
 
 
 def parse_steps(lines):
@@ -56,20 +59,19 @@ def parse_steps(lines):
 
 
 def reopen(path, from_step, reason, date, dry):
-    if from_step not in ORDER:
-        print(f"unknown step {from_step!r}; expected one of: "
-              + ", ".join(ORDER))
-        return 1
-
     lines = open(path, encoding="utf-8").read().split("\n")
     steps = parse_steps(lines)
     if not steps:
         print(f"no steps found in {path}; is this a chapter checklist?")
         return 1
 
-    cutoff = ORDER.index(from_step)
-    affected = [s for s in steps
-                if s["id"] in ORDER and ORDER.index(s["id"]) >= cutoff]
+    order = [s["id"] for s in steps]
+    if from_step not in order:
+        print(f"unknown step {from_step!r}; this checklist has: "
+              + ", ".join(order))
+        return 1
+
+    affected = steps[order.index(from_step):]
     if not affected:
         print(f"nothing at or after {from_step}")
         return 1
