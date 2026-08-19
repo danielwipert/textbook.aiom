@@ -493,6 +493,38 @@ Decisions 22 onward live here.
   is transformed from, so the two cannot be different readings of the chapter,
   and it goes through all fifteen print gates before it can publish.
 
+- **Decision 68. RULED 2026-08-19.** Process v3: Stage 5 and Gate G2 move to sit
+  after Stage 7, so the two reads of a rendered page happen once, on text nothing
+  further will move. Ruled after the Chapter 1 process review measured what the
+  step order actually costs: G2 ran at position 8 of 13 with three text-changing
+  steps scheduled after it, so the scoped re-run matrix correctly sent the chapter
+  back through the most expensive step on every late edit, and five of Chapter 1's
+  eight reopens were that one defect. Stage 5 moves with the gate because every
+  Stage 5 finding on Chapter 1 was fixed in CSS or in markup and none by rewriting
+  a sentence, which makes the design read exactly as pagination-sensitive as the
+  gate is. NO STAGE IS RENAMED OR RENUMBERED, so unlike the Process v1 to v2
+  migration this needs no mapping table for reading dated records: only the
+  position of two steps moves. Chapter 1 does not migrate and keeps v2 ordering
+  and v2 stage folders, because it is locked and its checklist records v2 order.
+  Option C of `AIOM_Process_v3_Proposal_v1.0.md`, which carries the evidence, the
+  rejected alternatives and the reversal condition.
+
+- **Decision 69. RULED 2026-08-19.** The mechanical suite runs continuously, on
+  any chapter, in flight or locked, through `chapter_check.py` and the `chapter`
+  workflow. THE CHAPTER'S OWN CHECKLIST DECIDES WHAT BINDS: a check fails the run
+  only once the chapter has ticked the step that owns it, so a half-drafted
+  chapter reports without failing and red always means a tick is currently lying.
+  This adds no standard. Every check in it was already ruled, already written and
+  already run by hand at a checkpoint; what changes is that a passed step's claim
+  is now held at the commit that breaks it rather than at the next time somebody
+  looks. Ruled on the evidence that Chapter 1's 2026-08-08 reopen records in its
+  own grounds, that `status_check.py` "reporting 8 of 13 had been false since
+  round 1 landed". The suite is IMPORTED by `amend.py` rather than duplicated in
+  it. The two MANUAL G2 boxes and gaps G-I and G-II cannot run continuously and
+  are reported stale when the text has moved, never ticked and never failed, which
+  takes a G2 re-run from eighteen boxes to two and not to zero. Adopted as
+  specified in `AIOM_Continuous_Suite_Proposal_v1.0.md`.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

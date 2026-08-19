@@ -1,10 +1,14 @@
-> **STATUS: PROPOSED, NOT ADOPTED. AWAITING DAN'S RULING.**
+> **STATUS: ADOPTED 2026-08-19, as specified. This is Decision 69 in
+> `AIOM_Workplan_v5.md`, which is the numbering authority.**
 >
-> Companion to `AIOM_Process_v3_Proposal_v1.0.md`. If both are ruled in, this
-> becomes **Decision 69** and the reorder becomes Decision 68; `AIOM_Workplan_v5.md`
-> is the numbering authority and settles it either way. Nothing here binds until
-> that ruling. Filed at the repository root because it is a live proposal, with the
-> banner above so a root file does not read as adopted.
+> Kept as written, with only this banner changed, for the reason its companion
+> gives: the reasoning, the rejected alternatives in section 6, the objection in
+> section 7 and the limits in sections 8 and 12 are the ruling's substance.
+>
+> **Implemented the same day** as `chapter_check.py` and
+> `.github/workflows/chapter.yml`, with the section 5 checklist-driven design,
+> the suite imported by `amend.py` rather than duplicated, and the manual boxes
+> reported stale rather than ticked.
 
 # The continuous suite: a passed step is a claim, and something should hold it
 

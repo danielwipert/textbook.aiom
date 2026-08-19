@@ -1,10 +1,15 @@
-> **STATUS: PROPOSED, NOT ADOPTED. AWAITING DAN'S RULING.**
+> **STATUS: ADOPTED 2026-08-19, as Option C. This is Decision 68 in
+> `AIOM_Workplan_v5.md`, which is the numbering authority.**
 >
-> If ruled in, this becomes **Decision 68** in `AIOM_Workplan_v5.md`, which is the
-> decision-numbering authority, and Process v2 becomes Process v3. Nothing in this
-> file binds until that ruling. It is filed at the repository root rather than in
-> `archive/` because it is a live proposal awaiting a decision, and the banner
-> above is what stops a root file reading as adopted.
+> Kept as written, with only this banner changed, because it carries the evidence
+> the ruling was made on, the alternatives that were rejected and why, and the
+> reversal condition in section 9. A decision recorded without its reasoning is one
+> the next session relitigates.
+>
+> **Implemented the same day.** `gen_checklists.py` generates the v3 order,
+> `reopen.py` now reads step order from the checklist rather than holding a
+> constant, and `renumber_stage_folders_v3.py` migrated 68 folders across 17 units.
+> Chapter 1 was deliberately skipped and keeps Process v2, as section 7 requires.
 
 # Process v3: the production-side steps run on frozen text
 

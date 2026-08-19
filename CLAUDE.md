@@ -182,6 +182,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `ledger.py` | Reads `AIOM_Continuity_Ledger.md` as data. The web glossary, object index and promise list are the SAME record gate G3 enforces, not a second list scraped from chapter HTML. Read only; appending is `continuity.py --update` at Stage 9. |
 | `book_structure.py` | The four parts and fifteen chapters, PARSED from `AIOM_Structure_v1.md` rather than retyped. The site's navigation and its table of contents come from here, so the book's own structure document is the single source for the book's shape. |
 | `.github/workflows/web.yml` | Builds the site, runs every gate, runs the self-test, and publishes to GitHub Pages from `main`. **It installs a headless browser so gate W6 actually runs in CI, and `poppler-utils` so gate W17 does**, because a job that quietly skipped either would be this repo's signature failure with a green tick on top. Without poppler the deploy is green and carries no PDF. |
+| `.github/workflows/chapter.yml` | Decision 69. Runs `chapter_check.py --all` on every push. **Separate from `web.yml` on purpose**: that one builds through `snapshot.py`, so it gates each chapter's LAST LOCK and can never examine an in-flight chapter. Needs `fetch-depth: 0` for the same class of reason. |
 | `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
 | `specimen.py` | Type specimen. Sets the chapter's own prose in candidate faces at the shipping size, embeds each face so the page needs no network, and reports set width, x-height and what the measure becomes. A face is chosen by reading this, never by reading a description of the face. |
@@ -194,7 +195,9 @@ sources are dated. Constructed material is labelled as constructed.
 | `claimcheck.py` | Gate W14 and a standalone pass. Does the chapter still say what the fact checks ruled? Answers the one class of damage no other check can see. |
 | `snapshot.py` | What the site publishes: each chapter's LAST LOCK, derived from the commits that touched its checklist, never the working tree. Materializes a Drafts-shaped tree so every path-dependent check runs unchanged. |
 | `amend.py` | Edit a LOCKED chapter in one command. Reopens nothing, the chapter never leaves Stage 9, and Dan's edit is approved by definition. Runs the mechanical gates only. `--supersede` retires a fact-check ruling he overturns. |
-| `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. |
+| `chapter_check.py` | The mechanical suite on ANY chapter, in flight or locked. Decision 69. **The chapter's own checklist decides what BINDS**: a check fails only once the step that owns it has been ticked, so a half-drafted chapter reports without failing and red always means a tick is lying. `amend.py` IMPORTS it rather than carrying a copy. The two MANUAL G2 boxes and gaps G-I and G-II are reported stale when the text has moved, never ticked. |
+| `renumber_stage_folders_v3.py` | One-time Process v2 to v3 stage-folder migration, Decision 68. Run 2026-08-19 across seventeen units. **Chapter 1 is skipped deliberately** and keeps v2. |
+| `reopen.py` | Reopens a chapter at a stage: resets that step and everything after it, archives their findings in place rather than destroying them, and writes a dated reopen record. The mechanism CLAUDE.md section 8 always assumed and never had. **It READS the step order from the checklist rather than holding a constant**, because Chapter 1 is locked under Process v2 and everything from Chapter 2 runs under v3, and a constant could only be right for one of them. |
 | `renumber_stage_folders.py` | One-time Process v1 to v2 stage-folder migration. Run 2026-08-05 across all eighteen units. |
 | `git_hygiene.py` | Is any work stranded, and is the tree fit to hand over? Deepens the shallow clone FIRST, because an undeepened sweep counts merged branches as stranded. Run before every merge and every session close. See section 9. |
 | `requirements.txt` | Pinned build toolchain. WeasyPrint line breaking and float placement move between releases, and gates 4 and 14 are sensitive to exactly that. |
@@ -256,6 +259,14 @@ python3 place.py "$LIVE"
 # text path directly.
 python3 voicecheck.py "$LIVE"                    # Stage 4 mechanical plus craft metrics
 python3 status_check.py                          # lifecycle status, authoritative
+
+# The whole mechanical suite, on any chapter, in flight or locked. Decision 69.
+# It fails ONLY on checks the chapter has already claimed by ticking the step
+# that owns them, so running it on a half-drafted chapter is safe and useful.
+# This is what CI runs, and it is the one command to reach for after any edit.
+python3 chapter_check.py Ch01                    # one chapter
+python3 chapter_check.py --all                   # every chapter with a live text
+python3 chapter_check.py Ch02 --no-print         # skip the print render
 python3 reopen.py <checklist.md> --from "Stage 2" --reason "..."   # reopen
 
 # Stage 6 round trip. The export needs a current production render, and the
@@ -395,12 +406,33 @@ not a gate that passed.
 
 ---
 
-## 8. Chapter lifecycle (Process v2)
+## 8. Chapter lifecycle (Process v3)
 
-Thirteen steps, gates separated from passes. Process v2 (2026-08-01) inserts a
-developmental edit as Stage 2 and renumbers the stages that follow. The shape is
-ten stages (0 through 9) plus three gates. Lock is Stage 9, a pass, not a gate.
-There is no G4. `(C)` is Claude, `(D)` is Dan working outside the Claude system.
+Thirteen steps, gates separated from passes. The shape is ten stages (0 through
+9) plus three gates. Lock is Stage 9, a pass, not a gate. There is no G4. `(C)`
+is Claude, `(D)` is Dan working outside the Claude system.
+
+**PROCESS v3 (2026-08-19, Decision 68) MOVES STAGE 5 AND GATE G2 TO SIT AFTER
+STAGE 7, AND CHANGES NOTHING ELSE.** The reason is measured rather than
+theoretical: G2 ran at position 8 of 13 with three text-changing steps scheduled
+after it, so the re-run matrix correctly sent the chapter back through the most
+expensive step in the process on every late edit, and five of Chapter 1's eight
+reopens were that one defect. Stage 5 moves with the gate because every Stage 5
+finding on Chapter 1 was fixed in CSS or in markup and none by rewriting a
+sentence, so a design review taken before the copy edit reads a pagination the
+copy edit is about to destroy. **NO STAGE IS RENAMED OR RENUMBERED**, so unlike
+the v1 to v2 migration there is no v2-to-v3 mapping table: a dated record saying
+"Stage 5" means the same step before and after. Full reasoning, the rejected
+alternatives and the reversal condition are in
+`AIOM_Process_v3_Proposal_v1.0.md`.
+
+**CHAPTER 1 IS LOCKED UNDER PROCESS v2 AND DOES NOT MIGRATE.** Its checklist
+records v2 order and its stage folders keep v2 numbering, so the two agree. A
+completed unit keeps the process it was completed under, exactly as dated records
+keep their v1 numbers. **This is why `reopen.py` READS the step order from the
+checklist rather than holding a constant**: two orders are in force, and a
+constant could only be right for one of them while resetting the wrong steps on
+the other and reporting success.
 
 | Step | Name | Owner |
 |------|------|-------|
@@ -410,10 +442,10 @@ There is no G4. `(C)` is Claude, `(D)` is Dan working outside the Claude system.
 | Stage 2 | Developmental edit | C; Dan gut-checks with a second model |
 | Stage 3 | Source and fact check 1 | D |
 | Stage 4 | Voice and craft check | C |
-| Stage 5 | Design review | C |
-| G2 | Production gate | C |
 | Stage 6 | Copy edit | D |
 | Stage 7 | Final fact check 2 | D |
+| Stage 5 | Design review | C |
+| G2 | Production gate | C |
 | G3 | Continuity gate | C |
 | Stage 8 | Final read | D |
 | Stage 9 | Locked | C |
@@ -458,10 +490,25 @@ Sequencing rules:
 - **Edits re-run only what they can break, per the scoped re-run matrix below.**
   A render that passed against older prose has not passed, but a figure move need
   not re-run the voice check.
-- Stages 6, 7, and 8 are all external and may run in one sitting. Stage 1 may
-  not be batched with them: it runs early or it is worthless.
+- **Stages 6 and 7 are external and adjacent and may run in one sitting. STAGE 8
+  IS NO LONGER AMONG THEM, AND THAT IS A REAL COST OF PROCESS v3.** Under v2 Dan's
+  last three steps ran consecutively and could be batched; under v3, Stage 5, G2
+  and G3 sit between the final fact check and the final read, so v3 buys one fewer
+  reopen at the price of one more round trip. It is the right trade because a
+  reopen re-runs several steps and a round trip re-runs none, and because Stage 8
+  now reads a chapter every check has already cleared. Stage 1 still may not be
+  batched with anything: it runs early or it is worthless.
 - A reopen after Stage 9 re-runs every step from the one that owns the change.
 - No chapter is Locked until every step is complete.
+- **A PASSED STEP IS A CLAIM, AND `chapter_check.py` HOLDS IT (Decision 69).**
+  The mechanical suite now runs on every chapter on every push, in flight or
+  locked, and fails only on checks the chapter has already claimed by ticking the
+  step that owns them: Stage 3 owns W14, Stage 4 owns `voicecheck`, Stage 5 owns
+  the print render and its fifteen gates, G2 owns the web build, G3 owns
+  `continuity.py`. A chapter at Stage 0 reports and cannot fail, so the suite is
+  never red for the length of a draft. **Red means a tick is currently lying.**
+  This adds no standard: it enforces the re-run matrix at the commit rather than
+  at the next time somebody looks.
 
 **POST-LOCK (POST-LIVE) AUTHOR EDITS, THE AMENDMENT PATH. Ruled 2026-08-13, and
 it is the answer to a locked chapter that is still being written.** Dan is the
