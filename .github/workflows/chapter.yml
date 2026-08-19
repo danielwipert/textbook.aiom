@@ -40,6 +40,18 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    # BOUNDED, because an apt stall is not a failure the runner reports. On
+    # 2026-08-19 the runner's azure.archive.ubuntu.com mirror answered Ign for
+    # every repository and apt fell back to archive.ubuntu.com: the browser
+    # install, which runs its own apt-get update behind --with-deps, took 5m42s
+    # on one run and had produced no output for 11 minutes on another before it
+    # was killed by hand. web.yml saw the same weather more mildly, its poppler
+    # step going from 13s to 1m07s the same afternoon. Neither is a defect here
+    # and neither needs a code change, but without a ceiling a genuinely stuck
+    # job holds a runner for the six-hour default while reporting nothing. The
+    # whole job is normally about eight minutes on a bad day and under four on a
+    # good one, so this fails loudly with room to spare.
+    timeout-minutes: 25
     steps:
       # FULL HISTORY, for the same class of reason web.yml needs it. The stale
       # manual-box warning compares the live text's last commit date against the

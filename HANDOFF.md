@@ -72,11 +72,27 @@ anything unlocked. A pull request carrying a half-drafted Chapter 2 is gated
 against the published Chapter 1, so the deploy pipeline can never be the place an
 in-flight chapter is checked.
 
-**WHAT WAS VERIFIED BEFORE THE PUSH.** 108 of 108 web self-test controls, the
-full site build green at seventeen gates, `status_check.py` at 13 of 13 STATUS
-CONSISTENT, `chapter_check.py --all` reporting Chapter 1 clean, and `amend.py`
-exercised end to end through the shared suite on a no-op edit that was reverted.
-**CI has not been observed yet on this branch.**
+**WHAT WAS VERIFIED.** 108 of 108 web self-test controls, the full site build
+green at seventeen gates, `status_check.py` at 13 of 13 STATUS CONSISTENT,
+`chapter_check.py --all` reporting Chapter 1 clean, and `amend.py` exercised end
+to end through the shared suite on a no-op edit that was reverted. **CI IS GREEN:
+the `chapter` workflow ran the suite on the runner in 32 seconds and reported
+"1 chapter(s) checked, 0 with a broken claim", with the stale manual boxes named
+exactly as they are named locally.**
+
+**THE FIRST TWO CI RUNS LOOKED LIKE A HANG AND WERE NOT ONE, WHICH IS WORTH
+KNOWING BEFORE SOMEBODY ELSE DIAGNOSES IT AGAIN.** On 2026-08-19 the runners'
+`azure.archive.ubuntu.com` mirror answered `Ign` for every repository and apt
+fell back to `archive.ubuntu.com`. The browser install, which runs its own
+`apt-get update` behind `--with-deps`, took 5m42s on the run that finished and
+had produced no output for 11 minutes on the run before it, which was cancelled
+by hand on the assumption that it was stuck. It was slow, not stuck. **The
+control that settled it was dispatching `web.yml` on the same branch the same
+afternoon**: it succeeded in 3m24s, but its own poppler step had gone from 13s
+two days earlier to 1m07s, so the weather was real and general rather than a
+defect in the new workflow. `chapter.yml` now carries `timeout-minutes: 25` so a
+genuinely stuck job fails loudly instead of holding a runner for the six-hour
+default.
 
 **THE NEXT PIECE OF THIS WORK IS NAMED AND NOT BUILT: the print suite has no
 negative controls.** `web_gates_selftest.py` has 108; the print suite has none,
