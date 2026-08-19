@@ -79,13 +79,14 @@ STAGES = [
      "developmental edit, so it checks prose that has stopped moving.", []),
 
     ("4", "Voice and craft check", "Claude",
-     "Two halves. The mechanical half is voicecheck.py: magisterial register, "
-     "third person, no contractions, no em dashes, no rhetorical questions "
-     "outside discussion prompts, no hedging, plus over-explanation below the "
-     "reader baseline and under-explanation above it. The judgment half is the "
-     "six craft criteria below, read against AIOM_Voice_and_Craft_v1.md. "
+     "Two halves. The mechanical half is voicecheck.py: third person, no "
+     "contractions, no em dashes, no rhetorical questions outside discussion "
+     "prompts, no hedging, plus over-explanation below the reader baseline and "
+     "under-explanation above it. The judgment half is the SEVEN craft criteria "
+     "below, read against AIOM_Prose_Standard_v2.0.md, which is the one prose "
+     "standard and whose voice is called Concrete Management Prose. "
      "voicecheck.py also prints advisory craft metrics proxying C1, C3, C4, and "
-     "C5; the metrics inform the read and never decide it. C2 and C6 have no "
+     "C5; the metrics inform the read and never decide it. C2 and C7 have no "
      "proxy and are enforced by reading alone. Read ADVERSARIALLY and by "
      "section: for each criterion quote the WEAKEST passage in the chapter "
      "and rule it, rather than asking whether the criterion is met. Read the "
@@ -97,15 +98,23 @@ STAGES = [
          "weight is anchored to a named, specific instance",
          "C2 context and stakes: every mechanism states the conditions that "
          "made it available and what it settles, not only what it does",
-         "C3 front-loaded sentences: findings lead, qualifications "
-         "subordinate, no throat-clearing openers",
-         "C4 deliberate rhythm: sentence length varies, no long stretch at a "
-         "uniform length",
+         "C3 claim first: the main point of a paragraph is visible in its "
+         "first sentence or two, qualifications subordinate, no throat "
+         "clearing",
+         "C4 deliberate rhythm: sentence length varies, mostly 12 to 24 "
+         "words, a short sentence after a long explanation, no long stretch "
+         "at a uniform length",
          "C5 paragraph close: paragraphs end on the load-bearing clause, not a "
-         "trailing qualifier",
-         "C6 the guard holds: no hero or villain framing, no populist "
-         "register, no character-driven causation where a structural account "
-         "is available",
+         "trailing qualifier and not a cross-reference",
+         "C6 the guard holds in BOTH directions: no hero or villain framing, "
+         "no populist register, no character-driven causation where a "
+         "structural account is available, and no false sophistication, no "
+         "abstraction where an ordinary word serves, no aphorism standing in "
+         "for an explanation",
+         "C7 business reality first: no paragraph opens on a framework, "
+         "category or conceptual distinction where a business statement is "
+         "available, and every coined term arrives after the mechanism it "
+         "names",
      ]),
 
     ("6", "Copy edit", "Dan",

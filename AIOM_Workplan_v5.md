@@ -546,6 +546,32 @@ Decisions 22 onward live here.
   does for github.io, so **whether DNS resolves and Pages is serving is Dan's
   observation to make, never Claude's.**
 
+- **Decision 71. RULED 2026-08-19.** The prose standard is ONE file,
+  `AIOM_Prose_Standard_v2.0.md`, and the voice is **Concrete Management Prose**.
+  Ruled after Dan rejected Chapter 1's drafted prose as unreadable, supplied his own
+  style guide, and had the chapter edited outside the Claude system. **The named
+  register "magisterial" is RETIRED**, because it sat above every other instruction
+  and a drafter resolving a conflict between it and "keep the actor visible" chose
+  the weighty sentence every time. What survives of it is the part about the
+  argument rather than the prose: not neutral about the argument, completely neutral
+  about individual actors. `AIOM_Prose_Style_Guide_v1.md` and
+  `AIOM_Voice_and_Craft_v1.md` are retired to pointers, which also ends a
+  duplication that had the prose rules living in four documents at once.
+  **THE COST THAT JUSTIFIED THIS IS IN THE RECORD:** the Stage 6 copy edit "rewrote
+  the chapter rather than corrected it", changing 59 of 155 blocks in round 1,
+  growing body prose 25 per cent and taking the chapter from 20 pages to 26, which
+  forced the 2026-08-08 reopen of five steps. The deeper cause was not the step
+  order that Decision 68 fixed. It was that the draft arriving at the copy edit was
+  in the wrong voice. Three things the old files lacked are why their sentence-level
+  rules did not bind: a generative pattern telling a drafter what to write next, a
+  ban on abstract openings, and ordinary business language as the default. Stage 4
+  now grades SEVEN criteria rather than six: C7 is added for business-reality-first,
+  C3 becomes "claim first", and C6's guard watches false sophistication as well as
+  the populist register, because the book failed in the direction the old guard did
+  not watch. **The exemplar of the voice is the locked Chapter 1**, and the baseline
+  band is measured from it rather than from four journalism exemplars, which are
+  retired.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

@@ -65,31 +65,47 @@ These have all been explicitly ruled and re-affirmed. Do not relitigate them.
    registry statement is the authority and the panel is a rendering of it. Full
    rule in `AIOM_DESIGN_SPEC.md` section 5; ruled as Decision 56.
 
-### Voice
+### Voice: Concrete Management Prose
 
-- **Register:** magisterial. Combative energy transmuted into cold economic
-  analysis. Not neutral about the argument, completely neutral about individual
-  actors. Do not scold providers, derive their behavior. Do not sneer at buyers
-  who bought AI as software, explain why the mental model was legible and where
-  it breaks. The manifesto's taunting register is out.
-- **Person:** third person throughout body prose. Second person permitted
-  sparingly in craft sections and discussion questions.
+**THE ONE PROSE STANDARD IS `AIOM_Prose_Standard_v2.0.md`. READ IT BEFORE
+DRAFTING.** Decision 71, ruled 2026-08-19. It consolidates Dan's own guide with what
+survived of the two v1 files, both now retired to pointers. The rules below are the
+ones that bite; that file is authoritative and carries the pattern, the worked
+before-and-after pairs from this book, and the reasoning.
+
+- **Register: Concrete Management Prose.** State the business reality first and the
+  abstraction second. Begin a paragraph with its main business claim. Keep the
+  actor visible. One main idea per sentence. Ordinary business language unless a
+  technical term adds a real distinction. **"MAGISTERIAL" IS RETIRED AS THE NAMED
+  REGISTER**, because it was the instruction that produced a Chapter 1 draft Dan
+  rejected as unreadable, and repairing that draft cost the most expensive reopen
+  in the project.
+- **A coined term arrives AFTER the mechanism it names**, never before it. This was
+  the rejected draft's most frequent failure.
+- **Not neutral about the argument, completely neutral about individual actors.**
+  This is what survives of the old register and it is about the argument, not the
+  altitude of the sentences. Derive provider behavior, do not scold it. Explain why
+  a buyer's mental model was legible and where it breaks, do not sneer at it.
+- **Person:** third person throughout body prose. Second person permitted sparingly
+  in craft sections and discussion questions.
 - **No contractions** in body prose. Permitted in dialogue inside cases and in
   discussion questions where they serve the register.
 - **No exclamation points.**
-- **No rhetorical questions** in body prose. Permitted in discussion questions,
-  which is what they are for.
-- **No hedging.** No "perhaps," no "some argue," no "one might say." Hedging is
-  a signal that citation, formalization, or omission was skipped.
+- **No rhetorical questions** in body prose. Genuine management questions set in a
+  list are permitted and are a device this voice uses deliberately.
+- **No hedging**, meaning no "perhaps," no "some argue," no "one might say."
+  **Accurate qualification is NOT hedging**: "usage usually rises with headcount"
+  is required precision, "some argue that usage rises" is evasion. The standard's
+  section 13 rules the distinction.
 - **Fifty-year rule:** body prose is timeless. Perishable specifics are
   quarantined in dated cases.
 
 ### Craft, the positive half of the voice standard
 
 The rules above are prohibitions. Prose can break none of them and still be dead
-on the page. `AIOM_Voice_and_Craft_v1.md` is the positive standard, and it is
-binding at drafting time, not only at check time. Read it before drafting a
-chapter, not after.
+on the page. Sections 3 through 19 of `AIOM_Prose_Standard_v2.0.md` are the
+positive standard, and they bind at drafting time, not only at check time. Read
+them before drafting a chapter, not after.
 
 Six criteria, each drawn from a named exemplar. They appear verbatim as
 sub-checkboxes under Stage 4 in every chapter checklist, and `status_check.py`
@@ -116,37 +132,55 @@ fails a Stage 4 marked passed with one of them left open.
 are proxies, permanently advisory, and never a pass-or-fail threshold. C2 and C6
 have no proxy at all and are enforced only by reading.
 
-### The prose standard is TWO files, and they divide cleanly
+### The prose standard is ONE file, and this is the third time it has moved
 
-Adopted 2026-08-12. `AIOM_Prose_Style_Guide_v1.md` was written on 2026-08-05 and
-stranded on an unmerged branch for a week, during which Chapter 1 passed a
-developmental edit, a fact check, a voice pass, a design review, a production
-gate and two copy-edit rounds without it. Both it and
-`AIOM_Voice_and_Craft_v1.md` were adopted the same day by sessions that could not
-see each other, both name the same four exemplars, and neither mentioned the
-other. The division:
+**`AIOM_Prose_Standard_v2.0.md`. Decision 71, 2026-08-19.** Both v1 files are
+retired to pointers at it.
 
-- **`AIOM_Voice_and_Craft_v1.md` governs the six craft criteria C1 to C6**, the
-  exemplars, and the guard. Stage 4 grades against it and `status_check.py`
-  enforces it.
-- **`AIOM_Prose_Style_Guide_v1.md` governs everything else about prose:** the
-  reader model, altitude and contextualization, sentence-level craft, the
-  drafting protocol, and the house style sheet. **Read it before drafting.**
-- The style guide's Part 6 duplicated the craft file and is retired to a pointer.
+**The history is the argument for consolidating.** The style guide was written
+2026-08-05 and stranded on an unmerged branch for a week, during which Chapter 1
+passed a developmental edit, a fact check, a voice pass, a design review, a
+production gate and two copy-edit rounds without it. It and the craft file were
+then adopted the same day by two sessions that could not see each other, both
+naming the same four exemplars, neither mentioning the other. They were declared
+to "divide cleanly" and left as two. **Chapter 1 was drafted with both on `main`
+and still arrived in a voice Dan rejected as unreadable.** A prose rule that lives
+in two files plus CLAUDE.md plus Consolidated Spec B.2 is a rule that disagrees
+with itself in two of them, and the disagreement that mattered was the register.
+
+**What the consolidation changed, beyond merging:**
+
+- **The register is retired.** "Magisterial" named the altitude, sat above every
+  other instruction, and is the reason a drafter chose the weighty sentence over
+  the clear one.
+- **A generative pattern replaces a list of qualities.** The old files graded a
+  draft. Sections 3 through 11 of the new standard tell a drafter what to write
+  next: business reality, then something concrete to picture, then the mechanism,
+  then the management consequence.
+- **Abstract openings are banned**, which nothing banned before. Section 3.
+- **C7 is added and C3 and C6 are restated.** Seven criteria now. C7 grades
+  business-reality-first, C3 becomes "claim first", and C6's guard watches false
+  sophistication as well as the populist register, because the book failed in the
+  direction the old guard did not watch.
+- **The exemplar is the locked Chapter 1**, not four journalists. The band in
+  section 27 is measured from it: mean sentence 14.3 words, median 14, 36 per cent
+  under 12 words, none over 35.
 
 **THE RULE THAT ANSWERS THE MOST COMMON COMPLAINT ABOUT THIS BOOK'S PROSE IS
-PART 5.** The ideas are complex; the sentences do not need to be. Vary length
-with load, keep the actor in the sentence, and ration the parenthetical
-interrupter: never separate a subject from its verb by more than about three
-words, never stack two interrupters in one sentence, prefer the right-branching
-alternative. Part 4 adds a hard rule that is not in section 2 above, no comma
-splices and no run-on sentences.
+NOW SECTION 15**, and it kept the interrupter discipline verbatim. The ideas are
+complex; the sentences do not need to be. Vary length with load, keep the actor in
+the sentence, and ration the parenthetical interrupter: never separate a subject
+from its verb by more than about three words, never stack two interrupters in one
+sentence, prefer the right-branching alternative. Section 21 carries the hard rule
+that is not in section 2 above, no comma splices and no run-on sentences.
 
-Two items are booked and NOT done. Consolidated Spec B.2 still duplicates the
-register and mechanical rules and is not yet demoted to a pointer. And the Part 8
-source-level checks are not in `voicecheck.py`: they were written against a
-262-line version of that script and `main`'s is now 470 lines, so they must be
-ported individually rather than merged.
+**One item is booked and NOT done: Consolidated Spec B.2 still duplicates the
+register and mechanical rules and is not yet demoted to a pointer.** It now
+duplicates a register that has been RETIRED, so it is the last document in the repo
+asserting "magisterial" and it should be demoted before Chapter 2 is drafted. The
+five house-style checks it worried about ARE in `voicecheck.py`, ported one at a
+time and each verified by negative test; `voicecheck.py` still labels them "prose
+style guide Part 8" and that label now points at a retired file.
 
 ---
 
@@ -203,8 +237,9 @@ sources are dated. Constructed material is labelled as constructed.
 | `requirements.txt` | Pinned build toolchain. WeasyPrint line breaking and float placement move between releases, and gates 4 and 14 are sensitive to exactly that. |
 | `AIOM_Design_QA_Spec_v1.md` | Gate-by-gate spec. Moves with `AIOM_build.py`. |
 | `AIOM_Consolidated_Spec_v1.md` | The full pre-drafting specification. Authoritative. Markdown despite the earlier `.pdf` reference. |
-| `AIOM_Voice_and_Craft_v1.md` | The positive voice standard: the four borrowed techniques, the guard, and the six craft criteria. Binds from Stage 0. Read before drafting. |
-| `AIOM_Prose_Style_Guide_v1.md` | The other half of the prose standard, adopted 2026-08-12 after a week stranded on an unmerged branch. Reader model, altitude, sentence-level craft, drafting protocol, house style sheet. **Part 5 is the answer to prose that reads denser than its ideas.** Read before drafting. See section 2. |
+| `AIOM_Prose_Standard_v2.0.md` | **THE prose standard, one file. Decision 71.** The voice is Concrete Management Prose: business reality first, claim first, visible actors, ordinary business language, and a coined term only after the mechanism it names. Carries the seven craft criteria Stage 4 grades against, the mechanical bans, the reader model, the fifty-year rule, and real before-and-after pairs from Chapter 1. **Binds from Stage 0. Read before drafting.** |
+| `AIOM_Voice_and_Craft_v1.md` | RETIRED 2026-08-19 to a pointer at the standard above. |
+| `AIOM_Prose_Style_Guide_v1.md` | RETIRED 2026-08-19 to a pointer at `AIOM_Prose_Standard_v2.0.md`. Its table of what was absorbed and where it went is worth reading once. |
 | `AIOM_Specification_Addendum_v1.0.docx` | Decisions 1 through 21 and the Addendum rulings. |
 | `AIOM_Structure_v1.md` | Chapter structure and structural devices. |
 | `AIOM_Exit_Competencies_v1.md` | The twenty-four competencies. Backward-design root. |
@@ -468,8 +503,8 @@ neither would have been visible any other way.
 
 **Stage 4, voice and craft check.** Two halves. The mechanical half is
 `voicecheck.py`, which fails on the prohibitions. The judgment half reads the
-chapter against the six craft criteria in `AIOM_Voice_and_Craft_v1.md` and
-records a finding per criterion, not a single verdict. The criteria appear as
+chapter against the SEVEN craft criteria in `AIOM_Prose_Standard_v2.0.md`
+section 26 and records a finding per criterion, not a single verdict. The criteria appear as
 sub-checkboxes in the generated checklist, so `status_check.py` fails a Stage 4
 marked passed with one left open and unexplained. The craft standard binds from
 Stage 0, at drafting time; Stage 4 is where it is verified, not where it is first
@@ -1203,7 +1238,7 @@ rulings. What binds outside that document:
   whisper of tooth on the ground through an inline SVG turbulence data URI, and
   `.eyebrow` gained a short rule running into it, which is the magazine rubric.
   Both borrow the TECHNIQUE and refuse the REGISTER, which is the same rule
-  `AIOM_Voice_and_Craft_v1.md` already applies to the four prose exemplars: a
+  the prose standard already applies to its own borrowings: a
   New Yorker spot drawing would import a whimsy that C6 rules out, so any future
   spot marks are drawn as instruments rather than as jokes.
 - **THE SPOT MARKS ARE CHROME ONLY, AND GATE W4g ENFORCES IT.** Ruled twice by
@@ -1384,13 +1419,15 @@ reads green while measuring nothing, or a record claiming work nobody did.
 
 ### What Chapter 1 leaves standing for Chapters 2 to 15
 
-- **No craft baseline band is in force, and that is deliberate.** The band recorded
-  at Stage 4 on 2026-08-06 measures a chapter the copy edit replaced.
-  `AIOM_Voice_and_Craft_v1.md` section 4 makes Chapter 1 the band later chapters are
-  read against, so the stale numbers would grade Chapter 2 against a text that no
-  longer exists. Dan ruled the reset deferred to Stage 9 so it is taken from the
-  locked text, and it is booked as a Stage 9 pending action. **Until then no chapter
-  is read against a band.**
+- **The craft baseline band IS in force and it is measured from the locked Chapter
+  1.** It sits in `AIOM_Prose_Standard_v2.0.md` section 27: mean sentence 14.3
+  words, median 14, standard deviation 6.1, 36 per cent of sentences under 12 words,
+  none over 35, longest uniform run 5 sentences. The earlier band recorded at Stage
+  4 on 2026-08-06 measured a chapter the copy edit replaced and was correctly
+  discarded; Dan deferred the reset to Stage 9 so it would be taken from the locked
+  text, and it was. **The numbers are advisory proxies and never thresholds**, and
+  the band contains a flat stretch Stage 4 ruled deliberate, so it describes what
+  shipped rather than setting a target.
 - **Chapter 1's craft verdict rests on one read by the model that drafted it and
   wrote the standard it grades against.** Stage 2 and Stage 4 were both closed with
   their second-model gut-check still open, on Dan's ruling, with the adversarial
