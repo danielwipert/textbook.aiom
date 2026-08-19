@@ -224,9 +224,9 @@ all.
 ## 9. Risks, and the condition that would reverse this
 
 **Risk 1. A design or production defect is found later in the run than it is
-today.** Real, and partly mitigated by the second proposal in the process review,
-which is to run the mechanical suite continuously on any in-flight chapter rather
-than only at named checkpoints. Under that pairing, mechanical defects surface at
+today.** Real, and partly mitigated by the companion proposal in
+`AIOM_Continuous_Suite_Proposal_v1.0.md`, which runs the mechanical suite
+continuously on any in-flight chapter rather than only at named checkpoints. Under that pairing, mechanical defects surface at
 the commit that introduces them and only the judgment-level page read moves late.
 Adopting v3 without the continuous suite is weaker than adopting both.
 
