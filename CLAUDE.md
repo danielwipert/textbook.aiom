@@ -1118,9 +1118,17 @@ rulings. What binds outside that document:
   stylesheet, no remote image, and fonts stay self-hosted. Outbound ANCHOR links
   are deliberately exempt, because a link a reader chooses to follow is not a
   request the page makes for them, and the sources page exists to link out.
-- **Hosted on GitHub Pages, published from `main`. Decision 65.** The domain is
-  still unruled; `--base-url` is unset, so no hostname is invented and the sitemap
-  emits site-relative paths that become absolute the moment one is supplied.
+- **Hosted on GitHub Pages, published from `main`. Decision 65.**
+- **THE DOMAIN IS `aioperationsmanagement.ai`, ruled by Dan 2026-08-19 as Decision
+  70, AND THE SITE THEREFORE SERVES AT THE ROOT.** `web.yml` passes
+  `--base-url https://aioperationsmanagement.ai` and NO `--base-path`, which is
+  the flip the plan booked in advance: a Pages PROJECT site is served under
+  `/textbook.aiom/` and needed that prefix, and on a custom domain the same
+  prefix is the bug. `--base-url` does three things at once, writing the CNAME
+  that keeps Pages pointed at the domain, making the sitemap absolute, and
+  supplying the origin every emitter resolves through `site_url()`. **Gate W15 is
+  what would catch a prefix left behind**, because it serves the tree at whatever
+  prefix the build was given and fails when a subresource 404s.
 - **Phase W6 is built, 2026-08-13: dark mode and the figure token pass.**
   THIRTEEN gates. `AIOM_web.css` v0.3.
 - **WHAT PUBLISHES IS EACH CHAPTER'S LAST LOCK, NEVER THE WORKING TREE. Ruled

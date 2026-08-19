@@ -76,19 +76,23 @@ jobs:
         run: python -m playwright install --with-deps chromium
 
       - name: Build the site and run every gate
-        # --base-path is the prefix GitHub Pages serves a PROJECT site under,
-        # and it is DERIVED from the repository name rather than typed, so a
-        # rename cannot leave it stale. It is what the 404 page uses to reach its
-        # stylesheet: that page is served for any missing address at any depth,
-        # so it cannot use a relative path, and a root-absolute one would point
-        # at the root of the user site instead of at the book. Gate W15 serves
-        # the tree at this prefix and fails if any subresource 404s.
+        # THE DOMAIN IS RULED (Decision 70, 2026-08-19) AND THE SITE NOW SERVES
+        # AT THE ROOT, so --base-path is deliberately ABSENT rather than empty by
+        # accident. It used to be derived from the repository name, because a
+        # Pages PROJECT site is served under /textbook.aiom/ and the 404 page
+        # cannot reach its stylesheet by a relative path: that page is served for
+        # any missing address at any depth. On a custom domain the same
+        # root-absolute path is correct and the prefix would be the bug, which is
+        # the direction the plan booked in advance.
         #
-        # IF A CUSTOM DOMAIN IS EVER SET, the site moves to the root and this
-        # must become empty, or the 404 page breaks in the other direction.
+        # --base-url does three things at once: it writes the CNAME that keeps
+        # Pages pointed at the domain, it makes the sitemap absolute, and it is
+        # the origin every emitter resolves through site_url(). Gate W15 serves
+        # the tree at this prefix and fails if any subresource 404s, which is
+        # what would catch a prefix left behind here.
         run: |
           python3 web_build.py --site --out build/web \
-            --base-path "/${{ github.event.repository.name }}"
+            --base-url https://aioperationsmanagement.ai
 
       - name: Prove the gates still measure what they claim
         run: python3 web_gates_selftest.py

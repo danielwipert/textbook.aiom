@@ -7,6 +7,38 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**THE DOMAIN IS RULED AND WIRED: `aioperationsmanagement.ai`, Decision 70,
+2026-08-19.** This closes the last thing the web edition was waiting on Dan for,
+open since the host was chosen on 2026-08-13.
+
+**THE SITE NOW SERVES AT THE ROOT, AND THAT REVERSES A SETTING RATHER THAN ADDING
+ONE.** `web.yml` passes `--base-url https://aioperationsmanagement.ai` and no
+`--base-path` at all. The prefix used to be derived from the repository name,
+because a Pages project site is served under `/textbook.aiom/` and the 404 page
+cannot reach its stylesheet by a relative path: that page is served for any
+missing address at any depth. On a custom domain the same prefix becomes the
+defect. **This was booked in advance as item (c) of thread 8 rather than
+discovered**, and gate W15 is the check that would have caught it, because it
+serves the tree at whatever prefix the build was given.
+
+**WHAT WAS VERIFIED HERE, AND WHAT ONLY DAN CAN VERIFY.** Built locally exactly as
+CI builds: CNAME holds the domain, sitemap and robots.txt and llms.txt are all
+absolute at it, the 404 page is root-absolute with no prefix left behind,
+seventeen gates green and 108 of 108 self-test controls. **Claude has NOT seen the
+live site and cannot**: the container's egress proxy answers 403 to CONNECT for
+this domain exactly as it does for github.io. **Whether DNS resolves and Pages is
+actually serving at the domain is Dan's observation, and it should stay that way
+in this record rather than being upgraded later into something Claude checked.**
+The deploy happens on merge to `main`, so that is the moment to look.
+
+**ONE DECISION THE DOMAIN UNBLOCKS AND NOBODY HAS RULED: `llms-full.txt`.** It was
+booked at item (d) of thread 8 as belonging with the domain ruling rather than
+ahead of it. The llmstxt.org convention has a companion file carrying the entire
+text as one plain document, which publishes the whole book as a single scrapeable
+file. That is a different decision from publishing a map of it, and it is now the
+next one in that thread.
+
+
 **PROCESS v3 AND THE CONTINUOUS SUITE ARE ADOPTED AND BUILT, 2026-08-19.
 Decisions 68 and 69, ruled by Dan after a measured review of what Chapter 1's
 process actually cost.** Branch `claude/handoff-review-next-steps-7zl2xd`,

@@ -1338,9 +1338,10 @@ def write_llms_txt(outdir, metas, book, base_url, base_path, index_html):
 def write_deploy_files(outdir, metas, base_url, base_path=""):
     """robots.txt, sitemap.xml, 404.html, and CNAME when a domain is set.
 
-    base_url is empty until Dan rules the domain. The sitemap then emits
-    site-relative paths, which are valid and become absolute the moment a domain
-    is supplied. Nothing here invents a hostname.
+    base_url is the domain, ruled 2026-08-19 as Decision 70 and passed by
+    web.yml. Left empty, as a local build or a preview leaves it, the sitemap
+    emits site-relative paths, which are valid and become absolute the moment a
+    domain is supplied. Nothing here ever invents a hostname.
     """
     # The typeset PDFs are listed alongside the pages. A search engine indexes a
     # PDF like any other document, and leaving the download out of the sitemap

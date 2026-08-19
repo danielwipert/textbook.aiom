@@ -464,8 +464,8 @@ Decisions 22 onward live here.
   Pages and Netlify because it needs no third-party account and no API token in
   repository secrets, and because the source already lives here, so there is one
   fewer system to keep in sync. A custom domain is a DNS record plus the CNAME
-  the build already emits from `--base-url`. The domain itself is still unruled,
-  and until it is, no hostname is invented: the sitemap emits site-relative paths.
+  the build already emits from `--base-url`. **The domain was ruled on 2026-08-19
+  as Decision 70.**
 
 - **Decision 66. RULED 2026-08-13.** No analytics. The site makes no third-party
   request of any kind, which the search page already states to the reader in as
@@ -524,6 +524,27 @@ Decisions 22 onward live here.
   are reported stale when the text has moved, never ticked and never failed, which
   takes a G2 re-run from eighteen boxes to two and not to zero. Adopted as
   specified in `AIOM_Continuous_Suite_Proposal_v1.0.md`.
+
+- **Decision 70. RULED 2026-08-19.** The domain is `aioperationsmanagement.ai`.
+  This closes the last item the web edition was waiting on Dan for, open since
+  Decision 65 chose the host on 2026-08-13. **The site now serves at the ROOT
+  rather than under a project prefix**, so `web.yml` passes
+  `--base-url https://aioperationsmanagement.ai` and no `--base-path` at all. The
+  prefix was DERIVED from the repository name precisely so a rename could not
+  leave it stale, and on a custom domain it becomes the defect instead: the 404
+  page is served for any missing address at any depth, so it cannot use a
+  relative path, and a `/textbook.aiom/` prefix would now reach for a path the
+  host does not have. The plan booked this reversal in advance rather than
+  discovering it, and **gate W15 is the check that would catch it**, because it
+  serves the tree at whatever prefix the build was given and fails when a
+  subresource 404s. `--base-url` also writes the CNAME that keeps Pages pointed
+  at the domain and makes the sitemap, robots.txt and llms.txt absolute.
+  **Verified locally at the domain: CNAME correct, all three address files
+  absolute, the 404 page root-absolute with no prefix, seventeen gates green and
+  108 of 108 self-test controls.** NOT verified from here and it cannot be: the
+  container's egress proxy answers 403 to CONNECT for this domain exactly as it
+  does for github.io, so **whether DNS resolves and Pages is serving is Dan's
+  observation to make, never Claude's.**
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
