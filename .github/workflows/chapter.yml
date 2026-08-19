@@ -1,0 +1,74 @@
+# Run the mechanical suite on every chapter, in flight or locked.
+#
+# Decision 69. Companion to web.yml, and deliberately a SEPARATE workflow rather
+# than more steps inside it.
+#
+# WHY IT CANNOT LIVE IN web.yml. That workflow builds the published site, which
+# means it builds through snapshot.py: every chapter resolves to its LAST LOCK
+# rather than to the working tree, and gate W2 refuses anything not at Stage 9.
+# That is correct for a deploy pipeline, and it means a pull request carrying a
+# half-drafted Chapter 2 is gated against the published Chapter 1 while the text
+# actually being worked on is never examined. The deploy pipeline can therefore
+# never be the place an in-flight chapter is checked. This is that place.
+#
+# WHAT MAKES IT SAFE TO RUN ON A HALF-DRAFTED CHAPTER. chapter_check.py reads the
+# chapter's own checklist and fails only on checks the chapter has already
+# claimed by ticking the step that owns them. A chapter at Stage 0 reports and
+# cannot fail; a chapter that has passed G2 fails the moment an edit breaks one
+# of the fifteen print gates. So this job is not red for the length of a draft,
+# which would train everyone to ignore it and reproduce the failure it exists to
+# prevent. Red here always means a tick is currently lying.
+name: chapter
+
+on:
+  push:
+    paths:
+      - 'Drafts/**'
+      - '**.py'
+      - '**.css'
+      - 'web_templates/**'
+      - 'fonts/**'
+      - 'AIOM_*.md'
+      - 'requirements.txt'
+      - '.github/workflows/chapter.yml'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # FULL HISTORY, for the same class of reason web.yml needs it. The stale
+      # manual-box warning compares the live text's last commit date against the
+      # date G2 was ticked, and at the default depth of 1 that log is empty, so
+      # the warning would silently never fire.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install the pinned toolchain
+        run: pip install -r requirements.txt
+
+      # The print render reads the PDF back through pdfplumber and pdf2image,
+      # and AIOM_build.py exits 2 without poppler rather than running a reduced
+      # suite. A gate that did not run is not a gate that passed.
+      - name: Install poppler for the print gates
+        run: sudo apt-get update -qq && sudo apt-get install -y poppler-utils
+
+      # The web half of the suite runs gates W6, W15 and W16b/c, all of which
+      # need a browser and all of which print SKIPPED without one. Installing it
+      # here is the same ruling web.yml records: a CI job that quietly skips a
+      # gate is this repository's signature failure with a green tick on top.
+      - name: Install a headless browser for the web gates
+        run: python -m playwright install --with-deps chromium
+
+      - name: Hold every passed step's claim
+        run: python3 chapter_check.py --all

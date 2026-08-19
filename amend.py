@@ -53,52 +53,21 @@ got faster; the reading half did not move.
 
 import argparse
 import datetime
-import glob
 import os
 import re
-import shutil
-import subprocess
 import sys
 
+import chapter_check
 import claimcheck
 import status_check
 
+# resolve(), is_locked() and the mechanical suite itself live in
+# chapter_check.py and are IMPORTED rather than repeated here. Two
+# implementations of one thing that silently disagree is this repository's
+# signature failure, and the suite is the last place to reproduce it.
+from chapter_check import is_locked, resolve, run
+
 LEDGER = "AIOM_Claim_Ledger.md"
-
-
-def run(cmd, **kw):
-    return subprocess.run(cmd, shell=isinstance(cmd, str), capture_output=True,
-                          text=True, **kw)
-
-
-def resolve(target):
-    """(chapter_html, checklist, chapter_id) from 'Ch01' or a path."""
-    if os.path.isfile(target):
-        chdir = os.path.dirname(os.path.dirname(os.path.abspath(target)))
-        live = target
-    else:
-        hits = glob.glob(os.path.join("Drafts", target + "*"))
-        if not hits:
-            sys.exit("no chapter directory matching %r under Drafts/" % target)
-        chdir = hits[0]
-        stage0 = os.path.join(chdir, "00_Stage0_Draft")
-        cands = [p for p in glob.glob(os.path.join(stage0, "*.html"))
-                 if not os.path.basename(p).startswith(("DRAFT-", "_"))
-                 and not p.endswith(".print.html")]
-        if len(cands) != 1:
-            sys.exit("expected exactly one live text in %s, found %d"
-                     % (stage0, len(cands)))
-        live = cands[0]
-    cl = sorted(glob.glob(os.path.join(chdir, "AIOM_Ch*_Checklist*.md")))
-    if not cl:
-        sys.exit("no checklist in %s" % chdir)
-    return live, cl[-1], claimcheck.chapter_id_for(live)
-
-
-def is_locked(checklist):
-    steps = status_check.parse(checklist)
-    lock = next((s for s in steps if s["id"] == "Stage 9"), None)
-    return bool(lock and lock["status"])
 
 
 def changed_files(paths):
@@ -227,48 +196,19 @@ def main():
                    " (--rule)")
 
     # ---- the mechanical half. No opinion about the writing. ------------------
+    # The suite is chapter_check.py's, not a copy of it. A locked chapter has
+    # passed every step, so every check in it binds here, which is the behaviour
+    # this command has always had.
     print("\nMechanical checks. These measure the artifact, never the edit.")
-    failures = []
-
-    r = run(["python3", "claimcheck.py", live])
-    ok = r.returncode == 0
-    print("  W14  claim preservation .... %s" % ("pass" if ok else "FAIL"))
-    if not ok:
-        failures.append(("W14", r.stdout))
-
-    r = run(["python3", "voicecheck.py", live])
-    ok = r.returncode == 0
-    print("  voicecheck, mechanical ..... %s" % ("pass" if ok else "FAIL"))
-    if not ok:
-        failures.append(("voicecheck", r.stdout))
-
-    if not a.no_print:
-        os.makedirs("build", exist_ok=True)
-        tmp = "_amend_build.html"
-        shutil.copy(live, tmp)
-        r = run(["python3", "AIOM_build.py", tmp, "--out",
-                 "build/%s-amend.pdf" % chapter])
-        for f in (tmp, tmp.replace(".html", ".print.html")):
-            if os.path.exists(f):
-                os.remove(f)
-        ok = r.returncode == 0
-        print("  print render + 15 gates .... %s" % ("pass" if ok else "FAIL"))
-        if not ok:
-            failures.append(("print", r.stdout))
-
-    # The web build runs against the WORKING TREE here on purpose. The published
-    # snapshot is still the old lock at this moment, so gating the snapshot would
-    # test the text this amendment is replacing.
-    r = run(["python3", "web_build.py", "--site", "--from-worktree",
-             "--out", "build/web"])
-    ok = r.returncode == 0
-    # The COUNT is deliberately not printed here. It was hardcoded at 14 and went
-    # stale the day W15 landed, then again at W16. web_build.py prints its own
-    # verdict, including which optional gates did not run, and that is the one
-    # place the number is derived rather than copied.
-    print("  web build + gates .......... %s" % ("pass" if ok else "FAIL"))
-    if not ok:
-        failures.append(("web", r.stdout))
+    results, stale = chapter_check.suite(live, checklist, chapter,
+                                         no_print=a.no_print)
+    failures = [(r["key"], r["out"]) for r in results if not r["ok"]]
+    if stale:
+        print("\n  The text has moved since G2 was ticked, so these are STALE "
+              "and need a\n  human read. Reported, never ticked, and never a "
+              "failure:")
+        for m in stale:
+            print("    - %s" % m)
 
     if failures:
         # The heading must say which of two different things happened. A W14
@@ -280,8 +220,13 @@ def main():
         print("\n" + "=" * 70)
         if claim_only:
             print("A RULED SENTENCE CHANGED. The artifact is fine.")
-        else:
+        elif names & {"print", "web"}:
             print("THE RENDER BROKE. This is not a judgment about the edit.")
+        else:
+            # voicecheck, G3 or the record. Calling any of these render damage
+            # would misdescribe the one case where Dan has a decision to make,
+            # which is the same reason the W14 split exists.
+            print("A CHECK OBJECTED. The render is fine.")
         print("=" * 70)
         for name, out in failures:
             lines = [l for l in out.split("\n")
