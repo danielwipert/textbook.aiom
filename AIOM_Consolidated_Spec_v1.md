@@ -113,24 +113,40 @@ These are the exclusions because they either exist as fully served territories a
 - **Front matter:** preface, acknowledgments, reader's guide (short), a note on the registry, a note on the Northmoor dataset (labeled as constructed, with the standard fictional-entity disclaimer).
 - **Back matter:** appendix reproducing the 28 registry theorems and lemmas (per the standing decision, the 200 propositions are cited by ID but not reproduced in full); a method note on the case selection and evidence policy; a glossary drawn from the chapter Key Terms sections; an index; a bibliography arranged by primary source category.
 
-## B.2 Voice and tone
+## B.2 Voice and tone: DEMOTED TO A POINTER
 
-**Register:** magisterial with combative energy transmuted into cold economic analysis. The book is not neutral about its argument, but its neutrality about individual actors is complete. It does not scold providers; it derives their behavior. It does not sneer at buyers who bought AI as software; it explains why the mental model was legible and where it breaks. The manifesto's original taunting register is out; the argument's force is preserved through the argument itself, not through voice.
+> **This section is no longer authoritative on prose. Decision 71, 2026-08-19.**
+> **The one prose standard is `AIOM_Prose_Standard_v2.0.md`.** Read that before
+> drafting. Nothing about voice is ruled here.
 
-**Person:** third-person throughout body prose. Second person permitted sparingly in craft sections ("The reader can now...") and in discussion questions.
+**Why this section was demoted rather than corrected.** It carried a full copy of
+the register, the person rule, the standing linguistic rules, the reader model and
+the craft standard. That made prose a rule living in four documents at once: this
+one, the style guide, the craft file and CLAUDE.md. A rule kept in four places is a
+rule that disagrees with itself in two of them, and **the disagreement that
+mattered was the register**. This section named it "magisterial with combative
+energy transmuted into cold economic analysis", which sat above every other
+instruction and is the instruction that produced a Chapter 1 draft rejected as
+unreadable. Decision 71 retired that register. This section was the last document
+in the repository still asserting it.
 
-**Standing linguistic rules:**
-- No em dashes. Anywhere. Rewrite with commas, colons, periods, parentheses, or restructure the sentence.
-- No contractions in body prose. Contractions permitted in dialogue inside cases and in discussion questions where they serve the register.
-- No exclamation points.
-- No rhetorical questions in body prose. Rhetorical questions permitted in discussion questions (that is what they are for).
-- No hedging language ("perhaps," "some argue," "one might say"). The evidence policy requires citation, formalization as conditional, or omission. Hedging is a signal that one of the three was skipped.
+**What replaced it.** The voice is **Concrete Management Prose**: state the
+business reality first and the abstraction second, begin a paragraph with its main
+business claim, keep the actor visible, one main idea per sentence, ordinary
+business language unless a technical term adds a real distinction, and a coined
+term only after the mechanism it names.
 
-**On the reader:** the book assumes an intelligent, busy, sceptical MBA-level reader who has read business books before and can tell when one is padded. The book does not condescend, does not repeat itself for reassurance, does not tell the reader what the chapter is about to say before saying it. Signposting is done through the fixed skeleton, not through prose.
+**What survives from this section, and where it now lives**, all in
+`AIOM_Prose_Standard_v2.0.md`:
 
-**Craft standard (added 2026-08-05):** the standing linguistic rules above are prohibitions, and prohibitions alone can produce prose that breaks no rule and is dead on the page. The positive standard lives in `AIOM_Voice_and_Craft_v1.md` and is binding at drafting time. It extracts four transferable techniques from named exemplars: the concrete particular (Michael Lewis), context and stakes (James Lardner), sentence economy (the Financial Times), and paragraph architecture (The New Yorker). It borrows the techniques and not the registers, and it carries an explicit guard against what those exemplars bring with them: no populism, no hero-and-villain framing, no character-driven causation where a structural account is available. The guard is load-bearing, because character-driven explanation is precisely what the standing rule against scolding providers already forbids.
-
-The standard reduces to six criteria (C1 concrete particular, C2 context and stakes, C3 front-loaded sentences, C4 deliberate rhythm, C5 paragraph close, C6 the guard holds). They appear verbatim as sub-checkboxes under Stage 4 of every chapter checklist, which makes an unaddressed criterion a mechanical failure in `status_check.py` rather than a silent omission. `voicecheck.py` prints advisory metrics that proxy C1, C3, C4, and C5. C2 and C6 have no proxy and are enforced by reading alone.
+| Was here | Now |
+|---|---|
+| Register: magisterial | RETIRED. Section 20 keeps only the part about the argument: not neutral about the argument, completely neutral about individual actors. |
+| Person | Section 20 |
+| The standing linguistic rules | Section 21 |
+| The reader, and no prose signposting | Sections 2 and 18, with the signposting ban narrowed so it no longer reads as a ban on connective tissue |
+| The craft standard and its criteria | Section 26, now SEVEN criteria. C7 is added for business reality first, C3 becomes "claim first", C6's guard watches false sophistication as well as the populist register. |
+| The four journalism exemplars | RETIRED. The exemplar of the voice is the locked Chapter 1. |
 
 ## B.3 The evidence policy (locked)
 

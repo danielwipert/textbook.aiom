@@ -179,13 +179,13 @@ from its verb by more than about three words, never stack two interrupters in on
 sentence, prefer the right-branching alternative. Section 21 carries the hard rule
 that is not in section 2 above, no comma splices and no run-on sentences.
 
-**One item is booked and NOT done: Consolidated Spec B.2 still duplicates the
-register and mechanical rules and is not yet demoted to a pointer.** It now
-duplicates a register that has been RETIRED, so it is the last document in the repo
-asserting "magisterial" and it should be demoted before Chapter 2 is drafted. The
-five house-style checks it worried about ARE in `voicecheck.py`, ported one at a
-time and each verified by negative test; `voicecheck.py` still labels them "prose
-style guide Part 8" and that label now points at a retired file.
+**Consolidated Spec B.2 is DEMOTED, 2026-08-21, and the prose rules now live in
+exactly one place.** It carried a fourth copy of the register, the person rule, the
+linguistic rules, the reader model and the craft standard, and it was the last
+document in the repository asserting the retired "magisterial". It is now a pointer
+carrying a table of what moved where. **`voicecheck.py` still labels its five
+house-style checks "prose style guide Part 8"**, and that label points at a retired
+file; the checks themselves are correct and each was verified by negative test.
 
 ---
 

@@ -65,9 +65,11 @@ absent, so the instruction to skip it stays right and now has a reason the build
 checks. And every trace is generable from the edge list, which retires the note
 that Chapter 3's THM-004 set piece must be built by hand and unblocks Figure 3.1.
 
-**Still open and now the last one of its kind:** `AIOM_Consolidated_Spec_v1.md` B.2
-duplicates the register rules and is the only document left asserting the retired
-"magisterial". It should be demoted before Chapter 2 is drafted.
+**CLOSED 2026-08-21: `AIOM_Consolidated_Spec_v1.md` B.2 is demoted to a pointer.**
+It was the fourth copy of the prose rules and the last document asserting the
+retired "magisterial". Prose is now ruled in one file. The only residue is that
+`voicecheck.py` labels its house-style checks "prose style guide Part 8", a label
+pointing at a retired file; the checks are correct.
 
 
 **THE DOMAIN IS RULED AND WIRED: `aioperationsmanagement.ai`, Decision 70,
