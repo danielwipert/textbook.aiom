@@ -12,8 +12,8 @@ Gates are mechanical and stop the chapter where it stands. Passes are judgment.
 
 Standing rules at every stage: no em dashes; every empirical claim cited or
 cut; six-slot skeleton without exception; theorems are the only chapter
-anchoring callouts; the six craft criteria in AIOM_Voice_and_Craft_v1.md bind
-from Stage 0 forward, not from Stage 4.
+anchoring callouts; the seven craft criteria in AIOM_Prose_Standard_v2.0.md
+bind from Stage 0 forward, not from Stage 4.
 
 ---
 
@@ -21,15 +21,35 @@ from Stage 0 forward, not from Stage 4.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-21
 
-> Against the chapter outline and the fixed six-slot skeleton. Sources verified live with an access date; no archival (Decision 48). The craft standard binds here, not only at Stage 4: read AIOM_Voice_and_Craft_v1.md before drafting. Craft caught at Stage 4 is a rewrite; craft applied at Stage 0 is free.
+> Against the chapter outline and the fixed six-slot skeleton. Sources verified live with an access date; no archival (Decision 48). The craft standard binds here, not only at Stage 4: read AIOM_Prose_Standard_v2.0.md before drafting. Craft caught at Stage 4 is a rewrite; craft applied at Stage 0 is free.
 
-- [ ] Drafted against the six craft criteria (AIOM_Voice_and_Craft_v1.md), read before drafting rather than after
+- [x] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
 
 Findings:
 
 ---
+
+Findings:
+
+- **STAGE 0 CLOSED 2026-08-21.** 6,872 words, inside the Decision 33 band. Drafted
+  against `AIOM_Prose_Standard_v2.0.md` from the first sentence rather than
+  repaired at Stage 4, which is what Decision 71 requires and what Chapter 1 could
+  not have.
+- **The second-model bias review ran before this tick, not after**, under Dan's
+  ruling of 2026-08-21, because the opening case is about the drafting vendor's own
+  product. Nine of ten findings were accepted and applied. The record is
+  `AIOM_Ch02_bias_review_record.md`.
+- **BR5 was the most valuable finding and it was not about the vendor.** The craft
+  section diagnosed the usage flow as managed on adoption percentages while section
+  2.2 sets the test as request volume. The diagnostic failed its own standard on its
+  first worked example. Corrected.
+- **The markup did not match the design system and the print render is what caught
+  it.** The draft used bare `<h2>` for teaching sections and slot labels for the
+  summary and key terms, where Chapter 1 uses `h3.section` with a `num` span,
+  `h3.tail-head`, `h3.keyterms-head`, and five slot labels. Converted to the
+  Chapter 1 convention before G1.
 
 ## Gate G1. Structural gate
 
@@ -39,20 +59,55 @@ Status: [ ]        Date cleared:
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
-- [ ] All six slots present, in order, correctly headed
-- [ ] Opening case carries a provenance line under its title
-- [ ] Every exit competency assigned to this chapter is addressed
-- [ ] Every registry ID cited resolves against Locked Registry v1.3
-- [ ] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
+- [x] All six slots present, in order, correctly headed
+- [x] Opening case carries a provenance line under its title
+- [x] Every exit competency assigned to this chapter is addressed
+- [x] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
+- [x] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
 - [ ] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
-- [ ] Every Slot 5 key term appears defined in the body
-- [ ] Zero em dashes
-- [ ] Word count inside the chapter target band
-- [ ] Gloss-less lemmas carry a book-authored gloss, marked as such
+- [x] Every Slot 5 key term appears defined in the body
+- [x] Zero em dashes
+- [x] Word count inside the chapter target band
+- [x] Gloss-less lemmas carry a book-authored gloss, marked as such
 
 Findings:
 
 ---
+
+Findings:
+
+- **G1 IS NOT CLEARED. Nine of ten boxes pass; one cannot be ticked by Claude and
+  it is the access-date box.** Recorded 2026-08-21.
+- **G1.1 six slots, in order:** pass. Opening case, teaching body, craft section,
+  chapter summary, key terms, discussion questions and problems, in that order,
+  with five slot labels matching Chapter 1.
+- **G1.2 provenance line:** pass, and it states that figures come from press
+  reporting of a paywalled primary and are pending verification.
+- **G1.3 competencies:** pass. C2 is served by the three-flow mapping and worked
+  problem P1; C3 by section 2.6 and the derived consequence.
+- **G1.4 registry:** pass. `registry.py --check` resolves THM-004 in the pinned
+  manifest, confirms it is certified, and confirms the panel renders the registry
+  name character for character.
+- **G1.5 tier rules:** pass. One theorem callout, no lemmas or propositions cited.
+- **G1.6 access dates: FAIL, AND THE REASON IS STRUCTURAL RATHER THAN AN
+  OVERSIGHT.** Decision 48 requires every source verified live with an access date.
+  All four entries carry `accessed: null` because **no source in this chapter has
+  been read by anyone.** The case was found by WebSearch, which returns summaries;
+  `WebFetch` and `curl` are blocked by the egress proxy, re-confirmed against
+  fortune.com on 2026-08-21. Claude cannot supply an access date without
+  fabricating one. **This box is Dan's or it waits for Stage 3.**
+- **G1.7 key terms defined in the body:** pass, after a fix. "Three-flow mapping"
+  was a key term whose exact phrase never appeared in the body; the craft section
+  now introduces it in bold.
+- **G1.8 zero em dashes:** pass, confirmed in the render as well as the source.
+- **G1.9 word band:** pass, 6,872 against 6,500 to 7,500.
+- **G1.10 gloss-less lemmas:** not applicable, no lemmas cited.
+- **THE PRINT RENDER PASSES ALL FIFTEEN GATES**, which is not a G1 requirement and
+  is recorded because it was run: gate 12 caught a captioned but unreferenced
+  Figure 2.1, and gate 15 caught straight marks that `voicecheck` could not see
+  because they entered through footnotes generated from the register. Both fixed.
+  **A source-side check is not a render-side check**, which this repository already
+  knew and this chapter demonstrated again.
 
 ## Stage 1. Content review
 

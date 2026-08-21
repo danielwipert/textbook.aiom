@@ -42,10 +42,11 @@ STAGES = [
      "Against the chapter outline and the fixed six-slot skeleton. "
      "Sources verified live with an access date; no archival (Decision 48). "
      "The craft standard binds here, not only at Stage 4: read "
-     "AIOM_Voice_and_Craft_v1.md before drafting. Craft caught at Stage 4 is "
+     "AIOM_Prose_Standard_v2.0.md before drafting. Craft caught at Stage 4 is "
      "a rewrite; craft applied at Stage 0 is free.", [
-         "Drafted against the six craft criteria "
-         "(AIOM_Voice_and_Craft_v1.md), read before drafting rather than after",
+         "Drafted against the SEVEN craft criteria in "
+         "AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. "
+         "The voice is Concrete Management Prose",
      ]),
 
     ("G1", "Structural gate", "Claude",
@@ -54,7 +55,8 @@ STAGES = [
          "All six slots present, in order, correctly headed",
          "Opening case carries a provenance line under its title",
          "Every exit competency assigned to this chapter is addressed",
-         "Every registry ID cited resolves against Locked Registry v1.3",
+         "Every registry ID cited resolves in AIOM_Registry_Manifest.json AND "
+         "is certified (Decision 72): run registry.py --check",
          "Tier rules hold: one theorem callout, lemmas by ID, propositions by ID",
          "Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)",
          "Every Slot 5 key term appears defined in the body",
@@ -204,8 +206,8 @@ Gates are mechanical and stop the chapter where it stands. Passes are judgment.
 
 Standing rules at every stage: no em dashes; every empirical claim cited or
 cut; six-slot skeleton without exception; theorems are the only chapter
-anchoring callouts; the six craft criteria in AIOM_Voice_and_Craft_v1.md bind
-from Stage 0 forward, not from Stage 4."""
+anchoring callouts; the seven craft criteria in AIOM_Prose_Standard_v2.0.md
+bind from Stage 0 forward, not from Stage 4."""
 
 
 def render(number, title):

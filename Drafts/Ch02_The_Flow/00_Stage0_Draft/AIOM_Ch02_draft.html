@@ -36,9 +36,7 @@
 
 <p>One question this chapter will not answer is how responsibility divides between the buyer and the provider. The commercial arrangement is not in the public account: what the contract priced, what consumption data the customer could see and when, and whether spending limits or alerts were available and declined. A reader should hold that question open. What follows does not depend on its answer, because an organization needs the ability to govern its own consumption whatever the provider supplies.</p>
 
-<p class="slot-label">Teaching body</p>
-
-<h2>2.1 Work moves, and so does its record</h2>
+<h3 class="section"><span class="num">2.1</span>Work moves, and so does its record</h3>
 
 <p>Every organization already manages things that move. Orders move from a customer to a warehouse to a doorstep. Invoices move from a supplier to accounts payable to a bank. Managers do not think of these as static quantities. They think of them as streams that have a rate, a direction, and places where they can back up or leak.</p>
 
@@ -54,7 +52,7 @@
 
 <p>The distinction is practical rather than semantic. A transaction is approved once, by somebody with authority to approve it. A flow cannot be approved event by event, because nobody can sit between five thousand engineers and the work they are doing. It is managed by deciding in advance what may run, recording what does run, and comparing the total against a plan.</p>
 
-<h2>2.2 Three flows, not one</h2>
+<h3 class="section"><span class="num">2.2</span>Three flows, not one</h3>
 
 <p>A deployment does not produce one stream. It produces three, and they are separable because different parts of the organization touch each of them.</p>
 
@@ -64,7 +62,7 @@
 
 <p>The third is the money and the value. Cost attaches to the work through the meter. Value attaches to the work through whatever the organization does with the output. These two belong together because a manager cannot use either one alone: a cost without a corresponding return is an expense report, and a return without its cost is a testimonial.</p>
 
-<p>These are the usage flow, the record flow, and the cost-and-value flow. Naming them matters less than noticing that they are three separate things that can each be in a different condition. An organization can have a healthy usage flow and no record flow at all, which is the ordinary case in the first year of a deployment.</p>
+<p>Figure 2.1 sets the three side by side. They are the usage flow, the record flow, and the cost-and-value flow. Naming them matters less than noticing that they are three separate things that can each be in a different condition. An organization can have a healthy usage flow and no record flow at all, which is the ordinary case in the first year of a deployment.</p>
 
 <p>These three are separable because different people own them, and that is the practical reason the distinction earns its place. Engineering owns the usage flow, because engineering decides what is deployed and to whom. Whoever runs the platform owns the record flow, if anyone does. Finance owns the cost half of the third flow the moment an invoice arrives, and the value half belongs to whichever business unit was supposed to benefit. Four owners, three flows, and no single person whose job is the whole of it. Chapter 3 returns to this division and names what fills the gap.</p>
 
@@ -110,7 +108,7 @@
 <figcaption><span class="fignum">Figure 2.1</span>The three flows of a deployment. Usage runs continuously once a tool is adopted, and cost runs with it. The record flow is the one that must be constructed, and the value half of the third flow is constructed too. The solid lines run whether or not anyone attends to them; the dashed line and the tinted block exist only where an organization builds them.</figcaption>
 </figure>
 
-<h2>2.3 Funded as a project, run as a flow</h2>
+<h3 class="section"><span class="num">2.3</span>Funded as a project, run as a flow</h3>
 
 <p>Most AI deployments are funded the way projects are funded. Somebody writes a business case, names a cost, names an expected benefit, and asks for approval once. The money is released, the tool is bought, and the project is marked delivered when people are using it.</p>
 
@@ -122,7 +120,7 @@
 
 <p>There is a second consequence, and it is the one that reaches the value side. A project business case states a benefit at the moment of approval, when nobody can check it. If nothing revisits that statement, the claimed benefit becomes the organization’s permanent belief about what the deployment delivers. It was a forecast. It is now treated as a result, and no step in the process was responsible for the conversion.</p>
 
-<h2>2.4 An unmanaged flow does not stay still</h2>
+<h3 class="section"><span class="num">2.4</span>An unmanaged flow does not stay still</h3>
 
 <p>A manager reading this far might reasonably conclude that an unmanaged flow is merely an unmeasured one, and that the remedy is to start measuring whenever it becomes convenient. That conclusion is wrong, and the reason is worth stating carefully.</p>
 
@@ -134,7 +132,7 @@
 
 <p>The decay is worth one concrete illustration, because managers routinely underestimate it. Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.</p>
 
-<h2>2.5 Why the record flow is the one that gets skipped</h2>
+<h3 class="section"><span class="num">2.5</span>Why the record flow is the one that gets skipped</h3>
 
 <p>Of the three flows, the record flow is the one organizations almost always build last. The reason is structural rather than careless, and it is worth understanding before prescribing a remedy.</p>
 
@@ -152,7 +150,7 @@
 <p>The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.</p>
 </aside>
 
-<h2>2.6 All of the cost, an unknown fraction of the value</h2>
+<h3 class="section"><span class="num">2.6</span>All of the cost, an unknown fraction of the value</h3>
 
 <p>The consequence of the asymmetry is the sentence a manager should carry out of this chapter. An organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value.</p>
 
@@ -178,7 +176,7 @@
 
 <p>The criticism does not need to be settled for the finding to be useful, because the phrase carrying the weight is <em>no measurable impact</em>. A pilot that produced value nobody measured and a pilot that produced no value are indistinguishable in that statistic. That is the asymmetry appearing at market scale: the study could not observe what its subjects had not recorded.</p>
 
-<h2>2.7 Why this requires governance rather than attention</h2>
+<h3 class="section"><span class="num">2.7</span>Why this requires governance rather than attention</h3>
 
 <p>The registry states the consequence formally. Once a deployment scales, controlling its economics requires a governing apparatus rather than diligence from the people running it.</p>
 
@@ -207,7 +205,7 @@
 
 <p>This also explains why the remedy is never simply to spend less. An organization that cuts consumption without building the record flow has reduced its cost and learned nothing, which leaves it in the same position at a lower volume. Chapter 8 builds the record flow directly, and Chapter 10 turns it into a budget. What matters here is the order: the record comes before the budget, because a budget without a record is a number nobody can check.</p>
 
-<h2>2.8 What this chapter does not claim</h2>
+<h3 class="section"><span class="num">2.8</span>What this chapter does not claim</h3>
 
 <p>Three limits belong on the record before the diagnostic that follows, because each is a conclusion a reader could reasonably draw and none of them follows.</p>
 
@@ -218,9 +216,9 @@
 <p>The chapter does not claim that every deployment needs all three flows managed to the same standard. A pilot with twenty users and a fixed monthly cost does not need an attribution system. THM-004’s second antecedent is scale, and it is there precisely because the theorem does not bind below it. The judgment a manager has to make is when a deployment has crossed from the first case to the second, and the usual answer is that it crossed some time ago.</p>
 
 <p class="slot-label">Craft section</p>
-<h2>Mapping the three flows</h2>
+<h2 class="case-title">Mapping the three flows</h2>
 
-<p>This is the diagnostic the rest of the book uses. It takes one named deployment and establishes the condition of each flow, in order, with the evidence that settles it. It is deliberately short: it is meant to be run in an afternoon on a real deployment, not staffed as a project.</p>
+<p>The <b>three-flow mapping</b> is the diagnostic the rest of the book uses. It takes one named deployment and establishes the condition of each flow, in order, with the evidence that settles it. It is deliberately short: it is meant to be run in an afternoon on a real deployment, not staffed as a project.</p>
 
 <p>Two habits make the difference between a mapping that changes something and one that fills a slide. The first is naming the evidence for every diagnosis, because a diagnosis without evidence cannot be challenged and therefore cannot be corrected. The second is running it on a deployment that is already live rather than one being planned. A planned deployment has no flows yet, only intentions about them.</p>
 
@@ -255,7 +253,8 @@
 <p>The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. Organizations are usually surprised by the second finding rather than the third, because the absence of a record is invisible until somebody asks a question that needs one.</p>
 
 <section class="summary-sec">
-<p class="slot-label">Chapter summary</p>
+<h3 class="tail-head">Chapter summary</h3>
+<div class="summary">
 
 <p>A deployment produces three flows: the work itself, the record of that work, and the money and value attached to it. Each can be in a different condition, and they are managed by different parts of the organization.</p>
 
@@ -268,10 +267,12 @@
 <p>The record flow is skipped most often, and for structural reasons rather than careless ones. It pays only in the future, it belongs to no single function, and its absence is invisible until somebody asks a question that needs it. Building it is a decision an organization has to make before that question arrives.</p>
 
 <p>Because consumption varies with work rather than with headcount, economic control at scale requires an apparatus rather than diligence. That is THM-004, and it is why the chapters that follow build the record before they build the budget.</p>
+</div>
 </section>
 
 <section class="keyterms">
-<p class="slot-label">Key terms</p>
+<h3 class="keyterms-head">Key terms</h3>
+<div class="kt-list">
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Flow</span></div>
 <p>A continuous stream of related activity within a deployment, described by its rate, its direction, and whether anything is being recorded about it. A flow is managed by governing the stream over time rather than by approving each event within it.</p></div>
@@ -290,21 +291,25 @@
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Three-flow mapping</span></div>
 <p>The diagnostic that establishes the condition of the usage, record, and cost-and-value flows in a named deployment, and states what evidence would change each diagnosis.</p></div>
+</div>
 </section>
 
 <section class="problems-sec">
+<h3 class="tail-head">Discussion questions and problems</h3>
 <p class="slot-label">Discussion questions</p>
+<div class="dq-list">
 
 <div class="dq"><div class="dq-n">1</div><div class="dq-b"><p>An executive says the organization’s AI deployment is well managed because the monthly invoice is reviewed and approved every month. Using the three flows, explain what that review does and does not establish.</p></div></div>
 
 <div class="dq"><div class="dq-n">2</div><div class="dq-b"><p>The chapter claims that an unmanaged record flow decays rather than merely staying empty. Give a concrete example of information about AI usage that is available on the day the work happens and unavailable six months later, and explain what makes it perishable.</p></div></div>
 
-<div class="dq"><div class="dq-n">3</div><div class="dq-b"><p>Why does the chapter insist that the load-bearing word is "unknown" rather than "small"? What would a manager do differently under each reading?</p></div></div>
+<div class="dq"><div class="dq-n">3</div><div class="dq-b"><p>Why does the chapter insist that the load-bearing word is “unknown” rather than “small”? What would a manager do differently under each reading?</p></div></div>
 
 <div class="dq"><div class="dq-n">4</div><div class="dq-b"><p>Chapter 1 argued that a flat price relocates the meter to the provider rather than abolishing it. Using that result, explain why a flat-rate contract does not remove an organization’s need for a record flow.</p></div></div>
 
 <div class="dq"><div class="dq-n">5</div><div class="dq-b"><p>The chapter argues that a record flow is skipped because its value is entirely in the future tense and it belongs to no single function. Which function in your organization would you make responsible for it, and what would that function need in order to accept the responsibility?</p></div></div>
 
+</div>
 <p class="slot-label">Problems</p>
 
 <div class="problem">
@@ -340,7 +345,7 @@
 <p>Identify what has happened to the status of the twenty per cent figure between the business case and the planning document, and name the step in the organization’s process that should have prevented it. Then state the smallest change to the review schedule that would stop it recurring, and explain why a change to the business-case template would not.</p>
 </div>
 
-<p class="pnote">Interleaving: question 4 and problem P2 require Chapter 1's results. P2 uses the resource consumption model and question 4 uses meter relocation.</p>
+<p class="pnote">Interleaving: question 4 and problem P2 require Chapter 1’s results. P2 uses the resource consumption model and question 4 uses meter relocation.</p>
 </section>
 
 <section id="aiom-sources">
@@ -354,7 +359,7 @@
   "STATUS AT STAGE 0, AND IT IS UNUSUAL: every entry below is UNVERIFIED.",
   "The opening case was found by WebSearch on 2026-08-21. Claude read search",
   "result summaries and did NOT read any article: WebFetch and curl are blocked",
-  "by the container's egress proxy, confirmed against fortune.com the same day.",
+  "by the container’s egress proxy, confirmed against fortune.com the same day.",
   "The primary account is paywalled and has not been read by anyone on this",
   "project. NO FIGURE IN THIS CHAPTER HAS BEEN VERIFIED AGAINST A SOURCE.",
   "",
@@ -381,7 +386,12 @@
  ],
  "uber-2026-budget": {
   "type": "news",
-  "authors": [{"family": "Janakiram", "given": "MSV"}],
+  "authors": [
+   {
+    "family": "Janakiram",
+    "given": "MSV"
+   }
+  ],
   "title": "Uber burns its 2026 AI budget in four months on Claude Code",
   "container": "Forbes",
   "date": "2026-05-17",
@@ -389,7 +399,7 @@
   "perishable": true,
   "accessed": null,
   "upgrade": "The Information’s original report, which carries the CTO confirmation. Paywalled.",
-  "note": "UNVERIFIED. Found by WebSearch 2026-08-21; the article itself has not been read by Claude, and the container cannot fetch it. Carries the budget exhaustion timing, the engineer count, the rollout date, and the per-engineer monthly cost range. Grade C until a primary is read. The chapter states the cost range as 'several hundred to a few thousand dollars' rather than as exact bounds, deliberately, so that a corrected figure does not invalidate the sentence."
+  "note": "UNVERIFIED. Found by WebSearch 2026-08-21; the article itself has not been read by Claude, and the container cannot fetch it. Carries the budget exhaustion timing, the engineer count, the rollout date, and the per-engineer monthly cost range. Grade C until a primary is read. The chapter states the cost range as ’several hundred to a few thousand dollars’ rather than as exact bounds, deliberately, so that a corrected figure does not invalidate the sentence."
  },
  "uber-2026-adoption": {
   "type": "news",
@@ -401,7 +411,7 @@
   "perishable": true,
   "accessed": null,
   "upgrade": "A single named source for the adoption percentages, ideally the primary.",
-  "note": "UNVERIFIED AND WEAKEST ENTRY IN THE REGISTER. The February and March adoption percentages appear across several outlets with consistent values but no consistent attribution, which is the signature of a single upstream source being repeated. Do not treat convergence here as corroboration. If Stage 3 cannot attribute these figures, the prose should fall back to 'a third' and 'a large majority', which is how the chapter already words them."
+  "note": "UNVERIFIED AND WEAKEST ENTRY IN THE REGISTER. The February and March adoption percentages appear across several outlets with consistent values but no consistent attribution, which is the signature of a single upstream source being repeated. Do not treat convergence here as corroboration. If Stage 3 cannot attribute these figures, the prose should fall back to ’a third’ and ’a large majority’, which is how the chapter already words them."
  },
  "fortune-2026-uber-coo": {
   "type": "news",
@@ -413,7 +423,7 @@
   "perishable": true,
   "accessed": null,
   "upgrade": "Direct quotation of the executive, with venue and date.",
-  "note": "UNVERIFIED. Supports the claim that a senior executive publicly questioned whether the spending was justified. THE CHAPTER'S ARGUMENT LEANS ON THIS MORE THAN ON ANY FIGURE, because the executive's question is the evidence that the value half of the flow was unbuilt. If Stage 3 cannot confirm it, the paragraph and problem P1 both need rework rather than a looser number."
+  "note": "UNVERIFIED. Supports the claim that a senior executive publicly questioned whether the spending was justified. THE CHAPTER’S ARGUMENT LEANS ON THIS MORE THAN ON ANY FIGURE, because the executive’s question is the evidence that the value half of the flow was unbuilt. If Stage 3 cannot confirm it, the paragraph and problem P1 both need rework rather than a looser number."
  },
  "mit-nanda-2025": {
   "type": "report",
@@ -425,7 +435,7 @@
   "perishable": false,
   "accessed": null,
   "upgrade": "The report PDF itself, which the case bank records as not yet obtained.",
-  "note": "UNVERIFIED, and carried from CASE 6.2 in the case bank rather than from new research. Ruled into the Chapter 2 teaching body by Dan on 2026-08-21. HANDLE WITH CARE per the bank: the ninety-five per cent figure circulated widely and drew methodological criticism, and reported interview counts vary across accounts. The chapter states the criticism once, plainly, per the straight-spine evidence policy, and rests its argument on the phrase 'no measurable impact' rather than on the figure’s precision. Stage 3 should obtain the report and confirm the wording of the headline finding."
+  "note": "UNVERIFIED, and carried from CASE 6.2 in the case bank rather than from new research. Ruled into the Chapter 2 teaching body by Dan on 2026-08-21. HANDLE WITH CARE per the bank: the ninety-five per cent figure circulated widely and drew methodological criticism, and reported interview counts vary across accounts. The chapter states the criticism once, plainly, per the straight-spine evidence policy, and rests its argument on the phrase ’no measurable impact’ rather than on the figure’s precision. Stage 3 should obtain the report and confirm the wording of the headline finding."
  }
 }</pre>
 </section>
