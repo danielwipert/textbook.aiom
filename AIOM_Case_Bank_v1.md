@@ -6,6 +6,53 @@ Compiled July 19, 2026 from first research pass. Status: working; gaps listed at
 Source grades: A = primary/official document or top-tier press (TechCrunch, Fortune, CBC, Forbes staff, official provider docs). B = reliable trade press. C = vendor/SEO content (pointer only; never cite; chase to primary before use).
 Rule: before print, every case cites its Grade A primary source directly.
 
+## Chapter 2 shopping list: flow episodes
+
+### CASE 2.1 [CANDIDATE, NOT RULED]: Uber exhausts its 2026 AI budget in four months (December 2025 - May 2026)
+
+- What happened, per converging secondary coverage: Uber rolled out Anthropic's
+  Claude Code across roughly 5,000 engineers from December 2025. Reported adoption
+  ran from 32 per cent of engineers in February 2026 to 84 per cent classified as
+  agentic coding users in March; by spring, reporting cites 95 per cent using AI
+  tools monthly and roughly 70 per cent of committed code originating from those
+  tools. Monthly API cost per engineer is reported in a range of $500 to $2,000.
+  The company's entire 2026 AI budget was reported exhausted by April, four months
+  into the year. CTO Praveen Neppalli Naga is reported as confirming the overrun to
+  The Information; Fortune reports the COO questioning whether the spending was
+  worth it. Uber's 2025 research and development spend is reported at $3.4 billion.
+- **WHY IT IS A STRONG CHAPTER 2 OPENING: all three flows are visible in one named
+  deployment, and they are visibly uneven.** The usage flow is measured and rising.
+  The record flow existed in part, since a per-engineer monthly cost range was
+  knowable, but it did not reach the model finance was planning against. The
+  cost-and-value flow is unreconciled: **the organization knows precisely what it
+  spent and cannot say what it was worth.** That is C3's asymmetry, all of the cost
+  and an unknown fraction of the value, with a named company attached rather than a
+  statistic.
+- **HANDLE WITH CARE, AND THE FIGURE DISCIPLINE IS NOT YET SET.** Adoption
+  percentages, the per-engineer cost range and the budget-exhaustion timing come
+  from secondary reporting that paraphrases a paywalled primary. Reported figures
+  vary in framing across outlets. **No figure here may enter prose until a fact
+  check clears it**, and the ruling on which figures are load bearing has not been
+  made. This is the shape that produced the 14-versus-15 per cent discipline note
+  on CASE 6.4.
+- **TWO CONFLICTS FOR DAN, NEITHER OF THEM A SOURCING QUESTION.** First, the tool
+  is Claude Code, and Claude drafts this book: the book's second chapter would open
+  on the drafting vendor's own product. Second, Chapter 1 opens on Cursor, an AI
+  coding assistant, so Chapter 2 would be a second consecutive opening in developer
+  tooling for a book whose reader is a general manager. Against the second: the
+  failures differ in kind, Chapter 1 being a provider-side correction landing on a
+  buyer and this being a buyer's own consumption outrunning its records and its
+  budget, which is the buyer-side spine the competency framework asks for.
+- Sources to chase, none yet read in full: The Information (primary, carries the
+  CTO confirmation, paywalled); Fortune, 2026-05-26; Forbes, Janakiram MSV,
+  2026-05-17; AI Magazine; DesignRush. **Grade C until a primary is read.**
+- Placement: Chapter 2 opening case, proposed.
+- **Provenance, and this line is the scope claim: found 2026-08-21 by WebSearch
+  only. Claude read search-result summaries and NOT any article.** WebFetch and
+  curl are blocked by the container's egress proxy, verified against fortune.com
+  the same day. Nothing here has been verified against a primary by Claude, and
+  Stages 3 and 7 remain external.
+
 ## Chapter 4 shopping list: provider mechanism episodes (the playing field)
 
 ### CASE 4.1: OpenAI loses money on flat-rate Pro subscriptions (January 2025)

@@ -1364,11 +1364,20 @@ reads green while measuring nothing, or a record claiming work nobody did.
 
 ### Sourcing and fact checking
 
-- **No source host is reachable from the Claude environment**, verified 2026-08-06
-  against six of them, so Stages 3 and 7 are structurally external rather than
-  external by preference. Claude can rule on whether prose stays inside what a
-  register note says. Claude cannot verify the note against the source, and must
-  not offer to.
+- **WEBSEARCH WORKS AND WEBFETCH DOES NOT, and the difference decides what Stage 0
+  may claim. Corrected 2026-08-21.** The 2026-08-06 finding, that no source host
+  answers from this environment, was verified against `curl` and `WebFetch` and is
+  still true of both: the egress proxy blocks them, re-confirmed against
+  fortune.com. **WebSearch does not use that path and returns results.** So Claude
+  CAN discover candidate sources and see converging secondary coverage, and CANNOT
+  read a primary, verify a quotation, or check a figure against the document it
+  came from.
+- **Stages 3 and 7 therefore remain structurally external.** Claude can rule on
+  whether prose stays inside what a register note says, and can propose a sourced
+  candidate for the case bank. Claude cannot verify the note against the source and
+  must not offer to. **A case found by search is filed at Grade C with a provenance
+  line saying search summaries were read and no article was**, which is the
+  scope-claim rule applied to sourcing.
 - **Stage 7's external check must be fed a RENDER, never the chapter HTML.** Both
   production flags on Chapter 1's check 1 were phantoms of HTML extraction: it
   dropped the `<li>` contents of the theorem panel and reported the antecedents
