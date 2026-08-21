@@ -8,7 +8,7 @@ Rule: before print, every case cites its Grade A primary source directly.
 
 ## Chapter 2 shopping list: flow episodes
 
-### CASE 2.1 [CANDIDATE, NOT RULED]: Uber exhausts its 2026 AI budget in four months (December 2025 - May 2026)
+### CASE 2.1 [RULED IN 2026-08-21]: Uber exhausts its 2026 AI budget in four months (December 2025 - May 2026)
 
 - What happened, per converging secondary coverage: Uber rolled out Anthropic's
   Claude Code across roughly 5,000 engineers from December 2025. Reported adoption
@@ -35,14 +35,23 @@ Rule: before print, every case cites its Grade A primary source directly.
   check clears it**, and the ruling on which figures are load bearing has not been
   made. This is the shape that produced the 14-versus-15 per cent discipline note
   on CASE 6.4.
-- **TWO CONFLICTS FOR DAN, NEITHER OF THEM A SOURCING QUESTION.** First, the tool
-  is Claude Code, and Claude drafts this book: the book's second chapter would open
-  on the drafting vendor's own product. Second, Chapter 1 opens on Cursor, an AI
-  coding assistant, so Chapter 2 would be a second consecutive opening in developer
-  tooling for a book whose reader is a general manager. Against the second: the
-  failures differ in kind, Chapter 1 being a provider-side correction landing on a
-  buyer and this being a buyer's own consumption outrunning its records and its
-  budget, which is the buyer-side spine the competency framework asks for.
+- **THE VENDOR CONFLICT IS RULED AND MITIGATED, 2026-08-21.** The tool is Claude
+  Code and Claude drafts this book, so the chapter opens on the drafting vendor's
+  own product. **Dan ruled the case in and ruled the mitigation: all prose is run
+  by a second model to check for bias.** That is the same independence he already
+  applies to the Stage 2 developmental read, the Stage 4 craft read and the two
+  external fact checks. The second conflict, that Chapter 1 also opens on an AI
+  coding assistant, was ruled acceptable because the failures differ in kind:
+  Chapter 1 is a provider-side correction landing on a buyer, and this is a buyer's
+  own consumption outrunning its records and its budget, which is the buyer-side
+  spine the competency framework asks for.
+- **WHAT THE BIAS CHECK MUST LOOK FOR, because a vague instruction finds nothing:**
+  language that softens Anthropic's role or Uber's exposure, any implication that
+  the overrun reflects well on the tool, any asymmetry between how this chapter
+  treats Claude Code and how Chapter 1 treats Cursor, and the reverse failure of
+  overcorrecting into criticism the sources do not support. C6 already forbids hero
+  and villain framing in both directions; this is that guard applied where the
+  drafter has an interest.
 - Sources to chase, none yet read in full: The Information (primary, carries the
   CTO confirmation, paywalled); Fortune, 2026-05-26; Forbes, Janakiram MSV,
   2026-05-17; AI Magazine; DesignRush. **Grade C until a primary is read.**
