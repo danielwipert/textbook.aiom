@@ -7,6 +7,56 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**CHAPTER 2 IS DRAFTED AT STAGE 0 AND AWAITING THE SECOND-MODEL BIAS CHECK,
+2026-08-21.** 6,547 words, inside the Decision 33 band, mechanically clean on
+`voicecheck` and house style, with the registry check passing because THM-004's
+panel name matches the pinned manifest. **It is at 0 of 13 and nothing has been
+ticked**, so the suite reports without binding, which is Decision 69 working as
+designed on the first chapter drafted under it.
+
+**THE OPENING CASE IS CASE 2.1, RULED IN BY DAN**: Uber exhausting its 2026 AI
+budget four months into the year after Claude Code spread across roughly 5,000
+engineers. It was chosen because the organization knew its cost to the dollar and
+could not say what it had received, which is C3's asymmetry with a company
+attached rather than a statistic. CASE 6.2, the MIT NANDA study, is in the
+teaching body as Dan directed, carrying its own methodological criticism once.
+
+**THE VENDOR CONFLICT IS REAL AND DAN RULED THE MITIGATION.** The tool is Claude
+Code and Claude drafts this book, so all prose goes to a second model for a bias
+check. The package is `AIOM_Ch02_prose_for_review.md` plus
+`AIOM_Ch02_bias_check_prompt.md` in the Stage 0 folder. The extract deliberately
+omits the source register and citation bodies, because the reviewer judges framing
+and the register would tell them what to think about the sourcing. **Chapter 1's
+treatment of Cursor is the comparison standard**, since asymmetry between the two
+chapters is the most detectable form this bias could take.
+
+**THE QUESTION THAT MATTERS IS NUMBER 4 IN THAT PROMPT.** The chapter argues the
+failure was the buyer's missing record flow rather than the vendor's pricing
+model. That framing is defensible and it is also what a model built by the vendor
+would be inclined to conclude. The reviewer is asked to argue the opposing case at
+full strength before ruling. **Claude cannot audit this one in its own work.**
+
+**EVERY SOURCE IN THE CHAPTER IS UNVERIFIED AND THE REGISTER SAYS SO AT THE TOP.**
+The case was found by WebSearch, no article was read, the primary is paywalled.
+Stage 3 is given three specific tasks: obtain the primary, rule which figures are
+load bearing, and rule whether the adoption percentages may be stated as
+percentages at all. **The prose is written to survive a downgrade**: figures appear
+as ranges or approximations wherever the argument does not need precision. The one
+place that does not hold is the executive's public question, and the register says
+so, because the argument leans on it more than on any figure.
+
+**WEBSEARCH WORKS AND WEBFETCH DOES NOT, corrected 2026-08-21.** The 2026-08-06
+finding was verified against `curl` and `WebFetch`, both still blocked, and
+re-confirmed against fortune.com. WebSearch does not use that path. So Claude can
+discover candidates and see converging secondary coverage, and cannot read a
+primary. Stages 3 and 7 stay structurally external. A case found by search is
+filed at Grade C with a provenance line stating what was actually read.
+
+**Decisions 71 and 72 are merged and Consolidated Spec B.2 is demoted**, so prose
+is ruled in exactly one file and the registry is pinned and checked. The full
+record of both is in the Workplan and in the two adopted memos at the root.
+
+
 **THE PROSE STANDARD AND THE REGISTRY RECONNECTION ARE BOTH ADOPTED AND MERGED,
 2026-08-21. Decisions 71 and 72.** These were the two things Dan named as preceding
 Chapter 2, and both are done.
