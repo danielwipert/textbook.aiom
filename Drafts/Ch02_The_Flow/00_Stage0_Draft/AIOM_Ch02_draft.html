@@ -26,6 +26,10 @@
 
 <p>What the engineers were consuming did not hold flat. Reported monthly costs ran from several hundred to a few thousand dollars per engineer, varying with how much each one worked and how hard the work was.<cite src="uber-2026-budget"><span class="ckey">[uber-2026-budget]</span> Reported per-engineer monthly cost range.</cite> The rate was not the surprise. The volume was, and the volume was a direct consequence of the adoption the company had been trying to achieve.</p>
 
+<p>The shape of the surprise matters more than its size. This was not a budget missed by a margin and discovered at year end. The spending ran at a rate nobody was tracking against the plan, and the plan was only consulted when the money was gone. A rate that is never compared to a plan is not a forecast. It is a hope with a number attached.</p>
+
+<p>Consider what the company could have known in February. Adoption had reached about a third of engineers. If anyone had multiplied the observed cost per engineer by the adoption trend, the April date would have been visible two months ahead. The information existed. The comparison did not.</p>
+
 <p>Two things about this episode are worth separating, because they are usually confused. The first is that the company could see what it was spending. The invoices arrived, the totals were correct, and by April the arithmetic was unambiguous. The second is that the company could not say what it had received. The chief operating officer was publicly asking whether the spending had been worth it, which is not a question an executive asks about a line item whose return is documented.<cite src="fortune-2026-uber-coo"><span class="ckey">[fortune-2026-uber-coo]</span> Reported executive commentary on whether the spending was justified.</cite></p>
 
 <p>This is the position Chapter 1 predicted and did not describe. <span class="nb">Uber</span> had not made a category error. It knew perfectly well that it was buying a metered resource. It had simply never built the thing that would let it manage one.</p>
@@ -66,7 +70,15 @@
 
 <p>A healthy record flow has a grain, and the grain is what makes it useful. A record that says the organization spent a total last month is not a record flow, because no decision follows from it. A record that says which team, which product, and which system consumed what allows a manager to move something. The test is whether the record can answer a question the invoice cannot.</p>
 
+<p>The record flow has a physical location, and naming it removes some of the mystery. It lives in one of three places. It can sit with the provider, in a usage console the buyer logs into. It can sit in a gateway or platform the organization runs between its users and the model. Or it can sit in the applications themselves, each logging its own calls.</p>
+
+<p>Only the second and third belong to the buyer. That distinction decides what happens when the organization changes vendors, adds a second model, or is asked a question the console does not answer. A record the organization holds survives those events. A record it borrows does not.</p>
+
 <p>A healthy cost-and-value flow is the rarest of the three, because it requires the two halves to be built to a comparable standard and by people who do not normally work together. Finance can produce a cost number without help. The value number requires somebody to have decided, before the deployment began, what it was supposed to improve.</p>
+
+<p>The three flows also move at different speeds, which is why they cannot be reviewed on one schedule. Usage changes daily, because it follows the work. Cost resolves monthly, because that is when the invoice closes. Value, where it is measured at all, resolves over quarters, because that is how long it takes for a change in how work is done to show up in an outcome anyone tracks.</p>
+
+<p>A manager who reviews all three at the same interval will always be looking at one of them too early and another too late. The practical arrangement is to watch usage continuously, reconcile cost monthly against a plan, and revisit value on the cycle the business already uses for the outcome in question.</p>
 
 <figure>
 <svg viewBox="0 0 360 132" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +108,19 @@
 <figcaption><span class="fignum">Figure 2.1</span>The three flows of a deployment. Usage runs continuously once a tool is adopted, and cost runs with it. The record flow is the one that must be constructed, and the value half of the third flow is constructed too. The solid lines run whether or not anyone attends to them; the dashed line and the tinted block exist only where an organization builds them.</figcaption>
 </figure>
 
-<h2>2.3 An unmanaged flow does not stay still</h2>
+<h2>2.3 Funded as a project, run as a flow</h2>
+
+<p>Most AI deployments are funded the way projects are funded. Somebody writes a business case, names a cost, names an expected benefit, and asks for approval once. The money is released, the tool is bought, and the project is marked delivered when people are using it.</p>
+
+<p>Then the deployment runs as a flow. Consumption continues every working day, varying with the work, for as long as the tool is in use. The funding event was a single decision. The spending is a continuous process.</p>
+
+<p>This mismatch explains a pattern managers will recognize. The business case is never revisited, because projects are not revisited after delivery. The consumption keeps changing, because flows do. By the time anyone compares the two, the business case describes a deployment that no longer exists, and it is usually the only document stating what the deployment was supposed to achieve.</p>
+
+<p>The practical consequence is a scheduling one. A flow needs a recurring review at an interval short enough to catch a change while it is still small. Monthly is usually enough. Annually is not, and annual is what a project-funded deployment gets by default.</p>
+
+<p>There is a second consequence, and it is the one that reaches the value side. A project business case states a benefit at the moment of approval, when nobody can check it. If nothing revisits that statement, the claimed benefit becomes the organization’s permanent belief about what the deployment delivers. It was a forecast. It is now treated as a result, and no step in the process was responsible for the conversion.</p>
+
+<h2>2.4 An unmanaged flow does not stay still</h2>
 
 <p>A manager reading this far might reasonably conclude that an unmanaged flow is merely an unmeasured one, and that the remedy is to start measuring whenever it becomes convenient. That conclusion is wrong, and the reason is worth stating carefully.</p>
 
@@ -108,33 +132,51 @@
 
 <p>The decay is worth one concrete illustration, because managers routinely underestimate it. Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.</p>
 
+<h2>2.5 Why the record flow is the one that gets skipped</h2>
+
+<p>Of the three flows, the record flow is the one organizations almost always build last. The reason is structural rather than careless, and it is worth understanding before prescribing a remedy.</p>
+
+<p>A record flow produces no benefit on the day it is built. The usage flow delivers work immediately. The cost flow arrives on its own. A record flow pays only later, and only if somebody asks a question it can answer. Its value is entirely in the future tense.</p>
+
+<p>It is also nobody’s obvious job. Engineering has shipped the tool and moved on. Finance has an invoice that reconciles. The team that will eventually need the record is the one that has to justify the spend, and that team does not yet know it will need it. So the work sits in the space between three functions, each of which is doing its own job correctly.</p>
+
+<p>The third reason is the most important. The absence of a record is invisible until it is needed. A broken usage flow announces itself, because people complain that the tool is down. A cost overrun announces itself, because the invoice arrives. A missing record announces nothing at all. It surfaces on the day a senior executive asks which product line drove the increase, and the honest answer is that nobody can say.</p>
+
+<p>This is why the remedy is a decision rather than a habit. An organization does not drift into having a record flow. Somebody has to fund it before the question that needs it has been asked.</p>
+
 <aside class="definition">
 <p class="lab">Definition</p>
 <p class="term">Cost-value asymmetry</p>
-<p>The condition in which the cost of a deployment is recorded automatically by the metering that produces the bill, while the value of that deployment is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.</p>
+<p>The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.</p>
 </aside>
 
-<h2>2.4 All of the cost, an unknown fraction of the value</h2>
+<h2>2.6 All of the cost, an unknown fraction of the value</h2>
 
 <p>The consequence of the asymmetry is the sentence a manager should carry out of this chapter. An organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value.</p>
 
 <p>The word doing the work in that sentence is <em>unknown</em>, not <em>small</em>. The claim is not that deployed AI fails to produce value, and this chapter asserts nothing about how much value any deployment produces. The claim is narrower and harder to escape: the cost figure is complete because billing made it complete, and the value figure is partial because nobody was required to make it complete.</p>
 
-<p>This is why the two figures cannot be compared as if they were the same kind of number. A complete cost set against a partial return will make almost any deployment look worse than it is, and an organization that responds by cutting the deployment has acted on an artifact of its own record keeping. The opposite error is equally available: a partial value figure assembled from the deployment’s best moments, set against the same complete cost, will make almost any deployment look better than it is.</p>
+<p>This is why the two figures cannot be compared as if they were the same kind of number. A complete cost set against a partial return makes almost any deployment look worse than it is. An organization that responds by cutting the deployment has acted on an artifact of its own record keeping. The opposite error is equally available: a partial value figure assembled from the deployment’s best moments, set against the same complete cost, will make almost any deployment look better than it is.</p>
 
 <p>A stipulated example makes the arithmetic visible. Suppose a deployment costs one million over a year, and that figure is complete because it came from invoices. Suppose the organization has measured the return on two of the five workflows the tool touches, and those two show a combined benefit of four hundred thousand. The ratio a manager would compute is four hundred thousand against one million, and the deployment looks like a serious loss.</p>
 
 <p>Now notice what that ratio actually compares. The numerator covers two workflows and the denominator covers five. The comparison is not wrong because the numbers are wrong; both are accurate. It is wrong because the two figures have different scopes, and nothing on the page says so. The three unmeasured workflows might contribute nothing, or they might contribute more than the two that were measured. The organization has no basis for either belief, which is what “unknown” means.</p>
 
+<p>There is a reason organizations reach for adoption figures at this point, and it is not laziness. An adoption figure is available. It is produced automatically by the same systems that produce the cost, it rises when things are going well, and it can be presented without anyone having to define what the deployment was supposed to improve. It has every property a reporting metric needs except relevance.</p>
+
+<p>Adoption answers a question about the usage flow: are people using the tool. Value answers a question about the business: did the thing the tool was bought to improve get better. The two are related, and they are not substitutes. A tool can be used constantly and improve nothing measurable, and a tool used by a few people in the right place can pay for the whole deployment.</p>
+
+<p>The substitution is easy to spot once named. Whenever a value claim is supported by a number describing how much the tool was used, the value question has been answered with usage data. That is rarely dishonest. It is what happens when the only complete measurement available is the wrong one.</p>
+
 <p>The disciplined response is not to guess at the missing three. It is to state the ratio with its scope attached: four hundred thousand of return measured against the share of a one million cost attributable to the two workflows that were measured. That sentence is longer and less quotable, and it is the only version a manager can act on. Chapter 12 builds the boundary discipline that makes such a statement routine.</p>
 
 <p><span class="nb">Uber</span>’s position in April 2026 is the first error in progress. The company knew its cost to the dollar. Its chief operating officer was asking, in public, what the company had received. Both statements were true at once, and they were true because of how the two numbers were produced rather than because of anything the engineers had done.</p>
 
-<p>The pattern is not confined to one company. A 2025 study of enterprise deployments by <span class="nb">MIT</span> <span class="nb">NANDA</span> reported that ninety-five per cent of enterprise generative AI pilots delivered no measurable impact on profit and loss, against a much higher share of organizations reporting that they had piloted or deployed such tools.<cite src="mit-nanda-2025"><span class="ckey">[mit-nanda-2025]</span> Reported headline finding and adoption figures.</cite> The figure attracted substantial methodological criticism after it circulated, and the study’s reported interview counts differ across accounts of it.<cite src="mit-nanda-2025"><span class="ckey">[mit-nanda-2025]</span> Criticism and reported methodological variation, stated once here.</cite></p>
+<p>The pattern is not confined to one company. A 2025 study of enterprise deployments by <span class="nb">MIT</span> <span class="nb">NANDA</span> reported a striking gap. Ninety-five per cent of enterprise generative AI pilots delivered no measurable impact on profit and loss. A far higher share of organizations reported that they had piloted or deployed such tools.<cite src="mit-nanda-2025"><span class="ckey">[mit-nanda-2025]</span> Reported headline finding and adoption figures.</cite> The figure attracted substantial methodological criticism after it circulated, and the study’s reported interview counts differ across accounts of it.<cite src="mit-nanda-2025"><span class="ckey">[mit-nanda-2025]</span> Criticism and reported methodological variation, stated once here.</cite></p>
 
 <p>The criticism does not need to be settled for the finding to be useful, because the phrase carrying the weight is <em>no measurable impact</em>. A pilot that produced value nobody measured and a pilot that produced no value are indistinguishable in that statistic. That is the asymmetry appearing at market scale: the study could not observe what its subjects had not recorded.</p>
 
-<h2>2.5 Why this requires governance rather than attention</h2>
+<h2>2.7 Why this requires governance rather than attention</h2>
 
 <p>The registry states the consequence formally. Once a deployment scales, controlling its economics requires a governing apparatus rather than diligence from the people running it.</p>
 
@@ -151,15 +193,23 @@
 <p class="conseq">then the organization cannot exercise economic control over the deployment, whatever the diligence of the people operating it.</p>
 </div>
 
-<p>The final clause is the practical content. Economic control is not a property of how carefully individuals behave. Five thousand engineers acting reasonably, each making a defensible decision about how much help to ask for on a hard problem, produce an aggregate that none of them chose and none of them can see. Governance is what supplies the view none of the participants has.</p>
+<p>The final clause is the practical content. Economic control is not a property of how carefully individuals behave. Five thousand engineers can each act reasonably and still produce an aggregate none of them chose. Every one of those decisions is defensible on its own. None of them is visible to the others. Governance is what supplies the view none of the participants has.</p>
+
+<p>The word apparatus is doing specific work, so it is worth unpacking into its parts. A governing apparatus for a deployment holds three things, and an organization missing any one of them does not have economic control.</p>
+
+<p>The first is a record: some system that writes down what was consumed, at a grain finer than the invoice. The second is an attribution: a rule that assigns each unit of consumption to a team, a product, or a purpose. A record without an attribution tells an organization how much it spent and not who spent it. The third is a constraint: a limit, a budget, an alert, or an approval that can actually stop or slow consumption when it departs from plan.</p>
+
+<p>Most organizations that believe they have cost governance have the first, sometimes the second, and rarely the third. A dashboard nobody acts on is a record flow with no constraint attached. It converts a surprise into a slower surprise, which is an improvement, and it is not control.</p>
+
+<p>One question follows immediately and the chapter will not answer it here: who owns the apparatus. Chapter 1 named the problem as a category error and Chapter 3 names the discipline that resolves it. What can be said now is that the apparatus does not belong to whichever function noticed the problem first. Finance noticing an overrun does not make cost governance a finance system, any more than engineering noticing latency makes reliability an engineering-only concern.</p>
 
 <p>This also explains why the remedy is never simply to spend less. An organization that cuts consumption without building the record flow has reduced its cost and learned nothing, which leaves it in the same position at a lower volume. Chapter 8 builds the record flow directly, and Chapter 10 turns it into a budget. What matters here is the order: the record comes before the budget, because a budget without a record is a number nobody can check.</p>
 
-<h2>2.6 What this chapter does not claim</h2>
+<h2>2.8 What this chapter does not claim</h2>
 
 <p>Three limits belong on the record before the diagnostic that follows, because each is a conclusion a reader could reasonably draw and none of them follows.</p>
 
-<p>The chapter does not claim that unmanaged deployments are wasteful. Waste is a statement about the ratio of value to cost, and the whole argument is that the value side of that ratio is unmeasured. An organization that calls its deployment wasteful on the strength of a cost figure alone has made the same error as one that calls it a success on the strength of an adoption figure alone.</p>
+<p>The chapter does not claim that unmanaged deployments are wasteful. Waste is a statement about the ratio of value to cost, and the whole argument is that the value side of that ratio is unmeasured. Calling a deployment wasteful on a cost figure alone is one error. Calling it a success on an adoption figure alone is the same error, pointed the other way.</p>
 
 <p>The chapter does not claim that measurement is free. Building a record flow costs engineering time, and building a value measurement costs more than that, because it requires deciding what to measure before the answer is known. Chapters 8 and 12 treat both as investments with their own returns rather than as hygiene.</p>
 
@@ -169,6 +219,8 @@
 <h2>Mapping the three flows</h2>
 
 <p>This is the diagnostic the rest of the book uses. It takes one named deployment and establishes the condition of each flow, in order, with the evidence that settles it. It is deliberately short: it is meant to be run in an afternoon on a real deployment, not staffed as a project.</p>
+
+<p>Two habits make the difference between a mapping that changes something and one that fills a slide. The first is naming the evidence for every diagnosis, because a diagnosis without evidence cannot be challenged and therefore cannot be corrected. The second is running it on a deployment that is already live rather than one being planned. A planned deployment has no flows yet, only intentions about them.</p>
 
 <p class="diagnostic">Step 1. Name the deployment and its boundary. State which tool, which population, and over what period. A boundary that is not stated will move while the diagnosis is being made.</p>
 
@@ -180,9 +232,19 @@
 
 <p class="diagnostic">Step 5. Diagnose each flow as managed, partly managed, or unmanaged, and say what evidence would change the diagnosis. A diagnosis nobody could overturn is an opinion.</p>
 
-<p>Two failure modes recur when organizations run this mapping on themselves, and both are worth naming in advance. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s, and an organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce.</p>
+<p>Two failure modes recur when organizations run this mapping on themselves, and both are worth naming in advance. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s. An organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce.</p>
 
 <p>Run against <span class="nb">Uber</span> as reported, the mapping produces a clear result. The usage flow is managed and healthy: adoption was tracked by month and the direction was known. The record flow is partly managed: a per-engineer cost range was reported, so consumption was visible at some grain, but it did not reach the forecast that finance was planning against. The cost-and-value flow is unmanaged on the value half, which is what the chief operating officer’s question reveals. One flow of three was unmanaged, and it was enough.</p>
+
+<p>A second mapping shows what a different answer looks like. The deployment below is constructed for this exercise and is not drawn from a source.</p>
+
+<p class="diagnostic">A retailer deploys an AI assistant to two hundred customer-service agents. Volumes are recorded per agent per shift, because the contact-center platform already recorded everything else per agent per shift. Cost is billed monthly to the service organization and broken out by queue. Before the deployment, the retailer measured average handling time and first-contact resolution for six months. It still measures both.</p>
+
+<p>The usage flow here is managed, and for an unremarkable reason: the record was a by-product of a system the retailer already ran. The record flow is managed at a useful grain, because consumption can be attributed to a queue. The cost-and-value flow is managed on both halves, because somebody measured the outcome before the deployment began and kept measuring after.</p>
+
+<p>Notice what made the difference. The retailer did not have better intentions than the engineering organization in the opening case. It had a prior measurement system that happened to fit, and a deployment small enough that fitting it was cheap. Most of the work of managing flows is done before a deployment scales, which is the awkward part: the moment when it is easiest to build the apparatus is the moment when it is hardest to justify.</p>
+
+<p>The mapping is deliberately blunt about partial answers. An organization that can attribute half its consumption has a partly managed record flow, not a managed one, and recording it as partial is what makes the next conversation possible. The purpose is to produce a short list of the specific things that are not known, so that somebody can decide which of them is worth the cost of knowing. Awarding a grade would settle nothing.</p>
 
 <p>The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. Organizations are usually surprised by the second finding rather than the third, because the absence of a record is invisible until somebody asks a question that needs one.</p>
 
@@ -194,6 +256,10 @@
 <p>An unmanaged flow does not stay still. Usage grows toward whatever the tool makes easy, records decay because their raw material is perishable, and cost accrues without anyone acting.</p>
 
 <p>Cost is recorded automatically because billing requires it. Value is recorded only where an organization builds the measurement. The consequence is that an organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value, and the load-bearing word is unknown.</p>
+
+<p>Deployments are funded as projects and run as flows. A funding decision happens once; the consumption it authorizes continues daily and changes as the work changes. Without a recurring comparison, the business case quietly becomes the organization’s belief about what the deployment delivers, and a forecast is treated as a result.</p>
+
+<p>The record flow is skipped most often, and for structural reasons rather than careless ones. It pays only in the future, it belongs to no single function, and its absence is invisible until somebody asks a question that needs it. Building it is a decision an organization has to make before that question arrives.</p>
 
 <p>Because consumption varies with work rather than with headcount, economic control at scale requires an apparatus rather than diligence. That is THM-004, and it is why the chapters that follow build the record before they build the budget.</p>
 </section>
@@ -214,7 +280,7 @@
 <p>The stream of money spent on a deployment together with the return attributed to it. The two halves are treated as one flow because neither is usable alone for a management decision.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Cost-value asymmetry</span></div>
-<p>The condition in which the cost of a deployment is recorded automatically by the metering that produces the bill, while the value of that deployment is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.</p></div>
+<p>The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Three-flow mapping</span></div>
 <p>The diagnostic that establishes the condition of the usage, record, and cost-and-value flows in a named deployment, and states what evidence would change each diagnosis.</p></div>
@@ -230,6 +296,8 @@
 <div class="dq"><div class="dq-n">3</div><div class="dq-b"><p>Why does the chapter insist that the load-bearing word is "unknown" rather than "small"? What would a manager do differently under each reading?</p></div></div>
 
 <div class="dq"><div class="dq-n">4</div><div class="dq-b"><p>Chapter 1 argued that a flat price relocates the meter to the provider rather than abolishing it. Using that result, explain why a flat-rate contract does not remove an organization’s need for a record flow.</p></div></div>
+
+<div class="dq"><div class="dq-n">5</div><div class="dq-b"><p>The chapter argues that a record flow is skipped because its value is entirely in the future tense and it belongs to no single function. Which function in your organization would you make responsible for it, and what would that function need in order to accept the responsibility?</p></div></div>
 
 <p class="slot-label">Problems</p>
 
@@ -248,6 +316,7 @@
 <p class="ptitle">The seat forecast that did not hold</p>
 <p>A company budgets an AI assistant at a fixed monthly amount per employee, multiplied by the number of employees expected to have access, held flat for twelve months. Twelve months later the total spend is three times the budget, while the number of employees with access is exactly what was forecast.</p>
 <p>State which of the three antecedents of THM-004 this situation satisfies, and identify the specific assumption in the forecasting method that failed. Then state what the company would need to record, at what grain, to produce a forecast that could have held.</p>
+<p>Work in that order rather than starting from the remedy. The antecedents establish whether the theorem applies at all; a deployment that has not scaled is outside its scope and needs no apparatus. Only once the theorem applies is the forecasting question worth asking, and only then does the grain of the missing record become determinate rather than a matter of taste.</p>
 </div>
 
 <div class="problem">
@@ -255,6 +324,14 @@
 <p class="ptitle">Two organizations, one number</p>
 <p>Two organizations report the same annual AI spend. The first has built a record flow that attributes consumption to teams and a value measurement for two of its five deployments. The second has neither, and knows only its invoice total.</p>
 <p>Explain why the two organizations are not in comparable positions despite the identical number, and state what the second organization can and cannot conclude from its own spend figure. Your answer should distinguish what is unknown from what is known to be small.</p>
+<p>Then answer a second question. The first organization has measured value on two of five deployments and the second has measured none. State which of the two is more likely to cut a deployment that was in fact producing a return, and explain the mechanism by which its better record keeping could produce that outcome.</p>
+</div>
+
+<div class="problem">
+<p class="plab">P4 · Independent</p>
+<p class="ptitle">The business case that became a belief</p>
+<p>An organization approved an AI deployment two years ago on a business case projecting a twenty per cent reduction in the time taken to complete a routine task. The deployment is still running. The projection has never been revisited, and it is quoted in the current year’s planning documents as the deployment’s contribution.</p>
+<p>Identify what has happened to the status of the twenty per cent figure between the business case and the planning document, and name the step in the organization’s process that should have prevented it. Then state the smallest change to the review schedule that would stop it recurring, and explain why a change to the business-case template would not.</p>
 </div>
 
 <p class="pnote">Interleaving: question 4 and problem P2 require Chapter 1's results. P2 uses the resource consumption model and question 4 uses meter relocation.</p>
