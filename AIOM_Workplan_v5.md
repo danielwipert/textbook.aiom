@@ -572,6 +572,31 @@ Decisions 22 onward live here.
   band is measured from it rather than from four journalism exemplars, which are
   retired.
 
+- **Decision 72. RULED 2026-08-21.** The book reconnects to the AI Business
+  Economics registry, now `dag.aiom` at commit `9d7ee50`, and rules A through E of
+  `AIOM_Registry_Reconnection_Proposal_v1.0.md` are adopted.
+  **(A) The book renders and cites CERTIFIED objects only**, and "certified",
+  derived by the registry's own `validate.py` from the proof graph, replaces
+  "locked", which was asserted by hand. **(B) Appendix A reproduces the certified
+  theorems and lemmas**, 9 plus 20, listing uncertified objects by ID with their
+  blockers rather than reproducing them. **(C) The inherited-vocabulary source is
+  GENERATED from the registry's 140 definitions** into
+  `AIOM_Inherited_Vocabulary.md`, superseding the hand-maintained ledger preserved
+  in `archive/`, which could drift and this cannot. **(D) The manifest and the
+  panel gate are built**: `registry.py` derives `AIOM_Registry_Manifest.json` from
+  a supplied bundle and `chapter_check.py` runs the check under Gate G1. **The
+  bundle is never committed**, because a manifest carries hashes and no statements
+  and therefore cannot become a second copy of the authority, while the bundle
+  could. **(E) Chapter 1's directional sentence and THM-001's provisional status
+  are referred to the fact-check lane**, not amended on Claude's reading.
+  **THE CHANGE WAS ADDITIVE AND NOTHING PUBLISHED WAS WRONG**: Chapter 1 cites one
+  ID, THM-009, whose panel matches the registry name character for character; all
+  28 IDs the project references resolve, 27 certified; all eight anchor theorems
+  exist and are certified. **This also closes what rule 4a could not**: the panel
+  promise is checked rather than trusted, for the first time since the rule was
+  written, and three negative controls prove the check fails on a wrong name, an
+  uncertified object and a missing one.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

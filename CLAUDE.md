@@ -50,9 +50,14 @@ These have all been explicitly ruled and re-affirmed. Do not relitigate them.
    the statement. Give every antecedent a plain-English twin in the gloss and
    let the panel stay formal. If the shorthand itself is genuinely wrong, that
    is an AI Business Economics change, upstream of the book, not a chapter edit.
-   Note also that the Locked Registry workbook is NOT in this repo, so no panel
-   wording can be verified from a Claude session; `aiom_registry.py` expects the
-   workbook to be supplied.
+   **THE PANEL IS NOW CHECKED RATHER THAN TRUSTED, AND THIS RULE USED TO SAY THE
+   OPPOSITE.** Until 2026-08-21 it ended by noting that the registry workbook was
+   not in this repo, so no panel wording could be verified from a Claude session.
+   That sentence justified the absence of the one check the rule most needs. Dan
+   now supplies a registry BUNDLE, `registry.py` derives a manifest from it, and
+   `chapter_check.py` fails a chapter that renders an object which does not exist,
+   is not certified, or carries a name the registry does not carry. The bundle
+   itself is never committed; see section 10.
 5. **No decorative apparatus.** Signposting is done through the skeleton, not
    through prose. Do not tell the reader what the chapter is about to say before
    saying it.
@@ -225,6 +230,9 @@ sources are dated. Constructed material is labelled as constructed.
 | `factcheck_packet.py` | Builds the Stage 3 and Stage 7 packet: every cited passage paired with its register entry, notes reproduced verbatim, plus the mechanical checks run locally. It verifies nothing, because both stages are structurally external. Promoted to the root 2026-08-10 after the same throwaway work came due twice on one chapter. |
 | `AIOM_Continuity_Ledger.md` | The G3 record: terms owned per chapter, forward references and whether paid, registry glosses, Northmoor figures, and the canonical Founding Questions and maturity stages. Appended at lock, never edited to make a gate pass. |
 | `continuity.py` | Gate G3. Seven checks against the ledger. `--update` appends at Stage 9; `--pay N` marks promises kept. |
+| `registry.py` | The book's connection to the AI Business Economics registry. Decision 72. Derives `AIOM_Registry_Manifest.json` from a supplied bundle, generates the inherited-vocabulary source, and checks every chapter's registry objects. **The bundle is NEVER committed and the manifest is**: a manifest carries hashes and no statements, so it cannot become a second copy of the authority. |
+| `AIOM_Registry_Manifest.json` | The pinned registry: 413 objects with type, certification, blockers, name and a statement hash, plus `source_repo` and `source_commit`. The version identity the book never had. Refreshed only from a new bundle. |
+| `AIOM_Inherited_Vocabulary.md` | GENERATED from the registry's 140 definitions, Decision 72. The science's own vocabulary, placed once in the book and never re-explained. **Not the book's coined terms**, which live in callouts and key-term lists. Supersedes the hand-maintained ledger in `archive/`. |
 | `AIOM_Claim_Ledger.md` | The W14 record: every ruled claim narrowing as REQUIRED text the chapter must contain and FORBIDDEN text it must not. Written from the CHAPTER, never from the register note's description of it. Adopted 2026-08-13. |
 | `claimcheck.py` | Gate W14 and a standalone pass. Does the chapter still say what the fact checks ruled? Answers the one class of damage no other check can see. |
 | `snapshot.py` | What the site publishes: each chapter's LAST LOCK, derived from the commits that touched its checklist, never the working tree. Materializes a Drafts-shaped tree so every path-dependent check runs unchanged. |
@@ -1445,32 +1453,61 @@ reads green while measuring nothing, or a record claiming work nobody did.
 ### Registry, ledger, and the open decision
 
 The design system is locked: CSS at v7.1, design spec at v7.1. Design finalization
-is complete (D0 closed, 2026-07-28). The registry is validated: 228 objects load
-(200 propositions, 20 lemmas, 8 theorems), eight book-mapped theorem IDs resolve,
-zero dangling references in the dependency graph.
+is complete (D0 closed, 2026-07-28).
+
+**THE REGISTRY IS NOW A VERSIONED REPOSITORY, NOT A WORKBOOK. Decision 72,
+2026-08-21.** `dag.aiom` at commit `9d7ee50`, pinned in
+`AIOM_Registry_Manifest.json`. **413 objects**: 140 definitions, 35 axioms, 201
+propositions, 21 lemmas, 11 theorems, 5 evidence, plus 1,777 typed edges. The
+previous figure of 228 objects described the Locked Registry v1.3 workbook and is
+superseded.
+
+**"CERTIFIED" REPLACES "LOCKED", AND IT IS DERIVED RATHER THAN ASSERTED.** The
+bundle's own contract says no node carries a lock status: certification is computed
+by the registry's `validate.py` from the proof graph, and an uncertified node
+carries machine-readable blockers. 397 of 413 objects are certified. **The book
+renders and cites CERTIFIED objects only**, because rendering a provisional object
+as "Theorem n" claims more than the science claims. `registry.py --check` enforces
+it and `chapter_check.py` runs it under Gate G1.
+
+**The book's exposure is small and it survived the change intact.** Chapter 1 cites
+exactly one ID, THM-009, and its panel renders the registry's name character for
+character. All 28 IDs the project references resolve, 27 certified. All eight
+chapter anchor theorems exist and are certified.
 
 **The continuity ledger is built.** `AIOM_Continuity_Ledger.md` holds the record
-and `continuity.py` is gate G3, running all seven checks the G3 checklist names. It
-currently holds no entries, which is correct: entries are appended at Stage 9, and
-no chapter has locked. Lock is not blocked.
+and `continuity.py` is gate G3, running all seven checks the G3 checklist names.
 
 One decision still open: **Decision 28**, the Northmoor property gap. The M3 build
 asserts properties A through F; Decision 18 in the Addendum extended the list to A
 through I. G, H, and I remain unbuilt. This gates the Ch9, Ch12, and Ch13 problem
 sets, not Ch2.
 
-Registry flags to carry into the appendix build (Phase 3, Appendix A):
+Registry flags, corrected against the bundle on 2026-08-21:
 
-- LEM-015 is retired. Skip it explicitly. IDs run LEM-001 through LEM-021 with
-  LEM-015 absent.
-- The "20 lemmas" count is correct as an object count. The ID range runs to 21.
-- The registry ships a pre-built trace for THM-005, which is a Ch6 asset, not
-  THM-004. Chapter 3's trace set piece uses THM-004 and must be built separately.
-  Traces are generable mechanically from the dependency graph, so Figure 3.1 is
-  buildable from data.
+- **LEM-015 IS PRESENT AND UNCERTIFIED, not retired and absent.** The old flag said
+  to skip it explicitly and that instruction stays right; its stated reason was
+  wrong. Under the certified-only rule it is now skipped for a reason the build
+  checks rather than a note somebody has to remember. It is the corpus's only
+  uncertified lemma.
+- **EVERY TRACE IS GENERABLE from the 1,777 edges**, so the old note that the
+  registry ships a pre-built trace for THM-005 only, and that Chapter 3's THM-004
+  set piece must be built separately, no longer bites. THM-004 has four direct
+  parents and 205 nodes within three levels.
+- **THM-011, "Pilot Economics Do Not Establish Production Economics", is new,
+  certified, and anchors no chapter.** THM-003 is also unassigned and is
+  uncertified.
+- **The registry keeps an EVIDENCE-NEED register**, five nodes naming claims the
+  science says still need sources, two of them blocking. This couples the registry
+  to the Stage 3 and Stage 7 lane for the first time. See the open thread on
+  THM-001 in `HANDOFF.md`.
 
-Appendix A reproduces the 28 theorems and lemmas only. The 200 propositions are
-cited by ID and not reproduced in full.
+**Appendix A reproduces the CERTIFIED theorems and lemmas, which is 9 plus 20.
+Decision 72.** Uncertified objects are listed by ID with their status and blockers
+rather than reproduced, because reproducing a provisional statement in full grants
+it the same standing as a proven one. The propositions are cited by ID and not
+reproduced. The 140 definitions and 35 axioms are not appendix material: the
+definitions are published as the inherited-vocabulary source instead.
 
 ---
 

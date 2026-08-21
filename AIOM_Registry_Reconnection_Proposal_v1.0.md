@@ -1,14 +1,15 @@
-> **STATUS: PROPOSED, NOT ADOPTED. AWAITING DAN'S RULING.**
+> **STATUS: ADOPTED 2026-08-21 as Decision 72, rules A through E, on Dan's
+> ruling.** `AIOM_Workplan_v5.md` is the numbering authority.
 >
-> Would become **Decision 72**; `AIOM_Workplan_v5.md` is the numbering authority
-> and settles it. Nothing here binds until ruled. Filed at the repository root
-> because it is a live proposal, with this banner so a root file does not read as
-> adopted.
+> Kept as written, with only this banner changed, because it carries the evidence
+> the ruling was made on, the limits in section 8 and the reversal conditions in
+> section 9. **Implemented the same day**: `registry.py`,
+> `AIOM_Registry_Manifest.json` pinning `dag.aiom @ 9d7ee50`,
+> `AIOM_Inherited_Vocabulary.md` generated from the 140 definitions, and the check
+> wired into `chapter_check.py` under Gate G1 with three negative controls.
 >
 > **Every number in this memo was computed from the bundle Dan supplied on
-> 2026-08-19**, `dag.aiom` at `9d7ee504dfebdac70b5fbb8087177946e4cc4cdd`, not from
-> the summary in CLAUDE.md. Where the two disagree, the bundle wins and the
-> disagreement is named.
+> 2026-08-19**, not from the summary in CLAUDE.md.
 
 # Reconnecting the book to the AI Business Economics registry
 

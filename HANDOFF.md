@@ -7,6 +7,69 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
+**THE PROSE STANDARD AND THE REGISTRY RECONNECTION ARE BOTH ADOPTED AND MERGED,
+2026-08-21. Decisions 71 and 72.** These were the two things Dan named as preceding
+Chapter 2, and both are done.
+
+**DECISION 71: the voice is Concrete Management Prose and the standard is ONE
+file**, `AIOM_Prose_Standard_v2.0.md`. "Magisterial" is retired as the named
+register, because it sat above every other instruction and produced a draft Dan
+rejected as unreadable. Both v1 files are pointers. Stage 4 grades SEVEN criteria
+now: C7 is new for business-reality-first, C3 is "claim first", C6's guard watches
+false sophistication as well as the populist register. **The exemplar of the voice
+is the locked Chapter 1**, and section 25 carries real before-and-after pairs
+pulled from this chapter's own history rather than invented ones.
+
+**DECISION 72: the registry is reconnected, and nothing published was wrong.**
+`dag.aiom` @ `9d7ee50`, pinned in `AIOM_Registry_Manifest.json`. Chapter 1 cites
+exactly one ID, THM-009, and its panel renders the registry's name character for
+character. All 28 IDs the project references resolve, 27 certified. All eight
+chapter anchor theorems exist and are certified, THM-004 among them, so Chapter 2
+is not blocked.
+
+**WHAT THE NEW REGISTRY IS: 413 objects, not 228.** 140 definitions, 35 axioms, 201
+propositions, 21 lemmas, 11 theorems, 5 evidence, and 1,777 typed edges.
+**"Certified" replaces "locked" and is DERIVED** by the registry's own validate.py
+from the proof graph, with machine-readable blockers. The book renders certified
+objects only.
+
+**RULE 4a IS FINALLY ENFORCED RATHER THAN TRUSTED.** It used to end by saying the
+workbook was not in the repo so no panel wording could be verified from a Claude
+session, which justified the absence of the check the rule most needs.
+`registry.py --check` now fails a chapter that renders an object which does not
+exist, is not certified, or carries a name the registry does not carry. Three
+negative controls prove each leg fires. It runs under Gate G1 in
+`chapter_check.py`, so a drafter finds out at the draft rather than at G2.
+
+**THE BUNDLE IS NEVER COMMITTED AND THE MANIFEST IS.** A manifest carries hashes
+and no statements, so it cannot become a second copy of the authority; the bundle
+could, and the two are supposed to diverge between refreshes. **To refresh:** get a
+new bundle from Dan, then
+`python3 registry.py --bundle <path> --write-manifest --write-vocabulary`.
+
+**AN OPEN THREAD FOR THE FACT-CHECK LANE, ruled a referral rather than an
+amendment.** THM-001, "AI Pricing Tends Toward Metered or Constrained Access", is
+uncertified and provisional, and EVID-002 is BLOCKING against it: the claim needing
+evidence is that access models tend toward metering, caps, throttling and price
+increases under usage pressure. **Chapter 1's locked prose says "The method may
+vary, but the direction does not."** The chapter does not cite THM-001, it cites
+THM-009, which is certified and is about the character of the activity rather than
+pricing trajectory, so nothing is formally broken. But the book asserts in prose
+approximately what the science marks provisional, and no check in either system can
+see that. **Chapter 4 is the chapter most exposed**, because Chapter 1 promises it
+will examine those instruments in detail. This needs Dan and an external check, not
+Claude.
+
+**Two corrected flags.** LEM-015 is PRESENT and UNCERTIFIED rather than retired and
+absent, so the instruction to skip it stays right and now has a reason the build
+checks. And every trace is generable from the edge list, which retires the note
+that Chapter 3's THM-004 set piece must be built by hand and unblocks Figure 3.1.
+
+**Still open and now the last one of its kind:** `AIOM_Consolidated_Spec_v1.md` B.2
+duplicates the register rules and is the only document left asserting the retired
+"magisterial". It should be demoted before Chapter 2 is drafted.
+
+
 **THE DOMAIN IS RULED AND WIRED: `aioperationsmanagement.ai`, Decision 70,
 2026-08-19.** This closes the last thing the web edition was waiting on Dan for,
 open since the host was chosen on 2026-08-13.

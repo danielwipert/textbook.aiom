@@ -1,0 +1,2950 @@
+{
+ "manifest_version": 1,
+ "note": "Derived from the registry bundle. Carries no registry statements: hashes only, so this file can never be mistaken for the authority. The registry is upstream (rule 4a).",
+ "source_repo": "danielwipert/dag.aiom",
+ "source_commit": "9d7ee504dfebdac70b5fbb8087177946e4cc4cdd",
+ "bundle_contract": "No node carries a lock status. Certification under _computed is derived by scripts/validate.py from the graph and is a snapshot at source_commit.",
+ "counts": {
+  "definition": 140,
+  "axiom": 35,
+  "proposition": 201,
+  "lemma": 21,
+  "theorem": 11,
+  "evidence": 5,
+  "edge": 1777
+ },
+ "certified_counts": {
+  "definition": 140,
+  "axiom": 34,
+  "proposition": 194,
+  "lemma": 20,
+  "theorem": 9,
+  "evidence": 0
+ },
+ "objects": {
+  "AX-001": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Resource Scarcity Axiom",
+   "statement_sha256": "17fc87a873ee8d3ed5c8e47acb1faee30cdcb5f23044bdd4236f8bc5e034e42d"
+  },
+  "AX-002": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Incurrence Axiom",
+   "statement_sha256": "02015f5ad69e69721ce931c732521100f504012d18667e7c85941f93220f9790"
+  },
+  "AX-003": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Variable Cost Classification Axiom",
+   "statement_sha256": "75f13f9dee93305b629c07fb7d609a6fbd47ae0217fe2b99714ca31c3702cc3f"
+  },
+  "AX-004": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Marginal Usage Cost Axiom",
+   "statement_sha256": "d01b966e3f014dba2fe648008e969579b810950488c61ed3abf440d25e577a6a"
+  },
+  "AX-005": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "AI Pricing Is Not Total Cost Axiom",
+   "statement_sha256": "0deb1f16f669bb7a12a10b475e87d5192cea2a9c72849f5ca63b9e24992b46f0"
+  },
+  "AX-006": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Business Process Resource Requirement Axiom",
+   "statement_sha256": "57108bf83d89b47fb6476eb265ed35912a71bf3e8a5083f1f32510c091f95dc4"
+  },
+  "AX-007": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Task Suitability Requires Task Relation Axiom",
+   "statement_sha256": "02c82db4332b0c48c575a51596683e9ada8e172a514c20cb23b6dd65b4118c12"
+  },
+  "AX-008": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Substitution Possibility Axiom",
+   "statement_sha256": "7bbc3a1646c9194ad077e8ef43b47bf6256416ca3c38ac78b6f0ff723501bb75"
+  },
+  "AX-009": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Switching Cost Axiom",
+   "statement_sha256": "8fd8b656902f3d87623c42da0e8143607a8b3a61868b55ff540cc988f6705c19"
+  },
+  "AX-010": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Inference Activity Axiom",
+   "statement_sha256": "fa67395089d76affbfd8ef34e296b2c1251f64145110c780be2bdc66eeb4d4f7"
+  },
+  "AX-011": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Token Mediation Axiom",
+   "statement_sha256": "bf215e498e2a34421680a5a3623867393e93f0636d0e77a60396f1b600c917c1"
+  },
+  "AX-012": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Token Cost Assignment Axiom",
+   "statement_sha256": "8cdd7de169ea39f3823fbe9188a2f1086d0a568cf4bdb2d325bd3122794e5d86"
+  },
+  "AX-013": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Model Call Cost Axiom",
+   "statement_sha256": "d666944886a70845c2a75cc77ab305c6105a0a39fbeff2db7c924802f723b6d8"
+  },
+  "AX-014": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Compute Resource Constraint Axiom",
+   "statement_sha256": "58b875b3d6f25d0e8f4dca8205f6ea6a2a8668e7e8b78382539e47bc168f8413"
+  },
+  "AX-015": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Latency Suitability Constraint Axiom",
+   "statement_sha256": "45b4d227e2d32b4658e1c2733d1f6c02cf371c19b23104db8c1bd97e91aba580"
+  },
+  "AX-016": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage-Based Pricing Input Axiom",
+   "statement_sha256": "b171a4c9ec0e571c4ba1c26a8a2c28909d18477169a3d58dafebbddd85871617"
+  },
+  "AX-017": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Token-Based Pricing Mechanics Axiom",
+   "statement_sha256": "ac803c863049632d04ce04a76a4928544cbfc1aabdd4fdb65e9e9828d4a05f8e"
+  },
+  "AX-018": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Metering Record Axiom",
+   "statement_sha256": "611632d28ea627b6b9ccccdc458aab759074a6864d19ee9079b850c4ab0d58b5"
+  },
+  "AX-019": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Flat-Rate Marginal Price Signal Axiom",
+   "statement_sha256": "69db15fe6bb1071089ed6e58668c66b2a66fe01bcfdc7ab5bbef3b5d401dd938"
+  },
+  "AX-020": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage Cap Constraint Axiom",
+   "statement_sha256": "005c0f45da8d08e90434d5d6368ad06aa16d454a31558929d2eaa9b51f6a3b0a"
+  },
+  "AX-021": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Scale Amplification Axiom",
+   "statement_sha256": "b6ce746cd0485541d76f70f5c455cf99b4d9bf0efc67767bfc4e215122d49356"
+  },
+  "AX-022": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Buyer Cost Exposure Axiom",
+   "statement_sha256": "a2f4215040e6d9c968a5c9298dbbcbde75167f0962c5ab869d465a9d0e7e97aa"
+  },
+  "AX-023": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "TCO Boundary Inclusion Axiom",
+   "statement_sha256": "5a8e728097dcd1de00161f4a9ef12094229090ac855db0e640f306b5bdce7046"
+  },
+  "AX-024": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Implementation Resource Axiom",
+   "statement_sha256": "88a95c6072dddb90092c566bc10fb50eb17cf5c42ef348947c5004579d853e34"
+  },
+  "AX-025": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "ROI Scope Axiom",
+   "statement_sha256": "20b0e5efac173d35660123ccfd2376ca5b71a1c58cc4d2550b25cf761ceb1e89"
+  },
+  "AX-026": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Claimed Productivity Is Not Measured Productivity Axiom",
+   "statement_sha256": "6b847c0491bf0d177842fdef2722bf65ab62fdb0f52321d691409b0f868c9c59"
+  },
+  "AX-027": {
+   "type": "axiom",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Measurement Gap Proposition Candidate",
+   "statement_sha256": "7a5ddd48a89dd6a2418234167d4388d4417ac6f30ccf13a211bb241299c409a3"
+  },
+  "AX-028": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Error Cost Axiom",
+   "statement_sha256": "fd0bf1b83d7b114d7e24873f3a857ee1a27b7a4d6c8737b484a4bdf5c669d792"
+  },
+  "AX-029": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Frontier Non-Necessity Axiom",
+   "statement_sha256": "3d8531662798d4649036b4809806d9ffe58276a5d079c71017961b4c243130c0"
+  },
+  "AX-030": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Task-Fit Model Selection Axiom",
+   "statement_sha256": "b9b3717f57babf927143e10bf2f8237e13346cb6de72ee415aa8026cf469c269"
+  },
+  "AX-031": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Self-Hosting Cost Reallocation Axiom",
+   "statement_sha256": "2fc941f141e30cc867924ac092e5b248187ea9c74ad5bb31ae3f246366c2e696"
+  },
+  "AX-032": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Provider Cost Exposure Axiom",
+   "statement_sha256": "ea6a34f165f57b0b2900886d6bb5bdee5982429002984745835c71ce60ab1cf8"
+  },
+  "AX-033": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Absorption Constraint Axiom",
+   "statement_sha256": "9cc3388afc39521221d6e60ceefe24e42ae5df2139dbf1bdc64f3e898f7d8170"
+  },
+  "AX-034": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Token Charge Assignment Axiom",
+   "statement_sha256": "bfbea71d756c68a53cd369d5056a3564614cefaf4de11bf9bd5d6f6b6af7f6a8"
+  },
+  "AX-035": {
+   "type": "axiom",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic-Fit Model Selection Axiom",
+   "statement_sha256": "16d10a61fb7770851ae229394c6814795ea005ac416f3b682fbeb31aed8eaeb8"
+  },
+  "DEF-001": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Definition",
+   "statement_sha256": "8885d1d1ea2e0dfb6c8eff135ea0242f66213a759be6e7d47cf69ecd8a12fa11"
+  },
+  "DEF-002": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Primitive definition",
+   "statement_sha256": "021e187456591b6cb28024a3aa853c65b41005886e51715a3bc64db5490e1c0f"
+  },
+  "DEF-003": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Derived definition",
+   "statement_sha256": "900da021f97fd44dc5e7f7035f132823352855b21c77edf755d05d14730e27e3"
+  },
+  "DEF-004": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Operational definition",
+   "statement_sha256": "a15d94cddba9f2b5013d54e82df8a10cda944807c88a11bc2e556f091933dc64"
+  },
+  "DEF-005": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Dependency",
+   "statement_sha256": "bc868adcfaeead01c1d483bb3503a16b6c6fd9a1bcd01a5df088cbe8ec71da6a"
+  },
+  "DEF-006": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Directed acyclic graph",
+   "statement_sha256": "92eebb1bb33ceb8186753f2007568d5c3d67f595f32be4d9b10632e5d730e188"
+  },
+  "DEF-007": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Axiom",
+   "statement_sha256": "5e12ffa444f5cc4098ae3de4f87a3b9d236c882a4f4819a08bd633e951580865"
+  },
+  "DEF-008": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Proposition",
+   "statement_sha256": "5642aa0e83c8cdfd57f04aa8630411b5111ef4f8d176b416d00f185920d8cf12"
+  },
+  "DEF-009": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic actor",
+   "statement_sha256": "808cd37268a9953de75f0181f7b7804158cee77093ffd32c86ebda2f02d5793a"
+  },
+  "DEF-010": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Resource",
+   "statement_sha256": "5d1d05b900eab37c8b83ddb53a11268d3a92a1908c49feab698fe0ef920aba2d"
+  },
+  "DEF-011": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scarcity",
+   "statement_sha256": "548cdbac7b59d70e822c1cb73b6df6e69291215049da0dcf4b4e28b3f8ee9f5f"
+  },
+  "DEF-012": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost",
+   "statement_sha256": "e0cd3835cffbc95e6e286e59d4dc623061b2eb578c649f2cf86d2697bbb08ba9"
+  },
+  "DEF-013": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Fixed cost",
+   "statement_sha256": "d7a7997ea4a5ee99082750114cbafee0d41648ef8b93dd28eec8332d8cde66eb"
+  },
+  "DEF-014": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Variable cost",
+   "statement_sha256": "2487ce10616c9c127f0344267fa2cf217c714ee6e4eb7e2043d5dd89da0ac716"
+  },
+  "DEF-015": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Marginal cost",
+   "statement_sha256": "482e083a75b1adc2792eadd182be66b27145dd91f79426ebfd2dfe6236a03aa5"
+  },
+  "DEF-016": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Average cost",
+   "statement_sha256": "12be4cb806c0ee8363fe1c4c5894728462f9d2101d004a9baed162f925c88b9c"
+  },
+  "DEF-017": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Total cost",
+   "statement_sha256": "1291150bf27241900824ff5350eda5be402fcc324b75caacb707aba0eaeb9d4e"
+  },
+  "DEF-018": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Unit cost",
+   "statement_sha256": "03f3fb717435a9ffe59e58c8338041f02bc5f20c19f6dd165ae78c174d41c2de"
+  },
+  "DEF-019": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Revenue",
+   "statement_sha256": "b134d20ab093da47897de00aee2facdac3911a31d51864990fd9a4990b448f0d"
+  },
+  "DEF-020": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Profit",
+   "statement_sha256": "6c35d232b02bf0651d1c11f11e364f84a36060f6d6e0c2d5474471716e1ff4ed"
+  },
+  "DEF-021": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Value",
+   "statement_sha256": "d245ff329896b7cd2e509ef2dd7fa8acbdde8fb661efef51ebb592aa2ef618e6"
+  },
+  "DEF-022": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity",
+   "statement_sha256": "160423fc475a052b884ed02a84547a9a5a8adeba48ce005f3cbffc7e1a4bd947"
+  },
+  "DEF-023": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capacity",
+   "statement_sha256": "a784c6a44a26d030a9e679a2205134dc56f21177c1ee3f165ff5e99d678ce56d"
+  },
+  "DEF-024": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Constraint",
+   "statement_sha256": "10d66f822dea6c830732365a3ce8cadb1e5dabbdc2678fe60c4056cdb251bf37"
+  },
+  "DEF-025": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Tradeoff",
+   "statement_sha256": "e3d8461123be2cce22cf8d6dd71cafda443776c2c0722ff83c1ba21b9b101ef9"
+  },
+  "DEF-026": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Substitution",
+   "statement_sha256": "828047af3236eb334e4b58ef77836db2843ec0114827d53df5bc3dcd6cb4b8fb"
+  },
+  "DEF-027": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scale",
+   "statement_sha256": "407aa08257fd75a9e47cb8fdf0c8e908941328067b4f652414727e0cc67fec52"
+  },
+  "DEF-028": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Demand",
+   "statement_sha256": "07e7319390ec263b7fa79e468b274d65c6ba6d1da3686700fd385bacaed45a49"
+  },
+  "DEF-029": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Price elasticity",
+   "statement_sha256": "7203dd1ee4f267012cdcb4b5639fdd1d7b8ef25577bebe123299759712bc2634"
+  },
+  "DEF-030": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Willingness to pay",
+   "statement_sha256": "634942709b0ff3869b85e1f5f4e47c76c75039eabe1502289bb8d0291dd5c73b"
+  },
+  "DEF-031": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Business process",
+   "statement_sha256": "2cd54544a324c0061f893ac80378132b67a43d65eb29ef8b33bbc08234c87333"
+  },
+  "DEF-032": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Workflow",
+   "statement_sha256": "7705f38bebf958554d013ce1ee82de7cd30fa8866de567f637e0d564f56533c4"
+  },
+  "DEF-033": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Task",
+   "statement_sha256": "6703383586033bee44f247f47c83a92c258cb11f49edd8c6ab44102346c4fed0"
+  },
+  "DEF-034": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Labor",
+   "statement_sha256": "0308fc3090eed52e56bf3071e45cdc720bf6d4029d01b0053ef27692f13fcc59"
+  },
+  "DEF-035": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Labor cost",
+   "statement_sha256": "1d8d260d30fed24911bc36455efddf86c0853befbb584339dcc7611ba8264113"
+  },
+  "DEF-036": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Vendor",
+   "statement_sha256": "64b8cb32707049bd479e8b9099b3244378699358c0fe039fac1e321a6db43887"
+  },
+  "DEF-037": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Buyer",
+   "statement_sha256": "582c85ff04d197c6292b41127748b76c0e780f50f823bc1647d0c6cfac9522e6"
+  },
+  "DEF-038": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Enterprise buyer",
+   "statement_sha256": "bc4002f367a30733b55737267601553e98b840c8ba1bbc7f21a3d60381a8c2ec"
+  },
+  "DEF-039": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Budget",
+   "statement_sha256": "f8e5f8821a8e60fb2dd26e527990b4cc4ad108b234200a2439a7b3f4a2d6166f"
+  },
+  "DEF-040": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Business case",
+   "statement_sha256": "3bf3f4ebc4829461de23fdbc8d836a048a7eca97b414b3cb16e49ce3296feca8"
+  },
+  "DEF-041": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Artificial intelligence",
+   "statement_sha256": "3359ecc5035fd4863c6b1d19ef1ae6aef4acf0e20c7c6481fd96832973064b93"
+  },
+  "DEF-042": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Generative AI",
+   "statement_sha256": "0ecc78fb2f1437f0e590314bbb8c643c0dc039ca5a175dbbab499d6d1c705cd6"
+  },
+  "DEF-043": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Foundation model",
+   "statement_sha256": "2174c5accbe7f9ca22134b55b8cf0ab9ea751ed85dde2a389390eca44cc4fe9f"
+  },
+  "DEF-044": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Large language model",
+   "statement_sha256": "2ce046fcbf6e1369df3d8a6667ba59726e24a4199096c52aa95c2d5428d083cf"
+  },
+  "DEF-045": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Inference",
+   "statement_sha256": "71cc8e24e7147b8beec478f53fcf28de0a57bd7c55368d2e87d7f0578acb0596"
+  },
+  "DEF-046": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Token",
+   "statement_sha256": "96c64904b6cf6c61555a2ffd680fcd910cb0a965adf557ab46afddf691c040d9"
+  },
+  "DEF-047": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Input token",
+   "statement_sha256": "c6c93e616db41a331e93e54b145460f46966a922a77a2a669f17ba95110c7298"
+  },
+  "DEF-048": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Output token",
+   "statement_sha256": "b42043f94f75298d38b1ba80af7fa1f039742ff6a6c84b56d9455734bc4e131f"
+  },
+  "DEF-049": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model call",
+   "statement_sha256": "125e8e6c4810e2649cf1fe7b32ce322663ce89d3a177d6a891d0df567da125bc"
+  },
+  "DEF-050": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capability",
+   "statement_sha256": "5cd49d4da445078534b421c7a790d5ab559cc2fb2a5010551aabaf94ea7bd0f1"
+  },
+  "DEF-051": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Task suitability",
+   "statement_sha256": "8154b3f07f5524b2c6f4430cae9bfb43dc63971d986d61208ebf5db13800dc87"
+  },
+  "DEF-052": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Explicit cost",
+   "statement_sha256": "0bf16cf2c8bb43b3b5af34a04ca13506d2d0592a27ccc564c7e6cf2ca03d224f"
+  },
+  "DEF-053": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Operating expenditure",
+   "statement_sha256": "4a1f9bfb389ed96a656e3343741f217c492b9f7ec1bf27544109a4ed58654422"
+  },
+  "DEF-054": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Gross margin",
+   "statement_sha256": "12260be690ed0c58b9cac3ddb01d1d769dce4cabbcafd58ea5a337fc20dc804e"
+  },
+  "DEF-055": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Efficiency",
+   "statement_sha256": "dbbf8fc645a8f9189850e0cf97799c3eb85af6c45758df9927392b3699a031eb"
+  },
+  "DEF-056": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Economies of scale",
+   "statement_sha256": "01328ca2d8444e3cc7e7540c138a52d971b40ece4eb58108afcef62a65cb1d05"
+  },
+  "DEF-057": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Diseconomies of scale",
+   "statement_sha256": "ed9931579e3fefce31e3ef58583905df0d31db98c105e059c48e523f087fb94b"
+  },
+  "DEF-058": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Work product",
+   "statement_sha256": "287a657cbd6c39522e3aaac8a506848678f1e3e630b9cf3be94c40f692bf5f87"
+  },
+  "DEF-059": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Coordination cost",
+   "statement_sha256": "f6b32f4c0ba2851b8ffa447f4e577e66b0d9f94555879fc19472cb6597bac45b"
+  },
+  "DEF-060": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Switching cost",
+   "statement_sha256": "0b3ae3e1c4b3d6ef5588bec0e8ce084578521b1d259494de77e5e7c395dc1c51"
+  },
+  "DEF-061": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Data readiness",
+   "statement_sha256": "9cbc677dca67aae24ec8fbd870b40bdf20257c5151658c85904e901a4ffe1ee0"
+  },
+  "DEF-062": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Small language model",
+   "statement_sha256": "0d59706dde541e3406324b7b4394d38109f8b7bca8832988b21ba852815a4648"
+  },
+  "DEF-063": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Frontier model",
+   "statement_sha256": "be81248581288e0f7919a6ce7f75c7b3a6880dbe6f2dd6896a188944f4da627e"
+  },
+  "DEF-064": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Open-weight model",
+   "statement_sha256": "3ab6f8840038db68bcac33a7849995a7c857718e4c98a49f930510e559bb2bfc"
+  },
+  "DEF-065": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Closed model",
+   "statement_sha256": "a229b28b6317957970a134aa631335006dc36765f644f0624758fba76c5569ef"
+  },
+  "DEF-066": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model weights",
+   "statement_sha256": "e53b3d8373b351104721514e724ac8920e26fd0dfbfebf93db9c95b9a4b22917"
+  },
+  "DEF-067": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Real-time inference",
+   "statement_sha256": "1e09d7794e33681068cbc9197206afeb9936310a84d571cf039aa50c36e77df8"
+  },
+  "DEF-068": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Context window",
+   "statement_sha256": "e246d9fc8cb397a78f486946b33bed026cf8ebc874cd721e834aef189545c489"
+  },
+  "DEF-069": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Prompt",
+   "statement_sha256": "b4b33006aa45e82e3d00ca3ef0f60152924d3afb8af5684dc101e9762504b7e1"
+  },
+  "DEF-070": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Completion",
+   "statement_sha256": "c1102ea2ef6f957b29df867974e06b927a85784f0628d9ab4967a2c8f2c9ea33"
+  },
+  "DEF-071": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Latency",
+   "statement_sha256": "a160c32e03f307177fe257524c221605ebbddbc2825c42c6d4737b4fc68dee2d"
+  },
+  "DEF-072": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Accuracy",
+   "statement_sha256": "b8cff8160562912cee82e793d767e45711eed857b3dede6190613e55ad8ceaec"
+  },
+  "DEF-073": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Error rate",
+   "statement_sha256": "89d824424f5ecbabbc32cfca55f296d2eb36cb16444bcc34b2ed47830b877cf7"
+  },
+  "DEF-074": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Reliability",
+   "statement_sha256": "ab21a8085c29e4f903d61bb7971fe21e2dce26155e93da71a2ffc2b9aae85c8d"
+  },
+  "DEF-075": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Evaluation",
+   "statement_sha256": "a8349c08a13f380d4266f4370ba14cd082cd1e4a463dc53d414ade96072ff990"
+  },
+  "DEF-076": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI cost",
+   "statement_sha256": "a75e940a24b44a2883c8ce07cb5a89e9819dc9148580b6f9784b249c47879097"
+  },
+  "DEF-077": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Inference cost",
+   "statement_sha256": "e97e62fdb3cbfab122de229e864544cedd3ad18f6d0bf47c427a3f42d55916ee"
+  },
+  "DEF-078": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Compute cost",
+   "statement_sha256": "99fa32d65feeaaf66dbe14bd36a0db098320255718aec9bcfb1a27d828138e06"
+  },
+  "DEF-079": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Serving cost",
+   "statement_sha256": "bf026fbbf599c0bf49f639da065447a4032f6e56da0767f1b741ff23b82d9c9a"
+  },
+  "DEF-080": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cloud cost",
+   "statement_sha256": "e154662eb22e6cee6a71122d942e652f8c7c747a7ab98127e0d93b1918a7c6f6"
+  },
+  "DEF-081": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "API cost",
+   "statement_sha256": "03a8d4ba8ba09afff5108e2beba404c3f24fa166d19fb60a5b12e1ef4dc25f41"
+  },
+  "DEF-082": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Token cost",
+   "statement_sha256": "368d4d9d2892498f9fb550d0568563cb60e674b7a9e8e2289d35d5461d0b9727"
+  },
+  "DEF-083": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Input token cost",
+   "statement_sha256": "1c9e065074dd6ab15b1a9a2538c8a567bbd203343149225b70044d1412b47d6c"
+  },
+  "DEF-084": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Output token cost",
+   "statement_sha256": "27b0b4cf3229cfc1929e0949320ce2ea53791bcc88861a3c5d1647c887a3ae94"
+  },
+  "DEF-085": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost per model call",
+   "statement_sha256": "beaf10f00031510fca3f448275cf81d3823e553cdfcea3646e0e3a8e5ce66eee"
+  },
+  "DEF-086": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost per task",
+   "statement_sha256": "9146f12bb2506a088e4d7c9e3d5ab12de67245c3fcf57549e3c5663c9d696a00"
+  },
+  "DEF-087": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost per workflow",
+   "statement_sha256": "51d7417bdc863663b030595ac25cd8421099b16903a8681fc94985851c659f02"
+  },
+  "DEF-088": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost per user",
+   "statement_sha256": "1fac48b65eb73ad9e81957dc09e231d139a859e73aa739cb470b9b9cf26ee361"
+  },
+  "DEF-089": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Marginal AI usage cost",
+   "statement_sha256": "e39214aa452de6ef347c5ead7d17ee9ab24337f8f0d242327a54b06bfc433c80"
+  },
+  "DEF-090": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Average AI usage cost",
+   "statement_sha256": "888aaa238dd440127631ee23d7907bb713489193ae9769a41cd5f31e1c69140c"
+  },
+  "DEF-091": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Total cost of ownership",
+   "statement_sha256": "2eb10a134b9d6a3e396d2c1d3de108324f0570f1bb2dc28a0028681e494d415b"
+  },
+  "DEF-092": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Hidden cost",
+   "statement_sha256": "4da7ec554e3ccf2c6e06966ff1c617fa069a2996fc63b24d4e3b42fafe7c97de"
+  },
+  "DEF-093": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost visibility",
+   "statement_sha256": "aa76e02cfdcd284af9d54446f77978d6b01f918c82edd511e1530c540a2d320b"
+  },
+  "DEF-094": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost predictability",
+   "statement_sha256": "625d557c9606359d983325ea5155e97689ac8c483b3b90e42cb303e53655a8da"
+  },
+  "DEF-095": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost exposure",
+   "statement_sha256": "3be5f84c8eb0416435b7f3f654b5610be852f68b7e547fd7ca238bf19891669f"
+  },
+  "DEF-096": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost absorption",
+   "statement_sha256": "74ae3f3585e05fc981c81622d4facde24a51e48735f8727932852141ac279474"
+  },
+  "DEF-097": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost pass-through",
+   "statement_sha256": "1fcaac0de490537d04ac7e10771d64a23ad619e4cc194546fa38f0956e37b1ee"
+  },
+  "DEF-098": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Unit economics",
+   "statement_sha256": "be7ae55b3372a33765b706721145566a2db0c3fb455256c7cfe1e2b925888426"
+  },
+  "DEF-099": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Rate limit",
+   "statement_sha256": "c7c41d4abf877f69d909919ec0dba25784139dda9c1681353b887be59f4ab346"
+  },
+  "DEF-100": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage cap",
+   "statement_sha256": "c8dec8337cc6c88276c7658fff5b9d4198634ea85a4a4df0e14e5f3cddcd8044"
+  },
+  "DEF-101": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI pricing",
+   "statement_sha256": "05d5b0d55636ae1fa6eb49758d69a5feffb4adcc158b76763335317dfd6798f7"
+  },
+  "DEF-102": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Access pricing",
+   "statement_sha256": "0d18a52ee24df7cd2979218269d352bc4df55bc3813312faaaeda7ab0c49adb1"
+  },
+  "DEF-103": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage-based pricing",
+   "statement_sha256": "4b0c4976417d8d11c9291822ec4bd97cd4cdeabd2f98c538cc552ce09b32a34f"
+  },
+  "DEF-104": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Token-based pricing",
+   "statement_sha256": "cd22fd382250dc8118b39596a25d98a7525c50d25ac5fd7e4e8bd7fd158c7a60"
+  },
+  "DEF-105": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Flat-rate pricing",
+   "statement_sha256": "e83dafae489f7b23e7aa8f300bf106851c558c65443e7fa8188ae27ac2d547ab"
+  },
+  "DEF-106": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "All-you-can-eat pricing",
+   "statement_sha256": "f69dbc8577f52fc45f3d0685f232e382cf9a65a20506d274a88f082959da7f18"
+  },
+  "DEF-107": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Subscription pricing",
+   "statement_sha256": "5c7fbad76d83078689fbe26ff6ee2ae5b7745f9a2ef55e47f6e05a029fe4b6d8"
+  },
+  "DEF-108": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Seat-based pricing",
+   "statement_sha256": "b10756b02106a884368ac4e090541521d5dd75196fa666272c92a5a290fb2f7a"
+  },
+  "DEF-109": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Consumption pricing",
+   "statement_sha256": "be8b08b36b082496b2bab9b95842d06ed18ea7917b041a5506ab21cd9d00d245"
+  },
+  "DEF-110": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Metered pricing",
+   "statement_sha256": "261be9b8671009456df549805e5d84cf0ba3bf94f8e762780999918221c25dbe"
+  },
+  "DEF-111": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Price dispersion",
+   "statement_sha256": "f2aa48247da882f0e343eb8817eb022238e7c8063269746f9867bb99e99c2438"
+  },
+  "DEF-112": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model price dispersion",
+   "statement_sha256": "26c819fcee2a5b7c97376616f98df2cef950826c41f69ed17e036d890443a552"
+  },
+  "DEF-113": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Price-performance ratio",
+   "statement_sha256": "41e961937bd6afa0128ac52962621d6832792b070ab3044059c6b16aa5644e5f"
+  },
+  "DEF-114": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Revenue model",
+   "statement_sha256": "b42ec55acf915ccb6eecf5392402347da8a6ead0556919e2e274cacd0634a1b7"
+  },
+  "DEF-115": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI adoption",
+   "statement_sha256": "8295b1c2073bde4b02f54d1d496b7282a163e0be223b65d0f0ba7339aa6d63ca"
+  },
+  "DEF-116": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production deployment",
+   "statement_sha256": "5fb00b66e5d1362274cd1c284b48ec43ce7bafd51689fd43d41dfa5ad1b05bac"
+  },
+  "DEF-117": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scaled deployment",
+   "statement_sha256": "5e64a534a82813b131ddb572731509c18515935d2e57b3c8fadc53efd71a0069"
+  },
+  "DEF-118": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Workflow integration",
+   "statement_sha256": "c2271ca04c1a6e9706c4de937b702dd5049913814f607cf165ca96d451297f6d"
+  },
+  "DEF-119": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Implementation cost",
+   "statement_sha256": "7f79c964d158810e577bf003deb5c84c8f690e6f7ae0716634c22fd78e95e3d0"
+  },
+  "DEF-120": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Maintenance cost",
+   "statement_sha256": "a5305029920eb4a3d7353d7c2f22b3d5f8b6143e50cd2fb43c633184b345ad67"
+  },
+  "DEF-121": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Training/change cost",
+   "statement_sha256": "14a81464ceeebe0db3cef6519bd0f46121811f4335ec981dfadd9f02b9343dd7"
+  },
+  "DEF-122": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Business value",
+   "statement_sha256": "511f0bef76eb8aa38fa58191d98f9c8499e0038a7d39ffa1075dad896b3083c5"
+  },
+  "DEF-123": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "ROI",
+   "statement_sha256": "b2681ea8cd9d422db087c1f119875158bcd067c54ade8775e88c8dc18e837f70"
+  },
+  "DEF-124": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI ROI",
+   "statement_sha256": "764accfff9c98edbbde03f3558e5af6eb0c995db004d78554f073b80e83a567e"
+  },
+  "DEF-125": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Realized productivity gain",
+   "statement_sha256": "e88240ae9042928908ba3eab9df63b992f4fd0af3b2a5eaf0c97a46daeb752ed"
+  },
+  "DEF-126": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Claimed productivity gain",
+   "statement_sha256": "6b538f043453c39d233d9cd05348e6630f08274a341a731f46fd9eb03dc332c3"
+  },
+  "DEF-127": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured productivity gain",
+   "statement_sha256": "262081072e63f0c4c1cab6a94ff5b30f7671bc0da186bb056432f871180ed3a7"
+  },
+  "DEF-128": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measurement gap",
+   "statement_sha256": "dc846f138b6f574e32004bdd839e9b3c7db3c4567107905dbc662752e69f6a39"
+  },
+  "DEF-129": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Error cost",
+   "statement_sha256": "80549458b080a2b0729986a4bd37ffff0c74bb365f2bb096281f60d459095903"
+  },
+  "DEF-130": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI provider",
+   "statement_sha256": "02e264b68b72685329add5218a5bc0d219708d691a66c29c09d885bc531bd779"
+  },
+  "DEF-131": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model provider",
+   "statement_sha256": "4f3fc31000503a95719d5ece08e1c146324ce3b5ae689fde6c8842c63e7dd290"
+  },
+  "DEF-132": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Inference provider",
+   "statement_sha256": "c748b3fab6ff48bd06f82ef05f205fff462af928fb1fdcb1f9b184f4c113732e"
+  },
+  "DEF-133": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "API provider",
+   "statement_sha256": "23a193ec0b5989cbd404bfd947f9a0953a9434d96542b1e890163760e070e528"
+  },
+  "DEF-134": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Aggregator",
+   "statement_sha256": "f3aeefca214493fc4cbdd3f708f04001a51d099a6435e17556fc96faee39cade"
+  },
+  "DEF-135": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Router",
+   "statement_sha256": "e441013df3e82704beb9fc2e98de33b049c9e1077ecf89ad7096d4492d028dd6"
+  },
+  "DEF-136": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Self-hosting",
+   "statement_sha256": "457e24be5778a695b94368c352d442d3a1d9815a2675d4c8bdfdc85e79cc2230"
+  },
+  "DEF-137": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Local hosting",
+   "statement_sha256": "d07e3669899b3838d039ea364666fa8b18bcadde55a8864c3824c9d37d611ece"
+  },
+  "DEF-138": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model substitutability",
+   "statement_sha256": "d0d082f62504a690d2a7ed0ceea71456ff9ad987fd66dd4ce5920c428643162b"
+  },
+  "DEF-139": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Vendor lock-in",
+   "statement_sha256": "5c8d37308326ee4a89b4576b7b77fba23e7d2752c557e1924236d2d80d47cc11"
+  },
+  "DEF-140": {
+   "type": "definition",
+   "certified": true,
+   "blockers": [],
+   "name": "Best-fit model selection",
+   "statement_sha256": "f9f3aeb6c2cf5b64ecc77d999bda35bedf263dc155b268da5542913fa64cd1ee"
+  },
+  "EVID-001": {
+   "type": "evidence",
+   "certified": false,
+   "blockers": [
+    "rule-7e-evidence-record: status Needed: no source is held, so nothing is established. This is the layer reporting accurately, not a defect — it is what an unmet evidence requirement looks like."
+   ],
+   "name": "Evidence required: Market behavior",
+   "statement_sha256": "6623f62c1fe84499258b0d6fd87c709cbdb14b19eccc622163e914ac4d30d30a"
+  },
+  "EVID-002": {
+   "type": "evidence",
+   "certified": false,
+   "blockers": [
+    "rule-7e-evidence-record: status Needed: no source is held, so nothing is established. This is the layer reporting accurately, not a defect — it is what an unmet evidence requirement looks like."
+   ],
+   "name": "Evidence required: Market trajectory",
+   "statement_sha256": "b2215e8bd47cc78141bd961624eb9ed546856438ad8a3550fd4c45a6b2fceacc"
+  },
+  "EVID-003": {
+   "type": "evidence",
+   "certified": false,
+   "blockers": [
+    "rule-7e-evidence-record: status Needed: no source is held, so nothing is established. This is the layer reporting accurately, not a defect — it is what an unmet evidence requirement looks like."
+   ],
+   "name": "Evidence required: Magnitude / materiality",
+   "statement_sha256": "f4d71d7310d9cfe9a944d926196b04b80634e9fca870363eb4e1eee99d64d780"
+  },
+  "EVID-004": {
+   "type": "evidence",
+   "certified": false,
+   "blockers": [
+    "rule-7e-evidence-record: status Needed: no source is held, so nothing is established. This is the layer reporting accurately, not a defect — it is what an unmet evidence requirement looks like."
+   ],
+   "name": "Evidence required: Model comparison",
+   "statement_sha256": "5fd12dfc9cef3e858207c4ba966a40fd4750a1543519eaedb247ae2a0d44bf38"
+  },
+  "EVID-005": {
+   "type": "evidence",
+   "certified": false,
+   "blockers": [
+    "rule-7e-evidence-record: status Needed: no source is held, so nothing is established. This is the layer reporting accurately, not a defect — it is what an unmet evidence requirement looks like."
+   ],
+   "name": "Evidence required: TCO magnitude",
+   "statement_sha256": "7a2293a3221abf047997fd16418b193a23b0cca0f02366b82ec09142a9c4f8c9"
+  },
+  "LEM-001": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage Growth Increases Positive Usage-Linked Exposure",
+   "statement_sha256": "ef93c2fb26b199c3cb041acd52f8bd38f65da4465f94aef5bfc43a3116fd5ccb"
+  },
+  "LEM-002": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Measurement Enables Visibility",
+   "statement_sha256": "3a9f1f886853c70b32593f8c20345b6b087dd877c8de0866030253b1d8a2dc0e"
+  },
+  "LEM-003": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured and Attributed Usage Enables Rule-Based Differentiated Treatment",
+   "statement_sha256": "2163d61a1064624815964dce4896ea0721e00a68885e260fc131bb1c6bb4aee8"
+  },
+  "LEM-004": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Capacity Constraints Require Allocation",
+   "statement_sha256": "d0f2317cf2ca65ef367a791e34180ca8563b1a92df8712a39c84e61b8c594abe"
+  },
+  "LEM-005": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Deployment Creates Ongoing Operational Requirements",
+   "statement_sha256": "efd52bc9196ce07c8bde0ae3bab976d2575e4f6e1c8428c97644763ad4bdc77d"
+  },
+  "LEM-006": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Buyer Total Cost Extends Beyond Access Price",
+   "statement_sha256": "07f4152ca181e0c64b711d0c6d6afeed245cf993cd7b6fb5403003cb536b10d5"
+  },
+  "LEM-007": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Realized Value Is Distinct From Claimed Value",
+   "statement_sha256": "9fb4c0f56992e1b9ea2064b3355fa31345d3dd0069111aba17c8e9281cb9100d"
+  },
+  "LEM-008": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Provider Cost Exposure Creates Cost-Recovery Pressure",
+   "statement_sha256": "5fda2e9e2372dee305d0497f93a6f3b218b7d69e142136d27150598221eeb322"
+  },
+  "LEM-009": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Capability And Economic Suitability Are Distinct",
+   "statement_sha256": "fd04c42166f33ce9c656afe3d53e8c6c445ff8c9d2c6e2b464426dbec38e5dcd"
+  },
+  "LEM-010": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Model Substitution Is Constrained by Functional Adequacy and Switching Cost",
+   "statement_sha256": "227a41f3eacc5ea49b12de0e943bc32c465d6b73522457d29dbdb083a9156204"
+  },
+  "LEM-011": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Recorded Tokenized AI Activity Produces Measurable Usage",
+   "statement_sha256": "c9a2fa142c4a0d01d9dfe99b4d58504d4a724267793c664ee6bdeb6db7586585"
+  },
+  "LEM-012": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost-Recovery Pressure Supports Pricing Mechanisms",
+   "statement_sha256": "e9bb703d6edfca66339637321cbc712c79ae45647671c0089c99e1fb7f7c4d63"
+  },
+  "LEM-013": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Architecture Influences Economic Outcomes",
+   "statement_sha256": "2a4cc039ccddaee1d0a83ed9127a9fc80e74366fd3c9a7052324377a074704f6"
+  },
+  "LEM-014": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Resource Requirement Differences Can Produce Cost-Exposure Differences",
+   "statement_sha256": "d496b3e7868b40f4f8ffca991042478a6379ad8dba387e507e605bc98767c1c3"
+  },
+  "LEM-015": {
+   "type": "lemma",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "ROI Requires Cost And Value Discipline",
+   "statement_sha256": "9a210c7fba774352e45c03acadcdc8b95a0341e23398da6dbc44150548548efa"
+  },
+  "LEM-016": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Scaling Expands Usage Surface",
+   "statement_sha256": "8ca9568abac9190429bbda070b06b8812780be0de49c9947ba504e4d4e3a4a7a"
+  },
+  "LEM-017": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Workflow Integration Creates Scoped Operational Dependency",
+   "statement_sha256": "8a2888c49d59dcbe29320c48b2b3ca991c9bddd3b29549518f9b33eb6a7761f7"
+  },
+  "LEM-018": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Can Alter the Buyer Cost Boundary",
+   "statement_sha256": "80f75e7a3b33c2db8224915d948a4c26744f935aa52632378da92bcf7c871021"
+  },
+  "LEM-019": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Compute Consumption Is Resource Consumption",
+   "statement_sha256": "5a62c5bfc378ad00e93bebca6c92dc1a219b66019caf197ac4f0c85829811a03"
+  },
+  "LEM-020": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "Visibility Enables Management Mechanisms",
+   "statement_sha256": "8ea07b4582b03ba921b2444e68d551b3ee5a853b3260fa27d4b5847468477413"
+  },
+  "LEM-021": {
+   "type": "lemma",
+   "certified": true,
+   "blockers": [],
+   "name": "ROI Evaluation Requires Measurement Boundary",
+   "statement_sha256": "d3d6e1e7c5f957764d775e70b89432351e18b5d84269ff329fd48cda6f400b72"
+  },
+  "PROP-001": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage-Linked AI Activity Creates Cost Exposure",
+   "statement_sha256": "841c090e1c410d63d0590c0c8b4fde9a5c05ba761c1036d2bd2c109fa9a65c6d"
+  },
+  "PROP-002": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Token-Based Pricing Converts Token Volume into Buyer-Facing Charges",
+   "statement_sha256": "52e8674031f7988a836b5a3321bab5e0e5873a3e6832e2bce18a4658a9451224"
+  },
+  "PROP-003": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Metering Creates a Usage Management Basis",
+   "statement_sha256": "a3ebfe416aa17f14e44553573eb6d968655d985f8bf3b465d2492c62ea9aa63c"
+  },
+  "PROP-004": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Flat-Rate Access Weakens the Marginal Price Signal",
+   "statement_sha256": "32902966374849222cf8416a4249036bb896a3678f33dfe29dfe9ad8a86f854b"
+  },
+  "PROP-005": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scaled Deployment Amplifies Positive Usage-Linked Costs",
+   "statement_sha256": "2e9cda80f76af44097c8277fd11d8ddee4740f94505322e3e455b29273d78129"
+  },
+  "PROP-006": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI Total Cost of Ownership Exceeds Pricing Alone",
+   "statement_sha256": "4ec2c8553c71809496932091a8f933f4cb1edaa9c48aaed6551476dd34964363"
+  },
+  "PROP-007": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Frontier Status Is Not Sufficient for Economic Suitability",
+   "statement_sha256": "1b5a1dae6aed6c929c4b9bad64f5dac054fda5e17fcabd41379792391c11d310"
+  },
+  "PROP-008": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Provider-Side Usage Creates Provider Cost Exposure",
+   "statement_sha256": "4103599efe78349b6b69058d0e93020ae0eae075565823e52c9226b7b60b298e"
+  },
+  "PROP-009": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Variable Usage Cost Accumulates Across Repeated Use",
+   "statement_sha256": "47bdd1b9be43829d2eae5db95ebaa841ad4d019f542d4076c27207ef09841202"
+  },
+  "PROP-010": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Marginal Usage Cost Creates Incremental Cost Exposure",
+   "statement_sha256": "d4016674f8d9bcc88db8ad0d16f005d8d9845ff81aef50f2363f7ddb7eceaac8"
+  },
+  "PROP-011": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Visibility Depends On Observable Cost Information",
+   "statement_sha256": "0b0e278ca41b735cdc8852431e12260945d78d60c0a7cd4d76a2db623635244b"
+  },
+  "PROP-012": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Predictability Depends On Known Usage Or Pricing Conditions",
+   "statement_sha256": "b218e3f3af29722a8811d9239d5b2068420012c2902ae339fbd65a05d9b24cf7"
+  },
+  "PROP-013": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scale Can Increase Aggregate Cost Exposure",
+   "statement_sha256": "574b99a75b2eb0cc0a56e9021e2438fd9b5370a94400a5fc60c2ca4eaba37996"
+  },
+  "PROP-014": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Fixed Pricing Can Mask Variable Underlying Cost",
+   "statement_sha256": "8571983bee3fdbd9cb1c188ff0ef411d2cd757ce6a13b8086293738f2626c8e1"
+  },
+  "PROP-015": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Exposure Is Distinct From Realized Cost",
+   "statement_sha256": "50691a8be416fd61f7284280a8abde927cebe6387bdf5ff34ee909200e0eb0ad"
+  },
+  "PROP-016": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Price Does Not Exhaust Cost",
+   "statement_sha256": "2046801cde29900102b452bd897ea2d237bd2ae55bd63aecd6e6878f66dfeed6"
+  },
+  "PROP-017": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage Growth Can Affect Cost Predictability",
+   "statement_sha256": "12f50d02190a16f5a019b1d7fbd5db1a96a9416968ecfe59f5488b3bce3f0f62"
+  },
+  "PROP-018": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Attribution Requires An Attribution Basis",
+   "statement_sha256": "67d720d30404db7c54396e0d3bc017ba12a17c025e1bb9c9f62f3431e6aa0f48"
+  },
+  "PROP-019": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Aggregate Cost Depends On Quantity And Unit Cost Within Scope",
+   "statement_sha256": "49d133ffbf57361e027fd17bf0ca68a5ea10de6c40e9e39e1d2bca418e1b6d03"
+  },
+  "PROP-020": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Management Requires Cost-Relevant Information",
+   "statement_sha256": "cc10bbf1eb802a8bf5acc2d80c0a6458dacd437ed84743a093e4fc2e48c98d4c"
+  },
+  "PROP-021": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI Deployment Extends AI Use Into Operating Context",
+   "statement_sha256": "32c6d08a90b54ac7f9609b598f9b4bf1da7b5c03c9b90f705f15a2c647be215a"
+  },
+  "PROP-022": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scaled Deployment Expands The Set Of Usage Events",
+   "statement_sha256": "2e16f5fcb22d5657eab6bfacca2295393d95b25665aa475003f2f01d42ca1a33"
+  },
+  "PROP-023": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scaled Deployment May Increase Aggregate Consumption",
+   "statement_sha256": "7bcd8d1dbac410d544f9e61f241b134269782d4186c2a52d54af13b17c3e2a7b"
+  },
+  "PROP-024": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Volume Influences Resource Requirements",
+   "statement_sha256": "a142ac12ca266ccf543c3bf2263f8dda3d53c3aa38faf3a5777d6a85db66b171"
+  },
+  "PROP-025": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Workflow Integration Creates Operational Dependency",
+   "statement_sha256": "cded10704816ad3d9439409ce25408210a482884c915a4fed9a64b1cec8b9b56"
+  },
+  "PROP-026": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Operational Dependency Raises Reliability Relevance",
+   "statement_sha256": "45a5c77b564a719c0b94c4c9345e42fe7873e2a1938a38f91405aeb710fb8377"
+  },
+  "PROP-027": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scaled Deployment Increases Exposure To Repeated Outcomes",
+   "statement_sha256": "26aba83ffb35a7e1c6e6b83fa6ad61febc730a3688130d30723707d8cf6674a6"
+  },
+  "PROP-028": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Scope Determines Evaluation Boundary",
+   "statement_sha256": "bf05b93c95aaa8f54106ae443a9b2d4fc957139813354c221aafd31daa93c4e4"
+  },
+  "PROP-029": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Changes Can Alter Cost Categories",
+   "statement_sha256": "ac637cc12f7c7c63926d39791785df999ca9a87f04f710eb7ad2a620de2daac5"
+  },
+  "PROP-030": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scale Can Reveal Previously Hidden Constraints",
+   "statement_sha256": "2e3f5cc6312b16c5c68db7a88ad51a66970d67aeae17ffe99d79ed58344631ce"
+  },
+  "PROP-031": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Compute Consumption Requires Resource Utilization",
+   "statement_sha256": "ea26a38cd192ab644a3f4d0c4e97d4b02927872df47886d4f64de69edd2c3210"
+  },
+  "PROP-032": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Compute Utilization Can Be Measured",
+   "statement_sha256": "6973c5c0d5a30767e3f7e3fc48cff9aa32789fe616283fb0b24f25034a4ee93b"
+  },
+  "PROP-033": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Finite Compute Capacity Limits Concurrent Utilization",
+   "statement_sha256": "8fa5305d12a93ef75692163b41fafb191ac0c2a7ac1e8b054d7b50d568a43035"
+  },
+  "PROP-034": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Increased Utilization Reduces Available Capacity",
+   "statement_sha256": "110afccbc4bb2212661f676d153d719a0654c867e40dbf6fd4078d1188df280b"
+  },
+  "PROP-035": {
+   "type": "proposition",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Inference Activity Consumes Compute Resources",
+   "statement_sha256": "0449a33c7a33857687533fe94f8193603e3c33ee3c09175aa0557f84261c9b84"
+  },
+  "PROP-036": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Greater Inference Volume Increases Aggregate Resource Consumption",
+   "statement_sha256": "f72ab74f7b7d6dc480b38a700780566a1bf3ead33a693bc54ab72c4560a0a719"
+  },
+  "PROP-037": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capacity Constraints Affect Service Availability",
+   "statement_sha256": "273ad7435e087c03c3a4eba015e6155fd49a027fb5c3673d4e5db5625734b228"
+  },
+  "PROP-038": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Resource Allocation Occurs Under Capacity Constraints",
+   "statement_sha256": "e30c57d27586508089713ed9489cec1a8a9481fce16b7893bbb30c6274afcb09"
+  },
+  "PROP-039": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured Compute Utilization Creates Cost Attribution Basis",
+   "statement_sha256": "39a6599e6599f22ed5e678c2b6db7f19ba4598a67f4cd4a20175a810c14ae2ff"
+  },
+  "PROP-040": {
+   "type": "proposition",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Compute Measurement Enables Utilization Visibility",
+   "statement_sha256": "383ea0c1eb83891e4ca673b7513a5ed11c571918ca7fd332f346d2d3b2a3dfec"
+  },
+  "PROP-041": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Metering Requires Measurement",
+   "statement_sha256": "0c631d5d948890280f2586fa006937f29657bd8ed261106b6f0e215b9479248f"
+  },
+  "PROP-042": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured Activity Can Be Distinguished By Quantity",
+   "statement_sha256": "da8e2d4c7ac9ef1ff585e092e60616ac28c92dea8f1a2987f10878fa242bc8dd"
+  },
+  "PROP-043": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Metered Activity Produces Usage Records",
+   "statement_sha256": "2132336347d9210c85d4d275e027b733a4840869d1c5c2172bc7e95bf0daa62d"
+  },
+  "PROP-044": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Metered Usage Creates Visibility Of Activity Levels",
+   "statement_sha256": "fd089e7b2ce57c86c1cb162bde49037773dcc2b1be5c13a3f17468288c66b9b0"
+  },
+  "PROP-045": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Unmetered Activity Reduces Usage Visibility",
+   "statement_sha256": "883db10af12deb26c2dc323f847477b666aab4b0d56c970d5bc5093637897c1f"
+  },
+  "PROP-046": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured Usage Can Be Associated With A User Or Entity",
+   "statement_sha256": "81cd2c07541930ca7d4e8901c577d48fa161394a7e9dfd2716c13a5d7ee544ee"
+  },
+  "PROP-047": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage Attribution Enables Responsibility Assignment",
+   "statement_sha256": "16c3a9c3433fd5efd8d84bc6319cc6b21dbb6aeaa1f6bb32770c8dae3ea998fa"
+  },
+  "PROP-048": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage Attribution Enables Differentiated Treatment",
+   "statement_sha256": "508f37e3990d08a8074f546c612628792530d8c63b1200b490df8aa431badc36"
+  },
+  "PROP-049": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured Usage Can Serve As A Pricing Input",
+   "statement_sha256": "a41c00b5cfef099a80f7f4fc61e2fdeea919935f4eaf309b5bbe0cbc71d5ac1f"
+  },
+  "PROP-050": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Different Usage Levels Permit Different Charges",
+   "statement_sha256": "4f63840df891e5a4a0e9008999500e1b36bcc87af437cc9becd3a9a4bba598de"
+  },
+  "PROP-051": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Resource Consumption Creates Economic Exposure",
+   "statement_sha256": "bec8a22c884ee6aaa08cac4338f0cd7e2e542aa17c01d87910a4a54cb3186836"
+  },
+  "PROP-052": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Increasing Resource Consumption May Increase Economic Exposure",
+   "statement_sha256": "678826d4844b34cc31b075f083b3e0ce06008726a8fe2bcb6e7d05be3c328d6d"
+  },
+  "PROP-053": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic Exposure Creates Incentives For Monitoring",
+   "statement_sha256": "bbafdd550e670f06123987043cbf0871c1840c7fc0bea9e9ae5507041500bea4"
+  },
+  "PROP-054": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured Usage Improves Visibility Into Economic Exposure",
+   "statement_sha256": "50ecd82cc848a59f2d9719912a0c8029d79e457a46d4f4222b5db0eac44036dc"
+  },
+  "PROP-055": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Visibility Enables Cost-Recovery Mechanisms",
+   "statement_sha256": "58cbdeaec36eab5529339f04971c381709b283ce08bce3723cc94a478aaaa301"
+  },
+  "PROP-056": {
+   "type": "proposition",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Finite Capacity Requires Allocation Under Excess Demand",
+   "statement_sha256": "52bd0577d16aa12cd92cf2c6905ebbaa72c578e030d8ca1dff0e91e4cb46c3e5"
+  },
+  "PROP-057": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Allocation Mechanisms Differentiate Access",
+   "statement_sha256": "e9b05b8832b2aea24da501f77d1a21f0532ef425dc95b7f9da22d71d5fbcab37"
+  },
+  "PROP-058": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage Information May Inform Allocation Decisions",
+   "statement_sha256": "49307e927a86d53b1a90d9dea9ce1c334aef208aac2ad1d4143937a80ca72977"
+  },
+  "PROP-059": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Priority Systems Depend Upon Distinguishable Requests",
+   "statement_sha256": "ead26649d2388ffbe737854b4f299415807f4b262b3a530be5cca9a8d11b612d"
+  },
+  "PROP-060": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measurement Enables Allocation Visibility",
+   "statement_sha256": "7932cca52e42dcc758903cd3243d184b0985286a5d50096a0ec7e77f2de5100a"
+  },
+  "PROP-061": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Pricing Rules Depend Upon Pricing Inputs",
+   "statement_sha256": "a4585a0086a981e9e67f8bc7488f811d37c8c29c2df9e303af3f064c64cb0ed9"
+  },
+  "PROP-062": {
+   "type": "proposition",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Measured Usage Can Function As A Pricing Input",
+   "statement_sha256": "7a8d939a1f808f3ee143cc2944d2486004e5779fa67ad47a746456027b221fa9"
+  },
+  "PROP-063": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Pricing Architectures May Incorporate Multiple Inputs",
+   "statement_sha256": "df37012bc208b8d7c310e3f50454e464b14a53e4b2adde36091728286daf10f5"
+  },
+  "PROP-064": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Pricing Architecture Influences Charge Distribution",
+   "statement_sha256": "afb7eb460856e08b21cfd55f9b7fc2b1cf53838c74b09bb5a509523a1912e3b1"
+  },
+  "PROP-065": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Different Pricing Architectures Produce Different Economic Outcomes",
+   "statement_sha256": "8764b36add5d0c11bae079a0a47a3bd7d8bf1558fb1cdf8419749547777790c9"
+  },
+  "PROP-066": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Tokens Are Countable Units",
+   "statement_sha256": "6c29262f8fa367aab435e98c7391241837db394172755ded00b5d54f11e2552a"
+  },
+  "PROP-067": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Token Quantities May Differ Across Interactions",
+   "statement_sha256": "fafa9c1a5ae8ad8dde04e7aeb20e7dd75e38dc668eb23921d394b39d41dea705"
+  },
+  "PROP-068": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Input And Output Tokens Can Be Measured Separately",
+   "statement_sha256": "4be1a3863908bb6716026018c71d0cdefe5d4cf04e606a26792fce0097b79184"
+  },
+  "PROP-069": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Aggregate Token Volume Can Be Calculated",
+   "statement_sha256": "393547363a86535c7d9955293cbad6eb934cfbd4649f341b88de1e5d983dc31c"
+  },
+  "PROP-070": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Token Measurement Produces Quantitative Usage Information",
+   "statement_sha256": "39c3cd6be1e348c159ef7c50b99fc13f0ee8e17cada960c18e6c6b7588bb0c57"
+  },
+  "PROP-071": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Inference Activity Produces Measurable Outputs",
+   "statement_sha256": "7dbf5dec69cb88dbb0e3f21bfd52c4b964956eb1034c3b67dae897f4fe5a6669"
+  },
+  "PROP-072": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Inference Activity Can Be Recorded",
+   "statement_sha256": "c91bdfd01e4d3235bead2b017c2c2647079a3a21ed12bb70628c2adc6b8962b9"
+  },
+  "PROP-073": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Recorded Inference Activity Creates Usage Information",
+   "statement_sha256": "f0d20108cfa8bbab209e1efdf535ef75a7a970cc04acf4439b09e1e045c7fba1"
+  },
+  "PROP-074": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Repeated Inference Activity Produces Aggregate Usage",
+   "statement_sha256": "223853b08664e481b77be1beb6452d240d0cd3f0b8fde335985d6a8875dabd42"
+  },
+  "PROP-075": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measured Usage Can Be Compared Across Time Periods",
+   "statement_sha256": "1e69979c7d0e3e3f950b3e0c3e2c366e23150d441bca6673a815cf36439c2b29"
+  },
+  "PROP-076": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Metering Systems Depend Upon Measurement Inputs",
+   "statement_sha256": "a17c9daf145d3a5a397f8780d0cdade2a33f174f2f1b6e386d801d326d8d672a"
+  },
+  "PROP-077": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Recorded Usage Can Be Processed By Metering Systems",
+   "statement_sha256": "bfecca400ca557846661735f5150a1400114491738e2bc1e86bb6aaa1fb5e5c5"
+  },
+  "PROP-078": {
+   "type": "proposition",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Metering Systems Generate Usage Records",
+   "statement_sha256": "b33a24f0474cf457670c3fe07c8e8eacb79c889178e3a48bc34e90bc67aa6411"
+  },
+  "PROP-079": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Metered Usage Creates Historical Usage Data",
+   "statement_sha256": "e959f33c755021ce0a7c82b05769df19c41d39ea06878752a2248dc807c51db9"
+  },
+  "PROP-080": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Historical Usage Data Enables Trend Analysis",
+   "statement_sha256": "d3b704dbf87a5c143f99ce62a27b6b5bf232e62455e86e087dd66a9db584f464"
+  },
+  "PROP-081": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measurement Creates Observability",
+   "statement_sha256": "3eea32b9bf7f3567c9a36d5a5fd5404bcabc9c81ffd7db8ebee4b00e9dc9d73f"
+  },
+  "PROP-082": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Recorded Usage Increases Visibility Into Consumption Patterns",
+   "statement_sha256": "6c3ca72a7feb413a160cc8e8b8d99b7557344cc3f22fd43ff4e6567e02284f7c"
+  },
+  "PROP-083": {
+   "type": "proposition",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Measured Usage Enables Resource Attribution",
+   "statement_sha256": "f137ccc0b6710b365ff74b9df36e24b6e431ba9524e8663563961c2a83ead125"
+  },
+  "PROP-084": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Visibility Enables Comparative Analysis",
+   "statement_sha256": "6bcebaa4f1b79c9fca388a0a9854a4dd5f0d454c725ef1a4ffb8ecdcd68e20c5"
+  },
+  "PROP-085": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Usage Visibility Enables Management Decisions",
+   "statement_sha256": "f3cc47b3781d7b59ed8209c51ddfe952be87df92dc4316621b8c7b4930735dd5"
+  },
+  "PROP-086": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Deployment Extends Usage Beyond Testing",
+   "statement_sha256": "73894a6547ac1916fc9fa665b77e9e7cdf87d4c809b427ea32c6497c45c06edb"
+  },
+  "PROP-087": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Usage May Exceed Test Usage",
+   "statement_sha256": "2cb7b8018005f84e0dab98a92898a989ae889314504f4d8013c086f4b2f90dc0"
+  },
+  "PROP-088": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Increased Usage Magnifies Resource Requirements",
+   "statement_sha256": "d263a7b23ce7ee150684a73824bde65f4f3ec863a280fc91958cd5a75cdd6931"
+  },
+  "PROP-089": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Scaling Increases Aggregate Activity",
+   "statement_sha256": "9bd78e36dc1fccedc6df021542305c04db94b15e1dc201d20c7557a83b7f2ce9"
+  },
+  "PROP-090": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Scaling Effects Accumulate Across Repeated Usage",
+   "statement_sha256": "2ccae4c28f1552cb7ccc57270d7bc5febae68963835282564e1000f5bf5b1318"
+  },
+  "PROP-091": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Systems Require Ongoing Operation",
+   "statement_sha256": "83738be88ac5b85fb0fd406757da7a674756efc9c0ec088aae3cc4593d5853c4"
+  },
+  "PROP-092": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Operational Activities Consume Resources",
+   "statement_sha256": "c0c32fa778eb3e31bffd87be9fe2e38059f6342a58a13c129a43d4af9ee0880e"
+  },
+  "PROP-093": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Ongoing Operations Create Continuing Cost Exposure",
+   "statement_sha256": "1ee6978140c5f0268ad7ce40a6dc95aea6caba0e29c6c76817e6f80b9f8e01b8"
+  },
+  "PROP-094": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Duration Influences Aggregate Operational Activity",
+   "statement_sha256": "91bfe8180f084c3a337656e6c38d230482773024e1c698438fc2c4333a0738d2"
+  },
+  "PROP-095": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Systems Benefit From Monitoring",
+   "statement_sha256": "b3c3bfadcaf55e9b2972c18db6371945f0a98da94388a27940a8e55b054e81b4"
+  },
+  "PROP-096": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Monitoring Depends Upon Observable Information",
+   "statement_sha256": "d8c1f8fce9d691ccb44e97ba522f0cdda452ab9a8be4c04a31791e92a7bc8a95"
+  },
+  "PROP-097": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Recorded Information Supports Monitoring Activities",
+   "statement_sha256": "7946c6dfb3f7da872d95ea56ae8f8c552c82d81672328d5d79a34669f3f511eb"
+  },
+  "PROP-098": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Monitoring Increases System Visibility",
+   "statement_sha256": "9e88b7e0c5bf8c1470e11ed28511b5f5d929c723a9bbde282e743984f1f2c564"
+  },
+  "PROP-099": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Unreliability In A Depended-On System Creates Economic Consequences",
+   "statement_sha256": "ce311c18a012a71a903160a54c973a31b79d5ffd738d5ef9eaafa3626b33876d"
+  },
+  "PROP-100": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Reliability Assessment Requires Observation",
+   "statement_sha256": "d67c6431364fd640c2df7596572298220313d3e81676f9e03ad5535bf12b8bab"
+  },
+  "PROP-101": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Observed Performance Enables Reliability Evaluation",
+   "statement_sha256": "a1ecc89d831d0117df56b674dfbcb7688fdfab641809f532e683a3a065d3270a"
+  },
+  "PROP-102": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Failures Create Observable Outcomes",
+   "statement_sha256": "9f285a9f56bcfd7dce3a1bc78fcfc23a376669916d087950ae2fd31e543719b0"
+  },
+  "PROP-103": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Production Deployment Introduces Additional Operational Components",
+   "statement_sha256": "f94649603989813626908fb34606860ffa68b046a8bac798f55ea9c9c6b58788"
+  },
+  "PROP-104": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Additional Components Increase System Complexity",
+   "statement_sha256": "009f9df9b7ffad4253ddc0005763b531db7e93a002f6450ee3b6b3a884cce84c"
+  },
+  "PROP-105": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Architecture Influences Operational Requirements",
+   "statement_sha256": "1afd9d8ffc3f673d80048aa962587ef0377441632eecae3e37e150c529c58fcc"
+  },
+  "PROP-106": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "AI Adoption Requires Buyer Commitment",
+   "statement_sha256": "16a5ff53ac7a9f6b43adcab86cfb56d9454e92dc71d6d9c578527aabc9da4f16"
+  },
+  "PROP-107": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Adoption Activity Consumes Buyer Resources",
+   "statement_sha256": "49883cf4333408c8207b094f05967153fd92d8973673c196cc53853d442cb7a5"
+  },
+  "PROP-108": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Adoption Cost May Exist Before Production Value",
+   "statement_sha256": "4ebab9c8a165ab9820af0ee9ab3dbcb9557b98dc09a7fa03f0eb161cd245d914"
+  },
+  "PROP-109": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Adoption Cost Is Distinct From Usage Cost",
+   "statement_sha256": "37aaaece6ae9d019a219cb4d4e99282436898cc56a5c95ae1b8fe836aba5fcbc"
+  },
+  "PROP-110": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Adoption Cost Affects Economic Evaluation",
+   "statement_sha256": "084f664a8c3191921d4acaa21df4bda8e6802d279f9d92e0d4016d438488fe49"
+  },
+  "PROP-111": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Integration Connects AI Systems To Existing Workflows",
+   "statement_sha256": "4d52e4560c81b5252b4a7bb2bbdddfe32e3fd0a2aa27fff4b5ce70102bc24068"
+  },
+  "PROP-112": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Integration Activity Consumes Resources",
+   "statement_sha256": "5843e1769bcb98357fa864a1d5cb6a4032fdc2bd58826e8593896e1271746040"
+  },
+  "PROP-113": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Integration Requirements Vary By Environment",
+   "statement_sha256": "3b0f5a3577bea7909b6741d126475f4306b43bc0e1a1705eaa6707c0ccb063a8"
+  },
+  "PROP-114": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Integration Complexity May Increase Cost Exposure",
+   "statement_sha256": "6d9247331ff75dec54c98366a30c4aae20b743ce19008882c232f66c2e34b17c"
+  },
+  "PROP-115": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Integration Cost Is Distinct From Model Access Price",
+   "statement_sha256": "354f4503d87e159a401c0b28b38acf865805ef3f9fe757836ace2bad9961bf7a"
+  },
+  "PROP-116": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Buyer Total Cost Includes Multiple Cost Categories",
+   "statement_sha256": "00da1793526b3c66e58c6023a738d00b561bb9309f183fd96db4627244a5f44b"
+  },
+  "PROP-117": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Access Price Is Not Buyer Total Cost",
+   "statement_sha256": "4d060a708f3afe58e3c23f06b9905072104f0baf8f0f651c03af2584cc75246a"
+  },
+  "PROP-118": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Operational Cost Contributes To Ownership Cost",
+   "statement_sha256": "d11796acf0bf706049151a91e3160498e6b5181fe2e509269bb9b63bea70287b"
+  },
+  "PROP-119": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Governance Cost May Contribute To Ownership Cost",
+   "statement_sha256": "8f5c7ee95c6e597583fe3da2e1145236ee25ddc6bcdf35beda0fe3bdecd57623"
+  },
+  "PROP-120": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Ownership Cost Affects Economic Suitability",
+   "statement_sha256": "6cf8ae8d17decde3184d5675c3e89ea347b707c23cd784323852270dacbc28fd"
+  },
+  "PROP-121": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Claimed Value Is Distinct From Realized Value",
+   "statement_sha256": "e1488e87ffdcf2c9730fe5926cc8d5489f5dde5bf7b9d25a4778192493bbc02d"
+  },
+  "PROP-122": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Realized Value Requires Buyer-Specific Benefit",
+   "statement_sha256": "94f6977745c25dd0abf7dc4f97b21a6ba6b7ce57db10a94eada686b5041e25b6"
+  },
+  "PROP-123": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Realized Value May Depend On Workflow Adoption",
+   "statement_sha256": "1b293ee49106d9270bdb9c8e5a659563789cc40300c19ead6edec78fc44aa004"
+  },
+  "PROP-124": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Value Realization May Lag Adoption Cost",
+   "statement_sha256": "2e126f716d5b1b2b821d4c0276fb630dc4bcc59e9ef12f72d6749121a7e606c0"
+  },
+  "PROP-125": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Buyer Economic Evaluation Depends On Cost And Value",
+   "statement_sha256": "fbdfd0f0986b9264e1342c1a9c824af6a5e0a5d1c8ce54bece399b50a1cd1bcd"
+  },
+  "PROP-126": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Providers Consume Resources To Deliver AI Services",
+   "statement_sha256": "3fa3d8513d1f40e6165593504fe89bb79ec73e349eca291c3ec57779f7b71fd4"
+  },
+  "PROP-127": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Provider Resource Consumption Creates Provider Cost Exposure",
+   "statement_sha256": "1837ebb104e664205804818caf459e01be05e56ef06af364e5de0f9df30247d8"
+  },
+  "PROP-128": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Provider Cost Exposure May Increase With Service Volume",
+   "statement_sha256": "75625aa6ee53e50580bd25a15df8bbd05e49461e004c6f6756b0642b14e0cceb"
+  },
+  "PROP-129": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Cost Recovery Requires Revenue Or Cost Reduction",
+   "statement_sha256": "6bb7931e5bc35d71d7c71a992ff4efd128f1cedf8c42d574e33aea58b8d31d26"
+  },
+  "PROP-130": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Pricing Can Function As A Cost-Recovery Mechanism",
+   "statement_sha256": "ff5bed69406670a08bfa9725d86530dab7e09b006d565ef64fb96c3fe012e474"
+  },
+  "PROP-131": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Providers Operate Within Resource Capacity",
+   "statement_sha256": "f94e96920910345c7baaae497ebb38fd8b84f8c91a6d0d00b102d7bbe417a563"
+  },
+  "PROP-132": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Demand May Exceed Available Provider Capacity",
+   "statement_sha256": "ad0868d435ed90fc74a02791ed79c63e5f46cc0be6f7d670b97e82355c7745c5"
+  },
+  "PROP-133": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capacity Scarcity Creates Allocation Pressure",
+   "statement_sha256": "f9e81784290bc7f12e49e00f24c7f84af9613f33d79bfc36ba5020a5d9275cc2"
+  },
+  "PROP-134": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Allocation Mechanisms May Affect Service Access",
+   "statement_sha256": "551f1c68f13fe45a437cd4c171e5a544abd40e68d1799376ef8bc48e835fc5bf"
+  },
+  "PROP-135": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capacity Constraints May Influence Pricing Architecture",
+   "statement_sha256": "8f1c6cab39dbdfaa211ba7f3bf6fc9297791d7e7dc9f2450e8eb2ddcf3836b1b"
+  },
+  "PROP-136": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Providers Require Revenue Architecture To Monetize Services",
+   "statement_sha256": "2aed5ccb34ede5befef35f3d3624103de085ef22404eda574c7572a6f0d74972"
+  },
+  "PROP-137": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Revenue Architecture Defines Charge Logic",
+   "statement_sha256": "dc76274ca030a907b8430649fac466a8760f50113b23b406ea332089c04e25af"
+  },
+  "PROP-138": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Revenue Architecture May Reference Usage",
+   "statement_sha256": "da998c61ff51edf394b3d47cbb8d55ec87bb42bc70598609fadddee8bb73873d"
+  },
+  "PROP-139": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Revenue Architecture May Reference Access",
+   "statement_sha256": "d34314faa4247c900e3a3c5ee2ec4ab91ca7f3e10084bcdc4cdce53621e52eaa"
+  },
+  "PROP-140": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Revenue Architecture Shapes Provider-Buyer Economic Transfer",
+   "statement_sha256": "91bba1d921ef880d93393dd9813cb069a2cae3b287cc2662a2406b5910666bd6"
+  },
+  "PROP-141": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Provider Sustainability Requires Cost-Revenue Compatibility",
+   "statement_sha256": "9801f2f518d86f45256ee343e2624bfce6ae04558daa111fa31dc720e41a8ac2"
+  },
+  "PROP-142": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Persistent Cost-Revenue Mismatch Creates Economic Pressure",
+   "statement_sha256": "6d039064ebe4fd1f4ef9f63da88fc8059f0826e1a1e5abd2a3444a9219583c2e"
+  },
+  "PROP-143": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Service Scope Affects Provider Resource Requirements",
+   "statement_sha256": "b74513ad128620d1c1278e7ae1c537ccdf081ec7d2643f42c1736838e39ea47b"
+  },
+  "PROP-144": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Pricing Architecture Can Influence Provider Economic Sustainability",
+   "statement_sha256": "2c7c7b1271b3ba50c149374843ef89679217d7c6a213abd542b8ab61f9b46628"
+  },
+  "PROP-145": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Constrained Cost Absorption May Be Answered Through Buyer-Facing Terms",
+   "statement_sha256": "3c8516c57acbde98cd66be9243771e19a2ede9089907aa078a0e37676423f655"
+  },
+  "PROP-146": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity Claims Are Distinct From Productivity Measurements",
+   "statement_sha256": "e6319f18a46a8dfcaa314f04586b2615dea8f70ad87e7341760daf1bde596f1a"
+  },
+  "PROP-147": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity Measurement Requires Observable Outcomes",
+   "statement_sha256": "1419426838df23ebba967772f3321fad537b02827eaedca28ce4bf1cceca8075"
+  },
+  "PROP-148": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Different Measurement Methods May Produce Different Results",
+   "statement_sha256": "71faac9b767f997f1a4c852bc7497e7b49056169dac1a57eb803e03e3b112665"
+  },
+  "PROP-149": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Measurement Scope Influences Reported Productivity",
+   "statement_sha256": "539c163bc5db2c64bb0cb4911909736a931fc38e6841ad11caa03d2fc0cf1880"
+  },
+  "PROP-150": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity Evaluation Depends Upon Measurement Criteria",
+   "statement_sha256": "df2b9e5e4f011dff63039d0465fad9c2c2977caebef48e506522bda318ba1d6c"
+  },
+  "PROP-151": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "System Usage Does Not Necessarily Create Productivity Gains",
+   "statement_sha256": "f88847af5de7448a2e32b0efe8e9876eac982b83deccc499816f3227c738dff9"
+  },
+  "PROP-152": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Workflow Adoption May Influence Productivity Outcomes",
+   "statement_sha256": "f0c387f9d59fbf721cc728acc45bceeab4eb8398c1146d45f916d759bab13bed"
+  },
+  "PROP-153": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity Gains May Differ Across Users",
+   "statement_sha256": "2e8cde4335fce935114c13c82b9b82e70323776cbfe84c29574f097b96f7f210"
+  },
+  "PROP-154": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity Gains May Differ Across Tasks",
+   "statement_sha256": "cc009b593412f9a3f5e38ec4439e636cbca84f04435c6def54fa4e93211a06da"
+  },
+  "PROP-155": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Realized Productivity Depends Upon Actual Use",
+   "statement_sha256": "dedf5b32bc534935ac5486b053ab0cd665ddbdefc01ace0dba0c7846ed9bf5e9"
+  },
+  "PROP-156": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Errors Can Produce Economic Consequences",
+   "statement_sha256": "d4f192430302a946c5024ada595d37e58cb92ea49dfd1d09e900c7ff76b34dad"
+  },
+  "PROP-157": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Error Frequency Influences Aggregate Error Exposure",
+   "statement_sha256": "da105df92d974d1940c833a163c2f873e13211ad74f2db8d00f968925cb6d2c9"
+  },
+  "PROP-158": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Error Severity Influences Economic Impact",
+   "statement_sha256": "09ff55de037ef1b903b83824536cb2d6bba3272886c0661bb518bc441b4a8b01"
+  },
+  "PROP-159": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Error Mitigation Consumes Resources",
+   "statement_sha256": "ef20a7c32b9cb6de5d42cee7ad1e06147cae2f6d604a82a36ceb02cbefd090ba"
+  },
+  "PROP-160": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Error Costs May Affect Productivity Outcomes",
+   "statement_sha256": "7c4212ef5bc61b15b0948bb38c779d9958544ca19ba2d3f2ffb53e99029fd050"
+  },
+  "PROP-161": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity Improvement Does Not Necessarily Equal Economic Value",
+   "statement_sha256": "39d3abd0b385b2e3261108af06db12252d1988f49d19a6e6234a39c57a3e0dcd"
+  },
+  "PROP-162": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic Value Depends Upon Context",
+   "statement_sha256": "4cdee9701836f81871c39149b1158167d508eb8f9b81bbe343ee990b6160848a"
+  },
+  "PROP-163": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Realized Value And Charges Paid Are Distinct Quantities",
+   "statement_sha256": "2e9f52f042c41a8bba08537b846088508929c24a966be74388414f5e4634304d"
+  },
+  "PROP-164": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Realized Value Depends Upon Actual Outcomes",
+   "statement_sha256": "12f7f7f0bc00cea2fcc222e1b92d0ef891008aa0b4d626faecdadde47a2fb29d"
+  },
+  "PROP-165": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "ROI Evaluation Depends Upon Cost And Value Assessment",
+   "statement_sha256": "1ea9638c2b78b73373ba838acbe3b8ed9f35abe2c7a1d696ea0fef225d33dc30"
+  },
+  "PROP-166": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Tasks Impose Performance Requirements",
+   "statement_sha256": "de7ecd6f44f7675d19f525035090df2a2e959cf568259f153b40d93510e077f1"
+  },
+  "PROP-167": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Performance Requirements May Differ Across Tasks",
+   "statement_sha256": "8575070cdf4eccf7989b972de4e58a52e0eab432669607dbd52fc5f2328ce771"
+  },
+  "PROP-168": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Task Context Influences Required Performance",
+   "statement_sha256": "b7050c5cf88ae2c61c10ee76511638caf90587cb3ffd1b7855d6692e151b731b"
+  },
+  "PROP-169": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "A Model Is Suitable Only Relative To A Task",
+   "statement_sha256": "c29a8b8f2448a63a7d618c1b10353601907f9af4226cb4432f4eab29ace84b56"
+  },
+  "PROP-170": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Task Suitability Is Distinct From General Capability",
+   "statement_sha256": "aad2b3d42e93f278924414c0470697b055179d8b78095f39a728c59d87f76c17"
+  },
+  "PROP-171": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Task Performance Requires Sufficient Capability",
+   "statement_sha256": "f83eff8103be30c26e1a309b30bd6f6d13e7eb0b860277e3d2c73b11e2090ecd"
+  },
+  "PROP-172": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capability Beyond Task Requirements May Be Economically Redundant",
+   "statement_sha256": "bf0336dcbd6f98b22853a31a5fa2c7c4727749140c92e9796edd64a575451bfe"
+  },
+  "PROP-173": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capability Sufficiency Is Threshold-Based",
+   "statement_sha256": "310f8b6ccae3f0ac7f46e02dcc98d7ef02f6ccd2d390e6188ecbf843a20c2a6f"
+  },
+  "PROP-174": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Higher Capability Does Not Necessarily Improve Economic Outcome",
+   "statement_sha256": "da5512e0da4d910667688e15843d7e3b616fe46129dcc758c38750f97574e767"
+  },
+  "PROP-175": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Capability Sufficiency Depends On Evaluation Criteria",
+   "statement_sha256": "6977e91e979f10bb4943e76f35d5eeb9a69c374de2769b4103fe59f90595e95d"
+  },
+  "PROP-176": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic Suitability Includes Cost And Performance",
+   "statement_sha256": "bee2d16b50029c37fc19c35e76d33bbc3572f90fafb932a6447867dfede8d4e2"
+  },
+  "PROP-177": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Lower-Cost Adequate Performance May Improve Economic Suitability",
+   "statement_sha256": "54ed70d2a0505d27ad64f28cef7425526270d435d32526cd1b06d4f452f5f3e8"
+  },
+  "PROP-178": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic Suitability Is Distinct From Technical Superiority",
+   "statement_sha256": "f3505bc1d4cdb628de873ffed53d37456c989fc5e86d610aca0fea4a995d718c"
+  },
+  "PROP-179": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic Suitability Depends On Deployment Context",
+   "statement_sha256": "d4037d6503867272807cc2458c5aa8716a6b1ebc9c986b25c9c32ec60130ede0"
+  },
+  "PROP-180": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model Choice Affects Buyer Total Cost",
+   "statement_sha256": "a4c417845c6d91a6994ccb5c8c7288844eb4b322e5e941fa0ec363b77f58ff13"
+  },
+  "PROP-181": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model Substitution Requires Functional Adequacy",
+   "statement_sha256": "9a1e86a0590154f5acafd39979b7fb07c029f0b2a7916b12b2f042f3235ee5ff"
+  },
+  "PROP-182": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Substitution May Change Cost Structure",
+   "statement_sha256": "f87c6b1483a8e4c2c32241b1656d0bdc963e5ddf33d53669715706a3eed41667"
+  },
+  "PROP-183": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Switching Requires Transition Activity",
+   "statement_sha256": "5dd8db39100e1ffae8c41d55752344fa27e2a64ec73668b7ee086648dfb6f91a"
+  },
+  "PROP-184": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Transition Activity May Create Switching Cost",
+   "statement_sha256": "be5e739f7db7f68150003f2524cee0517e1cd3383ed8189c822bf09e882b72e7"
+  },
+  "PROP-185": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Switching Cost Can Affect Substitution Feasibility",
+   "statement_sha256": "7df292e884e636688f268d52d9f8207ffdff85e1f88f70e0612692f78551312e"
+  },
+  "PROP-186": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Model Access Requires A Hosting Mechanism",
+   "statement_sha256": "ad838fabdbc6d2152b430573b3900d64d5a41fc0266e593f1a83d1d096de7964"
+  },
+  "PROP-187": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Hosting Mechanisms Consume Resources",
+   "statement_sha256": "401257b5c15541ea4a8683c9a7d47e719630322c0762aa02f7a8c284a47aec6f"
+  },
+  "PROP-188": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Different Hosting Mechanisms May Have Different Cost Structures",
+   "statement_sha256": "e063dc16fbf455a4ada31a1119ffc4f8fe7fbd31e16fcb5a172125e2cf48572f"
+  },
+  "PROP-189": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Hosting Architecture Influences Resource Allocation",
+   "statement_sha256": "65fe1b17be2e21e5743cd9250f766fce0685390104e8a78da2bc1a3fbabc1c80"
+  },
+  "PROP-190": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Infrastructure May Be Owned Or Accessed Through Third Parties",
+   "statement_sha256": "4137707a9a183fbfa3857eec0919907d01d125e765f3d8f0c97f6a4f3d9236d9"
+  },
+  "PROP-191": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Infrastructure Ownership Creates Resource Responsibility",
+   "statement_sha256": "80f9bad6b00f3769612cf2477509caaf71402bb460434521e21378ea8342927a"
+  },
+  "PROP-192": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Third-Party Infrastructure Transfers Operational Responsibility",
+   "statement_sha256": "7cf2f92d5475b2c694335e4c26d68d20de08bc273df80fb553c273c5543ae499"
+  },
+  "PROP-193": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Infrastructure Responsibility Influences Cost Allocation",
+   "statement_sha256": "1263673e978dbcb7d7221e4782dae3420d3cf48885962f7de3507758bf1c58bd"
+  },
+  "PROP-194": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Models May Differ In Resource Requirements",
+   "statement_sha256": "6895368712cddc2fa3aa3eff5dbb9904186bdb8b9c4409da80ecc9eec620e381"
+  },
+  "PROP-195": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Resource Requirement Differences Affect Consumption",
+   "statement_sha256": "17badea589fca88a488e4a732ee4b2f9bde2c4d620304da9a8dfdd9150b3dc6e"
+  },
+  "PROP-196": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Resource Consumption Differences May Affect Cost Exposure",
+   "statement_sha256": "326b1be0d216a4c053ae99afc3a692848448ad430f441b8d919886aefa41cf8c"
+  },
+  "PROP-197": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Efficiency Evaluation Depends Upon Defined Criteria",
+   "statement_sha256": "289b15e2824c3c04c8dbd2e2ca54485d41eb4ac65fbf40cc4692d34bb5385e34"
+  },
+  "PROP-198": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Options May Differ Across Models",
+   "statement_sha256": "99cccc95819e667bde3d63498c5f8e94246d02292c5768c9342bfdee5eeca4cc"
+  },
+  "PROP-199": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Flexibility Influences Implementation Choices",
+   "statement_sha256": "11572fdeb4776e33f699eed64286056b1ccbbd8e21f67c4cff8b1514030b2bfc"
+  },
+  "PROP-200": {
+   "type": "proposition",
+   "certified": true,
+   "blockers": [],
+   "name": "Deployment Characteristics Influence Economic Outcomes",
+   "statement_sha256": "869f8aa3a62bfd77349357535ccc3ea86e3678c7835b8718bda7b7d47484d097"
+  },
+  "PROP-201": {
+   "type": "proposition",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Measurement Gap Exists Under Claim-Measurement Divergence",
+   "statement_sha256": "7a5ddd48a89dd6a2418234167d4388d4417ac6f30ccf13a211bb241299c409a3"
+  },
+  "THM-001": {
+   "type": "theorem",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "AI Pricing Tends Toward Metered or Constrained Access",
+   "statement_sha256": "517399538490f1c21ed2a446db2835d2e826252e7bd7366f20b6af89e965b8c7"
+  },
+  "THM-002": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "AI Adoption Cost Is Underestimated When Access Price Is Treated as Total Cost",
+   "statement_sha256": "e91054198f1df162d2304a1ed1220564630cd7ff2cc984bf19f8041e31ec69e1"
+  },
+  "THM-003": {
+   "type": "theorem",
+   "certified": false,
+   "blockers": [
+    "excluded from the proof graph (review_status provisional)"
+   ],
+   "name": "Frontier Capability Does Not Imply Frontier Economic Suitability",
+   "statement_sha256": "7a8b9aa0d6ba9a58be2445320ed83606e7e262bd5059952b06f64b1bb923098d"
+  },
+  "THM-004": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "Scaled AI Deployment Requires Cost Governance for Economic Control",
+   "statement_sha256": "3ddd5475ea4c8a04b8d9e7298ea7e12f83547daf8a261f14ba6c502bbd38b2f1"
+  },
+  "THM-005": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "Productivity Claims Do Not Establish ROI",
+   "statement_sha256": "d0ad42a11854fe73b79a93e16468afcf35f23da5bbedeae1134e28fd8edd1921"
+  },
+  "THM-006": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "AI ROI Requires Both Cost Boundary and Value Boundary",
+   "statement_sha256": "07f1df7524547e43656382090595871604367dd7aaa9ba2977e603e8d88a31fe"
+  },
+  "THM-007": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "Provider Cost Exposure Supports Metered or Constrained Access Design",
+   "statement_sha256": "827086af0f1d8c120024b31efa0f42a847aa2c5a70c94b52120ceb016b12ddb9"
+  },
+  "THM-008": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "Technical Superiority Does Not Establish Economic Superiority",
+   "statement_sha256": "a0391b4f95cdeb1b774416f6633f0bea098f14b639d616847164dc504972e8c2"
+  },
+  "THM-009": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "AI Use Is Resource Consumption, Not Merely Software Access",
+   "statement_sha256": "4c0c45b2e45f9c08a302a84dd82bc9133b76cf203a00dc3e00c4f4ecd6a534d2"
+  },
+  "THM-010": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "Economic Control Requires Visibility Into the Managed Boundary",
+   "statement_sha256": "fe5fa4b3088e3bd5e96e6e3e9da9b46fefd42b71b5fefd8fffc0403000cfcecf"
+  },
+  "THM-011": {
+   "type": "theorem",
+   "certified": true,
+   "blockers": [],
+   "name": "Pilot Economics Do Not Establish Production Economics",
+   "statement_sha256": "2a1287be7f67f9f14f3bc715a45a1e20b50f72139505a885c1cc48cf402042b7"
+  }
+ },
+ "generated": "2026-08-21"
+}

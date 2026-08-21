@@ -68,6 +68,7 @@ SUITE = [
     ("print",      "print render + 15 gates",   "Stage 5"),
     ("web",        "web build + gates",         "Gate G2"),
     ("G3",         "G3   continuity",           "Gate G3"),
+    ("registry",   "registry objects",          "Gate G1"),
     ("record",     "checklist self-consistency", None),   # None: always binds
 ]
 
@@ -142,6 +143,11 @@ def build_commands(live, chapter, locked, no_print, checklist):
         "G3":         ["python3", "continuity.py", live,
                        "--chapter", str(int(chapter.replace("Ch", "")))],
         "record":     ["python3", "status_check.py", checklist],
+        # Owned by G1 because whether a chapter renders a real, CERTIFIED object
+        # under the registry's own name is structural, and G1 runs right after
+        # the draft, so a drafter finds out immediately rather than at G2.
+        "registry":   ["python3", "registry.py", "--check",
+                       chapter],
     }
 
     if no_print:
