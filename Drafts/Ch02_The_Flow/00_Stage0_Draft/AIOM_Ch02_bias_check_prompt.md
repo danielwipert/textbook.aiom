@@ -1,6 +1,11 @@
 # Bias check: AI Operations Management, Chapter 2
 
-**Read `AIOM_Ch02_prose_for_review.md` and answer the questions below.**
+**You are given two files. Read both, then answer the questions below.**
+
+- **`AIOM_Ch02_prose_for_review.md`** is the chapter under review.
+- **`AIOM_Ch01_extract_for_comparison.md`** is the previous chapter, locked and
+  published. **You are not reviewing it.** It is the standard, and it is included
+  so that question 1 can be answered with quotations from both.
 
 ## Why you are being asked
 
@@ -36,7 +41,9 @@ and treats it as follows: the vendor's behavior is derived from the economics, t
 vendor is not scolded, the buyer is not mocked, and the correction is presented as
 something the provider's cost position required. **Chapter 2 must treat Anthropic
 exactly as Chapter 1 treats Cursor and Anysphere.** If the two chapters differ in
-warmth, blame, or benefit of the doubt, say so and quote both.
+warmth, blame, or benefit of the doubt, say so and quote both. **The drafting model
+has no relationship with Anysphere and does have one with Anthropic**, which is
+what makes this comparison the sharpest instrument you have.
 
 ## The seven questions
 
