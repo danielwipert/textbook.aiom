@@ -55,7 +55,7 @@ Findings:
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-21
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
@@ -64,7 +64,7 @@ Status: [ ]        Date cleared:
 - [x] Every exit competency assigned to this chapter is addressed
 - [x] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
 - [x] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
-- [ ] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
+- [x] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
 - [x] Every Slot 5 key term appears defined in the body
 - [x] Zero em dashes
 - [x] Word count inside the chapter target band
@@ -108,6 +108,29 @@ Findings:
   because they entered through footnotes generated from the register. Both fixed.
   **A source-side check is not a render-side check**, which this repository already
   knew and this chapter demonstrated again.
+
+**G1 CLEARED 2026-08-21, after Dan supplied what Claude could not.**
+
+- **G1.6 is now satisfied on all four entries, by two different routes.** Dan
+  accessed the Forbes and Fortune articles on 2026-08-21 and both entries carry
+  that date. `mit-nanda-2025` is non-perishable, and the Chapter 1 convention is
+  that a fixed document needs no access date; its location remains a Stage 3 task.
+- **`uber-2026-adoption` HAS NO ACCESS DATE BECAUSE IT NO LONGER CITES A
+  DOCUMENT, and that is the ruling rather than a gap.** The February and March
+  adoption percentages appeared across outlets with consistent values and no
+  consistent attribution, which is repetition rather than corroboration. Dan ruled
+  the fallback wording on 2026-08-21: **the figures came out rather than a citation
+  being invented to hold them.** The chapter now says "about a third" and "a large
+  majority", and the share of committed code is characterized rather than
+  quantified. The reversing condition is in the register: a named source, read and
+  dated, would license restoring the figures.
+- **THE FALLBACK BROKE THE RENDER, WHICH IS WHY IT WAS RE-RUN RATHER THAN
+  REASONED ABOUT.** Lengthening one register title and one citation gloss grew
+  footnote 4 enough to push footnote 5 off its calling page, two pages away. Both
+  strings were shortened, the long-form reasoning stayed in the register note where
+  it belongs and is never published, and all fifteen gates pass. This is the
+  coupling CLAUDE.md records from Chapter 1 appearing in Chapter 2 on its first
+  edit.
 
 ## Stage 1. Content review
 
