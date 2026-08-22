@@ -1,7 +1,7 @@
 /* ============================================================
    AIOM_web.css
-   VERSION: 0.6  (the body face becomes Archivo)
-   DATE:    2026-08-14
+   VERSION: 0.7  (a citation URL breaks wherever it renders)
+   DATE:    2026-08-22
 
    The web presentation layer. Companion to AIOM_book.css, which remains the
    sole control of the PRINT appearance and is not touched by anything here.
@@ -113,6 +113,28 @@
    font-family on the way to the web the same way it remaps their colours. A
    policy repeated in three places is a policy that is wrong in two of them, so
    the three read one token rather than three copies of a name.
+
+   v0.7 (2026-08-22) UNSCOPES THE CITATION URL BREAK. The rule that lets a long
+   address wrap was written as ".src-text .url", which is the sources page, and
+   cite_format.py emits <span class="url"> on the landing page's specimen card
+   too. There the address inherited word-break: normal, so Chapter 2's
+   118-character Forbes URL set 438px wide and the whole document scrolled
+   sideways at every viewport at or below 480px. The selector is now bare .url,
+   which follows the emitter rather than one of its containers, and the address
+   gains the axis colour and the 0.9em size it already had on the sources page,
+   so the same element looks the same on both surfaces.
+
+   THE LIVE SITE NEVER CARRIED THIS. The landing page takes its specimen from
+   the first chapter built, which is Chapter 1, and no Chapter 1 address is long
+   enough to reach the edge. It surfaced on a single-chapter build of Chapter 2,
+   where Chapter 2 is the lead. A defect that only one chapter's data can raise
+   is still a defect in the stylesheet.
+
+   WHAT THIS DOES NOT FIX IS THE GATE. W6 sweeps two pages, the chapter and the
+   landing page, while W3, W5 and W4f run over all seven through gate_pages. The
+   sources, glossary, objects and search pages have never been swept for
+   horizontal overflow, and the sources page is clear here by accident of having
+   carried the scoped rule rather than by having been measured.
    ============================================================ */
 
 /* ---------- 1. FONTS ---------- */
@@ -1083,7 +1105,11 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
 .src-list li:target { background: var(--tint-thm); }
 .src-list li.soon .src-text { color: var(--axis); }
 .src-text { margin: 0 0 0.4rem; font-size: 0.95rem; line-height: 1.55; max-width: 46rem; }
-.src-text .url { word-break: break-all; color: var(--axis); font-size: 0.9em; }
+/* A CITATION URL BREAKS WHEREVER IT RENDERS, NOT ONLY INSIDE .src-text. The
+   selector was scoped to the sources list until v0.7, and cite_format emits
+   <span class="url"> onto the landing page's specimen card as well, where
+   .reg-cite gave it no break at all. See the v0.7 note in the header. */
+.url { word-break: break-all; color: var(--axis); font-size: 0.9em; }
 .src-meta { margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: baseline; }
 .src-key {
   font-family: "Jost", sans-serif; font-size: 0.7rem; letter-spacing: 0.06em;
