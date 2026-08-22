@@ -79,14 +79,15 @@ as a promise Chapter 2 makes to Chapter 1, and would write that phantom into the
 ledger at Stage 9. Same class as the gate 12 line-by-line defect and the first
 W16b.
 
-**A LESSON THAT SHOULD GRADUATE TO CLAUDE.md AND HAS NOT: a chapter figure is
-judged on the page, never from its coordinates.** Figure 2.2's first geometry ran
+**GRADUATED TO CLAUDE.md SECTION 6 ON 2026-08-22: a chapter figure is judged on
+the page, never from its coordinates.** Figure 2.2's first geometry ran
 its segment ticks the full height, so they sat hidden beneath both bars and dangled
 through the empty band between them; the render read as a grid and a reader could
 not count five segments under cost, which was the whole point. **Gate 12 passed both
 versions**, because it counts captions and in-text references and has no opinion
-about legibility. CLAUDE.md carries this rule for the drawn marks and not for
-chapter figures.
+about legibility. The rule was already in force for the drawn web marks and is now
+in force for chapter figures too, as a third manual item alongside the two the G2
+checklist marks.
 
 ---
 

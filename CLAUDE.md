@@ -427,6 +427,19 @@ curve paths that do not appear in `pdfplumber`'s `.rects`; that check and the
 page-level raster review are the two items marked MANUAL in the G2 checklist.
 Inspect both by eye.
 
+- **A FIGURE IS JUDGED ON THE PAGE, NEVER FROM ITS COORDINATES, and gate 12 has no
+  opinion about whether one is legible.** The gate counts captions, checks
+  numbering and order, and matches in-text references. A figure can pass all of
+  that and communicate nothing. Chapter 2's Figure 2.2 shipped a first geometry
+  whose segment ticks ran the full height of the drawing, so they sat hidden
+  beneath both bars and dangled through the empty band between them: the render
+  read as a grid, and a reader could not count the five segments the figure exists
+  to make countable. **Gate 12 passed that version and the corrected one
+  identically.** Rasterize the page and look at it, at the size it ships at. This
+  is the rule already in force for the drawn web marks, where three of nine were
+  redrawn after a contact sheet and one took three attempts, extended to chapter
+  figures, and it is a THIRD manual item alongside the two the G2 checklist marks.
+
 The build refuses to start without its toolchain (`pip install -r
 requirements.txt`, plus `poppler-utils`) and exits 2. A gate that did not run is
 not a gate that passed.
