@@ -156,10 +156,15 @@ Findings:
 outstanding and Dan has ruled nothing.** Findings in
 `01_G1_Structural_Gate/AIOM_Ch02_Stage1_findings.md`, five raised.
 
-- **S1-1 (HIGH). C3's specified assessment is missing entirely.** The competency
-  document requires a spot-the-error on three real quotes of three named types.
-  The chapter has no such exercise. Foreseen in the Stage 0 plan, never ruled, and
-  it is a sourcing burden rather than a writing one.
+- **S1-1 (HIGH). RULED BY DAN 2026-08-21: the spot-the-error moves to C6.**
+  Decision 74. The competency document required C3 to be assessed by a prose
+  derivation plus a spot-the-error on three real quotes, and the chapter had no such
+  exercise. Rather than commission three sources for it, the exercise joins C6's
+  existing sort-and-repair over cited statements, whose set must now cover
+  claimed-as-realized, netting-against-access-price and adoption-as-value.
+  **C3 keeps the prose derivation, which discussion question 3 already delivers, so
+  NO CHAPTER EDIT FOLLOWS and this finding is closed.** The competency map, the case
+  bank's CASE 6.3 gap, and the Workplan all carry the change.
 - **S1-2 (HIGH). C2 is demonstrated but never assessed.** The only mapping exercise
   is P1, which is worked, so the reader watches the diagnostic performed and is
   never asked to perform one. The specified marked-up flow diagram is also absent.

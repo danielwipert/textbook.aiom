@@ -615,6 +615,23 @@ Decisions 22 onward live here.
   structural check its preamble. Stage 1 gains seven sub-boxes including Dan's
   ruling, so `status_check.py` fails a Stage 1 ticked without it.
 
+- **Decision 74. RULED 2026-08-21.** C3's spot-the-error assessment moves to C6.
+  Raised as finding S1-1 at Chapter 2's Stage 1, the first content review run under
+  Decision 73. The competency map required C3 to be assessed in two parts, a prose
+  derivation and a spot-the-error on three real quotes, and the drafted chapter had
+  no such exercise. **The gap was a sourcing burden rather than a writing one**,
+  which is why it could not be fixed at Stage 2: three real, citable statements have
+  to exist before the exercise can. C6 already runs a sort-and-repair over eight
+  cited statements, so running two similar exercises four chapters apart split one
+  skill across two sourcing efforts. C6's assessment now must include at least one
+  each of claimed-as-realized, netting-against-access-price and adoption-as-value.
+  **C3 keeps the prose derivation, which Chapter 2 already delivers, so no chapter
+  edit follows from this ruling.** One flag is carried into Chapter 6's planning and
+  into the case bank: netting-against-access-price is a COST error rather than a
+  value-taxonomy error, so it may need Chapter 5's cost anatomy or Chapter 12's
+  boundary discipline to be answerable, and it is the hardest of the three to
+  source.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

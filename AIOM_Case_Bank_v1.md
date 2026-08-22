@@ -113,7 +113,22 @@ Rule: before print, every case cites its Grade A primary source directly.
 - Sources: MIT NANDA report (primary; obtain the PDF); Fortune interview with lead author Aditya Challapally. Grade A with noted caveats.
 - Placement: Ch2 or Ch6 teaching body; candidate for Ch3 discussion questions (have students critique the study's boundary discipline: a beautiful self-referential exercise).
 
-### CASE 6.3: [GAP] Six more classifiable value statements needed
+### CASE 6.3: [GAP] Classifiable value statements needed, and the requirement GREW on 2026-08-21
+
+- **The count was six. Decision 74 raises what the set must COVER rather than
+  simply its size.** C3's spot-the-error moved into C6's sort-and-repair, so the
+  cited statements must now include at least one each of claimed-as-realized,
+  netting-against-access-price, and adoption-as-value, alongside the
+  claimed/realized/productivity/measurement/ROI classification the assessment
+  already required.
+- **NETTING-AGAINST-ACCESS-PRICE IS THE HARD ONE TO SOURCE and it is not a value
+  error.** It is a cost error: a return set against the subscription price while
+  the consumption cost is ignored. A statement exhibiting it has to name a price
+  and a benefit in the same breath, which is rarer in public sources than a bare
+  productivity claim.
+- This gap was already the thinnest supply in the bank, and Chapter 2 has since
+  taken CASE 6.2, which was dual-placed for Chapter 2 or Chapter 6. **Chapter 6's
+  case supply should be built before Chapter 6 is drafted, not during.**
 - The C6 sort-and-repair assessment needs ~8 short real statements spanning the classification set (claimed value, realized value, productivity claim, productivity measurement, ROI claim). Have: Klarna (multiple statements), MIT-quoted executive lines. Need: earnings-call and press-release specimens from large deployers. Research pass 2 targets: major-bank AI value claims, big-tech Copilot seat claims, consultancy ROI multipliers (e.g., IDC/Microsoft "$3.7x" genre), retailer/airline deployment claims.
 
 ### CASE 6.4: Generative AI at work: the contact-center deployment (QJE, 2025)
