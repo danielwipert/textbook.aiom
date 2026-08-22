@@ -80,7 +80,7 @@ Rule: before print, every case cites its Grade A primary source directly.
   could not settle the question, because the apparatus has to exist before the
   deployment rather than after it. That is the craft section's retailer lesson with
   a real name attached. The per-seat licence also puts Chapter 1's meter relocation
-  in front of the reader inside a real deployment, which discussion question 5
+  in front of the reader inside a real deployment, which discussion question 4
   already asks about.
 - **THE COUNTS ARE NOT LOAD BEARING AND THE PROBLEM STATES NONE OF THEM
   PRECISELY.** Secondary coverage disagrees with itself on every count: agency

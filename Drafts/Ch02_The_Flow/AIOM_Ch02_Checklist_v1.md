@@ -140,12 +140,12 @@ Status: [ ]        Date cleared:
 
 > Is this the right chapter, not is it true. Read against AIOM_Structure_v1.md and AIOM_Exit_Competencies_v1.md. Structural findings only, no line edits and no fact checking: Stages 3 and 7 own truth and Stages 2 and 4 own prose. REASSIGNED FROM DAN TO CLAUDE, Decision 73: the work is comparison against two fixed documents, which needs no author and cost Dan hours. WHAT REPLACES HIM IS THE SECOND MODEL, NOT NOTHING. A chapter judged by the model that drafted it is self-marking, and the bias review of 2026-08-21 proved the cost: its most useful finding, BR5, was a STRUCTURAL one that Claude had not seen in its own work. Read ADVERSARIALLY: for each competency quote the WEAKEST evidence in the chapter and rule it, rather than asking whether the competency is met. Dan rules every finding; Claude rules none.
 
-- [ ] Every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
-- [ ] Every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
-- [ ] The anchor theorem is the right one and is load-bearing in the argument rather than decorative
-- [ ] Ledger obligations met: terms owned are defined, no earlier chapter's term is redefined, promises owed are paid
+- [x] Every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
+- [x] Every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
+- [x] The anchor theorem is the right one and is load-bearing in the argument rather than decorative
+- [x] Ledger obligations met: terms owned are defined, no earlier chapter's term is redefined, promises owed are paid
 - [ ] Nothing belonging to a later chapter is front-run
-- [ ] Second-model structural check received and its findings recorded verbatim
+- [x] Independent structural check received and its findings recorded verbatim. SUBSTITUTED FOR THIS CHAPTER ONLY, 2026-08-22: Dan read the chapter against the two documents himself, in an eight-question working session, rather than sending it to a second model
 - [ ] Dan has ruled every finding
 
 Findings:
@@ -204,6 +204,180 @@ outstanding and Dan has ruled nothing.** Findings in
 - **S1-5 (LOW).** THM-004 arrives in 2.7, after the argument it anchors. Ruled not a
   defect on the Chapter 1 exemplar, and recorded because the step requires the
   weakest reading to be stated rather than skipped.
+
+---
+
+### The eight-question structural check, run with Dan on 2026-08-22
+
+**WHAT THIS IS AND WHAT IT SUBSTITUTES FOR.** Decision 73 requires a second model
+to read the chapter against `AIOM_Structure_v1.md` and
+`AIOM_Exit_Competencies_v1.md` independently, because a chapter judged by the
+model that drafted it is self-marking. Dan ruled on 2026-08-22 that he would run
+that read himself, with Claude supplying the extracts and the evidence, and the
+eight questions in `AIOM_Ch02_Stage1_secondmodel_prompt.md` were worked in order.
+
+**WHAT THAT TRADES, STATED PLAINLY SO THE RECORD DOES NOT OVERCLAIM.** This was
+not an independent read. Claude drafted the chapter, wrote the five findings being
+checked, and supplied every extract Dan judged from, so the drafter framed the
+evidence at every question. What it gains instead is the only authority that
+outranks independence: Dan is the author and the final editor, and a finding he
+rules is settled rather than advisory. **It is stronger on authority and weaker on
+independence, and both halves belong on the record.**
+
+**THIS IS A ONE-CHAPTER SUBSTITUTION AND NOT AN AMENDMENT TO DECISION 73.**
+`gen_checklists.py` is unchanged and every later chapter still generates the
+second-model box. Whether Decision 73 should change is a separate ruling, and it
+is worth taking, because the decision was made eight days ago specifically to stop
+spending Dan's hours on this step and this session spent one.
+
+**Q1, do the competencies get DELIVERED.** Both now do, and neither did when the
+question was asked.
+- **C2** was satisfied by the CASE 2.2 ruling recorded under S1-2 above. Before it,
+  the marked-up diagram, the per-flow diagnosis and the cited real deployment sat
+  on three different exercises and no single one carried all three.
+- **C3 is delivered by discussion question 3**, and Dan ruled on 2026-08-22 that a
+  discussion question is enough for it. The weakest reading was stated first: after
+  Decision 74 the whole of C3's assessment is a prose derivation, and it sits in the
+  chapter's gentlest apparatus rather than in a problem. Dan ruled that the
+  derivation genuinely is a prose exercise and that inventing a problem to carry it
+  would pad the chapter. **NOTE ON NUMBERING: this question was put to Dan as "DQ4"
+  and it is DQ3.** The question was quoted verbatim in the framing, so the ruling
+  attached to the right text; the number was off by one and is corrected here and in
+  the case bank.
+
+**Q2, does the structure match the extract.** Two edits followed, both ruled.
+- **The big idea matches on all three clauses**, including the one checked
+  adversarially: section 2.4 gives each flow its own degradation behaviour rather
+  than establishing decay for the record flow and asserting it for the others.
+- **THM-004 is certified, its panel name is character-identical to the manifest, and
+  its four antecedents are set as a structured conditional per Decision 56.** What
+  the drafter could not see is that it formalizes only the governance consequence of
+  the big idea's third clause: the three-flow taxonomy and the degradation claim
+  carry no registry object at all. The registry has certified propositions covering
+  much of that ground, PROP-043, PROP-045, PROP-018, LEM-016, PROP-151 and AX-018
+  among them, and rule 4 forbids restructuring around any of them. **The defect was
+  not thin citation. It was that section 2.8 listed three things the chapter does not
+  claim and none of them was the provenance of its own central construct.** RULED AND
+  APPLIED: 2.8 now opens with a fourth limit saying the three flows are the book's
+  organizing construct and that THM-004 formalizes the consequence rather than the
+  taxonomy.
+- **The craft section claimed to be the recurring diagnostic and no chapter was
+  committed to running it.** Four forward references existed, to Chapters 3, 8, 10
+  and 12, and none was the mapping. G3 cannot fail a promise that was never made.
+  RULED AND APPLIED: the craft section names Chapter 8, and `continuity.py` now
+  reads that sentence as a forward reference, so Stage 9 logs it and G3 holds
+  Chapter 8 to it. **Verified rather than assumed**, by re-running the scraper.
+
+**Q3, is any of this another chapter's.**
+- **What S1-3 missed: section 2.7's three-part apparatus**, record, attribution and
+  constraint, which Chapters 8 and 10 build. **RULED NOT A BREACH by Claude and
+  reported because the step requires the weakest reading to be stated:** the three
+  parts are the three verbs of THM-004's fourth antecedent, and unpacking an
+  antecedent of the chapter's own anchor theorem is what a chapter is for.
+- **OPEN AND NEEDING DAN: the Decision 74 division.** Adoption-as-value is taught in
+  section 2.6 and, since yesterday, assessed in Chapter 6's sort-and-repair. The
+  Decision 74 note said the point was that the skill is taught once. Claude reads the
+  division as correct, because 2.6 needs the substitution to make the asymmetry land
+  and cannot defer it, but this is a consequence of yesterday's decision that neither
+  Dan nor Claude saw when it was made.
+
+**Q4, could any of the eight teaching sections be cut.** Seven are load-bearing on
+stated grounds. **Section 2.3 is the only section delivering no key term, no
+definition callout, no clause of the big idea, neither competency and not the
+anchor theorem**, and problem P4 rests on it alone; nothing else in the chapter
+depends on it, which was checked against the summary, the key terms, the callouts,
+the discussion questions and the other three problems. **DAN RULED OPTION B:** keep
+the section and move only the review-cadence prescription to Chapter 10. Applied.
+That paragraph was S1-3's second passage, so half of S1-3 is closed by this ruling,
+and the cut also removed one uncited frequency claim. **Honest accounting: it saved
+seven words. The gain was the boundary, not the length.**
+
+**Q5, what is structurally missing.** Three findings, all ruled in and applied.
+- **No real deployment in the chapter manages anything.** Every cited case comes back
+  incomplete and the only managed example is constructed. A diagnostic returning one
+  answer on every real input reads as a device for finding fault rather than an
+  instrument. **The craft section now says so**, as a scope claim about the search
+  rather than a claim about the world: no cited deployment was available on which the
+  mapping returns a clean flow. Dan ruled against hunting for one, on the reasoning
+  that the difficulty is the chapter's own argument.
+- **C3 had no figure and C2 had one.** Chapter 1 gives each of its two results a
+  figure. **Figure 2.2 now sets a complete cost across five workflows against a
+  return measured on two**, and names the remaining three unknown rather than zero,
+  which is the word the chapter says is load bearing.
+- **The three flows were never said to be coupled.** The craft section demonstrated
+  the coupling, a retailer manages its value half because a record already existed,
+  and never claimed it. Section 2.4 now states it, so a reader diagnosing two
+  unmanaged flows knows which to build first.
+
+**A FIGURE IS JUDGED ON THE PAGE, AND FIGURE 2.2's FIRST GEOMETRY WAS WRONG.** Its
+segment ticks ran the full height, so they sat hidden beneath both bars and dangled
+through the empty band between them: the render read as a grid and a reader could
+not count five segments under cost, which is the whole point of the figure. Rebuilt
+with the ticks inside the bars and over the fills, and read again at 190 dpi.
+**Gate 12 passed both versions**, because it counts captions and in-text references
+and has no opinion about whether a figure is legible. This is the same rule the
+accent pass recorded for the drawn marks, applied to a chapter figure.
+
+**Q6 to Q8, the review checking itself.**
+- **S1-4 IS OVERSTATED AND CLAUDE WITHDRAWS IT, SUBJECT TO DAN.** It said MIT NANDA
+  is spent in Chapter 2 against a Chapter 6 supply the bank records as a gap. The
+  bank was then read rather than remembered: CASE 6.2's placement line is "Ch2 or Ch6
+  teaching body" and what it documents is the unknown-value-fraction claim at market
+  scale, which is exactly Chapter 2's one use of it. CASE 6.3 needs classifiable
+  statements, which the bank sources from Klarna and from the MIT-quoted executive
+  lines. **A source is not a consumable, and the two chapters need different assets
+  from the same report.** What survives is the bank's standing note that Chapter 6's
+  supply should be built before Chapter 6 is drafted, and Pennsylvania is now banked
+  toward it.
+- **S1-3's two remaining passages are ruled not breaches by Claude, subject to Dan.**
+  The record flow's three locations in 2.2 exist for the sentence after the list,
+  that only the second and third belong to the buyer, and that ownership distinction
+  is what the craft section's step 3 turns on. The scope-attached ratio in 2.6 names
+  Chapter 12 in the same paragraph, which is the book's convention working rather
+  than a breach of it.
+- **S1-5 stands as recorded** and cannot cause rework, since it was already ruled not
+  a defect.
+
+**WHAT THE FIVE FINDINGS MISSED, in one list:** the taxonomy's provenance, the
+uncommitted recurrence, C3's missing figure, the missing coupling, the absence of
+any managed real deployment, and five uncited claims about what organizations
+usually do. Four are fixed, one is stated, one is handed to Stage 3.
+
+**HANDED TO STAGE 3, NOT RECORDED AS A STAGE 1 FINDING.** Five sentences claim what
+organizations usually do, with no citation and no derivation: "managers routinely
+underestimate it" (2.4), "Most organizations that believe they have cost governance
+have the first, sometimes the second, and rarely the third" (2.7), "Organizations
+are usually surprised by the second finding rather than the third" (craft), "the
+flow this mapping most often finds missing" (craft) and "which is more than most
+buyers do" (P3). **The last two were introduced on 2026-08-22 by the edits above.**
+Standing rule 2 allows citation, recasting as a formal conditional, or cutting, and
+no fourth option. A sixth candidate, "the record flow is skipped most often, and for
+structural reasons rather than careless ones", is ruled clean because section 2.5
+derives the structural reasons rather than asserting a frequency. Claude offered the
+recast and Dan has not called for it.
+
+**ONE REPO ITEM, BOOKED NOT FIXED.** `continuity.py` scrapes forward references from
+the whole chapter file, including the `<title>` element and the source register's
+`note` field, which gate W9b never publishes. It currently reads "the Chapter 1
+convention is that a fixed document..." out of a fact-checking note as a promise
+Chapter 2 makes to Chapter 1, and would log it into the ledger at Stage 9. Same
+class as the gate 12 line-by-line defect and the first W16b: a check reading the
+wrong input.
+
+**WHY THE LEDGER BOX IS TICKED WHILE G3 REPORTS FAIL.** `continuity.py` fails on one
+unpaid promise from Chapter 1, that problem sets begin reaching back to earlier
+chapters in Chapter 2. **The chapter pays it**: the note under the problems reads
+"Interleaving: question 4 and problem P2 require Chapter 1's results." Marking it
+paid is `continuity.py --pay 1`, a Stage 9 operation, and running it now would be
+editing the ledger to make a gate pass. Checks 1 and 4 of G3 are already clean:
+zero term redefinitions and zero registry-gloss drift.
+
+**STILL OUTSTANDING, AND ALL OF IT IS DAN'S.** Stage 1 cannot be ticked until:
+S1-3's two remaining passages are ruled; S1-4 is ruled either withdrawn as above or
+as originally written; S1-5 is confirmed; and the Decision 74 division question from
+Q3 is ruled. Claude rules none of them.
+
+---
 
 **Passing without qualification:** every slot serves the stated purpose, the craft
 section is built as the recurring instrument, no Chapter 1 term is redefined,

@@ -128,3 +128,14 @@ requires the weakest reading to be stated and ruled rather than skipped.
 Truth of any claim, which Stages 3 and 7 own twice over. Prose, wording and rhythm,
 which Stages 2 and 4 own. Every figure in this chapter remains unverified and the
 register says so at the top.
+
+---
+
+**THIS REVIEW HAS BEEN CHECKED, 2026-08-22.** Dan read the chapter against the two
+documents himself, working the eight questions in
+`AIOM_Ch02_Stage1_secondmodel_prompt.md` in order, rather than sending it to a
+second model. The full record, including what that substitution trades away, which
+of these five findings survived, and the six things they missed, is in the chapter
+checklist under "The eight-question structural check". **S1-4 is withdrawn there by
+Claude as overstated and awaits Dan's ruling. S1-3's two remaining passages and
+S1-5 also await him.**
