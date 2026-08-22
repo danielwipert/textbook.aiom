@@ -165,9 +165,22 @@ outstanding and Dan has ruled nothing.** Findings in
   **C3 keeps the prose derivation, which discussion question 3 already delivers, so
   NO CHAPTER EDIT FOLLOWS and this finding is closed.** The competency map, the case
   bank's CASE 6.3 gap, and the Workplan all carry the change.
-- **S1-2 (HIGH). C2 is demonstrated but never assessed.** The only mapping exercise
-  is P1, which is worked, so the reader watches the diagnostic performed and is
-  never asked to perform one. The specified marked-up flow diagram is also absent.
+- **S1-2 (HIGH). RULED BY DAN 2026-08-21: P3 converts to an independent mapping.
+  APPLIED, and one half of the finding remains open.** P3 was "Two organizations,
+  one number" and is now "Map a deployment you have not seen mapped": a constructed
+  regional-insurer deployment across three teams, requiring the reader to mark up
+  Figure 2.1's three tracks, diagnose each flow, and state what evidence would
+  overturn each diagnosis. Two traps are planted and named as present without being
+  identified. **The reader now performs the diagnostic rather than watching it, and
+  the specified marked-up flow diagram now exists as an exercise.**
+- **WHAT S1-2 DOES NOT SETTLE, AND IT NEEDS DAN.** C2's assessment specifies a
+  mapping "on a cited real deployment". The exercise the reader PERFORMS is now
+  constructed, because no second cited deployment is available that is not already
+  committed: CASE 6.4 is used in Chapter 1's craft section with its precise figures
+  reserved for Chapter 6, and CASE 5.2 is a pattern placed at Chapter 8. As it
+  stands the cited-real half of the assessment rests on P1, which is worked, and on
+  the opening case. **Either that division satisfies C2, or a second real deployment
+  must be sourced for Chapter 2.** Claude rules neither.
 - **S1-3 (MEDIUM).** Three passages sit close to Chapters 8, 10 and 12. All carry
   forward references, so the risk is spending later material early rather than
   front-running the argument.
