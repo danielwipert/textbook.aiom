@@ -1013,7 +1013,14 @@ rulings. What binds outside that document:
   were handed the chapter and nothing else, so the landing page was ungated from
   the moment it existed and shipped four straight apostrophes W3 would have failed
   instantly. `gate_pages()` now runs the page-level checks over every emitted page.
-  Add a page, add it there.
+  Add a page, add it there. **W6 CARRIED THE SAME DEFECT UNTIL 2026-08-22 AND IT
+  TOOK A SECOND CHAPTER TO EXPOSE IT.** It swept the chapter and the landing page,
+  so the sources, glossary, object index, search and 404 pages had never been
+  measured at any width. It now takes the output directory and sweeps every page
+  in it, and it SERVES THE TREE OVER HTTP rather than loading `file://`, because
+  the 404 page reaches its stylesheet by a root-absolute path and a `file://`
+  sweep would have measured it unstyled and called that a pass. An empty tree now
+  fails rather than reporting a clean sweep of nothing.
 - **PLANNING PROSE IS NOT PUBLISHABLE PROSE.** The site's part descriptions come
   from the Purpose lines in `AIOM_Structure_v1.md`, and only the FIRST SENTENCE is
   published. The rest is production talk: Part III's continues into
@@ -1389,6 +1396,25 @@ reads green while measuring nothing, or a record claiming work nobody did.
   page foot reads as an ordinary hyphen until the page turns.
 - **Rewording is not a fix for a break.** A break is a property of the measure, not
   of the sentence, so it returns at the next reflow.
+- **A TEXT LIFTED UNDER ONE RULE IS COMPARED ONLY TO TEXT EXTRACTED UNDER THE SAME
+  RULE, and gate W9 broke this until 2026-08-22.** It lifted the landing page's
+  specimen paragraph with the sidenote SKIPPED and looked for it in a page
+  extracted with the sidenote KEPT, so the note's words sat spliced into the
+  middle of the page's own copy and the lift was not a substring of it. **It
+  passed for as long as it did only because Chapter 1's specimen note falls at the
+  END of its paragraph.** Chapter 2's first note lands after the opening sentence,
+  and the gate failed a landing page that was correct in every character. This is
+  the same family as print gate 12 counting figure references line by line and as
+  W16b's first version measuring a font file against a rendering: **a check whose
+  two sides were prepared differently answers a question nobody asked.** Its
+  control is built from a minimal document rather than from a chapter, so it
+  states the shape of the fault and does not move when a chapter is edited.
+- **A SECOND CHAPTER IS A TEST INSTRUMENT, AND CHAPTER 2 FOUND THREE DEFECTS
+  BEFORE IT REACHED STAGE 2.** A stylesheet rule scoped to the wrong container, a
+  gate sweeping two pages of seven, and W9's mismatched extractions were all
+  invisible while one chapter existed, because Chapter 1's own data happened to
+  satisfy each of them. `web_gates_selftest.py` already synthesises a second
+  locked chapter for exactly this reason. **Expect the same shape from Chapter 3.**
 
 ### Sourcing and fact checking
 

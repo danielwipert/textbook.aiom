@@ -30,7 +30,7 @@ derived from the build's own output rather than copied forward.
 
 W1 text equivalence with print, W2 lock status, W3 typographic marks, W4
 structure, anchors and links, W5 document attributes, W6 horizontal overflow
-across a width sweep, W7 the book spine, W8 the reference layer against the
+across a width sweep on every emitted page, W7 the book spine, W8 the reference layer against the
 chapter, W9 the landing page quoted verbatim and no register note published,
 W10 deploy readiness, W11 no third-party request, W12 figure colours are tokens,
 W13 colour contrast in both themes, W14 claim preservation, W15 in-page
@@ -1710,13 +1710,29 @@ WIDTHS = [320, 360, 390, 414, 480, 620, 768, 900, 1024, 1180, 1240, 1300,
           1366, 1411, 1440, 1441, 1512, 1600, 1920, 2560]
 
 
-def gate_w6(page_path):
-    """Horizontal overflow across a width sweep. The web analogue of print gate 1.
+def gate_w6(outdir, base_path=""):
+    """Horizontal overflow across a width sweep, on EVERY emitted page.
 
     Print gate 1 fails a page whose content exceeds the measure, because an
     unbreakable string or an oversized table runs off the paper. The web has the
     same defect with a different symptom: the document scrolls sideways and every
     block on the page is dragged with it, not just the one that overflowed.
+
+    WIDENED FROM TWO PAGES TO ALL OF THEM, 2026-08-22 ON DAN'S RULING. It swept
+    the chapter and the landing page, so the sources, glossary, object index,
+    search and 404 pages had never been measured at any width. This is the rule
+    already recorded for W3 and W5 and closed there by gate_pages: a gate that
+    only ever sees one page is evidence about one page. It was not academic. A
+    citation URL breaks on the sources page only because the stylesheet happened
+    to scope the break rule there, and no sweep had ever established it.
+
+    IT NOW SERVES THE TREE OVER HTTP RATHER THAN LOADING file://, which is the
+    second half of the widening and not a refactor. The 404 page is the one page
+    that cannot use a relative asset path, because GitHub Pages serves it for any
+    missing address at any depth; under file:// its root-absolute stylesheet
+    resolves to the filesystem root, so a file:// sweep would have measured an
+    UNSTYLED 404 page and called the result a pass. That is the defect this
+    repository already recorded against every screenshot taken before W15.
 
     Requires a headless browser, which the build does not otherwise need, so it
     is OPTIONAL. It reports SKIPPED and is counted as skipped, never as passed.
@@ -1734,39 +1750,48 @@ def gate_w6(page_path):
 
     exe = next((p for p in glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")
                 if os.path.exists(p)), None)
+    # Globbed OUTSIDE the try, so a tree with no pages in it is a failure rather
+    # than a sweep that measures nothing and prints a pass. A check whose setup
+    # can fail on the fault it hunts needs that setup outside the catch-all.
+    pages = sorted(glob.glob(os.path.join(outdir, "**", "*.html"), recursive=True))
+    if not pages:
+        return ["W6: no pages were found to sweep, so nothing was measured"], True
     fails = []
     try:
-        with sync_playwright() as p:
+        with _serve(outdir, base_path) as origin, sync_playwright() as p:
             kw = {"args": ["--no-sandbox"]}
             if exe:
                 kw["executable_path"] = exe
             b = p.chromium.launch(**kw)
             pg = b.new_page(viewport={"width": 1512, "height": 900})
-            url = "file://" + os.path.abspath(page_path)
-            for w in WIDTHS:
-                pg.set_viewport_size({"width": w, "height": 900})
-                pg.goto(url)
-                pg.wait_for_timeout(120)
+            for page_path in pages:
+                label = os.path.relpath(page_path, outdir).replace(os.sep, "/")
+                url = origin + "/" + label
+                for w in WIDTHS:
+                    pg.set_viewport_size({"width": w, "height": 900})
+                    pg.goto(url)
+                    pg.wait_for_timeout(120)
                 # An element inside an overflow-x container legitimately
                 # extends past the viewport and is NOT the cause of a page
                 # scroll. Reporting it sends the reader after the wrong element,
                 # which is the defect already recorded against print gate 12's
                 # failure message. Those ancestors are excluded.
-                r = pg.evaluate(
-                    "() => {const d=document.documentElement; const o=[];"
-                    "const clipped = e => {for (let n=e.parentElement; n && n!==d;"
-                    "  n=n.parentElement) {const ox=getComputedStyle(n).overflowX;"
-                    "  if (ox==='auto'||ox==='scroll'||ox==='hidden') return true;}"
-                    "  return false;};"
-                    "document.querySelectorAll('body *').forEach(e=>{"
-                    "  if (e.getBoundingClientRect().right > d.clientWidth + 1"
-                    "      && !clipped(e))"
-                    "    o.push(e.tagName + '.' + (e.className||''));});"
-                    "return {sw:d.scrollWidth, cw:d.clientWidth,"
-                    "        over:[...new Set(o)].slice(0,3)};}")
-                if r["sw"] > r["cw"] + 1:
-                    fails.append(f"W6: page scrolls sideways at {w}px "
-                                 f"({r['sw']} > {r['cw']}), widest: {r['over']}")
+                    r = pg.evaluate(
+                        "() => {const d=document.documentElement; const o=[];"
+                        "const clipped = e => {for (let n=e.parentElement; n && n!==d;"
+                        "  n=n.parentElement) {const ox=getComputedStyle(n).overflowX;"
+                        "  if (ox==='auto'||ox==='scroll'||ox==='hidden') return true;}"
+                        "  return false;};"
+                        "document.querySelectorAll('body *').forEach(e=>{"
+                        "  if (e.getBoundingClientRect().right > d.clientWidth + 1"
+                        "      && !clipped(e))"
+                        "    o.push(e.tagName + '.' + (e.className||''));});"
+                        "return {sw:d.scrollWidth, cw:d.clientWidth,"
+                        "        over:[...new Set(o)].slice(0,3)};}")
+                    if r["sw"] > r["cw"] + 1:
+                        fails.append(f"W6 [{label}]: page scrolls sideways at "
+                                     f"{w}px ({r['sw']} > {r['cw']}), "
+                                     f"widest: {r['over']}")
             b.close()
     except Exception as exc:
         print(f"W6. horizontal overflow .. SKIPPED, browser unavailable ({exc.__class__.__name__})")
@@ -1774,7 +1799,8 @@ def gate_w6(page_path):
 
     if not fails:
         print(f"W6. horizontal overflow .. clean at {len(WIDTHS)} widths, "
-              f"{WIDTHS[0]}px to {WIDTHS[-1]}px")
+              f"{WIDTHS[0]}px to {WIDTHS[-1]}px, across {len(pages)} page(s) "
+              f"served at {base_path or chr(47)}")
     return fails, True
 
 
@@ -2490,13 +2516,27 @@ def gate_w9(spec, meta, index_html):
     reader ends up quoting a sentence the book does not contain.
     """
     fails = []
-    chapter_text = extract_text(meta["body"], skip_attrs=("data-note",))
-    idx_text = extract_text(index_html)
 
-    checks = [("theorem", extract_text(spec["theorem"])),
-              ("specimen paragraph",
-               extract_text(spec["spec_para"], skip_attrs=("data-note",)))]
-    for label, text in checks:
+    # A TEXT LIFTED UNDER ONE RULE IS COMPARED ONLY TO TEXT EXTRACTED UNDER THE
+    # SAME RULE, and this gate did not hold to that until 2026-08-22. The
+    # specimen paragraph was lifted with the sidenote SKIPPED and looked for in a
+    # landing page extracted with the sidenote KEPT, so the note's words sat
+    # spliced into the middle of the page's own copy of the paragraph and the
+    # lift was not a substring of it. That passed only while the specimen note
+    # fell at the END of its paragraph, which is true of Chapter 1 and false of
+    # Chapter 2, whose first note lands after the opening sentence. The gate then
+    # failed a landing page that was correct in every character.
+    #
+    # Same family as print gate 12 counting figure references line by line, and
+    # as W16b's first version measuring a font file against a rendering: a check
+    # whose two sides were prepared differently answers a question nobody asked.
+    # Each check now names the skip it lifts under, and both sides use it.
+    checks = [("theorem", (), spec["theorem"]),
+              ("specimen paragraph", ("data-note",), spec["spec_para"])]
+    for label, skip, html in checks:
+        text = extract_text(html, skip_attrs=skip)
+        chapter_text = extract_text(meta["body"], skip_attrs=skip)
+        idx_text = extract_text(index_html, skip_attrs=skip)
         if not text:
             fails.append(f"W9: no {label} could be lifted from the chapter")
         elif text not in chapter_text:
@@ -2504,7 +2544,10 @@ def gate_w9(spec, meta, index_html):
         elif text not in idx_text:
             fails.append(f"W9: the {label} was lifted but is not on the landing "
                          f"page, so the page and the chapter disagree")
-    if spec["spec_note"] and spec["spec_note"] not in idx_text:
+
+    # The note itself is a separate claim: the landing page must carry the
+    # sidenote text, so this one reads the page with nothing skipped.
+    if spec["spec_note"] and spec["spec_note"] not in extract_text(index_html):
         fails.append("W9: the specimen sidenote text is not on the landing page")
     if not fails:
         print(f"W9a. landing specimens ... theorem and specimen paragraph "
@@ -2757,9 +2800,6 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
         fails += gate_w14(path)
         if meta["pdf"]:
             fails += gate_w17(meta["pdf"], meta, path, meta["note_count"])
-        if not no_browser:
-            w6, ran = gate_w6(page)
-            fails += w6
 
     if pdf_skip:
         print(f"W17. print edition ....... SKIPPED, {pdf_skip}. No PDF is "
@@ -2793,17 +2833,18 @@ def build_site(chapter_paths, outdir, preview=False, no_browser=False,
     fails += gate_w9(lead["spec"], lead, index_html)
     fails += gate_w9b(open(chapter_paths[0], encoding="utf-8").read(), site_pages)
     fails += gate_pages(site_pages)
-    if not no_browser:
-        w6, _ = gate_w6(index)
-        fails += w6
     fails += gate_w3(llms, "llms.txt")
     fails += gate_w10(outdir, metas, notes, preview, llms, base_path)
     if not pdf_skip:
         fails += gate_w17c(outdir, metas)
-    # W15 walks the finished tree, so it runs after W10 has confirmed the tree
-    # is complete. Following a link on a page that was never emitted would fail
-    # for the wrong reason and send the reader after the wrong defect.
+    # W6 and W15 both walk the FINISHED tree, so they run after W10 has confirmed
+    # the tree is complete. Sweeping or following a link on a page that was never
+    # emitted would fail for the wrong reason and send the reader after the wrong
+    # defect. W6 ran per chapter and again on the landing page until 2026-08-22,
+    # which is why it never saw the reference layer or the 404 page.
     if not no_browser:
+        w6, _ = gate_w6(outdir, base_path)
+        fails += w6
         w15, _ = gate_w15(outdir, base_path)
         fails += w15
     fails += gate_w11(outdir)

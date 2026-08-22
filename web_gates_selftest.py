@@ -231,6 +231,86 @@ def _built_base():
     m = re.search(r"\]\((/[^)/]*)?/(?:ch\d\d|glossary)/", txt)
     return (m.group(1) or "") if m else ""
 
+def _w6_controls(results):
+    """Negative controls for gate W6, which sweeps every page for sideways scroll.
+
+    THE CONTROLS ARE ONE PER PAGE CLASS, BECAUSE THE GATE'S RECORDED FAILURE WAS
+    COVERAGE RATHER THAN DETECTION. Until 2026-08-22 W6 swept the chapter and the
+    landing page only, so the reference layer and the 404 page had never been
+    measured at any width. The chapter control below passed the whole time and
+    proved nothing about the other five pages, which is the point: a gate that
+    only ever sees one page is evidence about one page.
+
+    THE 404 CONTROL IS ALSO A CONTROL ON SERVING OVER HTTP. That page reaches its
+    stylesheet by a root-absolute path, because GitHub Pages serves it for any
+    missing address at any depth. Loaded from file:// it would come up unstyled,
+    and an unstyled page does not overflow, so a file:// sweep would report a
+    pass on the one page whose real layout it had never seen.
+    """
+    import shutil
+    src, tmp = "build/web", "build/web-selftest-w6"
+    # A block wider than any phone, of the kind the P3 inventory table was before
+    # wrap_tables put it in its own scroll box. Injected at body level so no
+    # overflow-x ancestor legitimately clips it.
+    WIDE = '<div style="width:3000px;height:20px">x</div></body>'
+
+    def fresh():
+        shutil.rmtree(tmp, ignore_errors=True)
+        shutil.copytree(src, tmp)
+        return tmp
+
+    fresh()
+    clean, ran = wb.gate_w6(tmp)
+    if not ran:
+        print("  [SKIP] W6 could not run, no headless browser. NOT a pass.")
+        results.append((True, "W6 skipped, reported as skipped", []))
+        shutil.rmtree(tmp, ignore_errors=True)
+        return
+    results.append((not clean, "W6 clean on the real site", clean))
+    print(f"  [{'ok  ' if not clean else 'MISS'}] "
+          f"{'W6 clean on the real site':<46} "
+          f"{clean[0][:70] if clean else 'no failure reported'}")
+
+    def run(label, rel):
+        fresh()
+        f = os.path.join(tmp, *rel.split("/"))
+        html = open(f, encoding="utf-8").read()
+        patched = html.replace("</body>", WIDE, 1)
+        if patched == html:
+            results.append((False, label + " (INJECTION DID NOT APPLY)", []))
+            print(f"  [MISS] {label:<46} the control never changed the page")
+            return
+        open(f, "w", encoding="utf-8").write(patched)
+        f6, _ = wb.gate_w6(tmp)
+        # The failure must name the page it is on, or a seven-page sweep sends
+        # the reader hunting. Print gate 12's misleading message is the record.
+        named = [x for x in f6 if rel in x]
+        results.append((bool(named), label, f6))
+        print(f"  [{'ok  ' if named else 'MISS'}] {label:<46} "
+              f"{f6[0][:70] if f6 else 'no failure reported'}")
+
+    run("a 3000px block on the chapter page", "ch01/index.html")
+    run("a 3000px block on the landing page", "index.html")
+    # The three the sweep could not see before 2026-08-22.
+    run("a 3000px block on the sources page", "sources/index.html")
+    run("a 3000px block on the glossary page", "glossary/index.html")
+    run("a 3000px block on the 404 page", "404.html")
+
+    # A sweep with nothing to sweep must FAIL, not report a clean pass. This is
+    # the shape of five recorded defects in this repository: a check switched off
+    # by the absence of its own input and reading green.
+    empty = "build/web-selftest-w6-empty"
+    shutil.rmtree(empty, ignore_errors=True)
+    os.makedirs(empty, exist_ok=True)
+    f6, _ = wb.gate_w6(empty)
+    results.append((bool(f6), "an empty tree measures nothing and fails", f6))
+    print(f"  [{'ok  ' if f6 else 'MISS'}] "
+          f"{'an empty tree measures nothing and fails':<46} "
+          f"{f6[0][:70] if f6 else 'no failure reported'}")
+    shutil.rmtree(empty, ignore_errors=True)
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
 def _w15_controls(results):
     """Negative controls for gate W15, which follows links in a real browser.
 
@@ -830,6 +910,31 @@ def main():
                        index_html.replace("resource-consuming operating activity",
                                           "REMOVED", 1)))
 
+    # THE REAL DEFECT, AND IT IS A CONTROL THAT MUST NOT FAIL. The specimen
+    # paragraph is lifted with the sidenote skipped; the landing page was read
+    # with the sidenote kept, so the note's words sat spliced into the middle of
+    # the page's own copy and the lift was not a substring of it. That passed
+    # only while the note fell at the END of its paragraph, which is true of
+    # Chapter 1 and false of Chapter 2, whose first note lands after the opening
+    # sentence. The gate failed a landing page correct in every character. Built
+    # from a minimal document rather than from a chapter, so the control states
+    # the shape of the fault and does not move when a chapter is edited.
+    mid = ('<p>Alpha beta gamma.<span class="note" id="fn-1" data-note="1">'
+           'DELTA EPSILON, the note text.</span> Zeta eta theta.</p>')
+    s9mid = {"theorem": "<p>A theorem sentence.</p>", "spec_para": mid,
+             "spec_note": "DELTA EPSILON, the note text."}
+    m9mid = {"body": "<p>A theorem sentence.</p>" + mid, "chapter_number": 2}
+    case("a specimen note in mid-paragraph, not at its end",
+         lambda: quiet(wb.gate_w9, s9mid, m9mid,
+                       "<html><body>" + s9mid["theorem"] + mid + "</body></html>"),
+         False)
+
+    # And the same document with the paragraph genuinely absent from the page
+    # still fails, so the fix above widened nothing it should not have.
+    case("a mid-paragraph specimen missing from the landing page",
+         lambda: quiet(wb.gate_w9, s9mid, m9mid,
+                       "<html><body>" + s9mid["theorem"] + "</body></html>"))
+
     # W9b. The register note quotes claims the book CUT. Publishing it would put
     # retracted claims on the most public surface the project has.
     case("W9b clean",
@@ -842,30 +947,7 @@ def main():
          lambda: quiet(wb.gate_w9b, chapter_src, [("index", leaked)]))
 
     print("\nW6, horizontal overflow across the width sweep")
-    page = "build/web-selftest/ch01/index.html"
-    clean, ran = wb.gate_w6(page)
-    if not ran:
-        print("  [SKIP] W6 could not run, no headless browser. NOT a pass.")
-        results.append((True, "W6 skipped, reported as skipped", []))
-    else:
-        results.append((not clean, "W6 clean on the real page", clean))
-        print(f"  [{'ok  ' if not clean else 'MISS'}] "
-              f"{'W6 clean on the real page':<46} "
-              f"{clean[0][:70] if clean else 'no failure reported'}")
-        # A block wider than any phone, of the kind the P3 inventory table was
-        # before wrap_tables put it in its own scroll box.
-        import os
-        bad_page = "build/web-selftest/overflow.html"
-        src = open(page, encoding="utf-8").read().replace(
-            "</article>",
-            '<div style="width:3000px;height:20px">x</div></article>', 1)
-        os.makedirs(os.path.dirname(bad_page), exist_ok=True)
-        open(bad_page, "w", encoding="utf-8").write(src)
-        f6, _ = wb.gate_w6(bad_page)
-        results.append((bool(f6), "a 3000px block widens the page", f6))
-        print(f"  [{'ok  ' if f6 else 'MISS'}] "
-              f"{'a 3000px block widens the page':<46} "
-              f"{f6[0][:70] if f6 else 'no failure reported'}")
+    _w6_controls(results)
 
     print("\nW10, llms.txt and the sitemap as lists of addresses")
     _llms_controls(results)
