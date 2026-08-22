@@ -130,6 +130,7 @@
 
 <p>An unmanaged cost-and-value flow accrues on one side only, and this is the asymmetry the chapter turns on. Cost arrives without anyone doing anything, because the meter is already running and the invoice already has an owner. Value does not arrive on its own. Somebody has to define what the deployment was supposed to improve, measure it before and after, and attribute the change. Nothing in the tool does that, and no invoice contains it.</p>
 
+<p>The three tracks are separated for diagnosis rather than because they run independently. The record flow is the one the other two depend on. Without it the usage flow cannot be compared against a plan, and the value half has nothing to attribute a change to.</p>
 <p>The decay is worth one concrete illustration, because managers routinely underestimate it. Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.</p>
 
 <h3 class="section"><span class="num">2.5</span>Why the record flow is the one that gets skipped</h3>
@@ -160,7 +161,37 @@
 
 <p>A stipulated example makes the arithmetic visible. Suppose a deployment costs one million over a year, and that figure is complete because it came from invoices. Suppose the organization has measured the return on two of the five workflows the tool touches, and those two show a combined benefit of four hundred thousand. The ratio a manager would compute is four hundred thousand against one million, and the deployment looks like a serious loss.</p>
 
-<p>Now notice what that ratio actually compares. The numerator covers two workflows and the denominator covers five. The comparison is not wrong because the numbers are wrong; both are accurate. It is wrong because the two figures have different scopes, and nothing on the page says so. The three unmeasured workflows might contribute nothing, or they might contribute more than the two that were measured. The organization has no basis for either belief, which is what “unknown” means.</p>
+<p>Now notice what that ratio actually compares. The numerator covers two workflows and the denominator covers five. The comparison is not wrong because the numbers are wrong; both are accurate. It is wrong because the two figures have different scopes, and nothing on the page says so. The three unmeasured workflows might contribute nothing, or they might contribute more than the two that were measured. The organization has no basis for either belief, which is what “unknown” means. Figure 2.2 sets the two quantities against the scope each covers.</p>
+
+<figure>
+<svg viewBox="0 0 360 108" xmlns="http://www.w3.org/2000/svg">
+<g font-family="Plex" font-size="6" fill="#6E6353" letter-spacing="1.1">
+<text x="0" y="27">COST</text>
+<text x="0" y="71">RETURN</text>
+</g>
+<rect x="64" y="17" width="288" height="16" fill="#E7DECB"/>
+<rect x="64" y="17" width="288" height="1.6" fill="#6E6353"/>
+<rect x="64" y="61" width="115.2" height="16" fill="#E7DECB"/>
+<rect x="64" y="61" width="115.2" height="1.6" fill="#C0521A"/>
+<rect x="179.2" y="61" width="172.8" height="16" fill="none" stroke="#6E6353" stroke-width="0.7" stroke-dasharray="3 3"/>
+<g stroke="#6E6353" stroke-width="0.4" fill="none">
+<path d="M121.6 17 L121.6 33"/><path d="M179.2 17 L179.2 33"/>
+<path d="M236.8 17 L236.8 33"/><path d="M294.4 17 L294.4 33"/>
+<path d="M121.6 61 L121.6 77"/><path d="M236.8 61 L236.8 77"/><path d="M294.4 61 L294.4 77"/>
+</g>
+<g font-family="Plex" font-size="6.6" fill="#2B2620">
+<text x="70" y="28">1,000,000</text>
+<text x="70" y="72">400,000</text>
+</g>
+<text x="252" y="72" font-family="Plex" font-size="6.6" fill="#C0521A">unknown</text>
+<g font-family="Plex" font-size="6" fill="#6E6353" letter-spacing="1.1">
+<text x="64" y="93">FIVE WORKFLOWS THE TOOL TOUCHES</text>
+</g>
+</svg>
+<figcaption><span class="fignum">Figure 2.2</span>Two quantities of different scope. The cost figure is complete and covers all five workflows, because billing covers all five. The measured return covers the two workflows somebody chose to measure. Setting one against the other produces a ratio whose numerator and denominator describe different things, and the three unmeasured workflows are not zero. They are unknown.</figcaption>
+</figure>
+
+
 
 <p>There is a reason organizations reach for adoption figures at this point, and it is not laziness. An adoption figure is available. It is produced automatically by the same systems that produce the cost, it rises when things are going well, and it can be presented without anyone having to define what the deployment was supposed to improve. It has every property a reporting metric needs except relevance.</p>
 
@@ -241,7 +272,7 @@
 
 <p>Notice that the mapping refuses to award the deployment a clean flow anywhere, on evidence that a casual reading would treat as success. That is the diagnostic working. An adoption percentage is the most available number in any deployment, and it answers a question about people rather than about consumption.</p>
 
-<p>A second mapping shows what a different answer looks like. The deployment below is constructed for this exercise and is not drawn from a source.</p>
+<p>A second mapping shows what a different answer looks like. The deployment below is constructed for this exercise and is not drawn from a source. No cited deployment was available on which the mapping returns a clean flow, and saying so is better than presenting a constructed case as though a real one had been found.</p>
 
 <p class="diagnostic">A retailer deploys an AI assistant to two hundred customer-service agents. Volumes are recorded per agent per shift, because the contact-center platform already recorded everything else per agent per shift. Cost is billed monthly to the service organization and broken out by queue. Before the deployment, the retailer measured average handling time and first-contact resolution for six months. It still measures both.</p>
 
