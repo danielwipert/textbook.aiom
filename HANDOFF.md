@@ -12,9 +12,10 @@ Working tree clean, `main` level with `origin/main` at `fdf92cf`, `git_hygiene.p
 reporting zero branches carrying work `main` does not have. Both CI workflows are
 green on the head: `web` succeeded, and `chapter` correctly did not run on the last
 two commits because they touched only `CLAUDE.md` and this file, which its path
-filter excludes. **ONE BRANCH IS FULLY MERGED AND NEEDS DAN TO DELETE IT**,
-`claude/ch02-stage0-open`, because the egress proxy denies ref deletion; run
-`git fetch --prune` afterwards.
+filter excludes. **NO BRANCH IS OUTSTANDING.** Dan deleted
+`claude/ch02-stage0-open` at the close and the prune ran, so the remote holds
+`main` alone and the local list agrees with it. The sweep was re-run afterwards
+and reports zero stranded and zero deletable.
 
 **CHAPTER 2 IS AT 2 OF 13 AND STAGE 1 IS PART CLEARED, 2026-08-22.** Stage 0 and
 Gate G1 passed 2026-08-21. **Five of Stage 1's seven sub-boxes are ticked and two
