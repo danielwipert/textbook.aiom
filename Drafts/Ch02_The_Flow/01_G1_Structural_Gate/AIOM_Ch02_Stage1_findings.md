@@ -50,6 +50,15 @@ perform it**, which is what an exit competency asserts. The cheapest repair is t
 convert P3 or P4 into an independent mapping on a second deployment, which would
 also give the craft section a second exercise.
 
+**DISPOSITION, 2026-08-22. CLOSED in two rulings.** Dan ruled P3 into an
+independent mapping on 2026-08-21, which was applied against a constructed
+insurer, and ruled on 2026-08-22 that the constructed deployment does not satisfy
+"a cited real deployment" and a second real one is required. P3 now runs on CASE
+2.2, the Australian Government trial of Microsoft 365 Copilot, and carries the
+marked-up diagram, the per-flow diagnosis and the cited real deployment on one
+exercise. The full disposition, including what was passed over and what Stage 3
+inherits, is in the chapter checklist.
+
 ## S1-3 (MEDIUM). Three passages sit close to later chapters' territory.
 
 None is a clear breach, and all three are the kind of judgment Dan should make

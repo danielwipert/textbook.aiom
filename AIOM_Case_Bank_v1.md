@@ -62,6 +62,53 @@ Rule: before print, every case cites its Grade A primary source directly.
   the same day. Nothing here has been verified against a primary by Claude, and
   Stages 3 and 7 remain external.
 
+### CASE 2.2 [RULED IN 2026-08-22]: The Australian Government whole-of-government trial of Microsoft 365 Copilot (January - June 2024)
+
+- What happened, per converging secondary coverage: the Australian Government ran
+  a six-month whole-of-government trial of Microsoft 365 Copilot from January to
+  June 2024. Around sixty agencies took part, each nominating the staff who would
+  receive licences, and several thousand licences were issued. The licence is
+  priced per seat rather than by unit of use. The Digital Transformation Agency
+  commissioned an independent evaluation, reported as conducted by Nous Group, and
+  published it in full. Participants reported using the tool a few times a week or
+  less and reported time savings from using it. The evaluation states that
+  participants assessed the effects themselves, which may understate or overstate
+  them, and that no measure of the work existed from before the trial began.
+- **WHY IT EARNS A PLACE BESIDE CASE 2.1: it inverts the Uber shape.** Uber teaches
+  a deployment that never built the value half at all. This teaches a deployment
+  that commissioned independent evaluators to build it after the fact and still
+  could not settle the question, because the apparatus has to exist before the
+  deployment rather than after it. That is the craft section's retailer lesson with
+  a real name attached. The per-seat licence also puts Chapter 1's meter relocation
+  in front of the reader inside a real deployment, which discussion question 5
+  already asks about.
+- **THE COUNTS ARE NOT LOAD BEARING AND THE PROBLEM STATES NONE OF THEM
+  PRECISELY.** Secondary coverage disagrees with itself on every count: agency
+  counts of 56, almost 60 and more than 60 all appear, and participant or licence
+  counts of more than 5,000, 5,765, nearly 6,000 and 7,600 all appear. The chapter
+  says "around sixty agencies" and "several thousand licences" deliberately, so a
+  corrected count does not invalidate the exercise. **Four claims are load bearing
+  and Stage 3 must confirm exactly those:** that the licence is priced per seat
+  rather than by unit of use; that agencies nominated their own participants; that
+  an independent evaluation was commissioned and published in full; and that the
+  evaluation stated both the self-assessment limitation and the absence of a
+  pre-trial measure.
+- Sources to chase, none yet read: the published evaluation itself (primary,
+  Digital Transformation Agency, digital.gov.au); the DTA release announcing it;
+  the separate Treasury evaluation of its own Copilot trial; secondary coverage in
+  The Mandarin and ARN. **Grade C until a primary is read.** The publication date
+  is recorded as the year only, because no source read gave a day.
+- Placement: Chapter 2, problem P3, the independent three-flow mapping. **Ruled in
+  by Dan on 2026-08-22 at Chapter 2 Stage 1**, on finding S1-2: competency C2's
+  assessment specifies a mapping on a cited real deployment, the constructed
+  insurer that first filled P3 did not satisfy it, and no already-banked case was
+  free to take the slot.
+- **Provenance, and this line is the scope claim: found 2026-08-22 by WebSearch
+  only. Claude read search-result summaries and NOT the evaluation, any article
+  about it, or any agency page.** WebFetch and curl are blocked by the container's
+  egress proxy. Stages 3 and 7 remain external.
+
+
 ## Chapter 4 shopping list: provider mechanism episodes (the playing field)
 
 ### CASE 4.1: OpenAI loses money on flat-rate Pro subscriptions (January 2025)
@@ -129,6 +176,17 @@ Rule: before print, every case cites its Grade A primary source directly.
 - This gap was already the thinnest supply in the bank, and Chapter 2 has since
   taken CASE 6.2, which was dual-placed for Chapter 2 or Chapter 6. **Chapter 6's
   case supply should be built before Chapter 6 is drafted, not during.**
+- **A CANDIDATE WAS FOUND AND DELIBERATELY WITHHELD FROM CHAPTER 2, 2026-08-22.**
+  Pennsylvania ran a twelve-month pilot of ChatGPT Enterprise across 175 employees
+  in fourteen agencies and published a report in March 2025. The reported headline
+  is an average of 95 minutes saved per day, restated publicly by the governor as
+  eight hours a week. **That is a self-reported productivity claim published as a
+  value figure, which is exactly what this gap is short of.** It surfaced while
+  searching for a Chapter 2 mapping case and was passed over for that purpose on
+  the reasoning that Chapter 2 would spend it on one flow-mapping exercise and
+  Chapter 6 would lose its clearest specimen. **Grade C, found by WebSearch, no
+  report and no article read.** It also carries a second usable statement, a
+  reported reduction of thirty days in onboarding time.
 - The C6 sort-and-repair assessment needs ~8 short real statements spanning the classification set (claimed value, realized value, productivity claim, productivity measurement, ROI claim). Have: Klarna (multiple statements), MIT-quoted executive lines. Need: earnings-call and press-release specimens from large deployers. Research pass 2 targets: major-bank AI value claims, big-tech Copilot seat claims, consultancy ROI multipliers (e.g., IDC/Microsoft "$3.7x" genre), retailer/airline deployment claims.
 
 ### CASE 6.4: Generative AI at work: the contact-center deployment (QJE, 2025)

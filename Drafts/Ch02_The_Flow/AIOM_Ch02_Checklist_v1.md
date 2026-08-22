@@ -165,22 +165,37 @@ outstanding and Dan has ruled nothing.** Findings in
   **C3 keeps the prose derivation, which discussion question 3 already delivers, so
   NO CHAPTER EDIT FOLLOWS and this finding is closed.** The competency map, the case
   bank's CASE 6.3 gap, and the Workplan all carry the change.
-- **S1-2 (HIGH). RULED BY DAN 2026-08-21: P3 converts to an independent mapping.
-  APPLIED, and one half of the finding remains open.** P3 was "Two organizations,
-  one number" and is now "Map a deployment you have not seen mapped": a constructed
-  regional-insurer deployment across three teams, requiring the reader to mark up
-  Figure 2.1's three tracks, diagnose each flow, and state what evidence would
-  overturn each diagnosis. Two traps are planted and named as present without being
-  identified. **The reader now performs the diagnostic rather than watching it, and
-  the specified marked-up flow diagram now exists as an exercise.**
-- **WHAT S1-2 DOES NOT SETTLE, AND IT NEEDS DAN.** C2's assessment specifies a
-  mapping "on a cited real deployment". The exercise the reader PERFORMS is now
-  constructed, because no second cited deployment is available that is not already
-  committed: CASE 6.4 is used in Chapter 1's craft section with its precise figures
-  reserved for Chapter 6, and CASE 5.2 is a pattern placed at Chapter 8. As it
-  stands the cited-real half of the assessment rests on P1, which is worked, and on
-  the opening case. **Either that division satisfies C2, or a second real deployment
-  must be sourced for Chapter 2.** Claude rules neither.
+- **S1-2 (HIGH). CLOSED 2026-08-22 IN TWO RULINGS, and it took both.** Dan ruled on
+  2026-08-21 that P3 becomes an independent mapping, which was applied against a
+  constructed regional insurer. **That satisfied half the assessment and not the
+  other half**, because C2 specifies a mapping "on a cited real deployment" and a
+  stipulated insurer is not one. Dan ruled the remaining half on 2026-08-22: a
+  second real deployment is required, and the split was not accepted.
+- **WHAT NOW SATISFIES C2.** P3 is "Map a deployment from a published evaluation"
+  and runs on CASE 2.2, the Australian Government whole-of-government trial of
+  Microsoft 365 Copilot, January to June 2024. The reader marks up Figure 2.1's
+  three tracks, diagnoses each flow with the evidence that settles it, states what
+  would overturn each diagnosis, and then sorts the three diagnoses into those
+  resting on what the published account establishes and those resting on what it
+  does not mention. **The specified marked-up flow diagram, the per-flow diagnosis
+  and the cited real deployment now sit on one exercise**, which is what the
+  assessment asks for and what no earlier arrangement delivered.
+- **WHY THIS CASE RATHER THAN ANOTHER, and what was passed over.** It inverts CASE
+  2.1 instead of repeating it: Uber never built the value half, and this
+  organization commissioned independent evaluators to build it after the fact and
+  still could not settle the question, because no measure of the work existed from
+  before the trial. The per-seat licence also puts Chapter 1's meter relocation
+  inside a real deployment. **Pennsylvania's ChatGPT Enterprise pilot was the other
+  candidate and was deliberately withheld**, because its self-reported 95 minutes
+  per day is the classifiable value statement CASE 6.3 is short of, and spending it
+  here would have worsened finding S1-4 rather than leaving it as it stands.
+- **WHAT THIS FINDING HANDS TO STAGE 3, and it is not a count.** CASE 2.2 is Grade
+  C: found by WebSearch on 2026-08-22, search summaries read, no evaluation and no
+  article read. Secondary coverage disagrees with itself on every count, so the
+  problem states none of them precisely. Four claims are load bearing and the
+  register names them: the per-seat licence, agency nomination of participants, the
+  commissioning and publication of an independent evaluation, and the evaluation's
+  own statements about self-assessment and the missing pre-trial measure.
 - **S1-3 (MEDIUM).** Three passages sit close to Chapters 8, 10 and 12. All carry
   forward references, so the risk is spending later material early rather than
   front-running the argument.
