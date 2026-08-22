@@ -1,13 +1,92 @@
 # Session handoff
 
-Last updated: 2026-08-22. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-22, at the close of the SECOND session that day. Read this
+plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-22 CLOSE: everything is on `main` and nothing is stranded.**
+**AT THE SECOND 2026-08-22 CLOSE: `main` is at `56fb93a`, both CI workflows are
+green on it, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree
+clean, local `main` level with `origin/main`, `git_hygiene.py` reporting zero
+branches carrying work `main` does not have. The branch is
+`claude/chapter-2-status-cuiie4`, fully merged and listed as safe to delete.
+**Deleting it needs Dan**, for the reason the standing reminder below has now
+recorded four times.
+
+**THE CHAPTER TEXT DID NOT MOVE. THE TOOLING DID.** Chapter 2 is where it was:
+2 of 13, Stage 1 part cleared, blocked on the same four rulings, all Dan's. What
+changed is three defects found and fixed, none of them in a chapter.
+
+**WHAT THE SESSION DID.** The container had no toolchain, so `chapter_check.py`
+was reporting the print render as FAILED on a chapter that passes it. Installing
+`poppler-utils`, the WeasyPrint system libraries and `requirements.txt` cleared
+that, and the full suite then found three real defects that one chapter could not
+have exposed:
+
+- **`AIOM_web.css` to v0.7, a citation URL now breaks wherever it renders.** The
+  rule was scoped to `.src-text .url`, which is the sources page, and
+  `cite_format.py` puts the same span on the landing page's specimen card. There
+  the address inherited `word-break: normal`, so Chapter 2's 118-character Forbes
+  URL set 438px wide and the document scrolled sideways at every viewport at or
+  below 480px. **The live site never carried it**, because the landing page takes
+  its specimen from `metas[0]`, which is Chapter 1.
+- **GATE W9 WAS COMPARING TWO TEXTS PREPARED DIFFERENTLY.** It lifted the specimen
+  paragraph with the sidenote SKIPPED and looked for it in a landing page extracted
+  with the sidenote KEPT, so the note's words sat spliced into the middle of the
+  page's own copy and the lift was not a substring of it. **It passed for as long
+  as it did only because Chapter 1's specimen note falls at the END of its
+  paragraph.** Chapter 2's first note lands after the opening sentence, and the
+  gate failed a landing page correct in every character.
+- **GATE W6 SWEPT TWO PAGES OF SEVEN.** The sources, glossary, object index, search
+  and 404 pages had never been measured at any width. It now takes the output
+  directory and sweeps every page in it, **serving the tree over HTTP rather than
+  loading `file://`**, because the 404 page reaches its stylesheet by a
+  root-absolute path and a `file://` sweep would have measured it unstyled and
+  called that a pass. An empty tree now fails rather than reporting a clean sweep
+  of nothing.
+
+**THE SELF-TEST GOES FROM 108 TO 115 CONTROLS.** Five for W6, one per page class
+including the 404 page, which also controls the HTTP serving, plus the empty-tree
+control. Two for W9, and the W9 control is built from a MINIMAL DOCUMENT rather
+than from a chapter, so it states the shape of the fault and does not move when a
+chapter is edited. It was checked against the old comparison to confirm it
+reproduces the real failure rather than a plausible one.
+
+**THE WEB SUITE IS STILL SEVENTEEN GATES.** No W number was added. Re-derive this
+from the build output rather than copying it forward, which is how it reached five
+documents last time.
+
+**CI WAS READ RATHER THAN TRUSTED.** `web` and `chapter` are both green on
+`56fb93a`, and the `web` log was grepped to confirm W6 actually RAN there:
+`W6. horizontal overflow .. clean at 20 widths, 320px to 2560px, across 7 page(s)
+served at /`, and `115/115 controls behaved as specified`. This mattered: a
+missing browser makes W6 print SKIPPED and the build pass anyway, so a green tick
+alone would have been evidence of nothing.
+
+**THE PINNED BROWSER STILL WILL NOT DOWNLOAD HERE, AND THE BROWSER GATES RUN
+ANYWAY.** `python -m playwright install chromium` fails on the pinned build, as
+CLAUDE.md records. It does not matter: `web_build.py` already globs
+`/opt/pw-browsers/chromium-*/chrome-linux/chrome` and passes it as
+`executable_path`, so W6, W15 and W16b/c run locally against the pre-installed
+Chromium 141 rather than the pinned build. **Nothing reported SKIPPED in this
+session.** Do not conclude from the failed install that the gates cannot run.
+
+**A TRAP WORTH KNOWING BEFORE IT COSTS A RUN: `web_build.py <chapter>` DEFAULTS
+`--out` TO `build/web`, WHICH IS THE SELF-TEST'S INPUT.** Building Chapter 2 with
+the documented one-chapter command overwrote the Chapter 1 site sitting there, and
+`web_gates_selftest.py` then crashed with a `FileNotFoundError` on
+`build/web-selftest-nav/ch01/index.html` rather than reporting a control it could
+not run. Rebuild `build/web` on Chapter 1, or pass `--out`, before running the
+self-test.
+
+**THE PREVIOUS 2026-08-22 CLOSE FOLLOWS. Its Chapter 2 record still holds in
+full; its repository state does not, and the sentence about no branch being
+outstanding is now false.**
+
+**AT THE FIRST 2026-08-22 CLOSE: everything is on `main` and nothing is stranded.**
 Working tree clean, `main` level with `origin/main` at `fdf92cf`, `git_hygiene.py`
 reporting zero branches carrying work `main` does not have. Both CI workflows are
 green on the head: `web` succeeded, and `chapter` correctly did not run on the last
@@ -1769,6 +1848,15 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
+**LIVE THREADS AS OF THE SECOND 2026-08-22 SESSION CLOSE. Unchanged in order and
+in content from the list below, with one item closed and one added: thread 5 loses
+nothing, since the `continuity.py` input defect is still open, and thread 8 gains
+nothing, since the three defects fixed today were found and closed in the same
+session. What is new is operational rather than a thread: ONE MERGED BRANCH,
+`claude/chapter-2-status-cuiie4`, waits on Dan to delete it.**
+
+**THE FIRST 2026-08-22 LIST FOLLOWS AND STILL STANDS.**
+
 **LIVE THREADS AS OF THE 2026-08-22 SESSION CLOSE, in order: 6 (CHAPTER 2, still
 the work and still the only thing anyone is waiting on, now at 2 of 13 with Stage 1
 blocked on four rulings that are all Dan's), 5 (process hardening, which has gained
@@ -2277,7 +2365,16 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
   "Write access to this GitHub API path is not permitted through this proxy". The
   reconnected GitHub MCP server offers `create_branch` and no delete, so that
   route is closed too. **Run `git fetch --prune` after Dan confirms**, or the
-  local tracking ref outlives the branch it tracks. This matters because the
+  local tracking ref outlives the branch it tracks. **CONFIRMED A FOURTH TIME ON
+  2026-08-22, AND THE SESSION SPENT FIVE ATTEMPTS RE-DERIVING IT, WHICH THIS
+  REMINDER EXISTS TO PREVENT.** Four `git push origin --delete` attempts with
+  backoff, one `git push origin :refs/heads/...`, and one REST ref delete: the git
+  route reported "the remote end hung up unexpectedly" then "Everything
+  up-to-date", and the API answered 403 "Write access to this GitHub API path is
+  not permitted through this proxy". **Read this paragraph before trying, not
+  after.** `claude/chapter-2-status-cuiie4` is the branch outstanding as of that
+  close; the local copy was deleted and `git fetch --prune` will clear the tracking
+  ref once Dan runs the one-liner. This matters because the
   2026-08-12 stranding was made hard to see by thirteen merged and undeleted
   branches, so the cleanup rule is real even though Claude cannot execute it.
   **The working pattern that settled this: Claude finishes, verifies fully
