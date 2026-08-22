@@ -597,6 +597,24 @@ Decisions 22 onward live here.
   written, and three negative controls prove the check fails on a wrong name, an
   uncertified object and a missing one.
 
+- **Decision 73. RULED 2026-08-21.** Stage 1, the content review, moves from Dan to
+  Claude, with a second model as the independent check and Dan ruling the findings.
+  Dan's reasoning: the step compares a chapter against two fixed documents, there is
+  no advantage in a human doing it, and it took him hours per chapter. **The design
+  question was not whether he should do it but what replaces him.** A chapter judged
+  by the model that drafted it is self-marking, and this project has both receipts:
+  Chapter 1's craft verdict rests on one read by the model that drafted it and wrote
+  the standard it grades against, and the 2026-08-21 bias review found a STRUCTURAL
+  defect, that Chapter 2's craft diagnostic failed the test its own section sets,
+  which Claude had not seen in its own work. So the second model reads the chapter
+  against `AIOM_Structure_v1.md` and `AIOM_Exit_Competencies_v1.md` independently,
+  and **Dan rules every finding while Claude rules none**, which keeps the line
+  CLAUDE.md draws: Claude drafts and builds, Claude does not rule. Stage 1 and
+  Stage 2 stay SEPARATE, because they ask different questions and the developmental
+  read is the longer and more absorbing of the two, so merging would make the
+  structural check its preamble. Stage 1 gains seven sub-boxes including Dan's
+  ruling, so `status_check.py` fails a Stage 1 ticked without it.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

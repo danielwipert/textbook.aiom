@@ -481,7 +481,7 @@ the other and reporting success.
 |------|------|-------|
 | Stage 0 | Draft | C |
 | G1 | Structural gate | C |
-| Stage 1 | Content review | D |
+| Stage 1 | Content review | C; second model checks; Dan rules |
 | Stage 2 | Developmental edit | C; Dan gut-checks with a second model |
 | Stage 3 | Source and fact check 1 | D |
 | Stage 4 | Voice and craft check | C |
@@ -492,6 +492,19 @@ the other and reporting success.
 | G3 | Continuity gate | C |
 | Stage 8 | Final read | D |
 | Stage 9 | Locked | C |
+
+**Stage 1, content review. REASSIGNED FROM DAN TO CLAUDE, Decision 73, 2026-08-21.**
+Is this the right chapter, not is it true. Read against `AIOM_Structure_v1.md` and
+`AIOM_Exit_Competencies_v1.md`; structural findings only. The work is comparison
+against two fixed documents, which needs no author and cost Dan hours per chapter.
+**WHAT REPLACES HIM IS THE SECOND MODEL, NOT NOTHING.** A chapter judged by the
+model that drafted it is self-marking, and the 2026-08-21 bias review priced that
+exactly: its most useful finding was STRUCTURAL, that Chapter 2's craft diagnostic
+failed the test its own section 2.2 sets, and Claude had not seen it. Claude writes
+numbered findings, a second model reads the chapter against the same two documents
+independently, and **Dan rules every finding and Claude rules none.** The seven
+sub-boxes include Dan's ruling, so `status_check.py` fails a Stage 1 ticked without
+it.
 
 **Stage 2, developmental edit.** The teaching-quality pass, held early so its
 line edits land before fact check, voice, design, and production, and do not
@@ -540,7 +553,9 @@ Sequencing rules:
   reopen at the price of one more round trip. It is the right trade because a
   reopen re-runs several steps and a round trip re-runs none, and because Stage 8
   now reads a chapter every check has already cleared. Stage 1 still may not be
-  batched with anything: it runs early or it is worthless.
+  batched with anything, and the reason changed with Decision 73: it is no longer
+  about Dan's attention but about cost, since a structural finding is cheapest
+  before any downstream step has run.
 - A reopen after Stage 9 re-runs every step from the one that owns the change.
 - No chapter is Locked until every step is complete.
 - **A PASSED STEP IS A CLAIM, AND `chapter_check.py` HOLDS IT (Decision 69).**

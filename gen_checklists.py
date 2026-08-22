@@ -65,9 +65,31 @@ STAGES = [
          "Gloss-less lemmas carry a book-authored gloss, marked as such",
      ]),
 
-    ("1", "Content review", "Dan",
-     "Is this the right chapter, not is it true. Read against the outline and "
-     "the competency map. Structural findings only, no line edits.", []),
+    ("1", "Content review", "Claude; second model checks; Dan rules",
+     "Is this the right chapter, not is it true. Read against "
+     "AIOM_Structure_v1.md and AIOM_Exit_Competencies_v1.md. Structural "
+     "findings only, no line edits and no fact checking: Stages 3 and 7 own "
+     "truth and Stages 2 and 4 own prose. REASSIGNED FROM DAN TO CLAUDE, "
+     "Decision 73: the work is comparison against two fixed documents, which "
+     "needs no author and cost Dan hours. WHAT REPLACES HIM IS THE SECOND "
+     "MODEL, NOT NOTHING. A chapter judged by the model that drafted it is "
+     "self-marking, and the bias review of 2026-08-21 proved the cost: its "
+     "most useful finding, BR5, was a STRUCTURAL one that Claude had not seen "
+     "in its own work. Read ADVERSARIALLY: for each competency quote the "
+     "WEAKEST evidence in the chapter and rule it, rather than asking whether "
+     "the competency is met. Dan rules every finding; Claude rules none.", [
+         "Every slot serves the chapter's stated purpose in AIOM_Structure_v1.md",
+         "Every assigned exit competency is DELIVERED, not merely discussed: a "
+         "reader could perform it",
+         "The anchor theorem is the right one and is load-bearing in the "
+         "argument rather than decorative",
+         "Ledger obligations met: terms owned are defined, no earlier "
+         "chapter's term is redefined, promises owed are paid",
+         "Nothing belonging to a later chapter is front-run",
+         "Second-model structural check received and its findings recorded "
+         "verbatim",
+         "Dan has ruled every finding",
+     ]),
 
     ("2", "Developmental edit", "Claude",
      "Teaching quality, held early so its line edits do not churn fact check, "
