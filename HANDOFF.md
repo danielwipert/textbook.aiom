@@ -1,18 +1,100 @@
 # Session handoff
 
-Last updated: 2026-08-19. Read this plus CLAUDE.md before starting work, and
+Last updated: 2026-08-22. Read this plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**CHAPTER 2 IS DRAFTED AT STAGE 0 AND AWAITING THE SECOND-MODEL BIAS CHECK,
-2026-08-21.** 6,547 words, inside the Decision 33 band, mechanically clean on
-`voicecheck` and house style, with the registry check passing because THM-004's
-panel name matches the pinned manifest. **It is at 0 of 13 and nothing has been
-ticked**, so the suite reports without binding, which is Decision 69 working as
-designed on the first chapter drafted under it.
+**CHAPTER 2 IS AT 2 OF 13 AND STAGE 1 IS PART CLEARED, 2026-08-22.** Stage 0 and
+Gate G1 passed 2026-08-21. **Five of Stage 1's seven sub-boxes are ticked and two
+are not, and both of those are Dan's.** 7,257 words, inside the Decision 33 band
+with roughly 240 words of headroom. `voicecheck` and house style pass, the print
+render passes all fifteen gates, `registry.py --check` passes, W14 passes. The web
+build and G3 report failures and neither binds: the chapter is not locked so W2
+fails by design, and G3 fails on one Chapter 1 promise that a Stage 9 marking
+operation pays.
+
+**STAGE 1 WAS RUN AS AN EIGHT-QUESTION WORKING SESSION WITH DAN RATHER THAN SENT TO
+A SECOND MODEL.** Dan ruled on 2026-08-22 that he would read the chapter against
+`AIOM_Structure_v1.md` and `AIOM_Exit_Competencies_v1.md` himself, with Claude
+supplying the extracts and the evidence. **The full record is in the Chapter 2
+checklist under "The eight-question structural check", and it states what the
+substitution trades**: it is not an independent read, because the drafter wrote the
+chapter, wrote the five findings under review and framed every extract, and it
+gains instead the only authority that outranks independence. **This is a
+one-chapter substitution. `gen_checklists.py` is unchanged and every later chapter
+still generates the second-model box.**
+
+**DECISION 73 IS WORTH REVISITING AND NOBODY HAS RULED IT.** It was made on
+2026-08-21 specifically to stop spending Dan's hours on Stage 1, and the very next
+chapter spent one. Either the second model does this step or Dan does; doing it
+together is a third thing that was not designed.
+
+**SIX EDITS LANDED IN THE CHAPTER ON 2026-08-22, ALL FROM DAN'S RULINGS.** P3 is
+rebuilt on CASE 2.2 so competency C2's marked-up diagram, per-flow diagnosis and
+cited real deployment sit on one exercise. Section 2.8 states that the three flows
+are the book's construct and not a result of the science. The craft section names
+Chapter 8 as where the mapping returns, which `continuity.py` now reads as a
+promise G3 will enforce. Section 2.3 keeps its funding mismatch and hands the
+review cadence to Chapter 10. Figure 2.2 gives C3 the figure it did not have.
+Section 2.4 states the coupling between the flows, and the craft section says why
+its clean example is constructed.
+
+**CASE 2.2 IS NEW AND IS GRADE C: the Australian Government whole-of-government
+trial of Microsoft 365 Copilot, January to June 2024.** Dan ruled that a
+constructed deployment does not satisfy C2's "cited real deployment" and that a
+second real one was required. It was chosen because it INVERTS the opening case
+rather than repeating it: this buyer commissioned an independent evaluation,
+published it, and still could not establish value, because no measure of the work
+existed from before the trial. **Found by WebSearch, no evaluation and no article
+read.** Secondary coverage disagrees with itself on every count, so the problem
+states none of them and the register names the four claims that are load bearing
+for Stage 3. **Pennsylvania's ChatGPT Enterprise pilot was the other candidate and
+was deliberately withheld**, banked against the CASE 6.3 gap because its
+self-reported 95 minutes per day is the classifiable value statement Chapter 6 is
+short of.
+
+**FOUR RULINGS BLOCK STAGE 1 AND ALL FOUR ARE DAN'S.** S1-3's two remaining
+passages, which Claude rules not breaches. S1-4, which **Claude withdraws as
+overstated**: the case bank was read rather than remembered, CASE 6.2's placement
+line is "Ch2 or Ch6 teaching body", and a source is not a consumable. S1-5, ruled
+not a defect and needing confirmation. And the Decision 74 division question, which
+neither Dan nor Claude saw when Decision 74 was made yesterday: adoption-as-value is
+now taught in Chapter 2 and assessed in Chapter 6, and the decision's own note said
+the skill should be taught once.
+
+**HANDED TO STAGE 3: five uncited claims about what organizations usually do**, in
+2.4, 2.7, the craft section twice and P3. **Two of the five were introduced on
+2026-08-22 by the edits above.** Standing rule 2 allows citation, recasting as a
+formal conditional, or cutting, and no fourth option. Claude offered the recast and
+Dan has not called for it.
+
+**BOOKED AND NOT FIXED: `continuity.py` reads the wrong input.** It scrapes forward
+references from the whole chapter file, including the `<title>` element and the
+source register's `note` field, which gate W9b never publishes. It currently reads
+"the Chapter 1 convention is that a fixed document..." out of a fact-checking note
+as a promise Chapter 2 makes to Chapter 1, and would write that phantom into the
+ledger at Stage 9. Same class as the gate 12 line-by-line defect and the first
+W16b.
+
+**A LESSON THAT SHOULD GRADUATE TO CLAUDE.md AND HAS NOT: a chapter figure is
+judged on the page, never from its coordinates.** Figure 2.2's first geometry ran
+its segment ticks the full height, so they sat hidden beneath both bars and dangled
+through the empty band between them; the render read as a grid and a reader could
+not count five segments under cost, which was the whole point. **Gate 12 passed both
+versions**, because it counts captions and in-text references and has no opinion
+about legibility. CLAUDE.md carries this rule for the drawn marks and not for
+chapter figures.
+
+---
+
+**SUPERSEDED 2026-08-21, KEPT BECAUSE ITS SOURCING RECORD STILL HOLDS. Chapter 2 at
+Stage 0, awaiting the second-model bias check.** 6,547 words. The bias check ran,
+nine of its ten findings were accepted and applied, and the chapter has since
+passed G1 and moved into Stage 1; the word count and the "0 of 13" below are both
+out of date.
 
 **THE OPENING CASE IS CASE 2.1, RULED IN BY DAN**: Uber exhausting its 2026 AI
 budget four months into the year after Claude Code spread across roughly 5,000
@@ -1676,6 +1758,20 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
+**LIVE THREADS AS OF THE 2026-08-22 SESSION CLOSE, in order: 6 (CHAPTER 2, still
+the work and still the only thing anyone is waiting on, now at 2 of 13 with Stage 1
+blocked on four rulings that are all Dan's), 5 (process hardening, which has gained
+two items today: whether Decision 73 should change, and the `continuity.py` input
+defect), 11 (the print suite's missing negative controls, still open and still the
+thing that gets worse without them), 8 (the web edition, whose remaining item is the
+undecided `llms-full.txt`), 10 (the Northmoor CSVs), 3 (design gaps), 7 (Decision
+28). Chapter 1 still carries two STALE manual G2 boxes needing a human read.**
+
+**WHAT IS ACTUALLY BLOCKING, IN ONE LINE:** S1-3's two passages, S1-4, S1-5 and the
+Decision 74 division question. Nothing else in the repository is waiting on anybody.
+
+**THE 2026-08-19 LIST FOLLOWS, superseded by the paragraph above.**
+
 **LIVE THREADS AS OF THE 2026-08-19 SESSION CLOSE, in order: 6 (CHAPTER 2, still
 the work and still the only thing anyone is waiting on, and now the first chapter
 to run under Process v3 and the continuous suite), 11 (the print suite's missing
@@ -2297,14 +2393,26 @@ has already paid for repeatedly. Read them there, not from memory:
   requirements.txt`, then `apt-get update -qq && apt-get install -y
   poppler-utils`. The build exits 2 without them. The 403s from unrelated
   third-party PPAs during that apt-get are harmless.
-- **NO SOURCE HOST IS REACHABLE FROM THIS ENVIRONMENT.** Verified 2026-08-06
-  against six hosts; all fail CONNECT with a gateway 403 recorded as a policy
-  denial. Do not offer to check a primary. Do not treat a register note as a
-  substitute for one either; say which it is.
+- **WEBSEARCH WORKS AND WEBFETCH DOES NOT. Corrected 2026-08-21, and this entry
+  used to say the opposite.** No source host answers `curl` or `WebFetch`: verified
+  2026-08-06 against six hosts, re-confirmed 2026-08-21 against fortune.com, all
+  failing CONNECT with a gateway 403 recorded as a policy denial. **WebSearch does
+  not use that path and returns results.** So Claude CAN discover candidate sources
+  and see converging secondary coverage, and CANNOT read a primary, verify a
+  quotation, or check a figure against the document it came from. Do not offer to
+  check a primary. **A case found by search is filed at Grade C with a provenance
+  line saying search summaries were read and no article was.** Do not treat a
+  register note as a substitute for a source either; say which it is.
 - The proxy blocks `raw.githubusercontent.com` and the Google Fonts CDN. Report
   policy denials, do not route around them.
 - To reopen a chapter use `reopen.py`, never `gen_checklists.py --force`. After a
   reopen, check the box TEXT against the generator, not only the ticks.
-- Stage folders are on Process v2 numbering across all eighteen units.
+- **Stage folders are on Process v3 numbering, except Chapter 1.** Corrected
+  2026-08-22; this entry said v2 across all eighteen units and that has been false
+  since Decision 68. `renumber_stage_folders_v3.py` moved 68 folders across 17 units
+  on 2026-08-19 and SKIPPED Chapter 1 deliberately, because it is locked under v2
+  and its folders and its record agree with each other. This is also why
+  `reopen.py` reads the step order from the checklist rather than holding a
+  constant: two orders are in force.
 - Fonts are committed; do not run `AIOM_build.py --fonts`.
 - Rasterize for visual review with `pdftoppm -png -r 150`.
