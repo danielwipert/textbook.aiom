@@ -26,10 +26,14 @@ Register: MBA-final-exam caliber, numerically real, no gentle versions (fading p
 
 1. CIO memo reply: defend consumption economics against the strongest flat-rate objection.
 2. Three-flow mapping on a cited real deployment; marked-up flow diagram plus per-flow diagnosis. Recurs across the book (interleaving).
-3. Two parts: prose derivation of the asymmetry consequence (why "unknown" is the damning word); spot-the-error on three real quotes (claimed-as-realized, netting-against-access-price, adoption-as-value).
+3. Prose derivation of the asymmetry consequence (why "unknown" is the damning word). SPOT-THE-ERROR MOVED TO C6, ruled by Dan 2026-08-21 at Chapter 2 Stage 1 (finding S1-1, Decision 74).
 4. Registry literacy on THM-008: restate conditions; state non-claims; trace one lemma to propositions; answer the "word games" objection. Requires the trace set piece earlier in the book.
 5. Stylized provider model: compute unprofitable subscribers under flat rate given a skewed usage distribution; predict next three mechanisms ranked; map one documented episode (cited, dated) onto the mechanism menu.
 6. Sort-and-repair: classify eight real cited statements (claimed/realized/productivity claim/measurement/ROI); rewrite two into true ROI claims by supplying boundary elements.
 7. Essay pair: the category error explained to a board member; then the reversal test (construct the scenario where frontier IS economically correct, and state the conditions).
 8. Legal-ops contract review: requirements decomposition; score three models against requirements; cost-at-volume recommendation. Built-in trap: frontier wins benchmark, mid-tier clears requirements at fraction of cost.
 9. TCO assembly from scattered internal facts; first-year vs steady-state; multiple over access price.
+
+---
+
+**Regenerated 2026-08-22** against `AIOM_Exit_Competencies_v1.md` as it stands after Decision 74. The first version of this extract was cut before that decision and still carried C3's spot-the-error, which now belongs to C6.
