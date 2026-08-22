@@ -152,6 +152,37 @@ Findings:
 
 ---
 
+**CLAUDE'S PASS COMPLETE 2026-08-22. NOT CLEARED: the second-model check is
+outstanding and Dan has ruled nothing.** Findings in
+`01_G1_Structural_Gate/AIOM_Ch02_Stage1_findings.md`, five raised.
+
+- **S1-1 (HIGH). C3's specified assessment is missing entirely.** The competency
+  document requires a spot-the-error on three real quotes of three named types.
+  The chapter has no such exercise. Foreseen in the Stage 0 plan, never ruled, and
+  it is a sourcing burden rather than a writing one.
+- **S1-2 (HIGH). C2 is demonstrated but never assessed.** The only mapping exercise
+  is P1, which is worked, so the reader watches the diagnostic performed and is
+  never asked to perform one. The specified marked-up flow diagram is also absent.
+- **S1-3 (MEDIUM).** Three passages sit close to Chapters 8, 10 and 12. All carry
+  forward references, so the risk is spending later material early rather than
+  front-running the argument.
+- **S1-4 (MEDIUM).** MIT NANDA was dual-placed for Chapter 2 or Chapter 6 and is now
+  spent here, against a Chapter 6 case supply the bank already records as a gap.
+- **S1-5 (LOW).** THM-004 arrives in 2.7, after the argument it anchors. Ruled not a
+  defect on the Chapter 1 exemplar, and recorded because the step requires the
+  weakest reading to be stated rather than skipped.
+
+**Passing without qualification:** every slot serves the stated purpose, the craft
+section is built as the recurring instrument, no Chapter 1 term is redefined,
+"flow" is defined as the ledger requires, the interleaving promise is paid, and
+forward references are declared rather than material silently borrowed.
+
+**Next:** the second-model package is
+`AIOM_Ch02_Stage1_secondmodel_prompt.md` with the chapter, the findings and two
+reference extracts. It is ordered so the reviewer forms a view BEFORE reading
+Claude's, and question 7 asks what this review missed.
+
+
 ## Stage 2. Developmental edit
 
 Owner: Claude
