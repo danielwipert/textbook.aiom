@@ -8,27 +8,35 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-24 CLOSE: `main` is at `ec20610`, the remote holds `main` alone,
-and nothing is stranded.** Working tree clean, the working branch
-`claude/status-check-1p29ee` level with `origin/main`, `git_hygiene.py` reporting
-zero branches carrying work `main` does not have and zero safe to delete. Dan
-deleted `claude/chapter-2-status-cuiie4` after the last close, so the branch this
-file called outstanding is gone.
+**AT THE 2026-08-24 CLOSE: the continuity fix is MERGED to `main` at `50a26dc`,
+and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree clean, local
+`main` level with `origin/main`, `git_hygiene.py` reporting zero branches
+carrying work `main` does not have. The branch is `claude/status-check-1p29ee`,
+fully merged by fast-forward and listed as safe to delete. **Deleting it needs
+Dan**, for the reason the standing reminder below has now recorded five times.
+Dan deleted `claude/chapter-2-status-cuiie4` after the last close, so the branch
+the previous entry called outstanding is gone.
 
-**THE PREVIOUS ENTRY'S REPOSITORY STATE WAS STALE IN TWO WAYS AND BOTH ARE
-CORRECTED ABOVE.** It put `main` at `56fb93a` and named a branch as outstanding.
-`main` had in fact moved one further, to `ec20610`, which is the commit that
-wrote that entry: a session cannot state its own head commit before making it,
-so the last line of every close is written one commit behind. Read the sync
-state from `git fetch` and `git_hygiene.py`, never from the previous entry.
-**THE REFS IN A FRESH CONTAINER ARE STALE BEFORE THE FIRST FETCH**, and they
-read as a real divergence: `origin/main` came up at `b83ed03` at session start,
-which made 21 commits of merged Chapter 2 work look unmerged.
+**THIS FILE'S OWN COMMIT SITS ONE PAST THE SHA ABOVE, AND THAT IS STRUCTURAL
+RATHER THAN AN OVERSIGHT.** `50a26dc` is the last commit that MOVED CODE. A
+session cannot state its own head commit before making it, so the closing entry
+is always written one commit behind, and the previous entry was read as stale
+for exactly this reason when it put `main` at `56fb93a`. Name the last commit
+that moved code, not the head, and **read the sync state from `git fetch` and
+`git_hygiene.py`, never from the previous entry.**
 
-**CI IS GREEN AND WAS READ RATHER THAN TRUSTED.** `web` succeeded on `ec20610`.
-`chapter` did not run there and correctly so: that commit touched only this file,
-which its path filter excludes. Both workflows are green on `56fb93a`, the last
-commit that moved code.
+**THE REFS IN A FRESH CONTAINER ARE STALE BEFORE THE FIRST FETCH**, and they read
+as a real divergence rather than as staleness: `origin/main` came up at `b83ed03`
+at session start, which made 21 commits of already-merged Chapter 2 work look
+unmerged. Fetch before concluding anything about what is stranded.
+
+**CI IS GREEN ON THE MERGED HEAD AND THE LOG WAS READ RATHER THAN THE TICK.**
+`chapter` succeeded on `50a26dc`, and the log was checked to confirm the suite
+actually RAN rather than skipping: it reports both chapters checked, Chapter 1
+green on all seven, Chapter 2's two non-binding failures, and `2 chapter(s)
+checked, 0 with a broken claim`. This matters because a missing toolchain makes
+steps report FAILED or SKIPPED while the job still exits zero in some
+configurations, so a green tick alone would have been evidence of nothing.
 
 **CHAPTER 2 DID NOT MOVE. IT IS STILL 2 OF 13, BLOCKED ON THE SAME FOUR RULINGS,
 ALL DAN'S.** `status_check.py` reports STATUS CONSISTENT. The session fixed one
