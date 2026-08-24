@@ -8,13 +8,32 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-24 CLOSE: everything is on `main`, the remote holds `main`
-alone, and NO BRANCH IS OUTSTANDING.** The continuity fix merged by fast-forward;
-`50a26dc` is the last commit that moved code. Working tree clean, local `main`
-level with `origin/main`, and `git_hygiene.py` reporting **zero stranded and zero
-safe to delete**, which is the first all-zero sweep since the branch discipline
-started. Dan deleted `claude/status-check-1p29ee` at the close and the prune ran,
-so the local branch list agrees with the remote.
+**AT THE 2026-08-24 CLOSE: everything is on `main` at `c9908b5`, nothing is
+stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree
+clean, local `main` level with `origin/main`, `git_hygiene.py` reporting zero
+branches carrying work `main` does not have. The branch is
+`claude/status-check-1p29ee`, recreated from `main` for the Stage 1 ruling record,
+merged by fast-forward, and listed as safe to delete. **Deleting it needs Dan.**
+
+**THE DELETE WAS ATTEMPTED AND THE REMOTE REFUSED IT, WHICH IS WORTH RECORDING
+ONCE RATHER THAN RE-DISCOVERING.** `git push origin --delete` reports "Everything
+up-to-date" and `git push origin :branch` disconnects mid sideband, and the branch
+is still there after both. This is not a stale ref or a missing fetch: the branch
+is confirmed present by `git ls-remote` afterwards. **A session cannot delete a
+remote branch here**, so the standing reminder is a property of the environment
+rather than a habit anyone can fix by remembering harder.
+
+**CHAPTER 2 STAGE 1 IS DOWN TO ONE BLOCKER, 2026-08-24.** Dan ruled S1-3, S1-4 and
+S1-5, agreeing with Claude's readings of all three. **No chapter text changed**,
+because all three sustain the chapter as it stands, so the re-run matrix is not
+triggered. What remains is the Decision 74 division question from Q3. **Neither
+open Stage 1 box moves on those three rulings**, and the checklist says why: the
+front-run box waits on the Decision 74 division because that question is about what
+belongs to Chapter 6, and "Dan has ruled every finding" waits on it because the Q3
+item is a finding of this review in everything but its numbering.
+
+**THE PREVIOUS CONTINUITY WORK IS UNAFFECTED AND STILL ON `main`.** `50a26dc` is
+the commit that fixed G3's input.
 
 **THE SITE IS BUILT AND DEPLOYED FROM THIS HEAD, AND THE LOG WAS READ RATHER THAN
 THE TICK.** `web` succeeded on `e86f75e`, both the build job and the deploy job.
