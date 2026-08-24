@@ -274,12 +274,15 @@ question was asked.
   reported because the step requires the weakest reading to be stated:** the three
   parts are the three verbs of THM-004's fourth antecedent, and unpacking an
   antecedent of the chapter's own anchor theorem is what a chapter is for.
-- **OPEN AND NEEDING DAN: the Decision 74 division.** Adoption-as-value is taught in
-  section 2.6 and, since yesterday, assessed in Chapter 6's sort-and-repair. The
-  Decision 74 note said the point was that the skill is taught once. Claude reads the
-  division as correct, because 2.6 needs the substitution to make the asymmetry land
-  and cannot defer it, but this is a consequence of yesterday's decision that neither
-  Dan nor Claude saw when it was made.
+- **OPEN AND NEEDING DAN, AND AS OF 2026-08-24 IT IS THE ONLY THING STAGE 1 WAITS
+  ON: the Decision 74 division.** Adoption-as-value is taught in section 2.6 and,
+  since Decision 74, assessed in Chapter 6's sort-and-repair. The Decision 74 note
+  said the point was that the skill is taught once. Claude reads the division as
+  correct, because 2.6 needs the substitution to make the asymmetry land and cannot
+  defer it, but this is a consequence of Decision 74 that neither Dan nor Claude saw
+  when it was made. **This is why the front-run box is still open** while S1-3 and
+  S1-4 are both ruled: the box asks whether anything belongs to a later chapter, and
+  this question is exactly that question about Chapter 6.
 
 **Q4, could any of the eight teaching sections be cut.** Seven are load-bearing on
 stated grounds. **Section 2.3 is the only section delivering no key term, no
@@ -338,6 +341,19 @@ accent pass recorded for the drawn marks, applied to a chapter figure.
 - **S1-5 stands as recorded** and cannot cause rework, since it was already ruled not
   a defect.
 
+**DAN RULED S1-3, S1-4 AND S1-5 ON 2026-08-24, AGREEING WITH ALL THREE READINGS AS
+WRITTEN ABOVE.** S1-3's two remaining passages are not breaches. S1-4 is WITHDRAWN,
+so the record of it stands as a finding that was raised and did not survive contact
+with the case bank, not as a defect the chapter carries. S1-5 is confirmed. **No
+chapter text changes as a consequence**, because all three rulings sustain the
+chapter as it stands, and the re-run matrix is therefore not triggered.
+
+**WHAT SURVIVES S1-4's WITHDRAWAL IS AN OBLIGATION, NOT A DEFECT.** The case bank's
+standing note that Chapter 6's supply should be built before Chapter 6 is drafted is
+unaffected by this ruling, and Pennsylvania's ChatGPT Enterprise pilot is banked
+toward it. Withdrawing the finding retires the claim that Chapter 2 spent something
+Chapter 6 needs. It does not retire the gap Chapter 6 still has.
+
 **WHAT THE FIVE FINDINGS MISSED, in one list:** the taxonomy's provenance, the
 uncommitted recurrence, C3's missing figure, the missing coupling, the absence of
 any managed real deployment, and five uncited claims about what organizations
@@ -372,10 +388,19 @@ paid is `continuity.py --pay 1`, a Stage 9 operation, and running it now would b
 editing the ledger to make a gate pass. Checks 1 and 4 of G3 are already clean:
 zero term redefinitions and zero registry-gloss drift.
 
-**STILL OUTSTANDING, AND ALL OF IT IS DAN'S.** Stage 1 cannot be ticked until:
-S1-3's two remaining passages are ruled; S1-4 is ruled either withdrawn as above or
-as originally written; S1-5 is confirmed; and the Decision 74 division question from
-Q3 is ruled. Claude rules none of them.
+**STILL OUTSTANDING, AND IT IS ONE ITEM, DAN'S. Updated 2026-08-24.** Three of the
+four blockers are ruled: Dan agreed with Claude's readings of S1-3, S1-4 and S1-5 on
+2026-08-24. **What remains is the Decision 74 division question from Q3**, and Claude
+does not rule it.
+
+**NEITHER OPEN BOX MOVES ON THOSE THREE RULINGS, AND SAYING SO IS THE POINT OF
+KEEPING THEM SEPARATE.** "Nothing belonging to a later chapter is front-run" waits on
+the Decision 74 division, which is a question about what belongs to Chapter 6 and so
+is the box's own subject. "Dan has ruled every finding" waits on it too, because the
+Q3 item is a finding of this review in everything but its numbering: it was raised
+by the structural check, it is recorded as OPEN AND NEEDING DAN, and ticking around
+it because it carries no S1 number would be a tick that lies. **The review's numbered
+findings are all ruled and the review is not.**
 
 ---
 
