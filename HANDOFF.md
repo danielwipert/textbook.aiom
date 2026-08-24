@@ -15,13 +15,19 @@ branches carrying work `main` does not have. The branch is
 `claude/status-check-1p29ee`, recreated from `main` for the Stage 1 ruling record,
 merged by fast-forward, and listed as safe to delete. **Deleting it needs Dan.**
 
-**THE DELETE WAS ATTEMPTED AND THE REMOTE REFUSED IT, WHICH IS WORTH RECORDING
-ONCE RATHER THAN RE-DISCOVERING.** `git push origin --delete` reports "Everything
-up-to-date" and `git push origin :branch` disconnects mid sideband, and the branch
-is still there after both. This is not a stale ref or a missing fetch: the branch
-is confirmed present by `git ls-remote` afterwards. **A session cannot delete a
-remote branch here**, so the standing reminder is a property of the environment
+**THE DELETE IS REFUSED WITH HTTP 403 AND BOTH ROUTES ARE CLOSED. Retried and
+diagnosed properly 2026-08-24; the first record of this was imprecise.** A delete
+refspec fails with `error: RPC failed; HTTP 403`, in both the `--delete` and the
+`:refs/heads/...` forms. The GitHub MCP server offers `create_branch` and **no
+delete tool at all**, so the API is not a way around it. **A session cannot delete
+a remote branch here**, and the standing reminder is a property of the environment
 rather than a habit anyone can fix by remembering harder.
+
+**WHAT MAKES THIS EASY TO MISREAD IS GIT'S OWN LAST LINE.** After the 403 and the
+disconnect, `git push` prints `Everything up-to-date`, which is the wording of a
+successful no-op. The first attempt was recorded from that line and reported the
+failure as a quiet refusal rather than as the 403 it is. **Read the first line of
+a push failure, not the last**, and confirm against `git ls-remote` either way.
 
 **CHAPTER 2 STAGE 1 IS CLOSED, 2026-08-24. THE CHAPTER IS 3 OF 13 AND STAGE 2 IS
 THE NEXT STEP.** Dan ruled all four blockers in one sitting: S1-3, S1-4 and S1-5
