@@ -95,9 +95,36 @@ def read_ledger(path=LEDGER):
 # Reading a chapter
 # --------------------------------------------------------------------------
 
+def body_region(raw):
+    """The chapter's own prose, without the head and without the register.
+
+    G3 read the WHOLE file until 2026-08-24, so two regions that are not
+    chapter prose were feeding every one of its seven checks. The `<title>`
+    element names the chapter, and the Decision 51 source register's `note`
+    field is the fact checkers' working record: finding IDs, instructions to
+    later checkers, and quotations of sentences the book has cut. Gate W9b
+    refuses to publish that field for exactly this reason, and G3 was reading
+    it as though a reader would.
+
+    The damage was a phantom promise. The `mit-nanda-2025` note says "the
+    Chapter 1 convention is that a fixed document cited by a stable identifier
+    needs no access date", which check 2 read as a forward reference Chapter 2
+    makes to Chapter 1, and which `--update` would have written into the ledger
+    at Stage 9 as a promise between chapters. Checks 4 through 7 took the same
+    bad input: a gloss or a Founding Question could be matched inside a note, a
+    maturity stage name could be counted from one, and the Northmoor figure
+    diff read every number a note happens to quote.
+
+    The boundary is the one `voicecheck.body_paragraphs` already uses, so the
+    two tools bound the chapter the same way rather than a third way.
+    """
+    raw = re.sub(r"(?s)<head\b[^>]*>.*?</head>", " ", raw)
+    raw = re.sub(r'(?s)<section id="aiom-sources">.*?</section>', " ", raw)
+    return re.sub(r"(?s)<(script|style|svg)\b.*?</\1>", " ", raw)
+
+
 def read_chapter(path):
-    raw = open(path, encoding="utf-8").read()
-    raw = re.sub(r"(?s)<(script|style|svg)\b.*?</\1>", " ", raw)
+    raw = body_region(open(path, encoding="utf-8").read())
     body = strip_tags(raw)
 
     # Key terms: the Slot 5 register is the authoritative list of what a
@@ -343,6 +370,83 @@ def pay(chapter, led):
     return True
 
 
+SELFTEST_DOC = """<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>AI Operations Management, Chapter 7</title>
+</head>
+<body>
+<p>The body says Chapter 9 pays this.</p>
+<section class="problems-sec">
+<p class="pnote">Interleaving: question 1 requires Chapter 4.</p>
+</section>
+<section id="aiom-sources">
+<p>Decision 51: sources live with the draft.</p>
+<pre id="aiom-sources-data">{
+ "k": {
+  "note": "The Chapter 1 convention is that a fixed document needs no access
+date. Stage 3 must confirm the Governed stage wording and the 5,765 licences."
+ }
+}</pre>
+</section>
+</body>
+</html>
+"""
+
+
+def selftest():
+    """Negative controls for the body region. One fault at a time.
+
+    Built from a MINIMAL document rather than from a chapter, following the
+    gate W9 control, so each case states the shape of the fault and none of
+    them moves when a chapter is edited.
+    """
+    import tempfile
+    ok = True
+
+    def report(name, passed, detail=""):
+        nonlocal ok
+        ok = ok and passed
+        print(f"  {'ok  ' if passed else 'FAIL'}  {name}"
+              + (f"\n          {detail}" if detail and not passed else ""))
+
+    print("continuity.py self-test: the body region")
+
+    with tempfile.NamedTemporaryFile("w", suffix=".html", encoding="utf-8",
+                                     delete=False) as fh:
+        fh.write(SELFTEST_DOC)
+        path = fh.name
+    ch = read_chapter(path)
+    fwd = {t for t, _ in ch["forwards"]}
+
+    # 1. The register's note must reach no check. Its sentence names Chapter 1,
+    #    a maturity stage and a figure; all three came from a note, not prose.
+    report("register note yields no forward reference", 1 not in fwd,
+           f"forwards found: {sorted(fwd)}")
+    report("register note yields no maturity stage name",
+           "Governed" not in ch["stages"], f"stages: {ch['stages']}")
+    report("register note yields no Northmoor figure",
+           "5,765" not in ch["numbers"], f"numbers: {ch['numbers']}")
+    report("register prose is not read as body",
+           "Decision 51" not in ch["body"])
+
+    # 2. The head must reach no check. The title names Chapter 7, so a chapter
+    #    numbered anything else would log a promise to itself.
+    report("<title> yields no forward reference", 7 not in fwd,
+           f"forwards found: {sorted(fwd)}")
+
+    # 3. The control that proves the region is not simply empty. Both a plain
+    #    body paragraph and one inside a non-register <section> must survive,
+    #    or every check above passes by measuring nothing.
+    report("body prose survives", 9 in fwd, f"forwards found: {sorted(fwd)}")
+    report("prose inside a non-register section survives", 4 in fwd,
+           f"forwards found: {sorted(fwd)}")
+
+    os.unlink(path)
+    print("SELF-TEST " + ("PASSED" if ok else "FAILED"))
+    return ok
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("chapter_html", nargs="?")
@@ -352,7 +456,12 @@ def main():
     ap.add_argument("--pay", type=int, metavar="N",
                     help="mark promises owed by chapter N as paid")
     ap.add_argument("--date", default=None)
+    ap.add_argument("--selftest", action="store_true",
+                    help="negative controls for the body region")
     a = ap.parse_args()
+
+    if a.selftest:
+        return 0 if selftest() else 1
 
     led = read_ledger()
 

@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-22, at the close of the SECOND session that day. Read this
+Last updated: 2026-08-24. Read this
 plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
@@ -8,7 +8,72 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE SECOND 2026-08-22 CLOSE: `main` is at `56fb93a`, both CI workflows are
+**AT THE 2026-08-24 CLOSE: `main` is at `ec20610`, the remote holds `main` alone,
+and nothing is stranded.** Working tree clean, the working branch
+`claude/status-check-1p29ee` level with `origin/main`, `git_hygiene.py` reporting
+zero branches carrying work `main` does not have and zero safe to delete. Dan
+deleted `claude/chapter-2-status-cuiie4` after the last close, so the branch this
+file called outstanding is gone.
+
+**THE PREVIOUS ENTRY'S REPOSITORY STATE WAS STALE IN TWO WAYS AND BOTH ARE
+CORRECTED ABOVE.** It put `main` at `56fb93a` and named a branch as outstanding.
+`main` had in fact moved one further, to `ec20610`, which is the commit that
+wrote that entry: a session cannot state its own head commit before making it,
+so the last line of every close is written one commit behind. Read the sync
+state from `git fetch` and `git_hygiene.py`, never from the previous entry.
+**THE REFS IN A FRESH CONTAINER ARE STALE BEFORE THE FIRST FETCH**, and they
+read as a real divergence: `origin/main` came up at `b83ed03` at session start,
+which made 21 commits of merged Chapter 2 work look unmerged.
+
+**CI IS GREEN AND WAS READ RATHER THAN TRUSTED.** `web` succeeded on `ec20610`.
+`chapter` did not run there and correctly so: that commit touched only this file,
+which its path filter excludes. Both workflows are green on `56fb93a`, the last
+commit that moved code.
+
+**CHAPTER 2 DID NOT MOVE. IT IS STILL 2 OF 13, BLOCKED ON THE SAME FOUR RULINGS,
+ALL DAN'S.** `status_check.py` reports STATUS CONSISTENT. The session fixed one
+booked tooling defect and changed no chapter text.
+
+**`continuity.py` NOW READS THE CHAPTER'S OWN PROSE, AND THE PHANTOM PROMISE IS
+GONE.** G3 read the WHOLE chapter file until 2026-08-24, so the `<head>` and the
+Decision 51 source register fed all seven of its checks. The `mit-nanda-2025`
+note says "the Chapter 1 convention is that a fixed document cited by a stable
+identifier needs no access date", and check 2 read that as a forward reference
+Chapter 2 makes to Chapter 1. **`--update` would have written it into the ledger
+at Stage 9 as a promise between chapters**, where nothing downstream could tell
+it from a real one. Chapter 2 now reports 14 forward references rather than 15,
+and the phantom is not among them.
+
+**THE FIX IS ONE REGION, AND IT IS THE BOUNDARY `voicecheck` ALREADY USED.**
+`body_region()` drops `<head>` and `<section id="aiom-sources">` before anything
+is stripped, so the two tools bound the chapter the same way rather than a third
+way. **All seven checks were taking the bad input, not just check 2**: a registry
+gloss or a Founding Question could have matched inside a note, a maturity stage
+name could have been counted from one, and the Northmoor figure diff read every
+number a note happens to quote.
+
+**`python3 continuity.py --selftest` IS NEW, AND ITS CONTROLS WERE PROVED AGAINST
+THE PRE-FIX CODE.** Seven controls. Five inject the fault and assert it does not
+reach a check; **two assert that body prose still SURVIVES**, because without
+them every other control would pass on an empty region. Run against the old
+body region all five fault controls fail and both survival controls hold, which
+is what makes the pass mean something. The document is MINIMAL rather than a
+chapter, following the gate W9 control, so it states the shape of the fault and
+does not move when a chapter is edited.
+
+**NOTHING PUBLISHED MOVES AND CHAPTER 1 IS UNCHANGED.** Chapter 1 reported 5
+forward references made and 0 unlogged before the fix and after it, so **no row
+in the ledger is a phantom written by the old scrape**, which was the open
+question the fix could have exposed. The site's promise list comes from the
+ledger through `ledger.py`, never from this scrape. `chapter_check.py --all`
+reports Chapter 1 green on all seven checks and Chapter 2's two non-binding
+failures unchanged: the web build fails W2 because the chapter is not locked, and
+G3 fails on one Chapter 1 promise that a Stage 9 marking operation pays.
+
+**THE SECOND 2026-08-22 CLOSE FOLLOWS. Its tooling and Chapter 2 record still
+hold; its repository state does not.**
+
+**AT THE SECOND 2026-08-22 CLOSE: `main` was at `56fb93a`, both CI workflows are
 green on it, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree
 clean, local `main` level with `origin/main`, `git_hygiene.py` reporting zero
 branches carrying work `main` does not have. The branch is
@@ -160,13 +225,14 @@ the skill should be taught once.
 formal conditional, or cutting, and no fourth option. Claude offered the recast and
 Dan has not called for it.
 
-**BOOKED AND NOT FIXED: `continuity.py` reads the wrong input.** It scrapes forward
-references from the whole chapter file, including the `<title>` element and the
-source register's `note` field, which gate W9b never publishes. It currently reads
-"the Chapter 1 convention is that a fixed document..." out of a fact-checking note
-as a promise Chapter 2 makes to Chapter 1, and would write that phantom into the
-ledger at Stage 9. Same class as the gate 12 line-by-line defect and the first
-W16b.
+**FIXED 2026-08-24, AND IT WAS BOOKED HERE FIRST: `continuity.py` read the wrong
+input.** It scraped forward references from the whole chapter file, including the
+`<title>` element and the source register's `note` field, which gate W9b never
+publishes. It read "the Chapter 1 convention is that a fixed document..." out of a
+fact-checking note as a promise Chapter 2 makes to Chapter 1, and would have
+written that phantom into the ledger at Stage 9. Same class as the gate 12
+line-by-line defect and the first W16b. The record of the fix is in the repository
+state above.
 
 **GRADUATED TO CLAUDE.md SECTION 6 ON 2026-08-22: a chapter figure is judged on
 the page, never from its coordinates.** Figure 2.2's first geometry ran
@@ -2484,13 +2550,14 @@ has already paid for repeatedly. Read them there, not from memory:
 - **THE DESIGN MIRRORS ITS MARGINS.** Main text starts at x0 68.4 on odd pages,
   57.6 on even. Any new geometry check must derive the edge per page or it will
   read green while measuring nothing.
-- The PRINT QA suite is FIFTEEN gates, 1 through 15, and the WEB suite is also
-  FIFTEEN, W1 through W15, since W15 (in-page navigation) was added 2026-08-13.
-  Both numbers were wrong in this file earlier that day: this line said fourteen
-  for print, which went stale when gate 15 was added on 2026-08-12, and the web
-  counts ran one high for five phases before that. THE WEB NUMBER HAS NOW GONE
-  STALE TWICE FOR TWO DIFFERENT REASONS, once by miscounting sub-letters and
-  once by a gate being added, which is why the rule is to derive it. A
+- The PRINT QA suite is FIFTEEN gates, 1 through 15, and the WEB suite is
+  SEVENTEEN, W1 through W17, derived from build output on 2026-08-24 rather than
+  copied forward. **THE WEB NUMBER HAS NOW GONE STALE THREE TIMES FOR TWO
+  DIFFERENT REASONS**, twice by a gate being added and once by miscounting
+  sub-letters, which is why the rule is to derive it. This line said fifteen
+  until 2026-08-24 and went stale when W16 and W17 were added on 2026-08-14 and
+  2026-08-15, so **this file was asserting fifteen in one place and seventeen in
+  another on the same day**, which is the shape the rule exists to catch. A
   gate is one number, never one check, so sub-lettered checks like `W8a` are
   parts of a gate. Re-derive both from build output rather than copying them
   forward. Three checks written in this repo have been
