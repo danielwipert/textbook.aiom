@@ -446,6 +446,77 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+**CLAUDE'S PASS COMPLETE 2026-08-24. NOT CLEARED: Dan's gut-check with a second
+model is outstanding and Dan has ruled nothing.** Nine findings in
+`03_Stage2_Developmental_Edit/AIOM_Ch02_Stage2_findings.md`, three of them high.
+**Nothing is applied**, because the re-run matrix makes a body prose change re-run
+Stages 2, 3, 4, 5 and G2, so applying before a ruling would spend those steps on
+text that may not survive it.
+
+- **DE1 (HIGH). Figure 2.1 arrives 575 words after the sentence that introduces
+  it.** Measured, and the contrast is the evidence: Figure 2.2 sits 11 words after
+  its own introducing sentence. Figure 2.1 is the artifact that makes the chapter's
+  central construct holdable in one view, and it lands after the reader has carried
+  the three flows unaided through the ownership division, three health tests, three
+  locations and three speeds. **The figure that would reduce the load arrives after
+  the load has been imposed.** Print gate 12 passes both figures identically, because
+  it checks that a reference exists and has no opinion about how far away it sits.
+- **DE2 (HIGH). The craft section and problem P1 map the same case to the same three
+  diagnoses, in places near-verbatim.** Both read "A per-engineer cost range was
+  reported, so consumption was visible at some grain" and both then turn on
+  attribution and the plan. P1 is the WORKED problem, the chapter's one end-to-end
+  demonstration for a reader who has not tried the diagnostic, and it is spent on the
+  case the craft section finished mapping four pages earlier. **The chapter now
+  demonstrates the diagnostic three times**, counting the constructed retailer.
+- **DE3 (HIGH). "Cost-value asymmetry" is named in 2.4, defined at the end of 2.5,
+  and titles 2.6.** The mechanism is built in 2.4, which says the asymmetry is what
+  the chapter turns on. The callout sits in 2.5, which is about why the record flow
+  is skipped and never uses the term. **The definition sits in the one section least
+  about it**, a section after the rule that a coined term arrives after the mechanism
+  it names. Any move re-runs `place.py` and gate 4, and Gap G-I means the affected
+  pages need reading rather than only gating.
+- **DE4 (MEDIUM). Section 2.2 carries six teaching jobs in 846 words**, the longest
+  teaching section. Two of the six, the record flow's three locations and the three
+  flows' three speeds, are consequences rather than taxonomy. One candidate remedy
+  splits the section and therefore re-runs G1.
+- **DE5 (MEDIUM). The record-decay claim and its illustration are three paragraphs
+  apart**, with the chapter's turn sitting between them. Both halves lose: the claim
+  waits for its evidence, and the turn is interrupted.
+- **DE6 (MEDIUM). Discussion question 2 asks for an example section 2.4 already works
+  in full**, in the same day-to-six-months frame. It tests recall while appearing to
+  test transfer.
+- **DE7 (MEDIUM). Six three-part structures, and the apparatus's three parts are the
+  triad most confusable with the three flows.** Record, attribution and constraint all
+  belong to the record flow, and the chapter never says so. **This one rests on reading
+  rather than a measurement and is the finding Claude is least confident in.**
+- **DE8 (LOW). The opening case reaches its payoff in the tenth of twelve paragraphs**,
+  after five paragraphs deriving the seat-forecast mechanism. Recorded as a tension and
+  not as a defect, because the slot permits variation in form and Dan ruled the case in.
+  A second observation is recorded rather than raised: the case carries seven
+  attributions of uncertainty, every one required by the register's UNVERIFIED status,
+  and **the question resolves itself if Stage 3 verifies the sources**, so it may be
+  cheaper to leave than to rewrite twice.
+- **DE9 (LOW). Section 2.3's POSITION interrupts the continuity between 2.2 and 2.4.**
+  **This does not reopen Stage 1's ruling to keep the section.** Moving it re-runs G1.
+
+**WHAT THE PASS DID NOT FIND, recorded because a review that reports only faults
+gives no information about what is safe.** The argument carries end to end without a
+stall. The craft section is the chapter's strongest slot: it names its two failure
+modes in advance, returns an unflattering diagnosis on the real case, and says plainly
+that its clean example is constructed and why no real one was available.
+
+**THE SELF-MARKING PROBLEM APPLIES HERE AS IT DOES AT STAGE 1, and the corrective is
+built into the findings rather than asserted.** Claude drafted this chapter and is
+reviewing it. Every finding above except DE7 and half of DE8 is anchored to a
+MEASUREMENT or a QUOTED PAIR, so a reader can check it without trusting the reviewer,
+and the two that rest on reading say so. **This is not a substitute for the second
+model**, which is Dan's half of this step.
+
+**INTERACTION WITH STAGE 3, and it needs whichever step moves first to say so.** Two
+of the five uncited frequency claims handed to Stage 3 sit in passages DE5 and DE6
+touch. If Stage 2's remedies land first, Stage 3 reads moved text; if Stage 3 moves
+first, these findings need re-anchoring.
+
 ---
 
 ## Stage 3. Source and fact check 1
