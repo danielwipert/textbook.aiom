@@ -136,7 +136,7 @@ Findings:
 
 Owner: Claude; second model checks; Dan rules
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-24
 
 > Is this the right chapter, not is it true. Read against AIOM_Structure_v1.md and AIOM_Exit_Competencies_v1.md. Structural findings only, no line edits and no fact checking: Stages 3 and 7 own truth and Stages 2 and 4 own prose. REASSIGNED FROM DAN TO CLAUDE, Decision 73: the work is comparison against two fixed documents, which needs no author and cost Dan hours. WHAT REPLACES HIM IS THE SECOND MODEL, NOT NOTHING. A chapter judged by the model that drafted it is self-marking, and the bias review of 2026-08-21 proved the cost: its most useful finding, BR5, was a STRUCTURAL one that Claude had not seen in its own work. Read ADVERSARIALLY: for each competency quote the WEAKEST evidence in the chapter and rule it, rather than asking whether the competency is met. Dan rules every finding; Claude rules none.
 
@@ -144,17 +144,20 @@ Status: [ ]        Date cleared:
 - [x] Every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
 - [x] The anchor theorem is the right one and is load-bearing in the argument rather than decorative
 - [x] Ledger obligations met: terms owned are defined, no earlier chapter's term is redefined, promises owed are paid
-- [ ] Nothing belonging to a later chapter is front-run
+- [x] Nothing belonging to a later chapter is front-run
 - [x] Independent structural check received and its findings recorded verbatim. SUBSTITUTED FOR THIS CHAPTER ONLY, 2026-08-22: Dan read the chapter against the two documents himself, in an eight-question working session, rather than sending it to a second model
-- [ ] Dan has ruled every finding
+- [x] Dan has ruled every finding
 
 Findings:
 
 ---
 
-**CLAUDE'S PASS COMPLETE 2026-08-22. NOT CLEARED: the second-model check is
-outstanding and Dan has ruled nothing.** Findings in
-`01_G1_Structural_Gate/AIOM_Ch02_Stage1_findings.md`, five raised.
+**STAGE 1 CLEARED 2026-08-24. Claude's pass completed 2026-08-22; Dan ruled every
+finding and the Q3 division question, and the independent read was his own.**
+Findings in `01_G1_Structural_Gate/AIOM_Ch02_Stage1_findings.md`, five raised, all
+ruled. **The record below is kept as written**, including the interim states, so a
+later reader can see what was raised and how it moved rather than only where it
+landed.
 
 - **S1-1 (HIGH). RULED BY DAN 2026-08-21: the spot-the-error moves to C6.**
   Decision 74. The competency document required C3 to be assessed by a prose
@@ -274,15 +277,21 @@ question was asked.
   reported because the step requires the weakest reading to be stated:** the three
   parts are the three verbs of THM-004's fourth antecedent, and unpacking an
   antecedent of the chapter's own anchor theorem is what a chapter is for.
-- **OPEN AND NEEDING DAN, AND AS OF 2026-08-24 IT IS THE ONLY THING STAGE 1 WAITS
-  ON: the Decision 74 division.** Adoption-as-value is taught in section 2.6 and,
-  since Decision 74, assessed in Chapter 6's sort-and-repair. The Decision 74 note
-  said the point was that the skill is taught once. Claude reads the division as
-  correct, because 2.6 needs the substitution to make the asymmetry land and cannot
-  defer it, but this is a consequence of Decision 74 that neither Dan nor Claude saw
-  when it was made. **This is why the front-run box is still open** while S1-3 and
-  S1-4 are both ruled: the box asks whether anything belongs to a later chapter, and
-  this question is exactly that question about Chapter 6.
+- **RULED BY DAN 2026-08-24: THE DECISION 74 DIVISION IS CORRECT.** Adoption-as-value
+  is taught in section 2.6 and, since Decision 74, assessed in Chapter 6's
+  sort-and-repair. The Decision 74 note said the point was that the skill is taught
+  once, and the division reads against that note until the two verbs are separated:
+  **2.6 TEACHES the substitution and Chapter 6 ASSESSES it, which is one teaching
+  and one assessment rather than the same skill taught twice.** Section 2.6 needs
+  the substitution to make the asymmetry land and cannot defer it. **No chapter edit
+  follows and the front-run box clears**, because nothing in 2.6 belongs to Chapter
+  6: what Chapter 6 owns is the exercise, which is already there.
+- **THE GENERAL FORM IS WORTH CARRYING FORWARD, because this will recur every time
+  a competency is split across chapters.** Decision 74's "taught once" governs
+  teaching, not the assessment that tests it, so a chapter teaching a skill a later
+  chapter assesses is the division working rather than a breach of it. The
+  front-run check reads WHAT A SECTION CLAIMS, not whether a later chapter names the
+  same subject.
 
 **Q4, could any of the eight teaching sections be cut.** Seven are load-bearing on
 stated grounds. **Section 2.3 is the only section delivering no key term, no
@@ -388,19 +397,25 @@ paid is `continuity.py --pay 1`, a Stage 9 operation, and running it now would b
 editing the ledger to make a gate pass. Checks 1 and 4 of G3 are already clean:
 zero term redefinitions and zero registry-gloss drift.
 
-**STILL OUTSTANDING, AND IT IS ONE ITEM, DAN'S. Updated 2026-08-24.** Three of the
-four blockers are ruled: Dan agreed with Claude's readings of S1-3, S1-4 and S1-5 on
-2026-08-24. **What remains is the Decision 74 division question from Q3**, and Claude
-does not rule it.
+**NOTHING IS OUTSTANDING. STAGE 1 CLOSED 2026-08-24.** All four blockers are ruled,
+all by Dan and none by Claude. S1-3, S1-4 and S1-5 were ruled on 2026-08-24, Dan
+agreeing with Claude's readings; the Decision 74 division question from Q3 was ruled
+correct the same day. **The two open boxes were ticked on that last ruling and not
+before**, because both waited on it: the front-run box because the division is a
+question about what belongs to Chapter 6, and "Dan has ruled every finding" because
+the Q3 item is a finding of this review in everything but its numbering.
 
-**NEITHER OPEN BOX MOVES ON THOSE THREE RULINGS, AND SAYING SO IS THE POINT OF
-KEEPING THEM SEPARATE.** "Nothing belonging to a later chapter is front-run" waits on
-the Decision 74 division, which is a question about what belongs to Chapter 6 and so
-is the box's own subject. "Dan has ruled every finding" waits on it too, because the
-Q3 item is a finding of this review in everything but its numbering: it was raised
-by the structural check, it is recorded as OPEN AND NEEDING DAN, and ticking around
-it because it carries no S1 number would be a tick that lies. **The review's numbered
-findings are all ruled and the review is not.**
+**NO CHAPTER TEXT CHANGED AT ANY OF THE FOUR RULINGS, so the re-run matrix is not
+triggered and Stage 0 and G1 stand.** Every ruling sustained the chapter as it
+stands. This is worth stating plainly because a cleared stage that changed nothing
+looks, in a diff, like a stage nobody ran: the six edits Stage 1 DID produce landed
+on 2026-08-22 from the earlier rulings, and they are recorded above.
+
+**WHAT STAGE 1 HANDS FORWARD.** Five uncited claims about what organizations usually
+do go to Stage 3, listed below. The Chapter 6 supply obligation survives S1-4's
+withdrawal and is the case bank's, not this chapter's. Chapter 8 now carries the
+craft section's mapping promise, which `continuity.py` reads and G3 will enforce at
+Chapter 8's lock.
 
 ---
 
@@ -409,10 +424,16 @@ section is built as the recurring instrument, no Chapter 1 term is redefined,
 "flow" is defined as the ledger requires, the interleaving promise is paid, and
 forward references are declared rather than material silently borrowed.
 
-**Next:** the second-model package is
-`AIOM_Ch02_Stage1_secondmodel_prompt.md` with the chapter, the findings and two
-reference extracts. It is ordered so the reviewer forms a view BEFORE reading
-Claude's, and question 7 asks what this review missed.
+**Next: Stage 2, the developmental edit.** Stage 1 is closed and this chapter's
+independent read was Dan's own, so the second-model package was never sent.
+
+**`AIOM_Ch02_Stage1_secondmodel_prompt.md` IS KEPT AND IS NOT SPENT.** It holds the
+chapter, the findings and two reference extracts, ordered so a reviewer forms a view
+BEFORE reading Claude's, with question 7 asking what this review missed. It remains
+runnable at any time, and a finding it raises reopens Stage 1 through `reopen.py`
+like any other. **This is the corrective the substitution record names**: closing
+Stage 1 on Dan's own read buys his authority at the cost of independence, and the
+package is what can still buy the independence back.
 
 
 ## Stage 2. Developmental edit
