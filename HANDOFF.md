@@ -8,14 +8,24 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-24 CLOSE: the continuity fix is MERGED to `main` at `50a26dc`,
-and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree clean, local
-`main` level with `origin/main`, `git_hygiene.py` reporting zero branches
-carrying work `main` does not have. The branch is `claude/status-check-1p29ee`,
-fully merged by fast-forward and listed as safe to delete. **Deleting it needs
-Dan**, for the reason the standing reminder below has now recorded five times.
-Dan deleted `claude/chapter-2-status-cuiie4` after the last close, so the branch
-the previous entry called outstanding is gone.
+**AT THE 2026-08-24 CLOSE: everything is on `main`, the remote holds `main`
+alone, and NO BRANCH IS OUTSTANDING.** The continuity fix merged by fast-forward;
+`50a26dc` is the last commit that moved code. Working tree clean, local `main`
+level with `origin/main`, and `git_hygiene.py` reporting **zero stranded and zero
+safe to delete**, which is the first all-zero sweep since the branch discipline
+started. Dan deleted `claude/status-check-1p29ee` at the close and the prune ran,
+so the local branch list agrees with the remote.
+
+**THE SITE IS BUILT AND DEPLOYED FROM THIS HEAD, AND THE LOG WAS READ RATHER THAN
+THE TICK.** `web` succeeded on `e86f75e`, both the build job and the deploy job.
+Nothing reported SKIPPED, which is the check that matters: the browser gates and
+W17 print SKIPPED and let the build pass when their tooling is missing, so a
+green tick alone is evidence of nothing. What the log actually says:
+`W6. horizontal overflow .. clean at 20 widths, 320px to 2560px, across 7 page(s)
+served at /`, `W15. navigation and load . 33 link(s) followed`,
+`W16b. served typefaces ... Archivo on 6 of 7 page(s), loaded`,
+`W17a. print edition ...... ch01 ... 25 pp, 103 kB, all fifteen print gates pass`,
+and `115/115 controls behaved as specified`.
 
 **THIS FILE'S OWN COMMIT SITS ONE PAST THE SHA ABOVE, AND THAT IS STRUCTURAL
 RATHER THAN AN OVERSIGHT.** `50a26dc` is the last commit that MOVED CODE. A
