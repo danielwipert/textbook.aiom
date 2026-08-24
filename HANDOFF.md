@@ -27,6 +27,14 @@ served at /`, `W15. navigation and load . 33 link(s) followed`,
 `W17a. print edition ...... ch01 ... 25 pp, 103 kB, all fifteen print gates pass`,
 and `115/115 controls behaved as specified`.
 
+**A CORRECTION TO THIS FILE GOES STRAIGHT TO `main`, RULED BY DAN 2026-08-24 AND
+NOW CLAUDE.md SECTION 9 RULE 7.** Chapter and tooling work still goes on a
+branch. This file is the exception, because its job is to state the current
+repository state and the moment it is wrong it is worse than absent. **The case
+that produced the ruling is the one directly above**: the close recorded a branch
+as outstanding, Dan deleted it minutes later, and there was no longer a branch to
+correct the sentence from. The licence covers this file and nothing else.
+
 **THIS FILE'S OWN COMMIT SITS ONE PAST THE SHA ABOVE, AND THAT IS STRUCTURAL
 RATHER THAN AN OVERSIGHT.** `50a26dc` is the last commit that MOVED CODE. A
 session cannot state its own head commit before making it, so the closing entry

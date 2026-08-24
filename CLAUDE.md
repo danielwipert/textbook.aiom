@@ -720,6 +720,17 @@ Claude's.** The rules below are what that means in practice.
 6. **Delete a branch once `git_hygiene.py` lists it as fully merged.** Thirteen
    branches were merged and undeleted on 2026-08-12, which is what made the
    stranded three hard to see.
+7. **A HANDOFF CORRECTION GOES STRAIGHT TO `main`. Ruled by Dan 2026-08-24.**
+   Rule 5 puts chapter and tooling work on a branch and that is unchanged. A
+   correction to `HANDOFF.md` is the exception, because the file's whole job is
+   to state the current repository state and **the moment it is wrong it is worse
+   than absent**, which is the protocol's own words in section 11. Routing that
+   through a branch, a merge and a deletion costs three round trips to fix a
+   sentence, and the branch is often already deleted by the time the sentence
+   becomes false: the close on 2026-08-24 recorded a branch as outstanding, Dan
+   deleted it minutes later, and there was no longer a branch to correct it from.
+   **This licenses the handoff file and nothing else.** A durable rule still
+   graduates into this file, and a chapter edit still runs the amendment path.
 
 ---
 
