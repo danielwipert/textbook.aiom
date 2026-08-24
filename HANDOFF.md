@@ -8,7 +8,7 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-24 CLOSE: everything is on `main` at `c9908b5`, nothing is
+**AT THE 2026-08-24 CLOSE: everything is on `main` at `ba9938a`, nothing is
 stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree
 clean, local `main` level with `origin/main`, `git_hygiene.py` reporting zero
 branches carrying work `main` does not have. The branch is
@@ -23,14 +23,41 @@ is confirmed present by `git ls-remote` afterwards. **A session cannot delete a
 remote branch here**, so the standing reminder is a property of the environment
 rather than a habit anyone can fix by remembering harder.
 
-**CHAPTER 2 STAGE 1 IS DOWN TO ONE BLOCKER, 2026-08-24.** Dan ruled S1-3, S1-4 and
-S1-5, agreeing with Claude's readings of all three. **No chapter text changed**,
-because all three sustain the chapter as it stands, so the re-run matrix is not
-triggered. What remains is the Decision 74 division question from Q3. **Neither
-open Stage 1 box moves on those three rulings**, and the checklist says why: the
-front-run box waits on the Decision 74 division because that question is about what
-belongs to Chapter 6, and "Dan has ruled every finding" waits on it because the Q3
-item is a finding of this review in everything but its numbering.
+**CHAPTER 2 STAGE 1 IS CLOSED, 2026-08-24. THE CHAPTER IS 3 OF 13 AND STAGE 2 IS
+THE NEXT STEP.** Dan ruled all four blockers in one sitting: S1-3, S1-4 and S1-5
+agreeing with Claude's readings, then the Q3 division question ruled correct.
+`status_check.py` reports STATUS CONSISTENT and `chapter_check.py Ch02` reports no
+broken claim.
+
+**THE DIVISION RULING SEPARATES TWO VERBS DECISION 74's NOTE HAD RUN TOGETHER**, and
+the general form will recur: 2.6 TEACHES the adoption-as-value substitution and
+Chapter 6 ASSESSES it, which is one teaching and one assessment rather than the same
+skill taught twice. "Taught once" governs teaching, not the assessment that tests
+it. **The front-run check reads what a section CLAIMS, not whether a later chapter
+names the same subject.**
+
+**NO CHAPTER TEXT CHANGED AT ANY OF THE FOUR RULINGS.** The re-run matrix is not
+triggered and Stage 0 and G1 stand. Worth stating because a cleared stage that
+changed nothing looks in a diff like a stage nobody ran: Stage 1's six edits landed
+on 2026-08-22 from the earlier rulings, not from these.
+
+**THE SECOND-MODEL PACKAGE IS KEPT AND IS NOT SPENT.**
+`AIOM_Ch02_Stage1_secondmodel_prompt.md` was never sent, because Dan's own read was
+this chapter's independent check. **Closing on that read buys his authority at the
+cost of independence**, and the package is what can still buy the independence back:
+it stays runnable, and a finding it raises reopens Stage 1 through `reopen.py`.
+
+**STAGE 1 HANDS TWO THINGS FORWARD.** Five uncited claims about what organizations
+usually do go to Stage 3, listed in the checklist. Chapter 8 now carries the craft
+section's mapping promise, which `continuity.py` reads and G3 will enforce at
+Chapter 8's lock. The Chapter 6 supply obligation that survived S1-4's withdrawal is
+the case bank's, not this chapter's.
+
+**DECISION 73 IS STILL UNRULED AND IS NOW SHARPER.** It moved Stage 1 off Dan on
+2026-08-21 to stop spending his hours, and Chapter 2 then spent an eight-question
+working session plus four rulings of his. Either the second model does this step or
+Dan does; doing it together is a third thing that was not designed. **This binds
+Chapter 3, which is the next chapter to reach Stage 1.**
 
 **THE PREVIOUS CONTINUITY WORK IS UNAFFECTED AND STILL ON `main`.** `50a26dc` is
 the commit that fixed G3's input.
