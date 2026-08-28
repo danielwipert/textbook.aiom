@@ -750,10 +750,48 @@ as an accepted cost in Chapter 1; this one was not accepted and did not have to 
 
 ### What was NOT applied, and why
 
-**DE6, DE7, DE8, DE9 and NEW-5 stand unruled and untouched.** Option A excluded
+**DE7, DE8, DE9 and NEW-5 stand unruled and untouched.** Option A excluded
 them and the reviewer advised against acting on DE7, DE8 and DE9 at all. **NEW-5 is the
 one item in the excluded set that has a determinate remedy waiting**, since Chapter 1
 already carries the `.dated` device the MIT NANDA paragraph would go into.
+
+### DE6: RULED BY DAN 2026-08-28. APPLIED.
+
+**Dan ruled option A of three.** Discussion question 2 is replaced. It now reads:
+
+> The chapter claims that an unmanaged record flow decays rather than merely staying
+> empty, and gives the case of an engineer whose forty calls lose their context within a
+> month. Using that case, state what would have had to be recorded at the moment the work
+> happened for the record to have survived, and explain why nobody present had a reason
+> to record it.
+
+**THE CHAPTER'S OWN EXAMPLE IS NOW THE PREMISE RATHER THAN THE ANSWER**, which is what
+DE6 asked for. The old question could be answered by reproducing section 2.4, so it
+tested recall while appearing to test transfer, and both reads confirmed it. The second
+clause forces a structural account rather than a blame narrative, which is the guard the
+voice standard keeps, and it makes a reader join 2.4's decay to 2.5's reason that the
+record flow pays only in the future and belongs to no single function. **The chapter
+asserts those two things in two places and never joins them in one.**
+
+**REMEDY (a) WAS PUT ASIDE AND SHOULD NOT BE REVIVED.** DE6 offered asking for an example
+from the reader's own organization. Discussion question 5 already uses that exact device,
+and two of five questions turning to the reader's own organization is a pattern rather
+than a variation.
+
+**NO COMPETENCY MOVED.** Stage 1 ruled that C3 is delivered by discussion question 3, so
+nothing in the competency delivery depends on question 2.
+
+**TWO PROXIMITIES ARE RECORDED RATHER THAN BURIED.** The new question sits nearer Chapter
+8, which builds the event record schema, than the old one did, though it asks for
+reasoning rather than a schema and Stage 1 ruled comparable passages not breaches under
+S1-3. And it is nearer the rewritten P1 than DE6 could have anticipated, since P1 was
+repointed in the same batch: P1 asks what a deployment needed for a review, this asks
+what one morning's work needed at the moment of capture. **Different scale, and they now
+rhyme. Stage 3 and the final read should both look at the pair.**
+
+**Verified:** all fifteen print gates pass, still 25 pages, `voicecheck` mechanical and
+house style both pass, and page 22 was rasterized and read. All five questions sit on one
+page and the new question 2 is the longest of them at 64 words, from 43.
 
 ### DE5: RULED BY DAN 2026-08-28. RECORDED, NOT ACTED ON.
 

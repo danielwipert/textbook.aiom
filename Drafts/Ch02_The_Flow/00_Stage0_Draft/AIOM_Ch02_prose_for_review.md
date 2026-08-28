@@ -266,7 +266,7 @@ Because consumption varies with work rather than with headcount, economic contro
 
 **1.** An executive says the organization’s AI deployment is well managed because the monthly invoice is reviewed and approved every month. Using the three flows, explain what that review does and does not establish.
 
-**2.** The chapter claims that an unmanaged record flow decays rather than merely staying empty. Give a concrete example of information about AI usage that is available on the day the work happens and unavailable six months later, and explain what makes it perishable.
+**2.** The chapter claims that an unmanaged record flow decays rather than merely staying empty, and gives the case of an engineer whose forty calls lose their context within a month. Using that case, state what would have had to be recorded at the moment the work happened for the record to have survived, and explain why nobody present had a reason to record it.
 
 **3.** Why does the chapter insist that the load-bearing word is “unknown” rather than “small”? What would a manager do differently under each reading?
 
