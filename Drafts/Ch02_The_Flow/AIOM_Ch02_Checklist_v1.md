@@ -750,13 +750,38 @@ as an accepted cost in Chapter 1; this one was not accepted and did not have to 
 
 ### What was NOT applied, and why
 
-**DE4, DE5, DE6, DE7, DE8, DE9 and NEW-5 all stand unruled and untouched.** Option A
-excluded them and the reviewer advised against acting on DE3, DE7, DE8 and DE9 at all.
-**DE4 should be reassessed rather than ruled**, on the reviewer's reasoning: its load
-finding was about 2.2 before Figure 2.1 arrived, and the figure has now moved into that
-section. **NEW-5 is the one item in the excluded set that has a determinate remedy
-waiting**, since Chapter 1 already carries the `.dated` device the MIT NANDA paragraph
-would go into.
+**DE5, DE6, DE7, DE8, DE9 and NEW-5 stand unruled and untouched.** Option A excluded
+them and the reviewer advised against acting on DE7, DE8 and DE9 at all. **NEW-5 is the
+one item in the excluded set that has a determinate remedy waiting**, since Chapter 1
+already carries the `.dated` device the MIT NANDA paragraph would go into.
+
+### DE4: RULED BY DAN 2026-08-28. RECORDED, NOT ACTED ON.
+
+**Dan ruled option B of three**, after the reassessment the second model asked for. The
+alternatives were splitting 2.2 after the four-owner paragraph, which is permitted since
+`AIOM_Structure_v1.md` fixes Chapter 2's big idea, competencies, anchor theorem and craft
+section and says nothing about section count, or DE4's own remedy (b).
+
+**The finding is confirmed and its cause is addressed.** DE4 said a reader carries six
+jobs through 2.2 with nothing to hold them in. Figure 2.1 now opens page 6 with the three
+health tests directly beneath it, and 2.2 runs pages 4 to 7, so the locations and the
+speeds are read with the figure on the facing page or one turn back. Re-measured after
+the batch, 2.2 is unchanged at 838 words across 13 paragraphs and still carries all six
+jobs. **What changed is not the section but what the reader has while reading it.**
+
+**REMEDY (b) IS WITHDRAWN AND SHOULD NOT BE REVIVED.** DE4 called it the cheapest
+option. It is not a good one. The three-speeds material already sits at the end of 2.2
+immediately before 2.3 opens, so moving it into 2.3 changes which heading it sits under
+and nothing a reader experiences. And 2.5 argues why the record flow is skipped, not
+where it lives, so the three locations would land in a section whose argument they do not
+serve.
+
+**LENGTH IS NOT THE DEFECT AND THE CHAPTER'S OWN NUMBERS SAY SO.** Section 2.6 is 865
+words across 12 paragraphs, longer than 2.2, and neither read flagged it. That leaves the
+six-jobs count as the whole of the finding, and it is also why the superlative struck
+from DE4 earlier mattered: the finding read as stronger than it was for as long as 2.2
+appeared to be the longest section. A split would additionally give the teaching body
+nine sections, where both the reviewer and DE9 already treat eight as a lot.
 
 **THE EXTRACTOR IS NOW A COMMITTED SCRIPT, `prose_extract.py`, and the reasoning is
 the one that promoted `factcheck_packet.py` to the root.** The same extraction had
