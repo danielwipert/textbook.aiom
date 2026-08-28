@@ -755,6 +755,38 @@ them and the reviewer advised against acting on DE7, DE8 and DE9 at all. **NEW-5
 one item in the excluded set that has a determinate remedy waiting**, since Chapter 1
 already carries the `.dated` device the MIT NANDA paragraph would go into.
 
+### A SECOND INSTANCE OF THE EMPTY-PAGE DEFECT, FOUND AFTER STAGE 2 CLOSED
+
+**Page 11 carried the same defect as page 5 and had done since 2026-08-22.** The page
+ended on "Figure 2.2 sets the two quantities against the scope each covers" and then
+stopped, 191pt short, because Figure 2.2 would not fit at the foot of the page. **It is
+the worse instance**, because the reference is the last line, so a reader is told to look
+at a figure and turns away from a hole.
+
+**IT WAS MISSED BECAUSE "NOT MINE" WAS TREATED AS "NOT A PROBLEM".** When the gate 4
+failure was attributed against the committed state, page 11's gap was correctly reported
+as pre-existing and then left. Establishing that a defect is not yours is the first half
+of attribution, and the second half is looking at it.
+
+**Fixed by moving Figure 2.2's anchor one paragraph later**, which is the same remedy the
+page-5 hole took. Page 11 now fills, the reference stays on page 11, the figure opens page
+12, and all fifteen gates pass. Three later anchors were built and measured; the nearest
+was taken.
+
+**`AIOM_build.py` NOW PRINTS PAGE FILL AS AN ADVISORY, Dan's ruling of 2026-08-28.** It
+names any page leaving more than 110pt of the text block unused and never fails, because a
+short page is often correct. **It was verified in both directions rather than assumed**:
+it reports Chapter 1's page 24, which is DR3a's accepted cost, and a negative control that
+restored the old Figure 2.2 anchor made it name page 11 and quote the dangling sentence.
+The rule and its reasoning are graduated into CLAUDE.md section 6.
+
+**THE REMEDY IS COUNTERINTUITIVE AND IS NOW RECORDED THERE TOO.** A figure that will not
+fit is moved LATER, not earlier. Both figures land at the top of the following page from
+any of several anchors, so the anchor decides only whether the paragraphs between the
+reference and the figure fill the current page or follow the figure onto the next. Placing
+a figure immediately after its introducing sentence, which is what a developmental finding
+will ask for and what DE1 did ask for, is the one choice that empties the page.
+
 ### STAGE 2 CLEARED 2026-08-28, AND THE HOLD CONDITION WAS CHECKED RATHER THAN ASSUMED
 
 **Dan ruled option A of three and Stage 2 is closed.** Claude's pass, the second model's

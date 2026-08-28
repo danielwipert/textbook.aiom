@@ -440,6 +440,35 @@ Inspect both by eye.
   redrawn after a contact sheet and one took three attempts, extended to chapter
   figures, and it is a THIRD manual item alongside the two the G2 checklist marks.
 
+- **NO GATE MEASURES HOW MUCH OF A PAGE IS USED, AND A PAGE A THIRD EMPTY PASSES
+  ALL FIFTEEN.** Ruled 2026-08-28. Gate 13 checks that nothing sits BELOW the text
+  block and gate 14 checks widows, orphans and stranded heads, so a figure that
+  will not fit at the foot of a page pushes to the next page and takes its
+  neighbours with it, leaving a hole and a green suite. **Chapter 2 carried exactly
+  that on page 11 for six days**: the page ended on "Figure 2.2 sets the two
+  quantities against the scope each covers" and then stopped, so a reader was told
+  to look at a figure and turned away from a hole. It was found by rasterizing the
+  page, which is the rule already in force for figure legibility and for callout
+  placement arriving at a third kind of defect.
+- **THE REMEDY FOR A FIGURE THAT WILL NOT FIT IS TO MOVE ITS ANCHOR LATER, NOT
+  EARLIER.** This is counterintuitive and it is what the measurements say. Both
+  Chapter 2 figures land at the TOP OF THE FOLLOWING PAGE from any of several
+  anchors, so the only thing the anchor choice decides is whether the paragraphs
+  between the reference and the figure fill the current page or follow the figure
+  onto the next one. Putting the figure immediately after its introducing sentence,
+  which is what reads as correct and is what a developmental finding will ask for,
+  is the one choice that empties the page. Build the candidates and measure; do not
+  reason about it.
+- **`AIOM_build.py` PRINTS PAGE FILL AS AN ADVISORY, NEVER AS A GATE.** It names any
+  page leaving more than 110pt of the text block unused, quotes where that page
+  ends, and never fails. **A failing gate was rejected for a stated reason**: a
+  short page is often correct, and the last page of a chapter, the end of a slot
+  and DR3a's accepted cost in Chapter 1 are all legitimate, so a gate would have to
+  encode exclusions that today's two chapters are not enough to write. The 110pt
+  threshold is measured rather than chosen: across both chapters, 50 pages, exactly
+  four exceed it and each has a known cause, so the signal runs about two lines per
+  chapter. Its control is Chapter 1 page 24, which is DR3a and which it reports.
+
 The build refuses to start without its toolchain (`pip install -r
 requirements.txt`, plus `poppler-utils`) and exits 2. A gate that did not run is
 not a gate that passed.

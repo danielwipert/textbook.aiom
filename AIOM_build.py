@@ -582,6 +582,52 @@ def qa(path, expected_footnotes=None, source_html=None):
         fails.append(f"straight quotes or apostrophes on page(s) {pages}: "
                      f"{straight[:5]}; use the typographic forms")
 
+    # ADVISORY, NEVER A PASS OR FAIL. Page fill.
+    #
+    # Added 2026-08-28 on Dan's ruling. NO GATE IN THIS SUITE MEASURES HOW MUCH
+    # OF A PAGE IS USED. Gate 13 checks that nothing sits below the text block
+    # and gate 14 checks widows, orphans and stranded heads, so a figure that
+    # will not fit at the foot of a page, pushing to the next page and taking
+    # its neighbours with it, leaves a hole a third of a page deep and every
+    # gate reads green. Chapter 2 carried exactly that on page 11 for six days:
+    # the page ended on "Figure 2.2 sets the two quantities against the scope
+    # each covers" and then stopped, so a reader was told to look at a figure
+    # and turned away from a hole. It was found by rasterizing the page.
+    #
+    # IT REPORTS AND NEVER FAILS, because a short page is often correct: the
+    # last page of a chapter, the end of a slot, and DR3a's accepted cost in
+    # Chapter 1 are all legitimate. A gate would have to encode exclusions for
+    # those, and today's two chapters are not enough to write that rule from.
+    # The threshold is 110pt, measured: across Ch1 and Ch2, 50 pages, exactly
+    # four exceed it and each has a known cause, so the signal is about two
+    # lines per chapter rather than noise.
+    slack = []
+    for i, p_ in enumerate(pdf.pages):
+        if i == len(pdf.pages) - 1:
+            continue                      # a chapter's last page is short by design
+        # Words, not chars: chars carry no spacing, and WeasyPrint emits the
+        # running head LAST in the char stream, so a tail taken from the end of
+        # that list quotes the margin box rather than the last line of prose.
+        body = [w for w in p_.extract_words() if w["top"] < BOTTOM]
+        if not body:
+            continue
+        floor = max(w["bottom"] for w in body)
+        unused = round(626.4 - floor)
+        if unused > 110:
+            ordered = sorted(body, key=lambda w: (round(w["bottom"], 1), w["x0"]))
+            tail = " ".join(w["text"] for w in ordered[-12:])
+            slack.append((i + 1, unused, tail))
+    print("\nADVISORY, never a pass or fail")
+    if slack:
+        print(f"  page fill ................ {len(slack)} page(s) leaving more "
+              f"than 110pt of the text block unused")
+        for n, unused, tail in slack:
+            print(f"     p{n:<3} {unused:3}pt unused, ends: ...{tail[-58:]}")
+        print("     A short page is often correct. Look at each one before "
+              "assuming it is.")
+    else:
+        print("  page fill ................ no page leaves more than 110pt unused")
+
     LAST_FAILS[:] = fails
     print("\nQA " + ("PASSED" if not fails else "FAILED"))
     for f in fails:
