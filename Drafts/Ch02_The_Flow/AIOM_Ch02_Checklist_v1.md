@@ -750,10 +750,34 @@ as an accepted cost in Chapter 1; this one was not accepted and did not have to 
 
 ### What was NOT applied, and why
 
-**DE5, DE6, DE7, DE8, DE9 and NEW-5 stand unruled and untouched.** Option A excluded
+**DE6, DE7, DE8, DE9 and NEW-5 stand unruled and untouched.** Option A excluded
 them and the reviewer advised against acting on DE7, DE8 and DE9 at all. **NEW-5 is the
 one item in the excluded set that has a determinate remedy waiting**, since Chapter 1
 already carries the `.dated` device the MIT NANDA paragraph would go into.
+
+### DE5: RULED BY DAN 2026-08-28. RECORDED, NOT ACTED ON.
+
+**Dan ruled option A of four.** Section 2.4 is unchanged.
+
+**PAGINATION DID NOT DECIDE THIS ONE, AND THAT WAS ESTABLISHED BEFORE THE QUESTION WAS
+PUT.** Every candidate ordering was built and gated: DE5 as written, DE5 with the turn
+placed last, and a fourth ordering neither read proposed. All four pass fifteen gates
+with identical short-page profiles, so nothing mechanical forced the ruling and it was
+made on the writing alone.
+
+**WHAT DECIDED IT IS A STRUCTURE NEITHER READ NOTICED.** The three middle paragraphs of
+2.4 are a parallel triad, one per flow: usage grows, records decay, cost-and-value
+accrues on one side only. That triad is the section's argument and its title, and DE5's
+remedy breaks it by dropping the illustration in after the record paragraph, halfway
+through a parallelism the reader is following. **The current order states the pattern for
+all three flows and then illustrates the one that is least intuitive**, which is a
+defensible structure rather than the oversight DE5 read it as.
+
+**WHAT SURVIVES THE RULING.** The illustration is still the strongest concrete particular
+in the teaching body and still lands after the section's climax. The finding is recorded
+as observed and outweighed, not as wrong. The fourth ordering, swapping the coupling
+paragraph and the illustration, keeps the triad intact and moves the illustration one
+paragraph closer to its claim; it is gated clean and available if a later step wants it.
 
 ### DE4: RULED BY DAN 2026-08-28. RECORDED, NOT ACTED ON.
 
