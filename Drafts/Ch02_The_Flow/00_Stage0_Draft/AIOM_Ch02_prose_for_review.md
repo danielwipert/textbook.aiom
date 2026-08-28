@@ -58,6 +58,10 @@ Figure 2.1 sets the three side by side. They are the usage flow, the record flow
 
 These three are separable because different people own them, and that is the practical reason the distinction earns its place. Engineering owns the usage flow, because engineering decides what is deployed and to whom. Whoever runs the platform owns the record flow, if anyone does. Finance owns the cost half of the third flow the moment an invoice arrives, and the value half belongs to whichever business unit was supposed to benefit. Four owners, three flows, and no single person whose job is the whole of it. Chapter 3 returns to this division and names what fills the gap.
 
+[FIGURE 2.1. Drawn figure, not reproduced here.]
+
+**Figure 2.1.** The three flows of a deployment. Usage runs continuously once a tool is adopted, and cost runs with it. The record flow is the one that must be constructed, and the value half of the third flow is constructed too. The solid lines run whether or not anyone attends to them; the dashed line and the tinted block exist only where an organization builds them.
+
 A healthy usage flow looks like a rate that somebody can state. An organization with one can answer how many requests were made last month, by roughly whom, and whether the number is rising. It does not need to approve those requests. It needs to know they happened.
 
 A healthy record flow has a grain, and the grain is what makes it useful. A record that says the organization spent a total last month is not a record flow, because no decision follows from it. A record that says which team, which product, and which system consumed what allows a manager to move something. The test is whether the record can answer a question the invoice cannot.
@@ -71,10 +75,6 @@ A healthy cost-and-value flow is the rarest of the three, because it requires th
 The three flows also move at different speeds, which is why they cannot be reviewed on one schedule. Usage changes daily, because it follows the work. Cost resolves monthly, because that is when the invoice closes. Value, where it is measured at all, resolves over quarters, because that is how long it takes for a change in how work is done to show up in an outcome anyone tracks.
 
 A manager who reviews all three at the same interval will always be looking at one of them too early and another too late. The practical arrangement is to watch usage continuously, reconcile cost monthly against a plan, and revisit value on the cycle the business already uses for the outcome in question.
-
-[FIGURE 2.1. Drawn figure, not reproduced here.]
-
-**Figure 2.1.** The three flows of a deployment. Usage runs continuously once a tool is adopted, and cost runs with it. The record flow is the one that must be constructed, and the value half of the third flow is constructed too. The solid lines run whether or not anyone attends to them; the dashed line and the tinted block exist only where an organization builds them.
 
 ### 2.3 Funded as a project, run as a flow
 
@@ -98,6 +98,10 @@ An unmanaged record flow does not merely stay empty. It decays, because the raw 
 
 An unmanaged cost-and-value flow accrues on one side only, and this is the asymmetry the chapter turns on. Cost arrives without anyone doing anything, because the meter is already running and the invoice already has an owner. Value does not arrive on its own. Somebody has to define what the deployment was supposed to improve, measure it before and after, and attribute the change. Nothing in the tool does that, and no invoice contains it.
 
+> **DEFINITION CALLOUT · Cost-value asymmetry**
+>
+> The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.
+
 The three tracks are separated for diagnosis rather than because they run independently. The record flow is the one the other two depend on. Without it the usage flow cannot be compared against a plan, and the value half has nothing to attribute a change to.
 
 The decay is worth one concrete illustration, because managers routinely underestimate it. Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.
@@ -113,10 +117,6 @@ It is also nobody’s obvious job. Engineering has shipped the tool and moved on
 The third reason is the most important. The absence of a record is invisible until it is needed. A broken usage flow announces itself, because people complain that the tool is down. A cost overrun announces itself, because the invoice arrives. A missing record announces nothing at all. It surfaces on the day a senior executive asks which product line drove the increase, and the honest answer is that nobody can say.
 
 This is why the remedy is a decision rather than a habit. An organization does not drift into having a record flow. Somebody has to fund it before the question that needs it has been asked.
-
-> **DEFINITION CALLOUT · Cost-value asymmetry**
->
-> The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.
 
 ### 2.6 All of the cost, an unknown fraction of the value
 
@@ -202,13 +202,15 @@ Two habits make the difference between a mapping that changes something and one 
 
 Step 1. Name the deployment and its boundary. State which tool, which population, and over what period. A boundary that is not stated will move while the diagnosis is being made.
 
-Step 2. Trace the usage flow. Who or what sends requests, at what rate, and is the rate rising? The evidence is a count over time, not an impression. If no count exists, that is a finding about the record flow rather than the usage flow.
+Step 2. Trace the usage flow. Who or what sends requests, at what rate, and is the rate rising? The evidence is a count over time, not an impression. If no count exists, record that against both flows: the record flow is missing the count, and the usage flow cannot be called managed without one.
 
 Step 3. Trace the record flow. State what is recorded, by whom, and at what grain. Ask one question to settle it: can the organization say which team consumed what, without asking the provider? An invoice total is not a record flow.
 
 Step 4. Trace the cost-and-value flow, in two halves. On the cost side, state who owns the invoice and what it can be broken down by. On the value side, state what was supposed to improve, whether it was measured before the deployment, and whether it has been measured since.
 
 Step 5. Diagnose each flow as managed, partly managed, or unmanaged, and say what evidence would change the diagnosis. A diagnosis nobody could overturn is an opinion.
+
+Two tests separate the three states, and a flow must pass both to be called managed. The first is whether the organization can state that flow’s condition from a record it holds itself. The second is whether the record is fine enough that a decision follows from it. A flow is partly managed when it passes one test and not the other, or when the organization can state part of the condition and not the rest. It is unmanaged when the organization cannot state the condition at all. An organization that can attribute half its consumption therefore has a partly managed record flow rather than a managed one.
 
 Two failure modes recur when organizations run this mapping on themselves, and both are worth naming in advance. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s. An organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce.
 
@@ -226,7 +228,7 @@ The usage flow here is managed, and for an unremarkable reason: the record was a
 
 Notice what made the difference. The retailer did not have better intentions than the engineering organization in the opening case. It had a prior measurement system that happened to fit, and a deployment small enough that fitting it was cheap. Most of the work of managing flows is done before a deployment scales, which is the awkward part: the moment when it is easiest to build the apparatus is the moment when it is hardest to justify.
 
-The mapping is deliberately blunt about partial answers. An organization that can attribute half its consumption has a partly managed record flow, not a managed one, and recording it as partial is what makes the next conversation possible. The purpose is to produce a short list of the specific things that are not known, so that somebody can decide which of them is worth the cost of knowing. Awarding a grade would settle nothing.
+The mapping is deliberately blunt about partial answers, and recording one as partial is what makes the next conversation possible. The purpose is to produce a short list of the specific things that are not known, so that somebody can decide which of them is worth the cost of knowing. Awarding a grade would settle nothing.
 
 The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. Organizations are usually surprised by the second finding rather than the third, because the absence of a record is invisible until somebody asks a question that needs one.
 
@@ -274,23 +276,25 @@ Because consumption varies with work rather than with headcount, economic contro
 
 ## [PROBLEMS]
 
-**P1 · Worked.** Mapping a deployment from public reporting
+**P1 · Worked.** The review that would have changed the outcome
 
-Using only the facts given in the opening case, map the three flows for the deployment described, diagnosing each as managed, partly managed, or unmanaged, and stating the evidence that would change your diagnosis.
+The craft section maps the three flows for the deployment in the opening case and returns two partial flows and a third built on its cost half only. Start from that diagnosis rather than repeating it. State what the organization would have needed in hand for a February review to change the outcome. Name, for each flow, the record required, its grain, and who would have had to be looking at it.
 
-Work through the flows in order, and resist the first answer. The usage flow looks managed, because adoption was tracked month by month and the share of engineers using the tool could be stated. But section 2.2 sets the test as request volume, not headcount. On the facts given, the organization could state how many people had the tool and not how much they were consuming, so the correct diagnosis is partly managed.
+Begin with what the diagnosis already establishes, and resist supplying a remedy the evidence does not support. The mapping found a usage flow visible as people rather than as requests, a record flow visible at some grain and not attributed, and a value half that was never built. A February review needed one thing from each of the three, and the three are not equally obtainable.
 
-The record flow is also partly managed. A per-engineer monthly cost range was reported, so consumption was visible at some grain. What the given facts do not establish is whether that record was attributed to teams or compared against the plan. The evidence that would change the diagnosis is a monthly consumption figure attributed to a team and set beside a forecast.
+From the usage flow, a count of requests over time rather than a count of people with access. The grain is the month, because that is when the invoice closes and the plan is what the count must be set against. The adoption figures the organization already had would not have served. A majority of engineers using a tool is consistent with almost any level of consumption, which is the distinction section 2.2 draws between a count of people and a count of requests.
 
-The cost-and-value flow is unmanaged on its value half. The cost half is complete, because the invoices arrived and the annual total was known by April. The value half is absent, and the evidence for that absence is that a senior executive was publicly asking whether the spending had been worth it. That question is not asked about a deployment whose return has been measured.
+From the record flow, that consumption attributed to a team and set beside the team’s share of the plan. Attribution is what makes a rising number actionable: a total that is rising tells a manager that something must be done and not what. The record has to sit with the buyer, because a review held on a fixed date cannot depend on a question to the provider.
 
-The diagnosis is therefore two partial flows and one half-built, on a deployment that most observers would have called a success four months in. That is the point of the mapping. It converts an impression of success into a short list of things nobody can state, and the list is what a manager can act on.
+From the cost-and-value flow, the answer is harder and it is the one worth reaching. The cost half was already complete, because the invoices arrived and accumulated. The value half could not have been assembled in February. A return measured after the fact requires a measurement taken before, and the public account does not establish that one exists. A February review would therefore have caught the spending and not the return.
+
+And an owner, which is the answer most readers leave out. The three records belong to three different functions, so section 2.2’s four owners arrive here as a practical problem: a review is a meeting somebody has to call. Two of the three gaps were closable in February and the third was not. The one that was not is the gap the chief operating officer’s question is about.
 
 **P2 · Guided.** The seat forecast that did not hold
 
 A company budgets an AI assistant at a fixed monthly amount per employee, multiplied by the number of employees expected to have access, held flat for twelve months. Twelve months later the total spend is three times the budget, while the number of employees with access is exactly what was forecast.
 
-State which of the three antecedents of THM-004 this situation satisfies, and identify the specific assumption in the forecasting method that failed. Then state what the company would need to record, at what grain, to produce a forecast that could have held.
+State which of the four antecedents of THM-004 this situation satisfies, and identify the specific assumption in the forecasting method that failed. Then state what the company would need to record, at what grain, to produce a forecast that could have held.
 
 Work in that order rather than starting from the remedy. The antecedents establish whether the theorem applies at all; a deployment that has not scaled is outside its scope and needs no apparatus. Only once the theorem applies is the forecasting question worth asking, and only then does the grain of the missing record become determinate rather than a matter of taste.
 

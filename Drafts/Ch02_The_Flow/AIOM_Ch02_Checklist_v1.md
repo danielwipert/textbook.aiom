@@ -639,6 +639,118 @@ Claude's and five the reviewer's. The re-run matrix is unchanged: any body prose
 re-runs Stages 2, 3, 4, 5 and G2, so the batching question is Dan's and matters more now
 than it did at nine findings.
 
+---
+
+## Stage 2 remedies applied, 2026-08-28
+
+**DAN RULED OPTION A: NEW-1, NEW-2, DE1, DE2, NEW-3 and NEW-4, in one batch.** All six
+are applied to the live text. **The print render passes all fifteen gates**, and the
+committed state was rebuilt for attribution, so every gate result below is measured
+rather than assumed.
+
+- **NEW-1 applied.** Craft Step 2's last sentence now reads "If no count exists, record
+  that against both flows: the record flow is missing the count, and the usage flow
+  cannot be called managed without one." **The direction of this fix was determined by
+  the record, not chosen.** The alternative was to keep Step 2 and restore the Uber
+  mapping's earlier "managed and healthy" diagnosis, which would have reversed the bias
+  review's BR5 finding and 2.2's own health test. Only one direction reopens nothing.
+- **NEW-2 applied**, as a paragraph after Step 5: two tests, both of which a flow must
+  pass to be called managed, the first that the organization can state the flow's
+  condition from a record it holds itself and the second that the record is fine enough
+  that a decision follows from it. Partly managed is one test and not the other, or part
+  of the condition and not the rest; unmanaged is not being able to state it at all.
+  **The rule was checked against every worked instance in the chapter before it was
+  written**, and it returns the diagnosis the chapter already gives in all of them: both
+  Uber flows partial, the retailer's three managed, the value half unmanaged, and the
+  half-attributed record partial. The half-attribution example moves here from the later
+  paragraph, which keeps only what it alone says.
+- **DE1 applied, AND NOT AT THE ANCHOR THE FINDING NAMED.** DE1's remedy (a) put the
+  figure immediately after its introducing sentence. That renders and passes fifteen
+  gates, **and it leaves page 5 a third empty**, because the figure will not fit below
+  the introducing paragraph and pushes to page 6 while the paragraphs that would have
+  filled page 5 go with it. Five anchors were built and measured. The figure lands at the
+  top of page 6 from four of them, so the anchor that also fills page 5 is free. **It is
+  now after the four-owner paragraph**: the reference sits two paragraphs from the foot
+  of page 5, the figure opens page 6, and the three health tests, the three locations and
+  the three speeds are all read with the figure in view, which is what DE1 asked for.
+- **DE2 applied by remedy (c), the one that costs no source.** P1 is repointed from
+  "Mapping a deployment from public reporting" to "The review that would have changed the
+  outcome". It now starts from the craft section's finished diagnosis instead of
+  reproducing it, and asks for the record, the grain and the owner each flow would have
+  needed for a February review to change anything. **The worked answer reaches something
+  the chapter had not stated**: two of the three gaps were closable in February and the
+  third was not, because a return measured after the fact requires a measurement taken
+  before. The craft section's Uber mapping is untouched, so nothing is lost.
+- **NEW-3 applied.** P2 now asks for four antecedents.
+- **NEW-4 applied.** P4 has its own `div.problem`. Four problems, four wrappers, and gate
+  10 reports "4 found, all with their title".
+
+**THREE SENTENCES WERE TIGHTENED IN THE NEW P1** after `voicecheck` put them at 36, 37
+and 40 words. Two are now pairs and one is split at its natural break. Nothing else about
+them changed.
+
+### DE3 WAS APPLIED AND DAN DID NOT RULE IT. This is the one thing in the batch to reverse if he disagrees.
+
+**Applying DE1 broke gate 4, and `place.py` could not fix it.** The committed chapter
+passed all fifteen gates; after DE1 the Cost-value asymmetry callout split across a page
+break, and the placement pass reported **"'Cost-value asymmetry' has no alternative
+anchor in its section, stopping"**. Section 2.5 is 300 words and offers the pass nothing
+to work with.
+
+The only remaining remedy was to move the callout out of 2.5, which is DE3. **Both
+candidate positions were built and gated rather than reasoned about.** The head of 2.6
+still splits. The end of 2.4, directly after the paragraph that builds the mechanism,
+passes all fifteen. That is DE3's own remedy (a).
+
+**The reviewer's argument against acting on DE3 was cost, not merit.** Both reads agree
+the callout sat a section away from the mechanism it names; they disagreed only about
+whether moving it was worth a re-run. The re-run was already happening, and the
+alternative to moving it was shipping a chapter that fails a gate. **Page 9 was
+rasterized and read**: the callout now floats beside the paragraph that builds the
+asymmetry, whole, with no collision with any panel, which is Gap G-I checked rather than
+assumed.
+
+### A PAGE THAT IS A THIRD EMPTY PASSES ALL FIFTEEN GATES, AND THIS SHOULD GRADUATE
+
+**No gate in the print suite measures how much of a page is used.** Gate 13 checks that
+nothing sits below the text block and gate 14 checks widows, orphans and stranded heads.
+A figure that does not fit, pushing to the next page and taking its neighbours with it,
+leaves a hole 217pt deep in a 25-page chapter and every gate reads green. **It was found
+by rasterizing page 5 and looking at it**, which is the rule already in force for figures
+and for callout placement, arriving at a third kind of defect. DR3a records a short page
+as an accepted cost in Chapter 1; this one was not accepted and did not have to be.
+**Dan's to rule for CLAUDE.md.**
+
+### What was measured after the batch
+
+- **Print: all fifteen gates pass** on the live text, 25 pages. Attribution was done
+  against the committed state rather than assumed, which is how the gate 4 failure was
+  known to be DE1's rather than pre-existing. Page 11's short page is in the committed
+  baseline too and is not from this batch.
+- **`voicecheck`: Stage 4 mechanical PASS and house style PASS.** Zero em dashes, zero
+  contractions, zero straight marks, no paragraph over 150 words.
+- **Pages 5, 6, 9, 17, 20 and 22 were rasterized and read.** Page 6 opens on Figure 2.1
+  with the health tests beneath it. Page 9 carries the moved callout clean. Page 17 holds
+  all five diagnostic steps and the new decision rule in one view, which is the best
+  outcome available for NEW-2. Pages 20 and 22 end short because a summary and a key-term
+  list end where they end.
+- **`chapter_check.py Ch02`: W14 pass, voicecheck pass, print pass, registry pass,
+  checklist self-consistent.** The web build and G3 still report failures and both are
+  the expected shape for a chapter at Stage 2: W2 because the chapter is not locked, W10
+  because a single-chapter build omits locked Chapter 1, and G3 because the continuity
+  ledger carries no Chapter 2 entries until lock.
+- **The chapter is 7,513 words**, from 7,257.
+
+### What was NOT applied, and why
+
+**DE4, DE5, DE6, DE7, DE8, DE9 and NEW-5 all stand unruled and untouched.** Option A
+excluded them and the reviewer advised against acting on DE3, DE7, DE8 and DE9 at all.
+**DE4 should be reassessed rather than ruled**, on the reviewer's reasoning: its load
+finding was about 2.2 before Figure 2.1 arrived, and the figure has now moved into that
+section. **NEW-5 is the one item in the excluded set that has a determinate remedy
+waiting**, since Chapter 1 already carries the `.dated` device the MIT NANDA paragraph
+would go into.
+
 **THE EXTRACTOR IS NOW A COMMITTED SCRIPT, `prose_extract.py`, and the reasoning is
 the one that promoted `factcheck_packet.py` to the root.** The same extraction had
 been written from scratch three times on this chapter, for the bias check, for Stage
