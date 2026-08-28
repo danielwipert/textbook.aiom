@@ -3015,6 +3015,52 @@ handling has been read on a page, which no chapter before this one could say.
 
 ARCHIVED 2026-08-11, superseded by the reopen at Gate G2. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
+A CLAUDE RASTER READ OF THE FOUR STALE MANUAL ITEMS, 2026-08-28. NOT A TICK.
+
+**Dan ruled on 2026-08-28 that Claude performs the read and reports, and that the
+boxes stay his to close.** The alternative put to him was to rule that a Claude raster
+read satisfies a MANUAL box, which would change what MANUAL means for every chapter;
+he declined to decide that on no evidence, and this record is the evidence. **Nothing
+is ticked here and no box below has moved.**
+
+`chapter_check.py` reports four items stale because the text moved after G2 was
+ticked: the two MANUAL G2 boxes, Gap G-I and Gap G-II. All four were read on a fresh
+render of the locked text, 25 pages.
+
+**MANUAL BOX 1, FIGURE GEOMETRY: NO DEFECT.** Both figures rasterized at 150dpi and
+read at shipping size. Figure 1.1's three boxes, its two arrows, its three dashed drop
+lines and its meter band all resolve, and the caption's claim that the provider holds
+the record is carried by the drawing rather than only by the words. Figure 1.2's two
+panels separate a flat line from a rising curve, and the event ticks under the curve
+are countable, which is the exact property Chapter 2's Figure 2.2 failed on its first
+geometry.
+
+**MANUAL BOX 2, PAGE-LEVEL VISUAL REVIEW: NO DEFECT. ALL 25 PAGES, and the scope is
+stated from what was done.** Every page was rendered at 60dpi into three contact sheets
+and read; pages 6, 7 and 19 were then re-read at 130 to 150dpi where the sheets raised
+a question. **One short page, page 24, which is DR3a and is recorded as an accepted
+cost.** The page-fill advisory added to `AIOM_build.py` the same day reports that page
+and no other, which is an independent check on this read.
+
+**GAP G-I, A CALLOUT COLLIDING WITH A BLOCK PANEL: NO EXPOSURE.** The four definition
+callouts sit on pages 4, 5 and 10. The Theorem 1 panel sits on page 9. **No page
+carries both**, so there is nothing for the hazard to act on.
+
+**GAP G-II, A STRANDED HEAD GROUP: NO DEFECT, AND THE CLOSEST CALL MOVED.** Every slot
+opening carries content below its head group on the same page. The nearest thing to a
+strand is Key terms on page 19, where the head is followed by its first entry, Category
+error, before the page ends.
+
+**THE PAGINATION HAS MOVED SINCE THE LAST RECORD, WHICH IS WHY THE FLAG WAS RIGHT.**
+The 2026-08-10 record below places Key terms on page 20. It is on page 19 now. Nothing
+about that is a defect, and it is exactly the drift the stale flag exists to report: a
+record that was true when it was written and describes a pagination that no longer
+exists.
+
+**NOTHING FOUND REQUIRES AN AMENDMENT.** Chapter 1 is locked and published, so any
+finding here would have been an `amend.py` matter rather than a reopen. There is no
+finding.
+
 G2 PASSED 2026-08-10 on a fresh build against CSS v7.1, at 25 pages. All fourteen
 printed gates pass and BOTH MANUAL BOXES WERE PERFORMED. One finding, PG1, ruled
 by Dan and applied as Decision 59.
