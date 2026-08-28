@@ -97,6 +97,14 @@ jobs:
       - name: Prove the gates still measure what they claim
         run: python3 web_gates_selftest.py
 
+      # The print suite had no controls at all until 2026-08-28, so a green
+      # print run was evidence about the fifteen gates only if the gates
+      # worked, and nothing had ever tested that. It runs here rather than in
+      # chapter.yml because it needs the same print toolchain this job already
+      # installs, and because it measures the TOOLING rather than a chapter.
+      - name: Prove the print gates still measure what they claim
+        run: python3 print_gates_selftest.py
+
       - name: Upload the built site
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

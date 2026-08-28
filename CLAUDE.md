@@ -224,6 +224,7 @@ sources are dated. Constructed material is labelled as constructed.
 | `.github/workflows/chapter.yml` | Decision 69. Runs `chapter_check.py --all` on every push. **Separate from `web.yml` on purpose**: that one builds through `snapshot.py`, so it gates each chapter's LAST LOCK and can never examine an in-flight chapter. Needs `fetch-depth: 0` for the same class of reason. |
 | `web_gates_selftest.py` | Negative controls for the web gates. Injects one fault at a time and asserts the owning gate fails. Run after any change to `web_build.py`. It found two dead gates and one blind spot on its first run. |
 | `place.py` | Definition-callout placement pass. See section 6. |
+| `print_gates_selftest.py` | Negative controls for the fifteen PRINT gates. Thread 11, closed 2026-08-28. Injects one fault at a time into the locked Chapter 1, renders, and requires that `qa()` fails AND that the failure names the gate that owns the fault. **The base is locked Chapter 1 on purpose**: print gates measure a rendered page, so they cannot run against the minimal synthetic document the web controls prefer, and a locked chapter cannot move under the test. 23 controls, every gate covered. Run it after any change to `AIOM_build.py`. |
 | `specimen.py` | Type specimen. Sets the chapter's own prose in candidate faces at the shipping size, embeds each face so the page needs no network, and reports set width, x-height and what the measure becomes. A face is chosen by reading this, never by reading a description of the face. |
 | `copyedit_export.py` | Chapter HTML to a copy-editing `.docx` plus a round-trip manifest. Stage 6 happens in Word; this is how it gets there. Excludes the source register by design. |
 | `copyedit_import.py` | The copy-edited `.docx` back into the chapter HTML, block by block, by span. Applies what is unambiguous and refuses the rest rather than guessing. |
@@ -469,6 +470,31 @@ Inspect both by eye.
   threshold is measured rather than chosen: across both chapters, 50 pages, exactly
   four exceed it and each has a known cause, so the signal runs about two lines per
   chapter. Its control is Chapter 1 page 24, which is DR3a and which it reports.
+
+- **THE PRINT GATES NOW HAVE NEGATIVE CONTROLS, AND THEIR FIRST RUN FOUND THREE
+  DEAD ONES. Thread 11, closed 2026-08-28.** `print_gates_selftest.py` injects one
+  fault at a time into the locked Chapter 1, renders, and requires that `qa()` fails
+  AND that the failure names the gate that owns the fault. **The second half is the
+  point**: a control asserting only that "something failed" passes when the wrong
+  gate fires, which is how a gate can be dead while its control is green. 23
+  controls, every one of the fifteen gates covered, run in CI by `web.yml`.
+- **TWO OF ITS CONTROLS REPORTED PASS BEFORE THE HARNESS WAS CORRECT, AND THE CLEAN
+  BASELINE IS WHAT CAUGHT IT.** The first harness made its temp file in a directory
+  UNDER the repo root, which is one level too deep: `base_url` is the HTML's own
+  directory, so `AIOM_book.css` and `fonts/` resolved inside the temp directory and
+  were absent. Every case rendered unstyled, so every case failed something, and two
+  controls that inject nothing the gates can see reported green. **A suite of
+  controls needs a control of its own**, which is why the unmutated chapter is the
+  first case in the file.
+- **THE THREE DEAD CONTROLS WERE ALL WRONG IN THE SAME WAY: they injected a fault
+  the gate is right to ignore.** A bare `@page` rule cannot suppress a running head
+  the design sets in `@page :right`, which outranks it. Asking for Jost at an
+  undeclared weight falls back to Jost 500, an expected face, so no new file is
+  embedded and gate 5 is right to stay quiet; the control now stages Archivo, which
+  is in `fonts/use` for the web and declared nowhere in `AIOM_book.css`. And
+  permitting the theorem panel to break does not make it break, because it still
+  fits wherever it lands; the panel has to be made taller than the text block.
+  **Each of those is a control that would have certified a gate it never exercised.**
 
 The build refuses to start without its toolchain (`pip install -r
 requirements.txt`, plus `poppler-utils`) and exits 2. A gate that did not run is
