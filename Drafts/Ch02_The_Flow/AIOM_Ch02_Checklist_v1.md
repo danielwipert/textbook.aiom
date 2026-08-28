@@ -442,7 +442,7 @@ package is what can still buy the independence back.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-28
 
 > Teaching quality, held early so its line edits do not churn fact check, voice, design, and production. Clarity, pacing, cognitive load, example fitness, transitions, and whether the argument carries the target reader without a stall. Claude runs a fresh critical pass; Dan gut-checks with a second model and rules.
 
@@ -754,6 +754,38 @@ as an accepted cost in Chapter 1; this one was not accepted and did not have to 
 them and the reviewer advised against acting on DE7, DE8 and DE9 at all. **NEW-5 is the
 one item in the excluded set that has a determinate remedy waiting**, since Chapter 1
 already carries the `.dated` device the MIT NANDA paragraph would go into.
+
+### STAGE 2 CLEARED 2026-08-28, AND THE HOLD CONDITION WAS CHECKED RATHER THAN ASSUMED
+
+**Dan ruled option A of three and Stage 2 is closed.** Claude's pass, the second model's
+independent check, and Dan's ruling on every one of the fourteen findings are all
+complete.
+
+**THE SECOND MODEL SET A CONDITION FOR CLOSING AND IT WAS NOT MET BY THE BATCH.** Its
+verdict was to hold Stage 2 open "until the three-flow mapping itself becomes internally
+deterministic". Running the finished diagnostic against the chapter's own worked cases
+rather than asserting the condition found that two of the three flows resolve correctly
+under the new rule and **the third does not**. Step 4 instructs a reader to trace the
+cost-and-value flow "in two halves", every worked instance then diagnoses it by half, and
+Step 5 and the NEW-2 rule both assign one label per flow. **A reader following the
+procedure reached the third flow and had to guess whether to give it one diagnosis or
+two, with the chapter's examples answering differently from its rule.**
+
+**This was a residual of Claude's own NEW-2 remedy**, in the same family as NEW-1, and it
+was found only because the condition was tested. One sentence closes it, appended to the
+rule paragraph:
+
+> The cost-and-value flow takes a diagnosis on each half, because step 4 traces it that
+> way and its two halves are built by different people to different standards.
+
+**WHAT CLOSING THIS STEP CHANGES MECHANICALLY.** Stage 2 owns no check in
+`chapter_check.py`, so ticking it binds nothing new by itself. The chapter is now at 4 of
+13 and Stage 3 is next, which is Dan's and external.
+
+**Verified at close:** all fifteen print gates pass on the live text at 25 pages, gate 9
+among them for the first time on this chapter; `voicecheck` passes mechanical and house
+style with no paragraph over 150 words; `chapter_check.py Ch02` reports no broken claim.
+The chapter is 7,513 words at the Decision 33 measure.
 
 ### DE7, DE8 and DE9: RULED TOGETHER BY DAN 2026-08-28. RECORDED, NOT ACTED ON.
 
