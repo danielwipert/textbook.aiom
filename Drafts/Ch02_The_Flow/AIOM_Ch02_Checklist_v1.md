@@ -750,10 +750,37 @@ as an accepted cost in Chapter 1; this one was not accepted and did not have to 
 
 ### What was NOT applied, and why
 
-**DE7, DE8 and DE9 stand unruled and untouched.** Option A excluded
+**EVERY STAGE 2 FINDING IS NOW RULED. See the per-finding records below.** Option A excluded
 them and the reviewer advised against acting on DE7, DE8 and DE9 at all. **NEW-5 is the
 one item in the excluded set that has a determinate remedy waiting**, since Chapter 1
 already carries the `.dated` device the MIT NANDA paragraph would go into.
+
+### DE7, DE8 and DE9: RULED TOGETHER BY DAN 2026-08-28. RECORDED, NOT ACTED ON.
+
+**Dan ruled option A of two.** The three were put as one decision because the second
+model's advice was identical for all three and both reads had converged on each. No text
+changed.
+
+- **DE7, six three-part structures.** Mostly rejected by the reviewer, who did not confuse
+  the triads and read the real problem as the missing decision rule, which is NEW-2 and is
+  applied. **The residual claim in Claude's own finding was checked and is not quite
+  right.** DE7 said 2.7 never ties the apparatus's three parts back to a flow. The
+  paragraph immediately after the triad reads "A dashboard nobody acts on is a record flow
+  with no constraint attached", which makes exactly that link. It is oblique and one
+  paragraph late, and it is in the text. DE7 has very little left.
+- **DE8, the opening case's five paragraphs before its payoff.** Rejected as a defect by
+  the reviewer: the intervening forecast and consumption material does genuine causal
+  setup and the case does not read as withholding its point. Claude's finding had already
+  declined to rule it, since the skeleton permits variation in form inside the
+  opening-case slot and Dan ruled the case in. **Its second half is not a defect at all**:
+  the seven attributions of uncertainty are each required by the register's UNVERIFIED
+  status, and the question resolves itself if Stage 3 verifies the sources, so acting now
+  would mean rewriting twice.
+- **DE9, section 2.3's position.** Both reads confirm a real seam between 2.2 and 2.3 and
+  both stop short of moving the section, the reviewer because the section title does the
+  bridging and because a move re-runs G1 to buy a smoother argument rather than to close a
+  defect. Nothing in the batch changed the seam. **This does not disturb Stage 1's ruling
+  that 2.3 is kept**, which was never in question here.
 
 ### NEW-5: RULED BY DAN 2026-08-28. APPLIED, AND IT WAS UNDER-SCOPED BY ONE INSTANCE.
 
