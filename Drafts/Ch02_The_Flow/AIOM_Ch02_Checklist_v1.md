@@ -431,7 +431,9 @@ independent read was Dan's own, so the second-model package was never sent.
 chapter, the findings and two reference extracts, ordered so a reviewer forms a view
 BEFORE reading Claude's, with question 7 asking what this review missed. It remains
 runnable at any time, and a finding it raises reopens Stage 1 through `reopen.py`
-like any other. **This is the corrective the substitution record names**: closing
+like any other. **CORRECTED 2026-08-28: the prompt was runnable and its chapter input
+was seven commits stale.** See the Stage 2 record below. The extract is regenerated and
+the package is runnable in fact as well as in claim. **This is the corrective the substitution record names**: closing
 Stage 1 on Dan's own read buys his authority at the cost of independence, and the
 package is what can still buy the independence back.
 
@@ -516,6 +518,51 @@ model**, which is Dan's half of this step.
 of the five uncited frequency claims handed to Stage 3 sit in passages DE5 and DE6
 touch. If Stage 2's remedies land first, Stage 3 reads moved text; if Stage 3 moves
 first, these findings need re-anchoring.
+
+**THE SECOND-MODEL PACKAGE IS BUILT AND UNSENT, 2026-08-28.** Four files, in
+`03_Stage2_Developmental_Edit/` except the chapter:
+
+- `AIOM_Ch02_Stage2_secondmodel_prompt.md`, the prompt. It asks five questions the
+  reviewer answers BEFORE opening Claude's findings, then four about the findings
+  themselves. **Question 1 is the one the drafter structurally cannot answer**: where
+  did you first stall. The drafter has read this chapter perhaps thirty times and can
+  no longer be surprised by it. **Question 8 asks what is overstated**, and it is not
+  a formality here, because two of the candidate remedies re-run G1 on the whole
+  chapter and any body prose change re-runs four later steps.
+- `AIOM_Ch02_prose_for_review.md`, the chapter as prose.
+- `ch02_reader_model_extract.md`, section 2 of the prose standard and nothing else
+  from it, because the rest governs voice and voice is Stage 4's.
+- `AIOM_Ch02_Stage2_findings.md`, read last.
+
+**WHAT IS OUT OF BOUNDS IS STATED IN THE PROMPT RATHER THAN LEFT TO THE REVIEWER.**
+Fact and sourcing, because Stage 3 has not run and every figure is formally
+unverified. Voice and replacement wording, because Stage 4 has not run. And the four
+Stage 1 rulings Dan closed on 2026-08-24, named individually, so a reviewer cannot
+reopen them by accident. DE9 is flagged in the prompt as concerning section 2.3's
+position and not its existence, which is the distinction that ruling turns on.
+
+**THE STAGE 1 PACKAGE HAD GONE STALE AND NOBODY WOULD HAVE NOTICED, FOUND
+2026-08-28.** Its prompt was recorded above as remaining runnable at any time, and
+its prompt was. Its chapter input was not: `AIOM_Ch02_prose_for_review.md` was last
+generated on 2026-08-21 and the chapter moved seven commits after it, gaining Figure
+2.2, a rewritten P3 on a cited real deployment, and the 2.8 provenance paragraph.
+**A reviewer sent that package would have reviewed a chapter that no longer exists
+and reported on a figure the chapter does not have.** This is the repository's own
+signature failure, a record claiming to be current while its input has moved, and it
+is recorded here so Chapter 3 does not repeat it. The extract is regenerated and both
+packages now point at the live text.
+
+**THE EXTRACTOR IS NOW A COMMITTED SCRIPT, `prose_extract.py`, and the reasoning is
+the one that promoted `factcheck_packet.py` to the root.** The same extraction had
+been written from scratch three times on this chapter, for the bias check, for Stage
+1 and now for Stage 2. **The throwaway version invented a slot label the chapter does
+not carry**, a `[TEACHING BODY]` heading that appears in neither Chapter 1 nor
+Chapter 2, because the six-slot skeleton signposts through structure rather than
+through labels. It also dropped every key term's NAME, printing six definitions with
+nothing to attach them to. The committed version keeps term names, marks each figure
+in place with its caption, renders the theorem panel as a structured conditional,
+excludes the source register and the citation markers, and was verified by comparing
+its word multiset against the chapter's own: no prose dropped and none duplicated.
 
 ---
 
