@@ -689,7 +689,14 @@ rather than assumed.
 and 40 words. Two are now pairs and one is split at its natural break. Nothing else about
 them changed.
 
-### DE3 WAS APPLIED AND DAN DID NOT RULE IT. This is the one thing in the batch to reverse if he disagrees.
+### DE3: APPLIED, THEN RULED BY DAN ON 2026-08-28. CONFIRMED AS APPLIED.
+
+**Dan ruled option A on 2026-08-28**: the move stands and DE3 closes as applied. The
+reasoning he ruled on is below, and it was put to him as three options, the other two
+being to reverse the move and give up something else to satisfy gate 4, or to keep the
+move while recording DE3's developmental claim as unproven. **DE3 is therefore a closed
+finding and not merely a pagination outcome**: the callout now arrives after the
+mechanism it names, which is what the standing rule asks for.
 
 **Applying DE1 broke gate 4, and `place.py` could not fix it.** The committed chapter
 passed all fifteen gates; after DE1 the Cost-value asymmetry callout split across a page
