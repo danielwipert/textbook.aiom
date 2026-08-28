@@ -310,6 +310,8 @@ Fourth, sort your three diagnoses into two groups: those resting on something th
 
 This trial is not the opening case under another name. This organization commissioned an independent evaluation, published it, and let it report the limits of its own method, which is more than most buyers do. Establish what that bought and what it could not buy.
 
+**P4 · Independent.** The business case that became a belief
+
 An organization approved an AI deployment two years ago on a business case projecting a twenty per cent reduction in the time taken to complete a routine task. The deployment is still running. The projection has never been revisited, and it is quoted in the current year’s planning documents as the deployment’s contribution.
 
 Identify what has happened to the status of the twenty per cent figure between the business case and the planning document, and name the step in the organization’s process that should have prevented it. Then state the smallest change to the review schedule that would stop it recurring, and explain why a change to the business-case template would not.

@@ -181,13 +181,23 @@ def convert(doc):
             out.append('**%s.** %s' % (inline(n.group(1)) if n else '',
                                        ' '.join(inline(p) for p in paras)))
         elif tag == 'div' and 'problem' in classes:
-            lab = re.search(r'<p class="plab">(.*?)</p>', inner, re.S)
-            title = re.search(r'<p class="ptitle">(.*?)</p>', inner, re.S)
-            paras = re.findall(
-                r'<p(?![^>]*class="(?:plab|ptitle)")[^>]*>(.*?)</p>', inner, re.S)
-            head = '**%s.** %s' % (inline(lab.group(1)) if lab else '',
-                                   inline(title.group(1)) if title else '')
-            out.append('\n\n'.join([head] + [inline(p) for p in paras]))
+            # Walked in document order rather than by first match, because a
+            # problem div can hold MORE THAN ONE problem. Chapter 2's P4 has no
+            # wrapper of its own and sits inside P3's, and taking the first plab
+            # in the block dropped P4's label and title silently. A second model
+            # reading the extract reported the missing label as a chapter defect,
+            # which sent a real markup fault to the author through the wrong door.
+            for chunk in re.findall(r'<p[^>]*>.*?</p>', inner, re.S):
+                cls = class_of(chunk[:chunk.find('>') + 1])
+                text = inline(re.sub(r'\A<p[^>]*>|</p>\Z', '', chunk))
+                if 'plab' in cls:
+                    out.append('**%s.**' % text)
+                elif 'ptitle' in cls:
+                    out[-1] = '%s %s' % (out[-1], text)
+                elif 'pnote' in cls:
+                    out.append('*%s*' % text)
+                elif text:
+                    out.append(text)
         elif tag == 'div':
             # Layout container: re-scan its contents in place.
             pos = m.end()

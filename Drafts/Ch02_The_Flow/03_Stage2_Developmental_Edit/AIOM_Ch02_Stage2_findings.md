@@ -99,9 +99,21 @@ it is used. **This interacts with placement**: the callout floats, so `place.py`
 re-run and gate 4 re-checked whichever is chosen, and Gap G-I means the affected pages
 need reading rather than only gating.
 
-## DE4 (MEDIUM). Section 2.2 carries six distinct teaching jobs in 846 words
+## DE4 (MEDIUM). Section 2.2 carries six distinct teaching jobs
 
-Measured: 846 words across 14 paragraphs, the longest teaching section in the chapter.
+**CORRECTED 2026-08-28, AND THE CORRECTION CAME FROM THE SECOND MODEL.** This finding
+was written as "six distinct teaching jobs in 846 words" and asserted that 2.2 was the
+longest teaching section in the chapter. **It is not.** Measured with citations and
+figures stripped, 2.2 is 838 words and 2.6 is 865. The superlative is struck and no
+part of the argument below rests on it. The six-jobs count stands and is what the
+finding is about.
+
+**This was an error Claude made about a chapter Claude drafted, inside a finding
+written to show that the findings could be checked without trusting the reviewer.**
+The reviewer checked it and it failed, which is the clearest evidence in this step
+that the independent read earns its cost.
+
+Measured: 838 words across 14 paragraphs.
 The jobs are (1) the three flows named, (2) each described, (3) the four-owner division,
 (4) a health test for each of the three, (5) the record flow's three physical locations,
 and (6) the three flows' three different speeds and the review cadence that follows.

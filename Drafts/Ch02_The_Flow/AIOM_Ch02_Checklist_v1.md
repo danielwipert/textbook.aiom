@@ -552,6 +552,93 @@ signature failure, a record claiming to be current while its input has moved, an
 is recorded here so Chapter 3 does not repeat it. The extract is regenerated and both
 packages now point at the live text.
 
+**THE SECOND MODEL'S REVIEW IS IN, 2026-08-28, AND IT HOLDS STAGE 2 OPEN.** Recorded
+verbatim in `03_Stage2_Developmental_Edit/AIOM_Ch02_Stage2_secondmodel_review.md`, with
+the only alteration being em dashes replaced under standing rule 1 and no word changed.
+Claude's verification of every checkable claim is appended there in its own marked
+section. **Dan rules all of it and Claude rules none of it.**
+
+**THE HEADLINE IS NOT ONE OF CLAUDE'S NINE.** The reviewer's verdict is that the chapter
+teaches, the conceptual spine should not be rebuilt, and the argument carries end to
+end, but that **the diagnostic itself is not yet internally stable**, and that this
+matters more than most of DE1 to DE9 because the three-flow mapping is the chapter's
+runnable artifact. Its revision order is NEW-1, NEW-2, DE1, DE2, NEW-3.
+
+**FIVE NEW FINDINGS. All five verified against the chapter by Claude.**
+
+- **NEW-1 (HIGH). VERIFIED. The craft procedure contradicts its own worked example.**
+  Craft Step 2 says "If no count exists, that is a finding about the record flow rather
+  than the usage flow." Three paragraphs later the Uber mapping downgrades the USAGE
+  flow to partly managed, citing 2.2 by name, precisely because request counts cannot
+  be established. **THE CONTRADICTION WAS CREATED BY A FIX, and the history is the part
+  that binds later chapters.** Step 2's sentence dates from the Stage 0 draft
+  (`ec92f25`). The mapping's diagnosis changed at `d89c9df`, the commit applying the
+  second-model BIAS REVIEW, whose best finding was that this same mapping had graded the
+  flow "managed and healthy" against a test 2.2 sets. **The fix corrected the worked
+  example and left the procedure the example follows.** No gate in either suite reads a
+  procedure against its own worked example, and none could without reading meaning.
+- **NEW-2 (HIGH). VERIFIED as an absence.** The chapter uses managed, partly managed and
+  unmanaged in eight places and defines the boundary between them in none. Step 5 names
+  the three states and stops. The only threshold sentence in the chapter is one instance
+  for one flow, "an organization that can attribute half its consumption has a partly
+  managed record flow", and nothing generalizes it. Two readers can follow Steps 1 to 4
+  identically and diagnose differently without breaking any rule the chapter teaches.
+- **NEW-3 (MEDIUM). VERIFIED.** P2 says "State which of the three antecedents of
+  THM-004"; the panel lists four, (i) through (iv). A reader cannot comply with the
+  instruction as written. **The panel is not the thing to change**, since rule 4a puts it
+  beyond editing and `registry.py` checks it against the pinned manifest. The error is in
+  the problem, which is the book's own text.
+- **NEW-4 (MEDIUM). VERIFIED, AND THE CAUSE IS WORSE THAN REPORTED WHILE HALF OF IT IS
+  CLAUDE'S.** The chapter carries four problems and three `div.problem` wrappers: **P4
+  has none of its own and sits inside P3's**, which closes only after P4's last
+  paragraph. Chapter 1 carries three problems in three divs. **No gate catches it and no
+  read would have**, because `.problem .plab` and `.problem .ptitle` are descendant
+  selectors, so P4 keeps its type and loses only the 15pt inter-problem margin. The
+  MISSING LABEL the reviewer saw was `prose_extract.py` taking the first `plab` per
+  block, so **a real markup fault reached the author disguised as a smaller one**. The
+  extractor is fixed and re-verified against both chapters; the chapter markup is
+  untouched and is Dan's.
+- **NEW-5 (MEDIUM). VERIFIED as a placement fact, and the precedent strengthens it
+  beyond what the reviewer had.** The MIT NANDA paragraph is running body prose in 2.6.
+  **Chapter 1 admits dated evidence into its teaching body and quarantines every instance
+  in a `.dated` box**, the January 2025 OpenAI correction and the July 2025 Anthropic
+  limits among them. Chapter 1 has two such boxes. **Chapter 2 has none.** So the
+  question is not whether dated evidence may sit in a teaching body, which it plainly
+  may, but whether this passage may sit outside the device the book built for it. Stage 1
+  ruled on NANDA's CHAPTER ASSIGNMENT under S1-4 and did not rule on its containment, so
+  this reopens nothing.
+
+**WHAT THE REVIEWER CONFIRMED, DOWNGRADED AND REJECTED.** DE1 and DE2 confirmed at HIGH
+and ranked third and fourth overall. DE4's load confirmed but its remedy resisted until
+DE1 is fixed and 2.2 reread. DE5 and DE6 confirmed at lower severity and worth doing
+only inside a re-run that is already happening. **DE3 downgraded from HIGH to LOW**, on
+the ground that the callout sits immediately before 2.6 opens on "The consequence of the
+asymmetry", so the coined-term rule is satisfied and no first-pass difficulty arose. DE7
+mostly rejected: the reviewer did not confuse the triads and reads the real problem as
+NEW-2. DE8 rejected as a defect and kept as an observation. DE9 confirmed as a real seam
+but not as a mandate to move a section and re-run G1. **The reviewer explicitly advises
+against acting on DE3, DE7, DE8 and DE9 at all**, given what a body prose change costs.
+
+**DE4 IS CORRECTED IN THE FINDINGS FILE AND THE CORRECTION IS THE REVIEWER'S.** DE4
+asserted 2.2 was the longest teaching section at 846 words. Measured with citations and
+figures stripped, **2.2 is 838 words and 2.6 is 865**. The superlative is struck; the
+six-jobs count stands and carries the finding. **This was an error Claude made about a
+chapter Claude drafted, inside a finding written to show the findings could be checked
+without trusting the reviewer.** It is the clearest evidence in this step that the
+independent read earned its cost, and it is the second time on this chapter that an
+outside read found something the drafter could not see in its own work.
+
+**WHAT REMAINS UNVERIFIED AND IS PURE JUDGMENT.** The DE3 severity disagreement rests on
+no disputed fact: both descriptions of where the callout sits are accurate, Claude read
+the position as a section late, and the reviewer read it as adjacent to the point of use.
+The 2.6 to 2.7 transition and the count of sixteen associations at the 2.2 peak are
+readings rather than measurements and are recorded as written.
+
+**STAGE 2 STAYS OPEN AND NOTHING IS APPLIED.** Fourteen findings now stand unruled, nine
+Claude's and five the reviewer's. The re-run matrix is unchanged: any body prose change
+re-runs Stages 2, 3, 4, 5 and G2, so the batching question is Dan's and matters more now
+than it did at nine findings.
+
 **THE EXTRACTOR IS NOW A COMMITTED SCRIPT, `prose_extract.py`, and the reasoning is
 the one that promoted `factcheck_packet.py` to the root.** The same extraction had
 been written from scratch three times on this chapter, for the bias check, for Stage
