@@ -142,9 +142,11 @@ The substitution is easy to spot once named. Whenever a value claim is supported
 
 The disciplined response is not to guess at the missing three. It is to state the ratio with its scope attached: four hundred thousand of return measured against the share of a one million cost attributable to the two workflows that were measured. That sentence is longer and less quotable, and it is the only version a manager can act on. Chapter 12 builds the boundary discipline that makes such a statement routine.
 
-Uber’s position in April 2026 is the first error in progress. The company could total what it had spent. Its chief operating officer was asking, in public, what the company had received. Both statements were true at once, and they were true because of how the two numbers were produced rather than because of anything the engineers had done.
+Uber’s position in the opening case is the first error in progress. The company could total what it had spent. Its chief operating officer was asking, in public, what the company had received. Both statements were true at once, and they were true because of how the two numbers were produced rather than because of anything the engineers had done.
 
-The pattern is not confined to one company. A 2025 study of enterprise deployments by MIT NANDA reported a striking gap. Ninety-five per cent of enterprise generative AI pilots delivered no measurable impact on profit and loss. A far higher share of organizations reported that they had piloted or deployed such tools. The figure attracted substantial methodological criticism after it circulated, and the study’s reported interview counts differ across accounts of it.
+> **DATED EVIDENCE BOX · Dated: August 2025**
+>
+> The pattern is not confined to one company. A 2025 study of enterprise deployments by MIT NANDA reported a striking gap. Ninety-five per cent of enterprise generative AI pilots delivered no measurable impact on profit and loss. A far higher share of organizations reported that they had piloted or deployed such tools. The figure attracted substantial methodological criticism after it circulated, and the study’s reported interview counts differ across accounts of it.
 
 The criticism does not need to be settled for the finding to be useful, because the phrase carrying the weight is *no measurable impact*. A pilot that produced value nobody measured and a pilot that produced no value are indistinguishable in that statistic. That is the asymmetry appearing at market scale: the study could not observe what its subjects had not recorded.
 

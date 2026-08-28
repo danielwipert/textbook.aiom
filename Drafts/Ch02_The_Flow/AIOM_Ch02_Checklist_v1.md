@@ -750,10 +750,48 @@ as an accepted cost in Chapter 1; this one was not accepted and did not have to 
 
 ### What was NOT applied, and why
 
-**DE7, DE8, DE9 and NEW-5 stand unruled and untouched.** Option A excluded
+**DE7, DE8 and DE9 stand unruled and untouched.** Option A excluded
 them and the reviewer advised against acting on DE7, DE8 and DE9 at all. **NEW-5 is the
 one item in the excluded set that has a determinate remedy waiting**, since Chapter 1
 already carries the `.dated` device the MIT NANDA paragraph would go into.
+
+### NEW-5: RULED BY DAN 2026-08-28. APPLIED, AND IT WAS UNDER-SCOPED BY ONE INSTANCE.
+
+**Dan ruled option A of three.** Both instances are fixed.
+
+**THE REVIEWER FOUND ONE AND THERE WERE TWO.** Scanning the whole teaching body turned up
+the MIT NANDA paragraph in 2.6, which NEW-5 named, and **"Uber's position in April 2026 is
+the first error in progress"**, also in 2.6, which it did not.
+
+**CHAPTER 1 DRAWS THE LINE AT THE DATE, NOT AT THE NAME, AND THAT MADE BOTH REMEDIES
+DETERMINATE.** Its teaching body outside its two `.dated` boxes carries ZERO year
+references, and it names ChatGPT, Copilot, Cursor and GitHub in body prose. So the
+precedent is not that products go unnamed in a teaching body. It is that dates are
+quarantined and names are not. **The reviewer read the rule as being about the study and
+it is about the year.**
+
+- The Uber sentence now reads "Uber's position in the opening case is the first error in
+  progress." The name stays, the date goes, and the reader is pointed at the slot where
+  the date lives.
+- The NANDA paragraph moves into a `.dated` box labelled **"Dated: August 2025"**, which
+  is the register's own `date` field of `2025-08` rather than a date anyone chose. The
+  paragraph after it, carrying the durable point about "no measurable impact", stays as
+  body prose. That is Chapter 1's shape exactly: box, then the timeless lesson drawn from
+  it.
+
+**MEASURED AFTER THE FIX: the Chapter 2 teaching body carries no year outside a dated
+box**, which is now the same statement that is true of Chapter 1.
+
+**IT ALSO WOKE A GATE THAT HAD NEVER RUN ON THIS CHAPTER.** Gate 9 pixel-samples each
+dated box for a hairline left rule against its label and had reported "none in this
+chapter" on every build since Stage 0. It now reports "1 labelled, 1 rules, max rule width
+2px". All fifteen gates pass, still 25 pages, and page 13 was rasterized and read.
+
+**`prose_extract.py` DID NOT KNOW ABOUT DATED BOXES AND NOW DOES.** It flattened the box
+to a bare paragraph reading "Dated: August 2025", which would have hidden from any future
+reviewer the one thing they most need to see about that material, that it is quarantined
+rather than asserted in body prose. Both chapters' extracts were regenerated; Chapter 1's
+two boxes now render as boxes as well.
 
 ### DE6: RULED BY DAN 2026-08-28. APPLIED.
 

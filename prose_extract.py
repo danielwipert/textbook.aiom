@@ -170,6 +170,15 @@ def convert(doc):
             if conseq:
                 lines.append('> %s' % inline(conseq.group(1)))
             out.append('\n>\n'.join(lines))
+        elif tag == 'div' and 'dated' in classes:
+            # The device the fifty-year rule depends on: perishable specifics are
+            # quarantined here, so an extract that flattened it would hide the one
+            # thing a reader of the extract most needs to see about this material.
+            date = re.search(r'<p class="date">(.*?)</p>', inner, re.S)
+            paras = re.findall(r'<p(?![^>]*class="date")[^>]*>(.*?)</p>', inner, re.S)
+            out.append('> **DATED EVIDENCE BOX · %s**\n>\n> %s'
+                       % (inline(date.group(1)) if date else '',
+                          '\n>\n> '.join(inline(x) for x in paras)))
         elif tag == 'div' and 'kt' in classes:
             term = re.search(r'<span class="kt-t">(.*?)</span>', inner, re.S)
             paras = re.findall(r'<p[^>]*>(.*?)</p>', inner, re.S)
