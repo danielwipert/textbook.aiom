@@ -1,12 +1,40 @@
 # Session handoff
 
-Last updated: 2026-08-24. Read this
+Last updated: 2026-08-28. Read this
 plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
+
+**AT THE 2026-08-28 CLOSE: everything is on `main` at `d978a4f`, nothing is
+stranded, CI is green on both workflows, and TWO MERGED BRANCHES ARE OUTSTANDING ON
+THE REMOTE.** Working tree clean, local `main` level with `origin/main`,
+`git_hygiene.py` reporting CLEAN. The session branch
+`claude/chapter-2-status-x3jpnn` was merged into `main` by fast-forward and is now
+listed as safe to delete, alongside `claude/status-check-1p29ee` from the previous
+session. **Deleting both needs Dan:**
+
+    git push origin --delete claude/chapter-2-status-x3jpnn claude/status-check-1p29ee
+
+**THE 403 WAS RETESTED THIS SESSION RATHER THAN COPIED FORWARD, AND IT STILL
+HOLDS.** The delete refspec fails with `error: RPC failed; HTTP 403`, and `git push`
+then prints `Everything up-to-date`, which is the wording of a successful no-op.
+Read the FIRST line of a push failure, not the last, and confirm against
+`git ls-remote` either way. This is a property of the environment.
+
+**CI IS GREEN ON `main` AT THIS HEAD, BOTH WORKFLOWS, AND THE SITE DEPLOYED.** The
+new print self-test ran on the runner in 1m32s and passed, which answers the one
+risk named before the merge: its pagination controls, gates 4, 11 and 14, could
+have been sensitive to a rendering difference between this container and the
+runner, the way W16b's first version was. They were not.
+
+**WHAT PUBLISHES DID NOT CHANGE.** The site serves each chapter's LAST LOCK and
+Chapter 2 has never locked, so the live site still carries Chapter 1 alone. That is
+correct and is what `snapshot.py` is for.
+
+**THE 2026-08-24 RECORD FOLLOWS AND ITS BRANCH FACTS ARE SUPERSEDED.**
 
 **AT THE 2026-08-24 CLOSE: everything is on `main` at `ba9938a`, nothing is
 stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree
@@ -1274,6 +1302,40 @@ just deleted. Close the sessions, then delete.
 the next DRAFTING target and is unblocked. Thread 8 below is the live record of
 the web sub-project.
 
+## Chapter 2 status: **4 of 13 as of 2026-08-28. STAGE 2 IS CLOSED AND STAGE 3 IS NEXT, WHICH IS DAN'S.**
+
+**STAGE 2 CLOSED 2026-08-28 WITH ALL FOURTEEN FINDINGS RULED**, nine Claude's and
+five the second model's. Full per-finding records are in the chapter checklist and
+are not repeated here.
+
+**THE SECOND MODEL EARNED ITS COST TWICE OVER AND THE RECORD SHOULD SAY SO.** Its
+headline was not one of Claude's nine: the chapter teaches and its spine should not
+be rebuilt, but **the diagnostic itself was not internally stable**, which matters
+more than most of DE1 to DE9 because the three-flow mapping is the chapter's
+runnable artifact. And it found a factual error inside a Claude finding, DE4's claim
+that 2.2 was the longest teaching section; measured, 2.2 is 838 words and 2.6 is 865.
+
+**APPLIED:** NEW-1 (the craft procedure contradicted its own worked example), NEW-2
+(no rule separated the three diagnostic states), NEW-3 (P2 asked for three
+antecedents of a four-antecedent theorem), NEW-4 (P4 had no problem wrapper), NEW-5
+(two dated passages left the teaching body for a dated box), DE1 (Figure 2.1 moved),
+DE2 (P1 repointed), DE3 (the callout moved, forced by gate 4), DE6 (question 2
+replaced), plus one clause closing a residual of NEW-2 found by testing the
+reviewer's hold condition rather than assuming the batch met it.
+
+**RECORDED AND NOT ACTED ON:** DE4, DE5, DE7, DE8, DE9, each with its reasoning.
+
+**WHAT STAGE 3 AND THE FINAL READ SHOULD LOOK AT.** The new discussion question 2
+and the rewritten P1 now rhyme, both asking what record was needed: P1 at deployment
+scale for a review, question 2 at the moment of capture for one morning's work.
+Different scale, and they were written in the same batch. **Nothing in the session
+added a new empirical claim**, so standing rule 2 raises nothing beyond what the
+register already carries.
+
+**Verified at close:** all fifteen print gates pass at 25 pages, gate 9 among them
+for the first time on this chapter; `voicecheck` passes mechanical and house style;
+`chapter_check.py Ch02` reports no broken claim. The chapter is 7,513 words.
+
 ## Chapter 1 status: **LOCKED 2026-08-13, 13 of 13.** THE FIRST LOCKED CHAPTER
 
 `status_check.py` reports 13/13 STATUS CONSISTENT. 25 pages, 7,069 words on the
@@ -1992,6 +2054,38 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
+**LIVE THREADS AS OF THE 2026-08-28 CLOSE, in order: 6 (CHAPTER 2, still the work,
+now at 4 of 13 and sitting with Dan at Stage 3), 8 (the web edition, whose remaining
+item is still the undecided `llms-full.txt`), 10 (the Northmoor CSVs), 5 (process
+hardening), 3 (design gaps), 7 (Decision 28). THREAD 11 IS CLOSED.**
+
+**THREAD 11 CLOSED 2026-08-28. The print suite has negative controls.**
+`print_gates_selftest.py`, 23 controls covering all fifteen gates, run in CI by
+`web.yml`. **Its first run found three dead controls and two of them had reported
+PASS beforehand**, because the harness made its temp file one level under the repo
+root, every case rendered unstyled and failed something, and two controls that
+inject nothing the gates can see read green. The clean baseline caught it, which is
+why the unmutated chapter is the first case in the file.
+
+**WHAT IS ACTUALLY BLOCKING, IN ONE LINE:** nothing. Chapter 2 is with Dan at Stage
+3, which is external. Two merged branches need deleting, which is not a blocker.
+
+**TWO DESIGN GAPS NARROWED THIS SESSION AND THREAD 3 SHOULD BE READ AGAINST THAT.**
+Gap G-I and Gap G-II were both read on Chapter 1 and found to have no instance:
+no page carries both a callout and the theorem panel, and every slot opening carries
+content below its head group. They are still gaps in the GATES and the reading is
+still required whenever pagination moves.
+
+**A THIRD KIND OF PAGE DEFECT IS NOW REPORTED RATHER THAN INVISIBLE.** No gate
+measures how much of a page is used, so a figure that will not fit pushes to the
+next page and leaves a hole behind a green suite. Chapter 2 carried one for six days
+on page 11. `AIOM_build.py` now prints page fill as an ADVISORY, never a gate, and
+CLAUDE.md section 6 carries the rule and the counterintuitive remedy: **a figure
+that will not fit moves LATER, not earlier.**
+
+**THE 2026-08-22 LIST FOLLOWS, superseded by the paragraph above.**
+
+
 **LIVE THREADS AS OF THE SECOND 2026-08-22 SESSION CLOSE. Unchanged in order and
 in content from the list below, with one item closed and one added: thread 5 loses
 nothing, since the `continuity.py` input defect is still open, and thread 8 gains
@@ -2488,6 +2582,32 @@ W6 AND MERGED TO `main`. CHAPTER 2 IS NOW THE WORK.**
    sets only.
 
 ## Standing reminders
+
+**ADDED 2026-08-28.**
+
+- **A SECOND MODEL IS WORTH ITS COST AND THIS SESSION PRICED IT TWICE.** On Chapter
+  2 it produced the step's headline finding, which Claude had not seen, and it
+  caught a measurement error inside a Claude finding written to prove the findings
+  were checkable. Send the package.
+- **ESTABLISHING THAT A DEFECT IS NOT YOURS IS THE FIRST HALF OF ATTRIBUTION. THE
+  SECOND HALF IS LOOKING AT IT.** Chapter 2's page 11 hole was correctly reported as
+  pre-existing when a gate 4 failure was attributed against the committed state, and
+  then left. It was the same defect that had just been found and fixed on page 5.
+- **A CHECK THAT SETS A CONDITION FOR CLOSING A STEP IS TESTED, NOT ASSUMED.** The
+  second model held Stage 2 open until the mapping was internally deterministic.
+  Running the finished diagnostic against the chapter's own worked cases found the
+  third flow still ambiguous. The batch had not met the condition it appeared to.
+- **A CONTROL THAT INJECTS A FAULT THE GATE IS RIGHT TO IGNORE CERTIFIES NOTHING.**
+  All three dead print controls were that shape: a bare `@page` rule cannot beat
+  `@page :right`; an undeclared weight falls back to a declared face; permitting a
+  block to break does not make it break. Ask what the gate would have to SEE.
+- **A SUITE OF CONTROLS NEEDS A CONTROL OF ITS OWN.** The unmutated chapter is the
+  first case in `print_gates_selftest.py` for exactly the reason it earned on its
+  first run.
+- **THE THROWAWAY EXTRACTION IS NOW `prose_extract.py` AND IT IS RATIFIED.** Three
+  rewrites on one chapter, and the throwaway versions invented a slot label neither
+  chapter carries and dropped every key term's name. Use the committed one.
+
 
 **Rules that bite.**
 
