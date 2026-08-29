@@ -13,15 +13,18 @@ cites and the register entry behind each key. The register note is
 reproduced in full because it carries the verification history and, for
 findings already ruled, the condition that would reverse the ruling.
 
-WHAT A CHECKER SHOULD NOT RE-RAISE. Nothing yet. This chapter carries no
-ruled claim narrowings, so every finding a checker raises here is new.
+WHAT A CHECKER SHOULD NOT RE-RAISE. This chapter carries 8 ruling(s) already
+made and still in force, recorded in `AIOM_Claim_Ledger.md` and in the
+register notes below. A checker who reaches one should say whether the
+condition named in the note is now met, not restate the finding.
 
 MECHANICAL CHECKS ALREADY RUN, so they need not be repeated:
 
   Register closure    5 keys defined, 5 cited. 0 orphan(s), 0 dangling.
   Citation markers    7 cited passages, every marker resolving to a key.
   Footnote build      9 footnote(s) generated. Gate 8 checks each sits on its calling page and passed on the render above.
-  Ruled-form check    nothing to check. No ruling is recorded for Ch02 yet.
+  Ruled-form check    8 ruling(s) in force for Ch02: 9 required, 8 forbidden,
+                      1 by reading. `claimcheck.py` reports PASS.
 
 ---
 

@@ -126,3 +126,67 @@ chapter when it was written.
 - SOURCE-KEY: anthropic-2025-weekly-caps
 - REQUIRED: Those reports were published on July 17, 2025.
 - REVERSES-IF: nothing. If the antecedent is ever changed to the tightening itself, the interval must be recomputed, because the encounter and the report are not the same event.
+
+---
+
+## Ch02
+
+**All eight are the same ruling applied eight times, made by Dan on 2026-08-29 at
+Stage 3.** Each was an unsourced claim about what organizations usually do, carrying
+no citation and no derivation. Standing rule 2 allows citation, recasting as a
+formal conditional, or cutting, and no fourth option. **None was cited, because none
+needed a source**: five were recast onto derivations the chapter already contains
+and three were cut without losing teaching.
+
+**THESE ENTRIES EXIST BECAUSE STAGE 6 IS TWO STEPS AWAY.** SF8, SF9 and SF10 were
+reverted during Chapter 1's copy edit with every date and figure intact, so nothing
+checking values could see it, and FC2 repeated the shape a fourth time. A recast
+frequency claim is exactly that shape: the copy edit reaches for the shorter
+sentence, and the shorter sentence is the withdrawn one.
+
+**NO ENTRY CARRIES A SOURCE-KEY**, which is the difference between these and every
+Ch01 entry above. The ruling is against an ABSENT source rather than in favour of a
+present one, so REVERSES-IF names the evidence that would let the claim return.
+
+### FQ1 :: decay frequency cut :: 2026-08-29 :: Stage 3
+- FORBIDDEN: because managers routinely underestimate it
+- REQUIRED: The decay is worth one concrete illustration.
+- REVERSES-IF: a study of manager estimation error on record decay. The clause justified including an example rather than carrying argument, so the illustration that follows earns the point unaided.
+
+### FQ2 :: cost governance recast :: 2026-08-29 :: Stage 3
+- FORBIDDEN: Most organizations that believe they have cost governance have the first, sometimes the second, and rarely the third.
+- REQUIRED: The three are separable, and an organization can hold the first without the second and the first two without the third.
+- REQUIRED: Where the record exists and the constraint does not, a dashboard nobody acts on is a record flow with no constraint attached.
+- REVERSES-IF: a survey of cost-governance maturity establishing the distribution across the three parts. The teaching point is that the three are separable, which survives the recast; only the population claim was withdrawn.
+
+### FQ3 :: surprise frequency recast :: 2026-08-29 :: Stage 3
+- FORBIDDEN: Organizations are usually surprised by the second finding rather than the third
+- REQUIRED: The second finding surprises where the third does not, because the absence of a record is invisible until somebody asks a question that needs one.
+- REVERSES-IF: evidence about what surprises organizations running this diagnostic. The mechanism after "because" was already in the sentence and is unchanged; only the population wrapper went.
+
+### FQ4 :: Chapter 8 forward reference recast :: 2026-08-29 :: Stage 3
+- FORBIDDEN: the flow this mapping most often finds missing
+- REQUIRED: the record flow built there is the one that is structurally the easiest to skip
+- REVISED at application, 2026-08-29: the drafted recast read "the one section 2.5 shows is structurally the easiest to skip", and the Stage 4 re-read cut the pointer. **The drafted form made C7 worse at the worst possible sentence**, the craft section's opening, which would then have carried three references at once: the rest of the book, Chapter 8, and section 2.5. **The derivation clears the claim whether or not the sentence points at it**, which is exactly how Stage 1 cleared the sixth candidate: that one sits in the chapter summary and names no section.
+- REVERSES-IF: nothing, and this entry is the one to read before reopening any of the others. Stage 1 cleared a sixth candidate, "the record flow is skipped most often, and for structural reasons rather than careless ones", on the ground that section 2.5 derives it. This recast anchors the same claim to the same derivation, so the two now stand or fall together. If 2.5 is ever cut or moved, BOTH lose their support.
+
+### FQ5 :: P3 buyer comparison cut :: 2026-08-29 :: Stage 3
+- FORBIDDEN: which is more than most buyers do
+- REQUIRED: This organization commissioned an independent evaluation, published it, and let it report the limits of its own method.
+- REVERSES-IF: evidence on how often buyers commission and publish independent evaluations. The preceding sentence already distinguishes this case from the opening case, so the clause added a population claim and little else.
+
+### FQ6 :: business case sole-document cut :: 2026-08-29 :: Stage 3
+- FORBIDDEN: and it is usually the only document stating what the deployment was supposed to achieve
+- REQUIRED: By the time anyone compares the two, the business case describes a deployment that no longer exists.
+- REVERSES-IF: evidence that no other document ordinarily states a deployment's objective. **Nothing was lost to the cut**: the next paragraph already makes the point as a formal conditional, at "If nothing revisits that statement, the claimed benefit becomes the organization's permanent belief about what the deployment delivers." The cut removed an unconditional duplicate of a conditional the chapter already had.
+
+### FQ7 :: scale crossing recast :: 2026-08-29 :: Stage 3
+- FORBIDDEN: and the usual answer is that it crossed some time ago
+- REQUIRED: and nothing announces the crossing at the moment it happens
+- REVERSES-IF: evidence on how many deployments have passed THM-004's scale antecedent. **This was the strongest of the eight and sat in the limits section**, which exists to state what the chapter does not claim and closed by claiming that most deployments have already crossed. The recast is anchored to 2.5, which derives that the absence of a record is invisible until it is needed.
+
+### FQ8 :: mapping failure modes recast :: 2026-08-29 :: Stage 3
+- FORBIDDEN: Two failure modes recur when organizations run this mapping on themselves
+- REQUIRED: Two failure modes follow from the distinctions already drawn, and both are worth naming in advance.
+- REVIEW: the two failure modes must continue to follow from distinctions the chapter draws EARLIER than this passage. The first rests on 2.2's division of what belongs to the buyer, the second on 2.6's separation of adoption from value. If either moves after the craft section, this sentence loses its support and reverts to an unsupported claim.
+- REVERSES-IF: an observational base for the recurrence. **There cannot be one yet.** The three-flow mapping is this book's own construct, introduced on the page before, so no organization has run it and no recurrence can have been observed. This was the worst of the eight for that reason.

@@ -1035,6 +1035,67 @@ never performed that check and a Chapter 1 measurement taken by hand was being
 printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
 6 footnotes and its 8 live rulings correctly.
 
+### DAN RULED ALL EIGHT AND THEY ARE APPLIED, 2026-08-29. STAGE 3 STAYS OPEN.
+
+**Dan ruled "apply your recommendations on all eight claims".** Five carried a
+drafted recommendation and three did not, so the recommendation for those three was
+formed at application and is recorded in the ledger with the rest. **Five recast,
+three cut. None cited, because none needed a source.**
+
+**THE EIGHT ARE IN `AIOM_Claim_Ledger.md` AS FQ1 THROUGH FQ8, AND THAT IS THE POINT
+OF WRITING THEM DOWN.** Stage 6 is two steps away. SF8, SF9 and SF10 were reverted
+during Chapter 1's copy edit with every date and figure intact, and FC2 repeated the
+shape a fourth time. **A recast frequency claim is exactly that shape**, because the
+copy edit reaches for the shorter sentence and the shorter sentence is the withdrawn
+one. W14 now holds all eight: `claimcheck` reports 8 rulings, 9 required strings, 8
+forbidden, 1 review-only, PASSED. **No entry carries a SOURCE-KEY**, which is what
+separates these from every Chapter 1 entry: the ruling is against an absent source
+rather than in favour of a present one, so REVERSES-IF names what would let each
+claim return.
+
+**STAGE 3 IS NOT CLEARED BY THIS AND THE BOX STAYS OPEN.** Dan ruled the claim half.
+The source half is untouched and is still external: `mit-nanda-2025` and
+`dta-copilot-2024` have no location, every figure in the chapter remains formally
+unverified, and no source in it has been read by anyone.
+
+**THE PAGE 11 HOLE REOPENED, WAS CAUGHT BY THE ADVISORY, AND IS FIXED.** Three of the
+eight rulings are cuts, the text reflowed, and Figure 2.2 stopped fitting at the foot
+of page 11: 166pt unused, the page ending on "every property a reporting metric needs
+except relevance". **This is the same page and the same defect the Stage 2 close
+fixed six days ago**, reintroduced by an edit in a different slot, which is the
+tight-coupling rule in CLAUDE.md section 6 demonstrating itself rather than being
+recalled. Four anchors were built and measured rather than reasoned about. Moving the
+figure ONE paragraph later, to after "Adoption answers a question about the usage
+flow", clears the sweep; the two later anchors both open a 135pt hole on page 12 and
+the current anchor is the 166pt one. **The counterintuitive remedy held again, and
+the minimum move was enough.**
+
+**THE STAGE 4 RE-READ THAT PARALLEL RUNNING BOOKED HAS BEEN DONE, AND IT CHANGED ONE
+RULING.** FQ4's drafted recast read "the one section 2.5 shows is structurally the
+easiest to skip", which would have made the craft section's OPENING sentence carry
+three references at once: the rest of the book, Chapter 8, and section 2.5. That is
+C7 made worse at the worst sentence in the chapter to worsen it. The pointer was cut
+and the applied form is "the one that is structurally the easiest to skip". **The
+derivation clears the claim whether or not the sentence points at it**, which is
+exactly how Stage 1 cleared its sixth candidate: that one sits in the chapter summary
+and names no section. Recorded in the ledger at FQ4 as a revision at application.
+
+**WHAT THE EDITS DID TO THE CRAFT METRICS.** Section 2.3 improved most, mean sentence
+14.5 to 12.5 and short sentences 40 to 47 per cent, from the FQ6 cut. 2.4 improved
+slightly. 2.7 went the other way, 16.5 to 17.0, because the FQ2 recast is longer than
+what it replaced. **Chapter level did not move at all**: mean 15.8, median 15,
+standard deviation 7.3, 32 per cent short. So F4 stands unchanged and the two closing
+slots are still where the chapter departs most from the Chapter 1 band.
+
+**F1 through F7 stand as written.** Only F2's weakest passage moved, and it moved
+because FQ8 fixed it: the craft section no longer claims observed recurrence for a
+diagnostic the book itself introduces.
+
+**Verified after the edits**: all fifteen print gates pass, page fill clean, W14
+pass, voicecheck mechanical and house style pass, registry pass, checklist
+self-consistent. The Stage 3 render, the packet and the Stage 4 prose extract were
+all rebuilt on the moved text rather than left describing the old one.
+
 ### THE FIVE UNCITED CLAIMS ARE DRAFTED FOR RULING, 2026-08-29, AND NONE NEEDS A SOURCE
 
 **`AIOM_Ch02_Stage3_rulings_to_make.md` carries all five with options and a

@@ -116,7 +116,7 @@
 
 <p>Then the deployment runs as a flow. Consumption continues every working day, varying with the work, for as long as the tool is in use. The funding event was a single decision. The spending is a continuous process.</p>
 
-<p>This mismatch explains a pattern managers will recognize. The business case is never revisited, because projects are not revisited after delivery. The consumption keeps changing, because flows do. By the time anyone compares the two, the business case describes a deployment that no longer exists, and it is usually the only document stating what the deployment was supposed to achieve.</p>
+<p>This mismatch explains a pattern managers will recognize. The business case is never revisited, because projects are not revisited after delivery. The consumption keeps changing, because flows do. By the time anyone compares the two, the business case describes a deployment that no longer exists.</p>
 
 <p>The mismatch has a scheduling consequence. A funding decision taken once cannot govern a quantity that changes daily, and annual review is what a project-funded deployment gets by default. Chapter 10 sets the interval and the mechanism.</p>
 
@@ -139,7 +139,7 @@
 </aside>
 
 <p>The three tracks are separated for diagnosis rather than because they run independently. The record flow is the one the other two depend on. Without it the usage flow cannot be compared against a plan, and the value half has nothing to attribute a change to.</p>
-<p>The decay is worth one concrete illustration, because managers routinely underestimate it. Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.</p>
+<p>The decay is worth one concrete illustration. Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.</p>
 
 <h3 class="section"><span class="num">2.5</span>Why the record flow is the one that gets skipped</h3>
 
@@ -171,6 +171,9 @@
 
 <p>There is a reason organizations reach for adoption figures at this point, and it is not laziness. An adoption figure is available. It is produced automatically by the same systems that produce the cost, it rises when things are going well, and it can be presented without anyone having to define what the deployment was supposed to improve. It has every property a reporting metric needs except relevance.</p>
 
+
+<p>Adoption answers a question about the usage flow: are people using the tool. Value answers a question about the business: did the thing the tool was bought to improve get better. The two are related, and they are not substitutes. A tool can be used constantly and improve nothing measurable, and a tool used by a few people in the right place can pay for the whole deployment.</p>
+
 <figure>
 <svg viewBox="0 0 360 108" xmlns="http://www.w3.org/2000/svg">
 <g font-family="Plex" font-size="6" fill="#6E6353" letter-spacing="1.1">
@@ -198,8 +201,6 @@
 </svg>
 <figcaption><span class="fignum">Figure 2.2</span>Two quantities of different scope. The cost figure is complete and covers all five workflows, because billing covers all five. The measured return covers the two workflows somebody chose to measure. Setting one against the other produces a ratio whose numerator and denominator describe different things, and the three unmeasured workflows are not zero. They are unknown.</figcaption>
 </figure>
-
-<p>Adoption answers a question about the usage flow: are people using the tool. Value answers a question about the business: did the thing the tool was bought to improve get better. The two are related, and they are not substitutes. A tool can be used constantly and improve nothing measurable, and a tool used by a few people in the right place can pay for the whole deployment.</p>
 
 <p>The substitution is easy to spot once named. Whenever a value claim is supported by a number describing how much the tool was used, the value question has been answered with usage data. That is rarely dishonest. It is what happens when the only complete measurement available is the wrong one.</p>
 
@@ -237,7 +238,7 @@
 
 <p>The first is a record: some system that writes down what was consumed, at a grain finer than the invoice. The second is an attribution: a rule that assigns each unit of consumption to a team, a product, or a purpose. A record without an attribution tells an organization how much it spent and not who spent it. The third is a constraint: a limit, a budget, an alert, or an approval that can actually stop or slow consumption when it departs from plan.</p>
 
-<p>Most organizations that believe they have cost governance have the first, sometimes the second, and rarely the third. A dashboard nobody acts on is a record flow with no constraint attached. It converts a surprise into a slower surprise, which is an improvement, and it is not control.</p>
+<p>The three are separable, and an organization can hold the first without the second and the first two without the third. Where the record exists and the constraint does not, a dashboard nobody acts on is a record flow with no constraint attached. It converts a surprise into a slower surprise, which is an improvement, and it is not control.</p>
 
 <p>One question follows immediately and the chapter will not answer it here: who owns the apparatus. Chapter 1 named the problem as a category error and Chapter 3 names the discipline that resolves it. What can be said now is that the apparatus does not belong to whichever function noticed the problem first. Finance noticing an overrun does not make cost governance a finance system, any more than engineering noticing latency makes reliability an engineering-only concern.</p>
 
@@ -252,12 +253,12 @@
 
 <p>The chapter does not claim that measurement is free. Building a record flow costs engineering time, and building a value measurement costs more than that, because it requires deciding what to measure before the answer is known. Chapters 8 and 12 treat both as investments with their own returns rather than as hygiene.</p>
 
-<p>The chapter does not claim that every deployment needs all three flows managed to the same standard. A pilot with twenty users and a fixed monthly cost does not need an attribution system. THM-004’s second antecedent is scale, and it is there precisely because the theorem does not bind below it. The judgment a manager has to make is when a deployment has crossed from the first case to the second, and the usual answer is that it crossed some time ago.</p>
+<p>The chapter does not claim that every deployment needs all three flows managed to the same standard. A pilot with twenty users and a fixed monthly cost does not need an attribution system. THM-004’s second antecedent is scale, and it is there precisely because the theorem does not bind below it. The judgment a manager has to make is when a deployment has crossed from the first case to the second, and nothing announces the crossing at the moment it happens.</p>
 
 <p class="slot-label">Craft section</p>
 <h2 class="case-title">Mapping the three flows</h2>
 
-<p>The <b>three-flow mapping</b> is the diagnostic the rest of the book uses, and Chapter 8 is where it returns: the record flow built there is the flow this mapping most often finds missing. It takes one named deployment and establishes the condition of each flow, in order, with the evidence that settles it. It is deliberately short: it is meant to be run in an afternoon on a real deployment, not staffed as a project.</p>
+<p>The <b>three-flow mapping</b> is the diagnostic the rest of the book uses, and Chapter 8 is where it returns: the record flow built there is the one that is structurally the easiest to skip. It takes one named deployment and establishes the condition of each flow, in order, with the evidence that settles it. It is deliberately short: it is meant to be run in an afternoon on a real deployment, not staffed as a project.</p>
 
 <p>Two habits make the difference between a mapping that changes something and one that fills a slide. The first is naming the evidence for every diagnosis, because a diagnosis without evidence cannot be challenged and therefore cannot be corrected. The second is running it on a deployment that is already live rather than one being planned. A planned deployment has no flows yet, only intentions about them.</p>
 
@@ -273,7 +274,7 @@
 
 <p>Two tests separate the three states, and a flow must pass both to be called managed. The first is whether the organization can state that flow’s condition from a record it holds itself. The second is whether the record is fine enough that a decision follows from it. A flow is partly managed when it passes one test and not the other, or when the organization can state part of the condition and not the rest. It is unmanaged when the organization cannot state the condition at all. An organization that can attribute half its consumption therefore has a partly managed record flow rather than a managed one. The cost-and-value flow takes a diagnosis on each half, because step 4 traces it that way and its two halves are built by different people to different standards.</p>
 
-<p>Two failure modes recur when organizations run this mapping on themselves, and both are worth naming in advance. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s. An organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce.</p>
+<p>Two failure modes follow from the distinctions already drawn, and both are worth naming in advance. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s. An organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce.</p>
 
 <p>Run against <span class="nb">Uber</span> as reported, the mapping produces a result worth reading carefully, because it is less flattering than it first appears. The usage flow is partly managed. The direction of adoption was visible month by month, and adoption is a count of people rather than a count of requests. Section 2.2 asks a usage flow to state how many requests were made and whether the number is rising, and the public account does not establish that anyone could.</p>
 
@@ -291,7 +292,7 @@
 
 <p>The mapping is deliberately blunt about partial answers, and recording one as partial is what makes the next conversation possible. The purpose is to produce a short list of the specific things that are not known, so that somebody can decide which of them is worth the cost of knowing. Awarding a grade would settle nothing.</p>
 
-<p>The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. Organizations are usually surprised by the second finding rather than the third, because the absence of a record is invisible until somebody asks a question that needs one.</p>
+<p>The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. The second finding surprises where the third does not, because the absence of a record is invisible until somebody asks a question that needs one.</p>
 
 <section class="summary-sec">
 <h3 class="tail-head">Chapter summary</h3>
@@ -381,7 +382,7 @@
 <p>Second, diagnose each flow as managed, partly managed, or unmanaged, and state the evidence that settles each diagnosis.</p>
 <p>Third, state for each flow what evidence would change your diagnosis. A diagnosis nobody could overturn is an opinion.</p>
 <p>Fourth, sort your three diagnoses into two groups: those resting on something the published account establishes, and those resting on something it does not mention. The second group is the weaker one, and separating them is the difference between a diagnosis and a complaint about the sources.</p>
-<p>This trial is not the opening case under another name. This organization commissioned an independent evaluation, published it, and let it report the limits of its own method, which is more than most buyers do. Establish what that bought and what it could not buy.</p>
+<p>This trial is not the opening case under another name. This organization commissioned an independent evaluation, published it, and let it report the limits of its own method. Establish what that bought and what it could not buy.</p>
 </div>
 
 <div class="problem">
