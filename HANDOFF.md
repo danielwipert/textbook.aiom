@@ -8,12 +8,12 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE SECOND 2026-08-29 CLOSE: everything is on `main` at `25e9add`, nothing is
-stranded, and TWO MERGED BRANCHES ARE STILL OUTSTANDING ON THE REMOTE.** Working
-tree clean. The delete still fails with the same 403; `git ls-remote` still lists
-both.
+**AT THE SECOND 2026-08-29 CLOSE: everything is on `main` at `621aca0`, nothing is
+stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree clean.
+**Dan deleted `claude/chapter-2-status-x3jpnn` during the session**, confirmed
+against `git ls-remote` rather than inferred from the sweep. One left:
 
-    git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm claude/chapter-2-status-x3jpnn
+    git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm
 
 **CHAPTER 2 IS AT 5 OF 13. G3 IS CLEARED AND THE RECORD IS DELIBERATELY OUT OF v3
 ORDER.** Dan ruled G3 ticked while G2 sits open. G3 reads terms, forward references,
