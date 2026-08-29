@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-29. Read this
+Last updated: 2026-08-29 (second close). Read this
 plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
@@ -8,7 +8,82 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-29 CLOSE: everything is on `main` at `261d526`, nothing is
+**AT THE SECOND 2026-08-29 CLOSE: everything is on `main` at `25e9add`, nothing is
+stranded, and TWO MERGED BRANCHES ARE STILL OUTSTANDING ON THE REMOTE.** Working
+tree clean. The delete still fails with the same 403; `git ls-remote` still lists
+both.
+
+    git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm claude/chapter-2-status-x3jpnn
+
+**CHAPTER 2 IS AT 5 OF 13. G3 IS CLEARED AND THE RECORD IS DELIBERATELY OUT OF v3
+ORDER.** Dan ruled G3 ticked while G2 sits open. G3 reads terms, forward references,
+promises and glosses rather than a rendered page, so it does not rest on a pagination
+the copy edit will move, and the tick makes it BIND: gate W8a requires the ledger's
+definition of a term to be character-identical to the chapter's key-term text, so a
+Stage 6 edit touching any of the six key terms now fails at the commit.
+
+**DAN RULED ALL EIGHT UNCITED FREQUENCY CLAIMS AND THEY ARE APPLIED.** Five recast,
+three cut, none cited, because none needed a source. **Stage 1's sweep had found only
+five**; the Stage 4 read found three more, the worst of them claiming observed
+recurrence for a diagnostic this book introduces on the previous page. All eight are
+in `AIOM_Claim_Ledger.md` as FQ1 through FQ8, which is the load-bearing part: **Stage
+6 is next but one, and a recast frequency claim is exactly the shape that reverted
+four times on Chapter 1.** No entry carries a SOURCE-KEY, because the ruling is
+against an absent source rather than in favour of a present one.
+
+**STAGE 3 IS STILL OPEN AND ITS SOURCE HALF IS UNTOUCHED.** `mit-nanda-2025` and
+`dta-copilot-2024` have no location, every figure is formally unverified, and no
+source in the chapter has been read by anyone. The render, packet, cover note and
+ruling sheet are in `04_Stage3_Source_Fact_Check_1/`, all rebuilt on the moved text.
+
+**STAGE 4's CRAFT READ IS DONE AND UNTICKED**, run in parallel with Stage 3 on Dan's
+ruling to collapse his sittings from four to three. Seven findings, F1 to F7. C2 is
+the chapter's strongest criterion and 2.5 is the exemplar; **C4 is the weakest at
+chapter level**, since Chapter 2 sits above the Chapter 1 band on every measure and
+the gap is widest in the summary and key terms, the two slots the reader reaches
+last. The second-model package is built and unsent in `05_Stage4_.../`.
+
+**STAGE 5 AND G2 ARE RUN AND UNTICKED.** Both rest on a pagination Stage 6 will move,
+so ticking would claim a review of the shipped text. **The early run still bought two
+real defects.** Figure 2.1 was drawn wrong in two places and all fifteen gates passed
+it: the tinted value block painted after the cost-and-value arrow and erased its
+arrowhead, and the record row's `stroke-dasharray` was set on the group holding its
+arrowhead, so it rendered as a broken double chevron. **Gate 12 passed the broken
+figure and the corrected one identically.** And P3's product names were unguarded,
+with Stage 6 the reflow that would have broken them.
+
+**GATE W10 MADE G2 UNPASSABLE ON ANY IN-FLIGHT CHAPTER, AND THIS IS THE FIFTH DEFECT
+THE SECOND CHAPTER HAS EXPOSED.** Its locked-chapter check ran in PREVIEW builds too,
+asking whether a deliberately single-chapter local build contains every locked
+chapter. From chapter two onward the answer is always no, so the web build G2 owns
+could not pass until Stage 9, three steps after G2's own position. Chapter 1 never
+exposed it because its G2 and its lock were ticked the same day. Fixed, and the
+publish path was negative-tested and still fails on a genuinely missing chapter.
+
+**THE SELF-TEST CONSUMES `build/web` AND DOES NOT BUILD IT, AND CLAUDE.md TELLS YOU TO
+RUN IT WITHOUT SAYING SO.** Run standalone against a stale directory the W6 control
+died on a missing `ch01/index.html` and **the W9a CLEAN BASELINE reported a MISS**,
+which reads exactly like a gate defect. It now guards its own inputs and prints the
+build command. 115 of 115 controls pass.
+
+**BUILD THE SITE BEFORE RUNNING THE SELF-TEST:**
+
+    python3 web_build.py --site --out build/web --base-url https://aioperationsmanagement.ai
+    python3 web_gates_selftest.py
+
+**`factcheck_packet.py` WAS PRINTING CHAPTER 1's HISTORY INTO A CHAPTER 2 PACKET.**
+Six facts about that chapter were hardcoded in its preamble, including a value-surface
+line claiming a comparison "identical to the Stage 3 audited render" for a chapter
+arriving AT Stage 3. Now computed from the chapter; the value-surface line is removed
+rather than recomputed, because the script never performed that check.
+
+**WHAT PUBLISHES DID NOT CHANGE.** Chapter 2 has never locked, so the site still
+serves Chapter 1 alone.
+
+**THE EARLIER 2026-08-29 RECORD FOLLOWS AND ITS HEAD AND STEP-COUNT FACTS ARE
+SUPERSEDED.**
+
+**AT THE FIRST 2026-08-29 CLOSE: everything is on `main` at `261d526`, nothing is
 stranded, and TWO MERGED BRANCHES ARE OUTSTANDING ON THE REMOTE.** Working tree
 clean, local `main` level with `origin/main`, `git_hygiene.py` reporting CLEAN. The
 session branch `claude/chapter-2-stage-3-ready-mu9ktm` was merged by fast-forward
@@ -2097,6 +2172,22 @@ ideas**, which is the most common complaint about this book's drafts.
 added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
+
+**LIVE THREADS AS OF THE SECOND 2026-08-29 CLOSE: unchanged in order and in
+membership. Thread 6 is still first and still the work. Chapter 2 has moved from 4 of
+13 to 5 of 13, and four more steps are RUN but unticked.**
+
+**WHAT IS ACTUALLY BLOCKING, IN ONE LINE:** Dan, on Stage 3's source half, which is
+external and is the only thing left that nobody else can do. Stage 4's gut-check can
+run in the same sitting; both packages are built.
+
+**THE ORDER FROM HERE.** Dan runs Stage 3's source half and the Stage 4 second-model
+gut-check in one sitting, then Stage 6 and Stage 7 batched, then Stage 8. Between
+them Claude re-runs Stage 5 and G2, which is cheap now because the two defects they
+would have found are already fixed, and locks at Stage 9 after `continuity.py
+--update`.
+
+**THE 2026-08-29 LIST FOLLOWS, superseded only on the paragraph above.**
 
 **LIVE THREADS AS OF THE 2026-08-29 CLOSE: unchanged in order and in membership
 from the 2026-08-28 list below. Thread 6 remains first and remains the work, and it
