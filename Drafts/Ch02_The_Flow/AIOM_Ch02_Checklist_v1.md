@@ -1543,6 +1543,73 @@ defined after the transaction-versus-flow contrast, cost-value asymmetry after 2
 derives the one-sided accrual, and the three-flow mapping after all three flows and
 their health tests are built.
 
+### THE SECOND MODEL'S CHECK IS IN, 2026-08-29. FIVE NEW FINDINGS, F8 TO F12. DAN RULES.
+
+**Recorded verbatim in `05_Stage4_.../AIOM_Ch02_Stage4_secondmodel_review.md`**, with
+Claude's verification in its own marked section. **THE REVIEW'S FORCE RESTS ALMOST
+ENTIRELY ON COUNTS, SO EVERY COUNT WAS RE-RUN** against the two extracts the reviewer
+was given. Six are exact, one is off by one, and two are directionally right with the
+magnitude overstated. **No finding fails verification.**
+
+**F8. THE "WORTH" ANNOUNCEMENT LAYER, 11 AGAINST CHAPTER 1's ZERO. Verified exact, and
+it is the best finding in the review.** "Worth naming", "worth stating carefully",
+"worth one concrete illustration", "worth reading carefully", "worth naming in advance",
+"worth unpacking". The reviewer nominates deleting this layer as the single
+highest-yield change in the chapter, on the grounds that it is the chapter narrating its
+own procedure instead of performing it. **Claude never counted it, and the pattern is
+invisible without the Chapter 1 comparison.**
+
+**F9. C5 IS A CHAPTER-LEVEL FAILURE, NOT A FINDING, AND THIS IS THE REVIEWER'S VERDICT
+ON THE WHOLE CHAPTER.** It is the only criterion it fails outright. Claude's F5 found
+the same five paragraph-terminal cross-references. **What Claude did not do is the
+comparison: Chapter 1 does this ONCE in its whole length, at the end of 1.5, a section
+whose job is pointing outward.** Same evidence, better conclusion, and the remedy is the
+cheapest in the chapter because every offending paragraph already ends well one sentence
+earlier.
+
+**F10. "per cent" AGAINST "percent", AN OBJECTIVE HOUSE-STYLE SPLIT BETWEEN THE TWO
+CHAPTERS.** Verified: Chapter 2 writes "per cent" three times, Chapter 1 writes
+"percent" once and "per cent" never. **Chapter 1 is right for a Chicago-styled American
+book set in `lang="en-US"`, and Chapter 2 is wrong.** Nobody was looking for this and no
+gate reads it. **The likeliest source of the drift is this repository's own prose**,
+which uses "per cent" throughout, including in CLAUDE.md and in the craft band itself.
+
+**F11. RECURRENCE, WHICH NO CRITERION GRADES, AND THE STRUCTURAL POINT IS THE FINDING.**
+"A diagnosis nobody could overturn is an opinion" appears verbatim twice within three
+pages, "unknown fraction of the value" three times, "invisible until" three times, all
+verified. The epistemic disclaimer fires far more often than Chapter 1's single
+dateline. **All seven criteria grade at sentence or paragraph scope, so none can see
+accumulation**, which is a gap in the standard rather than in this chapter.
+
+**F12. THE STALL POINT, WHICH IS THE QUESTION A DRAFTER STRUCTURALLY CANNOT ANSWER.**
+"Run against Uber as reported, the mapping produces a result worth reading carefully,
+because it is less flattering than it first appears." Two referents compete and the
+meaning resolves two paragraphs later. Runner-up: P1's "the answer is harder", where the
+comparative dangles.
+
+**THE ONE DISAGREEMENT IS ON C4 AND BOTH READS ARE MEASURING SOMETHING REAL.** Claude's
+F4 named the two closing slots, key terms at 19.4 mean with zero short sentences,
+measured per section against Chapter 1's same slots. The reviewer names 2.6 and the
+craft section, measured as a cluster of 30+ word sentences. **Different instruments, not
+a contradiction**: a slot can be uniformly long without holding the longest sentences.
+Both should be fixed.
+
+**F6 AND F7 WERE INDEPENDENTLY CONFIRMED.** The reviewer finds the same C6 guard holding
+in the villain direction, by the same mechanism, and names the same C7 weakest passage,
+the craft section opener. **Claude edited that exact sentence at FQ4 on C7 grounds and
+the reviewer still flags it at 34 words: the edit helped and did not go far enough.**
+
+**THE REVIEWER'S VERDICT ON THE BOOK'S COHERENCE IS THE THING TO READ TWICE.** It says
+the two chapters are recognizably one book in skeleton and baseline voice, that Chapter 2
+is the outlier, and that the direction is "from narrative economy toward methodological
+self-consciousness". **Its closing observation is measurable and uncomfortable: the
+standard was extracted from Chapter 1's prose, and the chapter written under it drifts
+further from that prose than the chapter that never saw it.** It holds that the repair is
+subtraction rather than rewriting, and that nothing failing here is in the sentences'
+bones.
+
+**NOTHING IS APPLIED. Stage 4 stays open and every finding above is Dan's to rule.**
+
 ### THE RE-READ IS DONE, 2026-08-29. STAGE 3 CHANGED F1 AND NOTHING ELSE.
 
 **This is the cost parallel running booked, now paid.** Stage 3 moved thirteen things:
