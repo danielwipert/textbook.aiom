@@ -11,8 +11,15 @@ one in section 2.6, and both were corrected together and ledgered as S3-4; fixin
 one would have been the drift this project has already paid for five times.
 
 **THE VENUE IS THE RAPID RESPONSE PODCAST**, which Fortune reports, so the entry is
-secondary to a recorded interview. Macdonald's words are now quoted verbatim in the
+secondary to a recorded interview. Macdonald's words are quoted verbatim in the
 register note, because a note that quotes the sentence is what caught SF7 and SF11.
+
+**DAN THEN RULED THE CHAPTER SHOULD NAME AND QUOTE HIM DIRECTLY, and it now does.**
+The opening case follows Chapter 1's attribution form, title then full name then "said
+publicly that", and adds the line itself. **This is the book's first direct quotation
+in body prose:** Chapter 1 names Sam Altman and quotes nobody. The short line was
+chosen over the longer one deliberately, because the longer quotation carries three
+contractions, body prose bans them, and the opening case is not a voiced block.
 
 **Every sentence below is quoted from the live text as it stands
 today.** Read with the two articles open and write a verdict in each box. Nothing

@@ -206,7 +206,10 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - SOURCE-KEY: fortune-2026-uber-coo
 - FORBIDDEN: The chief operating officer was publicly asking whether the spending had been worth it.
 - FORBIDDEN: Its chief operating officer was asking, in public, what the company had received.
-- REQUIRED: The president and chief operating officer was publicly asking whether the spending had been worth it.
+- FORBIDDEN: The president and chief operating officer was publicly asking whether the spending had been worth it.
+- REQUIRED: President and chief operating officer Andrew Macdonald said publicly that the company could not yet draw a line from its rising use of the tool to the consumer features it was producing.
+- REQUIRED: “That link is not there yet,” he said.
 - REQUIRED: Its president and chief operating officer was asking, in public, what the company had received.
+- SUPERSEDED-IN-PART 2026-08-29: the title fix landed first and its opening-case form is now FORBIDDEN in turn, because Dan then ruled the executive named and quoted directly. The 2.6 back-reference is unchanged and stays REQUIRED: it is supported by B2, where Dan verified that Macdonald questions the value of the spend repeatedly.
 - REVERSES-IF: the title changes, or a source shows Andrew Macdonald did not hold both roles at the time of the interview. Dan verified the title at Stage 3 on 2026-08-29.
 - REVIEW: **TWO sentences carry this title and both were corrected together.** The opening case has one and section 2.6 has the other. A later edit that fixes only one reintroduces exactly the drift this ledger exists to catch, and neither sentence is near the other in the file.

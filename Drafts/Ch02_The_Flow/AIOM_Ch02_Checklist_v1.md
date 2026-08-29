@@ -1035,6 +1035,50 @@ never performed that check and a Chapter 1 measurement taken by hand was being
 printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
 6 footnotes and its 8 live rulings correctly.
 
+### DAN RULED THE EXECUTIVE NAMED AND QUOTED DIRECTLY, 2026-08-29. THE BOOK'S FIRST DIRECT QUOTATION.
+
+**Both open prose questions raised at the verification are now closed, and Dan took the
+same answer to each.** The opening case reads:
+
+> President and chief operating officer Andrew Macdonald said publicly that the company
+> could not yet draw a line from its rising use of the tool to the consumer features it
+> was producing. "That link is not there yet," he said. The statement suggests a
+> documented return was unavailable, incomplete, or unpersuasive to senior leadership.
+
+**THE ATTRIBUTION FOLLOWS CHAPTER 1 EXACTLY**: title, then full name, then "said
+publicly that". Chapter 1 reads "Chief executive Sam Altman said publicly that the
+company was losing money on its two-hundred-dollar Pro subscriptions", and that string
+is REQUIRED text under SF1.
+
+**THE QUOTATION DOES NOT FOLLOW CHAPTER 1, BECAUSE CHAPTER 1 QUOTES NOBODY.** Checked
+rather than assumed: the locked Chapter 1 body carries zero direct quotations. **This
+is the book's first**, so it sets the house form for the fourteen chapters after it,
+and gate 15 passing confirms the marks are typographic rather than straight.
+
+**THE SHORT LINE WAS CHOSEN OVER THE LONGER ONE FOR A MECHANICAL REASON, NOT A
+LITERARY ONE.** Macdonald's fuller answer carries three contractions. Body prose bans
+them, `VOICED_CLASSES` does not include the opening case, and the contraction check
+has no voiced exemption, so quoting the longer passage would have failed Stage 4
+mechanical. **"That link is not there yet" is also the sharper sentence**, so nothing
+was lost, but the constraint decided it and the record should say so.
+
+**WHAT CHANGED IN THE ARGUMENT.** The chapter previously said he was "publicly asking
+whether the spending had been worth it", which B2 verified and which stood. It now
+carries what he actually said, which is narrower and stronger: **not that he asked
+whether it was worth it, but that the link between usage and consumer value could not
+be drawn.** That is the cost-value asymmetry in the executive's own words, in the
+opening case, before the chapter names the concept. The interpretive sentence after it
+moves from "That question suggests" to "The statement suggests".
+
+**S3-4 was rewritten rather than added to.** Its own opening-case REQUIRED string from
+the title fix, made hours earlier, is now FORBIDDEN in turn, with a SUPERSEDED-IN-PART
+line recording why. **The 2.6 back-reference is unchanged and stays REQUIRED**, because
+B2 verified that Macdonald questions the value of the spend repeatedly, so "was asking,
+in public, what the company had received" is supported as it stands.
+
+**Verified after the edit**: voicecheck mechanical and house style pass, all fifteen
+print gates pass, page fill clean, W14 pass, register parses as JSON.
+
 ### QUOTING A REAL SPEAKER BROKE `voicecheck`, AND FIXING IT FOUND A SECOND DEFECT
 
 **Writing Macdonald's words into the register note failed Stage 4 mechanical on his
