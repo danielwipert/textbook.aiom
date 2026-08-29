@@ -1543,6 +1543,82 @@ defined after the transaction-versus-flow contrast, cost-value asymmetry after 2
 derives the one-sided accrual, and the three-flow mapping after all three flows and
 their health tests are built.
 
+### F1 THROUGH F7 APPLIED ON DAN's RULING, 2026-08-29. TWO WERE ALREADY CLOSED AND ONE CANNOT BE APPLIED.
+
+| Finding | Outcome |
+|---|---|
+| **F1** C1, the constructed retailer | **NOT APPLIED, and it has no in-chapter remedy.** See below. |
+| **F2** C2, the craft section's claimed recurrence | **Already closed at Stage 3 by FQ8.** |
+| **F3** C3, two existential openers | **APPLIED.** `voicecheck` throat-clearing openers: 2 to **0**. |
+| **F4** C4, the closing slots run long | **APPLIED IN PART.** Measured below. |
+| **F5** C5, five paragraph closes on a pointer | **Already closed by F9.** |
+| **F6** C6, "load-bearing" in the summary | **APPLIED.** |
+| **F7** C7, 2.6 opens on the chapter's apparatus | **APPLIED.** |
+
+**F1 CANNOT BE APPLIED AND SAYING SO IS THE ANSWER, NOT AN EVASION.** The weakness is
+that the chapter's one fully managed example, the retailer in the craft section, is
+constructed and unnamed. **The only remedy is a real cited deployment on which the
+mapping returns a clean flow, and none exists**: the craft section says so in its own
+words, which the second model singled out as a C1 strength. Naming one would require
+inventing a case, which standing rule 2 forbids. **It is Chapter 6's supply obligation
+and it stays open against the case bank.**
+
+**F3 IS FULLY CLOSED AND THE PROXY CONFIRMS IT.** "There is a second consequence, and it
+is the one that reaches the value side" becomes "The second consequence reaches the value
+side"; "There is a reason organizations reach for adoption figures at this point, and it
+is not laziness" becomes "Organizations reach for adoption figures at this point, and not
+out of laziness." Both now lead with the claim and neither hides its actor behind an
+existential. **Throat-clearing openers went 2 to 0.**
+
+**F4 MOVED REAL DISTANCE AND IS NOT FULLY CLOSED, WHICH IS WHAT THE NUMBERS SAY.**
+Three edits: 2.6's 36-word accretion sentence became three sentences of 14, 8 and 19
+words, the "Three-flow mapping" key term became two sentences with the shorter one
+closing, and F6's replacement added a four-word sentence to the summary.
+
+| Measure | Before | After | Chapter 1 |
+|---|---|---|---|
+| mean sentence | 15.8 | **15.6** | 14.3 |
+| short, under 12 words | 32% | **34%** | 36% |
+| over 35 words | 1% | **0%** | 0% |
+| 2.6 mean | 16.9 | **15.9** | n/a |
+| Key terms mean | 19.4 | **17.8** | 16.0 |
+| Key terms short | 0% | **8%** | 12% |
+
+**The "none over 35 words" figure now matches the exemplar exactly and short sentences
+are within two points of it.** The mean is still 1.3 words above Chapter 1, so F4 and the
+second model's C4 both remain partly open, and the honest reason is that closing the gap
+further means pruning sentences that are not defective, only long.
+
+**F6 IS APPLIED AND I INTRODUCED A COMMA SPLICE DOING IT.** The summary's "and the
+load-bearing word is unknown" became "Unknown is not small", which is the chapter's own
+contrast from 2.6 in ordinary words rather than this project's production vocabulary.
+**The replacement left the preceding comma, so the shipped sentence read "...an unknown
+fraction of the value, Unknown is not small."** A comma splice and a stray capital.
+**`voicecheck` passed it, all fifteen print gates passed it, and W14 passed it**, which
+is exactly the gap CLAUDE.md records: no gate reads a spliced clause. It was found by
+rasterizing page 20 and looking, and it is fixed. **The whole chapter was then swept for
+the same shape, a comma followed by a capitalised non-proper word: zero others.**
+
+**F7 IS APPLIED.** "The consequence of the asymmetry is the sentence a manager should
+carry out of this chapter" is replaced by the business statement itself, "An organization
+running an unmanaged deployment holds all of the cost and an unknown fraction of the
+value. That is what the asymmetry produces." The section now opens on the reality and
+names the concept second.
+
+**PAGE 20 NOW LEAVES 125pt UNUSED AND IT IS LEGITIMATE, CHECKED BY LOOKING.** The
+summary ends there and Key terms opens on 21, which is a slot boundary and is one of the
+cases the advisory names as correct. The advisory says to look at each one before
+assuming, so the page was rasterized and read.
+
+**WHAT IS STILL OPEN AFTER THIS.** F1, against the case bank. F4 and C4 in part. And the
+second model's C1 and C2 findings on section 2.3, which Dan has not ruled: that 2.3 runs
+entirely on placeholders while sitting adjacent to the chapter's best instance, and that
+it defers a mechanism wholly to Chapter 10. **Its C6 note on "fills a slide" is also
+unruled.**
+
+**Verified after the edits**: W14 pass at 11 rulings, voicecheck mechanical and house
+style pass, all fifteen print gates pass, web build pass, G3 pass.
+
 ### F8 THROUGH F12 APPLIED ON DAN's RULING, 2026-08-29. NINETEEN EDITS.
 
 **Every finding was re-counted after the edits, not assumed closed.**

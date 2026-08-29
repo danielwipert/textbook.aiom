@@ -86,7 +86,7 @@ This mismatch explains a pattern managers will recognize. The business case is n
 
 The mismatch has a scheduling consequence. A funding decision taken once cannot govern a quantity that changes daily, and annual review is what a project-funded deployment gets by default.
 
-There is a second consequence, and it is the one that reaches the value side. A project business case states a benefit at the moment of approval, when nobody can check it. If nothing revisits that statement, the claimed benefit becomes the organization’s permanent belief about what the deployment delivers. It was a forecast. It is now treated as a result, and no step in the process was responsible for the conversion.
+The second consequence reaches the value side. A project business case states a benefit at the moment of approval, when nobody can check it. If nothing revisits that statement, the claimed benefit becomes the organization’s permanent belief about what the deployment delivers. It was a forecast. It is now treated as a result, and no step in the process was responsible for the conversion.
 
 ### 2.4 An unmanaged flow does not stay still
 
@@ -120,7 +120,7 @@ This is why the remedy is a decision rather than a habit. An organization does n
 
 ### 2.6 All of the cost, an unknown fraction of the value
 
-The consequence of the asymmetry is the sentence a manager should carry out of this chapter. An organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value.
+An organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value. That is what the asymmetry produces.
 
 The word doing the work in that sentence is *unknown*, not *small*. The claim is not that deployed AI fails to produce value, and this chapter asserts nothing about how much value any deployment produces. The claim is narrower and harder to escape: the cost figure is complete because billing made it complete, and the value figure is partial because nobody was required to make it complete.
 
@@ -130,7 +130,7 @@ A stipulated example makes the arithmetic visible. Suppose a deployment costs on
 
 Now notice what that ratio actually compares. The numerator covers two workflows and the denominator covers five. The comparison is not wrong because the numbers are wrong; both are accurate. It is wrong because the two figures have different scopes, and nothing on the page says so. The three unmeasured workflows might contribute nothing, or they might contribute more than the two that were measured. The organization has no basis for either belief, which is what “unknown” means. Figure 2.2 sets the two quantities against the scope each covers.
 
-There is a reason organizations reach for adoption figures at this point, and it is not laziness. An adoption figure is available. It is produced automatically by the same systems that produce the cost, it rises when things are going well, and it can be presented without anyone having to define what the deployment was supposed to improve. It has every property a reporting metric needs except relevance.
+Organizations reach for adoption figures at this point, and not out of laziness. An adoption figure is available. It is produced automatically by the same systems that produce the cost. It rises when things are going well. It can be presented without anyone having to define what the deployment was supposed to improve. It has every property a reporting metric needs except relevance.
 
 Adoption answers a question about the usage flow: are people using the tool. Value answers a question about the business: did the thing the tool was bought to improve get better. The two are related, and they are not substitutes. A tool can be used constantly and improve nothing measurable, and a tool used by a few people in the right place can pay for the whole deployment.
 
@@ -240,7 +240,7 @@ A deployment produces three flows: the work itself, the record of that work, and
 
 An unmanaged flow does not stay still. Usage grows toward whatever the tool makes easy, records decay because their raw material is perishable, and cost accrues without anyone acting.
 
-Cost is recorded automatically because billing requires it. Value is recorded only where an organization builds the measurement. The consequence is that an organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value, and the load-bearing word is unknown.
+Cost is recorded automatically because billing requires it. Value is recorded only where an organization builds the measurement. The consequence is that an organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value. Unknown is not small.
 
 Deployments are funded as projects and run as flows. A funding decision happens once; the consumption it authorizes continues daily and changes as the work changes. Without a recurring comparison, the business case quietly becomes the organization’s belief about what the deployment delivers, and a forecast is treated as a result.
 
@@ -260,7 +260,7 @@ Because consumption varies with work rather than with headcount, economic contro
 
 **Cost-value asymmetry.** The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards.
 
-**Three-flow mapping.** The diagnostic that establishes the condition of the usage, record, and cost-and-value flows in a named deployment, and states what evidence would change each diagnosis.
+**Three-flow mapping.** The diagnostic that establishes the condition of the usage, record, and cost-and-value flows in a named deployment. It also states what evidence would change each diagnosis.
 
 ### Discussion questions and problems
 
