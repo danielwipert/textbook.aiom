@@ -80,11 +80,11 @@ A manager who reviews all three at the same interval will always be looking at o
 
 Most AI deployments are funded the way projects are funded. Somebody writes a business case, names a cost, names an expected benefit, and asks for approval once. The money is released, the tool is bought, and the project is marked delivered when people are using it.
 
-Then the deployment runs as a flow. Consumption continues every working day, varying with the work, for as long as the tool is in use. The funding event was a single decision. The spending is a continuous process.
+Then the deployment runs as a flow. Consumption continues every working day, varying with the work, for as long as the tool is in use. The funding event was a single decision. The spending is a continuous process. The opening case is that mismatch at full size: an annual budget, consumed four months into the year.
 
 This mismatch explains a pattern managers will recognize. The business case is never revisited, because projects are not revisited after delivery. The consumption keeps changing, because flows do. By the time anyone compares the two, the business case describes a deployment that no longer exists.
 
-The mismatch has a scheduling consequence. A funding decision taken once cannot govern a quantity that changes daily, and annual review is what a project-funded deployment gets by default.
+The mismatch has a scheduling consequence. A funding decision taken once cannot govern a quantity that changes daily, and annual review is what a project-funded deployment gets by default. A review interval is useful only if it is shorter than the time in which spending can change by an amount somebody would act on.
 
 The second consequence reaches the value side. A project business case states a benefit at the moment of approval, when nobody can check it. If nothing revisits that statement, the claimed benefit becomes the organization’s permanent belief about what the deployment delivers. It was a forecast. It is now treated as a result, and no step in the process was responsible for the conversion.
 
@@ -200,7 +200,7 @@ The chapter does not claim that every deployment needs all three flows managed t
 
 The **three-flow mapping** is the diagnostic the rest of the book uses, and Chapter 8 is where it returns: the record flow built there is the one that is structurally the easiest to skip. It takes one named deployment and establishes the condition of each flow, in order, with the evidence that settles it. It is deliberately short: it is meant to be run in an afternoon on a real deployment, not staffed as a project.
 
-Two habits make the difference between a mapping that changes something and one that fills a slide. The first is naming the evidence for every diagnosis, because a diagnosis without evidence cannot be challenged and therefore cannot be corrected. The second is running it on a deployment that is already live rather than one being planned. A planned deployment has no flows yet, only intentions about them.
+Two habits make the difference between a mapping that changes a decision and one that changes nothing. The first is naming the evidence for every diagnosis, because a diagnosis without evidence cannot be challenged and therefore cannot be corrected. The second is running it on a deployment that is already live rather than one being planned. A planned deployment has no flows yet, only intentions about them.
 
 Step 1. Name the deployment and its boundary. State which tool, which population, and over what period. A boundary that is not stated will move while the diagnosis is being made.
 

@@ -1417,19 +1417,77 @@ because the continuity ledger carries no Chapter 2 entries until lock.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-29
 
 > Two halves. The mechanical half is voicecheck.py: third person, no contractions, no em dashes, no rhetorical questions outside discussion prompts, no hedging, plus over-explanation below the reader baseline and under-explanation above it. The judgment half is the SEVEN craft criteria below, read against AIOM_Prose_Standard_v2.0.md, which is the one prose standard and whose voice is called Concrete Management Prose. voicecheck.py also prints advisory craft metrics proxying C1, C3, C4, and C5; the metrics inform the read and never decide it. C2 and C7 have no proxy and are enforced by reading alone. Read ADVERSARIALLY and by section: for each criterion quote the WEAKEST passage in the chapter and rule it, rather than asking whether the criterion is met. Read the per-section table, never the chapter average alone. Record a finding per criterion; 'met' is not a finding. Dan gut-checks the craft read with a second model and rules, as at Stage 2; the reusable verification prompt travels in the Chapter 1 checklist.
 
-- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
-- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
-- [ ] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
-- [ ] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
-- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
-- [ ] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
-- [ ] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
+- [x] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [x] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [x] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
+- [x] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
+- [x] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
+- [x] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
+- [x] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
 
 Findings:
+
+### STAGE 4 CLEARED 2026-08-29 ON DAN's RULING. BOTH HALVES RAN AND NINETEEN FINDINGS WERE RULED.
+
+**The mechanical half passes** and the judgment half ran twice: Claude's seven-criterion
+adversarial read, and an independent second-model read on a package that gave both
+chapters to the reviewer as prose prepared the same way. **Dan ruled every finding and
+Claude ruled none.** Nineteen in total: F1 to F7 from Claude, F8 to F12 from the second
+model, and the reviewer's own C1, C2 and C6.
+
+**TWO CRITERION BOXES ARE TICKED WITH A FINDING STILL OPEN, AND THIS IS THE
+EXPLANATION `status_check.py` REQUIRES.**
+
+- **C1 is ticked and F1 is open.** The chapter's one fully managed example, the retailer
+  in the craft section, is constructed and unnamed. **The only remedy is a real cited
+  deployment on which the mapping returns a clean flow, and none exists**; the craft
+  section says so in its own words, and inventing one is what standing rule 2 forbids.
+  It is Chapter 6's supply obligation, tracked against the case bank, and it is not
+  this chapter's to close. **What C1 asks for elsewhere is now satisfied**: the opening
+  case names a real executive quoting his own words, the DTA trial is a named real
+  deployment, and 2.3 now reaches back to the April budget.
+- **C4 is ticked and F4 is partly open.** Chapter 2 runs a mean of 15.6 words against
+  Chapter 1's 14.3. **What closed: sentences over 35 words went from 1 per cent to
+  zero, matching the exemplar exactly**, short sentences went 32 to 34 per cent against
+  its 36, 2.6 went 16.9 to 15.9, and key terms went 19.4 with no short sentences to 17.8
+  with 8 per cent. **What did not: the 1.3-word gap on the mean.** Closing it further
+  means pruning sentences that are long rather than defective, which is a cost the
+  chapter should not pay at Stage 4. **The band is advisory and was never a threshold**,
+  and both reads agree the variance is healthy and no uniform run breaches the
+  exemplar's.
+
+**C6's LAST INSTANCE CLOSED AT THIS RULING.** "A mapping that changes something and one
+that fills a slide" becomes "a mapping that changes a decision and one that changes
+nothing." The reviewer read "fills a slide" as an implied sneer at a class of
+practitioner, which is character-framing in miniature, **and the structural account was
+already in the very next sentence**: a diagnosis without evidence cannot be challenged
+and therefore cannot be corrected. The replacement states the actual distinction and
+costs nothing.
+
+**WHAT THIS STEP CHANGED IN THE CHAPTER, IN ONE LINE.** The self-reference layer is
+gone: eleven "worth" announcements down to three legitimate uses, five paragraph closes
+on a cross-reference down to zero, two existential openers down to zero, a verbatim
+aphorism no longer repeated, and the one house-style split with Chapter 1 corrected.
+
+**WHAT TICKING THIS BOX CHANGES MECHANICALLY.** Stage 4 owns `voicecheck`, so the
+mechanical half now BINDS in `chapter_check.py` rather than reporting. Combined with
+Stage 3 owning W14, the chapter now fails the build if a later step reverts a ruled
+claim OR reintroduces a banned construction.
+
+**WHAT IS CARRIED FORWARD.** F1 to Chapter 6's supply obligation. F4's residual mean gap
+to the copy edit, where shortening a long sentence is in scope and cheap. **And S4-1,
+which is REVIEW-only because nothing mechanical can see it**: section 2.3 now restates a
+figure that lives in the opening case, so if Stage 7 corrects the April timing, that
+sentence changes with it and no gate will say so.
+
+**Verified at close**: voicecheck mechanical and house style pass, W14 pass at 12
+rulings, all fifteen print gates pass, page fill clean apart from the summary-to-key-terms
+slot boundary on page 20 which was rasterized and read, web build pass, G3 pass.
+
 
 ### CLAUDE's CRAFT READ, 2026-08-29. RUN AHEAD OF STAGE 3 ON DAN's RULING.
 
