@@ -998,6 +998,49 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+### THE PACKET IS BUILT AND THE STEP IS WITH DAN, 2026-08-29
+
+**Three files sit in `04_Stage3_Source_Fact_Check_1/`.** The render, the generated
+packet, and a cover note that names what the packet cannot see. Read the cover note
+first.
+
+- **`AIOM_Ch02_Stage3_render.pdf`**, 25 pages, all fifteen print gates green and the
+  page-fill advisory clean. **The external check is fed this, never the chapter
+  HTML**, because both production flags on Chapter 1's first check were phantoms of
+  HTML extraction.
+- **`AIOM_Ch02_Stage3_packet.md`**, 7 cited passages against 5 register keys, all
+  five cited, zero orphans and zero dangling. Every register note reproduced
+  verbatim, including the two that carry explicit Stage 3 instructions.
+- **`AIOM_Ch02_Stage3_cover.md`**, which carries the five uncited frequency claims.
+
+**THE FIVE UNCITED CLAIMS APPEAR IN NO GENERATED ARTIFACT AND THAT IS WHY THE COVER
+NOTE EXISTS.** They carry no citation marker, so `factcheck_packet.py` cannot see
+them, and Stage 1 handed them forward in prose that only this checklist held. All
+five were confirmed present and unmoved in the live text on 2026-08-29, each
+occurring exactly once, because Stage 2 touched the passages holding two of them and
+the re-anchoring risk was recorded rather than resolved.
+
+**`factcheck_packet.py` WAS PRINTING CHAPTER 1's HISTORY INTO A CHAPTER 2 PACKET,
+FOUND AND FIXED THE SAME DAY.** The tool was promoted to the root on 2026-08-10 so
+that fifteen chapters would not each rebuild it, and it had only ever run on Chapter
+1, so six facts about that chapter were hardcoded in its preamble. The first
+Chapter 2 packet was titled "Chapter 1", told a checker not to re-raise SF1 through
+SF10, reported 6 footnotes against an actual 9, and claimed a value surface
+"identical to the Stage 3 audited render" for a chapter arriving AT Stage 3. **A
+packet that states checks nobody ran is this repository's signature failure,
+committed by the one artifact an external checker is meant to trust.** The title,
+the footnote count, the register closure result and the ruled-form line are now
+computed from the chapter; the value-surface line is removed, because the script
+never performed that check and a Chapter 1 measurement taken by hand was being
+printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
+6 footnotes and its 8 live rulings correctly.
+
+**Mechanical state at handover**: `chapter_check.py Ch02` reports W14 pass,
+voicecheck pass, print pass, registry pass, checklist self-consistent. The web build
+and G3 still report the expected shape for an unlocked chapter, W2 because Chapter 2
+is not locked, W10 because a single-chapter build omits locked Chapter 1, and G3
+because the continuity ledger carries no Chapter 2 entries until lock.
+
 ---
 
 ## Stage 4. Voice and craft check

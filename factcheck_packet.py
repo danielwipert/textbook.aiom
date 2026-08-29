@@ -10,6 +10,14 @@ throwaway script in a session scratchpad and died with its container; the Stage 
 packet four hours later had to rebuild the same work from nothing. A script that
 has to be rewritten to reproduce a step is not a reproducible step.
 
+THE VALUE-SURFACE LINE WAS REMOVED 2026-08-29 BECAUSE THIS SCRIPT NEVER
+PERFORMED IT. It asserted "175 numeric atoms and 32 date atoms, identical to the
+Stage 3 audited render", which was a Chapter 1 measurement taken by hand and
+recorded in that chapter's checklist, printed unconditionally into every packet.
+At Stage 3 there is no prior audited render to be identical to. A checker who
+wants that comparison at Stage 7 runs it and records it; the packet no longer
+claims it was run.
+
 WHAT THIS DOES NOT DO. It does not verify anything. Stages 3 and 7 are
 STRUCTURALLY external, not external by preference: no source host is reachable
 from the Claude environment, verified 2026-08-06 against six of them. This
@@ -30,6 +38,27 @@ import argparse
 import json
 import re
 from pathlib import Path
+
+import claimcheck
+
+
+def footnote_report(html_path):
+    """(count, sentence) describing the footnotes this chapter builds.
+
+    Counted by running the SAME footnotes.inject the print and web builds run,
+    so the number cannot drift from the artifact. Returns a stated failure
+    rather than a number when the build raises, because a packet that omits a
+    broken footnote build tells a checker less than nothing.
+    """
+    try:
+        import footnotes
+        raw = Path(html_path).read_text(encoding="utf-8")
+        _, report = footnotes.inject(raw, url_policy="none")
+        n = len(report)
+        return n, (f"{n} footnote(s) generated. Gate 8 checks each sits on its "
+                   f"calling page and passed on the render above.")
+    except Exception as exc:                       # noqa: BLE001
+        return None, f"NOT RUN. footnotes.inject raised: {exc}"
 
 
 def split_register(raw):
@@ -100,8 +129,26 @@ def main():
     defined = {k for k in reg if not k.startswith("_")}
     used = {k for _, ks, _ in cited for k in ks}
 
+    orphans = sorted(defined - used)
+    dangling = sorted(used - defined)
+
+    # THE PREAMBLE IS DERIVED FROM THIS CHAPTER, NEVER CARRIED FORWARD FROM THE
+    # LAST ONE. Every line below was hardcoded Chapter 1 fact until 2026-08-29,
+    # when the tool was first run on a second chapter: the title said Chapter 1,
+    # the footnote count said 6 against an actual 9, the ruled-form line listed
+    # Chapter 1's SF and CE rulings, and the value-surface line claimed a
+    # comparison against a "Stage 3 audited render" that does not exist for a
+    # chapter arriving AT Stage 3. A packet that states checks nobody ran is the
+    # exact failure this repository keeps finding, committed by the artifact a
+    # checker is meant to trust.
+    chap = claimcheck.chapter_id_for(a.html)
+    chap_label = f"Chapter {int(chap[2:])}" if chap else "Chapter (unknown)"
+
+    fn_count, fn_note = footnote_report(a.html)
+    live, req, forb, rev = claimcheck.summary(a.html, chapter=chap)
+
     out = []
-    out.append(f"# Chapter 1, Stage {a.stage}. Claim inventory and source packet\n")
+    out.append(f"# {chap_label}, Stage {a.stage}. Claim inventory and source packet\n")
     out.append("Generated from the live text by `factcheck_packet.py` at the repo root.")
     out.append(f"Stage {a.stage} is STRUCTURALLY external: no source host is reachable from the")
     out.append("Claude environment, verified 2026-08-06 against six of them, so nothing")
@@ -112,20 +159,33 @@ def main():
     out.append("cites and the register entry behind each key. The register note is")
     out.append("reproduced in full because it carries the verification history and, for")
     out.append("findings already ruled, the condition that would reverse the ruling.\n")
-    out.append("WHAT A CHECKER SHOULD NOT RE-RAISE. SF1 through SF10 were ruled on")
-    out.append("2026-08-06 and 2026-08-10 and their rulings sit in the register notes")
-    out.append("below. A checker who reaches one should say whether the condition named in")
-    out.append("the note is now met, not restate the finding. SF6, archive capture and")
-    out.append("second paths, is closed on Decisions 30 and 48 and has been raised four")
-    out.append("times.\n")
+    if live:
+        out.append("WHAT A CHECKER SHOULD NOT RE-RAISE. This chapter carries "
+                   f"{live} ruling(s) already")
+        out.append("made and still in force, recorded in `AIOM_Claim_Ledger.md` and in the")
+        out.append("register notes below. A checker who reaches one should say whether the")
+        out.append("condition named in the note is now met, not restate the finding.\n")
+    else:
+        out.append("WHAT A CHECKER SHOULD NOT RE-RAISE. Nothing yet. This chapter carries no")
+        out.append("ruled claim narrowings, so every finding a checker raises here is new.\n")
     out.append("MECHANICAL CHECKS ALREADY RUN, so they need not be repeated:\n")
     out.append(f"  Register closure    {len(defined)} keys defined, {len(used)} cited. "
-               f"Zero orphans, zero dangling.")
+               f"{len(orphans)} orphan(s), {len(dangling)} dangling.")
+    if orphans:
+        out.append(f"                      orphans: {', '.join(orphans)}")
+    if dangling:
+        out.append(f"                      dangling: {', '.join(dangling)}")
     out.append(f"  Citation markers    {len(cited)} cited passages, every marker resolving to a key.")
-    out.append("  Footnote build      6 footnotes generated, all on their calling page (gate 8).")
-    out.append("  Value surface       175 numeric atoms and 32 date atoms, identical to the")
-    out.append("                      Stage 3 audited render. Zero added, zero altered.")
-    out.append("  Ruled-form check    SF7 to SF10, NC1, NC3, CE1 and CE2 all still in force.\n")
+    out.append(f"  Footnote build      {fn_note}")
+    if live:
+        out.append(f"  Ruled-form check    {live} ruling(s) in force for {chap or 'this chapter'}: "
+                   f"{req} required, {forb} forbidden,")
+        out.append(f"                      {rev} by reading. `claimcheck.py` reports "
+                   f"{'PASS' if not claimcheck.broken_rulings(a.html, chapter=chap) else 'FAIL'}.")
+    else:
+        out.append(f"  Ruled-form check    nothing to check. No ruling is recorded for "
+                   f"{chap or 'this chapter'} yet.")
+    out.append("")
     out.append("---\n")
     out.append("## Part 1. Cited passages, in document order\n")
 
