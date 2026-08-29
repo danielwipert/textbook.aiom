@@ -1,12 +1,56 @@
 # Session handoff
 
-Last updated: 2026-08-28. Read this
+Last updated: 2026-08-29. Read this
 plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
+
+**AT THE 2026-08-29 CLOSE: everything is on `main` at `261d526`, nothing is
+stranded, and TWO MERGED BRANCHES ARE OUTSTANDING ON THE REMOTE.** Working tree
+clean, local `main` level with `origin/main`, `git_hygiene.py` reporting CLEAN. The
+session branch `claude/chapter-2-stage-3-ready-mu9ktm` was merged by fast-forward
+and joins `claude/chapter-2-status-x3jpnn` on the safe-to-delete list.
+`claude/status-check-1p29ee` is gone, so Dan deleted it since the last close.
+**Deleting both needs Dan:**
+
+    git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm claude/chapter-2-status-x3jpnn
+
+**THE 403 WAS RETESTED AGAIN THIS SESSION AND STILL HOLDS**, with the same shape:
+`error: RPC failed; HTTP 403` on the first line and `Everything up-to-date` after
+it. Confirmed against `git ls-remote`, which still lists both.
+
+**CHAPTER 2's STAGE 3 PACKET IS BUILT AND THE STEP IS WITH DAN.** Three files in
+`Drafts/Ch02_The_Flow/04_Stage3_Source_Fact_Check_1/`: the render at 25 pages with
+all fifteen print gates green and the page-fill advisory clean, the generated
+packet, and a cover note. **Read the cover note first**, because it carries the five
+uncited frequency claims Stage 1 handed forward and no generated artifact can see
+them: they carry no citation marker. All five were confirmed present and unmoved in
+the live text, each occurring exactly once, because Stage 2 touched the passages
+holding two of them and the checklist had recorded that re-anchoring risk without
+resolving it.
+
+**`factcheck_packet.py` WAS PRINTING CHAPTER 1's HISTORY INTO A CHAPTER 2 PACKET,
+AND THIS IS THE FOURTH DEFECT THE SECOND CHAPTER HAS EXPOSED.** The tool was
+promoted to the root on 2026-08-10 precisely so fifteen chapters would not each
+rebuild it, and it had only ever run on Chapter 1, so six facts about that chapter
+were hardcoded in its preamble. The first Chapter 2 packet was titled "Chapter 1",
+told a checker not to re-raise SF1 through SF10, reported 6 footnotes against an
+actual 9, and claimed a value surface "identical to the Stage 3 audited render" for
+a chapter arriving AT Stage 3. The title, the footnote count, the register closure
+result and the ruled-form line now compute from the chapter. **The value-surface
+line is removed rather than recomputed, because the script never performed that
+check**: a Chapter 1 measurement taken by hand was being printed as though it had.
+Verified by rebuilding Chapter 1's packet, which reports its 6 footnotes and 8 live
+rulings correctly. **CLAUDE.md's entry that a second chapter is a test instrument
+should be read as covering four defects now, not three.**
+
+**WHAT PUBLISHES DID NOT CHANGE.** Chapter 2 has never locked, so the site still
+serves Chapter 1 alone.
+
+**THE 2026-08-28 RECORD FOLLOWS AND ITS BRANCH AND HEAD FACTS ARE SUPERSEDED.**
 
 **AT THE 2026-08-28 CLOSE: everything is on `main` at `d978a4f`, nothing is
 stranded, CI is green on both workflows, and TWO MERGED BRANCHES ARE OUTSTANDING ON
@@ -2053,6 +2097,20 @@ ideas**, which is the most common complaint about this book's drafts.
 added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
+
+**LIVE THREADS AS OF THE 2026-08-29 CLOSE: unchanged in order and in membership
+from the 2026-08-28 list below. Thread 6 remains first and remains the work, and it
+has not moved a step: Chapter 2 is still at 4 of 13 and still sitting with Dan at
+Stage 3. What changed is that the step is now ACTUALLY handed over rather than
+nominally: the packet the step needs did not exist when the last close described
+Chapter 2 as sitting at Stage 3, and the folder was empty.**
+
+**WHAT IS ACTUALLY BLOCKING, IN ONE LINE:** nothing, and Stage 3 is now genuinely
+actionable. Dan runs two external checks on different prompts against the render in
+the Stage 3 folder, and rules the five uncited frequency claims under standing rule
+2: cite, recast as a formal conditional, or cut, and no fourth option.
+
+**THE 2026-08-28 LIST FOLLOWS, superseded only on the paragraph above.**
 
 **LIVE THREADS AS OF THE 2026-08-28 CLOSE, in order: 6 (CHAPTER 2, still the work,
 now at 4 of 13 and sitting with Dan at Stage 3), 8 (the web edition, whose remaining
