@@ -8,8 +8,13 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE THIRD 2026-08-29 CLOSE: everything is on `main` at `9213b09`, nothing is
-stranded, CI green, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree
+**AT THE THIRD 2026-08-29 CLOSE: everything is on `main` at `a9f414a`, nothing is
+stranded, BOTH WORKFLOWS GREEN ON THAT HEAD, and ONE MERGED BRANCH IS OUTSTANDING ON THE
+REMOTE.** `chapter` passed on every commit in the session and `web` passed on `a9f414a`,
+confirmed after waiting for it rather than assumed at push time. **Several `web` runs
+above it in the listing show `cancelled`, and that is the concurrency group superseding
+them**, not a failure: `web.yml` sets `cancel-in-progress: true`, so a run dies whenever
+a newer push lands. Read the run on the CURRENT head, never the topmost completed one. Working tree
 clean, `git_hygiene.py` reporting CLEAN. The delete still fails with the documented 403:
 
     git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm
