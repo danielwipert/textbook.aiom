@@ -1,0 +1,2939 @@
+{
+ "source_html": "Drafts/Ch02_The_Flow/00_Stage0_Draft/AIOM_Ch02_draft.html",
+ "source_pdf": "Drafts/Ch02_The_Flow/06_Stage6_Copy_Edit/AIOM_Ch02_Stage6_render.pdf",
+ "block_count": 195,
+ "excluded": [
+  "<section id=\"aiom-sources\">, the Decision 51 source register: machine-read apparatus, deliberately not exposed to a copy edit"
+ ],
+ "figure_text_counts": [
+  7,
+  6
+ ],
+ "blocks": [
+  {
+   "i": 0,
+   "kind": "PART LABEL",
+   "class": "part-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    200,
+    221
+   ],
+   "sha1": "d1f306603f8d9170137939c56cc45f28956b0946",
+   "text": "Part I · The Argument"
+  },
+  {
+   "i": 1,
+   "kind": "CHAPTER TITLE",
+   "class": "chapter-title",
+   "tag": "h1",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    252,
+    260
+   ],
+   "sha1": "ccf619f981d5f887c851391b094e3038bd3cf809",
+   "text": "The Flow"
+  },
+  {
+   "i": 2,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    289,
+    301
+   ],
+   "sha1": "180538463d11c0f7ea1903cf657cb1a084bcfbd6",
+   "text": "Opening case"
+  },
+  {
+   "i": 3,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    329,
+    361
+   ],
+   "sha1": "92b4781b373dfdb34eb337dad13a9cb872e218c8",
+   "text": "The budget that ran out in April"
+  },
+  {
+   "i": 4,
+   "kind": "PROVENANCE",
+   "class": "provenance",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    389,
+    564
+   ],
+   "sha1": "1b91f8f1ed1cd033bbbfbd9069e776d77ffbae29",
+   "text": "Dated: December 2025 to May 2026. Figures and dates are drawn from press reporting of a paywalled primary account and are pending source verification. See the source register."
+  },
+  {
+   "i": 5,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    573,
+    1071
+   ],
+   "sha1": "97afa5ae2c6722490babddb000425230dca4d4b1",
+   "text": "In April 2026, four months into the calendar year, press reporting indicates that Uber had spent the annual budget it had set for artificial intelligence. Nothing had broken. No contract had been renegotiated and no vendor had raised a price. The engineers were doing the work the company had asked them to do, with the tool the company had given them."
+  },
+  {
+   "i": 6,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "uber-2026-budget",
+   "figure": null,
+   "string": null,
+   "span": [
+    780,
+    866
+   ],
+   "sha1": "8c6448383f8939ae8355d900e0ccd3feb17738f8",
+   "text": "Reported timing of the budget exhaustion."
+  },
+  {
+   "i": 7,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    1080,
+    1788
+   ],
+   "sha1": "4908be5d6ffd150bd0764283d3113d85602d7870",
+   "text": "The tool was Claude Code, an assistant that writes and edits software, and the company had begun rolling it out to roughly five thousand engineers in December 2025. Adoption moved quickly. By February, about a third of the engineering organization was using it. Within a further month it had reached a large majority."
+  },
+  {
+   "i": 8,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "uber-2026-budget",
+   "figure": null,
+   "string": null,
+   "span": [
+    1297,
+    1376
+   ],
+   "sha1": "76906a81661b9a0d3e64636e8c0f6ed2d93e3df5",
+   "text": "Engineer count and rollout timing."
+  },
+  {
+   "i": 9,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "uber-2026-adoption",
+   "figure": null,
+   "string": null,
+   "span": [
+    1567,
+    1781
+   ],
+   "sha1": "50db4f49443204f885842ad997ebb6fa4f4c73b5",
+   "text": "Consistent values across several outlets with no consistent attribution, so no single source is named. The adoption is characterized rather than given as a percentage."
+  },
+  {
+   "i": 10,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    1797,
+    2303
+   ],
+   "sha1": "05b246af13f048a073794e020c96becc0307cd81",
+   "text": "By the measures an engineering organization normally applies, the rollout was going well. The tool was adopted and it was used heavily. Reporting indicates that by spring a large share of committed code had passed through it. Those measures establish adoption. They do not establish value, and the difference between the two is most of what this chapter is about."
+  },
+  {
+   "i": 11,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "uber-2026-adoption",
+   "figure": null,
+   "string": null,
+   "span": [
+    2053,
+    2158
+   ],
+   "sha1": "4fb1a869510c5eee9ba3f21523ac1fc1875dac71",
+   "text": "Characterized rather than quantified, for the same reason."
+  },
+  {
+   "i": 12,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2312,
+    2679
+   ],
+   "sha1": "ec9ae1f65c4fd56d4a3f28c87824ea3bbe96e4ca",
+   "text": "A budget of that kind is normally built one way. A price per person is multiplied by a count of people and held roughly flat across the year. That is how software has been budgeted for thirty years, and for software it works. The public account does not describe the company’s method in detail, and the shape of the outcome is consistent with a forecast of this kind."
+  },
+  {
+   "i": 13,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2688,
+    2974
+   ],
+   "sha1": "516089a3f83789390503f47f8c83e801d7bb29c6",
+   "text": "The method survived because a seat forecast is falsifiable in advance. Multiply a known price by a headcount the human resources system already holds, and the result can be checked before the year begins. It is the kind of number a finance organization can defend in a planning meeting."
+  },
+  {
+   "i": 14,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2983,
+    3492
+   ],
+   "sha1": "ff282f8d55f03520475be6af58864b775af360bc",
+   "text": "What the engineers were consuming did not hold flat. Reported monthly costs ran from several hundred to a few thousand dollars per engineer, varying with how much each one worked and how hard the work was. The rate was not the surprise. Spending rose as adoption spread and as per-engineer consumption varied, and the commercial terms turned that variable consumption into variable cost."
+  },
+  {
+   "i": 15,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "uber-2026-budget",
+   "figure": null,
+   "string": null,
+   "span": [
+    3217,
+    3303
+   ],
+   "sha1": "024487ab4e9f1e237c43bb7ffff7ee969b6ce615",
+   "text": "Reported per-engineer monthly cost range."
+  },
+  {
+   "i": 16,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3501,
+    3841
+   ],
+   "sha1": "933ee3c59ce653c03cf5e396ad27ea679582923b",
+   "text": "The shape of the surprise matters more than its size. This was not a budget missed by a margin and discovered at year end. The spending ran at a rate nobody was tracking against the plan, and the plan was only consulted when the money was gone. A rate that is never compared to a plan is not a forecast. It is a hope with a number attached."
+  },
+  {
+   "i": 17,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3850,
+    4219
+   ],
+   "sha1": "e461e4de7286ba1d6db14390f5127a69dd77bfc6",
+   "text": "Consider what a February review would have required. Observed consumption and the adoption trend would have had to sit in the same operating view, compared against the plan, by somebody whose job was to look. The public account does not establish whether such a view existed or what finance could see. It establishes only that the comparison did not change the outcome."
+  },
+  {
+   "i": 18,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    4228,
+    5027
+   ],
+   "sha1": "acc4ff5fb8d8d7f0b973d20bb340c0dc1a0c3f80",
+   "text": "Two things about this episode are usually confused with each other. The first is that the company could see what it was spending. The billing arrived and accumulated, and by April the total had reached the figure that had been set aside. The second is that the company could not say what it had received. President and chief operating officer Andrew Macdonald said publicly that the company could not yet draw a line from its rising use of the tool to the consumer features it was producing. “That link is not there yet,” he said. The statement suggests a documented return was unavailable, incomplete, or unpersuasive to senior leadership."
+  },
+  {
+   "i": 19,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "fortune-2026-uber-coo",
+   "figure": null,
+   "string": null,
+   "span": [
+    4902,
+    5020
+   ],
+   "sha1": "ab45300e40e5d311558e7c904ab47b8a5e082870",
+   "text": "Reported executive commentary on whether the spending was justified."
+  },
+  {
+   "i": 20,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5036,
+    5433
+   ],
+   "sha1": "47bb6616a5921d63f2200d66973028adbd94f7de",
+   "text": "This is the position Chapter 1 predicted and did not describe. The company was buying a resource priced by use and planning for it with a figure held flat per person. Whether that was a category error, or a working understanding that never reached the forecast, the reporting does not settle. What the episode does show is a deployment that scaled without a mechanism able to govern its economics."
+  },
+  {
+   "i": 21,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5442,
+    5943
+   ],
+   "sha1": "e8c8f430a0c5664ec5d0bf0a07deda399b0f3d4b",
+   "text": "One question this chapter will not answer is how responsibility divides between the buyer and the provider. The commercial arrangement is not in the public account: what the contract priced, what consumption data the customer could see and when, and whether spending limits or alerts were available and declined. A reader should hold that question open. What follows does not depend on its answer, because an organization needs the ability to govern its own consumption whatever the provider supplies."
+  },
+  {
+   "i": 22,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5969,
+    6031
+   ],
+   "sha1": "a4e75046b55ba2a7dbace5d552811fa2e6873101",
+   "text": "2.1 Work moves, and so does its record"
+  },
+  {
+   "i": 23,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    6041,
+    6369
+   ],
+   "sha1": "d77b7e4437c5c97880c0fdf46a5c6028ee5df9d4",
+   "text": "Every organization already manages things that move. Orders move from a customer to a warehouse to a doorstep. Invoices move from a supplier to accounts payable to a bank. Managers do not think of these as static quantities. They think of them as streams that have a rate, a direction, and places where they can back up or leak."
+  },
+  {
+   "i": 24,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    6378,
+    6749
+   ],
+   "sha1": "766aa49b62cf0225a96264890b3a0216ac0b56f9",
+   "text": "Deployed AI moves the same way. Chapter 1 established the unit: a consumption event, a single use of an AI system that consumes metered computing resources. One event is a transaction. Thousands of events a day, arriving from many people and systems and varying with the work, are something else. They are a stream, and a stream is managed differently from a transaction."
+  },
+  {
+   "i": 25,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    6758,
+    7144
+   ],
+   "sha1": "2d4a95a37532abfff7cc35409e34164a4d1d15e9",
+   "text": "The shift matters because the management instrument changes with it. A transaction is governed by approval: somebody with authority looks at it and says yes. That instrument has a hard limit, which is the attention of the person approving. It works for a purchase order and fails for five thousand engineers making decisions every few minutes about whether to ask for help on a problem."
+  },
+  {
+   "i": 26,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7192,
+    7202
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 27,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7223,
+    7227
+   ],
+   "sha1": "86eff8eb789b097ddca83f2c9c4617ed23605105",
+   "text": "Flow"
+  },
+  {
+   "i": 28,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7235,
+    7481
+   ],
+   "sha1": "162d08e05b40a3eada4d3fe5e6bd1bd23bd3d3e1",
+   "text": "A continuous stream of related activity within a deployment, described by its rate, its direction, and whether anything is being recorded about it. A flow is managed by governing the stream over time rather than by approving each event within it."
+  },
+  {
+   "i": 29,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7499,
+    7865
+   ],
+   "sha1": "b7c6ec9d668c90ded1ab58d9bb05a127914fbb9b",
+   "text": "The distinction is practical rather than semantic. A transaction is approved once, by somebody with authority to approve it. A flow cannot be approved event by event, because nobody can sit between five thousand engineers and the work they are doing. It is managed by deciding in advance what may run, recording what does run, and comparing the total against a plan."
+  },
+  {
+   "i": 30,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7891,
+    7939
+   ],
+   "sha1": "a6564f16d696eeec057b58759132234a74f1f5ba",
+   "text": "2.2 Three flows, not one"
+  },
+  {
+   "i": 31,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7949,
+    8096
+   ],
+   "sha1": "8783c51e056a0cddea05c406ff571a0dec33c477",
+   "text": "A deployment does not produce one stream. It produces three, and they are separable because different parts of the organization touch each of them."
+  },
+  {
+   "i": 32,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8105,
+    8392
+   ],
+   "sha1": "bee6235167900685b2f0a085f777a866f1577a0c",
+   "text": "The first is the work itself. Employees and systems send requests, models return results, and those results go into products, documents, decisions, and code. This is the activity the organization bought the tool for, and it is the only one of the three that anyone is trying to increase."
+  },
+  {
+   "i": 33,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8401,
+    8783
+   ],
+   "sha1": "91da61f718c0c9307d6d9db0ba4e24af6168b358",
+   "text": "The second is the record of that work. Somewhere, something writes down what happened: which team made the request, against which system, at what volume. Chapter 1 established that the provider always holds a meter, because the provider must bill and must manage its own capacity. Whether the buyer holds an equivalent record is a separate question, and the answer is frequently no."
+  },
+  {
+   "i": 34,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8792,
+    9138
+   ],
+   "sha1": "e83f6477a2be7e86e2652f3ec8d023b9532898a9",
+   "text": "The third is the money and the value. Cost attaches to the work through the meter. Value attaches to the work through whatever the organization does with the output. These two belong together because a manager cannot use either one alone: a cost without a corresponding return is an expense report, and a return without its cost is a testimonial."
+  },
+  {
+   "i": 35,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9147,
+    9510
+   ],
+   "sha1": "8ed198fe73214b31fff2172a96264d9c2b005d38",
+   "text": "Figure 2.1 sets the three side by side. They are the usage flow, the record flow, and the cost-and-value flow. Naming them matters less than noticing that they are three separate things that can each be in a different condition. An organization can have a healthy usage flow and no record flow at all, which is the ordinary case in the first year of a deployment."
+  },
+  {
+   "i": 36,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9520,
+    10033
+   ],
+   "sha1": "4bb36ee9063822467ac3de2232f26c0524fac6c5",
+   "text": "These three are separable because different people own them, and that is the practical reason the distinction earns its place. Engineering owns the usage flow, because engineering decides what is deployed and to whom. Whoever runs the platform owns the record flow, if anyone does. Finance owns the cost half of the third flow the moment an invoice arrives, and the value half belongs to whichever business unit was supposed to benefit. Four owners, three flows, and no single person whose job is the whole of it."
+  },
+  {
+   "i": 37,
+   "kind": "FIGURE CAPTION",
+   "class": "",
+   "tag": "figcaption",
+   "sources": null,
+   "figure": 1,
+   "string": null,
+   "span": [
+    11247,
+    11640
+   ],
+   "sha1": "da206d09b686c8774b1a607bb0546966ccaf0674",
+   "text": "Figure 2.1 The three flows of a deployment. Usage runs continuously once a tool is adopted, and cost runs with it. The record flow is the one that must be constructed, and the value half of the third flow is constructed too. The solid lines run whether or not anyone attends to them; the dashed line and the tinted block exist only where an organization builds them."
+  },
+  {
+   "i": 38,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 0,
+   "span": [
+    10202,
+    10207
+   ],
+   "sha1": "cf3bfa9a159c5a5ddc20da1eccd6bbddbdc037e4",
+   "text": "USAGE"
+  },
+  {
+   "i": 39,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 1,
+   "span": [
+    10234,
+    10240
+   ],
+   "sha1": "31355a28687d29fdd7654b7c5a0888c5c908cd0e",
+   "text": "RECORD"
+  },
+  {
+   "i": 40,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 2,
+   "span": [
+    10267,
+    10281
+   ],
+   "sha1": "fe187ff5c2f6b88946f1645ab7abb5830a3a2177",
+   "text": "COST AND VALUE"
+  },
+  {
+   "i": 41,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 3,
+   "span": [
+    10936,
+    10974
+   ],
+   "sha1": "a2ba05a52618ce21f57fb4b1f56338e8f835f54a",
+   "text": "requests, completions, code, decisions"
+  },
+  {
+   "i": 42,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 4,
+   "span": [
+    11002,
+    11050
+   ],
+   "sha1": "51a02436a8e062e4aaef33710859d7dcf81890eb",
+   "text": "partial: the provider records, the buyer may not"
+  },
+  {
+   "i": 43,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 5,
+   "span": [
+    11079,
+    11107
+   ],
+   "sha1": "4f764eb76fdc074c6adef89723761cd5ff724cc9",
+   "text": "cost accrues here by default"
+  },
+  {
+   "i": 44,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 6,
+   "span": [
+    11192,
+    11220
+   ],
+   "sha1": "a94aa75cd3c753864bf3d2f341b42eaadf401617",
+   "text": "value recorded only if built"
+  },
+  {
+   "i": 45,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11668,
+    11934
+   ],
+   "sha1": "62179a9cde0d64b085cdebf0ab9d3835243270be",
+   "text": "A healthy usage flow looks like a rate that somebody can state. An organization with one can answer how many requests were made last month, by roughly whom, and whether the number is rising. It does not need to approve those requests. It needs to know they happened."
+  },
+  {
+   "i": 46,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11943,
+    12322
+   ],
+   "sha1": "c686dfdd5c4867323a0da905953a8f3d66bb900c",
+   "text": "A healthy record flow has a grain, and the grain is what makes it useful. A record that says the organization spent a total last month is not a record flow, because no decision follows from it. A record that says which team, which product, and which system consumed what allows a manager to move something. The test is whether the record can answer a question the invoice cannot."
+  },
+  {
+   "i": 47,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    12331,
+    12682
+   ],
+   "sha1": "181a4d36a0ce1af92933dc07e6906b7141efb049",
+   "text": "The record flow has a physical location, and naming it removes some of the mystery. It lives in one of three places. It can sit with the provider, in a usage console the buyer logs into. It can sit in a gateway or platform the organization runs between its users and the model. Or it can sit in the applications themselves, each logging its own calls."
+  },
+  {
+   "i": 48,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    12691,
+    12972
+   ],
+   "sha1": "8b37db0d80d01595d4665895a382a8f4552de9f3",
+   "text": "Only the second and third belong to the buyer. That distinction decides what happens when the organization changes vendors, adds a second model, or is asked a question the console does not answer. A record the organization holds survives those events. A record it borrows does not."
+  },
+  {
+   "i": 49,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    12981,
+    13321
+   ],
+   "sha1": "26cf439e93cea5e5e0d547f706b4025026a369c1",
+   "text": "A healthy cost-and-value flow is the rarest of the three, because it requires the two halves to be built to a comparable standard and by people who do not normally work together. Finance can produce a cost number without help. The value number requires somebody to have decided, before the deployment began, what it was supposed to improve."
+  },
+  {
+   "i": 50,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    13330,
+    13711
+   ],
+   "sha1": "cad5500e216145908d363cc5397025209009e99c",
+   "text": "The three flows also move at different speeds, which is why they cannot be reviewed on one schedule. Usage changes daily, because it follows the work. Cost resolves monthly, because that is when the invoice closes. Value, where it is measured at all, resolves over quarters, because that is how long it takes for a change in how work is done to show up in an outcome anyone tracks."
+  },
+  {
+   "i": 51,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    13720,
+    14025
+   ],
+   "sha1": "1cb36e5b1030a95f89532aca038a94cdf59536e9",
+   "text": "A manager who reviews all three at the same interval will always be looking at one of them too early and another too late. The practical arrangement is to watch usage continuously, reconcile cost monthly against a plan, and revisit value on the cycle the business already uses for the outcome in question."
+  },
+  {
+   "i": 52,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14052,
+    14114
+   ],
+   "sha1": "67790b2d228798670a7ff1f71aea7ef6a804feb8",
+   "text": "2.3 Funded as a project, run as a flow"
+  },
+  {
+   "i": 53,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14124,
+    14390
+   ],
+   "sha1": "2e9e6dbb8639d33582d948027ae660ccf395aa0b",
+   "text": "Most AI deployments are funded the way projects are funded. Somebody writes a business case, names a cost, names an expected benefit, and asks for approval once. The money is released, the tool is bought, and the project is marked delivered when people are using it."
+  },
+  {
+   "i": 54,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14399,
+    14714
+   ],
+   "sha1": "2f053cf6e2ff537970a06598f03116d4726a30b5",
+   "text": "Then the deployment runs as a flow. Consumption continues every working day, varying with the work, for as long as the tool is in use. The funding event was a single decision. The spending is a continuous process. The opening case is that mismatch at full size: an annual budget, consumed four months into the year."
+  },
+  {
+   "i": 55,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14723,
+    15020
+   ],
+   "sha1": "6b6c5953d0434ba1844dae3795652c6cac3900d9",
+   "text": "This mismatch explains a pattern managers will recognize. The business case is never revisited, because projects are not revisited after delivery. The consumption keeps changing, because flows do. By the time anyone compares the two, the business case describes a deployment that no longer exists."
+  },
+  {
+   "i": 56,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    15029,
+    15346
+   ],
+   "sha1": "b77ddac2e5d19661a19fe86a1245ecf4daa84627",
+   "text": "The mismatch has a scheduling consequence. A funding decision taken once cannot govern a quantity that changes daily, and annual review is what a project-funded deployment gets by default. A review interval is useful only if it is shorter than the time in which spending can change by an amount somebody would act on."
+  },
+  {
+   "i": 57,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    15355,
+    15744
+   ],
+   "sha1": "4441808f138302ca400cebbb9b7191294edd22f5",
+   "text": "The second consequence reaches the value side. A project business case states a benefit at the moment of approval, when nobody can check it. If nothing revisits that statement, the claimed benefit becomes the organization’s permanent belief about what the deployment delivers. It was a forecast. It is now treated as a result, and no step in the process was responsible for the conversion."
+  },
+  {
+   "i": 58,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    15770,
+    15835
+   ],
+   "sha1": "1ae1450a4d0779f0e2357b46f7e92d9514f08d4d",
+   "text": "2.4 An unmanaged flow does not stay still"
+  },
+  {
+   "i": 59,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    15845,
+    16049
+   ],
+   "sha1": "bf0ef6f1767b055ded02150140025c49842b733a",
+   "text": "A manager reading this far might reasonably conclude that an unmanaged flow is merely an unmeasured one, and that the remedy is to start measuring whenever it becomes convenient. That conclusion is wrong."
+  },
+  {
+   "i": 60,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16058,
+    16418
+   ],
+   "sha1": "da66f0279d01f4ed0521e71982dcf0a69363de57",
+   "text": "An unmanaged usage flow grows toward whatever the tool makes easy. This is not a criticism of the people using it. An assistant that drafts code well is used more than one that drafts code badly, and the organization wanted it used. Growth in the usage flow shows that adoption is rising. Whether the deployment is succeeding depends on what that use produces."
+  },
+  {
+   "i": 61,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16427,
+    16814
+   ],
+   "sha1": "13ff24ff60b345025db125fff986160e7e9eb7fa",
+   "text": "An unmanaged record flow does not merely stay empty. It decays, because the raw material for a record is perishable. A request that was never attributed to a team when it was made usually cannot be attributed to that team six months later. The provider’s invoice will say what the organization spent in March; it will not say which product line spent it, because the provider never knew."
+  },
+  {
+   "i": 62,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16823,
+    17264
+   ],
+   "sha1": "80d5bf342afae65876fda05797400534ec8e9698",
+   "text": "An unmanaged cost-and-value flow accrues on one side only, and this is the asymmetry the chapter turns on. Cost arrives without anyone doing anything, because the meter is already running and the invoice already has an owner. Value does not arrive on its own. Somebody has to define what the deployment was supposed to improve, measure it before and after, and attribute the change. Nothing in the tool does that, and no invoice contains it."
+  },
+  {
+   "i": 63,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17312,
+    17322
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 64,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17343,
+    17363
+   ],
+   "sha1": "cb5f3a139af649e990c38f5f0d0534f259456bbb",
+   "text": "Cost-value asymmetry"
+  },
+  {
+   "i": 65,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17371,
+    17649
+   ],
+   "sha1": "b87e0b5128d0a1a60e5e6391918f323b2640102b",
+   "text": "The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards."
+  },
+  {
+   "i": 66,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17667,
+    17925
+   ],
+   "sha1": "fadeef718005fa9917d2c2e882dab5fd16b1fde9",
+   "text": "The three tracks are separated for diagnosis rather than because they run independently. The record flow is the one the other two depend on. Without it the usage flow cannot be compared against a plan, and the value half has nothing to attribute a change to."
+  },
+  {
+   "i": 67,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17933,
+    18529
+   ],
+   "sha1": "5998b8684bc1ab0aa35e513d0a6acad2bed8c976",
+   "text": "Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back."
+  },
+  {
+   "i": 68,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    18555,
+    18631
+   ],
+   "sha1": "51df5e1c93ae54586a7be98084bf92829018d891",
+   "text": "2.5 Why the record flow is the one that gets skipped"
+  },
+  {
+   "i": 69,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    18641,
+    18774
+   ],
+   "sha1": "f323c187ea0e6cfe346726073e939034e80deb7e",
+   "text": "Of the three flows, the record flow is the one organizations almost always build last. The reason is structural rather than careless."
+  },
+  {
+   "i": 70,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    18783,
+    19042
+   ],
+   "sha1": "7eba60380a8893e71f92fbda51e2a1a2a1da911a",
+   "text": "A record flow produces no benefit on the day it is built. The usage flow delivers work immediately. The cost flow arrives on its own. A record flow pays only later, and only if somebody asks a question it can answer. Its value is entirely in the future tense."
+  },
+  {
+   "i": 71,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19051,
+    19408
+   ],
+   "sha1": "1fffd005c38412f889d99f082d7f281be8f5471f",
+   "text": "It is also nobody’s obvious job. Engineering has shipped the tool and moved on. Finance has an invoice that reconciles. The team that will eventually need the record is the one that has to justify the spend, and that team does not yet know it will need it. So the work sits in the space between three functions, each of which is doing its own job correctly."
+  },
+  {
+   "i": 72,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19417,
+    19835
+   ],
+   "sha1": "437a7c5561981c3905c5a93a1ccacb1b6aa7f67e",
+   "text": "The third reason is the most important. The absence of a record is invisible until it is needed. A broken usage flow announces itself, because people complain that the tool is down. A cost overrun announces itself, because the invoice arrives. A missing record announces nothing at all. It surfaces on the day a senior executive asks which product line drove the increase, and the honest answer is that nobody can say."
+  },
+  {
+   "i": 73,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19844,
+    20033
+   ],
+   "sha1": "8a14752422e8422cb82b70a729448b346f81af1b",
+   "text": "This is why the remedy is a decision rather than a habit. An organization does not drift into having a record flow. Somebody has to fund it before the question that needs it has been asked."
+  },
+  {
+   "i": 74,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20060,
+    20137
+   ],
+   "sha1": "7c1e129288e27218d35a4fa16933b363d8f0f50c",
+   "text": "2.6 All of the cost, an unknown fraction of the value"
+  },
+  {
+   "i": 75,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20147,
+    20291
+   ],
+   "sha1": "93d15b3f64794351396e183467790a29492a6ac2",
+   "text": "An organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value. That is what the asymmetry produces."
+  },
+  {
+   "i": 76,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20300,
+    20705
+   ],
+   "sha1": "d32962ec64e3df98325985c15bc9dd96f0ad2540",
+   "text": "The word doing the work in that sentence is unknown, not small. The claim is not that deployed AI fails to produce value, and this chapter asserts nothing about how much value any deployment produces. The claim is narrower and harder to escape: the cost figure is complete because billing made it complete, and the value figure is partial because nobody was required to make it complete."
+  },
+  {
+   "i": 77,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20714,
+    21207
+   ],
+   "sha1": "40fcd4e4dc64a5f8544ac92074acf3ddb4b0470d",
+   "text": "This is why the two figures cannot be compared as if they were the same kind of number. A complete cost set against a partial return makes almost any deployment look worse than it is. An organization that responds by cutting the deployment has acted on an artifact of its own record keeping. The opposite error is equally available: a partial value figure assembled from the deployment’s best moments, set against the same complete cost, will make almost any deployment look better than it is."
+  },
+  {
+   "i": 78,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21216,
+    21663
+   ],
+   "sha1": "4b9950ade1d32984ac51b79ce97feee98f2ec91d",
+   "text": "A stipulated example makes the arithmetic visible. Suppose a deployment costs one million over a year, and that figure is complete because it came from invoices. Suppose the organization has measured the return on two of the five workflows the tool touches, and those two show a combined benefit of four hundred thousand. The ratio a manager would compute is four hundred thousand against one million, and the deployment looks like a serious loss."
+  },
+  {
+   "i": 79,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21672,
+    22221
+   ],
+   "sha1": "20eff29eb551917d86adf2a3fac315d05f19a605",
+   "text": "Now notice what that ratio actually compares. The numerator covers two workflows and the denominator covers five. The comparison is not wrong because the numbers are wrong; both are accurate. It is wrong because the two figures have different scopes, and nothing on the page says so. The three unmeasured workflows might contribute nothing, or they might contribute more than the two that were measured. The organization has no basis for either belief, which is what “unknown” means. Figure 2.2 sets the two quantities against the scope each covers."
+  },
+  {
+   "i": 80,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22233,
+    22617
+   ],
+   "sha1": "8760d12fc94892994477f2c527de0caf0194a80a",
+   "text": "Organizations reach for adoption figures at this point, and not out of laziness. An adoption figure is available. It is produced automatically by the same systems that produce the cost. It rises when things are going well. It can be presented without anyone having to define what the deployment was supposed to improve. It has every property a reporting metric needs except relevance."
+  },
+  {
+   "i": 81,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22627,
+    23003
+   ],
+   "sha1": "987dc21aeef37a13c29fc19506e708563de57467",
+   "text": "Adoption answers a question about the usage flow: are people using the tool. Value answers a question about the business: did the thing the tool was bought to improve get better. The two are related, and they are not substitutes. A tool can be used constantly and improve nothing measurable, and a tool used by a few people in the right place can pay for the whole deployment."
+  },
+  {
+   "i": 82,
+   "kind": "FIGURE CAPTION",
+   "class": "",
+   "tag": "figcaption",
+   "sources": null,
+   "figure": 2,
+   "string": null,
+   "span": [
+    24245,
+    24654
+   ],
+   "sha1": "eeed79f6f67a025b581c516e34d1a08e37093cee",
+   "text": "Figure 2.2 Two quantities of different scope. The cost figure is complete and covers all five workflows, because billing covers all five. The measured return covers the two workflows somebody chose to measure. Setting one against the other produces a ratio whose numerator and denominator describe different things, and the three unmeasured workflows are not zero. They are unknown."
+  },
+  {
+   "i": 83,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 0,
+   "span": [
+    23173,
+    23177
+   ],
+   "sha1": "75fde9afb2c5a969514fe5721d4fb3ff986312cd",
+   "text": "COST"
+  },
+  {
+   "i": 84,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 1,
+   "span": [
+    23204,
+    23210
+   ],
+   "sha1": "dad39ba788d6c9557da1d5f8eca6a0c122f53cc6",
+   "text": "RETURN"
+  },
+  {
+   "i": 85,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 2,
+   "span": [
+    23946,
+    23955
+   ],
+   "sha1": "c67ee36fdaf92b1417c724be89208406e569b48a",
+   "text": "1,000,000"
+  },
+  {
+   "i": 86,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 3,
+   "span": [
+    23983,
+    23990
+   ],
+   "sha1": "fd38933159a89c7125cef08ea2e6d49253b9da0d",
+   "text": "400,000"
+  },
+  {
+   "i": 87,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 4,
+   "span": [
+    24074,
+    24081
+   ],
+   "sha1": "50d8b4a941c26b89482c94ab324b5a274f9ced66",
+   "text": "unknown"
+  },
+  {
+   "i": 88,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 5,
+   "span": [
+    24182,
+    24213
+   ],
+   "sha1": "7ef562c30fea90f4d49d4009a529d73a73c2f619",
+   "text": "FIVE WORKFLOWS THE TOOL TOUCHES"
+  },
+  {
+   "i": 89,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    24682,
+    24975
+   ],
+   "sha1": "480606d6a847b83c2f45980af1577e0f1d02ae6c",
+   "text": "The substitution is easy to spot once named. Whenever a value claim is supported by a number describing how much the tool was used, the value question has been answered with usage data. That is rarely dishonest. It is what happens when the only complete measurement available is the wrong one."
+  },
+  {
+   "i": 90,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    24984,
+    25323
+   ],
+   "sha1": "fda95de3449b4363b0bdbef7544ec1a83dfc7782",
+   "text": "The disciplined response is not to guess at the missing three. It is to state the ratio with its scope attached: four hundred thousand of return measured against the share of a one million cost attributable to the two workflows that were measured. That sentence is longer and less quotable, and it is the only version a manager can act on."
+  },
+  {
+   "i": 91,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25332,
+    25717
+   ],
+   "sha1": "d6075f5a42f3c276a6ee5e5d705a47280962cb9d",
+   "text": "Uber ’s position in the opening case is the first error in progress. The company could total what it had spent. Its president and chief operating officer was asking, in public, what the company had received. Both statements were true at once, and they were true because of how the two numbers were produced rather than because of anything the engineers had done."
+  },
+  {
+   "i": 92,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25759,
+    25777
+   ],
+   "sha1": "33e00285b3cd0acbaf909799e6c936af0f65e14e",
+   "text": "Dated: August 2025"
+  },
+  {
+   "i": 93,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25785,
+    26568
+   ],
+   "sha1": "b2419f74e42ca385bdf2939089b48216da6b5382",
+   "text": "The pattern is not confined to one company. A 2025 study of enterprise deployments by MIT NANDA reported a striking gap. Ninety-five percent of enterprise generative AI pilots delivered no measurable impact on profit and loss. A far higher share of organizations reported that they had piloted or deployed such tools. The figure attracted substantial methodological criticism after it circulated, and the study’s reported interview counts differ across accounts of it."
+  },
+  {
+   "i": 94,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "mit-nanda-2025",
+   "figure": null,
+   "string": null,
+   "span": [
+    26177,
+    26267
+   ],
+   "sha1": "f4184309401b7e0737c0435bfea325972ce77d07",
+   "text": "Reported headline finding and adoption figures."
+  },
+  {
+   "i": 95,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "mit-nanda-2025",
+   "figure": null,
+   "string": null,
+   "span": [
+    26452,
+    26561
+   ],
+   "sha1": "e68d92c7eba9c29f4483f8b24432398327a9e603",
+   "text": "Criticism and reported methodological variation, stated once here."
+  },
+  {
+   "i": 96,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26584,
+    26961
+   ],
+   "sha1": "0df06b50f633f5cb9f47243c0a4c0ce37a0363f4",
+   "text": "The criticism does not need to be settled for the finding to be useful, because the phrase carrying the weight is no measurable impact. A pilot that produced value nobody measured and a pilot that produced no value are indistinguishable in that statistic. That is the asymmetry appearing at market scale: the study could not observe what its subjects had not recorded."
+  },
+  {
+   "i": 97,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26987,
+    27065
+   ],
+   "sha1": "451699c6bd518535007f86f7d2f59cfb115dd3b8",
+   "text": "2.7 Why this requires governance rather than attention"
+  },
+  {
+   "i": 98,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27075,
+    27253
+   ],
+   "sha1": "ef721dba22b2654e67c8ec2fcff6ea88c72cfdb7",
+   "text": "The registry states the consequence formally. Once a deployment scales, controlling its economics requires a governing apparatus rather than diligence from the people running it."
+  },
+  {
+   "i": 99,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27296,
+    27315
+   ],
+   "sha1": "fd7f70bdd2f44aa813863bd1ec0263e652410662",
+   "text": "Theorem 2 · THM-004"
+  },
+  {
+   "i": 100,
+   "kind": "THEOREM STATEMENT",
+   "class": "stmt",
+   "tag": "p",
+   "sources": "registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    27336,
+    27402
+   ],
+   "sha1": "6b8e4bcc7ccbf1b1f8ee72be8c1f04ff92c60654",
+   "text": "Scaled AI Deployment Requires Cost Governance for Economic Control"
+  },
+  {
+   "i": 101,
+   "kind": "THEOREM SCOPE",
+   "class": "cond",
+   "tag": "p",
+   "sources": "registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    27423,
+    27473
+   ],
+   "sha1": "e143dd63f7184cc1c6bda798c01789684c4ecb64",
+   "text": "Within a defined deployment and cost boundary, if:"
+  },
+  {
+   "i": 102,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "i, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    27527,
+    27599
+   ],
+   "sha1": "467c19c50eed19817d33ea045625f2d6e53cca4c",
+   "text": "AI activity consumes resources and therefore accrues cost as it is used;"
+  },
+  {
+   "i": 103,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "ii, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    27637,
+    27693
+   ],
+   "sha1": "bc729bb2b103f3f1166a221e48c358a9a0c9142e",
+   "text": "deployment has scaled beyond isolated or occasional use;"
+  },
+  {
+   "i": 104,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "iii, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    27732,
+    27806
+   ],
+   "sha1": "cfd1179dc880be082c4feffd85baa326b96ab439",
+   "text": "the resulting consumption varies with work rather than with headcount; and"
+  },
+  {
+   "i": 105,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "iv, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    27844,
+    27910
+   ],
+   "sha1": "58b5e8778e43e1444dd8d71ec4f49b298da8d09e",
+   "text": "no apparatus records, attributes, and constrains that consumption;"
+  },
+  {
+   "i": 106,
+   "kind": "THEOREM CONSEQUENT",
+   "class": "conseq",
+   "tag": "p",
+   "sources": "registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    27940,
+    28066
+   ],
+   "sha1": "80ef69134834742a513970c23af33d5e0048de07",
+   "text": "then the organization cannot exercise economic control over the deployment, whatever the diligence of the people operating it."
+  },
+  {
+   "i": 107,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28082,
+    28456
+   ],
+   "sha1": "0912fb3d121b824d6dc700d541ac480c07bc0c1d",
+   "text": "The final clause is the practical content. Economic control is not a property of how carefully individuals behave. Five thousand engineers can each act reasonably and still produce an aggregate none of them chose. Every one of those decisions is defensible on its own. None of them is visible to the others. Governance is what supplies the view none of the participants has."
+  },
+  {
+   "i": 108,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28465,
+    28599
+   ],
+   "sha1": "a0d0e83d58fcf9d66b70452951645b7f70fe5e9e",
+   "text": "A governing apparatus for a deployment holds three things, and an organization missing any one of them does not have economic control."
+  },
+  {
+   "i": 109,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28608,
+    29059
+   ],
+   "sha1": "ea9fcda89c8d892c7f8dfc52edba5ac9d6a5477f",
+   "text": "The first is a record: some system that writes down what was consumed, at a grain finer than the invoice. The second is an attribution: a rule that assigns each unit of consumption to a team, a product, or a purpose. A record without an attribution tells an organization how much it spent and not who spent it. The third is a constraint: a limit, a budget, an alert, or an approval that can actually stop or slow consumption when it departs from plan."
+  },
+  {
+   "i": 110,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29068,
+    29408
+   ],
+   "sha1": "0aa2e22371e09a0d3d24d65df0d1af80b8fea225",
+   "text": "The three are separable, and an organization can hold the first without the second and the first two without the third. Where the record exists and the constraint does not, a dashboard nobody acts on is a record flow with no constraint attached. It converts a surprise into a slower surprise, which is an improvement, and it is not control."
+  },
+  {
+   "i": 111,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29417,
+    29889
+   ],
+   "sha1": "e3f09f818d8034458256476df3cc0d360fc4d84c",
+   "text": "One question follows immediately and the chapter will not answer it here: who owns the apparatus. Chapter 1 named the problem as a category error and Chapter 3 names the discipline that resolves it. What can be said now is that the apparatus does not belong to whichever function noticed the problem first. Finance noticing an overrun does not make cost governance a finance system, any more than engineering noticing latency makes reliability an engineering-only concern."
+  },
+  {
+   "i": 112,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29898,
+    30345
+   ],
+   "sha1": "ae68459aadae63bf67e9326646720fec41eb2fb5",
+   "text": "This also explains why the remedy is never simply to spend less. An organization that cuts consumption without building the record flow has reduced its cost and learned nothing, which leaves it in the same position at a lower volume. Chapter 8 builds the record flow directly, and Chapter 10 turns it into a budget. What matters here is the order: the record comes before the budget, because a budget without a record is a number nobody can check."
+  },
+  {
+   "i": 113,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30371,
+    30431
+   ],
+   "sha1": "7caab300e752d6004eb66e9687617d2fd22f932a",
+   "text": "2.8 What this chapter does not claim"
+  },
+  {
+   "i": 114,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30441,
+    30595
+   ],
+   "sha1": "0b04d8f289db9ee1eed44461447f5df5eeb38646",
+   "text": "Four limits belong on the record before the diagnostic that follows, because each is a conclusion a reader could reasonably draw and none of them follows."
+  },
+  {
+   "i": 115,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30604,
+    31015
+   ],
+   "sha1": "b4d08620ab21f18f1a51ea5401160e35c5c7d808",
+   "text": "The chapter does not claim that the three flows are a result of the science. The taxonomy is this book’s organizing construct, adopted because it makes a deployment’s condition visible in a single page. THM-004 is the registry result, and Chapter 3 separates the science from the discipline; what the theorem formalizes is the consequence of the third flow’s asymmetry rather than the taxonomy that produced it."
+  },
+  {
+   "i": 116,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31023,
+    31378
+   ],
+   "sha1": "62e7e62d4813148d2f4e8c30f7b1e9d1daf63fe4",
+   "text": "The chapter does not claim that unmanaged deployments are wasteful. Waste is a statement about the ratio of value to cost, and the whole argument is that the value side of that ratio is unmeasured. Calling a deployment wasteful on a cost figure alone is one error. Calling it a success on an adoption figure alone is the same error, pointed the other way."
+  },
+  {
+   "i": 117,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31387,
+    31705
+   ],
+   "sha1": "3e3f764a5ef57bf7a107ca22795228490af303a6",
+   "text": "The chapter does not claim that measurement is free. Chapters 8 and 12 treat both as investments with their own returns rather than as hygiene. Building a record flow costs engineering time, and building a value measurement costs more than that, because it requires deciding what to measure before the answer is known."
+  },
+  {
+   "i": 118,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31714,
+    32174
+   ],
+   "sha1": "17e833d76837ce41bb07fd37cfb9b61f9cd5f041",
+   "text": "The chapter does not claim that every deployment needs all three flows managed to the same standard. A pilot with twenty users and a fixed monthly cost does not need an attribution system. THM-004’s second antecedent is scale, and it is there precisely because the theorem does not bind below it. The judgment a manager has to make is when a deployment has crossed from the first case to the second, and nothing announces the crossing at the moment it happens."
+  },
+  {
+   "i": 119,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32202,
+    32215
+   ],
+   "sha1": "d487cd15437494b45d1fc396dd6ebc686ab6428c",
+   "text": "Craft section"
+  },
+  {
+   "i": 120,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32243,
+    32266
+   ],
+   "sha1": "706e003edb1065d5831e892973e96dd969c9cc19",
+   "text": "Mapping the three flows"
+  },
+  {
+   "i": 121,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32276,
+    32697
+   ],
+   "sha1": "173162d877edc78b5b01ecc9c20f3f96ed17caf9",
+   "text": "The three-flow mapping is the diagnostic the rest of the book uses, and Chapter 8 is where it returns: the record flow built there is the one that is structurally the easiest to skip. It takes one named deployment and establishes the condition of each flow, in order, with the evidence that settles it. It is deliberately short: it is meant to be run in an afternoon on a real deployment, not staffed as a project."
+  },
+  {
+   "i": 122,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32706,
+    33115
+   ],
+   "sha1": "681669d32072d9ce4e147157804ef033981af01f",
+   "text": "Two habits make the difference between a mapping that changes a decision and one that changes nothing. The first is naming the evidence for every diagnosis, because a diagnosis without evidence cannot be challenged and therefore cannot be corrected. The second is running it on a deployment that is already live rather than one being planned. A planned deployment has no flows yet, only intentions about them."
+  },
+  {
+   "i": 123,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33143,
+    33321
+   ],
+   "sha1": "13d48ba1a44d6bb0fb0cbbc0f93ccadacfc5526d",
+   "text": "Step 1. Name the deployment and its boundary. State which tool, which population, and over what period. A boundary that is not stated will move while the diagnosis is being made."
+  },
+  {
+   "i": 124,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33349,
+    33645
+   ],
+   "sha1": "1ebb106e76e9c281d3490a577172556d86bda91e",
+   "text": "Step 2. Trace the usage flow. Who or what sends requests, at what rate, and is the rate rising? The evidence is a count over time, not an impression. If no count exists, record that against both flows: the record flow is missing the count, and the usage flow cannot be called managed without one."
+  },
+  {
+   "i": 125,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33673,
+    33905
+   ],
+   "sha1": "7af70834250f75bbfc0a785c78c47243602be2f1",
+   "text": "Step 3. Trace the record flow. State what is recorded, by whom, and at what grain. Ask one question to settle it: can the organization say which team consumed what, without asking the provider? An invoice total is not a record flow."
+  },
+  {
+   "i": 126,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33933,
+    34208
+   ],
+   "sha1": "74fb99efe7195d16e3b895b05a3dc47030acf25a",
+   "text": "Step 4. Trace the cost-and-value flow, in two halves. On the cost side, state who owns the invoice and what it can be broken down by. On the value side, state what was supposed to improve, whether it was measured before the deployment, and whether it has been measured since."
+  },
+  {
+   "i": 127,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34236,
+    34403
+   ],
+   "sha1": "7d2b423c98ab7eb8d6ee99f43a06eef63236ff1a",
+   "text": "Step 5. Diagnose each flow as managed, partly managed, or unmanaged, and say what evidence would change the diagnosis. A diagnosis nobody could overturn is an opinion."
+  },
+  {
+   "i": 128,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34412,
+    35183
+   ],
+   "sha1": "c64aa9b76bfdda383674fa3cae0074950632c952",
+   "text": "Two tests separate the three states, and a flow must pass both to be called managed. The first is whether the organization can state that flow’s condition from a record it holds itself. The second is whether the record is fine enough that a decision follows from it. A flow is partly managed when it passes one test and not the other, or when the organization can state part of the condition and not the rest. It is unmanaged when the organization cannot state the condition at all. An organization that can attribute half its consumption therefore has a partly managed record flow rather than a managed one. The cost-and-value flow takes a diagnosis on each half, because step 4 traces it that way and its two halves are built by different people to different standards."
+  },
+  {
+   "i": 129,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35192,
+    35813
+   ],
+   "sha1": "37281130dbd32a1b62ad920b7d35bfadd2c1cf72",
+   "text": "Two failure modes follow from the distinctions already drawn. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s. An organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce."
+  },
+  {
+   "i": 130,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35822,
+    36259
+   ],
+   "sha1": "5056691620e75d993f3e18da2084fd0e34b0fea5",
+   "text": "Run against Uber as reported, the mapping returns a harsher verdict than the reporting suggests. The usage flow is partly managed. The direction of adoption was visible month by month, and adoption is a count of people rather than a count of requests. Section 2.2 asks a usage flow to state how many requests were made and whether the number is rising, and the public account does not establish that anyone could."
+  },
+  {
+   "i": 131,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36268,
+    36622
+   ],
+   "sha1": "e49e66e8ca3b292c283a3230a96adb7b5de087a5",
+   "text": "The record flow is partly managed. A per-engineer cost range was reported, so consumption was visible at some grain, and the reporting does not establish that it was attributed to teams or compared against the plan. The cost-and-value flow has a complete cost half and an unbuilt value half, which is what the chief operating officer’s question suggests."
+  },
+  {
+   "i": 132,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36631,
+    36940
+   ],
+   "sha1": "7197dd93a397b766d483cc187285a6f6faa12c69",
+   "text": "Notice that the mapping refuses to award the deployment a clean flow anywhere, on evidence that a casual reading would treat as success. That is the diagnostic working. An adoption percentage is the most available number in any deployment, and it answers a question about people rather than about consumption."
+  },
+  {
+   "i": 133,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36949,
+    37266
+   ],
+   "sha1": "464084c2f830e53639feceaee81e6528270f8574",
+   "text": "A second mapping shows what a different answer looks like. The deployment below is constructed for this exercise and is not drawn from a source. No cited deployment was available on which the mapping returns a clean flow, and saying so is better than presenting a constructed case as though a real one had been found."
+  },
+  {
+   "i": 134,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37294,
+    37712
+   ],
+   "sha1": "3ac58c4a2bf10ea88ed30ab782e26594e5f4f8cc",
+   "text": "A retailer deploys an AI assistant to two hundred customer-service agents. Volumes are recorded per agent per shift, because the contact-center platform already recorded everything else per agent per shift. Cost is billed monthly to the service organization and broken out by queue. Before the deployment, the retailer measured average handling time and first-contact resolution for six months. It still measures both."
+  },
+  {
+   "i": 135,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37721,
+    38089
+   ],
+   "sha1": "588d0dbfad3d73e32a23f38e37e7db8e0cd39ed5",
+   "text": "The usage flow here is managed, and for an unremarkable reason: the record was a by-product of a system the retailer already ran. The record flow is managed at a useful grain, because consumption can be attributed to a queue. The cost-and-value flow is managed on both halves, because somebody measured the outcome before the deployment began and kept measuring after."
+  },
+  {
+   "i": 136,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38098,
+    38538
+   ],
+   "sha1": "12638ff286d8351ef16787ed402c236aa3915acb",
+   "text": "Notice what made the difference. The retailer did not have better intentions than the engineering organization in the opening case. It had a prior measurement system that happened to fit, and a deployment small enough that fitting it was cheap. Most of the work of managing flows is done before a deployment scales, which is the awkward part: the moment when it is easiest to build the apparatus is the moment when it is hardest to justify."
+  },
+  {
+   "i": 137,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38547,
+    38871
+   ],
+   "sha1": "e28d20597b97fc27159f6a85733afdc4f54a1a47",
+   "text": "The mapping is deliberately blunt about partial answers, and recording one as partial is what makes the next conversation possible. The purpose is to produce a short list of the specific things that are not known, so that somebody can decide which of them is worth the cost of knowing. Awarding a grade would settle nothing."
+  },
+  {
+   "i": 138,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38880,
+    39101
+   ],
+   "sha1": "5729712fc9b2c73b3a30a593d553872accd95f93",
+   "text": "The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. The second finding surprises where the third does not."
+  },
+  {
+   "i": 139,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39159,
+    39174
+   ],
+   "sha1": "95c5839deff5a70961a66d3289da93102d108a3f",
+   "text": "Chapter summary"
+  },
+  {
+   "i": 140,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39206,
+    39421
+   ],
+   "sha1": "ca46ce1a66b8c8559dee2b68c6729ddc18579418",
+   "text": "A deployment produces three flows: the work itself, the record of that work, and the money and value attached to it. Each can be in a different condition, and they are managed by different parts of the organization."
+  },
+  {
+   "i": 141,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39430,
+    39613
+   ],
+   "sha1": "5ce5f74ac63d6eae1b409369e31636111ede6cec",
+   "text": "An unmanaged flow does not stay still. Usage grows toward whatever the tool makes easy, records decay because their raw material is perishable, and cost accrues without anyone acting."
+  },
+  {
+   "i": 142,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39622,
+    39904
+   ],
+   "sha1": "980a8a94618f9f7316c62f5fff559cecbc5cd22c",
+   "text": "Cost is recorded automatically because billing requires it. Value is recorded only where an organization builds the measurement. The consequence is that an organization running an unmanaged deployment holds all of the cost and an unknown fraction of the value. Unknown is not small."
+  },
+  {
+   "i": 143,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39913,
+    40244
+   ],
+   "sha1": "e8bd2a0250056e686687e41c8891cb9b1c095183",
+   "text": "Deployments are funded as projects and run as flows. A funding decision happens once; the consumption it authorizes continues daily and changes as the work changes. Without a recurring comparison, the business case quietly becomes the organization’s belief about what the deployment delivers, and a forecast is treated as a result."
+  },
+  {
+   "i": 144,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40253,
+    40566
+   ],
+   "sha1": "2bb43d5f5425c8b1f1e9e254a1015dff39c46f53",
+   "text": "The record flow is skipped most often, and for structural reasons rather than careless ones. It pays only in the future, it belongs to no single function, and its absence is invisible until somebody asks a question that needs it. Building it is a decision an organization has to make before that question arrives."
+  },
+  {
+   "i": 145,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40575,
+    40813
+   ],
+   "sha1": "4797718fca74ae5891d7c235118b2375dda996bb",
+   "text": "Because consumption varies with work rather than with headcount, economic control at scale requires an apparatus rather than diligence. That is THM-004, and it is why the chapters that follow build the record before they build the budget."
+  },
+  {
+   "i": 146,
+   "kind": "SECTION HEAD",
+   "class": "keyterms-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40890,
+    40899
+   ],
+   "sha1": "b1fd76d6a6f39d6b99354a8017678be77dbfab6d",
+   "text": "Key terms"
+  },
+  {
+   "i": 147,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40981,
+    40985
+   ],
+   "sha1": "86eff8eb789b097ddca83f2c9c4617ed23605105",
+   "text": "Flow"
+  },
+  {
+   "i": 148,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41002,
+    41248
+   ],
+   "sha1": "162d08e05b40a3eada4d3fe5e6bd1bd23bd3d3e1",
+   "text": "A continuous stream of related activity within a deployment, described by its rate, its direction, and whether anything is being recorded about it. A flow is managed by governing the stream over time rather than by approving each event within it."
+  },
+  {
+   "i": 149,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41313,
+    41323
+   ],
+   "sha1": "aa4ce04c217661a1ac63a42965ddcb785536829b",
+   "text": "Usage flow"
+  },
+  {
+   "i": 150,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41340,
+    41535
+   ],
+   "sha1": "c1e793875a378cf2433dbed3abfc7f99f0c7a355",
+   "text": "The stream of consumption events a deployment generates: requests made, work performed, and outputs returned. It is the only one of the three flows an organization is normally trying to increase."
+  },
+  {
+   "i": 151,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41600,
+    41611
+   ],
+   "sha1": "eb4997c0ebde545a9d33a6ed73b28eccf013eaaa",
+   "text": "Record flow"
+  },
+  {
+   "i": 152,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41628,
+    41869
+   ],
+   "sha1": "6b84cb11bdd1fa098ae0023cf5531fecc59b9ea4",
+   "text": "The stream of information an organization keeps about its own usage, including which team or product consumed what, at what volume, and when. The provider always holds a record because it must bill; the buyer holds one only if it builds one."
+  },
+  {
+   "i": 153,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41934,
+    41953
+   ],
+   "sha1": "301690e936eb08a121b412a0d66f8ba8ad574ef5",
+   "text": "Cost-and-value flow"
+  },
+  {
+   "i": 154,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41970,
+    42152
+   ],
+   "sha1": "f46973f11e9f27b3ff312cab7eaaf6c9feface21",
+   "text": "The stream of money spent on a deployment together with the return attributed to it. The two halves are treated as one flow because neither is usable alone for a management decision."
+  },
+  {
+   "i": 155,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42217,
+    42237
+   ],
+   "sha1": "cb5f3a139af649e990c38f5f0d0534f259456bbb",
+   "text": "Cost-value asymmetry"
+  },
+  {
+   "i": 156,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42254,
+    42532
+   ],
+   "sha1": "b87e0b5128d0a1a60e5e6391918f323b2640102b",
+   "text": "The condition in which a deployment’s cost is recorded automatically, because metering produces the bill, while its value is recorded only where the organization has deliberately built a measurement. The two sides of the same activity are therefore known to different standards."
+  },
+  {
+   "i": 157,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42597,
+    42615
+   ],
+   "sha1": "66007eec4d9819322dabf83876a8d45f3ba8f612",
+   "text": "Three-flow mapping"
+  },
+  {
+   "i": 158,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42632,
+    42805
+   ],
+   "sha1": "e97ae8e6d3feedf2fa729410f3afabfc6b529e84",
+   "text": "The diagnostic that establishes the condition of the usage, record, and cost-and-value flows in a named deployment. It also states what evidence would change each diagnosis."
+  },
+  {
+   "i": 159,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42888,
+    42921
+   ],
+   "sha1": "305252cb9f52bfd7e3ee3d0ed69183a8aa48861c",
+   "text": "Discussion questions and problems"
+  },
+  {
+   "i": 160,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42949,
+    42969
+   ],
+   "sha1": "ce7ea53b301fdc341bca7534134faebfa159a2e3",
+   "text": "Discussion questions"
+  },
+  {
+   "i": 161,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43059,
+    43268
+   ],
+   "sha1": "432825ed87a5983081a9fed440d17a14b87fa7cd",
+   "text": "An executive says the organization’s AI deployment is well managed because the monthly invoice is reviewed and approved every month. Using the three flows, explain what that review does and does not establish."
+  },
+  {
+   "i": 162,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43348,
+    43705
+   ],
+   "sha1": "1c0db656c829e566ddf9156dff9fd5063ebd785f",
+   "text": "The chapter claims that an unmanaged record flow decays rather than merely staying empty, and gives the case of an engineer whose forty calls lose their context within a month. Using that case, state what would have had to be recorded at the moment the work happened for the record to have survived, and explain why nobody present had a reason to record it."
+  },
+  {
+   "i": 163,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43785,
+    43929
+   ],
+   "sha1": "94807f5341fa83432afe76c35bec1d593761e1ae",
+   "text": "Why does the chapter insist that the load-bearing word is “unknown” rather than “small”? What would a manager do differently under each reading?"
+  },
+  {
+   "i": 164,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44009,
+    44216
+   ],
+   "sha1": "3ed46870eead294873ac5e150881f0f3fbd8fdcb",
+   "text": "Chapter 1 argued that a flat price relocates the meter to the provider rather than abolishing it. Using that result, explain why a flat-rate contract does not remove an organization’s need for a record flow."
+  },
+  {
+   "i": 165,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44296,
+    44576
+   ],
+   "sha1": "8ce63e77724470f192db492aee74f09b4108a34c",
+   "text": "The chapter argues that a record flow is skipped because its value is entirely in the future tense and it belongs to no single function. Which function in your organization would you make responsible for it, and what would that function need in order to accept the responsibility?"
+  },
+  {
+   "i": 166,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44623,
+    44631
+   ],
+   "sha1": "8e6b86dce8c4fbace004e330925fe8345d92db90",
+   "text": "Problems"
+  },
+  {
+   "i": 167,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44675,
+    44686
+   ],
+   "sha1": "b138f859e3298a6caa319cc358057940b0dfdb22",
+   "text": "P1 · Worked"
+  },
+  {
+   "i": 168,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44709,
+    44755
+   ],
+   "sha1": "6d5952323ddcc1ed9123abffaf91b87b5e833dfd",
+   "text": "The review that would have changed the outcome"
+  },
+  {
+   "i": 169,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44763,
+    45159
+   ],
+   "sha1": "8150914dad6f9687141bd4bd1e12b668704e76d3",
+   "text": "The craft section maps the three flows for the deployment in the opening case and returns two partial flows and a third built on its cost half only. Start from that diagnosis rather than repeating it. State what the organization would have needed in hand for a February review to change the outcome. Name, for each flow, the record required, its grain, and who would have had to be looking at it."
+  },
+  {
+   "i": 170,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45167,
+    45548
+   ],
+   "sha1": "64964ea0e5d1e7d50e482ce259bd52dd4df874da",
+   "text": "Begin with what the diagnosis already establishes, and resist supplying a remedy the evidence does not support. The mapping found a usage flow visible as people rather than as requests, a record flow visible at some grain and not attributed, and a value half that was never built. A February review needed one thing from each of the three, and the three are not equally obtainable."
+  },
+  {
+   "i": 171,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45556,
+    46021
+   ],
+   "sha1": "457027368af1f8668e77fcc5ebc3fd986f545f86",
+   "text": "From the usage flow, a count of requests over time rather than a count of people with access. The grain is the month, because that is when the invoice closes and the plan is what the count must be set against. The adoption figures the organization already had would not have served. A majority of engineers using a tool is consistent with almost any level of consumption, which is the distinction section 2.2 draws between a count of people and a count of requests."
+  },
+  {
+   "i": 172,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46029,
+    46389
+   ],
+   "sha1": "996cb0500daef5fe656ab2099150a1b089bcd4f8",
+   "text": "From the record flow, that consumption attributed to a team and set beside the team’s share of the plan. Attribution is what makes a rising number actionable: a total that is rising tells a manager that something must be done and not what. The record has to sit with the buyer, because a review held on a fixed date cannot depend on a question to the provider."
+  },
+  {
+   "i": 173,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46397,
+    46840
+   ],
+   "sha1": "881780cb7355676e373fe6f5e9a9046573cc50a6",
+   "text": "From the cost-and-value flow, the answer is the hardest to assemble and the one worth reaching. The cost half was already complete, because the invoices arrived and accumulated. The value half could not have been assembled in February. A return measured after the fact requires a measurement taken before, and the public account does not establish that one exists. A February review would therefore have caught the spending and not the return."
+  },
+  {
+   "i": 174,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46848,
+    47221
+   ],
+   "sha1": "d9d6c1bd390479d45b075839b9472a0df3ec1056",
+   "text": "And an owner, which is the answer most readers leave out. The three records belong to three different functions, so section 2.2’s four owners arrive here as a practical problem: a review is a meeting somebody has to call. Two of the three gaps were closable in February and the third was not. The one that was not is the gap the chief operating officer’s question is about."
+  },
+  {
+   "i": 175,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47272,
+    47283
+   ],
+   "sha1": "75408e9e1f62e7465360b0e6dd331b0ceb645bd9",
+   "text": "P2 · Guided"
+  },
+  {
+   "i": 176,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47306,
+    47341
+   ],
+   "sha1": "57008e93a1d132d6e979b5b85e2e0991d19be00f",
+   "text": "The seat forecast that did not hold"
+  },
+  {
+   "i": 177,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47349,
+    47649
+   ],
+   "sha1": "4bb23da4b23eccd4e3da3154c574b0e9b1552f8a",
+   "text": "A company budgets an AI assistant at a fixed monthly amount per employee, multiplied by the number of employees expected to have access, held flat for twelve months. Twelve months later the total spend is three times the budget, while the number of employees with access is exactly what was forecast."
+  },
+  {
+   "i": 178,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47657,
+    47914
+   ],
+   "sha1": "51df659b6388fe18844f7fdae8bb9aa7762a3f26",
+   "text": "State which of the four antecedents of THM-004 this situation satisfies, and identify the specific assumption in the forecasting method that failed. Then state what the company would need to record, at what grain, to produce a forecast that could have held."
+  },
+  {
+   "i": 179,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47922,
+    48291
+   ],
+   "sha1": "14ef295f95c247355c0b8b05a87c50d8e5a1bfea",
+   "text": "Work in that order rather than starting from the remedy. The antecedents establish whether the theorem applies at all; a deployment that has not scaled is outside its scope and needs no apparatus. Only once the theorem applies is the forecasting question worth asking, and only then does the grain of the missing record become determinate rather than a matter of taste."
+  },
+  {
+   "i": 180,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    48342,
+    48358
+   ],
+   "sha1": "eb87b688da5e95a601fff8c0cfdb6fca613c6661",
+   "text": "P3 · Independent"
+  },
+  {
+   "i": 181,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    48381,
+    48425
+   ],
+   "sha1": "a0d22f50b9d7a7280e2da0f954119c7f0a2a04a4",
+   "text": "Map a deployment from a published evaluation"
+  },
+  {
+   "i": 182,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    48433,
+    49391
+   ],
+   "sha1": "18e667eb6f0f8748b971b58db1edc3082773c5dc",
+   "text": "Between January and June 2024 the Australian Government ran a whole-of-government trial of Microsoft 365 Copilot . Around sixty agencies took part. Each agency nominated the staff who would receive licences, and several thousand licences were issued. The licence is priced per seat rather than by unit of use. The Digital Transformation Agency commissioned an independent evaluation and published it in full. Participants reported using the tool a few times a week or less, and reported time savings from using it. The evaluation states two things about its own method: participants assessed the effects themselves, which may understate or overstate them, and no measure of the work existed from before the trial began."
+  },
+  {
+   "i": 183,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "dta-copilot-2024",
+   "figure": null,
+   "string": null,
+   "span": [
+    49228,
+    49384
+   ],
+   "sha1": "13c418106e43dafe2f86ba0b14d91b2d354b8a8a",
+   "text": "Trial period, participating agencies, licence allocation, and the evaluation’s statements about its own method."
+  },
+  {
+   "i": 184,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49399,
+    49414
+   ],
+   "sha1": "a1090030ed0a7b219b9b670bbfa721ea53e4b860",
+   "text": "Do four things."
+  },
+  {
+   "i": 185,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49422,
+    49549
+   ],
+   "sha1": "ab290f770b9e3e8d22554593d83dacf1b946da8d",
+   "text": "First, mark up the three tracks of Figure 2.1 for this trial: for each flow, show where it is instrumented and where it is not."
+  },
+  {
+   "i": 186,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49557,
+    49677
+   ],
+   "sha1": "86d8a422cb3d8e5431e3aac56742a53b4a455adf",
+   "text": "Second, diagnose each flow as managed, partly managed, or unmanaged, and state the evidence that settles each diagnosis."
+  },
+  {
+   "i": 187,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49685,
+    49754
+   ],
+   "sha1": "b003bf145234605482e8a7ed38721fe3f6214fea",
+   "text": "Third, state for each flow what evidence would change your diagnosis."
+  },
+  {
+   "i": 188,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49762,
+    50055
+   ],
+   "sha1": "622f8e3275a5f1cb88988669202409ff7d79ec31",
+   "text": "Fourth, sort your three diagnoses into two groups: those resting on something the published account establishes, and those resting on something it does not mention. The second group is the weaker one, and separating them is the difference between a diagnosis and a complaint about the sources."
+  },
+  {
+   "i": 189,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50063,
+    50291
+   ],
+   "sha1": "cd3102e20c7a564bfdf47ff99972749c98c15f83",
+   "text": "This trial is not the opening case under another name. This organization commissioned an independent evaluation, published it, and let it report the limits of its own method. Establish what that bought and what it could not buy."
+  },
+  {
+   "i": 190,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50342,
+    50358
+   ],
+   "sha1": "9f7b2c75b777fbd3ea06373f4b1ed240c6ee6516",
+   "text": "P4 · Independent"
+  },
+  {
+   "i": 191,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50381,
+    50419
+   ],
+   "sha1": "f79ac88cee87daf8161ab4416f0da0168a9d67df",
+   "text": "The business case that became a belief"
+  },
+  {
+   "i": 192,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50427,
+    50751
+   ],
+   "sha1": "33ca85663d56d1945afbdf7e58fe72b76cb44101",
+   "text": "An organization approved an AI deployment two years ago on a business case projecting a twenty percent reduction in the time taken to complete a routine task. The deployment is still running. The projection has never been revisited, and it is quoted in the current year’s planning documents as the deployment’s contribution."
+  },
+  {
+   "i": 193,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50759,
+    51110
+   ],
+   "sha1": "9bb213f897b784fbe5b6083f1728bf1c319dbfae",
+   "text": "Identify what has happened to the status of the twenty percent figure between the business case and the planning document, and name the step in the organization’s process that should have prevented it. Then state the smallest change to the review schedule that would stop it recurring, and explain why a change to the business-case template would not."
+  },
+  {
+   "i": 194,
+   "kind": "PROBLEM NOTE",
+   "class": "pnote",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    51140,
+    51285
+   ],
+   "sha1": "57940e1ff77412d424b84b885edb312d193fd250",
+   "text": "Interleaving: question 4 and problem P2 require Chapter 1’s results. P2 uses the resource consumption model and question 4 uses meter relocation."
+  }
+ ]
+}
