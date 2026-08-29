@@ -24,7 +24,7 @@ The shape of the surprise matters more than its size. This was not a budget miss
 
 Consider what a February review would have required. Observed consumption and the adoption trend would have had to sit in the same operating view, compared against the plan, by somebody whose job was to look. The public account does not establish whether such a view existed or what finance could see. It establishes only that the comparison did not change the outcome.
 
-Two things about this episode are worth separating, because they are usually confused. The first is that the company could see what it was spending. The billing arrived and accumulated, and by April the total had reached the figure that had been set aside. The second is that the company could not say what it had received. The chief operating officer was publicly asking whether the spending had been worth it. That question suggests a documented return was unavailable, incomplete, or unpersuasive to senior leadership.
+Two things about this episode are worth separating, because they are usually confused. The first is that the company could see what it was spending. The billing arrived and accumulated, and by April the total had reached the figure that had been set aside. The second is that the company could not say what it had received. President and chief operating officer Andrew Macdonald said publicly that the company could not yet draw a line from its rising use of the tool to the consumer features it was producing. “That link is not there yet,” he said. The statement suggests a documented return was unavailable, incomplete, or unpersuasive to senior leadership.
 
 This is the position Chapter 1 predicted and did not describe. The company was buying a resource priced by use and planning for it with a figure held flat per person. Whether that was a category error, or a working understanding that never reached the forecast, the reporting does not settle. What the episode does show is a deployment that scaled without a mechanism able to govern its economics.
 
@@ -142,7 +142,7 @@ The substitution is easy to spot once named. Whenever a value claim is supported
 
 The disciplined response is not to guess at the missing three. It is to state the ratio with its scope attached: four hundred thousand of return measured against the share of a one million cost attributable to the two workflows that were measured. That sentence is longer and less quotable, and it is the only version a manager can act on. Chapter 12 builds the boundary discipline that makes such a statement routine.
 
-Uber’s position in the opening case is the first error in progress. The company could total what it had spent. Its chief operating officer was asking, in public, what the company had received. Both statements were true at once, and they were true because of how the two numbers were produced rather than because of anything the engineers had done.
+Uber’s position in the opening case is the first error in progress. The company could total what it had spent. Its president and chief operating officer was asking, in public, what the company had received. Both statements were true at once, and they were true because of how the two numbers were produced rather than because of anything the engineers had done.
 
 > **DATED EVIDENCE BOX · Dated: August 2025**
 >

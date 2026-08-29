@@ -992,11 +992,58 @@ its word multiset against the chapter's own: no prose dropped and none duplicate
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-29
 
 > Every empirical claim traced to primary source. Runs after the developmental edit, so it checks prose that has stopped moving.
 
 Findings:
+
+### STAGE 3 CLOSED 2026-08-29 ON DAN's RULING. TWO ENTRIES OF FIVE ARE VERIFIED AND TWO ARE CARRIED TO STAGE 7.
+
+**This is a first fact check, not a final one, and the two unresolved entries go to
+Stage 7 rather than being waved through.** Recorded plainly so nobody later reads a
+ticked box as meaning the chapter's sources were all read.
+
+| Entry | State at close |
+|---|---|
+| `uber-2026-budget` | **VERIFIED** by Dan, rows A1 to A6. Still secondary; the primary is paywalled. |
+| `fortune-2026-uber-coo` | **VERIFIED** by Dan, rows B1 to B3, with a title correction and a direct quotation. Secondary to a recorded interview. |
+| `uber-2026-adoption` | **SETTLED.** Cites no document by Dan's 2026-08-21 ruling; S3-1 and S3-2 make the footnote say so. |
+| `mit-nanda-2025` | **CARRIED TO STAGE 7.** No location. S3-3 stands and its remedy is the report itself. |
+| `dta-copilot-2024` | **CARRIED TO STAGE 7.** Grade C, unread by anyone. |
+
+**WHAT THE TWO CARRIED ENTRIES ACTUALLY EXPOSE, because "unverified" is not a uniform
+risk.**
+
+- **`mit-nanda-2025` degrades and the chapter was built for that.** Its note records
+  that the ninety-five per cent figure drew methodological criticism and that reported
+  interview counts vary, and **the chapter rests its argument on the phrase "no
+  measurable impact" rather than on the figure's precision**, stating the criticism
+  once. A corrected figure narrows a sentence; it does not collapse an argument.
+- **`dta-copilot-2024` does not degrade, and it is the larger exposure of the two.**
+  Problem P3 is built entirely on it: the trial dates, around sixty agencies, several
+  thousand licences, per-seat pricing, and the evaluation's two statements about its
+  own method. **Nobody has read the evaluation.** The external check's claim to have
+  verified it was rejected as S3-R1, because a model with no source access reported
+  that its recollection agreed with three sentences it had just read. If the published
+  evaluation contradicts any of those, P3 needs rebuilding rather than rewording.
+
+**DECISION 48 IS NOT SATISFIED ON THOSE TWO AND THIS BOX DOES NOT PRETEND OTHERWISE.**
+It requires every source verified live with an access date, and both carry
+`accessed: null`. The chapter's own provenance line on page 1 says "pending source
+verification", which is the disclosure the external check correctly credited it with
+and which Claude wrongly denied at S3-R2.
+
+**WHAT TICKING THIS BOX CHANGES MECHANICALLY.** Stage 3 owns W14, so claim
+preservation now BINDS in `chapter_check.py` rather than reporting: the eleven rulings
+FQ1 to FQ8 and S3-1, S3-2, S3-4 fail the build if a later step reverts one. That is the
+point of closing it before the copy edit, and it is the protection Chapter 1 did not
+have when SF8, SF9 and SF10 were reverted with every date and figure intact.
+
+**Verified at close**: W14 pass at 11 rulings, voicecheck mechanical and house style
+pass, all fifteen print gates pass, page fill clean, web build pass, G3 pass, registry
+pass, checklist self-consistent. The chapter is 25 pages.
+
 
 ### THE PACKET IS BUILT AND THE STEP IS WITH DAN, 2026-08-29
 
@@ -1496,10 +1543,51 @@ defined after the transaction-versus-flow contrast, cost-value asymmetry after 2
 derives the one-sided accrual, and the three-flow mapping after all three flows and
 their health tests are built.
 
+### THE RE-READ IS DONE, 2026-08-29. STAGE 3 CHANGED F1 AND NOTHING ELSE.
+
+**This is the cost parallel running booked, now paid.** Stage 3 moved thirteen things:
+the eight frequency claims FQ1 to FQ8, the two footnote glosses S3-1 and S3-2, the
+executive's title in two sentences, and the named direct quotation. Each was re-read
+against the seven criteria.
+
+**F1 IMPROVES MATERIALLY AND ITS WEAKEST PASSAGE NO LONGER STANDS AS WRITTEN.** F1
+said the chapter's one fully managed example, the retailer in the craft section, is
+constructed and unnamed. **That is still true and still the weakest C1 instance.** But
+the opening case now carries a named executive speaking in his own words, which is the
+strongest concrete particular in the chapter and is exactly what C1 asks for. The
+proxy moves with it: proper nouns rise from 2.5 to 3.0 per thousand words. **The
+finding stands, the balance of the chapter has shifted, and the retailer is now the
+only place C1 is thin rather than one of two.**
+
+**F4 STANDS UNCHANGED AND IS NOW THE ONLY FINDING NOTHING HAS ADDRESSED.** Chapter
+level did not move at all: mean 15.8, median 15, standard deviation 7.3, 32 per cent
+short, against Chapter 1's 14.3, 14, 6.1 and 36. **Key terms is still the outlier at
+19.4 mean, 4.8 standard deviation and ZERO short sentences**, against Chapter 1's
+16.0, 5.9 and 12 per cent. The summary still runs 17.1 against 12.5.
+
+**F2, F3, F5, F6 and F7 are unchanged.** The two throat-clearing openers are still
+there, the five cross-reference closes are still there, "load-bearing" still appears in
+the summary where 2.6 uses the ordinary phrasing, and 2.6 still opens on the chapter's
+own apparatus.
+
+**THE OPENING CASE IMPROVED ON C4 AS A SIDE EFFECT.** Its mean moves 15.2 to 15.4 and
+its standard deviation 6.9 to 7.3, because the new passage runs 26 words, then 8, then
+14. The eight-word quotation is doing the work.
+
+**C6 WAS RE-READ SPECIFICALLY, BECAUSE NAMING A REAL PERSON IS WHERE THE GUARD IS MOST
+AT RISK.** C6 forbids character-driven causation where a structural account is
+available, and a named executive in an opening case is the classic place a book slips
+into one. **It does not here.** Nothing is attributed to Macdonald's judgment or
+character; his statement is used as evidence about what the company could measure, and
+the paragraph after it says the position was structural. The guard holds.
+
 ### THE SECOND-MODEL PACKAGE IS BUILT AND UNSENT, 2026-08-29
 
-**Three files in `05_Stage4_Voice_And_Craft_Check/`**, built so Dan can run the
-gut-check in the SAME sitting as Stage 3, which is the whole point of running this
+**Three files in `05_Stage4_Voice_And_Craft_Check/`. THE PROSE EXTRACT WAS REGENERATED
+2026-08-29 AFTER STAGE 3 CLOSED**, so a reviewer reads the text as it now stands rather
+than the pre-ruling version, and it carries the Macdonald quotation. The prompt and the
+criteria extract are unchanged. Built so Dan could run the gut-check in the SAME sitting
+as Stage 3, which is the whole point of running this
 step in parallel: `AIOM_Ch02_Stage4_secondmodel_prompt.md`,
 `AIOM_Ch02_prose_for_craft_review.md`, and `ch02_craft_criteria_extract.md`, which
 is sections 26 and 27 of the standard and nothing else from it.
