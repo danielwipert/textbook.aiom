@@ -150,7 +150,8 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 
 ### FQ1 :: decay frequency cut :: 2026-08-29 :: Stage 3
 - FORBIDDEN: because managers routinely underestimate it
-- REQUIRED: The decay is worth one concrete illustration.
+- FORBIDDEN: The decay is worth one concrete illustration.
+- SUPERSEDED-IN-PART 2026-08-29 at Stage 4, F8: the replacement sentence was itself an announcement of the kind F8 removes, so the whole sentence is cut and the paragraph now opens on "Consider an engineer". **THE RULING IS UNCHANGED IN SUBSTANCE**: the frequency claim stays forbidden, and its replacement is now forbidden too, so neither form can return.
 - REVERSES-IF: a study of manager estimation error on record decay. The clause justified including an example rather than carrying argument, so the illustration that follows earns the point unaided.
 
 ### FQ2 :: cost governance recast :: 2026-08-29 :: Stage 3
@@ -161,7 +162,8 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 
 ### FQ3 :: surprise frequency recast :: 2026-08-29 :: Stage 3
 - FORBIDDEN: Organizations are usually surprised by the second finding rather than the third
-- REQUIRED: The second finding surprises where the third does not, because the absence of a record is invisible until somebody asks a question that needs one.
+- REQUIRED: The second finding surprises where the third does not.
+- SUPERSEDED-IN-PART 2026-08-29 at Stage 4, F11: the mechanism clause after "because" is cut, because it was the THIRD appearance of "the absence of a record is invisible until..." in the chapter and 2.5 already carries it in full. **THE RULING IS UNCHANGED IN SUBSTANCE**: the population claim stays forbidden and the sentence still makes no frequency claim. What it no longer does is restate a mechanism the reader met two sections earlier.
 - REVERSES-IF: evidence about what surprises organizations running this diagnostic. The mechanism after "because" was already in the sentence and is unchanged; only the population wrapper went.
 
 ### FQ4 :: Chapter 8 forward reference recast :: 2026-08-29 :: Stage 3
@@ -187,7 +189,8 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 
 ### FQ8 :: mapping failure modes recast :: 2026-08-29 :: Stage 3
 - FORBIDDEN: Two failure modes recur when organizations run this mapping on themselves
-- REQUIRED: Two failure modes follow from the distinctions already drawn, and both are worth naming in advance.
+- REQUIRED: Two failure modes follow from the distinctions already drawn.
+- SUPERSEDED-IN-PART 2026-08-29 at Stage 4, F8: "and both are worth naming in advance" is cut as an announcement. **THE RULING IS UNCHANGED IN SUBSTANCE**: what mattered was replacing the claim of observed recurrence with a derivation, and "follow from the distinctions already drawn" is intact.
 - REVIEW: the two failure modes must continue to follow from distinctions the chapter draws EARLIER than this passage. The first rests on 2.2's division of what belongs to the buyer, the second on 2.6's separation of adoption from value. If either moves after the craft section, this sentence loses its support and reverts to an unsupported claim.
 - REVERSES-IF: an observational base for the recurrence. **There cannot be one yet.** The three-flow mapping is this book's own construct, introduced on the page before, so no organization has run it and no recurrence can have been observed. This was the worst of the eight for that reason.
 

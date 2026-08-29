@@ -1543,6 +1543,55 @@ defined after the transaction-versus-flow contrast, cost-value asymmetry after 2
 derives the one-sided accrual, and the three-flow mapping after all three flows and
 their health tests are built.
 
+### F8 THROUGH F12 APPLIED ON DAN's RULING, 2026-08-29. NINETEEN EDITS.
+
+**Every finding was re-counted after the edits, not assumed closed.**
+
+| Finding | Before | After |
+|---|---|---|
+| F8, "worth" announcements | 11 | 3, and **all three are legitimate uses meaning value**, not announcements: "worth the cost of knowing" and "worth reaching" |
+| F9, paragraphs ending on a cross-reference | 5 | **0** |
+| F10, "per cent" | 3 | 0. "percent" now 4, matching Chapter 1 |
+| F11, the verbatim aphorism | 2 | 1 |
+| F11, "invisible until" | 3 | 2, and both survivors are the sanctioned body-to-summary restatement |
+| F12, both compression failures | 2 | 0 |
+
+**F9 WAS CLOSED BY DELETING THREE POINTERS AND SUBORDINATING TWO, NOT BY DELETING
+FIVE.** Every forward reference the chapter makes survives: Chapter 3 keeps two of
+three, Chapter 10 one of two, and Chapter 12 its only one, which is why the 2.8
+instances were reordered rather than cut. **The craft section's Chapter 8 promise was
+never touched**, because `continuity.py` reads it and G3 will enforce it at Chapter 8's
+lock.
+
+**THREE RULINGS WERE SUPERSEDED IN PART AND EACH SAYS SO IN THE LEDGER.** F8 removed
+the sentence FQ1 installed and the closing clause of FQ8; F11 removed the mechanism
+clause of FQ3. **In all three the ruling is unchanged in substance**: the frequency
+claim stays forbidden in each case, and FQ1's replacement is now itself FORBIDDEN, so
+neither the original nor its announcement-shaped fix can return.
+
+**GATE 8 FAILED TWICE DURING THIS AND THE SECOND TIME IS THE INSTRUCTIVE ONE.** The
+edits shortened the opening case by about two lines, which pulled section 2.1's head
+onto page 3, which left footnote 6's call on page 3 with its note pushed to page 4.
+**Footnote 6 is the Fortune entry and has nothing to do with any sentence edited.**
+Shortening footnote glosses was tried first and did nothing, because notes 3 to 5 are
+not on page 3; the raster showed the real cause. **Five equally valid phrasings of one
+F8 edit were built and measured**, and "usually confused with each other" paginates
+where "usually confused" does not. This is the third time on this chapter that a local
+edit has moved footnotes pages away, and it is why CLAUDE.md says to build rather than
+reason.
+
+**WHAT WAS NOT APPLIED, because Dan ruled F8 to F12 and not the rest.** The reviewer's
+C1 finding, that section 2.3 runs entirely on placeholders while sitting adjacent to the
+chapter's best instance, and its C2 finding, that 2.3 defers a mechanism wholly to
+Chapter 10. **Both are real and both are still open.** F1 through F7 are also unruled.
+
+**C4 IS UNCHANGED AND WAS NEVER IN SCOPE HERE.** Chapter 2 still runs about 1.3 words
+above Chapter 1 on the mean with roughly twice the long-sentence load. F4 and the
+reviewer's C4 both stand.
+
+**Verified after the edits**: W14 pass at 11 rulings, voicecheck mechanical and house
+style pass, all fifteen print gates pass, page fill clean, web build pass, G3 pass.
+
 ### THE SECOND MODEL'S CHECK IS IN, 2026-08-29. FIVE NEW FINDINGS, F8 TO F12. DAN RULES.
 
 **Recorded verbatim in `05_Stage4_.../AIOM_Ch02_Stage4_secondmodel_review.md`**, with

@@ -16,7 +16,7 @@ By the measures an engineering organization normally applies, the rollout was go
 
 A budget of that kind is normally built one way. A price per person is multiplied by a count of people and held roughly flat across the year. That is how software has been budgeted for thirty years, and for software it works. The public account does not describe the company’s method in detail, and the shape of the outcome is consistent with a forecast of this kind.
 
-That method has a property worth naming, because it is the reason it survived so long. A seat forecast is falsifiable in advance. Multiply a known price by a headcount the human resources system already holds, and the result can be checked before the year begins. It is the kind of number a finance organization can defend in a planning meeting.
+The method survived because a seat forecast is falsifiable in advance. Multiply a known price by a headcount the human resources system already holds, and the result can be checked before the year begins. It is the kind of number a finance organization can defend in a planning meeting.
 
 What the engineers were consuming did not hold flat. Reported monthly costs ran from several hundred to a few thousand dollars per engineer, varying with how much each one worked and how hard the work was. The rate was not the surprise. Spending rose as adoption spread and as per-engineer consumption varied, and the commercial terms turned that variable consumption into variable cost.
 
@@ -24,7 +24,7 @@ The shape of the surprise matters more than its size. This was not a budget miss
 
 Consider what a February review would have required. Observed consumption and the adoption trend would have had to sit in the same operating view, compared against the plan, by somebody whose job was to look. The public account does not establish whether such a view existed or what finance could see. It establishes only that the comparison did not change the outcome.
 
-Two things about this episode are worth separating, because they are usually confused. The first is that the company could see what it was spending. The billing arrived and accumulated, and by April the total had reached the figure that had been set aside. The second is that the company could not say what it had received. President and chief operating officer Andrew Macdonald said publicly that the company could not yet draw a line from its rising use of the tool to the consumer features it was producing. “That link is not there yet,” he said. The statement suggests a documented return was unavailable, incomplete, or unpersuasive to senior leadership.
+Two things about this episode are usually confused with each other. The first is that the company could see what it was spending. The billing arrived and accumulated, and by April the total had reached the figure that had been set aside. The second is that the company could not say what it had received. President and chief operating officer Andrew Macdonald said publicly that the company could not yet draw a line from its rising use of the tool to the consumer features it was producing. “That link is not there yet,” he said. The statement suggests a documented return was unavailable, incomplete, or unpersuasive to senior leadership.
 
 This is the position Chapter 1 predicted and did not describe. The company was buying a resource priced by use and planning for it with a figure held flat per person. Whether that was a category error, or a working understanding that never reached the forecast, the reporting does not settle. What the episode does show is a deployment that scaled without a mechanism able to govern its economics.
 
@@ -56,7 +56,7 @@ The third is the money and the value. Cost attaches to the work through the mete
 
 Figure 2.1 sets the three side by side. They are the usage flow, the record flow, and the cost-and-value flow. Naming them matters less than noticing that they are three separate things that can each be in a different condition. An organization can have a healthy usage flow and no record flow at all, which is the ordinary case in the first year of a deployment.
 
-These three are separable because different people own them, and that is the practical reason the distinction earns its place. Engineering owns the usage flow, because engineering decides what is deployed and to whom. Whoever runs the platform owns the record flow, if anyone does. Finance owns the cost half of the third flow the moment an invoice arrives, and the value half belongs to whichever business unit was supposed to benefit. Four owners, three flows, and no single person whose job is the whole of it. Chapter 3 returns to this division and names what fills the gap.
+These three are separable because different people own them, and that is the practical reason the distinction earns its place. Engineering owns the usage flow, because engineering decides what is deployed and to whom. Whoever runs the platform owns the record flow, if anyone does. Finance owns the cost half of the third flow the moment an invoice arrives, and the value half belongs to whichever business unit was supposed to benefit. Four owners, three flows, and no single person whose job is the whole of it.
 
 [FIGURE 2.1. Drawn figure, not reproduced here.]
 
@@ -84,13 +84,13 @@ Then the deployment runs as a flow. Consumption continues every working day, var
 
 This mismatch explains a pattern managers will recognize. The business case is never revisited, because projects are not revisited after delivery. The consumption keeps changing, because flows do. By the time anyone compares the two, the business case describes a deployment that no longer exists.
 
-The mismatch has a scheduling consequence. A funding decision taken once cannot govern a quantity that changes daily, and annual review is what a project-funded deployment gets by default. Chapter 10 sets the interval and the mechanism.
+The mismatch has a scheduling consequence. A funding decision taken once cannot govern a quantity that changes daily, and annual review is what a project-funded deployment gets by default.
 
 There is a second consequence, and it is the one that reaches the value side. A project business case states a benefit at the moment of approval, when nobody can check it. If nothing revisits that statement, the claimed benefit becomes the organization’s permanent belief about what the deployment delivers. It was a forecast. It is now treated as a result, and no step in the process was responsible for the conversion.
 
 ### 2.4 An unmanaged flow does not stay still
 
-A manager reading this far might reasonably conclude that an unmanaged flow is merely an unmeasured one, and that the remedy is to start measuring whenever it becomes convenient. That conclusion is wrong, and the reason is worth stating carefully.
+A manager reading this far might reasonably conclude that an unmanaged flow is merely an unmeasured one, and that the remedy is to start measuring whenever it becomes convenient. That conclusion is wrong.
 
 An unmanaged usage flow grows toward whatever the tool makes easy. This is not a criticism of the people using it. An assistant that drafts code well is used more than one that drafts code badly, and the organization wanted it used. Growth in the usage flow shows that adoption is rising. Whether the deployment is succeeding depends on what that use produces.
 
@@ -104,11 +104,11 @@ An unmanaged cost-and-value flow accrues on one side only, and this is the asymm
 
 The three tracks are separated for diagnosis rather than because they run independently. The record flow is the one the other two depend on. Without it the usage flow cannot be compared against a plan, and the value half has nothing to attribute a change to.
 
-The decay is worth one concrete illustration. Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.
+Consider an engineer who spends a morning on a difficult migration and asks an assistant for help forty times. On the day it happens, that activity could be attributed to the migration project, because the engineer knows what they were doing and the system knows which account made the calls. A month later the engineer has moved on and the calls have been aggregated into a monthly total. A quarter later the only surviving artifact is an invoice. Nothing was deleted. The context that made the record meaningful simply stopped being recoverable, and no amount of later diligence brings it back.
 
 ### 2.5 Why the record flow is the one that gets skipped
 
-Of the three flows, the record flow is the one organizations almost always build last. The reason is structural rather than careless, and it is worth understanding before prescribing a remedy.
+Of the three flows, the record flow is the one organizations almost always build last. The reason is structural rather than careless.
 
 A record flow produces no benefit on the day it is built. The usage flow delivers work immediately. The cost flow arrives on its own. A record flow pays only later, and only if somebody asks a question it can answer. Its value is entirely in the future tense.
 
@@ -140,13 +140,13 @@ Adoption answers a question about the usage flow: are people using the tool. Val
 
 The substitution is easy to spot once named. Whenever a value claim is supported by a number describing how much the tool was used, the value question has been answered with usage data. That is rarely dishonest. It is what happens when the only complete measurement available is the wrong one.
 
-The disciplined response is not to guess at the missing three. It is to state the ratio with its scope attached: four hundred thousand of return measured against the share of a one million cost attributable to the two workflows that were measured. That sentence is longer and less quotable, and it is the only version a manager can act on. Chapter 12 builds the boundary discipline that makes such a statement routine.
+The disciplined response is not to guess at the missing three. It is to state the ratio with its scope attached: four hundred thousand of return measured against the share of a one million cost attributable to the two workflows that were measured. That sentence is longer and less quotable, and it is the only version a manager can act on.
 
 Uber’s position in the opening case is the first error in progress. The company could total what it had spent. Its president and chief operating officer was asking, in public, what the company had received. Both statements were true at once, and they were true because of how the two numbers were produced rather than because of anything the engineers had done.
 
 > **DATED EVIDENCE BOX · Dated: August 2025**
 >
-> The pattern is not confined to one company. A 2025 study of enterprise deployments by MIT NANDA reported a striking gap. Ninety-five per cent of enterprise generative AI pilots delivered no measurable impact on profit and loss. A far higher share of organizations reported that they had piloted or deployed such tools. The figure attracted substantial methodological criticism after it circulated, and the study’s reported interview counts differ across accounts of it.
+> The pattern is not confined to one company. A 2025 study of enterprise deployments by MIT NANDA reported a striking gap. Ninety-five percent of enterprise generative AI pilots delivered no measurable impact on profit and loss. A far higher share of organizations reported that they had piloted or deployed such tools. The figure attracted substantial methodological criticism after it circulated, and the study’s reported interview counts differ across accounts of it.
 
 The criticism does not need to be settled for the finding to be useful, because the phrase carrying the weight is *no measurable impact*. A pilot that produced value nobody measured and a pilot that produced no value are indistinguishable in that statistic. That is the asymmetry appearing at market scale: the study could not observe what its subjects had not recorded.
 
@@ -172,7 +172,7 @@ The registry states the consequence formally. Once a deployment scales, controll
 
 The final clause is the practical content. Economic control is not a property of how carefully individuals behave. Five thousand engineers can each act reasonably and still produce an aggregate none of them chose. Every one of those decisions is defensible on its own. None of them is visible to the others. Governance is what supplies the view none of the participants has.
 
-The word apparatus is doing specific work, so it is worth unpacking into its parts. A governing apparatus for a deployment holds three things, and an organization missing any one of them does not have economic control.
+A governing apparatus for a deployment holds three things, and an organization missing any one of them does not have economic control.
 
 The first is a record: some system that writes down what was consumed, at a grain finer than the invoice. The second is an attribution: a rule that assigns each unit of consumption to a team, a product, or a purpose. A record without an attribution tells an organization how much it spent and not who spent it. The third is a constraint: a limit, a budget, an alert, or an approval that can actually stop or slow consumption when it departs from plan.
 
@@ -186,11 +186,11 @@ This also explains why the remedy is never simply to spend less. An organization
 
 Four limits belong on the record before the diagnostic that follows, because each is a conclusion a reader could reasonably draw and none of them follows.
 
-The chapter does not claim that the three flows are a result of the science. The taxonomy is this book’s organizing construct, adopted because it makes a deployment’s condition visible in a single page. THM-004 is the registry result, and what it formalizes is the consequence of the third flow’s asymmetry rather than the taxonomy that produced it. Chapter 3 separates the science from the discipline and says which claims come from which.
+The chapter does not claim that the three flows are a result of the science. The taxonomy is this book’s organizing construct, adopted because it makes a deployment’s condition visible in a single page. THM-004 is the registry result, and Chapter 3 separates the science from the discipline; what the theorem formalizes is the consequence of the third flow’s asymmetry rather than the taxonomy that produced it.
 
 The chapter does not claim that unmanaged deployments are wasteful. Waste is a statement about the ratio of value to cost, and the whole argument is that the value side of that ratio is unmeasured. Calling a deployment wasteful on a cost figure alone is one error. Calling it a success on an adoption figure alone is the same error, pointed the other way.
 
-The chapter does not claim that measurement is free. Building a record flow costs engineering time, and building a value measurement costs more than that, because it requires deciding what to measure before the answer is known. Chapters 8 and 12 treat both as investments with their own returns rather than as hygiene.
+The chapter does not claim that measurement is free. Chapters 8 and 12 treat both as investments with their own returns rather than as hygiene. Building a record flow costs engineering time, and building a value measurement costs more than that, because it requires deciding what to measure before the answer is known.
 
 The chapter does not claim that every deployment needs all three flows managed to the same standard. A pilot with twenty users and a fixed monthly cost does not need an attribution system. THM-004’s second antecedent is scale, and it is there precisely because the theorem does not bind below it. The judgment a manager has to make is when a deployment has crossed from the first case to the second, and nothing announces the crossing at the moment it happens.
 
@@ -214,9 +214,9 @@ Step 5. Diagnose each flow as managed, partly managed, or unmanaged, and say wha
 
 Two tests separate the three states, and a flow must pass both to be called managed. The first is whether the organization can state that flow’s condition from a record it holds itself. The second is whether the record is fine enough that a decision follows from it. A flow is partly managed when it passes one test and not the other, or when the organization can state part of the condition and not the rest. It is unmanaged when the organization cannot state the condition at all. An organization that can attribute half its consumption therefore has a partly managed record flow rather than a managed one. The cost-and-value flow takes a diagnosis on each half, because step 4 traces it that way and its two halves are built by different people to different standards.
 
-Two failure modes follow from the distinctions already drawn, and both are worth naming in advance. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s. An organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce.
+Two failure modes follow from the distinctions already drawn. The first is answering step 3 with a number that came from the provider. A provider’s usage console is evidence about the provider’s record flow, not the buyer’s. An organization that can see its consumption only by logging into a vendor portal has confirmed the diagnosis rather than escaped it. The second is answering step 4’s value half with an adoption figure. The share of employees using a tool is a fact about the usage flow. It becomes a value claim only if somebody has established that use produces the outcome the deployment was funded to produce.
 
-Run against Uber as reported, the mapping produces a result worth reading carefully, because it is less flattering than it first appears. The usage flow is partly managed. The direction of adoption was visible month by month, and adoption is a count of people rather than a count of requests. Section 2.2 asks a usage flow to state how many requests were made and whether the number is rising, and the public account does not establish that anyone could.
+Run against Uber as reported, the mapping returns a harsher verdict than the reporting suggests. The usage flow is partly managed. The direction of adoption was visible month by month, and adoption is a count of people rather than a count of requests. Section 2.2 asks a usage flow to state how many requests were made and whether the number is rising, and the public account does not establish that anyone could.
 
 The record flow is partly managed. A per-engineer cost range was reported, so consumption was visible at some grain, and the reporting does not establish that it was attributed to teams or compared against the plan. The cost-and-value flow has a complete cost half and an unbuilt value half, which is what the chief operating officer’s question suggests.
 
@@ -232,7 +232,7 @@ Notice what made the difference. The retailer did not have better intentions tha
 
 The mapping is deliberately blunt about partial answers, and recording one as partial is what makes the next conversation possible. The purpose is to produce a short list of the specific things that are not known, so that somebody can decide which of them is worth the cost of knowing. Awarding a grade would settle nothing.
 
-The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. The second finding surprises where the third does not, because the absence of a record is invisible until somebody asks a question that needs one.
+The common result of this exercise in a first-year deployment is a healthy usage flow, an absent record flow, and a cost-and-value flow with only its cost half built. The second finding surprises where the third does not.
 
 ### Chapter summary
 
@@ -288,7 +288,7 @@ From the usage flow, a count of requests over time rather than a count of people
 
 From the record flow, that consumption attributed to a team and set beside the team’s share of the plan. Attribution is what makes a rising number actionable: a total that is rising tells a manager that something must be done and not what. The record has to sit with the buyer, because a review held on a fixed date cannot depend on a question to the provider.
 
-From the cost-and-value flow, the answer is harder and it is the one worth reaching. The cost half was already complete, because the invoices arrived and accumulated. The value half could not have been assembled in February. A return measured after the fact requires a measurement taken before, and the public account does not establish that one exists. A February review would therefore have caught the spending and not the return.
+From the cost-and-value flow, the answer is the hardest to assemble and the one worth reaching. The cost half was already complete, because the invoices arrived and accumulated. The value half could not have been assembled in February. A return measured after the fact requires a measurement taken before, and the public account does not establish that one exists. A February review would therefore have caught the spending and not the return.
 
 And an owner, which is the answer most readers leave out. The three records belong to three different functions, so section 2.2’s four owners arrive here as a practical problem: a review is a meeting somebody has to call. Two of the three gaps were closable in February and the third was not. The one that was not is the gap the chief operating officer’s question is about.
 
@@ -310,7 +310,7 @@ First, mark up the three tracks of Figure 2.1 for this trial: for each flow, sho
 
 Second, diagnose each flow as managed, partly managed, or unmanaged, and state the evidence that settles each diagnosis.
 
-Third, state for each flow what evidence would change your diagnosis. A diagnosis nobody could overturn is an opinion.
+Third, state for each flow what evidence would change your diagnosis.
 
 Fourth, sort your three diagnoses into two groups: those resting on something the published account establishes, and those resting on something it does not mention. The second group is the weaker one, and separating them is the difference between a diagnosis and a complaint about the sources.
 
@@ -318,8 +318,8 @@ This trial is not the opening case under another name. This organization commiss
 
 **P4 · Independent.** The business case that became a belief
 
-An organization approved an AI deployment two years ago on a business case projecting a twenty per cent reduction in the time taken to complete a routine task. The deployment is still running. The projection has never been revisited, and it is quoted in the current year’s planning documents as the deployment’s contribution.
+An organization approved an AI deployment two years ago on a business case projecting a twenty percent reduction in the time taken to complete a routine task. The deployment is still running. The projection has never been revisited, and it is quoted in the current year’s planning documents as the deployment’s contribution.
 
-Identify what has happened to the status of the twenty per cent figure between the business case and the planning document, and name the step in the organization’s process that should have prevented it. Then state the smallest change to the review schedule that would stop it recurring, and explain why a change to the business-case template would not.
+Identify what has happened to the status of the twenty percent figure between the business case and the planning document, and name the step in the organization’s process that should have prevented it. Then state the smallest change to the review schedule that would stop it recurring, and explain why a change to the business-case template would not.
 
 *Interleaving: question 4 and problem P2 require Chapter 1’s results. P2 uses the resource consumption model and question 4 uses meter relocation.*
