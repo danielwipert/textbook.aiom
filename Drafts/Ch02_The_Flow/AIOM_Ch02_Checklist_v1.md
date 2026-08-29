@@ -1035,6 +1035,90 @@ never performed that check and a Chapter 1 measurement taken by hand was being
 printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
 6 footnotes and its 8 live rulings correctly.
 
+### QUOTING A REAL SPEAKER BROKE `voicecheck`, AND FIXING IT FOUND A SECOND DEFECT
+
+**Writing Macdonald's words into the register note failed Stage 4 mechanical on his
+contractions and his first person.** `voicecheck.analyse()` scanned every line of the
+chapter file, including the Decision 51 register, while `chapter_words()` in the same
+module strips it. **The `note` field is the fact checkers' working record, and
+CLAUDE.md rules that quoting the source sentence in it is a CONTROL rather than a
+convenience**, so a checker that bans contractions there forbids quoting any human
+being who used one.
+
+**CHAPTER 1 PASSED THIS FOR MONTHS BY LUCK.** Its notes quote the BOOK's own
+sentences, and body prose bans contractions, so quoting it introduced none. **Chapter
+2 is the first chapter in this project to quote an external speaker verbatim**, which
+makes this the sixth defect the second chapter has exposed.
+
+**The contraction, question and person bans now skip the register. THE EM DASH BAN
+DOES NOT**, because standing rule 1 is absolute and because a register page range must
+store a hyphen, and `cite_format` turns these fields into footnotes a reader reads.
+
+**THE SECOND DEFECT IS PRE-EXISTING AND WAS FOUND BY A CONTROL THAT WAS PASSING FOR
+THE WRONG REASON.** A control injecting "We know a record flow..." into the teaching
+body reported that the committed checker caught it. It did not: it was failing on the
+register's own "we're" and the injected sentence was invisible to both versions.
+**`PERSON` was case-sensitive and listed lowercase forms only**, so "as we know"
+failed and "We know" passed, and the start of a sentence is the likeliest place for
+second person to appear in an instruction. Capitalised forms are now listed
+explicitly rather than using `re.I`, **because case-insensitive `\bus\b` matches "US"
+in "the US market" and would fail a chapter for naming a country.** That trap is one
+of the eight controls.
+
+**Eight negative controls now cover this, including a clean baseline**, and both
+chapters pass unchanged.
+
+### DAN VERIFIED FORBES AND FORTUNE, 2026-08-29. ALL NINE ROWS PASS. TWO ENTRIES OF FIVE ARE NOW VERIFIED.
+
+**A1 to A6 and B1 to B3 all return Y.** Every verdict is written into the register
+note in the chapter HTML with its reversal condition, and `accessed` on both entries
+moves from 2026-08-21, which recorded only that the articles were reachable, to
+2026-08-29, which records that these sentences were checked against them.
+
+**A2 AND A5 WERE THE ROWS WORTH SEPARATING AND BOTH HOLD.** They are the two Forbes
+rows that are not figures: that no contract was renegotiated and no vendor raised a
+price, and that the cost variation is attributed to workload. Either could have been
+the chapter's inference rather than the article's statement, **which is the shape of
+Chapter 1's FC9**, an absorbed-cost mechanism inferred from a source that did not
+state it and cut at Stage 7.
+
+**THE ONE CORRECTION IS AT B1 AND IT TOUCHED TWO SENTENCES, NOT ONE.** The speaker is
+Andrew Macdonald and he is Uber's **president and chief operating officer**; the
+chapter said only "chief operating officer". The opening case carried one instance and
+section 2.6 the other, they sit nowhere near each other in the file, and **fixing only
+one would have been precisely the drift this project has paid for five times.** Both
+corrected, ledgered together as S3-4 with a REVIEW field saying so.
+
+**THE VENUE IS THE RAPID RESPONSE PODCAST, so Fortune is secondary to a recorded
+interview**, and that is the level the chapter cites. Macdonald's words are quoted
+verbatim in the register note, because a note that quotes the sentence is what caught
+SF7 and SF11.
+
+**RAISED AND NOT DECIDED: the quotation is stronger evidence than the paraphrase.**
+What Macdonald actually said is that it is hard to draw a connection between rising
+Claude Code use and consumer-facing innovation, and that "that link is not there yet".
+**That is narrower and better than "asking whether the spending had been worth it": it
+is the cost-value asymmetry in the executive's own words.** B2 passes on Dan's reading
+that he questions the value of the spend repeatedly, so the paraphrase is supported and
+stands. Whether the chapter should quote him instead is a prose question for Dan, not a
+sourcing defect, and it is recorded in the register note as open.
+
+**A SECOND OPEN QUESTION, ALSO NOT DECIDED: Chapter 2 does not name him and Chapter 1
+names its executive.** Chapter 1's opening case says "Chief executive Sam Altman said
+publicly", and that phrasing is a REQUIRED string in the claim ledger under SF1. The
+fifty-year rule permits a name inside a dated case, so the house precedent is to name.
+Chapter 2 names nobody.
+
+**STAGE 3 IS NOT CLOSED BY THIS AND THE BOX STAYS OPEN.** The sheet covered two of the
+five register entries. **`uber-2026-adoption` cites no document by Dan's own ruling**
+and is settled. **`mit-nanda-2025` still has no location**, which is S3-3 and whose
+remedy is the report itself. **`dta-copilot-2024` is still Grade C and unread**, and
+the external check's claim to have verified it was rejected as S3-R1 and that rejection
+stands.
+
+**Verified after the edits**: all fifteen print gates pass, page fill clean, W14 pass
+at 11 rulings, register parses as JSON.
+
 ### THE SOURCE VERIFICATION SHEET IS BUILT, 2026-08-29.
 
 **`AIOM_Ch02_Stage3_verification_sheet.md`.** Nine numbered rows across the two

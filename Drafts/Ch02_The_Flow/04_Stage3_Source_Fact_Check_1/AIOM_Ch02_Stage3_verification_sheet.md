@@ -1,6 +1,20 @@
 # Chapter 2 Stage 3: source verification sheet
 
-Built 2026-08-29. **Every sentence below is quoted from the live text as it stands
+Built 2026-08-29. **COMPLETED BY DAN THE SAME DAY. ALL NINE ROWS PASS.** The verdict
+column is filled below and every verdict is written into the register note in the
+chapter HTML, with its reversal condition, which is where the next checker reads it.
+
+**ONE CORRECTION CAME OUT OF IT, AT B1.** The speaker is Andrew Macdonald and he is
+Uber's **president and chief operating officer**. The chapter said only "chief
+operating officer". **Two sentences carried that title**, one in the opening case and
+one in section 2.6, and both were corrected together and ledgered as S3-4; fixing only
+one would have been the drift this project has already paid for five times.
+
+**THE VENUE IS THE RAPID RESPONSE PODCAST**, which Fortune reports, so the entry is
+secondary to a recorded interview. Macdonald's words are now quoted verbatim in the
+register note, because a note that quotes the sentence is what caught SF7 and SF11.
+
+**Every sentence below is quoted from the live text as it stands
 today.** Read with the two articles open and write a verdict in each box. Nothing
 here needs a decision about the prose; it needs a yes, a no, or a correction.
 
@@ -26,12 +40,12 @@ falsifying a sentence.
 
 | # | The chapter says | Check | Verdict |
 |---|---|---|---|
-| A1 | "In April 2026, four months into the calendar year, press reporting indicates that Uber had spent the annual budget it had set for artificial intelligence." | Budget exhausted, and in April. Is the budget annual and 2026? | |
-| A2 | "No contract had been renegotiated and no vendor had raised a price." | Does the article support this, or is it the chapter's inference? **If it is an inference, say so**: it is load bearing, because the whole point is that nothing external changed. | |
-| A3 | "the company had begun rolling it out to roughly five thousand engineers in December 2025" | The engineer count and the December 2025 start. | |
-| A4 | "Reported monthly costs ran from several hundred to a few thousand dollars per engineer" | The per-engineer monthly range. **Deliberately loose**, so a different range still fits unless it falls outside it entirely. | |
-| A5 | "varying with how much each one worked and how hard the work was" | Does the article attribute the variation to workload, or is that the chapter's reading? | |
-| A6 | "the commercial terms turned that variable consumption into variable cost" | Does the article describe the pricing as usage based? | |
+| A1 | "In April 2026, four months into the calendar year, press reporting indicates that Uber had spent the annual budget it had set for artificial intelligence." | Budget exhausted, and in April. Is the budget annual and 2026? | Y |
+| A2 | "No contract had been renegotiated and no vendor had raised a price." | Does the article support this, or is it the chapter's inference? **If it is an inference, say so**: it is load bearing, because the whole point is that nothing external changed. | Y |
+| A3 | "the company had begun rolling it out to roughly five thousand engineers in December 2025" | The engineer count and the December 2025 start. | Y |
+| A4 | "Reported monthly costs ran from several hundred to a few thousand dollars per engineer" | The per-engineer monthly range. **Deliberately loose**, so a different range still fits unless it falls outside it entirely. | Y |
+| A5 | "varying with how much each one worked and how hard the work was" | Does the article attribute the variation to workload, or is that the chapter's reading? | Y |
+| A6 | "the commercial terms turned that variable consumption into variable cost" | Does the article describe the pricing as usage based? | Y |
 
 **A2 and A5 are the two that are not figures**, and they are the two most likely to be
 the chapter's inference rather than the article's statement. Chapter 1's FC9 was
@@ -54,9 +68,9 @@ rather than a looser number.**
 
 | # | The chapter says | Check | Verdict |
 |---|---|---|---|
-| B1 | "The chief operating officer was publicly asking whether the spending had been worth it." | Was it the COO? Was the question public? **Get the venue and the date.** The register's upgrade asks for a direct quotation. | |
-| B2 | "That question suggests a documented return was unavailable, incomplete, or unpersuasive to senior leadership." | This is the chapter's reading and is written as one. Confirm only that nothing in the article contradicts it. | |
-| B3 | "the company could see what it was spending. The billing arrived and accumulated, and by April the total had reached the figure that had been set aside." | Does either article establish that spend was visible as it accrued? | |
+| B1 | "The chief operating officer was publicly asking whether the spending had been worth it." | Was it the COO? Was the question public? **Get the venue and the date.** The register's upgrade asks for a direct quotation. | Y |
+| B2 | "That question suggests a documented return was unavailable, incomplete, or unpersuasive to senior leadership." | This is the chapter's reading and is written as one. Confirm only that nothing in the article contradicts it. | Y |
+| B3 | "the company could see what it was spending. The billing arrived and accumulated, and by April the total had reached the figure that had been set aside." | Does either article establish that spend was visible as it accrued? | Y |
 
 **If B1 holds, write the quotation into the register note**, because the note is what
 the next checker reads and a quoted sentence is what caught SF7 and SF11.

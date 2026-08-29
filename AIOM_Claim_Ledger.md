@@ -201,3 +201,12 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - REQUIRED: Characterized rather than quantified, for the same reason.
 - REVIEW: footnotes 3 and 4 deliberately name no outlet, and a later reader WILL raise that again. The container reads "Multiple secondary outlets" because the February and March figures appeared across several outlets with consistent values and no consistent attribution, which is the signature of one upstream source repeated rather than of corroboration. Dan withdrew the percentages on 2026-08-21 rather than invent a citation, and standing rule 2 has no option for citing a source that cannot be named. **The remedy is not to name an outlet. It is that the note now says why none is named.**
 - REVERSES-IF: a single named source for the adoption figures, ideally the primary, which is exactly what the register entry's `upgrade` field asks for. With one, both footnotes get a real citation and both of these rulings retire together.
+
+### S3-4 :: the executive's title corrected :: 2026-08-29 :: Stage 3
+- SOURCE-KEY: fortune-2026-uber-coo
+- FORBIDDEN: The chief operating officer was publicly asking whether the spending had been worth it.
+- FORBIDDEN: Its chief operating officer was asking, in public, what the company had received.
+- REQUIRED: The president and chief operating officer was publicly asking whether the spending had been worth it.
+- REQUIRED: Its president and chief operating officer was asking, in public, what the company had received.
+- REVERSES-IF: the title changes, or a source shows Andrew Macdonald did not hold both roles at the time of the interview. Dan verified the title at Stage 3 on 2026-08-29.
+- REVIEW: **TWO sentences carry this title and both were corrected together.** The opening case has one and section 2.6 has the other. A later edit that fixes only one reintroduces exactly the drift this ledger exists to catch, and neither sentence is near the other in the file.

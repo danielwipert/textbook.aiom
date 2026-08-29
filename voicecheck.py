@@ -91,7 +91,17 @@ EXEMPT_P_RE = re.compile(
 # he rules that way.
 APPARATUS_BLOCKS = ("theorem",)
 
-PERSON = re.compile(r"\b(I|we|our|us|you|your|yours|ourselves|yourself)\b")
+# SENTENCE-INITIAL FIRST AND SECOND PERSON WAS INVISIBLE UNTIL 2026-08-29.
+# The pattern was case-sensitive and listed lowercase forms only, so "We know
+# that..." and "You should record..." passed while "as we know" failed. That is
+# backwards: the START of a sentence is the likeliest place for second person to
+# appear in an instruction. Found while scoping these bans away from the source
+# register, by a control that turned out to be passing for the wrong reason.
+# CAPITALISED FORMS ARE LISTED EXPLICITLY RATHER THAN USING re.I, because
+# case-insensitive \bus\b matches "US" in "the US market" and would fail a
+# chapter for naming a country.
+PERSON = re.compile(r"\b(I|we|our|us|you|your|yours|ourselves|yourself"
+                    r"|We|Our|Us|You|Your|Yours|Ourselves|Yourself)\b")
 CONTRACTION = re.compile(
     r"\b(don|doesn|didn|isn|aren|wasn|weren|can|couldn|wouldn|shouldn|won"
     r"|hasn|haven|hadn|it|that|there|he|she|they|we|you|I|who|what)"
@@ -151,10 +161,41 @@ def voiced_lines(lines):
     return block_lines(lines, VOICED_CLASSES)
 
 
+def register_lines(lines):
+    """1-indexed set: which lines fall inside the Decision 51 source register.
+
+    THE PROSE BANS DO NOT APPLY TO THE REGISTER AND THE EM DASH BAN DOES. Added
+    2026-08-29 after Chapter 2 quoted a real speaker verbatim in a `note` field
+    and voicecheck failed the chapter on his contractions and his first person.
+    **The note is the fact checkers' working record, not body prose**, and
+    CLAUDE.md rules that quoting the source sentence in it is a CONTROL rather
+    than a convenience: a checker that bans contractions there forbids quoting
+    any human being who used one.
+
+    **CHAPTER 1 PASSED THIS FOR MONTHS BY LUCK.** Its notes quote the BOOK's own
+    sentences, and body prose bans contractions, so quoting it introduced none.
+    Chapter 2 is the first chapter to quote an external speaker.
+
+    Standing rule 1 is absolute and stays absolute: em dashes are still checked
+    inside the register, which also matters because a register entry's page range
+    must store a hyphen and `cite_format` turns these fields into footnotes a
+    reader reads.
+    """
+    inside, depth = {}, 0
+    for i, line in enumerate(lines, 1):
+        if '<section id="aiom-sources"' in line:
+            depth += 1
+        inside[i] = depth > 0
+        if depth > 0 and "</section>" in line:
+            depth = 0
+    return inside
+
+
 def analyse(path):
     raw = open(path, encoding="utf-8").read()
     lines = raw.split("\n")
     inside = voiced_lines(lines)
+    in_register = register_lines(lines)
 
     findings = {"emdash": [], "contraction": [], "question": [], "person": []}
 
@@ -166,13 +207,15 @@ def analyse(path):
         for m in EMDASH.finditer(text):
             findings["emdash"].append((i, m.group(0), text[:90]))
 
-        for m in CONTRACTION.finditer(text):
-            findings["contraction"].append((i, m.group(0), text[:90]))
+        if not in_register[i]:
+            for m in CONTRACTION.finditer(text):
+                findings["contraction"].append((i, m.group(0), text[:90]))
 
-        if "?" in text and not inside[i] and not EXEMPT_P_RE.search(line):
+        if ("?" in text and not inside[i] and not in_register[i]
+                and not EXEMPT_P_RE.search(line)):
             findings["question"].append((i, "?", text[:90]))
 
-        if inside[i]:
+        if inside[i] or in_register[i]:
             continue
         spans = voiced_spans(text)
         for m in PERSON.finditer(text):
