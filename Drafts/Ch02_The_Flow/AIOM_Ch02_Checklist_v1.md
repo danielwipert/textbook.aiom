@@ -1487,22 +1487,40 @@ one. 115 of 115 controls pass against a correct tree.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-29
 
 > Mechanical, against the running continuity ledger. Catches chapter to chapter drift here rather than at manuscript integration, where the fix would mean reopening a locked chapter. Run `python3 continuity.py <chapter.html> --chapter N`. The ledger is the authority: when a chapter and the ledger disagree the gate fails and Dan rules, and the gate never edits the ledger to make itself pass. At Stage 9, and only then, `--update` appends this chapter's terms, forward references, and registry objects, and `--pay N` marks promises the chapter has now kept.
 
-- [ ] Check 1, no term redefined that an earlier chapter already owns
-- [ ] Check 2, every forward reference this chapter makes is logged
-- [ ] Check 3, every forward reference assigned to this chapter is paid
-- [ ] Check 4, registry IDs logged; recurring glosses worded identically
-- [ ] Check 5, Founding Question references match the canonical table exactly
-- [ ] Check 6, maturity ladder language consistent with the locked five stages
-- [ ] Check 7, Northmoor figures diffed against generator output
+- [x] Check 1, no term redefined that an earlier chapter already owns
+- [x] Check 2, every forward reference this chapter makes is logged
+- [x] Check 3, every forward reference assigned to this chapter is paid
+- [x] Check 4, registry IDs logged; recurring glosses worded identically
+- [x] Check 5, Founding Question references match the canonical table exactly
+- [x] Check 6, maturity ladder language consistent with the locked five stages
+- [x] Check 7, Northmoor figures diffed against generator output
 - [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
 
-### RUN 2026-08-29. G3 PASSES, ALL SEVEN CHECKS.
+### G3 CLEARED 2026-08-29 ON DAN's RULING. ALL SEVEN CHECKS PASS.
+
+**Dan ruled the box ticked while G2 sits open, so the record is deliberately out of
+v3 order and this note is why.** G3 reads terms, forward references, promises and
+glosses rather than a rendered page, so unlike Stage 5 and G2 it does not rest on a
+pagination the copy edit will move. **Ticking it makes the check BIND in
+`chapter_check.py`**, which is the point: gate W8a requires the ledger's definition of
+a term to be character-identical to the chapter's key-term text, so a Stage 6 edit
+touching any of the six key terms now fails at the commit rather than at the next time
+somebody looks.
+
+**The eighth box stays open on purpose and is not a G3 check.** `continuity.py
+--update` appends this chapter's forward references and the THM-004 gloss at Stage 9,
+and the box's own text says it stays open while G3 passes.
+
+**Re-run immediately before ticking rather than carried forward from the earlier run
+in this session.** G3 PASSED.
+
+### THE RUN, 2026-08-29.
 
 `python3 continuity.py <live> --chapter 2` reports PASSED: no term redefined that an
 earlier chapter owns, 14 forward references made, 1 registry gloss with no drift, 0
