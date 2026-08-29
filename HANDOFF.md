@@ -1,12 +1,126 @@
 # Session handoff
 
-Last updated: 2026-08-29 (second close). Read this
+Last updated: 2026-08-29 (third close). Read this
 plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
 automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
+
+**AT THE THIRD 2026-08-29 CLOSE: everything is on `main` at `9213b09`, nothing is
+stranded, CI green, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree
+clean, `git_hygiene.py` reporting CLEAN. The delete still fails with the documented 403:
+
+    git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm
+
+**CHAPTER 2 IS AT 7 OF 13. STAGES 3 AND 4 AND GATE G3 ALL CLOSED IN THIS SESSION**, and
+the chapter moved from 4 of 13 to 7 of 13. **Stage 6 is prepped and waiting on Dan.**
+
+**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 6 copy edit. The `.docx` and its
+instructions are in `06_Stage6_Copy_Edit/`, and the unedited round-trip control passed at
+zero changes, so both tools are trusted on this chapter.
+
+**STAGE 7 CANNOT BE BATCHED WITH STAGE 6 AND THAT IS THE ONE PLACE THE PLAN SLIPPED.** A
+fact check that predates a copy edit has to be diffed against the audited artifact before
+it can be credited, so the Stage 7 packet is generated from the copy-edited text after
+the import, not beside it.
+
+### What closed, and what it cost to close
+
+**STAGE 3. Two entries of five verified, two carried to Stage 7.** Dan verified Forbes
+and Fortune across nine rows of a purpose-built sheet, all pass. **`dta-copilot-2024` is
+the live exposure**: Grade C, unread by anyone, and problem P3 is built entirely on it.
+`mit-nanda-2025` has no location but degrades gracefully.
+
+**THE EXECUTIVE IS NOW NAMED AND QUOTED, AND IT IS THE BOOK'S FIRST DIRECT QUOTATION.**
+Chapter 1 names Sam Altman and quotes nobody, checked rather than assumed. Chapter 2's
+opening case now carries "That link is not there yet," he said. **The short line was
+chosen over Macdonald's fuller answer for a mechanical reason**: the longer passage
+carries three contractions, body prose bans them, and the opening case is not a voiced
+block.
+
+**STAGE 4. Nineteen findings ruled, all applied or explained.** Claude's F1 to F7, the
+second model's F8 to F12, and its own C1, C2 and C6. **The self-reference layer is
+gone**: eleven "worth" announcements down to three legitimate uses, five paragraph closes
+on a cross-reference down to zero, two existential openers down to zero, a repeated
+aphorism resolved, and a house-style split with Chapter 1 corrected.
+
+**TWO CRITERION BOXES ARE TICKED WITH A FINDING OPEN, EXPLAINED IN THE CHECKLIST.** C1
+with F1 open, because the only remedy is a real cited deployment that does not exist and
+inventing one is what standing rule 2 forbids; it is Chapter 6's supply obligation. C4
+with F4 partly open, because the mean is 1.3 words above Chapter 1 and closing it means
+pruning sentences that are long rather than defective. **Sentences over 35 words are now
+at zero, matching the exemplar exactly.**
+
+**THE SECOND MODEL'S BEST FINDING WAS ONE CLAUDE COULD NOT SEE.** The "worth" layer, 11
+against Chapter 1's 0, verified exact. **Its second best was a comparison rather than a
+count**: Claude's F5 found the same five paragraph-terminal cross-references and called
+it a finding; the reviewer noted Chapter 1 does it ONCE in its whole length, which turns
+a tic into the chapter's one outright criterion failure. **Same evidence, better
+conclusion.**
+
+### Five tooling defects the second chapter exposed, all fixed
+
+1. **`factcheck_packet.py` printed Chapter 1's history into a Chapter 2 packet.** Six
+   hardcoded facts, including a value-surface line claiming a check the script never
+   performed. Now computed; that line is removed rather than recomputed.
+2. **Gate W10 made G2 unpassable on any in-flight chapter.** Its locked-chapter check ran
+   in preview builds, where the answer is always no from chapter two onward. Now
+   preview-aware; the publish path was negative-tested.
+3. **`web_gates_selftest.py` consumes `build/web` and does not build it**, and CLAUDE.md
+   tells you to run it without saying so. Against a stale tree the W9a CLEAN BASELINE
+   reported a MISS that reads exactly like a gate defect. It now guards its own inputs.
+4. **`voicecheck.analyse()` read the Decision 51 source register**, so quoting a real
+   speaker failed the chapter on his contractions. Chapter 1 passed for months by luck:
+   its notes quote the book's own sentences, which carry none. Prose bans now skip the
+   register; **the em dash ban does not**, because rule 1 is absolute.
+5. **`PERSON` was case-sensitive with lowercase forms only**, so "as we know" failed and
+   "We know" passed. Found by a control that was passing for the wrong reason. Capitalised
+   forms are listed explicitly rather than using `re.I`, because `\bus\b` case-insensitive
+   matches "US" in "the US market". Eight controls now cover it.
+
+**BUILD THE SITE BEFORE RUNNING THE SELF-TEST:**
+
+    python3 web_build.py --site --out build/web --base-url https://aioperationsmanagement.ai
+    python3 web_gates_selftest.py
+
+### Two errors Claude made this session, both caught and both instructive
+
+**S3-R2 WAS A BAD REJECTION AND IT WAS WITHDRAWN THE SAME DAY.** Claude told Dan the
+chapter carries no pending-verification stamp, measured by grepping the render for
+"pending verification". **The provenance line on page 1 says "pending SOURCE
+verification".** One intervening word, zero matches, and a ruling handed to Dan on top of
+it. The reviewer was right.
+
+**A COMMA SPLICE SHIPPED THROUGH EVERY GATE.** Applying F6 left the preceding comma, so
+the summary read "an unknown fraction of the value, Unknown is not small." `voicecheck`,
+all fifteen print gates and W14 all passed it. **No gate reads a spliced clause**, which
+CLAUDE.md already records. Found by rasterizing page 20 and looking; the chapter was then
+swept for the same shape with zero others found.
+
+### Gate 8 is the coupling that bit three times
+
+Every prose edit batch this session moved footnotes pages away from the sentences edited.
+**Footnote 6 is the Fortune entry and has nothing to do with anything changed.** Twice the
+remedy was found by building candidates and measuring, once by rasterizing. **Shortening
+footnote glosses did nothing** the second time, because notes 3 to 5 are not on that page.
+Build, do not reason.
+
+**THE ELEVEN-RULING LEDGER IS NOW TWELVE AND IT BINDS.** Stage 3 owns W14 and Stage 4 owns
+`voicecheck`, both ticked, so the chapter fails the build if a later step reverts a ruled
+claim or reintroduces a banned construction. **That is the protection Chapter 1 did not
+have when SF8, SF9 and SF10 were reverted with every date and figure intact.**
+
+**S4-1 IS REVIEW-ONLY BECAUSE NOTHING MECHANICAL CAN SEE IT.** Section 2.3 now restates a
+figure that lives in the opening case, so if Stage 7 corrects the April timing that
+sentence changes with it and no gate will say so.
+
+**WHAT PUBLISHES DID NOT CHANGE.** Chapter 2 has never locked, so the site still serves
+Chapter 1 alone.
+
+**THE EARLIER 2026-08-29 RECORDS FOLLOW AND THEIR HEAD AND STEP-COUNT FACTS ARE
+SUPERSEDED.**
 
 **AT THE SECOND 2026-08-29 CLOSE: everything is on `main` at `621aca0`, nothing is
 stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Working tree clean.
@@ -2172,6 +2286,27 @@ ideas**, which is the most common complaint about this book's drafts.
 added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
+
+**LIVE THREADS AS OF THE THIRD 2026-08-29 CLOSE: unchanged in order and membership.
+Thread 6 is still first and still the work, and Chapter 2 moved from 4 of 13 to 7 of
+13.** Threads 8, 10, 5, 3 and 7 are untouched.
+
+**WHAT IS ACTUALLY BLOCKING, IN ONE LINE:** Dan, on the Stage 6 copy edit. Everything
+else in the repository is waiting on nobody.
+
+**THE ORDER FROM HERE.** Dan copy-edits the `.docx`. Claude imports it, dry run then
+`--apply`, reporting what it refuses rather than guessing, rebuilds, and generates the
+Stage 7 packet and render from the copy-edited text. Dan runs two external checks on
+different prompts. Then Claude re-runs Stage 5 and G2, which is cheap because the two
+defects they would have found are already fixed, Dan takes the final read, and Claude
+locks at Stage 9 after `continuity.py --update`.
+
+**THREAD 5 GAINS ONE ITEM.** Five tooling defects were fixed this session and all five
+were invisible while one chapter existed. **CLAUDE.md's entry that a second chapter is a
+test instrument now covers eight defects, not three**, and it should be updated to say so
+the next time that file is touched.
+
+**THE 2026-08-29 LIST FOLLOWS, superseded only on the paragraph above.**
 
 **LIVE THREADS AS OF THE SECOND 2026-08-29 CLOSE: unchanged in order and in
 membership. Thread 6 is still first and still the work. Chapter 2 has moved from 4 of
