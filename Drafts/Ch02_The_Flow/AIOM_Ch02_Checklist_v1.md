@@ -1331,6 +1331,93 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+### RUN 2026-08-29 ON DAN's INSTRUCTION, AHEAD OF ITS v3 POSITION. THE BOX STAYS OPEN.
+
+**Process v3 puts this step AFTER Stage 7 for one measured reason**: every Chapter 1
+design finding was fixed in CSS or in markup and none by rewriting a sentence, so a
+design review taken before the copy edit reads a pagination the copy edit is about to
+destroy. Stage 6 has not run. **Ticking this box would claim a design review of the
+shipped text, which is a scope claim written from intention rather than from what was
+done**, so the findings below are banked and the step is re-run after Stage 7.
+
+**WHAT THE EARLY RUN ACTUALLY BOUGHT: two real defects that are NOT pagination
+dependent and would have survived to Stage 5's proper position.**
+
+**DR1. FIGURE 2.1 WAS DRAWN WRONG IN TWO PLACES AND ALL FIFTEEN GATES PASSED IT.**
+Fixed.
+
+- **The cost-and-value arrowhead was invisible.** The tinted "value recorded only if
+  built" rect was painted AFTER the third row's arrow and covers x 248 to 352, which
+  is exactly where the arrowhead sits. SVG paints in document order, so the block
+  erased it. **The figure's argument rests on the visual parallel between the three
+  rows**, since the caption says the solid lines run whether or not anyone attends to
+  them; row three had a line that stopped dead while rows one and two ran on. The
+  tint is now painted BEFORE the lines, as a background band, and its label dropped
+  three units so the cost line runs through the band above the label rather than
+  striking it.
+- **The record row's arrowhead was dashed.** `stroke-dasharray="3 3"` was set on the
+  group holding BOTH the line and its arrowhead, so the arrowhead rendered as a
+  broken double chevron rather than as an arrowhead. The arrowhead now sits in its
+  own undashed group. The dash carries meaning in this figure, that the record flow
+  exists only where built, and the arrowhead is not part of that meaning.
+
+**This is the third time a Chapter 2 figure has been wrong in a way gate 12 cannot
+see**, after Figure 2.2's first geometry ran its segment ticks the full height of the
+drawing. Gate 12 counts captions, checks numbering and order, and matches in-text
+references. **It passed the broken Figure 2.1 and the corrected one identically.**
+
+**DR2. THE PRODUCT NAMES IN P3 WERE UNGUARDED, AND STAGE 6 IS THE REFLOW THAT WOULD
+HAVE BROKEN THEM.** The chapter carried `.nb` on Claude, MIT, NANDA and Uber, and not
+on "Microsoft 365 Copilot". Nothing is broken at the CURRENT pagination, which is the
+point: Decision 58 exists because DR6 and DR7 on Chapter 1 appeared at a reflow, one
+of them across a page turn. The body occurrence is now guarded. **The two other
+occurrences are in the source register and are deliberately NOT guarded**, because
+that block is JSON and markup inside it is a syntax error rather than markup. A first
+attempt guarded all three and broke the register, which is recorded here because the
+same trap is waiting in every chapter.
+
+**DR3. Figure 2.2 reads correctly at ship size.** Five segments countable in both
+bars, two solid and three dashed on the return bar with "unknown" labelled. This is
+the corrected geometry and it is confirmed on the raster rather than from the source.
+
+**WHAT WAS READ, stated from what was done rather than from what was intended.** All
+25 pages rasterized at 110dpi. Read closely: p6 and p12 for figure legibility, p14
+for the theorem panel, p9 and p4 for callout placement, p16, p20, p21 and p22 for
+slot openings, p1 for the provenance line.
+
+**GAP G-I HAS NO INSTANCE.** The definition callouts sit on p4 and p9 and the theorem
+panel on p14, so no page carries both and no callout can collide with a block panel.
+**This must be re-checked after Stage 6**, because it is a fact about the current
+pagination and nothing else.
+
+**GAP G-II HAS NO INSTANCE.** Every slot opening carries content below its head
+group: the craft section on p16 has two full paragraphs under its label and title,
+the summary on p20 runs complete on one page, and p22 carries the last key term, the
+"Discussion questions and problems" title, the DISCUSSION QUESTIONS label and all
+five questions. Same caveat: re-check after Stage 6.
+
+**PAGE FILL WAS MEASURED, NOT EYEBALLED.** The advisory reports no page over 110pt
+unused. Two pages looked close on the raster and were measured directly: p22 leaves
+99.6pt and p12 leaves 92.7pt, both under the threshold and both at a slot or section
+boundary. **The raster's page margin reads as a hole and is not one**, which is worth
+recording because the eye is what raised it.
+
+**HYPHENATION: 85 line-end breaks, ZERO inside a proper noun**, re-run after the
+figure and guard changes reflowed the chapter. Two breaks fall inside a capitalised
+word, "Re-porting" and "Some-body", and both are sentence-initial ordinary words
+correctly divided. `lang="en-US"` is present, so Decision 59 holds.
+
+**THE FIRST VERSION OF THAT SCAN REPORTED 3 BREAKS AND WAS MEASURING NOTHING.** It
+tested `endswith("-")` against ASCII while WeasyPrint emits U+2010, and it joined
+each hyphenated line to the next line in extraction order, which on p9 is the
+floated callout rather than the continuation of the body column. It reported "0
+proper-noun breaks" from 3 samples and looked exactly like a pass. The scan now
+matches every Unicode hyphen and links lines within the same x-band. **This is the
+fourth instance in this repository of a page-level check whose reading rule was
+wrong at a boundary**, after gate 12 counting figure references line by line and the
+hyphenation scan itself being rewritten from memory with the same defect.
+
+
 ---
 
 ## Gate G2. Production gate
@@ -1362,6 +1449,38 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+### RUN 2026-08-29. EVERY CHECK PASSES. THE BOX STAYS OPEN FOR THE SAME REASON STAGE 5's DOES.
+
+**All fifteen print gates pass** on the current text at 25 pages, and the page-fill
+advisory is clean. **The web build now passes too, which it could not do before
+today**, and that was a gate defect rather than a chapter defect: see below. **Both
+MANUAL boxes were actually performed** and are recorded under Stage 5, the figure
+geometry against a raster and the page-level visual review, and the figure check
+found DR1.
+
+**Nothing here is ticked, because Stage 6 has not run and every one of these
+eighteen boxes is a statement about a pagination the copy edit will move.** Ticking
+them would make `chapter_check.py` enforce claims about a text that is about to
+change, which inverts what the continuous suite is for.
+
+**GATE W10 MADE G2 UNPASSABLE ON ANY IN-FLIGHT CHAPTER, AND CHAPTER 2 IS WHAT
+EXPOSED IT.** W10 is deploy readiness, and its locked-chapter check ran in PREVIEW
+builds too, where it asks whether a deliberately single-chapter local build contains
+every locked chapter. From the second chapter onward the answer is always no. So the
+web build G2 owns could not pass until the chapter locked at Stage 9, **three steps
+after G2's own position at 10 of 13**. Chapter 1 never exposed it because its G2 and
+its lock were ticked on the same day. The check is now skipped in preview builds,
+where the noindex check beside it was already preview-aware, and the publish path was
+negative-tested and still fails on a genuinely missing locked chapter.
+
+**The self-test grew a guard on its own inputs at the same time.** It CONSUMES
+`build/web` and does not build it, and CLAUDE.md instructs a reader to run it after
+any change to `web_build.py`, which does not build it either. Run standalone against
+a stale directory the W6 control died on a missing `ch01/index.html` and **the W9a
+CLEAN BASELINE reported a MISS**, which reads exactly like a gate defect and is not
+one. 115 of 115 controls pass against a correct tree.
+
+
 ---
 
 ## Gate G3. Continuity gate
@@ -1382,6 +1501,35 @@ Status: [ ]        Date cleared:
 - [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
+
+### RUN 2026-08-29. G3 PASSES, ALL SEVEN CHECKS.
+
+`python3 continuity.py <live> --chapter 2` reports PASSED: no term redefined that an
+earlier chapter owns, 14 forward references made, 1 registry gloss with no drift, 0
+Founding Questions misquoted, 0 maturity stage names used, and no Northmoor data
+cited.
+
+**ITS ONE FAILURE WAS CHAPTER 1's INTERLEAVING PROMISE, AND IT IS PAID IN SUBSTANCE.**
+The ledger carried "This is the first chapter; problem sets begin reaching back to
+earlier chapters in Chapter 2" as open. **It was verified against the chapter rather
+than assumed**: discussion question 4 names Chapter 1's flat-price result and asks the
+reader to use it, and problem P2 turns on the consumption-event unit and the seat
+forecast, both Chapter 1 results. Marked paid with `continuity.py --pay 2`.
+
+**The remaining notes are Stage 9 actions and are correct as they stand.** The 14
+forward references are unlogged and THM-004 has no gloss recorded; both are written
+by `continuity.py --update` at lock, which is what the last box in this list says.
+
+**THE BOX STAYS OPEN, AND G3 IS THE CLOSEST OF THE THREE TO TICKABLE.** It is the
+least pagination-dependent of them, since it reads terms, references, promises and
+glosses rather than a rendered page. **It is not fully independent either**: gate W8a
+requires the ledger's definition of a term to be character-identical to the chapter's
+key-term text, so a copy edit that touches any of the six key terms breaks it. That
+is an argument for ticking it, since a tick makes the check BIND and a Stage 6
+regression would fail immediately rather than at the next time somebody looks. It is
+left for Dan because ticking G3 while G2 is open puts the record out of order, and
+the order is his.
+
 
 ---
 
