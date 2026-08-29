@@ -1543,6 +1543,56 @@ defined after the transaction-versus-flow contrast, cost-value asymmetry after 2
 derives the one-sided accrual, and the three-flow mapping after all three flows and
 their health tests are built.
 
+### THE SECOND MODEL's C1 AND C2 APPLIED ON DAN's RULING, 2026-08-29. SECTION 2.3 IS NOW ONE OF THE CHAPTER's STRONGEST.
+
+**Both were the reviewer's own findings, both landed in 2.3, and both remedies were
+available from material the chapter already had.** Two sentences added, nothing cut.
+
+**C1, the abstraction that never reached its instance.** The reviewer's charge was that
+2.3 runs entirely on placeholders while sitting one page from the chapter's best
+instance, and that "an annual budget exhausted in April IS a project funding event
+meeting a flow, yet 2.3 never reaches one page back to say so." Added after "The
+spending is a continuous process":
+
+> The opening case is that mismatch at full size: an annual budget, consumed four
+> months into the year.
+
+**It refers to the case rather than asserting the fact independently**, which is why it
+carries no citation marker and introduces no new empirical claim. The figure is row A1,
+which Dan verified against Forbes.
+
+**C2, the mechanism deferred whole.** F9 had already cut "Chapter 10 sets the interval
+and the mechanism" as a paragraph-terminal pointer, which removed the deferral and left
+the logic still unstated. The reviewer's remedy was one clause stating the interval's
+logic without pre-empting Chapter 10:
+
+> A review interval is useful only if it is shorter than the time in which spending can
+> change by an amount somebody would act on.
+
+**No number, no mechanism, no Chapter 10.** It is a structural consequence of what 2.2
+already establishes, that the three flows move at different speeds and a single interval
+is wrong for at least one of them.
+
+**2.3 WENT FROM THE REVIEWER's WEAKEST SECTION ON TWO CRITERIA TO 13.2 MEAN WITH 45 PER
+CENT SHORT SENTENCES**, which is below Chapter 1's own 14.3 mean. Chapter level is
+unchanged at 15.6 and 34 per cent, because two sentences cannot move a 444-sentence
+distribution.
+
+**S4-1 RECORDS A COUPLING THAT NOTHING MECHANICAL CAN SEE.** Section 2.3 now restates a
+figure that lives in the opening case. **If the April timing is ever corrected, this
+sentence changes with it, and no gate will say so**, because both forms are grammatical
+and neither is a forbidden string. The entry is REVIEW-only for exactly that reason.
+
+**THE SPLICE SWEEP WAS RE-RUN**, because the last batch of edits introduced one that
+every gate passed. Zero instances of a comma followed by a capitalised non-proper word.
+
+**WHAT IS STILL OPEN.** F1, which has no in-chapter remedy and belongs to Chapter 6's
+supply obligation. F4 and the reviewer's C4 in part, since the mean is 1.3 words above
+Chapter 1. And the reviewer's C6 note on "fills a slide", which Dan has not ruled.
+
+**Verified after the edits**: W14 pass at 12 rulings, voicecheck mechanical and house
+style pass, all fifteen print gates pass, web build pass, G3 pass.
+
 ### F1 THROUGH F7 APPLIED ON DAN's RULING, 2026-08-29. TWO WERE ALREADY CLOSED AND ONE CANNOT BE APPLIED.
 
 | Finding | Outcome |

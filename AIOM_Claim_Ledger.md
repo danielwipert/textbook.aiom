@@ -216,3 +216,9 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - SUPERSEDED-IN-PART 2026-08-29: the title fix landed first and its opening-case form is now FORBIDDEN in turn, because Dan then ruled the executive named and quoted directly. The 2.6 back-reference is unchanged and stays REQUIRED: it is supported by B2, where Dan verified that Macdonald questions the value of the spend repeatedly.
 - REVERSES-IF: the title changes, or a source shows Andrew Macdonald did not hold both roles at the time of the interview. Dan verified the title at Stage 3 on 2026-08-29.
 - REVIEW: **TWO sentences carry this title and both were corrected together.** The opening case has one and section 2.6 has the other. A later edit that fixes only one reintroduces exactly the drift this ledger exists to catch, and neither sentence is near the other in the file.
+
+### S4-1 :: section 2.3 now depends on the opening case's figure :: 2026-08-29 :: Stage 4
+- SOURCE-KEY: uber-2026-budget
+- REQUIRED: The opening case is that mismatch at full size: an annual budget, consumed four months into the year.
+- REVIEW: **THIS SENTENCE RESTATES A FIGURE THAT LIVES IN THE OPENING CASE**, added at Stage 4 to close the second model's C1 finding that section 2.3 ran entirely on placeholders while sitting one page from the chapter's best instance. It refers to the case rather than asserting the fact independently, which is why it carries no citation marker. **If the opening case's timing ever changes, this sentence changes with it**, and nothing mechanical will say so, because both forms are grammatical and neither is a forbidden string.
+- REVERSES-IF: the April timing is corrected at Stage 7. Dan verified it at Stage 3 as row A1.
