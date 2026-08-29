@@ -116,7 +116,7 @@ promise was kept.
 | From | To | Promise | Status |
 |---|---|---|---|
 
-| 1 | 2 | This is the first chapter; problem sets begin reaching back to earlier chapters in Chapter 2. | open |
+| 1 | 2 | This is the first chapter; problem sets begin reaching back to earlier chapters in Chapter 2. | paid |
 | 1 | 3 | Each of these subjects has its own purpose and literature, and Chapter 3 explains where each ends and AI Operations Management begins. | open |
 | 1 | 4 | Chapter 4 examines these instruments in detail. | open |
 | 1 | 6 | It returns in Chapter 6 as the book’s anchor case on realized value. | open |

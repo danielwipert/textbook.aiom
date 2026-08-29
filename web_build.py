@@ -1129,12 +1129,22 @@ def gate_w10(outdir, metas, notes, preview, llms="", base_path=""):
     fails = [n for n in notes if "FAIL" in n]
     fails = [f"W10: {f}" for f in fails]
 
-    locked = set(locked_chapters())
-    built = {int(m["chapter_number"]) for m in metas if m["chapter_number"]}
-    missing = sorted(locked - built)
-    if missing:
-        fails.append(f"W10: chapter(s) {missing} are locked but were not built, "
-                     f"so the deploy would silently omit them")
+    # THE LOCKED-CHAPTER CHECK IS A DEPLOY QUESTION AND A PREVIEW IS NOT A
+    # DEPLOY. Until 2026-08-29 it ran in preview builds too, where it asks
+    # whether a deliberately single-chapter local build contains every locked
+    # chapter. The answer is always no from the second chapter onward, so
+    # **GATE G2 COULD NEVER PASS ON AN IN-FLIGHT CHAPTER**, while the process
+    # puts G2 at position 10 of 13, three steps BEFORE the lock at Stage 9 that
+    # would make it passable. Chapter 1 never exposed this because its G2 and
+    # its lock were ticked on the same day. The noindex check three blocks down
+    # was already preview-aware; this one was not.
+    if not preview:
+        locked = set(locked_chapters())
+        built = {int(m["chapter_number"]) for m in metas if m["chapter_number"]}
+        missing = sorted(locked - built)
+        if missing:
+            fails.append(f"W10: chapter(s) {missing} are locked but were not built, "
+                         f"so the deploy would silently omit them")
 
     for m in metas:
         page = os.path.join(outdir, m["slug"], "index.html")

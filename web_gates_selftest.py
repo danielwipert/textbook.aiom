@@ -667,7 +667,47 @@ def _w16_controls(results):
     shutil.rmtree(tmp, ignore_errors=True)
 
 
+def require_site_build():
+    """The self-test CONSUMES build/web and does not build it. Say so loudly.
+
+    Six control groups read `src = "build/web"`, which `.github/workflows/web.yml`
+    builds immediately before invoking this file. **CLAUDE.md tells a reader to run
+    this file after any change to `web_build.py`, and following that instruction
+    directly does not build it**, so the run picks up whatever the directory
+    happens to hold. On 2026-08-29 it held a single-chapter preview: the W6 control
+    died with a FileNotFoundError on ch01/index.html, and the W9a CLEAN BASELINE
+    reported a MISS, which reads exactly like a gate defect and is not one. A
+    control that misreports because of its own stale input is worse than one that
+    crashes, because somebody goes hunting.
+    """
+    missing = []
+    if not os.path.isdir("build/web"):
+        missing.append("build/web does not exist")
+    else:
+        for n in locked_chapter_numbers():
+            if not os.path.exists(os.path.join("build/web", f"ch{n:02d}",
+                                               "index.html")):
+                missing.append(f"build/web is missing ch{n:02d}/index.html")
+    if missing:
+        print("SELFTEST CANNOT RUN. Its inputs are not built.\n")
+        for m in missing:
+            print(f"  {m}")
+        print("\n  Build the site first, which is what CI does:\n")
+        print("    python3 web_build.py --site --out build/web \\")
+        print("      --base-url https://aioperationsmanagement.ai\n")
+        print("  A stale build/web does not fail cleanly: it makes the W9a")
+        print("  baseline report a MISS that looks like a gate defect.")
+        return False
+    return True
+
+
+def locked_chapter_numbers():
+    return sorted(wb.locked_chapters())
+
+
 def main():
+    if not require_site_build():
+        return 2
     # pdf=False: this render feeds the W1 to W5 controls, which are about text
     # and markup. The print edition has its own section at the end and does its
     # own render there, so paying six seconds for a PDF nothing here reads would
