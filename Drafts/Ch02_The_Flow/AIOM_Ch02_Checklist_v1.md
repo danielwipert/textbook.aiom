@@ -1592,6 +1592,19 @@ step in parallel: `AIOM_Ch02_Stage4_secondmodel_prompt.md`,
 `AIOM_Ch02_prose_for_craft_review.md`, and `ch02_craft_criteria_extract.md`, which
 is sections 26 and 27 of the standard and nothing else from it.
 
+**THE EXEMPLAR IS NOW AN EXTRACT, NOT THE CHAPTER 1 HTML, CORRECTED 2026-08-29 BEFORE
+THE PACKAGE WAS SENT.** The prompt originally attached
+`AIOM_Ch01_redraft.html`, which would have set clean Chapter 2 prose beside Chapter 1
+MARKUP and made every comparison of rhythm, paragraph close and sentence length answer
+a question nobody asked. **That is the defect gate W9 was fixed for on 2026-08-22**, a
+text lifted under one rule compared against text extracted under another, and it is the
+third time that shape has appeared in this project. Worse, Chapter 1's HTML carries its
+Decision 51 source register, whose notes quote sentences the book CUT, six of them
+introduced by "the sentence now reads": a reviewer reading those would have been
+reading withdrawn prose as if it were the exemplar. `ch01_prose_exemplar.md` is the
+same `prose_extract.py` output Chapter 2 gets, and it was checked for register leakage
+rather than assumed clean.
+
 **THE PROMPT ATTACHES THE LOCKED CHAPTER 1 AND CHAPTER 1's VERSION DID NOT.** The
 standard's band is now measured from Chapter 1 rather than from four journalists, so
 a reviewer can calibrate against the book's own prose. It also asks a question

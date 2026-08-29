@@ -10,12 +10,23 @@ same way.
 
     Drafts/Ch02_The_Flow/05_Stage4_Voice_And_Craft_Check/AIOM_Ch02_prose_for_craft_review.md
     Drafts/Ch02_The_Flow/05_Stage4_Voice_And_Craft_Check/ch02_craft_criteria_extract.md
-    Drafts/Ch01_The_Category_Error/00_Stage0_Draft/AIOM_Ch01_redraft.html
+    Drafts/Ch02_The_Flow/05_Stage4_Voice_And_Craft_Check/ch01_prose_exemplar.md
 
 **The third file is the exemplar, and attaching it is the change from Chapter 1's
 version of this prompt.** The standard's band is measured from the locked Chapter 1
 rather than from four journalists, so the reviewer can now calibrate against the
 book's own prose instead of against an outside register.
+
+**BOTH CHAPTERS GO THROUGH THE SAME EXTRACTOR, AND THE FIRST DRAFT OF THIS PROMPT
+GOT THAT WRONG.** It attached Chapter 1's raw HTML, which would have set clean
+Chapter 2 prose beside Chapter 1 markup and made every comparison of rhythm,
+paragraph close and sentence length answer a question nobody asked. **That is the
+defect gate W9 was fixed for on 2026-08-22**, a text lifted under one rule compared
+against text extracted under another. Worse, Chapter 1's HTML carries its Decision
+51 source register, whose notes quote sentences the book CUT, six of them introduced
+by "the sentence now reads". A reviewer reading those would be reading withdrawn
+prose as if it were the exemplar. The extract carries none of it, checked rather
+than assumed.
 
 **Do NOT attach this checklist and do not paste F1 through F7 into the
 conversation.** The point is an independent read. Claude's findings are read after
@@ -27,7 +38,8 @@ the reviewer's own, never before.
 > standard. Chapter 2 is the chapter under review. The standard's seven criteria,
 > C1 through C7, are attached as a short extract. The third file is Chapter 1 of
 > the same book, which is locked and published and is the exemplar the standard's
-> numeric band was measured from.
+> numeric band was measured from. Both chapters are given to you as prose, prepared
+> the same way, so you can compare them directly.
 >
 > Three warnings about this task. First, **the standard was written partly by
 > generalizing from Chapter 1's prose**, so calibrate against Chapter 1 and not
