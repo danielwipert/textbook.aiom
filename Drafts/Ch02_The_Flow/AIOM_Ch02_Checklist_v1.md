@@ -1082,6 +1082,158 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+### CLAUDE's CRAFT READ, 2026-08-29. RUN AHEAD OF STAGE 3 ON DAN's RULING.
+
+**Dan ruled this step run in parallel with his Stage 3 rather than after it**, to
+collapse four of his sittings to three. **THE COST IS BOOKED HERE RATHER THAN
+DISCOVERED LATER**: the five uncited claims sit in 2.4, 2.7, the craft section twice
+and P3, so whatever Dan rules there invalidates the read of those passages and they
+are re-read before this step is ticked. Nothing else in the chapter is exposed to
+those rulings.
+
+**THE MECHANICAL HALF PASSES.** `voicecheck.py` reports Stage 4 mechanical PASS and
+house style PASS: zero em dashes, zero contractions, zero question marks outside
+discussion prompts, zero first or second person in unmarked body prose, zero
+straight marks, no paragraph over 150 words, antithesis at budget with 3 of 3, and
+no defined term differing from its key term.
+
+**F1, C1 concrete particular.** Weakest passage, the craft section's contrast case:
+
+> A retailer deploys an AI assistant to two hundred customer-service agents.
+
+The retailer is unnamed and constructed, and it carries real weight as the only
+fully managed example in the chapter, the counterweight to Uber. Uber is named and
+dated and the DTA trial in P3 is a named real deployment, so the chapter is not
+short of particulars; the weakness is that the ONE example showing what success
+looks like is the one that is invented. **This is a finding and not a defect**,
+because the fifty-year rule constrains named particulars to cases and the chapter
+labels the construction. The remedy if Dan wants one is the case bank, and it is
+Chapter 6's supply obligation rather than this chapter's.
+
+**F2, C2 context and stakes.** **Strongest criterion in the chapter**, and section
+2.5 is the exemplar: it states three structural reasons the record flow is skipped,
+what each settles, and why the remedy is a decision rather than a habit. Weakest
+passage, in the craft section:
+
+> Two failure modes recur when organizations run this mapping on themselves, and
+> both are worth naming in advance.
+
+**The three-flow mapping is this book's own construct, introduced on the previous
+page.** No organization has run it, so no recurrence can have been observed. The
+passage states what the failure modes are without stating the conditions under
+which they were seen, because there are none to state. This is C2's "conditions
+that made it available" failing at the point where the chapter is most exposed, and
+it is also a standing rule 2 exposure that Stage 1's sweep did not list. **Raised
+now so Dan can rule it with the other frequency claims rather than meet it at
+Stage 7.**
+
+**F3, C3 claim first.** Two existential openers, both flagged by the proxy. Weakest:
+
+> There is a second consequence, and it is the one that reaches the value side.
+
+The actual claim arrives a full sentence later, at "A project business case states a
+benefit at the moment of approval, when nobody can check it." The same section
+opens strongly at "Most AI deployments are funded the way projects are funded", so
+the chapter demonstrates the fix two paragraphs above the failure. The second
+instance, "There is a reason organizations reach for adoption figures at this point,
+and it is not laziness", is the milder of the two because its second clause carries
+real content.
+
+**F4, C4 deliberate rhythm.** **The chapter sits above the exemplar band on every
+measure**: mean sentence 15.8 words against Chapter 1's 14.3, median 15 against 14,
+standard deviation 7.3 against 6.1, 32 per cent under 12 words against 36, and one
+sentence at 37 words where Chapter 1 has none over 35. All of that is inside the 12
+to 24 band section 15 prescribes, so the chapter is not out of standard; it is
+consistently heavier than the book's own exemplar. **Weakest, and it is the two
+CLOSING slots.** Key terms runs mean 19.4, standard deviation 4.8 and ZERO short
+sentences, against Chapter 1's key terms at 16.0, 5.9 and 12 per cent, and Chapter 2
+spends 11 sentences where Chapter 1 spends 17 on the same six entries. The summary
+shows the same shape at 17.1 mean and 27 per cent short, against Chapter 1's 12.5
+and 50 per cent. **Both are slots the reader reaches last and tired**, which is the
+worst place in the chapter to be densest.
+
+**F5, C5 paragraph close.** The criterion bans closing on a cross-reference and five
+paragraphs do it. Weakest:
+
+> Figure 2.2 sets the two quantities against the scope each covers.
+
+It hands the reader a pointer instead of the point. **IT IS ALSO THE SENTENCE THAT
+LEFT PAGE 11 A THIRD EMPTY FOR SIX DAYS**, recorded at the close of Stage 2 and
+graduated into CLAUDE.md section 6. The craft defect and the pagination defect are
+the same sentence, which is worth stating because the two were found by different
+methods and neither found the other. The other four are Chapter 3, Chapter 10 and
+Chapter 8 pointers, all of them legitimate forward references sitting in the wrong
+position in their paragraph.
+
+**F6, C6 the guard.** **It holds in the villain direction and does so
+deliberately.** "That is rarely dishonest" and "it is not laziness" each block a
+character-driven reading at the exact point one is available, which is the guard
+working rather than the guard being untested. Weakest in the false-sophistication
+direction, in the chapter summary:
+
+> and the load-bearing word is unknown
+
+**The chapter already has the ordinary phrasing and uses it**: section 2.6 says "The
+word doing the work in that sentence is unknown, not small." The summary then
+reaches for "load-bearing", which is this project's own production vocabulary rather
+than ordinary business language, to say the same thing. C6's second direction is an
+abstraction where an ordinary word is available, and here the ordinary word is not
+merely available, it is thirty lines up in the same chapter.
+
+**F7, C7 business reality first.** Weakest opener:
+
+> The consequence of the asymmetry is the sentence a manager should carry out of
+> this chapter.
+
+It opens on a conceptual label and then on the chapter's own apparatus, where a
+business statement is available: the section's own title, "All of the cost, an
+unknown fraction of the value", is the business statement. Compare 2.3's opener,
+"Most AI deployments are funded the way projects are funded." **On the second half
+of C7 the chapter is clean**: every coined term arrives after its mechanism. Flow is
+defined after the transaction-versus-flow contrast, cost-value asymmetry after 2.4
+derives the one-sided accrual, and the three-flow mapping after all three flows and
+their health tests are built.
+
+### THE SECOND-MODEL PACKAGE IS BUILT AND UNSENT, 2026-08-29
+
+**Three files in `05_Stage4_Voice_And_Craft_Check/`**, built so Dan can run the
+gut-check in the SAME sitting as Stage 3, which is the whole point of running this
+step in parallel: `AIOM_Ch02_Stage4_secondmodel_prompt.md`,
+`AIOM_Ch02_prose_for_craft_review.md`, and `ch02_craft_criteria_extract.md`, which
+is sections 26 and 27 of the standard and nothing else from it.
+
+**THE PROMPT ATTACHES THE LOCKED CHAPTER 1 AND CHAPTER 1's VERSION DID NOT.** The
+standard's band is now measured from Chapter 1 rather than from four journalists, so
+a reviewer can calibrate against the book's own prose. It also asks a question
+Chapter 1's prompt did not: **read the two chapters back to back and say whether
+they sound like the same book.** F4 says they measurably do not, and a second model
+that names a different section as the heavy one is giving new information.
+
+**Sourcing is declared out of bounds in the prompt**, because Stage 3 is open and
+every figure is formally unverified.
+
+### A SEPARATE FINDING THAT BELONGS TO STAGE 3, RAISED HERE BECAUSE STAGE 4 FOUND IT
+
+**STAGE 1's FREQUENCY SWEEP WAS INCOMPLETE, AND THE READ FOUND THREE MORE.** Stage 1
+listed five uncited claims about what organizations usually do and cleared a sixth
+on the ground that section 2.5 derives it. A sweep run at this step over a wider
+pattern returns about eleven candidates, most of them derived in their own sentence
+or in their own section and therefore clean by Stage 1's own reasoning. **Three are
+not:**
+
+- **"it is usually the only document stating what the deployment was supposed to
+  achieve"** (2.3). Nothing in the chapter derives it.
+- **"the usual answer is that it crossed some time ago"** (2.8). It asserts that
+  most deployments have already passed THM-004's scale antecedent, which is a
+  stronger claim than any of Stage 1's five and sits in the limits section.
+- **"Two failure modes recur when organizations run this mapping on themselves"**
+  (craft), which is F2 above and is the worst of the three, because the recurrence
+  is claimed for a diagnostic the book itself introduces.
+
+**These are Stage 3's to rule, not Stage 4's**, and they are recorded here so Dan
+rules eight rather than five and does not meet the remaining three at Stage 7.
+Standing rule 2 is not a lifecycle step an adjacent step can absorb.
+
 ---
 
 ## Stage 6. Copy edit
