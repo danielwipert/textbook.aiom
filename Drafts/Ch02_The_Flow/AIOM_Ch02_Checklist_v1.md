@@ -1035,6 +1035,56 @@ never performed that check and a Chapter 1 measurement taken by hand was being
 printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
 6 footnotes and its 8 live rulings correctly.
 
+### EXTERNAL CHECK 1 RECEIVED 2026-08-29. IT CANNOT CLEAR THIS STEP AND SAYS SO ITSELF.
+
+**Recorded verbatim, punctuation only altered, in
+`04_Stage3_Source_Fact_Check_1/AIOM_Ch02_Stage3_externalcheck_1.md`, with Claude's
+assessment in its own marked section. Dan rules all of it; Claude rules none.**
+
+**THE REVIEWER HAD NO WEB ACCESS**, which puts it in exactly Claude's position and
+which is why CLAUDE.md calls Stages 3 and 7 structurally external. It read no primary,
+so **it moved no entry off Grade C.** Five findings: three accepted, two rejected.
+
+- **S3-R1, REJECTED. The DTA trial is not verified.** The reviewer marks it "VERIFIED,
+  passes" and offers "around sixty agencies", "several thousand licences", "priced per
+  seat". **The chapter says all three of those sentences in P3.** It read them and
+  reported that its recollection agrees. That is circular, and it is the confirmatory
+  shape Chapter 1's withdrawn craft review already cost this project once. The
+  register note for `dta-copilot-2024` records the opposite of convergence: agency
+  counts of 56, almost 60 and more than 60 all appear. **A confident "around sixty"
+  from an unsourced recollection is the signature of one upstream number repeated**,
+  which is the exact reasoning on which Dan withdrew the adoption percentages.
+- **S3-R2, REJECTED. The chapter does not disclose a pending-verification status.**
+  Two findings credit it with "the book's own stamp". Measured against the shipped
+  render: **zero occurrences of "pending verification", "unverified" or "Grade C".**
+  The reviewer was reading the PACKET, which reproduces every register note verbatim
+  and those notes carry both phrases. Its "[1]" citations point at the packet rather
+  than the book. Worth recording rather than shrugging off, because gate W9b exists to
+  keep the `note` field off every published surface and a checker mistaking it for the
+  book is that confusion running the other way.
+- **S3-1, ACCEPTED. Footnote 3 contradicts the sentence it annotates.** The note reads
+  "Reported adoption, not quantified" against a sentence reading "about a third of the
+  engineering organization was using it". The gloss is what is wrong: it was written to
+  mean no PERCENTAGE is given, and it should say that. Needs no source.
+- **S3-2, ACCEPTED. Footnotes 3 and 4 name no outlet.** Correct as a press standard,
+  and the absence is Dan's own 2026-08-21 ruling, since no single source could be
+  attributed and standing rule 2 has no option for citing one you cannot name. **The
+  real question is whether a footnote should exist where no document is cited.** Three
+  options are set out in the file: drop the markers, name the outlets (external work),
+  or keep them and reword the gloss to say plainly that no source could be attributed.
+- **S3-3, ACCEPTED, remedy already booked.** "MIT NANDA" reads thin and wants a real
+  author line. That is exactly what the entry's `upgrade` field already says it needs.
+  Its value is that an independent reader stopped where the register already marks.
+
+**S3-1 and S3-2 pair and should be ruled together.** Both are about the same two
+footnotes and option (c) on S3-2 resolves S3-1 in the same edit.
+
+**THE REVIEWER'S BOTTOM LINE STANDS AND NOTHING ABOVE CHANGES IT.** It would not clear
+this to press until the Forbes and Fortune pieces are produced. Neither would Claude,
+and neither does the register. **A second external check with the same absence of web
+access will produce the same class of result**, so the useful second one is a checker
+with source access or a human at a terminal with the two articles open.
+
 ### DAN RULED ALL EIGHT AND THEY ARE APPLIED, 2026-08-29. STAGE 3 STAYS OPEN.
 
 **Dan ruled "apply your recommendations on all eight claims".** Five carried a
