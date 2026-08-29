@@ -116,25 +116,34 @@ adoption percentages on 2026-08-21.
 
 The entry stays Grade C and UNVERIFIED. Nobody has read the evaluation.
 
-### REJECTED. S3-R2, the chapter does not disclose a pending-verification status, and the reviewer was reading the packet.
+### WITHDRAWN 2026-08-29, THE SAME DAY IT WAS RAISED. S3-R2 WAS CLAUDE'S ERROR, NOT THE REVIEWER'S.
 
-Finding 5 credits the chapter with disclosing "its own pending-verification status",
-and finding 2 says "which is exactly what the book's own stamp says". **Measured
-against the shipped render: zero occurrences of "pending verification", zero of
-"unverified", zero of "Grade C".** No such stamp exists in the book.
+**The rejection is withdrawn in full. The reviewer was right.** Findings 2 and 5 say
+the chapter discloses its own pending-verification status, and it does. **The
+provenance line on page 1 reads: "Dated: December 2025 to May 2026. Figures and dates
+are drawn from press reporting of a paywalled primary account and are pending source
+verification. See the source register."**
 
-What the reviewer read is the Stage 3 PACKET, which reproduces every register note
-verbatim, and those notes carry "UNVERIFIED" and "Grade C". So its "[1]" citations
-point at the packet rather than at the chapter, and at least one of its conclusions
-about what a reader sees is wrong. **This is worth recording rather than shrugging
-off**, because the register `note` field is the fact checkers' working record and gate
-W9b exists to keep it off every published surface. A checker mistaking it for the book
-is the same confusion in the other direction.
+**THE REJECTION RESTED ON A GREP FOR THE WRONG STRING.** It searched the render for
+"pending verification" and for "unverified", and the chapter says "pending SOURCE
+verification". One intervening word, zero matches, and a confident "no such stamp
+exists in the book" written on top of it. **This is the failure this repository
+documents more than any other: a check that reads green while measuring something
+other than what it claims**, and it is worse here than in the tooling, because the
+output was not a gate but a ruling handed to Dan.
 
-**It also means the reviewer's praise in finding 5 is partly praise of the audit
-apparatus, not of the chapter.** The three other items in that finding are real: the
-worked example IS labelled stipulated, section 2.8 DOES say the chapter asserts
-nothing about how much value a deployment produces, and the COO sentence IS qualified.
+**What the original rejection got right is only that the packet also carries
+"UNVERIFIED" and "Grade C".** That is true and irrelevant: the reviewer did not use
+either phrase about the chapter, and the phrase it did use is in the book, on page 1,
+in the amber provenance line gate 7 exists to guarantee.
+
+**The rest of finding 5 stands too, and was never in dispute**: the worked example is
+labelled stipulated, section 2.8 says outright that the chapter asserts nothing about
+how much value a deployment produces, and the executive sentence is qualified.
+
+**S3-R1, the DTA rejection, is unaffected.** Its reasoning is independent of this one
+and still holds: that finding is a model with no source access reporting that its
+recollection agrees with three sentences it had just read.
 
 ### ACCEPTED. S3-1, footnote 3 contradicts the sentence it annotates. Cheap, and needs no source.
 

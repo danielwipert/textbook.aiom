@@ -1035,6 +1035,32 @@ never performed that check and a Chapter 1 measurement taken by hand was being
 printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
 6 footnotes and its 8 live rulings correctly.
 
+### THE SOURCE VERIFICATION SHEET IS BUILT, 2026-08-29.
+
+**`AIOM_Ch02_Stage3_verification_sheet.md`.** Nine numbered rows across the two
+articles, each pairing a sentence quoted from the live text with what to check and a
+blank verdict. **Every quotation was verified as a verbatim substring of the chapter
+rather than retyped from memory**, which is the direct lesson of the S3-R2 error
+recorded below; the two that failed that check were correct fragments carrying a
+terminal period where the chapter has a comma and a colon, and were trimmed.
+
+**IT SEPARATES THE FIGURES FROM THE INFERENCES, WHICH IS WHERE THIS BOOK'S DAMAGE
+HAPPENS.** A2 and A5 are the two Forbes rows that are not numbers: whether the article
+supports "no contract had been renegotiated and no vendor had raised a price", and
+whether it attributes the cost variation to workload. **Chapter 1's FC9 was exactly
+this shape**, an absorbed-cost mechanism inferred from a source that did not state it,
+cut at Stage 7.
+
+**B1 IS THE ROW THAT DOES NOT DEGRADE.** If the COO question cannot be confirmed as
+public, with a venue and a date, the paragraph and problem P1 need rework rather than
+a looser number, which is what the register note already says.
+
+**Section C lists what needs no verdict**, because each is already marked in the
+chapter as not established or is the chapter's own argument. Section D records that
+Forbes and Fortune are both SECONDARY, so confirming them establishes that the
+reporting says what the chapter says it says and not that the underlying facts hold.
+Only The Information moves `uber-2026-budget` off Grade C.
+
 ### S3-1 AND S3-2 RULED AND APPLIED, 2026-08-29. DAN TOOK OPTION (C).
 
 **Ruled together, because option (c) resolves both in one edit.** The markers stay,
@@ -1088,14 +1114,17 @@ so **it moved no entry off Grade C.** Five findings: three accepted, two rejecte
   counts of 56, almost 60 and more than 60 all appear. **A confident "around sixty"
   from an unsourced recollection is the signature of one upstream number repeated**,
   which is the exact reasoning on which Dan withdrew the adoption percentages.
-- **S3-R2, REJECTED. The chapter does not disclose a pending-verification status.**
-  Two findings credit it with "the book's own stamp". Measured against the shipped
-  render: **zero occurrences of "pending verification", "unverified" or "Grade C".**
-  The reviewer was reading the PACKET, which reproduces every register note verbatim
-  and those notes carry both phrases. Its "[1]" citations point at the packet rather
-  than the book. Worth recording rather than shrugging off, because gate W9b exists to
-  keep the `note` field off every published surface and a checker mistaking it for the
-  book is that confusion running the other way.
+- **S3-R2, WITHDRAWN THE SAME DAY. This one was Claude's error and the reviewer was
+  right.** The rejection said the chapter carries no pending-verification stamp,
+  measured by grepping the render for "pending verification" and "unverified".
+  **The provenance line on page 1 says "pending SOURCE verification".** One
+  intervening word, zero matches, and a ruling handed to Dan on top of it. The
+  reviewer's findings 2 and 5 are correct and stand in full, along with the rest of
+  finding 5: the worked example is labelled stipulated, 2.8 asserts nothing about how
+  much value a deployment produces, and the executive sentence is qualified. **This is
+  the failure this repository records more than any other, a check reading green while
+  measuring the wrong thing, and here it was not a gate but a ruling.** S3-R1 is
+  unaffected; its reasoning is independent.
 - **S3-1, ACCEPTED. Footnote 3 contradicts the sentence it annotates.** The note reads
   "Reported adoption, not quantified" against a sentence reading "about a third of the
   engineering organization was using it". The gloss is what is wrong: it was written to
