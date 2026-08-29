@@ -1035,6 +1035,40 @@ never performed that check and a Chapter 1 measurement taken by hand was being
 printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
 6 footnotes and its 8 live rulings correctly.
 
+### S3-1 AND S3-2 RULED AND APPLIED, 2026-08-29. DAN TOOK OPTION (C).
+
+**Ruled together, because option (c) resolves both in one edit.** The markers stay,
+and the gloss now says plainly that no single source could be attributed and why.
+
+- **Footnote 3** was "Reported adoption, not quantified. See the register." It now
+  reads "Consistent values across several outlets with no consistent attribution, so
+  no single source is named. The adoption is characterized rather than given as a
+  percentage." **The contradiction is gone**: the old note said "not quantified"
+  against a sentence saying "about a third".
+- **Footnote 4** was "Reported share of committed code." It now reads "Characterized
+  rather than quantified, for the same reason."
+
+**S3-3 is NOT applied and cannot be**, because its remedy is the MIT report itself.
+
+**THE FIRST WORDING FAILED GATE 8 AND THAT IS RECORDED RATHER THAN QUIETLY FIXED.**
+The glosses were longer than what shipped, and the taller footnote block on page 3
+separated **footnote 6** from its call across the page 3 to 4 boundary. Footnote 6 is
+the Fortune entry, which is nothing to do with the sentences edited. **This is the
+coupling CLAUDE.md records twice on Chapter 1, where a one-sentence reorder pushed
+footnotes off their calling pages eleven pages later.** The remedy was to tighten the
+glosses, which the prose wanted anyway; it was not to reword the sentence, and it was
+found by building rather than by reasoning.
+
+**Both rulings are in `AIOM_Claim_Ledger.md` as S3-1 and S3-2**, so W14 holds them
+through Stage 6. The gloss text sits inside the `<cite>` element and `claimcheck`'s
+body reader reaches it, which was verified rather than assumed before the entries
+were written. S3-2 also carries a REVIEW field, because a later reader WILL raise the
+unattributed citation again and the record needs to say that naming an outlet is not
+the remedy.
+
+**Verified after the edits**: all fifteen print gates pass, page fill clean, W14 pass
+at 10 rulings, voicecheck pass, web build pass, G3 pass.
+
 ### EXTERNAL CHECK 1 RECEIVED 2026-08-29. IT CANNOT CLEAR THIS STEP AND SAYS SO ITSELF.
 
 **Recorded verbatim, punctuation only altered, in

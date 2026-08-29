@@ -190,3 +190,14 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - REQUIRED: Two failure modes follow from the distinctions already drawn, and both are worth naming in advance.
 - REVIEW: the two failure modes must continue to follow from distinctions the chapter draws EARLIER than this passage. The first rests on 2.2's division of what belongs to the buyer, the second on 2.6's separation of adoption from value. If either moves after the craft section, this sentence loses its support and reverts to an unsupported claim.
 - REVERSES-IF: an observational base for the recurrence. **There cannot be one yet.** The three-flow mapping is this book's own construct, introduced on the page before, so no organization has run it and no recurrence can have been observed. This was the worst of the eight for that reason.
+
+### S3-1 :: adoption gloss no longer contradicts its sentence :: 2026-08-29 :: Stage 3
+- FORBIDDEN: Reported adoption, not quantified. See the register.
+- REQUIRED: Consistent values across several outlets with no consistent attribution, so no single source is named. The adoption is characterized rather than given as a percentage.
+- REVERSES-IF: nothing about the source. **This is a ruling about the GLOSS, not about the claim.** The old note read "not quantified" against a sentence reading "about a third of the engineering organization was using it", which cannot both stand. It was written to mean that no PERCENTAGE is given, and it now says that. Found by external check 1 on 2026-08-29 as S3-1 and ruled by Dan the same day, option (c) of three.
+
+### S3-2 :: the unattributable citation says so instead of implying a source :: 2026-08-29 :: Stage 3
+- FORBIDDEN: Reported share of committed code.
+- REQUIRED: Characterized rather than quantified, for the same reason.
+- REVIEW: footnotes 3 and 4 deliberately name no outlet, and a later reader WILL raise that again. The container reads "Multiple secondary outlets" because the February and March figures appeared across several outlets with consistent values and no consistent attribution, which is the signature of one upstream source repeated rather than of corroboration. Dan withdrew the percentages on 2026-08-21 rather than invent a citation, and standing rule 2 has no option for citing a source that cannot be named. **The remedy is not to name an outlet. It is that the note now says why none is named.**
+- REVERSES-IF: a single named source for the adoption figures, ideally the primary, which is exactly what the register entry's `upgrade` field asks for. With one, both footnotes get a real citation and both of these rulings retire together.
