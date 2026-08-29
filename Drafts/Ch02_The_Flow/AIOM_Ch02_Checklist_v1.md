@@ -1035,6 +1035,27 @@ never performed that check and a Chapter 1 measurement taken by hand was being
 printed as though it had. Verified by rebuilding Chapter 1's packet, which reports
 6 footnotes and its 8 live rulings correctly.
 
+### THE FIVE UNCITED CLAIMS ARE DRAFTED FOR RULING, 2026-08-29, AND NONE NEEDS A SOURCE
+
+**`AIOM_Ch02_Stage3_rulings_to_make.md` carries all five with options and a
+recommendation. Nothing is applied.** Standing rule 2 allows citation, recasting as
+a formal conditional, or cutting, and the sheet's finding is that **three of the
+five can be recast onto derivations the chapter already contains and two can be cut
+without losing teaching.** Two cuts and three recasts are recommended.
+
+**ITEM 4 IS CLEAN BY AN ARGUMENT STAGE 1 ALREADY ACCEPTED.** Stage 1 ruled a sixth
+candidate clean, "the record flow is skipped most often, and for structural reasons
+rather than careless ones", on the ground that section 2.5 derives it. Anchoring
+item 4's forward reference to the same derivation makes it clean by the same
+reasoning rather than by a new one.
+
+**WHAT THIS DOES TO THE CRITICAL PATH.** If the recommendations are taken, the five
+claims need no source and no external access, and Stage 3's genuinely external work
+is the five register entries alone: two Uber entries with access dates supplied, the
+adoption entry ruled to cite no document, and `mit-nanda-2025` and
+`dta-copilot-2024`, which have no location. **No recast introduces a new claim**, so
+these rulings create no new Stage 7 exposure.
+
 **Mechanical state at handover**: `chapter_check.py Ch02` reports W14 pass,
 voicecheck pass, print pass, registry pass, checklist self-consistent. The web build
 and G3 still report the expected shape for an unlocked chapter, W2 because Chapter 2
