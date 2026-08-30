@@ -1943,17 +1943,17 @@ Standing rule 2 is not a lifecycle step an adjacent step can absorb.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-30
 
 > Line level, on prose that has stopped moving. Decision 24 places this late. Revisit the placement after Chapter 4.
 
 Findings:
 
-### DAN'S COPY EDIT RETURNED AND IMPORTED 2026-08-30. THE BOX STAYS OPEN.
+### DAN'S COPY EDIT RETURNED, IMPORTED AND CLEARED 2026-08-30.
 
-**The import is complete and verified. The step is not cleared**, because the edit
-broke two checks that earlier steps claim, and those are Dan's to rule on. The
-findings are CE1 to CE4 below.
+**The import is complete and verified, every finding was ruled by Dan the same day, and
+every ruling is applied.** W14 and `voicecheck` both pass. The findings are CE1 to CE4
+below, each carrying its ruling.
 
 **What was imported.** `AIOM_Ch02_Stage6_copyedit_DAN_EDIT.docx`, 195 tagged
 paragraphs against 195 exported blocks, no structure change. 102 blocks applied by
@@ -2087,10 +2087,54 @@ alone deliberately: Process v3 puts Stage 5 after Stage 7 precisely so paginatio
 fixed twice, and Stage 7 may move text again. The pre-edit text was rebuilt to attribute
 both failures to the edit rather than assume it, and it passed all fifteen.
 
-**Web: W1 text equivalence passes in both channels**, 44,815 characters of prose and
-nine notes identical between page and print. The only web failures are W14, the same
-eleven, plus W2 and W10, which report that an unlocked chapter is not published and are
-correct.
+**Web: W1 text equivalence passes in both channels**, prose and nine notes identical
+between page and print. The only remaining web failures are W2 and W10, which report
+that an unlocked chapter is not published and that a single-chapter build omits the
+locked Chapter 1. Both are correct and neither is a defect.
+
+### WHAT DAN RULED, 2026-08-30, AND WHAT WAS APPLIED
+
+**CE3, ruled: repair the two reverts, restate the nine.** FQ3 now reads "The missing
+record surprises where the missing value measure does not" and FQ8 reads "Two errors
+follow from these distinctions", each keeping the copy edit's nouns and losing only the
+frequency word. The nine faithful rewordings keep Dan's prose, and the ledger's REQUIRED
+text was updated to the chapter's current wording, dated and attributed, with the old
+form kept as history at each entry.
+
+**Both reverted forms are now FORBIDDEN in turn**, which is the SF8 lesson applied
+rather than restated: neither could be seen by any string when it arrived, and neither
+can return silently again. Their controls fire against a clean baseline and each failure
+is owned by the ruling that carries it. `claimcheck`: 14 required, 16 forbidden, 4
+review-only, PASSED.
+
+**CE4, ruled: apply all six repairs as proposed, and the key-term wording of "flow"
+wins.** The three question marks are recast as statements or indirect questions, the
+three first-person plurals are recast in the third person, and the definition callout
+now carries the key-term text in BOTH sentences rather than only the first. That second
+sentence is worth recording: matching only the sentence `voicecheck` quoted would have
+left callout and key term still disagreeing, and the gate would have failed again on a
+definition that looked fixed. **The winning wording is what goes into the continuity
+ledger at Stage 9**; the ledger holds no Ch02 terms yet, which is why G3 passes and W8a
+is not yet exposed to this.
+
+**The deviation from Dan's proof is bounded and auditable.** After every ruling was
+applied, the 195-block comparison reports exactly 9 blocks differing from the returned
+`.docx`, and each difference is one of the nine repairs above. Nothing else moved.
+
+### WHAT THIS STEP LEAVES OPEN FOR DAN
+
+**This edit is larger than the re-run matrix's copy-edit row contemplates.** That row
+covers a typo or a mark with no meaning change and re-runs G2 alone. 104 of 195 blocks
+changed here and several sections were rewritten, which is the matrix's BODY PROSE row:
+Stage 2, Stage 3, Stage 4, Stage 5 and G2. The mechanical halves of Stage 3 and Stage 4
+are green on the current text, and their JUDGMENT halves were taken on prose that has
+since moved. **Whether that judgment is re-run is Dan's ruling and is not made here.**
+
+One observation for it rather than an argument: the craft metrics moved TOWARD the
+Chapter 1 band rather than away, from a mean sentence of 15.6 words to 14.9 against
+Chapter 1's 14.3, with sentences over 35 words still at zero. **That is F4's residual
+closed, which is what the Stage 6 README asked this step to do**, and it is evidence
+about rhythm only. C2 and C6 have no proxy and cannot be read off any number.
 
 ---
 
