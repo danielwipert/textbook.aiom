@@ -8,17 +8,25 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-30 CLOSE: everything is on `claude/stage-6-copy-edit-1vg58m` at
-`0bae72b`, four commits ahead of `main` and zero behind, pushed, working tree clean and
-`git_hygiene.py` reporting no stranded work beyond that branch.** `main` has not moved;
-merge this branch up before retiring it. **The branch is not merged, so read CI on the
-branch head rather than on `main`.** Several `web` runs can show `cancelled` in the
-listing, which is the concurrency group superseding them and not a failure: `web.yml`
-sets `cancel-in-progress: true`, so a run dies whenever a newer push lands. Read the run
-on the CURRENT head, never the topmost completed one. The old delete still fails with the
-documented 403:
+**AT THE 2026-08-30 CLOSE: everything is merged to `main` at `ae87bbe`, nothing is
+stranded, and NO BRANCH IS OUTSTANDING ON THE REMOTE.** The Stage 6 branch was merged
+fast-forward, `origin/main` verified as an ancestor before the merge rather than after,
+and Dan deleted the branch; `origin/main` is now the only remote branch and
+`git_hygiene.py` reports CLEAN. Working tree clean.
 
-    git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm
+**BOTH WORKFLOWS GREEN, CONFIRMED BY WAITING FOR THEM RATHER THAN AT PUSH TIME.** `web`
+run 108 succeeded on `ae87bbe`, so all seventeen web gates passed and the site published
+from the merged `main`. Several `web` runs can show `cancelled` in the listing, which is
+the concurrency group superseding them and not a failure: `web.yml` sets
+`cancel-in-progress: true`, so a run dies whenever a newer push lands. Read the run on
+the CURRENT head, never the topmost completed one.
+
+**THERE IS NO `chapter` RUN ON `ae87bbe`, AND THAT IS THE PATHS FILTER, NOT A GAP.** That
+commit touched only `HANDOFF.md`, which `chapter.yml` does not list: it covers
+`AIOM_*.md` and not this file. The last commit touching gated content is `0bae72b` and
+`chapter` passed there. **Two runs earlier in the branch are red on purpose** and should
+not be reopened: W14 and `voicecheck` were genuinely failing at `a79fa75` and `7c50f47`,
+before Dan's rulings were applied, which is the suite doing its job.
 
 **CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED IN THIS SESSION.** Dan returned his copy edit,
 it was imported and verified, every finding was ruled by him the same day, and every
