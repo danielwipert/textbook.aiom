@@ -9,6 +9,26 @@ Sending a checker after a sentence the chapter does not contain is the exact dri
 project has recorded twice inside its own register notes, so the wording below is quoted
 from the current live text rather than carried forward.
 
+## The package, and the order to read it in
+
+**`AIOM_Ch02_Stage7_cover.md` first.** It carries the one thing this step has that
+Stage 3 did not: the copy edit landed AFTER Stage 3 closed, so the cover diffs all
+seven cited passages across it and lists the eight changes that touch what a source
+must support. **No gate can see any of the eight**, because each leaves a grammatical
+sentence with a live citation attached. Item 1 is a numeric range that moved.
+
+**Then send two checks, in separate sessions, and show neither the other's output.**
+
+| Send | To whom | With |
+|---|---|---|
+| `AIOM_Ch02_Stage7_prompt_A.md` | Model 1 | the render AND the packet |
+| `AIOM_Ch02_Stage7_prompt_B.md` | Model 2 | the render ONLY |
+
+**B is given no packet on purpose and that is the design.** A reads outward to the
+sources; B reads the chapter as a sceptical reader receives it, with nothing but the
+page. A claim that survives only because a reader trusts a footnote they cannot see is
+what B exists to find, and it cannot find it holding the register.
+
 ## What to check with
 
 **Feed the checker `AIOM_Ch02_Stage7_render.pdf`, never the chapter HTML.** Both
