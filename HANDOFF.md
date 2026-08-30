@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-29 (third close). Read this
+Last updated: 2026-08-30. Read this
 plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
@@ -8,30 +8,85 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE THIRD 2026-08-29 CLOSE: everything is on `main` at `a9f414a`, nothing is
-stranded, BOTH WORKFLOWS GREEN ON THAT HEAD, and ONE MERGED BRANCH IS OUTSTANDING ON THE
-REMOTE.** `chapter` passed on every commit in the session and `web` passed on `a9f414a`,
-confirmed after waiting for it rather than assumed at push time. **Several `web` runs
-above it in the listing show `cancelled`, and that is the concurrency group superseding
-them**, not a failure: `web.yml` sets `cancel-in-progress: true`, so a run dies whenever
-a newer push lands. Read the run on the CURRENT head, never the topmost completed one. Working tree
-clean, `git_hygiene.py` reporting CLEAN. The delete still fails with the documented 403:
+**AT THE 2026-08-30 CLOSE: everything is on `claude/stage-6-copy-edit-1vg58m` at
+`0bae72b`, four commits ahead of `main` and zero behind, pushed, working tree clean and
+`git_hygiene.py` reporting no stranded work beyond that branch.** `main` has not moved;
+merge this branch up before retiring it. **The branch is not merged, so read CI on the
+branch head rather than on `main`.** Several `web` runs can show `cancelled` in the
+listing, which is the concurrency group superseding them and not a failure: `web.yml`
+sets `cancel-in-progress: true`, so a run dies whenever a newer push lands. Read the run
+on the CURRENT head, never the topmost completed one. The old delete still fails with the
+documented 403:
 
     git push origin --delete claude/chapter-2-stage-3-ready-mu9ktm
 
-**CHAPTER 2 IS AT 7 OF 13. STAGES 3 AND 4 AND GATE G3 ALL CLOSED IN THIS SESSION**, and
-the chapter moved from 4 of 13 to 7 of 13. **Stage 6 is prepped and waiting on Dan.**
+**CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED IN THIS SESSION.** Dan returned his copy edit,
+it was imported and verified, every finding was ruled by him the same day, and every
+ruling is applied. W14 and `voicecheck` both pass.
 
-**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 6 copy edit. The `.docx` and its
-instructions are in `06_Stage6_Copy_Edit/`, and the unedited round-trip control passed at
-zero changes, so both tools are trusted on this chapter.
+**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 7 final fact check. The render, the
+packet and current instructions are in `07_Stage7_Final_Fact_Check_2/`, all three
+generated from the copy-edited text.
 
-**STAGE 7 CANNOT BE BATCHED WITH STAGE 6 AND THAT IS THE ONE PLACE THE PLAN SLIPPED.** A
-fact check that predates a copy edit has to be diffed against the audited artifact before
-it can be credited, so the Stage 7 packet is generated from the copy-edited text after
-the import, not beside it.
+**READ `README_Stage7.md`, NOT THE STAGE 7 HALF OF THE STAGE 6 README.** The older file
+was written before the copy edit and sends a checker after the old wording of S4-1. All
+three Stage 7 targets survived the edit intact and the new file quotes each in its
+current form.
 
-### What closed, and what it cost to close
+### The copy edit was large, and one question about it is unruled
+
+**104 of 195 blocks changed and several sections were rewritten.** That is the re-run
+matrix's BODY PROSE row, not its copy-edit row: Stage 2, Stage 3, Stage 4, Stage 5 and
+G2. The mechanical halves of Stages 3 and 4 are green on the current text. **Their
+JUDGMENT halves were taken on prose that has since moved, and whether they are re-run is
+Dan's ruling and has not been made.** It is recorded at the end of the Stage 6 findings
+in the checklist. The craft metrics moved TOWARD the Chapter 1 band rather than away,
+mean sentence 15.6 words to 14.9 against Chapter 1's 14.3 with none over 35, which
+closes F4's residual and is evidence about rhythm only.
+
+### Three tools were wrong, and this import found all three
+
+**Each was a check or a claim that read green while measuring nothing**, which is this
+repository's signature failure, and none was visible from any output.
+
+1. **`copyedit_export.strip()` spaced `span.nb`**, so the proof read `Uber ’s` and
+   `Copilot .` where the chapter reads neither. **This is the 2026-08-08 phantom-space
+   defect one tag short.** The unedited round trip CANNOT see it, which is why that
+   control passed at zero changes on 2026-08-29 and this still bit: the artifact is
+   symmetric, so export and import agree with each other and both differ from the page.
+2. **`copyedit_import.locate()` never performed the refusal its own docstring
+   promises**, so it ate one `</em>` and four `.nb` wrappers in silence. `<cite>` had
+   been refusing only by ACCIDENT, because its gloss is text the needle does not
+   contain. **The `</em>` surfaced as print gate 5 reporting synthesised Jost obliques,
+   which is luck rather than a check**: had the eaten tag sat in a family with a real
+   italic, nothing would have reported it. Refusal is now real, cost measured at 5 spans
+   of 1113 before the change.
+3. **`factcheck_packet.py` asserted "all fifteen gates green" without running a gate**,
+   and told the checker gate 8 had passed on the strength of a footnote COUNT. It is the
+   one document that leaves this repository for an external checker. It now runs the
+   gates on the file it names; both branches are controlled.
+
+**THE CONTROL FOR AN IMPORT IS NOT EITHER TOOL'S OWN REPORT.** Every one of the 195
+blocks was re-extracted from the edited HTML and compared against the returned `.docx`.
+It read 195 of 195 matching after the import, and 9 of 195 differing after Dan's
+rulings were applied, where each of the nine is one of the nine repairs he ruled.
+Nothing else moved. Run that comparison on every future chapter.
+
+### What is left on Chapter 2, in order
+
+Stage 7 (Dan), then Stage 5, G2, `continuity.py --update` and lock at Stage 9.
+
+**STAGE 5 INHERITS ONE KNOWN PRINT FAILURE.** Gate 8 reports footnote 5 off its calling
+page, which is reflow from an edit of this size, and it is deliberately not fixed here:
+Process v3 puts the design review after the fact check so pagination is not settled
+twice, and Stage 7 may move text again. The other fourteen gates pass. The packet's
+RENDER line names the failure so no checker reports it as a finding.
+
+**THE CONTINUITY LEDGER HOLDS NO Ch02 TERMS YET**, which is why G3 passes and gate W8a is
+not yet exposed to the "flow" definition. Whichever wording is in the chapter at lock is
+what `continuity.py --update` must write, and Dan ruled the key-term wording wins.
+
+### What closed in the 2026-08-29 session, and what it cost to close
 
 **STAGE 3. Two entries of five verified, two carried to Stage 7.** Dan verified Forbes
 and Fortune across nine rows of a purpose-built sheet, all pass. **`dta-copilot-2024` is
@@ -1540,7 +1595,7 @@ just deleted. Close the sessions, then delete.
 the next DRAFTING target and is unblocked. Thread 8 below is the live record of
 the web sub-project.
 
-## Chapter 2 status: **4 of 13 as of 2026-08-28. STAGE 2 IS CLOSED AND STAGE 3 IS NEXT, WHICH IS DAN'S.**
+## Chapter 2 status: **8 of 13 as of 2026-08-30. STAGE 6 IS CLOSED AND STAGE 7 IS NEXT, WHICH IS DAN'S.**
 
 **STAGE 2 CLOSED 2026-08-28 WITH ALL FOURTEEN FINDINGS RULED**, nine Claude's and
 five the second model's. Full per-finding records are in the chapter checklist and
