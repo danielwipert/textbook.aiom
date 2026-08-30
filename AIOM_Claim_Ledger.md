@@ -156,40 +156,49 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 
 ### FQ2 :: cost governance recast :: 2026-08-29 :: Stage 3
 - FORBIDDEN: Most organizations that believe they have cost governance have the first, sometimes the second, and rarely the third.
-- REQUIRED: The three are separable, and an organization can hold the first without the second and the first two without the third.
-- REQUIRED: Where the record exists and the constraint does not, a dashboard nobody acts on is a record flow with no constraint attached.
+- REQUIRED: These elements are separable. An organization can have a record without attribution, or a record and attribution without a constraint.
+- REQUIRED: A dashboard that no one acts on is a record flow with no constraint attached.
+- RESTATED 2026-08-30 at Stage 6, on Dan's ruling: the copy edit rewrote both sentences and the substance is unchanged, so the REQUIRED text now records the chapter's current wording. The withdrawn population claim did not return in any form.
 - REVERSES-IF: a survey of cost-governance maturity establishing the distribution across the three parts. The teaching point is that the three are separable, which survives the recast; only the population claim was withdrawn.
 
 ### FQ3 :: surprise frequency recast :: 2026-08-29 :: Stage 3
 - FORBIDDEN: Organizations are usually surprised by the second finding rather than the third
-- REQUIRED: The second finding surprises where the third does not.
+- REQUIRED: The missing record surprises where the missing value measure does not.
+- FORBIDDEN: often surprises managers
+- REVERTED AND REPAIRED 2026-08-30 at Stage 6, on Dan's ruling. **The copy edit brought the withdrawn claim back in different words**, as "The missing record often surprises managers more than the missing value measure does." No FORBIDDEN string could see it, which is the SF2-to-SF8 shape this file exists to catch, arriving on schedule at the step the Ch02 preamble named. The frequency wrapper is cut and the sentence keeps the copy edit's nouns; "often surprises managers" is now FORBIDDEN so the same return cannot be silent a second time.
 - SUPERSEDED-IN-PART 2026-08-29 at Stage 4, F11: the mechanism clause after "because" is cut, because it was the THIRD appearance of "the absence of a record is invisible until..." in the chapter and 2.5 already carries it in full. **THE RULING IS UNCHANGED IN SUBSTANCE**: the population claim stays forbidden and the sentence still makes no frequency claim. What it no longer does is restate a mechanism the reader met two sections earlier.
 - REVERSES-IF: evidence about what surprises organizations running this diagnostic. The mechanism after "because" was already in the sentence and is unchanged; only the population wrapper went.
 
 ### FQ4 :: Chapter 8 forward reference recast :: 2026-08-29 :: Stage 3
 - FORBIDDEN: the flow this mapping most often finds missing
-- REQUIRED: the record flow built there is the one that is structurally the easiest to skip
+- REQUIRED: the record flow that organizations are structurally most likely to skip
+- RESTATED 2026-08-30 at Stage 6, on Dan's ruling. The anchor word is "structurally", and it survives: the claim still rests on 2.5's derivation rather than on observed frequency, which is the same ground on which Stage 1 cleared the sixth candidate. The pairing recorded in REVERSES-IF is unaffected.
 - REVISED at application, 2026-08-29: the drafted recast read "the one section 2.5 shows is structurally the easiest to skip", and the Stage 4 re-read cut the pointer. **The drafted form made C7 worse at the worst possible sentence**, the craft section's opening, which would then have carried three references at once: the rest of the book, Chapter 8, and section 2.5. **The derivation clears the claim whether or not the sentence points at it**, which is exactly how Stage 1 cleared the sixth candidate: that one sits in the chapter summary and names no section.
 - REVERSES-IF: nothing, and this entry is the one to read before reopening any of the others. Stage 1 cleared a sixth candidate, "the record flow is skipped most often, and for structural reasons rather than careless ones", on the ground that section 2.5 derives it. This recast anchors the same claim to the same derivation, so the two now stand or fall together. If 2.5 is ever cut or moved, BOTH lose their support.
 
 ### FQ5 :: P3 buyer comparison cut :: 2026-08-29 :: Stage 3
 - FORBIDDEN: which is more than most buyers do
-- REQUIRED: This organization commissioned an independent evaluation, published it, and let it report the limits of its own method.
+- REQUIRED: The organization commissioned an independent evaluation, published the results, and allowed the report to state the limits of its own method.
+- RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Wording only. The withdrawn buyer comparison did not return.
 - REVERSES-IF: evidence on how often buyers commission and publish independent evaluations. The preceding sentence already distinguishes this case from the opening case, so the clause added a population claim and little else.
 
 ### FQ6 :: business case sole-document cut :: 2026-08-29 :: Stage 3
 - FORBIDDEN: and it is usually the only document stating what the deployment was supposed to achieve
-- REQUIRED: By the time anyone compares the two, the business case describes a deployment that no longer exists.
+- REQUIRED: By the time anyone compares actual use with the original case, that case describes a deployment that no longer exists.
+- RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Wording only. "the two" is now named, which is clearer and claims no more.
 - REVERSES-IF: evidence that no other document ordinarily states a deployment's objective. **Nothing was lost to the cut**: the next paragraph already makes the point as a formal conditional, at "If nothing revisits that statement, the claimed benefit becomes the organization's permanent belief about what the deployment delivers." The cut removed an unconditional duplicate of a conditional the chapter already had.
 
 ### FQ7 :: scale crossing recast :: 2026-08-29 :: Stage 3
 - FORBIDDEN: and the usual answer is that it crossed some time ago
-- REQUIRED: and nothing announces the crossing at the moment it happens
+- REQUIRED: and no single event announces that crossing when it occurs
+- RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Wording only, and still anchored to 2.5.
 - REVERSES-IF: evidence on how many deployments have passed THM-004's scale antecedent. **This was the strongest of the eight and sat in the limits section**, which exists to state what the chapter does not claim and closed by claiming that most deployments have already crossed. The recast is anchored to 2.5, which derives that the absence of a record is invisible until it is needed.
 
 ### FQ8 :: mapping failure modes recast :: 2026-08-29 :: Stage 3
 - FORBIDDEN: Two failure modes recur when organizations run this mapping on themselves
-- REQUIRED: Two failure modes follow from the distinctions already drawn.
+- REQUIRED: Two errors follow from these distinctions.
+- FORBIDDEN: Two common errors
+- REVERTED AND REPAIRED 2026-08-30 at Stage 6, on Dan's ruling. The copy edit read "Two common errors follow from these distinctions." **"Common" is a recurrence claim**, and REVERSES-IF below states why there cannot be an observational base for one: the mapping is this book's own construct, introduced on the page before. The derivation clause the ruling required was already present and is kept; only "common" is cut. It is now FORBIDDEN.
 - SUPERSEDED-IN-PART 2026-08-29 at Stage 4, F8: "and both are worth naming in advance" is cut as an announcement. **THE RULING IS UNCHANGED IN SUBSTANCE**: what mattered was replacing the claim of observed recurrence with a derivation, and "follow from the distinctions already drawn" is intact.
 - REVIEW: the two failure modes must continue to follow from distinctions the chapter draws EARLIER than this passage. The first rests on 2.2's division of what belongs to the buyer, the second on 2.6's separation of adoption from value. If either moves after the craft section, this sentence loses its support and reverts to an unsupported claim.
 - REVERSES-IF: an observational base for the recurrence. **There cannot be one yet.** The three-flow mapping is this book's own construct, introduced on the page before, so no organization has run it and no recurrence can have been observed. This was the worst of the eight for that reason.
@@ -210,15 +219,17 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - FORBIDDEN: The chief operating officer was publicly asking whether the spending had been worth it.
 - FORBIDDEN: Its chief operating officer was asking, in public, what the company had received.
 - FORBIDDEN: The president and chief operating officer was publicly asking whether the spending had been worth it.
-- REQUIRED: President and chief operating officer Andrew Macdonald said publicly that the company could not yet draw a line from its rising use of the tool to the consumer features it was producing.
+- REQUIRED: president and chief operating officer Andrew Macdonald said the company still could not connect its growing use of Claude Code to the consumer features it was producing.
 - REQUIRED: “That link is not there yet,” he said.
-- REQUIRED: Its president and chief operating officer was asking, in public, what the company had received.
+- REQUIRED: its president and chief operating officer publicly asked what it had received in return
+- RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Both sentences were rewritten and **both kept the corrected title**, which is the drift the REVIEW below predicted and the one place this ledger was most exposed. The opening case now names the product where it said "the tool", and the 2.6 back-reference is unchanged in substance. Both open lower case because each now sits mid-sentence, and matching is case-sensitive.
 - SUPERSEDED-IN-PART 2026-08-29: the title fix landed first and its opening-case form is now FORBIDDEN in turn, because Dan then ruled the executive named and quoted directly. The 2.6 back-reference is unchanged and stays REQUIRED: it is supported by B2, where Dan verified that Macdonald questions the value of the spend repeatedly.
 - REVERSES-IF: the title changes, or a source shows Andrew Macdonald did not hold both roles at the time of the interview. Dan verified the title at Stage 3 on 2026-08-29.
 - REVIEW: **TWO sentences carry this title and both were corrected together.** The opening case has one and section 2.6 has the other. A later edit that fixes only one reintroduces exactly the drift this ledger exists to catch, and neither sentence is near the other in the file.
 
 ### S4-1 :: section 2.3 now depends on the opening case's figure :: 2026-08-29 :: Stage 4
 - SOURCE-KEY: uber-2026-budget
-- REQUIRED: The opening case is that mismatch at full size: an annual budget, consumed four months into the year.
+- REQUIRED: The opening case shows the mismatch clearly: the organization approved an annual budget that the deployment consumed in four months.
+- RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Wording only. The sentence still refers to the case rather than asserting the fact independently, so it still carries no citation marker, and the REVIEW below still binds: if Stage 7 corrects the April timing, this sentence changes with it.
 - REVIEW: **THIS SENTENCE RESTATES A FIGURE THAT LIVES IN THE OPENING CASE**, added at Stage 4 to close the second model's C1 finding that section 2.3 ran entirely on placeholders while sitting one page from the chapter's best instance. It refers to the case rather than asserting the fact independently, which is why it carries no citation marker. **If the opening case's timing ever changes, this sentence changes with it**, and nothing mechanical will say so, because both forms are grammatical and neither is a forbidden string.
 - REVERSES-IF: the April timing is corrected at Stage 7. Dan verified it at Stage 3 as row A1.
