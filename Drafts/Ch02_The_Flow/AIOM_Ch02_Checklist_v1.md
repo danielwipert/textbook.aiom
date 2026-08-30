@@ -2148,6 +2148,126 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+### CHECK A RETURNED 2026-08-30, ALL EIGHT RULINGS MADE AND APPLIED. THE BOX STAYS OPEN FOR CHECK B.
+
+**THIS IS THE FIRST EXTERNAL CHECK IN THE PROJECT WITH LIVE WEB ACCESS, and it changes what
+several rulings rest on.** Every previous check on both chapters reported none and reasoned
+from memory, which is why the register carried four Grade C entries nobody had read. Check A
+opened Forbes, Fortune, the first-party Rapid Response transcript, the Australian
+Government's full evaluation, Microsoft's pricing announcement and the MIT report. The
+check as received is `AIOM_Ch02_Stage7_externalcheck_A.md`; the analysis and
+recommendations are `AIOM_Ch02_Stage7_rulings_to_make.md`. **Dan ruled all eight on
+2026-08-30: apply everything, take R6, refuse the MIT mirror.**
+
+### R1. THE COST RANGE WAS WRONG, AND STAGE 3 HAD PASSED IT
+
+Forbes gives an average of $150 to $250 and heavy-user spending of $500 to $2,000. The
+chapter said "several hundred to several thousand" and, before the copy edit, "a few
+thousand". **Both endpoints were unsupported in both forms**, so this is not damage the
+copy edit did.
+
+**THE TWO VERDICTS WERE ANSWERING DIFFERENT QUESTIONS AND BOTH WERE HONEST.** Dan's row A4
+verified that the reporting says what the chapter says it says, at the chapter's
+deliberately loose grain. Check A lined the loose bounds up against the article's numbers
+and found they do not bracket them. **The looseness was recorded in the register as
+PROTECTION against a corrected figure, and it is what concealed the error from every
+checker who could not read the article.** That rationale is now retired: the chapter
+carries the exact figures, which the fifty-year rule permits because the opening case is
+dated.
+
+**The complexity clause is cut.** Forbes does not attribute the range to the complexity of
+the work; row A5 covered attribution to WORKLOAD, which is not the same thing, and the
+workload mechanism is already carried by the two sentences after it.
+
+### R2 and R3. TWO OF THE FOUR LOAD-BEARING P3 PREMISES FAILED
+
+The `dta-copilot-2024` note named four things problem P3 rests on and told Stage 3 to
+confirm them. **Two held and two failed, and the note predicted the shape of one of them**
+by asking whether Nous Group appears on the face of the report.
+
+- **The evaluation is not independent.** Appendix B says it was "jointly delivered by the
+  DTA and Nous". **TWO SENTENCES CARRIED THAT CLAIM and both were corrected together**, the
+  P3 setup and the FQ5 sentence, which sit far apart in the file. That is the S3-4 shape.
+- **The report names FIVE limits, not two**, and the absence of a pre-trial work baseline
+  is NOT one of them. It ran a pre-use survey that baselined sentiment and confidence
+  rather than task time or output. **The chapter was presenting its own inference as the
+  report's statement, which is Chapter 1's FC9 shape.** The sentence is split so the
+  report's finding and the chapter's inference are visibly different things.
+
+**P3 IS REWORDED, NOT REBUILT, AND CLAUDE'S OWN README SAID IT MIGHT NEED REBUILDING.**
+That contingency was written before anyone knew which way the source would break. Both
+premises were wrong in the same direction, overstating the report's independence and
+overstating what it stated about itself, and correcting both makes the problem harder and
+more honest. The exercise it sets is unchanged.
+
+### R6. A RULING'S REVERSAL CONDITION WAS MET, AND THIS IS THE BEST OUTCOME OF THE CHECK
+
+**Check A raised footnotes 3 and 4 as unsourced without knowing they were ruled that way on
+purpose**, because the packet was not supplied to it. **It did not reopen a ruling. It
+delivered the evidence the ruling was waiting for.**
+
+S3-2's REVERSES-IF asked for "a single named source for the adoption figures, ideally the
+primary" and said that with one, "both footnotes get a real citation and both of these
+rulings retire together." Check A read Forbes: 32 per cent adoption in February, 84 per
+cent in March. **Forbes is named, dated, read, and was ALREADY IN THE REGISTER.**
+
+- The percentages Dan withdrew on 2026-08-21 are restored as figures.
+- `uber-2026-adoption`, whose container was the placeholder "Multiple secondary outlets",
+  is retired. Nothing cites it.
+- **S3-1 and S3-2 are retired together**, fields renamed out of enforcement and kept as
+  history.
+- **STANDING RULE 2 WAS SATISFIED, NOT BENT.** The figures came out because no citation
+  could be named without inventing one. They return because one can.
+
+### R7. THE MIT MIRROR IS REFUSED, WHICH IS THE ONE THING DAN DECLINED
+
+Authors, date and byline are corrected: the four MIT authors are named, the report is dated
+**July 2025 rather than August** (August was the news cycle, and the dated evidence box
+moves with it), and the Forbes byline takes its published form, Janakiram MSV, which the
+register had inverted. `cite_format` never inverts a name, so given and family only control
+output order.
+
+**The only location check A could produce was a copy on a consulting firm's website, and
+Dan refused it.** A third-party mirror can vanish and confers no authority, and the entry
+is better carrying an honest gap than a citation that looks solid and is not. The upgrade
+field now names what would satisfy it: an institutional location.
+
+### What was added, and one orphan the packet caught
+
+**Two sources were added and one of them closes a gap nobody had noticed.** The DTA
+evaluation does not state that the product is priced per seat rather than by unit of use,
+which is the sentence P3 rests on, so Microsoft's own January 2024 announcement now carries
+it. **The first run left that key an ORPHAN, defined and never cited**, and
+`factcheck_packet.py` reported it. The citation is now on the sentence it supports.
+
+`rapidresponse-2026-macdonald` is the first-party transcript, and it is the upgrade
+`fortune-2026-uber-coo` asked for by name. The undefined "a large share of committed code
+had passed through it" is replaced by Macdonald's own figure, a quarter of code commits in
+the previous quarter, because check A found "passed through" distinguishes nothing between
+assisted, generated, and committed without human review.
+
+### Two things the render did on its own
+
+**GATE 8 CLEARED ITSELF.** The footnote 5 placement defect booked to Stage 5 is gone: these
+text changes reflowed the chapter and the note landed back on its calling page. **All
+fifteen print gates now pass**, which they did not before this step.
+
+**GATE 15 CAUGHT A STRAIGHT APOSTROPHE THIS STEP INTRODUCED**, in the new transcript's
+TITLE, which is a bibliographic field and therefore reaches the render. The note fields
+never publish, but the register's own convention is the typographic form throughout, so all
+forty were converted.
+
+### WHY THIS BOX IS STILL OPEN
+
+**Check B has not been run.** The method is a pair, and Chapter 1's pair agreed on one
+finding out of six. **A is a strong check and it is still one check**, and it read the
+sources rather than the chapter, which is exactly the half B is designed to cover. B gets
+the render only.
+
+**Check A was not given the packet and says so itself.** It could not test its findings
+against the twelve rulings then in force. Claude ran that comparison afterwards and it
+produced R6. **Any re-run of A gets the packet.**
+
 ---
 
 ## Stage 5. Design review

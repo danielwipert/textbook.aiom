@@ -178,8 +178,10 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 
 ### FQ5 :: P3 buyer comparison cut :: 2026-08-29 :: Stage 3
 - FORBIDDEN: which is more than most buyers do
-- REQUIRED: The organization commissioned an independent evaluation, published the results, and allowed the report to state the limits of its own method.
+- REQUIRED: The organization commissioned the evaluation, published the full report, and allowed it to state the limits of its own method.
+- FORBIDDEN: commissioned an independent evaluation
 - RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Wording only. The withdrawn buyer comparison did not return.
+- AMENDED 2026-08-30 at Stage 7, on Dan's ruling, because THE SOURCE CONTRADICTED THE RULED SENTENCE. External check A read the evaluation: Appendix B says it was "jointly delivered by the DTA and Nous", so it is an externally assisted joint evaluation and the word "independent" is false. **The ruling's point was never that word.** FQ5 withdrew "which is more than most buyers do", and what it kept was that this buyer produced a public record and let it state its own limits. That survives intact. "commissioned an independent evaluation" is now FORBIDDEN so the corrected form cannot quietly revert. **TWO SENTENCES CARRIED THE CLAIM and both were corrected together**, the P3 setup and this one, which sit far apart in the file: that is the S3-4 shape and the reason this ledger exists.
 - REVERSES-IF: evidence on how often buyers commission and publish independent evaluations. The preceding sentence already distinguishes this case from the opening case, so the clause added a population claim and little else.
 
 ### FQ6 :: business case sole-document cut :: 2026-08-29 :: Stage 3
@@ -203,16 +205,18 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - REVIEW: the two failure modes must continue to follow from distinctions the chapter draws EARLIER than this passage. The first rests on 2.2's division of what belongs to the buyer, the second on 2.6's separation of adoption from value. If either moves after the craft section, this sentence loses its support and reverts to an unsupported claim.
 - REVERSES-IF: an observational base for the recurrence. **There cannot be one yet.** The three-flow mapping is this book's own construct, introduced on the page before, so no organization has run it and no recurrence can have been observed. This was the worst of the eight for that reason.
 
-### S3-1 :: adoption gloss no longer contradicts its sentence :: 2026-08-29 :: Stage 3
-- FORBIDDEN: Reported adoption, not quantified. See the register.
-- REQUIRED: Consistent values across several outlets with no consistent attribution, so no single source is named. The adoption is characterized rather than given as a percentage.
+### S3-1 :: RETIRED 2026-08-30 :: adoption gloss no longer contradicts its sentence :: 2026-08-29 :: Stage 3
+- RETIRED-FORBIDDEN: Reported adoption, not quantified. See the register.
+- RETIRED-REQUIRED: Consistent values across several outlets with no consistent attribution, so no single source is named. The adoption is characterized rather than given as a percentage.
+- RETIRED 2026-08-30 at Stage 7, on Dan's ruling, WITH S3-2, BECAUSE THE CONDITION S3-2 NAMED WAS MET. This ruling governed a gloss on a citation that no longer exists: `uber-2026-adoption` is retired and both footnotes now cite Forbes. The sentence it protected is gone too, because the percentages it declined to give are now given. Kept here as history, with its fields renamed out of enforcement rather than deleted, which is the supersede convention.
 - REVERSES-IF: nothing about the source. **This is a ruling about the GLOSS, not about the claim.** The old note read "not quantified" against a sentence reading "about a third of the engineering organization was using it", which cannot both stand. It was written to mean that no PERCENTAGE is given, and it now says that. Found by external check 1 on 2026-08-29 as S3-1 and ruled by Dan the same day, option (c) of three.
 
-### S3-2 :: the unattributable citation says so instead of implying a source :: 2026-08-29 :: Stage 3
-- FORBIDDEN: Reported share of committed code.
-- REQUIRED: Characterized rather than quantified, for the same reason.
-- REVIEW: footnotes 3 and 4 deliberately name no outlet, and a later reader WILL raise that again. The container reads "Multiple secondary outlets" because the February and March figures appeared across several outlets with consistent values and no consistent attribution, which is the signature of one upstream source repeated rather than of corroboration. Dan withdrew the percentages on 2026-08-21 rather than invent a citation, and standing rule 2 has no option for citing a source that cannot be named. **The remedy is not to name an outlet. It is that the note now says why none is named.**
-- REVERSES-IF: a single named source for the adoption figures, ideally the primary, which is exactly what the register entry's `upgrade` field asks for. With one, both footnotes get a real citation and both of these rulings retire together.
+### S3-2 :: RETIRED 2026-08-30 :: the unattributable citation says so instead of implying a source :: 2026-08-29 :: Stage 3
+- RETIRED-FORBIDDEN: Reported share of committed code.
+- RETIRED-REQUIRED: Characterized rather than quantified, for the same reason.
+- RETIRED 2026-08-30 at Stage 7, on Dan's ruling. **ITS OWN REVERSES-IF WAS MET, WORD FOR WORD.** That field asked for "a single named source for the adoption figures, ideally the primary" and said that with one, "both footnotes get a real citation and both of these rulings retire together." External check A read Forbes and reports 32 per cent adoption in February rising to 84 per cent in March. Forbes is named, dated, read, and was ALREADY IN THE REGISTER as `uber-2026-budget`. **STANDING RULE 2 WAS SATISFIED, NOT BENT**: the percentages came out on 2026-08-21 because no citation could be named without inventing one, and they return because one can. The committed-code sentence is replaced by the first-party figure from the transcript, since check A found that "passed through" has no stable technical definition. **THE CHECK RAISED THIS WITHOUT KNOWING IT WAS RULED**, because the packet was not supplied to it, and it therefore did not reopen a ruling: it delivered the evidence the ruling was waiting for.
+- RETIRED-REVIEW: footnotes 3 and 4 deliberately name no outlet, and a later reader WILL raise that again. The container reads "Multiple secondary outlets" because the February and March figures appeared across several outlets with consistent values and no consistent attribution, which is the signature of one upstream source repeated rather than of corroboration. Dan withdrew the percentages on 2026-08-21 rather than invent a citation, and standing rule 2 has no option for citing a source that cannot be named. **The remedy is not to name an outlet. It is that the note now says why none is named.**
+- MET-AND-RETIRED 2026-08-30: a single named source for the adoption figures, ideally the primary, which is exactly what the register entry's `upgrade` field asks for. With one, both footnotes get a real citation and both of these rulings retire together. **This is the field that came true.**
 
 ### S3-4 :: the executive's title corrected :: 2026-08-29 :: Stage 3
 - SOURCE-KEY: fortune-2026-uber-coo

@@ -1,5 +1,13 @@
 # Chapter 2, Stage 7. The final fact check. Instructions.
 
+> **STATUS 2026-08-30: CHECK A IS DONE AND ALL EIGHT RULINGS ARE APPLIED. ONLY CHECK B IS
+> OUTSTANDING.** Read `AIOM_Ch02_Stage7_rulings_to_make.md` for what was ruled and
+> `AIOM_Ch02_Stage7_externalcheck_A.md` for the check itself. The render and packet below
+> have been REBUILT from the corrected text, so send B the current render, not an older
+> one. **Check A was not given the packet and flags that itself; any re-run of A gets it.**
+> The eight-item diff table further down was written for A and is kept as the record of
+> what the copy edit changed. Items 1 through 8 of it are now settled.
+
 Built 2026-08-30, from the copy-edited text. Stage 6 is cleared; the chapter is at
 8 of 13.
 
