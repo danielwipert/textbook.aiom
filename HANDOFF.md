@@ -8,61 +8,73 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-30 CLOSE: everything is merged to `main` at `168ddcf`, nothing is
-stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Three merges landed in
-this session, each fast-forward with `origin/main` verified as an ancestor BEFORE the
-merge rather than after. Working tree clean.
+**AT THE 2026-08-30 CLOSE: everything is merged to `main`, nothing is stranded, and ONE
+MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Every merge this session was fast-forward with
+`origin/main` verified as an ancestor BEFORE the merge rather than after. Working tree clean.
 
-**THE BRANCH DELETE FAILS WITH THE DOCUMENTED 403, AS IT DID ON 2026-08-24**, so Dan
-deletes it. It fails the same way every time, mid-push, with `send-pack: unexpected
-disconnect`. Do not read that as a network problem worth retrying:
+**THE BRANCH DELETE FAILS WITH THE DOCUMENTED 403, AS IT DID ON 2026-08-24**, so Dan deletes
+it. It fails the same way every time, mid-push, with `send-pack: unexpected disconnect`. Do
+not read that as a network problem worth retrying:
 
     git push origin --delete claude/stage-6-copy-edit-1vg58m
 
-**BOTH WORKFLOWS GREEN, CONFIRMED BY WAITING FOR THEM RATHER THAN AT PUSH TIME.** Several
-`web` runs show `cancelled` in the listing, which is the concurrency group superseding
-them and not a failure: `web.yml` sets `cancel-in-progress: true`, so a run dies whenever
-a newer push lands. **Read the run on the CURRENT head, never the topmost completed one.**
+**READ CI ON THE CURRENT HEAD, NEVER THE TOPMOST COMPLETED RUN.** `web.yml` sets
+`cancel-in-progress: true`, so pushing again while a run is in flight supersedes it and the
+superseded run shows `cancelled`. **That happened once in this session and it was
+self-inflicted**: a HANDOFF push landed while `web` was running. Update this file BEFORE
+merging, not after, so the merge is one push and one run.
 
-**A COMMIT TOUCHING ONLY `HANDOFF.md` GETS NO `chapter` RUN, AND THAT IS THE PATHS
-FILTER RATHER THAN A GAP.** `chapter.yml` covers `AIOM_*.md` and not this file, so
-`ae87bbe` was correctly skipped rather than missed. **Two runs on the branch are red on
-purpose** and should not be reopened: W14 and `voicecheck` were genuinely failing at
-`a79fa75` and `7c50f47`, before Dan's rulings were applied, which is the suite doing its
-job.
+**A COMMIT TOUCHING ONLY `HANDOFF.md` GETS NO `chapter` RUN, AND THAT IS THE PATHS FILTER
+RATHER THAN A GAP.** `chapter.yml` covers `AIOM_*.md` and not this file.
 
 **THE BRANCH NAME NO LONGER DESCRIBES ITS CONTENTS AND THAT IS DELIBERATE.**
-`claude/stage-6-copy-edit-1vg58m` was merged, deleted by Dan, then RESTARTED from `main`
-for the Stage 7 package, because the standing instruction is to keep the designated
-branch name rather than open a new one. Read the commits, not the name.
+`claude/stage-6-copy-edit-1vg58m` has been merged, deleted and restarted from `main` twice,
+because the standing instruction is to keep the designated branch name rather than open a
+new one. Read the commits, not the name.
 
-**CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED IN THIS SESSION.** Dan returned his copy edit,
-it was imported and verified, every finding was ruled by him the same day, and every
-ruling is applied. W14 and `voicecheck` both pass.
+**CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED AND STAGE 7's CHECK A IS DONE, WITH ALL EIGHT
+RULINGS APPLIED.** All fifteen print gates now pass, which they did not before Stage 7.
 
-**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 7 final fact check. **The package is
-built and complete** in `07_Stage7_Final_Fact_Check_2/`: cover note, packet, render, and
-two external-check prompts, all generated from the copy-edited text.
+**WHAT IS BLOCKING, IN ONE LINE:** Dan, on Stage 7 check B. Everything else in that step is
+finished.
 
-**SEND PROMPT A WITH THE RENDER AND THE PACKET. SEND PROMPT B WITH THE RENDER ONLY.**
-Separate sessions, neither shown the other's output. **B is given no packet on purpose
-and that is the design of the pair**: A reads outward to the sources, B reads the chapter
-as a sceptical reader receives it, and a claim that survives only because the reader
-trusts a footnote they cannot see is what B exists to find. It cannot find it holding the
-register.
+### STAGE 7 CHANGED WHAT THIS PROJECT KNOWS, BECAUSE THE CHECKER COULD READ
 
-**THE COVER CARRIES THE DIFF STAGE 3 CANNOT BE CREDITED WITHOUT.** The copy edit landed
-after Stage 3 closed, so all seven cited passages were diffed across it. All seven still
-cite the same keys, six changed wording, and **eight changes touch what a source must
-support**, none of them visible to any gate because each leaves a grammatical sentence
-with a live citation attached. **The first is a numeric range that moved**, "a few
-thousand" to "several thousand" dollars per engineer, in the passage whose citation
-exists to support that range and nothing else.
+**EXTERNAL CHECK A HAD LIVE WEB ACCESS. IT IS THE FIRST ON THIS BOOK THAT DID**, and every
+Grade C entry in the register existed because no previous checker could open a document.
+Expect this to change how Stages 3 and 7 are run from Chapter 3 onward: **the standing note
+that source hosts are unreachable is true of Claude's container and is NOT true of every
+external checker.**
 
-**READ `README_Stage7.md`, NOT THE STAGE 7 HALF OF THE STAGE 6 README.** The older file
-was written before the copy edit and sends a checker after the old wording of S4-1. All
-three Stage 7 targets survived the edit intact and the new file quotes each in its
-current form.
+**WHAT IT COST: four contradicted claims, two of them load bearing for problem P3.** The
+DTA evaluation is jointly delivered with Nous Group rather than independent, and it names
+five limits rather than two, with the missing pre-trial baseline not among them. **The
+register note had already asked Stage 3 to check the Nous question and the answer was yes.**
+
+**THE COST RANGE WAS WRONG AND DAN'S OWN STAGE 3 ROW A4 HAD PASSED IT, AND THIS IS THE
+LESSON WORTH CARRYING.** Forbes gives $150 to $250 average and $500 to $2,000 for heavy
+users; the chapter said "several hundred to several thousand", and "a few thousand" before
+that. **Both verdicts were honest and were answering different questions**: Dan verified
+that the reporting says what the chapter says at the chapter's deliberately loose grain, and
+the check compared those loose bounds with the numbers. **The looseness was recorded in the
+register AS PROTECTION against a corrected figure, and it is exactly what hid the error from
+every checker who could not read the article.** Deliberate vagueness defended against the
+wrong risk. Do not reach for it again on Chapter 3.
+
+**THE BEST OUTCOME WAS NOT A CORRECTION.** Check A raised footnotes 3 and 4 as unsourced
+without knowing they were ruled that way, because it was not given the packet, and so
+delivered exactly what S3-2's REVERSES-IF asked for: a named, dated, readable source for the
+adoption percentages. Forbes was already in the register. The figures Dan withdrew on
+2026-08-21 are restored, `uber-2026-adoption` is retired, and S3-1 and S3-2 retire together.
+**Standing rule 2 was satisfied, not bent.**
+
+**ONE THING WAS REFUSED.** The only MIT report location the check could produce was a copy
+on a consulting firm's website. Dan refused it: a third-party mirror can vanish and confers
+no authority, and the entry is better carrying an honest gap.
+
+**TWO CHECKS ARE THE METHOD AND ONLY ONE HAS RUN.** Send check B the CURRENT render, which
+was rebuilt from the corrected text. **Any re-run of A gets the packet**, which A itself
+flags it never received.
 
 ### The copy edit was large, and one question about it is unruled
 
@@ -1626,7 +1638,7 @@ just deleted. Close the sessions, then delete.
 the next DRAFTING target and is unblocked. Thread 8 below is the live record of
 the web sub-project.
 
-## Chapter 2 status: **8 of 13 as of 2026-08-30. STAGE 6 IS CLOSED AND STAGE 7 IS NEXT, WHICH IS DAN'S.**
+## Chapter 2 status: **8 of 13 as of 2026-08-30. STAGE 7 CHECK A IS DONE AND APPLIED; CHECK B IS OUTSTANDING AND IS DAN'S.**
 
 **STAGE 2 CLOSED 2026-08-28 WITH ALL FOURTEEN FINDINGS RULED**, nine Claude's and
 five the second model's. Full per-finding records are in the chapter checklist and
