@@ -1949,6 +1949,149 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+### DAN'S COPY EDIT RETURNED AND IMPORTED 2026-08-30. THE BOX STAYS OPEN.
+
+**The import is complete and verified. The step is not cleared**, because the edit
+broke two checks that earlier steps claim, and those are Dan's to rule on. The
+findings are CE1 to CE4 below.
+
+**What was imported.** `AIOM_Ch02_Stage6_copyedit_DAN_EDIT.docx`, 195 tagged
+paragraphs against 195 exported blocks, no structure change. 102 blocks applied by
+`copyedit_import.py` at 960 spans, 13 blocks applied by hand because the tool refused
+them. **The control is not either tool's own report**: every one of the 195 blocks was
+re-extracted from the edited HTML with `copyedit_export.extract` and compared against
+`copyedit_import.read_docx` of Dan's file, and all 195 match character for character.
+That comparison was re-run after each subsequent repair and still reports 195 of 195.
+
+This is a large copy edit. 104 of 195 blocks changed, and several are rewrites rather
+than line edits.
+
+### CE1 :: the exporter put a phantom space beside every .nb proper noun :: TOOL FIXED
+
+`copyedit_export.strip()` replaced `</span>` with a space, so the proof read
+`Uber ’s position` and `365 Copilot . Around` where the chapter reads neither. Dan
+correctly closed both up in Word, and the importer then refused both as unlocatable,
+because the space was never in the HTML.
+
+**THIS IS THE 2026-08-08 DEFECT ONE TAG SHORT.** `strip()`'s own docstring records it
+for `<b>`, in three of Chapter 1's round-2 blocks, and the fix listed the emphasis tags
+and reasoned about `span` generically from `span.num`, `span.fignum` and `span.mk`,
+which are prefix markers that sit hard against the text FOLLOWING them. `span.nb` is
+not one of those. It wraps a proper noun inside running prose (Decision 58), so it
+carries no width and must be removed rather than spaced. Fixed, with the four cases
+that must not regress checked by negative test: the two phantoms close up, and
+`Claude Code` and `span.num` keep the space they need.
+
+**The unedited round trip cannot see this**, which is why it passed at zero changes on
+2026-08-29 and this still bit. `strip()` says why: the artifact is symmetric, so export
+and import agree with each other and both differ from the page.
+
+### CE2 :: the importer silently ATE inline markup, and gate 5 caught it by luck :: TOOL FIXED
+
+`copyedit_import.locate()` promises in its docstring that "a match that spans a tag is
+refused: rewriting across `<b>` or `<cite>` is how inline markup gets eaten." **It did
+not perform that refusal.** Tag characters sit at depth greater than zero and are
+skipped when the plain text is built, so a needle whose text runs across an element
+boundary MATCHES, and the replacement then overwrites the tag inside the range and
+deletes it.
+
+`<cite>` refused only by ACCIDENT, because its gloss is text the needle does not
+contain. An `<em>` or a `span.nb` wraps text with nothing between, so it was eaten in
+silence. This import ate five: one `</em>` and four `.nb` wrappers.
+
+**The `</em>` was found by print gate 5 reporting `Jost-Semi-Bold-Oblique` and
+`Jost-Medium-Oblique` as unexpected faces.** The unclosed element italicised what
+followed, WeasyPrint synthesised obliques for a family that carries no italic, and gate
+5 failed. **That is luck rather than a check**, the same shape as gate W3 catching the
+published register note because the note happened to contain straight apostrophes. Had
+the eaten tag been anything the design sets in a family with a real italic, nothing
+would have reported it.
+
+`locate()` now refuses when the matched range contains a tag, which is what it always
+claimed to do. **Cost measured before the change rather than assumed**: 5 spans of
+1113. Its control is this import replayed against the committed pre-edit text, where
+the fixed importer refuses exactly blocks 5, 93, 96 and 130, the five tag-eating spans,
+and applies the other 1108 unchanged.
+
+**Repairs to the chapter**: the `</em>` on `no measurable impact` is closed, and the
+ten bare proper nouns are re-wrapped (eight `Uber`, one `MIT`, one `NANDA`). Four were
+eaten by CE2 and six were introduced as plain text by Dan's edit, which the importer
+writes verbatim and has no way to mark up. Span nesting was checked balanced afterwards
+and no noun is double-wrapped.
+
+### CE3 :: eleven ruled sentences no longer match the claim ledger :: DAN TO RULE
+
+W14 fails on eleven REQUIRED strings across eight rulings. **This is the failure the
+Stage 6 README predicted in bold**, and it is why the ledger was written before the
+proof went out. Nine of the eleven are faithful rewordings whose substance survives.
+**TWO ARE GENUINE REVERTS**, and neither trips a FORBIDDEN string, which is exactly the
+SF2-to-SF8 shape the ledger exists to catch: a withdrawn claim restated in different
+words matches nothing mechanical.
+
+- **FQ3, reverted.** The ruling withdrew "Organizations are usually surprised by the
+  second finding rather than the third" as an unsourced population claim and recast it
+  as "The second finding surprises where the third does not." The edit reads **"The
+  missing record often surprises managers more than the missing value measure does."**
+  The frequency wrapper is back, in new words.
+- **FQ8, reverted.** The ruling replaced "Two failure modes recur when organizations run
+  this mapping on themselves" with "Two failure modes follow from the distinctions
+  already drawn." The edit reads **"Two common errors follow from these distinctions."**
+  "Common" is a recurrence claim, and the ledger names why there cannot be an
+  observational base for one: the three-flow mapping is this book's own construct,
+  introduced on the page before, so no organization has run it. The ledger calls this
+  the worst of the eight for that reason.
+- **FQ2, FQ4, FQ5, FQ6, FQ7, S3-4 twice, and S4-1 preserve their substance.** S3-4 is
+  worth naming because it is the one the ledger warned would drift: two separate
+  sentences carry the corrected title, they sit nowhere near each other in the file, and
+  **both kept "president and chief operating officer".** FQ4 now reads "the record flow
+  that organizations are structurally most likely to skip", which keeps the anchor to
+  the structural derivation in 2.5 rather than to observed frequency.
+
+The nine need their REQUIRED text updated to Dan's wording, which is a ledger amendment
+and his ruling. The two reverts need the prose.
+
+**One further sentence carries a new unsourced claim that no ruling covers**, raised
+here because standing rule 2 is not a lifecycle step an edit can skip: "It usually rises
+as the deployment expands", of adoption, replaced a sentence making no such claim. Every
+other frequency word the edit added narrows an unqualified sentence rather than widening
+it, which is accurate qualification and not hedging.
+
+### CE4 :: seven house-rule violations, all new :: DAN TO RULE
+
+`voicecheck` passed on the pre-edit text and fails on this one, so all seven arrived
+with the copy edit.
+
+- **Three question marks in body prose.** "The test is simple: can the record answer a
+  question the invoice cannot?" (2.2), "are people using the tool? ... did the tool
+  improve an outcome?" (2.6), and "who owns the apparatus?" (2.7). The standing rule
+  permits genuine management questions set in a list and prohibits them in running
+  prose.
+- **Three first-person plurals.** "Public reporting cannot tell us whether", "We do not
+  know exactly what the contract priced", and "asks how did this tool improve our
+  business". Body prose is third person. The third is reported speech carrying the
+  executive's "our" without quotation marks around it.
+- **The two definitions of "flow" no longer agree.** Both were edited and they diverged.
+  The callout reads "A continuing sequence of related activity within a deployment. It
+  is described by its rate, its direction, and the records available", the key-term entry
+  reads "A continuous stream of related activity within a deployment, described by its
+  rate, direction, and the records kept about it." They were identical before the edit.
+  Gate W8a will also require whichever wording wins to be carried into the continuity
+  ledger.
+
+### What the render says
+
+**Print: fourteen of fifteen gates pass.** Gate 5 passed once the `</em>` was closed.
+Gate 8 reports footnote 5 off its calling page, which is the documented consequence of
+reflowing a chapter this heavily and is Stage 5's business, not this step's. It is left
+alone deliberately: Process v3 puts Stage 5 after Stage 7 precisely so pagination is not
+fixed twice, and Stage 7 may move text again. The pre-edit text was rebuilt to attribute
+both failures to the edit rather than assume it, and it passed all fifteen.
+
+**Web: W1 text equivalence passes in both channels**, 44,815 characters of prose and
+nine notes identical between page and print. The only web failures are W14, the same
+eleven, plus W2 and W10, which report that an unlocked chapter is not published and are
+correct.
+
 ---
 
 ## Stage 7. Final fact check 2

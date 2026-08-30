@@ -90,6 +90,16 @@ TAGS = {
 INLINE_TAGS = ("b", "i", "em", "strong", "sup", "sub", "code", "abbr")
 INLINE_RE = re.compile(r"(?s)</?(?:%s)\b[^>]*>" % "|".join(INLINE_TAGS))
 
+# span.nb is the SAME case as the emphasis tags and was missed when they were
+# fixed. It wraps a proper noun inside running prose (Decision 58), so it
+# carries no width: spacing it turns "<span class="nb">Uber</span>\u2019s" into
+# "Uber \u2019s" and "<span class="nb">Copilot</span>." into "Copilot .". The
+# other span classes named above are prefix markers that sit hard against the
+# text FOLLOWING them, which is why the generic rule still spaces them. Chapter
+# 2 tripped this in two blocks of the Stage 6 proof, and the unedited round trip
+# cannot see it for the reason strip() records: the artifact is symmetric.
+NB_RE = re.compile(r'<span class="nb">([^<]*)</span>')
+
 
 def strip(fragment):
     """Visible text of an HTML fragment, entities resolved, spacing normalised.
@@ -103,6 +113,7 @@ def strip(fragment):
     export and import agree with each other and both differ from the page.
     """
     t = INLINE_RE.sub("", fragment)
+    t = NB_RE.sub(r"\1", t)
     t = re.sub(r"(?s)<[^>]+>", " ", t)
     return re.sub(r"\s+", " ", htmllib.unescape(t)).strip()
 

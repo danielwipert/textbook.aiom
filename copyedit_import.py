@@ -151,7 +151,20 @@ def locate(html_block, needle):
     if len(hits) != 1:
         return None
     s = hits[0]
-    return index[s], index[s + len(needle) - 1] + 1
+    lo, hi = index[s], index[s + len(needle) - 1] + 1
+
+    # The refusal this function promises, actually performed. Tag characters sit
+    # at depth > 0 and are skipped above, so a needle whose text runs across an
+    # element boundary MATCHES, and the replacement then overwrites the tag
+    # inside the range and deletes it. <cite> refused only by accident, because
+    # its gloss is text that the needle does not contain; an <em> or a
+    # span.nb wraps text with nothing between, so it was eaten silently.
+    # Chapter 2's Stage 6 import ate one </em> and four .nb wrappers this way.
+    # Gate 5 caught the </em> only because Jost carries no italic and WeasyPrint
+    # synthesised an oblique, which is luck rather than a check.
+    if "<" in html_block[lo:hi]:
+        return None
+    return lo, hi
 
 
 def main():
