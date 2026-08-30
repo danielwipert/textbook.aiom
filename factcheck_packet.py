@@ -56,9 +56,47 @@ def footnote_report(html_path):
         _, report = footnotes.inject(raw, url_policy="none")
         n = len(report)
         return n, (f"{n} footnote(s) generated. Gate 8 checks each sits on its "
-                   f"calling page and passed on the render above.")
+                   f"calling page; its verdict on the shipped render is on the "
+                   f"RENDER line above, where it is measured rather than assumed.")
     except Exception as exc:                       # noqa: BLE001
         return None, f"NOT RUN. footnotes.inject raised: {exc}"
+
+
+def render_gates(render_path, html_path):
+    """What the fifteen print gates ACTUALLY say about the render being shipped.
+
+    THIS LINE USED TO ASSERT "all fifteen gates green" WITHOUT RUNNING A GATE,
+    and the footnote line asserted that gate 8 had passed on the strength of a
+    footnote COUNT. Both were scope claims written from intention, in the one
+    document that leaves this repository for an external checker, who has no way
+    to test either and every reason to believe them. Found 2026-08-30, when
+    Chapter 2's Stage 7 packet was generated on a render that fails gate 8 and
+    said so nowhere.
+
+    A missing toolchain reports NOT RUN rather than reading as an absence of
+    defects, which is W16b's recorded failure. A FAILING gate cannot reach that
+    branch: qa() returns False, it does not raise, so the except catches an
+    absent pdfplumber and nothing else.
+
+    source_html is passed and is NOT optional: gate 14 excludes a one-line
+    paragraph from its widow count by reading the chapter's whole paragraphs
+    from it, and passed None it returns an empty set SILENTLY and reports a
+    phantom widow.
+    """
+    try:
+        import contextlib
+        import io
+
+        import AIOM_build
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            ok = AIOM_build.qa(render_path, source_html=html_path)
+    except Exception as exc:                       # noqa: BLE001
+        return f"print gates NOT RUN on this file, so it is ungated here: {exc}"
+    if ok:
+        return "all fifteen print gates pass on this file, run here"
+    return ("FAILING a print gate on this file: "
+            + "; ".join(AIOM_build.LAST_FAILS))
 
 
 def split_register(raw):
@@ -154,7 +192,7 @@ def main():
     out.append("Claude environment, verified 2026-08-06 against six of them, so nothing")
     out.append("below is a verification. It is the material a checker needs.\n")
     out.append(f"LIVE TEXT      `{a.html}`")
-    out.append(f"RENDER         `{a.render}`, built this session, all fifteen gates green.\n")
+    out.append(f"RENDER         `{a.render}`, {render_gates(a.render, a.html)}.\n")
     out.append("WHAT THIS IS. Every passage carrying a citation marker, with the keys it")
     out.append("cites and the register entry behind each key. The register note is")
     out.append("reproduced in full because it carries the verification history and, for")
