@@ -8,33 +8,56 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-30 CLOSE: everything is merged to `main` at `ae87bbe`, nothing is
-stranded, and NO BRANCH IS OUTSTANDING ON THE REMOTE.** The Stage 6 branch was merged
-fast-forward, `origin/main` verified as an ancestor before the merge rather than after,
-and Dan deleted the branch; `origin/main` is now the only remote branch and
-`git_hygiene.py` reports CLEAN. Working tree clean.
+**AT THE 2026-08-30 CLOSE: everything is merged to `main` at `168ddcf`, nothing is
+stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Three merges landed in
+this session, each fast-forward with `origin/main` verified as an ancestor BEFORE the
+merge rather than after. Working tree clean.
 
-**BOTH WORKFLOWS GREEN, CONFIRMED BY WAITING FOR THEM RATHER THAN AT PUSH TIME.** `web`
-run 108 succeeded on `ae87bbe`, so all seventeen web gates passed and the site published
-from the merged `main`. Several `web` runs can show `cancelled` in the listing, which is
-the concurrency group superseding them and not a failure: `web.yml` sets
-`cancel-in-progress: true`, so a run dies whenever a newer push lands. Read the run on
-the CURRENT head, never the topmost completed one.
+**THE BRANCH DELETE FAILS WITH THE DOCUMENTED 403, AS IT DID ON 2026-08-24**, so Dan
+deletes it. It fails the same way every time, mid-push, with `send-pack: unexpected
+disconnect`. Do not read that as a network problem worth retrying:
 
-**THERE IS NO `chapter` RUN ON `ae87bbe`, AND THAT IS THE PATHS FILTER, NOT A GAP.** That
-commit touched only `HANDOFF.md`, which `chapter.yml` does not list: it covers
-`AIOM_*.md` and not this file. The last commit touching gated content is `0bae72b` and
-`chapter` passed there. **Two runs earlier in the branch are red on purpose** and should
-not be reopened: W14 and `voicecheck` were genuinely failing at `a79fa75` and `7c50f47`,
-before Dan's rulings were applied, which is the suite doing its job.
+    git push origin --delete claude/stage-6-copy-edit-1vg58m
+
+**BOTH WORKFLOWS GREEN, CONFIRMED BY WAITING FOR THEM RATHER THAN AT PUSH TIME.** Several
+`web` runs show `cancelled` in the listing, which is the concurrency group superseding
+them and not a failure: `web.yml` sets `cancel-in-progress: true`, so a run dies whenever
+a newer push lands. **Read the run on the CURRENT head, never the topmost completed one.**
+
+**A COMMIT TOUCHING ONLY `HANDOFF.md` GETS NO `chapter` RUN, AND THAT IS THE PATHS
+FILTER RATHER THAN A GAP.** `chapter.yml` covers `AIOM_*.md` and not this file, so
+`ae87bbe` was correctly skipped rather than missed. **Two runs on the branch are red on
+purpose** and should not be reopened: W14 and `voicecheck` were genuinely failing at
+`a79fa75` and `7c50f47`, before Dan's rulings were applied, which is the suite doing its
+job.
+
+**THE BRANCH NAME NO LONGER DESCRIBES ITS CONTENTS AND THAT IS DELIBERATE.**
+`claude/stage-6-copy-edit-1vg58m` was merged, deleted by Dan, then RESTARTED from `main`
+for the Stage 7 package, because the standing instruction is to keep the designated
+branch name rather than open a new one. Read the commits, not the name.
 
 **CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED IN THIS SESSION.** Dan returned his copy edit,
 it was imported and verified, every finding was ruled by him the same day, and every
 ruling is applied. W14 and `voicecheck` both pass.
 
-**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 7 final fact check. The render, the
-packet and current instructions are in `07_Stage7_Final_Fact_Check_2/`, all three
-generated from the copy-edited text.
+**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 7 final fact check. **The package is
+built and complete** in `07_Stage7_Final_Fact_Check_2/`: cover note, packet, render, and
+two external-check prompts, all generated from the copy-edited text.
+
+**SEND PROMPT A WITH THE RENDER AND THE PACKET. SEND PROMPT B WITH THE RENDER ONLY.**
+Separate sessions, neither shown the other's output. **B is given no packet on purpose
+and that is the design of the pair**: A reads outward to the sources, B reads the chapter
+as a sceptical reader receives it, and a claim that survives only because the reader
+trusts a footnote they cannot see is what B exists to find. It cannot find it holding the
+register.
+
+**THE COVER CARRIES THE DIFF STAGE 3 CANNOT BE CREDITED WITHOUT.** The copy edit landed
+after Stage 3 closed, so all seven cited passages were diffed across it. All seven still
+cite the same keys, six changed wording, and **eight changes touch what a source must
+support**, none of them visible to any gate because each leaves a grammatical sentence
+with a live citation attached. **The first is a numeric range that moved**, "a few
+thousand" to "several thousand" dollars per engineer, in the passage whose citation
+exists to support that range and nothing else.
 
 **READ `README_Stage7.md`, NOT THE STAGE 7 HALF OF THE STAGE 6 README.** The older file
 was written before the copy edit and sends a checker after the old wording of S4-1. All
