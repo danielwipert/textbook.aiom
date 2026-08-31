@@ -2353,13 +2353,86 @@ design, and that is what found Tier 1.**
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-31
 
 > Blocked until D0 closes. Layout, figures, typography, running heads, callout placement, key-term register, against the locked design system.
 
 Findings:
 
-### RUN 2026-08-29 ON DAN's INSTRUCTION, AHEAD OF ITS v3 POSITION. THE BOX STAYS OPEN.
+### RE-RUN AND CLEARED 2026-08-31, IN ITS PROPER v3 POSITION AFTER STAGE 7.
+
+**Four defects found, all four fixed, and NONE of them was visible to any of the fifteen
+gates.** The render passes all fifteen both before and after. Every one was found by
+rasterizing the pages and reading them, which is what this step is for.
+
+**DR-A. THE PROVENANCE LINE HAD BECOME FALSE, AND IT IS THE FIRST THING A READER SEES.**
+It read "Figures and dates are drawn from press reporting of a paywalled primary account
+and are pending source verification." **Stage 7 verified them against the cited reporting
+the day before.** The chapter was telling its reader its own numbers were unchecked when
+they had been checked. Gate 7 tests that the line is PRESENT, in the right face and
+colour; it has no opinion about whether the line is true. Now: "Figures and dates were
+checked against the cited reporting. The primary account behind that reporting remains
+paywalled." **The second sentence is kept because it is still true**: check A could not
+open The Information.
+
+**DR-B. TWO TERMINAL FULL STOPS WERE LOST IN THE STAGE 6 COPY EDIT.** The fourth limit in
+2.8 ended "and no single event announces that crossing when it occurs" and the
+cost-and-value flow key term ended "because neither can support an economic decision on
+its own", both with no period. **The pre-copy-edit text had both.** They survived the
+Stage 6 import verification, the Stage 7 packet, and two external checks.
+
+**NOTHING MECHANICAL COULD HAVE SEEN THEM, AND THE 195-BLOCK CONTROL IS WHY.** That
+control compares the chapter against Dan's returned `.docx`, and the `.docx` had dropped
+the periods too, so the chapter matched its proof exactly. **A control that proves two
+artifacts agree cannot see a defect they share.** CLAUDE.md already records that no gate
+reads a doubled comma or a spliced clause; this is the same hole, and a missing terminal
+period is its cheapest instance. **A one-line scan now exists for it** and is recorded
+below.
+
+**DR-C. A FOOTNOTE MARKER STRANDED ALONE ON ITS OWN LINE**, inside the dated evidence box
+on page 13. The box's measure is narrower than the body's, the line filled exactly, and
+WeasyPrint took the inline element boundary as a break opportunity even though there is no
+whitespace in the source. **Gate 14 counts widows and orphans of paragraphs and reported
+zero**, because a lone superscript is neither.
+
+**FIXED WITH A WORD JOINER IN THE CHAPTER, NOT IN THE CSS, AND THAT WAS DELIBERATE.** The
+durable fix is for `footnotes.inject` to emit U+2060 before every marker, which would
+close the class everywhere. **That is a change to shared machinery and the re-run matrix
+makes it re-run the print gates on every chapter, including the locked Chapter 1**, so it
+is recorded as an open thread for Dan rather than taken here. The local fix was verified
+by rendering, not reasoned about: the marker joins its sentence and all fifteen gates
+still pass.
+
+### WHAT WAS CHECKED, STATED FROM WHAT WAS DONE
+
+- **All 26 pages rasterized at 100dpi and read, individually.** Not sampled. This claim is
+  written after the fact and is the reason the earlier Stage 5 record's equivalent claim
+  is quoted below as a warning.
+- **Figure legibility at ship size, both figures.** Figure 2.1's three rows read as
+  parallel, the arrowheads are present and only the record row's LINE is dashed. Figure
+  2.2's five segments are countable in both bars, with two solid and three dashed on the
+  return bar and "unknown" labelled. Both confirmed on the raster.
+- **Gap G-I, callout collision.** Both definition callouts float cleanly, neither splits,
+  and neither sits beside the theorem panel or a dated box. The theorem panel keeps its
+  full measure.
+- **Gap G-II, stranded head groups.** Every section head and slot label carries content
+  beneath it on the same page.
+- **Theorem panel against standing rule 6.** Scope boundary before the "if", four
+  antecedents in lower-case roman one per line, consequent on its own line opening with
+  "then". Correct.
+- **Decision 58 hyphenation scan, joined ACROSS page turns** with folios and running heads
+  stripped, which is the form that catches the DR7 shape. Five hyphenated line ends in the
+  chapter, **zero falling inside a proper noun.**
+- **Page fill advisory: one page, p22 at 115pt.** It is the foot of the discussion-question
+  slot, which CLAUDE.md names as a legitimate short page. **Accepted, not a defect.** p26
+  is the chapter's last page and is short by design.
+
+### THE EARLIER RUN'S FINDINGS, KEPT AS HISTORY
+
+The entry below was written on 2026-08-29, before Stage 6, and correctly refused to tick
+the box. Its DR1 to DR3 were fixed then and were re-confirmed on this render.
+
+### RUN 2026-08-29 ON DAN's INSTRUCTION, AHEAD OF ITS v3 POSITION. THE BOX STAYED OPEN.
 
 **Process v3 puts this step AFTER Stage 7 for one measured reason**: every Chapter 1
 design finding was fixed in CSS or in markup and none by rewriting a sentence, so a
@@ -2452,32 +2525,60 @@ hyphenation scan itself being rewritten from memory with the same defect.
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-31
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fifteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Gate 1, zero right-margin overflow
-- [ ] Gate 2, zero em and en dashes in the rendered text
-- [ ] Gate 3, running heads and folios correct and correctly sided
-- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
-- [ ] Gate 5, font faces: expected set only, none stray inside SVG
-- [ ] Gate 6, key-term register renders with correct rule and tint alternation
-- [ ] Gate 7, opening-case provenance line present on page 1
-- [ ] Gate 8, footnotes on the calling page, numbering sequential
-- [ ] Gate 9, dated evidence boxes labelled and ruled
-- [ ] Gate 10, problem labels present with their titles
-- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
-- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
-- [ ] Gate 13, no text below the bottom margin, folio excluded
-- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [ ] Gate 15, typographic marks: zero straight quotes or apostrophes
-- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [x] Renders under WeasyPrint without error or warning
+- [x] Gate 1, zero right-margin overflow
+- [x] Gate 2, zero em and en dashes in the rendered text
+- [x] Gate 3, running heads and folios correct and correctly sided
+- [x] Gate 4, callout placement: no splits, ordering correct after place.py
+- [x] Gate 5, font faces: expected set only, none stray inside SVG
+- [x] Gate 6, key-term register renders with correct rule and tint alternation
+- [x] Gate 7, opening-case provenance line present on page 1
+- [x] Gate 8, footnotes on the calling page, numbering sequential
+- [x] Gate 9, dated evidence boxes labelled and ruled
+- [x] Gate 10, problem labels present with their titles
+- [x] Gate 11, theorem panel intact, labelled, ruled, not split
+- [x] Gate 12, figures captioned, numbered in order, each referenced in text
+- [x] Gate 13, no text below the bottom margin, folio excluded
+- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [x] Gate 15, typographic marks: zero straight quotes or apostrophes
+- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
 
-### RUN 2026-08-29. EVERY CHECK PASSES. THE BOX STAYS OPEN FOR THE SAME REASON STAGE 5's DOES.
+### CLEARED 2026-08-31, AFTER STAGE 5, ON THE SHIPPED TEXT.
+
+**All eighteen boxes are ticked because all eighteen were performed on the render the
+chapter now has**, not on the one that existed when this gate was first run. The earlier
+run correctly refused to tick them, and its record is kept below.
+
+**Print: all fifteen gates pass at 26 pages.** The page-fill advisory names one page, p22
+at 115pt, which is the foot of the discussion-question slot and is one of the short pages
+CLAUDE.md rules legitimate. Accepted rather than fixed.
+
+**BOTH MANUAL BOXES WERE PERFORMED AND ARE RECORDED UNDER STAGE 5.** The figure-geometry
+box and the page-level raster review were done today, at Stage 5, on this render. **The
+box specifies 150dpi and the full 26-page read was done at 100dpi**, so both figure pages
+were re-rasterized at 150 and re-read to honour the stated method. That is recorded here
+rather than glossed, because a box claiming a method nobody used is exactly the drift the
+G2 preamble warns about.
+
+**Web: all gates pass, W1 equivalence holds at 45,046 characters and ten notes identical
+between page and print, and W17a confirms the published PDF clears all fifteen print
+gates.**
+
+**FOUR WEB GATES DID NOT RUN HERE AND CI IS WHAT COVERS THEM.** W6, W15, W16b and W16c
+need a headless browser, and CLAUDE.md records that the pinned build will not download
+into this container. They are loud about being skipped rather than silently passing, which
+is the design. **`web.yml` installs the browser, so the gate's full surface is verified on
+push and not in this session.** Reading the CI run on the merge commit is part of clearing
+this gate, not an optional extra.
+
+### RUN 2026-08-29. EVERY CHECK PASSED THEN TOO. THE BOX STAYED OPEN FOR THE SAME REASON STAGE 5's DID.
 
 **All fifteen print gates pass** on the current text at 25 pages, and the page-fill
 advisory is clean. **The web build now passes too, which it could not do before

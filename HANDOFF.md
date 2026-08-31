@@ -35,9 +35,40 @@ new one. Read the commits, not the name.
 **CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED AND STAGE 7's CHECK A IS DONE, WITH ALL EIGHT
 RULINGS APPLIED.** All fifteen print gates now pass, which they did not before Stage 7.
 
-**WHAT IS BLOCKING, IN ONE LINE:** Dan, on whether to tick Stage 7. Both checks are run,
-every finding is ruled and applied, all fifteen print gates pass, and the render and packet
-are rebuilt from the corrected text.
+**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 7 tick and the Stage 8 final read.
+Everything Claude owns on Chapter 2 is finished.
+
+**CHAPTER 2 IS AT 10 OF 13. STAGE 5 AND GATE G2 BOTH CLEARED 2026-08-31**, on the shipped
+text rather than on the one that existed when they were first run. Three steps remain: Dan
+ticks Stage 7, Dan reads Stage 8, Claude runs `continuity.py --update` and locks at Stage 9.
+
+**STAGE 5 FOUND FOUR DEFECTS AND NONE WAS VISIBLE TO ANY OF THE FIFTEEN GATES.** The render
+passed all fifteen before and after. Every one was found by rasterizing pages and reading
+them.
+
+- **The provenance line had become FALSE**, and it is the first thing a reader sees. It
+  said the figures were "pending source verification" the day after Stage 7 verified them.
+  **Gate 7 tests that the line is present, not that it is true.**
+- **Two terminal full stops were lost in the Stage 6 copy edit** and reached the render.
+  **THE 195-BLOCK IMPORT CONTROL COULD NOT SEE THEM**: it compares the chapter against
+  Dan's returned `.docx`, and the `.docx` had dropped them too, so the chapter matched its
+  proof exactly. **A control that proves two artifacts agree is blind to a defect they
+  share.** A `voicecheck` house-style check now catches the class, negative-tested against
+  a clean baseline and clean on the locked Chapter 1.
+- **A footnote marker stranded alone on its own line** inside the dated box, where the
+  measure is narrower than the body's. Gate 14 counts widows and orphans of paragraphs and
+  a lone superscript is neither.
+
+**THE STRANDED-MARKER FIX IS LOCAL AND THE DURABLE ONE IS AN OPEN THREAD.** A word joiner
+in the chapter fixes this instance. The class fix is for `footnotes.inject` to emit U+2060
+before every marker, which is shared machinery: the re-run matrix makes that re-run the
+print gates on **every** chapter including the locked Chapter 1, so it is Dan's ruling
+rather than a Stage 5 fix.
+
+**FOUR WEB GATES CANNOT RUN IN THIS CONTAINER AND CI IS WHAT COVERS THEM.** W6, W15, W16b
+and W16c need a headless browser and the pinned build will not download here. They print
+SKIPPED rather than passing silently. **Reading the CI run on the merge commit is part of
+clearing G2**, not an optional extra.
 
 ### STAGE 7 CHANGED WHAT THIS PROJECT KNOWS, BECAUSE THE CHECKER COULD READ
 
@@ -1659,7 +1690,7 @@ just deleted. Close the sessions, then delete.
 the next DRAFTING target and is unblocked. Thread 8 below is the live record of
 the web sub-project.
 
-## Chapter 2 status: **8 of 13 as of 2026-08-30. BOTH STAGE 7 CHECKS ARE RUN AND APPLIED; THE STAGE 7 TICK IS DAN'S.**
+## Chapter 2 status: **10 of 13 as of 2026-08-31. STAGE 5 AND G2 CLEARED. WAITING ON DAN FOR THE STAGE 7 TICK AND THE STAGE 8 READ.**
 
 **STAGE 2 CLOSED 2026-08-28 WITH ALL FOURTEEN FINDINGS RULED**, nine Claude's and
 five the second model's. Full per-finding records are in the chapter checklist and

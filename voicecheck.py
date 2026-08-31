@@ -550,7 +550,33 @@ def housestyle(path):
         craft_at = len(body)
 
     out = {"quotes": [], "longpara": [], "figure": [], "reader": [],
-           "terminvar": []}
+           "terminvar": [], "unstopped": []}
+
+    # A prose block that does not close with terminal punctuation.
+    #
+    # Added 2026-08-31 at Chapter 2 Stage 5, after TWO full stops were lost in
+    # the Stage 6 copy edit and reached the render. They survived the 195-block
+    # import control, the Stage 7 packet and two external checks.
+    #
+    # THE IMPORT CONTROL COULD NOT SEE THEM AND THAT IS THE LESSON. It compares
+    # the chapter against the returned .docx, and the .docx had dropped the
+    # periods too, so the chapter matched its proof exactly. A control that
+    # proves two artifacts agree is blind to a defect they share.
+    #
+    # Key-term NAMES and the dated box's own label are labels rather than
+    # sentences, so they are excluded by requiring a verb-bearing length: a
+    # block of fewer than five words is a label, not a sentence.
+    for m in re.finditer(r"(?s)<p>(.*?)</p>", body):
+        text = hs_strip(m.group(1))
+        if len(text.split()) < 5:
+            continue
+        # Zero-width formatting characters are transparent to this test. A word
+        # joiner is legitimately the last character of a block when it holds a
+        # footnote marker to the sentence it belongs to, which is the Chapter 2
+        # DR-C fix, and it is not punctuation.
+        tail = text.rstrip("\u2060\u200b\ufeff")
+        if tail and tail[-1] not in ".?!:;\u201d\u2019)":
+            out["unstopped"].append(tail[-58:])
 
     # Body prose paragraphs carry no class attribute.
     for m in re.finditer(r"(?s)<p>(.*?)</p>", body):
@@ -604,6 +630,7 @@ def report_housestyle(h):
          FIGURE_BUDGET),
         ("reader", "'the reader' in the teaching body", None),
         ("terminvar", "Defined terms differing from their key term", None),
+        ("unstopped", "Prose blocks not closing with terminal punctuation", None),
     ]
     failed = False
     print("HOUSE STYLE (prose style guide Part 8)")
