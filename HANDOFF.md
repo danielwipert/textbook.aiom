@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-08-30. Read this
+Last updated: 2026-08-31 (session close, Chapter 2 locked). Read this
 plus CLAUDE.md before starting work, and
 update this file before ending the session. The protocol is CLAUDE.md section 11.
 A SessionStart hook (`.claude/settings.json`) prints this file into context
@@ -8,36 +8,73 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-30 CLOSE: everything is merged to `main`, nothing is stranded, and ONE
-MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Every merge this session was fast-forward with
-`origin/main` verified as an ancestor BEFORE the merge rather than after. Working tree clean.
+**AT THE 2026-08-31 CLOSE: `main` is at `bb8be7c`, local and remote level, working tree
+clean, nothing stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Verified
+against `git status` and `status_check.py`, not copied from the previous entry. Both
+workflows are green on `bb8be7c`, confirmed by waiting for them.
 
-**THE BRANCH DELETE FAILS WITH THE DOCUMENTED 403, AS IT DID ON 2026-08-24**, so Dan deletes
-it. It fails the same way every time, mid-push, with `send-pack: unexpected disconnect`. Do
-not read that as a network problem worth retrying:
+**CHAPTER 2 IS LOCKED AND LIVE. THE SITE NOW PUBLISHES TWO CHAPTERS.** The deploy artifact
+was read directly rather than inferred from a green tick: it carries `ch01/index.html`,
+`ch02/index.html` and both typeset PDFs. **The live site is NOT reachable from the
+container**, so a curl against it proves nothing in either direction; the artifact listing
+is the evidence.
+
+**THE BRANCH DELETE FAILS WITH THE DOCUMENTED 403, EVERY TIME, so Dan deletes it.** It
+fails mid-push with `send-pack: unexpected disconnect`. That is not a network problem worth
+retrying:
 
     git push origin --delete claude/stage-6-copy-edit-1vg58m
 
+**THE BRANCH NAME NO LONGER DESCRIBES ITS CONTENTS AND THAT IS DELIBERATE.** It has been
+merged, deleted and restarted from `main` four times, because the standing instruction is
+to keep the designated branch name rather than open a new one. Read the commits, not the
+name.
+
 **READ CI ON THE CURRENT HEAD, NEVER THE TOPMOST COMPLETED RUN.** `web.yml` sets
 `cancel-in-progress: true`, so pushing again while a run is in flight supersedes it and the
-superseded run shows `cancelled`. **That happened once in this session and it was
+superseded run shows `cancelled`. **That happened once this session and it was
 self-inflicted**: a HANDOFF push landed while `web` was running. Update this file BEFORE
-merging, not after, so the merge is one push and one run.
+merging, so the merge is one push and one run.
 
-**A COMMIT TOUCHING ONLY `HANDOFF.md` GETS NO `chapter` RUN, AND THAT IS THE PATHS FILTER
-RATHER THAN A GAP.** `chapter.yml` covers `AIOM_*.md` and not this file.
+**A COMMIT TOUCHING ONLY `HANDOFF.md` GETS NO `chapter` RUN**, because `chapter.yml` covers
+`AIOM_*.md` and not this file. **But a PUSH carrying a qualifying commit alongside it does
+run**, because the paths filter reads the whole push rather than the head commit. Both were
+observed this session.
 
-**THE BRANCH NAME NO LONGER DESCRIBES ITS CONTENTS AND THAT IS DELIBERATE.**
-`claude/stage-6-copy-edit-1vg58m` has been merged, deleted and restarted from `main` twice,
-because the standing instruction is to keep the designated branch name rather than open a
-new one. Read the commits, not the name.
+## THE NEXT SESSION IS HOUSEKEEPING, THEN CHAPTER 3
 
-**NOTHING IS BLOCKING. CHAPTER 2 IS LOCKED AT 13 OF 13, 2026-08-31.** Dan cleared Stage 7
-and Stage 8, Claude appended the continuity ledger and locked at Stage 9. **The book now
-has two locked chapters and the site publishes both.**
+Dan's ruling at the 2026-08-31 close: housekeeping first, then drafting. **The housekeeping
+list is the four items below, in the order they should be taken.** None blocks the other.
 
-**THE NEXT DRAFTING TARGET IS CHAPTER 3.** Nothing on Chapter 2 is outstanding except the
-two carried items below, and neither belongs to Chapter 2.
+**H1. THE FREQUENCY SWEEP, AND IT IS THE ONE THAT CHANGES A PROCESS RATHER THAN A FILE.**
+Stage 7's check B found about a dozen unsourced claims about what organizations usually,
+commonly or almost always do. **Every one predated the copy edit**, so Stage 1's sweep and
+Stage 3 both passed over them. Stage 1 listed five candidates and cleared a sixth; a reader
+given only the render found roughly a dozen more of the same shape. **The finding is about
+the SWEEP, not those sentences**, and it will repeat on Chapter 3 unless the sweep changes.
+Dan ruled on 2026-08-30 to book it as its own pass rather than fix it piecemeal at Stage 7.
+**Do not reopen "Organizations skip the record flow most often for structural reasons":
+Stage 1 cleared it explicitly and FQ4's REVERSES-IF says why.**
+
+**H2. CHAPTER 1'S MANUAL PAGE READ IS STALE SINCE ITS 2026-08-14 AMENDMENT**, and
+`chapter_check.py` reports it on every run. `amend.py` runs the mechanical half only, by
+design, and the page read is exactly what it does not run. **Everything Chapter 2's Stage 5
+found was invisible to fifteen green gates and visible only on the page**: a provenance
+line that had become false, two missing full stops, and a stranded footnote marker. Chapter
+1 has had no such read since August. A report, not a failure.
+
+**H3. CLAUDE.md HAS THREE ENTRIES THAT ARE NOW UNDERCOUNTS OR STALE.** Its "a second
+chapter is a test instrument" entry names three defects; the true count after this session
+is well past that, and the self-test controls belong in it. Its note that no source host is
+reachable is true of Claude's container and **NOT true of every external checker**, which
+Stage 7 proved. And `voicecheck.py` still labels its house-style checks "prose style guide
+Part 8", pointing at a retired file.
+
+**H4. THE COPY-EDIT ROW OF THE RE-RUN MATRIX DOES NOT FIT WHAT ACTUALLY HAPPENS.** That row
+covers a typo with no meaning change and re-runs G2 alone. Chapter 2's copy edit changed 104
+of 195 blocks, which is the body-prose row. The question of whether the judgment halves of
+Stages 2 and 4 re-run after a copy edit of that size was raised and never ruled, and it
+will recur on every chapter.
 
 ### WHAT TO CARRY INTO CHAPTER 3
 
@@ -201,19 +238,16 @@ It read 195 of 195 matching after the import, and 9 of 195 differing after Dan's
 rulings were applied, where each of the nine is one of the nine repairs he ruled.
 Nothing else moved. Run that comparison on every future chapter.
 
-### What is left on Chapter 2, in order
+### What Chapter 2 cost, for the record
 
-Stage 7 (Dan), then Stage 5, G2, `continuity.py --update` and lock at Stage 9.
+**Thirteen steps, and the last six ran in two days.** The copy edit changed 104 of 195
+blocks. Stage 7 ran two external checks that overlapped on nothing: A read the sources and
+contradicted four claims, B read only the render and found sentences contradicting the
+chapter's own statements of what it does not know. Stage 5 found four more defects that
+fifteen green gates could not see. Locking it broke three self-test controls.
 
-**STAGE 5 INHERITS ONE KNOWN PRINT FAILURE.** Gate 8 reports footnote 5 off its calling
-page, which is reflow from an edit of this size, and it is deliberately not fixed here:
-Process v3 puts the design review after the fact check so pagination is not settled
-twice, and Stage 7 may move text again. The other fourteen gates pass. The packet's
-RENDER line names the failure so no checker reports it as a finding.
-
-**THE CONTINUITY LEDGER HOLDS NO Ch02 TERMS YET**, which is why G3 passes and gate W8a is
-not yet exposed to the "flow" definition. Whichever wording is in the chapter at lock is
-what `continuity.py --update` must write, and Dan ruled the key-term wording wins.
+**EVERY ONE OF THOSE WAS FOUND BY A CHECK WHOSE INPUT CHANGED, NOT BY RE-READING CODE.**
+That is the pattern worth carrying into Chapter 3.
 
 ### What closed in the 2026-08-29 session, and what it cost to close
 
@@ -2476,26 +2510,29 @@ added 2026-08-12 and closes the gap where no gate read punctuation.
 
 ## Open threads, in priority order
 
-**LIVE THREADS AS OF THE THIRD 2026-08-29 CLOSE: unchanged in order and membership.
-Thread 6 is still first and still the work, and Chapter 2 moved from 4 of 13 to 7 of
-13.** Threads 8, 10, 5, 3 and 7 are untouched.
+**LIVE THREADS AS OF THE 2026-08-31 CLOSE. CHAPTER 2 IS OFF THE LIST: it locked and
+published, and thread 6 closes with it.** Threads 8, 10, 5, 3 and 7 are untouched by this
+session except where noted below.
 
-**WHAT IS ACTUALLY BLOCKING, IN ONE LINE:** Dan, on the Stage 6 copy edit. Everything
-else in the repository is waiting on nobody.
+**NOTHING IS BLOCKING AND NOBODY IS WAITING.** Both chapters are locked and live. The next
+session is housekeeping H1 to H4, named at the top of this file, and then Chapter 3.
 
-**THE ORDER FROM HERE.** Dan copy-edits the `.docx`. Claude imports it, dry run then
-`--apply`, reporting what it refuses rather than guessing, rebuilds, and generates the
-Stage 7 packet and render from the copy-edited text. Dan runs two external checks on
-different prompts. Then Claude re-runs Stage 5 and G2, which is cheap because the two
-defects they would have found are already fixed, Dan takes the final read, and Claude
-locks at Stage 9 after `continuity.py --update`.
+**THREAD 5 GAINS THE SELF-TEST CONTROLS.** Locking the second chapter broke three of them
+and revealed a fourth that had been passing for the wrong reason since August. All four are
+fixed and derived rather than hardcoded, but the class is live: **a control that names
+which chapters exist goes stale the next time one locks.** Expect more when Chapter 3
+locks, and prefer a derived expectation to a named one.
 
-**THREAD 5 GAINS ONE ITEM.** Five tooling defects were fixed this session and all five
-were invisible while one chapter existed. **CLAUDE.md's entry that a second chapter is a
-test instrument now covers eight defects, not three**, and it should be updated to say so
-the next time that file is touched.
+**THREAD 5 ALSO GAINS THE `.nb` PHANTOM SPACE AS A THREE-TOOL PATTERN**, not a one-off.
+`copyedit_export.strip()` had it twice and `continuity.strip_tags` had it once. In every
+case the owning check was blind, because both sides of its comparison ran through the same
+function. **When writing any new extractor over chapter HTML, handle `span.nb` before the
+generic tag rule.**
 
-**THE 2026-08-29 LIST FOLLOWS, superseded only on the paragraph above.**
+**H1 IS A NEW THREAD AND IT OUTRANKS THE REST OF THE HOUSEKEEPING**, because it changes how
+Stage 1 is run rather than fixing a file, and every later chapter pays for it.
+
+**THE 2026-08-29 LIST FOLLOWS, superseded only on the paragraphs above.**
 
 **LIVE THREADS AS OF THE SECOND 2026-08-29 CLOSE: unchanged in order and in
 membership. Thread 6 is still first and still the work. Chapter 2 has moved from 4 of
