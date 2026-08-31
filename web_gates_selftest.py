@@ -18,6 +18,7 @@ Run it after any change to web_build.py:
     python3 web_gates_selftest.py
 """
 import copy
+import glob
 import io
 import os
 import re
@@ -172,8 +173,24 @@ def _llms_controls(results):
 
     src, tmp = "build/web", "build/w10-selftest"
     base = "/textbook.aiom"
-    metas = [{"chapter_number": "1", "chapter_title": "The Category Error",
-              "slug": "ch01"}]
+    # DERIVED FROM THE BUILT TREE, NEVER NAMED. This was the literal one-element
+    # list for chapter 1 until 2026-08-31, and locking Chapter 2 made W10
+    # correctly report a locked chapter that "was not built", because the metas
+    # handed to it said only chapter 1 existed. The control was asserting the
+    # book's size, not the gate's behaviour.
+    metas = []
+    for slug in sorted(d for d in os.listdir(src)
+                       if re.fullmatch(r"ch\d+", d)
+                       and os.path.isdir(os.path.join(src, d))):
+        page = os.path.join(src, slug, "index.html")
+        title = ""
+        if os.path.exists(page):
+            m = re.search(r"<title>(.*?)</title>",
+                          open(page, encoding="utf-8").read(), re.S)
+            if m:
+                title = re.sub(r"\s*[|·].*$", "", m.group(1)).strip()
+        metas.append({"chapter_number": str(int(slug[2:])),
+                      "chapter_title": title, "slug": slug})
 
     def run(label, mutate):
         shutil.rmtree(tmp, ignore_errors=True)
@@ -770,11 +787,20 @@ def main():
          lambda: quiet(wb.gate_w1, print_html, bad))
 
     print("\nW2, lock status")
+    # A DIRECTORY WITH NO CHECKLIST AT ALL, built for the purpose.
+    #
+    # This pointed at Chapter 2 until 2026-08-31, on a comment saying Chapter 2
+    # "has stage folders but no checklist yet". That stopped being true in
+    # August, so the control was exercising the checklist-exists-but-unlocked
+    # branch while claiming to test the no-checklist one, and it went MISS the
+    # moment Chapter 2 locked and that branch started returning clean. **A
+    # control that certifies a branch it never runs is the failure this whole
+    # file exists to prevent**, and it was sitting inside the file.
+    _nockl = "build/selftest-nochecklist/00_Stage0_Draft"
+    os.makedirs(_nockl, exist_ok=True)
     case("a chapter with no checklist",
-         lambda: quiet(wb.gate_w2, "Drafts/Ch02_The_Flow/00_Stage0_Draft/x.html",
-                       False))
-    # A synthetic unlocked chapter. Chapter 2 has stage folders but no checklist
-    # yet, so the real tree cannot exercise the branch that matters: a checklist
+         lambda: quiet(wb.gate_w2, os.path.join(_nockl, "x.html"), False))
+    # A synthetic unlocked chapter, which is a DIFFERENT branch: a checklist
     # that EXISTS and does not report Stage 9.
     unlocked = _fake_unlocked_chapter()
     case("an unlocked chapter is refused",
@@ -1191,19 +1217,55 @@ def main():
 
     snap_root = "build/selftest-snap"
     chapters, snotes = snap.materialize("Drafts", snap_root)
+    # THE EXPECTED SET IS DERIVED, NEVER NAMED. Until 2026-08-31 this control
+    # asserted the literal list ["Ch01_The_Category_Error"], and locking Chapter
+    # 2 turned a correct snapshot into a failing control. A control that has to
+    # be edited every time the book makes progress is a control people learn to
+    # edit rather than read. The authority is the same one W2 uses: a chapter
+    # publishes when its own checklist reports Stage 9.
+    def locked_dirs():
+        import status_check
+        out = []
+        for d in sorted(os.listdir("Drafts")):
+            if not d.startswith("Ch"):
+                continue
+            found = glob.glob(os.path.join("Drafts", d, "*Checklist*.md"))
+            if not found:
+                continue
+            steps = status_check.parse(found[-1])
+            lock = [s for s in steps if s["id"] == "Stage 9"]
+            if lock and lock[0]["status"]:
+                out.append(d)
+        return out
+
     case("only chapters that have locked are materialized",
-         lambda: [] if [c[2] for c in chapters] == ["Ch01_The_Category_Error"]
-         else ["materialized " + str([c[2] for c in chapters])], False)
+         lambda: [] if [c[2] for c in chapters] == locked_dirs()
+         else ["materialized %s, locked %s"
+               % ([c[2] for c in chapters], locked_dirs())], False)
+
     # Two distinct skips, both correct and both silent-if-unstated: a chapter
     # with no checklist has not been started, a chapter with one that never
     # reported Stage 9 is in progress. Neither publishes and neither is a
     # failure. The first draft of this control asserted the wrong message and
     # the self-test caught it, which is the self-test doing its job on itself.
+    #
+    # NAMING NO CHAPTER IS THE POINT. This asserted "Ch02" until 2026-08-31 and
+    # went stale the moment Chapter 2 locked. Requiring EVERY unmaterialized
+    # chapter to carry a stated reason is both durable and a stronger claim than
+    # checking one of them.
+    def every_skip_is_stated():
+        materialized = {c[2] for c in chapters}
+        skipped = [d for d in sorted(os.listdir("Drafts"))
+                   if d.startswith("Ch") and d not in materialized]
+        if not skipped:
+            return ["no chapter was skipped, so this control tested nothing"]
+        bad = [d for d in skipped
+               if not any(d in n and ("never locked" in n or "no checklist" in n)
+                          for n in snotes)]
+        return ["skipped with no stated reason: " + str(bad)] if bad else []
+
     case("an unlocked chapter is skipped with a stated reason, not failed",
-         lambda: [] if any("Ch02" in n and ("never locked" in n
-                                            or "no checklist" in n)
-                           for n in snotes)
-         else ["Ch02 was not reported as skipped at all"], False)
+         every_skip_is_stated, False)
 
     # THE CONTROL THAT MATTERS: the published bytes must be the LOCKED bytes.
     # A snapshot that silently resolved to HEAD would pass every other check in

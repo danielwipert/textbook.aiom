@@ -59,6 +59,35 @@ found was invisible to fifteen green gates and visible only on the page**: a pro
 line that had become false, two missing full stops, and a stranded footnote marker. Chapter
 1 has had no such read since August. A report, not a failure.
 
+### LOCKING THE SECOND CHAPTER BROKE THREE SELF-TEST CONTROLS, AND ONE HAD NEVER WORKED
+
+**`web_gates_selftest.py` went from 115/115 to 112/115 the moment Chapter 2 locked.** All
+three failures were controls that hardcoded the book's size rather than the gate's
+behaviour, and CLAUDE.md's own note applies: a second chapter is a test instrument.
+
+- **"only chapters that have locked are materialized"** asserted the literal list
+  `["Ch01_The_Category_Error"]`. Now derived from the same authority W2 uses, a chapter's
+  own checklist reporting Stage 9.
+- **"an unlocked chapter is skipped with a stated reason"** named Ch02. Now it requires
+  EVERY unmaterialized chapter to carry a stated reason, which is durable and a stronger
+  claim than checking one.
+- **W10's `metas` was a one-element list for chapter 1**, so W10 was correctly told only
+  chapter 1 had been built and correctly reported a locked chapter missing. Now derived
+  from the built tree.
+
+**ONE OF THEM HAD BEEN PASSING FOR THE WRONG REASON SINCE AUGUST, AND THAT IS THE ONE THAT
+MATTERS.** The W2 control "a chapter with no checklist" pointed at Chapter 2, on a comment
+saying Chapter 2 "has stage folders but no checklist yet". **That stopped being true in
+August.** The control was exercising the checklist-exists-but-unlocked branch while
+claiming to test the no-checklist branch, and it only revealed itself when Chapter 2 locked
+and that branch started returning clean. It now builds a directory with no checklist and
+fails with "no checklist found", which is the branch it names.
+
+**A CONTROL THAT CERTIFIES A BRANCH IT NEVER RUNS IS THE FAILURE THIS FILE EXISTS TO
+PREVENT**, and it was sitting inside the file. `print_gates_selftest.py` found three of
+exactly this shape on its first run. **Expect more when Chapter 3 locks**, and prefer a
+derived expectation to a named one whenever a control touches which chapters exist.
+
 ### THE .nb PHANTOM SPACE HAS NOW BEEN FIXED IN THREE TOOLS, AND THAT IS THE PATTERN
 
 `span.nb` wraps a proper noun inside running prose and carries no width, so removing it must
