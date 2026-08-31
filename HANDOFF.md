@@ -32,68 +32,48 @@ RATHER THAN A GAP.** `chapter.yml` covers `AIOM_*.md` and not this file.
 because the standing instruction is to keep the designated branch name rather than open a
 new one. Read the commits, not the name.
 
-**CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED AND STAGE 7's CHECK A IS DONE, WITH ALL EIGHT
-RULINGS APPLIED.** All fifteen print gates now pass, which they did not before Stage 7.
+**NOTHING IS BLOCKING. CHAPTER 2 IS LOCKED AT 13 OF 13, 2026-08-31.** Dan cleared Stage 7
+and Stage 8, Claude appended the continuity ledger and locked at Stage 9. **The book now
+has two locked chapters and the site publishes both.**
 
-**WHAT IS BLOCKING, IN ONE LINE:** Dan, on the Stage 7 tick and the Stage 8 final read.
-Everything Claude owns on Chapter 2 is finished.
+**THE NEXT DRAFTING TARGET IS CHAPTER 3.** Nothing on Chapter 2 is outstanding except the
+two carried items below, and neither belongs to Chapter 2.
 
-**CHAPTER 2 IS AT 10 OF 13. STAGE 5 AND GATE G2 BOTH CLEARED 2026-08-31**, on the shipped
-text rather than on the one that existed when they were first run. Three steps remain: Dan
-ticks Stage 7, Dan reads Stage 8, Claude runs `continuity.py --update` and locks at Stage 9.
+### WHAT TO CARRY INTO CHAPTER 3
 
-**STAGE 5 FOUND FOUR DEFECTS AND NONE WAS VISIBLE TO ANY OF THE FIFTEEN GATES.** The render
-passed all fifteen before and after. Every one was found by rasterizing pages and reading
-them.
+**1. THE FREQUENCY SWEEP IS THE OPEN PROCESS QUESTION, AND IT IS NOT ABOUT CHAPTER 2.**
+Check B found about a dozen unsourced claims about what organizations usually, commonly or
+almost always do. **Every one predated the copy edit**, so Stage 1's frequency sweep and
+Stage 3 both passed over them. Stage 1 listed five candidates and cleared a sixth; a reader
+given only the render found roughly a dozen more of the same shape. Dan ruled on 2026-08-30
+to book it as its own pass rather than fix it piecemeal at Stage 7. **It will repeat on
+Chapter 3 unless the sweep changes**, and that is the reason it is recorded here rather
+than in Chapter 2's checklist. **Do not reopen "Organizations skip the record flow most
+often for structural reasons": Stage 1 cleared it explicitly and FQ4's REVERSES-IF says
+why.**
 
-- **The provenance line had become FALSE**, and it is the first thing a reader sees. It
-  said the figures were "pending source verification" the day after Stage 7 verified them.
-  **Gate 7 tests that the line is present, not that it is true.**
-- **Two terminal full stops were lost in the Stage 6 copy edit** and reached the render.
-  **THE 195-BLOCK IMPORT CONTROL COULD NOT SEE THEM**: it compares the chapter against
-  Dan's returned `.docx`, and the `.docx` had dropped them too, so the chapter matched its
-  proof exactly. **A control that proves two artifacts agree is blind to a defect they
-  share.** A `voicecheck` house-style check now catches the class, negative-tested against
-  a clean baseline and clean on the locked Chapter 1.
-- **A footnote marker stranded alone on its own line** inside the dated box, where the
-  measure is narrower than the body's. Gate 14 counts widows and orphans of paragraphs and
-  a lone superscript is neither.
+**2. CHAPTER 1'S MANUAL PAGE READ IS STALE SINCE ITS 2026-08-14 AMENDMENT**, and
+`chapter_check.py` reports it on every run. `amend.py` runs the mechanical half only, by
+design, and the page read is exactly what it does not run. **Everything Chapter 2's Stage 5
+found was invisible to fifteen green gates and visible only on the page**: a provenance
+line that had become false, two missing full stops, and a stranded footnote marker. Chapter
+1 has had no such read since August. A report, not a failure.
 
-**THE STRANDED-MARKER CLASS IS CLOSED IN THE MACHINERY, ruled by Dan 2026-08-31.**
-`footnotes.inject` now emits U+2060 before every marker, so no footnote marker in this book
-can be left alone on a line again. The local word joiner in Chapter 2 is removed.
+### THE .nb PHANTOM SPACE HAS NOW BEEN FIXED IN THREE TOOLS, AND THAT IS THE PATTERN
 
-**THE LOCKED CHAPTER 1 WAS PROVEN UNAFFECTED, NOT ASSUMED TO BE.** A shared-machinery
-change re-runs the print gates on every chapter. Chapter 1 was rendered before and after:
-**25 pages both times, all fifteen gates pass, no page's text differs.** No reopen, no
-amendment. Chapter 2 was diffed the same way against the exact state its 26 pages were read
-in, and no page differs there either, so the Stage 5 read stands rather than going stale.
+`span.nb` wraps a proper noun inside running prose and carries no width, so removing it must
+not leave a space. Three separate tools spaced it like any other tag:
 
-**CHAPTER 1 CARRIES A STALE MANUAL-READ WARNING AND IT IS PRE-EXISTING, NOT NEW.** Found
-2026-08-31 while closing Chapter 2. `chapter_check.py` reports Ch01's two G2 MANUAL boxes
-and gaps G-I and G-II as stale, because its HTML last moved on 2026-08-14 in an amendment
-and its G2 was ticked before that. **Nobody has read Chapter 1's 25 pages since that
-amendment.**
+1. **`copyedit_export.strip()`**, for the emphasis tags, fixed 2026-08-08.
+2. **`copyedit_export.strip()` again**, for `span.nb` itself, fixed 2026-08-30, after the
+   Stage 6 proof read "Uber ’s" and the importer refused Dan's correction as unlocatable.
+3. **`continuity.strip_tags`**, fixed 2026-08-31, caught when the first Chapter 2 ledger
+   append wrote "Uber ’s experience" into the ledger.
 
-**THIS IS THE AMENDMENT PATH WORKING AS DESIGNED, AND IT IS ALSO THE HOLE IN IT.** `amend.py`
-runs the mechanical half only, on purpose, and the manual page read is exactly what it does
-not run. Chapter 1 passes all fifteen gates today, confirmed on a fresh render. **But
-everything Chapter 2's Stage 5 found on 2026-08-31, a false provenance line, two missing
-full stops and a stranded footnote marker, was invisible to all fifteen gates and visible
-only on the page.** Chapter 1 has had no such read since August 14.
-
-**It is a report, not a failure, and it is not urgent**: the chapter is published and
-gated. It is booked here so it is not discovered a third time.
-
-**THE WEB SELF-TEST FAILED ONCE ON `W10 clean on the real site` AND IT WAS THE DOCUMENTED
-INPUT GUARD, NOT A DEFECT.** It CONSUMES `build/web` and does not build it, and it had been
-handed a `--preview` tree. Rebuild as a publish site before running it. This is already in
-CLAUDE.md and it behaved exactly as recorded.
-
-**FOUR WEB GATES CANNOT RUN IN THIS CONTAINER AND CI IS WHAT COVERS THEM.** W6, W15, W16b
-and W16c need a headless browser and the pinned build will not download here. They print
-SKIPPED rather than passing silently. **Reading the CI run on the merge commit is part of
-clearing G2**, not an optional extra.
+**IN EVERY CASE THE OWNING CHECK WAS BLIND TO IT, because both sides of its comparison ran
+through the same function.** The artifact is symmetric, so export and import agree with each
+other, and G3 agrees with itself, and both differ from the page. **When writing any new
+extractor over chapter HTML, handle `span.nb` before the generic tag rule.**
 
 ### STAGE 7 CHANGED WHAT THIS PROJECT KNOWS, BECAUSE THE CHECKER COULD READ
 
@@ -1715,7 +1695,7 @@ just deleted. Close the sessions, then delete.
 the next DRAFTING target and is unblocked. Thread 8 below is the live record of
 the web sub-project.
 
-## Chapter 2 status: **10 of 13 as of 2026-08-31. STAGE 5 AND G2 CLEARED. WAITING ON DAN FOR THE STAGE 7 TICK AND THE STAGE 8 READ.**
+## Chapter 2 status: **LOCKED 2026-08-31, 13 of 13. THE SECOND LOCKED CHAPTER, AND THE FIRST COMPLETED UNDER PROCESS v3.**
 
 **STAGE 2 CLOSED 2026-08-28 WITH ALL FOURTEEN FINDINGS RULED**, nine Claude's and
 five the second model's. Full per-finding records are in the chapter checklist and

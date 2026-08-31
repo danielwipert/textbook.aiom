@@ -47,8 +47,25 @@ def norm(s):
     return re.sub(r"\s+", " ", str(s or "")).strip()
 
 
+# span.nb wraps a proper noun inside running prose (Decision 58) and carries no
+# width, so removing it must not leave a space behind. Spacing it writes
+# "Uber \u2019s experience" into the ledger where the chapter reads "Uber\u2019s".
+#
+# THIS IS THE THIRD TOOL TO CARRY THIS DEFECT. copyedit_export.strip() had it for
+# the emphasis tags, fixed 2026-08-08, and again for span.nb, fixed 2026-08-30
+# when Chapter 2's Stage 6 proof read "Uber \u2019s" and the importer then refused
+# the editor's correction as unlocatable. Found here 2026-08-31 when the first
+# Chapter 2 ledger append wrote a forward reference with the phantom space.
+#
+# G3 WOULD NOT HAVE CAUGHT IT, because both sides of its comparison run through
+# this same function, so the artifact is symmetric. What it corrupts is the
+# ledger as a HUMAN record.
+NB_SPAN = re.compile(r'<span class="nb">([^<]*)</span>')
+
+
 def strip_tags(s):
-    return norm(htmlmod.unescape(re.sub(r"(?s)<[^>]+>", " ", s)))
+    return norm(htmlmod.unescape(
+        re.sub(r"(?s)<[^>]+>", " ", NB_SPAN.sub(r"\1", str(s or "")))))
 
 
 # --------------------------------------------------------------------------

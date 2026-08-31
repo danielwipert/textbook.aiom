@@ -2142,7 +2142,7 @@ about rhythm only. C2 and C6 have no proxy and cannot be read off any number.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-31
 
 > Narrower than stage 2. Targets what changed since it, confirming nothing broke in revision.
 
@@ -2336,11 +2336,11 @@ and cleared a sixth; a reader with no packet found roughly a dozen more of the s
 **That will repeat on Chapter 3 unless the sweep changes**, and it is booked as an open
 thread with the process change beside it rather than fixed piecemeal here.
 
-### WHY THIS BOX IS STILL OPEN
+### CLEARED BY DAN 2026-08-31.
 
-**Nothing in the checks is outstanding. Stage 7 is Dan's step and the tick is his.** Both
-checks are run, every finding is ruled, and every ruling is applied. The render and packet
-are rebuilt from the corrected text and all fifteen print gates pass.
+**Nothing in the checks was outstanding when he ticked it.** Both checks are run, every
+finding is ruled, and every ruling is applied. The render and packet are rebuilt from the
+corrected text and all fifteen print gates pass.
 
 **Check A was not given the packet and says so itself.** It could not test its findings
 against the rulings in force. Claude ran that comparison and it produced R6, the retirement
@@ -2700,11 +2700,21 @@ the order is his.
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-31
 
 > The chapter read whole, typeset, at reading pace, in one sitting. Pass or fail on the whole, per Decision 30. No lists of small fixes. A failure names one structural reason and the chapter returns to the stage that owns it.
 
 Findings:
+
+### PASSED 2026-08-31. Dan read the chapter whole and ruled it a pass.
+
+**This is the first time in the project that Stage 8 has read a chapter every other check
+had already cleared, and that is what Process v3 was built to buy.** Under v2 the final
+read sat before the design review and the production gate, so it read a pagination those
+steps were about to change. Chapter 1's Stage 8 ran that way. Chapter 2's did not.
+
+**Decision 30 governs the form of this ruling**: pass or fail on the whole, no list of
+small fixes. It passed.
 
 ---
 
@@ -2712,11 +2722,54 @@ Findings:
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-08-31
 
 > Frozen. Continuity ledger committed. No change without an explicit reopen, which re-runs every stage from the one that owns the change.
 
 Findings:
+
+### LOCKED 2026-08-31. THE SECOND CHAPTER OF THE BOOK, AND THE FIRST COMPLETED UNDER PROCESS v3.
+
+**Thirteen of thirteen.** Dan cleared Stage 7 and Stage 8 on 2026-08-31, and the chapter
+locks on the same render every check cleared.
+
+**THE CONTINUITY LEDGER IS APPENDED AND THAT IS WHAT LOCK MEANS HERE.** Six owned terms,
+twelve forward references logged open, and one registry gloss for THM-004. The ledger now
+holds 14 owned terms and 17 forward references across two chapters.
+
+**THE THM-004 GLOSS WAS RECORDED BY HAND AND THE FIRST ATTEMPT FAILED, WHICH IS THE CHECK
+WORKING.** `continuity.py --update` writes a deliberate placeholder rather than a default,
+and check 4 requires the recorded wording to APPEAR IN THE CHAPTER rather than paraphrase
+it. A paraphrase was written first and G3 failed it as drift. The gloss is now section
+2.7's own sentences, verbatim.
+
+### A THIRD TOOL CARRIED THE .nb PHANTOM SPACE, FOUND BY THE FIRST LEDGER APPEND
+
+`continuity.strip_tags` spaced `span.nb` like every other tag, so the first append wrote
+"Uber ’s experience makes the problem from Chapter 1 concrete" into the ledger where the
+chapter reads "Uber’s". **G3 could never have caught it**, because both sides of its
+comparison run through that same function, so the artifact is symmetric. What it corrupts
+is the ledger as a HUMAN record.
+
+**THIS IS THE SAME DEFECT IN ITS THIRD TOOL.** `copyedit_export.strip()` had it for the
+emphasis tags, fixed 2026-08-08, and again for `span.nb`, fixed 2026-08-30 when Chapter 2's
+copy-edit proof read "Uber ’s" and the importer refused Dan's correction as unlocatable.
+Fixed here, the append regenerated, and **Chapter 1's G3 re-run first to prove no
+regression**: 5 forward references, 0 unlogged, PASSED. The committed ledger carried zero
+phantom spaces beforehand, which is why the fix was safe to make.
+
+### WHAT THE CHAPTER LOCKS WITH
+
+All fifteen print gates pass at 26 pages. The web suite passes, W1 equivalence holds
+between page and print, and W17a confirms the published PDF clears all fifteen print gates.
+W14 holds 10 rulings at 12 required and 15 forbidden strings. `voicecheck` passes mechanical
+and house style. G3 passes all seven checks.
+
+**Two items are carried forward deliberately and neither blocks the lock**, both recorded
+in `HANDOFF.md`: check B's Tier 4, about a dozen pre-existing population claims that Stage
+1's sweep and Stage 3 both passed over, booked as its own pass; and the observation that
+the finding there is about the SWEEP rather than these sentences, so it will repeat on
+Chapter 3 unless the sweep changes.
 
 ---
 

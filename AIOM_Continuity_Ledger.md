@@ -103,6 +103,12 @@ not appear here; only the owner does.
 | Metered resource | 1 | A resource whose consumption is measured per unit of use, here in tokens or their equivalents. |
 | Flat-rate objection | 1 | The claim that a flat per-seat price makes AI equivalent to licensed software; answered by meter relocation. |
 | Meter relocation | 1 | The placement of consumption metering on the provider’s side of a flat-rate subscription. The buyer pays a fixed price for access, while the provider continues to measure actual use. The provider sets the flat rate based on expected consumption and may change the price, allowance, or usage limits when actual consumption exceeds that expectation. |
+| Flow | 2 | A continuous stream of related activity within a deployment, described by its rate, direction, and the records kept about it. An organization manages a flow by governing it over time rather than approving the deployment once. |
+| Usage flow | 2 | The stream of consumption events a deployment generates, including requests made, work performed, and outputs returned. It is the only one of the three flows that an organization normally seeks to increase. |
+| Record flow | 2 | The stream of information an organization keeps about its own usage, including which team or product consumed what, at what volume, and when. The provider always keeps a record because it must produce a bill. The buyer has a record only if it deliberately builds one. |
+| Cost-and-value flow | 2 | The stream of money spent on a deployment together with the business return attributed to that spending. The two halves form one flow because neither can support an economic decision on its own. |
+| Cost-value asymmetry | 2 | The condition in which metering records a deployment’s cost automatically, while its value is measured only when the organization has deliberately built a way to measure it. As a result, the organization may know precisely what the deployment costs without knowing what that spending produces. |
+| Three-flow mapping | 2 | The diagnostic that establishes the condition of the usage, record, and cost-and-value flows in a named deployment. The mapping also identifies the evidence that would change each diagnosis. |
 <!-- CONTINUITY:TERMS -->
 
 ---
@@ -121,6 +127,18 @@ promise was kept.
 | 1 | 4 | Chapter 4 examines these instruments in detail. | open |
 | 1 | 6 | It returns in Chapter 6 as the book’s anchor case on realized value. | open |
 | 1 | 14 | Chapter 14 distinguishes the subject of this book from these neighboring disciplines. | open |
+| 2 | 1 | 4 Chapter 1 argued that a flat price relocates the meter to the provider rather than abolishing it. | paid |
+| 2 | 1 | Chapter 1 defined its basic unit: the consumption event, a single use of an AI system that consumes metered computing resources. | paid |
+| 2 | 1 | Chapter 1 described the problem as a category error, and Chapter 3 names the discipline that resolves it. | paid |
+| 2 | 1 | Chapter 1 established that the provider always holds a meter, because the provider must bill and must manage its own capacity. | paid |
+| 2 | 1 | Interleaving: question 4 and problem P2 require Chapter 1’s results. | paid |
+| 2 | 1 | Public reporting does not establish whether Uber made the category error described in Chapter 1 or understood the cost model but failed to carry that understanding into its forecast. | paid |
+| 2 | 1 | Uber’s experience makes the problem from Chapter 1 concrete. | paid |
+| 2 | 3 | As Chapter 3 explains, the theorem formalizes the economic consequence of the third flow’s asymmetry; it does not establish the taxonomy itself. | open |
+| 2 | 3 | Chapter 1 described the problem as a category error, and Chapter 3 names the discipline that resolves it. | open |
+| 2 | 8 | Chapter 8 builds the record flow, and Chapter 10 turns that record into a budget. | open |
+| 2 | 8 | It returns in Chapter 8, which builds the record flow that organizations are structurally most likely to skip. | open |
+| 2 | 10 | Chapter 8 builds the record flow, and Chapter 10 turns that record into a budget. | open |
 <!-- CONTINUITY:FORWARD -->
 
 ---
@@ -137,6 +155,7 @@ tracks the surrounding prose gloss.
 |---|---|---|
 
 | THM-009 | Ch1 | deployed AI is a resource-consuming operating activity, not merely software access |
+| THM-004 | Ch2 | Once a deployment reaches scale, economic control requires a governing apparatus. Diligence from the people running the deployment is no longer enough. |
 <!-- CONTINUITY:REGISTRY -->
 
 ---
@@ -161,4 +180,5 @@ One line per chapter as it locks, so the ledger's own currency is visible.
 |---|---|---|---|---|
 
 | 1 | 2026-08-13 | 8 | 5 | 1 |
+| 2 | 2026-08-31 | 6 | 12 | 1 |
 <!-- CONTINUITY:LOG -->
