@@ -69,6 +69,22 @@ change re-runs the print gates on every chapter. Chapter 1 was rendered before a
 amendment. Chapter 2 was diffed the same way against the exact state its 26 pages were read
 in, and no page differs there either, so the Stage 5 read stands rather than going stale.
 
+**CHAPTER 1 CARRIES A STALE MANUAL-READ WARNING AND IT IS PRE-EXISTING, NOT NEW.** Found
+2026-08-31 while closing Chapter 2. `chapter_check.py` reports Ch01's two G2 MANUAL boxes
+and gaps G-I and G-II as stale, because its HTML last moved on 2026-08-14 in an amendment
+and its G2 was ticked before that. **Nobody has read Chapter 1's 25 pages since that
+amendment.**
+
+**THIS IS THE AMENDMENT PATH WORKING AS DESIGNED, AND IT IS ALSO THE HOLE IN IT.** `amend.py`
+runs the mechanical half only, on purpose, and the manual page read is exactly what it does
+not run. Chapter 1 passes all fifteen gates today, confirmed on a fresh render. **But
+everything Chapter 2's Stage 5 found on 2026-08-31, a false provenance line, two missing
+full stops and a stranded footnote marker, was invisible to all fifteen gates and visible
+only on the page.** Chapter 1 has had no such read since August 14.
+
+**It is a report, not a failure, and it is not urgent**: the chapter is published and
+gated. It is booked here so it is not discovered a third time.
+
 **THE WEB SELF-TEST FAILED ONCE ON `W10 clean on the real site` AND IT WAS THE DOCUMENTED
 INPUT GUARD, NOT A DEFECT.** It CONSUMES `build/web` and does not build it, and it had been
 handed a `--preview` tree. Rebuild as a publish site before running it. This is already in
