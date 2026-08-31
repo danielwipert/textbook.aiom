@@ -40,7 +40,24 @@ def inject(chapter_html, url_policy="full", hide_sources=True):
         gloss = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", gloss)).strip()
         text = cf.format_footnote(keys, src, gloss, url_policy)
         report.append((len(report) + 1, keys, len(text)))
-        return f'<span class="fn">{text}</span>'
+        # U+2060 WORD JOINER, so the marker cannot be left on a line of its own.
+        #
+        # Added 2026-08-31 on Dan's ruling, after Chapter 2 Stage 5 found marker 8
+        # stranded alone at the foot of a dated evidence box. There is no
+        # whitespace between the sentence and the marker in the source, but
+        # WeasyPrint takes the inline element boundary as a break opportunity, and
+        # inside a box whose measure is narrower than the body's the line filled
+        # exactly and the superscript wrapped.
+        #
+        # NO GATE SEES THIS. Gate 14 counts widows and orphans of PARAGRAPHS, and
+        # a lone superscript is neither, so the render carried it past all fifteen.
+        # It was found by rasterizing the page and reading it.
+        #
+        # The joiner is zero width and carries no advance, so it changes no
+        # measure and no text a reader sees. It DOES enter the extracted text
+        # stream, which is why voicecheck's terminal-punctuation check treats
+        # zero-width formatting as transparent.
+        return f'\u2060<span class="fn">{text}</span>'
 
     out = CITE_RE.sub(repl, chapter_html)
 

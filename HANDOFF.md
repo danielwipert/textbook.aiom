@@ -59,11 +59,20 @@ them.
   measure is narrower than the body's. Gate 14 counts widows and orphans of paragraphs and
   a lone superscript is neither.
 
-**THE STRANDED-MARKER FIX IS LOCAL AND THE DURABLE ONE IS AN OPEN THREAD.** A word joiner
-in the chapter fixes this instance. The class fix is for `footnotes.inject` to emit U+2060
-before every marker, which is shared machinery: the re-run matrix makes that re-run the
-print gates on **every** chapter including the locked Chapter 1, so it is Dan's ruling
-rather than a Stage 5 fix.
+**THE STRANDED-MARKER CLASS IS CLOSED IN THE MACHINERY, ruled by Dan 2026-08-31.**
+`footnotes.inject` now emits U+2060 before every marker, so no footnote marker in this book
+can be left alone on a line again. The local word joiner in Chapter 2 is removed.
+
+**THE LOCKED CHAPTER 1 WAS PROVEN UNAFFECTED, NOT ASSUMED TO BE.** A shared-machinery
+change re-runs the print gates on every chapter. Chapter 1 was rendered before and after:
+**25 pages both times, all fifteen gates pass, no page's text differs.** No reopen, no
+amendment. Chapter 2 was diffed the same way against the exact state its 26 pages were read
+in, and no page differs there either, so the Stage 5 read stands rather than going stale.
+
+**THE WEB SELF-TEST FAILED ONCE ON `W10 clean on the real site` AND IT WAS THE DOCUMENTED
+INPUT GUARD, NOT A DEFECT.** It CONSUMES `build/web` and does not build it, and it had been
+handed a `--preview` tree. Rebuild as a publish site before running it. This is already in
+CLAUDE.md and it behaved exactly as recorded.
 
 **FOUR WEB GATES CANNOT RUN IN THIS CONTAINER AND CI IS WHAT COVERS THEM.** W6, W15, W16b
 and W16c need a headless browser and the pinned build will not download here. They print

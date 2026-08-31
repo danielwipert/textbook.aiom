@@ -2395,13 +2395,29 @@ WeasyPrint took the inline element boundary as a break opportunity even though t
 whitespace in the source. **Gate 14 counts widows and orphans of paragraphs and reported
 zero**, because a lone superscript is neither.
 
-**FIXED WITH A WORD JOINER IN THE CHAPTER, NOT IN THE CSS, AND THAT WAS DELIBERATE.** The
-durable fix is for `footnotes.inject` to emit U+2060 before every marker, which would
-close the class everywhere. **That is a change to shared machinery and the re-run matrix
-makes it re-run the print gates on every chapter, including the locked Chapter 1**, so it
-is recorded as an open thread for Dan rather than taken here. The local fix was verified
-by rendering, not reasoned about: the marker joins its sentence and all fifteen gates
-still pass.
+**FIXED IN `footnotes.inject`, WHICH CLOSES THE CLASS FOR EVERY CHAPTER. Dan ruled it on
+2026-08-31.** The local word joiner that fixed only this instance is removed; the machinery
+now emits U+2060 before every marker, so no footnote marker in this book can be left alone
+on a line again. The joiner is zero width, carries no advance, and changes no text a reader
+sees.
+
+**THE LOCKED CHAPTER 1 WAS THE THING TO PROVE, AND IT IS PROVEN RATHER THAN ASSUMED.** The
+re-run matrix makes a shared-machinery change re-run the print gates on every chapter.
+Chapter 1 was rendered before and after: **25 pages both times, all fifteen gates pass, and
+NO PAGE'S TEXT DIFFERS.** Its published PDF is unaffected, so the change needs no reopen
+and no amendment.
+
+**CHAPTER 2's OWN 26-PAGE READ STILL STANDS, and that was checked rather than claimed.**
+Removing the local joiner and adding the machinery one could have reflowed the chapter, so
+the render was diffed page by page against the exact state the 26 pages were read in:
+**26 pages both times, no page's text differs.** The reads above are therefore current, not
+stale, and the only change on the page is the marker joining its sentence.
+
+**Both self-tests were re-run because shared code changed**: 23/23 print controls and
+115/115 web controls. **The web self-test failed once on `W10 clean on the real site` and
+that was the documented input-guard trap, not a defect**: it CONSUMES `build/web` and does
+not build it, and it had been handed a `--preview` tree. Rebuilt as a publish site, it
+passes. CLAUDE.md already records this trap and it behaved exactly as recorded.
 
 ### WHAT WAS CHECKED, STATED FROM WHAT WAS DONE
 
