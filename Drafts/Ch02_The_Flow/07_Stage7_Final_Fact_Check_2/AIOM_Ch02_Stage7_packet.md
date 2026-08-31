@@ -54,7 +54,7 @@ IN-CHAPTER GLOSS: Engineer count and rollout timing.
 
 CLAIM TEXT AS IT STANDS
 
-> By the usual measures, the rollout looked like a success. Engineers adopted the tool quickly and used it heavily. Macdonald said that a quarter of the company’s code commits in the previous quarter had come through Claude Code. But those measures establish adoption, not value. That distinction is central to this chapter.
+> By adoption measures, the rollout looked like a success. Engineers adopted the tool quickly and used it heavily. Macdonald said that a quarter of the company’s code commits in the previous quarter had come through Claude Code. But those measures establish adoption, not value. That distinction is central to this chapter.
 
 CITES: `rapidresponse-2026-macdonald`
 
@@ -74,7 +74,7 @@ IN-CHAPTER GLOSS: Reported per-engineer monthly cost figures, verified against t
 
 CLAIM TEXT AS IT STANDS
 
-> This episode turns on a distinction that is easy to miss. Uber could see what it was spending, but it could not say what that spending had produced. The charges accumulated until they consumed the annual budget in April. Yet president and chief operating officer Andrew Macdonald said the company still could not connect its growing use of Claude Code to the consumer features it was producing. “That link is not there yet,” he said. His statement suggests that any documented return remained unavailable, incomplete, or unconvincing to senior leadership.
+> This episode turns on a distinction that is easy to miss. Uber could see what it was spending, but it could not say what that spending had produced. The charges accumulated until they consumed the annual budget in April. Yet president and chief operating officer Andrew Macdonald said the company still could not connect its growing use of Claude Code to the consumer features it was producing. “That link is not there yet,” he said. His statement says the link between that use and the consumer features was not yet available to senior leadership.
 
 CITES: `fortune-2026-uber-coo`
 

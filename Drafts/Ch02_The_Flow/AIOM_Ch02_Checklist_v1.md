@@ -2257,16 +2257,95 @@ TITLE, which is a bibliographic field and therefore reaches the render. The note
 never publish, but the register's own convention is the typographic form throughout, so all
 forty were converted.
 
+### CHECK B RETURNED 2026-08-30. TIERS 1 TO 3 RULED AND APPLIED, TIER 4 BOOKED.
+
+**THE PAIR WORKED, AND THE TWO CHECKS OVERLAP ON NOTHING.** A read the sources and found
+four contradicted facts. B was given the render and nothing else and found a different
+class entirely: **sentences that contradict the chapter's own statements of what it does
+not know.** No source check can see that class and no gate can either. All 29 of B's quoted
+sentences were verified present in the current chapter, and every claim was dated against
+the pre-copy-edit text before anything was ruled.
+
+### THE CRAFT DIAGNOSTIC WAS FAILING ITS OWN FIRST TEST, AND THIS IS A RECURRENCE
+
+The chapter sets two tests, the first being that the organization can state the flow's
+condition **from a record it holds itself**. The mapping then ruled Uber's record flow
+"partly managed" because **a per-engineer cost range was reported**. A reported figure
+shows the number reached a journalist. It does not show that Uber held a record, and
+section 2.2 draws exactly that line: the provider always keeps a record, and the buyer
+holds one only if it built one.
+
+**CLAUDE.md RECORDS THIS DEFECT ALREADY**, as the 2026-08-21 bias review's most useful
+finding: that Chapter 2's craft diagnostic failed the test its own section 2.2 sets, and
+that Claude had not seen it. **It was not fully closed, and a second independent reader
+found it again three months later.** That is the strongest signal either check produced.
+
+The mapping now says the record flow cannot be settled from the public account and says
+why. **The fix cascaded to three places** and all three moved together: the mapping, P1's
+setup, and P1's model answer, which had hardened "appears unbuilt" into "was never built".
+**P1 is better for it**: the honest answer to what a February review needed is stronger
+once the chapter admits it cannot tell whether the record existed, because that is the
+chapter's whole subject.
+
+### THE OTHER TIER 1 ITEMS
+
+- **The control conclusion contradicted the limits paragraph two paragraphs later.** "It
+  does show that the deployment scaled before the company had a mechanism to control its
+  cost" claimed what "the public account does not establish what consumption data Uber
+  could see" disclaims. **The copy edit had strengthened it** from an already assertive
+  form. Narrowed to what the public account identifies.
+- **A quoted STATEMENT was called "the chief operating officer's question" twice**, and a
+  third paraphrase widened it from the link between Claude Code and consumer features to
+  "any documented return". Check A had already settled the statement form against Fortune
+  and the transcript.
+- **B WAS WRONG ON THE EVIDENCE AND RIGHT ABOUT THE CONTRADICTION, in one place, and the
+  remedy runs the other way.** It flagged "no contract had been renegotiated" and "Uber was
+  paying for consumption" as unsupported. Both are Stage 3 verified, rows A2 and A6, and
+  **B could not know that because it was given no packet by design.** So the limits sentence
+  is what was too broad: "does not establish what the contract priced" swept in a pricing
+  basis that is verified, and it now reads "the contract's specific terms".
+
+### TIER 2. FIVE POPULATION CLAIMS THE COPY EDIT INTRODUCED
+
+Each was dated against the pre-copy-edit text, and in every one **a sentence that made no
+population claim acquired one**: "the usual measures", "managers stop revisiting the
+business case", "records usually sit", "usually rises as the deployment expands", and "most
+of the work". **B22 is the one Claude had already flagged to Dan at Stage 6** as the single
+new unsourced claim the copy edit added, and B found it independently.
+
+### TIER 3. THE FQ8 SHAPE, IN A THIRD SENTENCE
+
+"In a first-year deployment, the mapping **commonly** finds ..." claims an observational
+base for a mapping this book introduced on the page before. **That is precisely why FQ8 was
+withdrawn**, and the copy edit had already brought the same shape back once as "Two common
+errors". This instance is pre-existing, so Stage 1 and Stage 3 both passed over it. Now
+"can find".
+
+### TIER 4. BOOKED AS ITS OWN PASS, ON DAN'S RULING. NOT DONE HERE.
+
+B found about a dozen further claims about what organizations usually, commonly, normally
+or almost always do. **Every one predates the copy edit**, so Stage 1's frequency sweep and
+Stage 3 both saw them and neither withdrew them. Some should not be reopened: **"Organizations
+skip the record flow most often for structural reasons" is RULED CLEAN**, cleared by Stage 1
+as its sixth candidate because 2.5 derives it, and recorded in FQ4's REVERSES-IF. "The
+provider always keeps a record because it must produce a bill" is a derivation inherited
+from Chapter 1, so changing it is a G3 continuity question rather than a Stage 7 fix.
+
+**THE REAL FINDING IS ABOUT THE SWEEP, NOT THE SENTENCES.** Stage 1 listed five candidates
+and cleared a sixth; a reader with no packet found roughly a dozen more of the same shape.
+**That will repeat on Chapter 3 unless the sweep changes**, and it is booked as an open
+thread with the process change beside it rather than fixed piecemeal here.
+
 ### WHY THIS BOX IS STILL OPEN
 
-**Check B has not been run.** The method is a pair, and Chapter 1's pair agreed on one
-finding out of six. **A is a strong check and it is still one check**, and it read the
-sources rather than the chapter, which is exactly the half B is designed to cover. B gets
-the render only.
+**Nothing in the checks is outstanding. Stage 7 is Dan's step and the tick is his.** Both
+checks are run, every finding is ruled, and every ruling is applied. The render and packet
+are rebuilt from the corrected text and all fifteen print gates pass.
 
 **Check A was not given the packet and says so itself.** It could not test its findings
-against the twelve rulings then in force. Claude ran that comparison afterwards and it
-produced R6. **Any re-run of A gets the packet.**
+against the rulings in force. Claude ran that comparison and it produced R6, the retirement
+of S3-1 and S3-2. **Any re-run of A gets the packet. B is given the render only, by
+design, and that is what found Tier 1.**
 
 ---
 

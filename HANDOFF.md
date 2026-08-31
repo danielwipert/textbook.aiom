@@ -35,8 +35,9 @@ new one. Read the commits, not the name.
 **CHAPTER 2 IS AT 8 OF 13. STAGE 6 CLOSED AND STAGE 7's CHECK A IS DONE, WITH ALL EIGHT
 RULINGS APPLIED.** All fifteen print gates now pass, which they did not before Stage 7.
 
-**WHAT IS BLOCKING, IN ONE LINE:** Dan, on Stage 7 check B. Everything else in that step is
-finished.
+**WHAT IS BLOCKING, IN ONE LINE:** Dan, on whether to tick Stage 7. Both checks are run,
+every finding is ruled and applied, all fifteen print gates pass, and the render and packet
+are rebuilt from the corrected text.
 
 ### STAGE 7 CHANGED WHAT THIS PROJECT KNOWS, BECAUSE THE CHECKER COULD READ
 
@@ -72,9 +73,29 @@ adoption percentages. Forbes was already in the register. The figures Dan withdr
 on a consulting firm's website. Dan refused it: a third-party mirror can vanish and confers
 no authority, and the entry is better carrying an honest gap.
 
-**TWO CHECKS ARE THE METHOD AND ONLY ONE HAS RUN.** Send check B the CURRENT render, which
-was rebuilt from the corrected text. **Any re-run of A gets the packet**, which A itself
-flags it never received.
+**BOTH CHECKS ARE RUN AND EVERY FINDING IS RULED AND APPLIED.** They overlap on nothing,
+which is the argument for the pair: A read the sources and found four contradicted facts,
+B was given the render alone and found sentences that contradict the chapter's own
+statements of what it does not know. **Any re-run of A gets the packet, which A itself
+flags it never received. B is given the render only, by design, and that is what found the
+critical class.**
+
+**CHECK B FOUND A RECURRENCE OF A DEFECT CLAUDE.md ALREADY RECORDS.** The craft diagnostic
+ruled Uber's record flow "partly managed" on the strength of a REPORTED per-engineer cost
+range, which shows a number reached a journalist and not that Uber held a record. That
+fails the first of the chapter's own two tests, and section 2.2 draws exactly that line.
+**The 2026-08-21 bias review found the same defect and CLAUDE.md calls it that review's
+most useful finding.** It was not fully closed. Fixed now in three places that had to move
+together: the mapping, P1's setup, and P1's model answer.
+
+**TIER 4 IS AN OPEN THREAD AND IT IS ABOUT THE SWEEP, NOT ABOUT CHAPTER 2.** B found about
+a dozen further unsourced claims about what organizations usually or almost always do, ALL
+of them predating the copy edit, so Stage 1's frequency sweep and Stage 3 both passed over
+them. Stage 1 listed five candidates and cleared a sixth. **A reader with no packet found
+roughly a dozen more of the same shape, and that will repeat on Chapter 3 unless the sweep
+changes.** Dan ruled on 2026-08-30 to book it as its own pass rather than do it piecemeal
+at Stage 7. **Do not reopen "Organizations skip the record flow most often for structural
+reasons": Stage 1 cleared it explicitly and FQ4's REVERSES-IF records why.**
 
 ### The copy edit was large, and one question about it is unruled
 
@@ -1638,7 +1659,7 @@ just deleted. Close the sessions, then delete.
 the next DRAFTING target and is unblocked. Thread 8 below is the live record of
 the web sub-project.
 
-## Chapter 2 status: **8 of 13 as of 2026-08-30. STAGE 7 CHECK A IS DONE AND APPLIED; CHECK B IS OUTSTANDING AND IS DAN'S.**
+## Chapter 2 status: **8 of 13 as of 2026-08-30. BOTH STAGE 7 CHECKS ARE RUN AND APPLIED; THE STAGE 7 TICK IS DAN'S.**
 
 **STAGE 2 CLOSED 2026-08-28 WITH ALL FOURTEEN FINDINGS RULED**, nine Claude's and
 five the second model's. Full per-finding records are in the chapter checklist and
