@@ -8,10 +8,11 @@ automatically at the start of every session, alongside the voice and craft card.
 
 ## Repository state
 
-**AT THE 2026-08-31 CLOSE: `main` is at `bb8be7c`, local and remote level, working tree
-clean, nothing stranded, and ONE MERGED BRANCH IS OUTSTANDING ON THE REMOTE.** Verified
-against `git status` and `status_check.py`, not copied from the previous entry. Both
-workflows are green on `bb8be7c`, confirmed by waiting for them.
+**AT THE 2026-08-31 CLOSE: `main` is the ONLY BRANCH, local and remote, working tree clean,
+nothing stranded.** Dan deleted the Stage 6 branch at the close, so for the first time in
+several sessions the remote carries nothing but `main`. Verified against `git status`,
+`git branch -r` and `status_check.py`, not copied from the previous entry. Both workflows
+are green on `bb8be7c`, the last commit carrying code, confirmed by waiting for them.
 
 **CHAPTER 2 IS LOCKED AND LIVE. THE SITE NOW PUBLISHES TWO CHAPTERS.** The deploy artifact
 was read directly rather than inferred from a green tick: it carries `ch01/index.html`,
@@ -19,16 +20,14 @@ was read directly rather than inferred from a green tick: it carries `ch01/index
 container**, so a curl against it proves nothing in either direction; the artifact listing
 is the evidence.
 
-**THE BRANCH DELETE FAILS WITH THE DOCUMENTED 403, EVERY TIME, so Dan deletes it.** It
-fails mid-push with `send-pack: unexpected disconnect`. That is not a network problem worth
-retrying:
+**THE BRANCH DELETE ALWAYS FAILS FROM THE CONTAINER WITH THE DOCUMENTED 403, so Dan does
+it.** It fails mid-push with `send-pack: unexpected disconnect`, every time, and that is not
+a network problem worth retrying. Expect the same on the next branch.
 
-    git push origin --delete claude/stage-6-copy-edit-1vg58m
-
-**THE BRANCH NAME NO LONGER DESCRIBES ITS CONTENTS AND THAT IS DELIBERATE.** It has been
-merged, deleted and restarted from `main` four times, because the standing instruction is
-to keep the designated branch name rather than open a new one. Read the commits, not the
-name.
+**WHEN THE DESIGNATED BRANCH IS RECREATED, ITS NAME WILL NOT DESCRIBE ITS CONTENTS.** The
+Stage 6 branch was merged, deleted and restarted from `main` four times this session,
+because the standing instruction is to keep the designated branch name rather than open a
+new one. Read the commits, not the name.
 
 **READ CI ON THE CURRENT HEAD, NEVER THE TOPMOST COMPLETED RUN.** `web.yml` sets
 `cancel-in-progress: true`, so pushing again while a run is in flight supersedes it and the
