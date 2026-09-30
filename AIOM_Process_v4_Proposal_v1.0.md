@@ -250,4 +250,4 @@ Each is independent. The first four carry most of the saving.
 5. **D-E. RULED YES 2026-09-30, Decision 79.** Tool freeze while a chapter is in flight.
 6. **D-F. RULED YES 2026-09-30, Decision 80.** Shrink HANDOFF.md to one page and CLAUDE.md to the rules, moving history
    to archive files. Nothing deleted.
-7. **D-G.** One line per finding; batched rulings; packages built before the sitting.
+7. **D-G. RULED YES 2026-09-30, Decision 81.** One line per finding; batched rulings; packages built before the sitting.

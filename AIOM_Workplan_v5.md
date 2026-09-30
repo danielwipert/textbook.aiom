@@ -720,6 +720,19 @@ Decisions 22 onward live here.
   totalled about 82,000 tokens, roughly seven times a chapter, read at the start of
   each of Chapter 2's six sessions, and both had begun to contradict themselves.
 
+- **Decision 81. RULED 2026-09-30.** Process v4, item D-G: lighter record-keeping.
+  **One line per finding in the checklist**: ID, what, Dan's ruling, and the commit
+  that applied it; the reasoning goes in the commit message. **Rulings are applied in
+  batches**, one commit per ruled list, never one per ruling. **The next package is
+  built before the sitting it serves**, so a sitting never waits on Claude. Every
+  checklist box and sub-box stays, so `status_check.py` still fails a box ticked
+  without its ruling. The evidence: Chapter 2's checklist reached 29,254 words
+  against a 7,453-word chapter, seven rulings in one Stage 2 sitting took seven
+  commits in sixteen minutes, and the chapter's longest wait (80 hours) was for a
+  package not yet built. **With Decisions 75 to 81 all ruled, Process v4 is adopted
+  in full and applies from Chapter 3**; Chapters 1 and 2 keep the process they were
+  locked under.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
