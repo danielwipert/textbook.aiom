@@ -693,6 +693,18 @@ Decisions 22 onward live here.
   **This closes housekeeping item H1 from the 2026-08-31 close.** Applies from
   Chapter 3.
 
+- **Decision 79. RULED 2026-09-30.** Process v4, item D-E: TOOLING FREEZES while a
+  chapter is in flight. No new gates, no tool rewrites, no improvements. A tool
+  defect found mid-chapter goes on a one-line-each "fix between chapters" list in
+  `HANDOFF.md`, and the list is worked in one batch between chapters with the
+  self-tests run once. **The exception is a BLOCKING defect, fixed at once**: one that
+  fails a correct chapter, damages text on the way through, or hides a real defect.
+  The test is whether the chapter can move forward without the fix. The evidence:
+  about 15 tool defects were fixed inside Chapter 2, roughly a third of its commits,
+  and two of Chapter 1's eight reopens came from tooling changed mid-chapter. The
+  accepted cost is that a known, non-blocking defect can stand for up to a week.
+  Applies from Chapter 3.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
