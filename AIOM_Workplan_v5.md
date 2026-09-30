@@ -613,7 +613,9 @@ Decisions 22 onward live here.
   Stage 2 stay SEPARATE, because they ask different questions and the developmental
   read is the longer and more absorbing of the two, so merging would make the
   structural check its preamble. Stage 1 gains seven sub-boxes including Dan's
-  ruling, so `status_check.py` fails a Stage 1 ticked without it.
+  ruling, so `status_check.py` fails a Stage 1 ticked without it. **Its rule that
+  Stages 1 and 2 stay separate is SUPERSEDED by Decision 77, 2026-09-30**; the rest
+  stands.
 
 - **Decision 74. RULED 2026-08-21.** C3's spot-the-error assessment moves to C6.
   Raised as finding S1-1 at Chapter 2's Stage 1, the first content review run under
@@ -657,6 +659,25 @@ Decisions 22 onward live here.
   notes and `AIOM_Claim_Ledger.md` as now, and W14 guards them afterwards. **Standing
   rule 2 is unchanged**, and a NEW empirical claim introduced after the fact check
   still needs a source before lock. Applies from Chapter 3.
+
+- **Decision 77. RULED 2026-09-30.** Process v4, item D-C, two parts. **First, a
+  one-page chapter plan precedes drafting** and Dan approves it in one sitting: the
+  opening case and its source, the teaching sections, the craft artifact, the
+  registry objects rendered, the continuity promises paid or made, and a source for
+  every empirical claim the chapter intends to make. **Second, Stages 1, 2 and 4
+  merge into ONE review pass** after the self-checked draft: Claude reads once for
+  structure (against `AIOM_Structure_v1.md` and `AIOM_Exit_Competencies_v1.md`),
+  teaching quality, and voice and craft (the seven criteria, still graded one by
+  one). ONE second-model package carries the three questions as separate sections,
+  read independently of Claude's findings. Claude applies what is not a judgment
+  call and hands Dan one decision list, ruled in one sitting. **Dan rules every
+  finding and Claude rules none**, as Decision 73 required. **This SUPERSEDES the
+  part of Decision 73 that kept Stages 1 and 2 separate**, ruled knowingly: that
+  concern is answered by the structural questions getting their own section of the
+  package and mostly moving earlier, into the plan. The evidence: on Chapter 2 the
+  three passes took about six sittings and three packages, Stage 1 alone ran to
+  about fifteen decisions, its package was never sent, and the longest wait of the
+  chapter (80 hours) was for the Stage 2 package. Applies from Chapter 3.
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.

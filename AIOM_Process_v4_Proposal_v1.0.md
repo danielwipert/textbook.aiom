@@ -1,5 +1,5 @@
-> **STATUS: PARTLY RULED.** D-A and D-B RULED YES 2026-09-30 as Decisions 75 and 76.
-> D-C to D-G are proposed and not ruled; nothing else in this file is in force until Dan rules it. If adopted it becomes Decisions 75 onward in `AIOM_Workplan_v5.md`,
+> **STATUS: PARTLY RULED.** D-A, D-B and D-C RULED YES 2026-09-30 as Decisions 75,
+> 76 and 77. D-D to D-G are proposed and not ruled; nothing else in this file is in force until Dan rules it. If adopted it becomes Decisions 75 onward in `AIOM_Workplan_v5.md`,
 > which is the numbering authority. The standing rules in CLAUDE.md section 2 are
 > untouched by every proposal below.
 
@@ -244,7 +244,7 @@ Each is independent. The first four carry most of the saving.
 1. **D-A. RULED YES 2026-09-30, Decision 75.** Move Dan's rewrite (the copy edit) to Step 4, before the fact check.
 2. **D-B. RULED YES 2026-09-30, Decision 76.** Merge the two fact checks into one external check, A and B in parallel,
    with web access, on the post-author-pass render.
-3. **D-C.** Merge Stages 1, 2 and 4 into one review pass with one second-model
+3. **D-C. RULED YES 2026-09-30, Decision 77.** Merge Stages 1, 2 and 4 into one review pass with one second-model
    package and one ruling sitting. Add the one-page plan as Step 1.
 4. **D-D.** Draft step owns the frequency-claim sweep, backed by a listing script.
 5. **D-E.** Tool freeze while a chapter is in flight.
