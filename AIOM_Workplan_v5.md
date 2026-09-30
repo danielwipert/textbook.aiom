@@ -645,6 +645,19 @@ Decisions 22 onward live here.
   2 keep the process they were locked under. The checklist generator and step order
   change once the remaining Process v4 items are ruled, so the tooling moves once.
 
+- **Decision 76. RULED 2026-09-30.** Process v4, item D-B: Stages 3 and 7 merge into
+  ONE external fact check, Step 5 in `AIOM_Process_v4_Proposal_v1.0.md`, run on the
+  rendered PDF of the post-author-pass text. It runs as two checks in parallel on
+  different prompts, which is the rule already in force: check A reads the sources,
+  check B reads only the render. **The checker must have web access.** The evidence:
+  Chapter 2's Stage 3 checker could not read sources, so Stage 7 redid the work and
+  reversed several Stage 3 rulings, passed a cost range Stage 3 had cleared, and
+  found 2 of 4 load-bearing premises failing in a source Stage 3 never read. Dan
+  rules both sets of findings in one sitting; rulings are written into the register
+  notes and `AIOM_Claim_Ledger.md` as now, and W14 guards them afterwards. **Standing
+  rule 2 is unchanged**, and a NEW empirical claim introduced after the fact check
+  still needs a source before lock. Applies from Chapter 3.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
