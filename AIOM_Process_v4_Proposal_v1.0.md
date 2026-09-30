@@ -1,5 +1,5 @@
-> **STATUS: PARTLY RULED.** D-A to D-E RULED YES 2026-09-30 as Decisions 75 to 79.
-> D-F and D-G are proposed and not ruled; nothing else in this file is in force until Dan rules it. If adopted it becomes Decisions 75 onward in `AIOM_Workplan_v5.md`,
+> **STATUS: PARTLY RULED.** D-A to D-F RULED YES 2026-09-30 as Decisions 75 to 80.
+> D-G is proposed and not ruled; nothing else in this file is in force until Dan rules it. If adopted it becomes Decisions 75 onward in `AIOM_Workplan_v5.md`,
 > which is the numbering authority. The standing rules in CLAUDE.md section 2 are
 > untouched by every proposal below.
 
@@ -248,6 +248,6 @@ Each is independent. The first four carry most of the saving.
    package and one ruling sitting. Add the one-page plan as Step 1.
 4. **D-D. RULED YES 2026-09-30, Decision 78.** Draft step owns the frequency-claim sweep, backed by a listing script.
 5. **D-E. RULED YES 2026-09-30, Decision 79.** Tool freeze while a chapter is in flight.
-6. **D-F.** Shrink HANDOFF.md to one page and CLAUDE.md to the rules, moving history
+6. **D-F. RULED YES 2026-09-30, Decision 80.** Shrink HANDOFF.md to one page and CLAUDE.md to the rules, moving history
    to archive files. Nothing deleted.
 7. **D-G.** One line per finding; batched rulings; packages built before the sitting.

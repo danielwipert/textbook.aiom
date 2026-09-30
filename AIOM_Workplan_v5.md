@@ -705,6 +705,21 @@ Decisions 22 onward live here.
   accepted cost is that a known, non-blocking defect can stand for up to a week.
   Applies from Chapter 3.
 
+- **Decision 80. RULED 2026-09-30.** Process v4, item D-F: the two files every
+  session reads first are cut to what binds now. **`HANDOFF.md` becomes one page**,
+  under 150 lines, current state only: branch, chapter, current step, decisions
+  waiting on Dan, the fix-between-chapters list (Decision 79) and the next action.
+  Its history moves to `archive/HANDOFF_history_to_2026-09-30.md`, kept and not
+  auto-loaded. **`CLAUDE.md` keeps the rules and loses the narratives**, target under
+  400 lines: standing rules, voice, skeleton, process, build commands, repository
+  map. The incident narratives move to `LESSONS.md`, read for tooling work. **No
+  rule is deleted, only moved**: each keeps its one-line form in CLAUDE.md. The
+  session-start hook is corrected to point at `AIOM_Prose_Standard_v2.0.md` rather
+  than the retired v1 card. **Dan reviews the new CLAUDE.md, with a table of every
+  rule and where it went, before it is committed.** The evidence: the two files
+  totalled about 82,000 tokens, roughly seven times a chapter, read at the start of
+  each of Chapter 2's six sessions, and both had begun to contradict themselves.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
