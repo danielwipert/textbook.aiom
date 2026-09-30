@@ -31,3 +31,7 @@ Drafts tree.
   (`lang="en-US"`), and gate 15. Kept, under Decision 61, for one purpose only:
   diffing against pre-fact-check prose, under the rule that a chapter whose fact
   check predates a copy edit must be diffed against the audited artifact.
+- `HANDOFF_history_to_2026-09-30.md`: the full session-to-session log, 3,300
+  lines, archived word for word when Decision 80 cut `HANDOFF.md` to one page of
+  current state. Read it for the history of a specific finding, never for the
+  current state.
