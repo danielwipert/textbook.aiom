@@ -632,6 +632,19 @@ Decisions 22 onward live here.
   boundary discipline to be answerable, and it is the hardest of the three to
   source.
 
+- **Decision 75. RULED 2026-09-30.** Process v4, item D-A: Dan's rewrite, which the
+  lifecycle has called the Stage 6 copy edit, moves to BEFORE the fact check, as
+  Step 4 "Author pass" in `AIOM_Process_v4_Proposal_v1.0.md`. The evidence: the
+  copy edit changed 104 of 195 blocks on Chapter 2 and 59 of 155 on Chapter 1, after
+  fact check 1, the voice check and the developmental edit had already run, so each
+  of those steps checked text that no longer shipped and the copy edit reverted
+  fact-check rulings with no gate able to see it. Every step after the author pass
+  now checks final text. The Word round trip through `copyedit_export.py` and
+  `copyedit_import.py` is unchanged; only its position moves. A later typo fix is
+  still a copy edit and re-runs G2 alone. **Applies from Chapter 3.** Chapters 1 and
+  2 keep the process they were locked under. The checklist generator and step order
+  change once the remaining Process v4 items are ruled, so the tooling moves once.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

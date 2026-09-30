@@ -1,5 +1,5 @@
-> **STATUS: PROPOSED 2026-09-30. NOT RULED.** Nothing in this file is in force until
-> Dan rules it. If adopted it becomes Decisions 75 onward in `AIOM_Workplan_v5.md`,
+> **STATUS: PARTLY RULED.** D-A RULED YES 2026-09-30 as Decision 75. D-B to D-G
+> are proposed and not ruled; nothing else in this file is in force until Dan rules it. If adopted it becomes Decisions 75 onward in `AIOM_Workplan_v5.md`,
 > which is the numbering authority. The standing rules in CLAUDE.md section 2 are
 > untouched by every proposal below.
 
@@ -241,7 +241,7 @@ Hand-off gaps are the one cost Claude cannot cut.
 
 Each is independent. The first four carry most of the saving.
 
-1. **D-A.** Move Dan's rewrite (the copy edit) to Step 4, before the fact check.
+1. **D-A. RULED YES 2026-09-30, Decision 75.** Move Dan's rewrite (the copy edit) to Step 4, before the fact check.
 2. **D-B.** Merge the two fact checks into one external check, A and B in parallel,
    with web access, on the post-author-pass render.
 3. **D-C.** Merge Stages 1, 2 and 4 into one review pass with one second-model
