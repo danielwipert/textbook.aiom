@@ -6,8 +6,9 @@ Stage 4 voice and craft check, plus the Stage 6 house-style counts. AIOM.
     python3 voicecheck.py <chapter.html> --voice-only  Stage 4 half only
 
 THREE HALVES NOW, WHICH IS THE POINT OF THE FLAG. The mechanical checks below
-are Stage 4 and decide that step. The HOUSE STYLE block is prose style guide
-Part 8, ported 2026-08-12, and belongs to the STAGE 6 copy edit, not to Stage 4.
+are Stage 4 and decide that step. The HOUSE STYLE block was ported 2026-08-12
+from Part 8 of the retired style guide (now AIOM_Prose_Standard_v2.0.md) and
+belongs to the STAGE 6 copy edit, the author pass under Process v4.
 It is printed by default because a defect nobody prints is a defect nobody
 fixes, and suppressed by --voice-only when running Stage 4 on work in progress.
 The two verdicts print on separate lines and are never merged.
@@ -490,7 +491,8 @@ def craft_metrics(path):
 
 
 # --------------------------------------------------------------------------
-# HOUSE STYLE, prose style guide Part 8.
+# HOUSE STYLE, ported from the retired style guide's Part 8; the standard is
+# now AIOM_Prose_Standard_v2.0.md.
 #
 # Ported 2026-08-12 from claude/chapter-1-prose-style-x0bzze, where these were
 # written on 2026-08-05 against a 262-line version of this script and then
@@ -633,7 +635,7 @@ def report_housestyle(h):
         ("unstopped", "Prose blocks not closing with terminal punctuation", None),
     ]
     failed = False
-    print("HOUSE STYLE (prose style guide Part 8)")
+    print("HOUSE STYLE (house-style counts, AIOM_Prose_Standard_v2.0.md)")
     for key, label, budget in rows:
         hits = h[key]
         over = len(hits) > budget if budget is not None else bool(hits)
