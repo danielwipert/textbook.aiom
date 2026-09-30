@@ -679,6 +679,20 @@ Decisions 22 onward live here.
   about fifteen decisions, its package was never sent, and the longest wait of the
   chapter (80 hours) was for the Stage 2 package. Applies from Chapter 3.
 
+- **Decision 78. RULED 2026-09-30.** Process v4, item D-D: the DRAFT step owns the
+  frequency-claim sweep. A listing script reports every sentence carrying a frequency
+  word (usually, commonly, often, typically, most, almost always, rarely and their
+  kin), and Claude clears the whole list before Dan sees the draft: each sentence is
+  cited, rewritten as a formal conditional, or cut, per standing rule 2. The list and
+  its dispositions go in the review package for Dan's ruling. The script runs again
+  after the author pass, before the fact check. **It reports and never fails**,
+  because accurate qualification is not hedging (Prose Standard section 13) and some
+  frequency words are correct precision that Dan rules on. The evidence: on Chapter
+  2 no step owned these sentences, they were swept at Stages 1, 4, 6 and 7, and
+  Stage 7 check B still found about a dozen, every one present since the draft.
+  **This closes housekeeping item H1 from the 2026-08-31 close.** Applies from
+  Chapter 3.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
