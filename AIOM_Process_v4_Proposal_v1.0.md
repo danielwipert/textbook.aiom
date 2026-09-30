@@ -1,7 +1,8 @@
-> **STATUS: PARTLY RULED.** D-A to D-F RULED YES 2026-09-30 as Decisions 75 to 80.
-> D-G is proposed and not ruled; nothing else in this file is in force until Dan rules it. If adopted it becomes Decisions 75 onward in `AIOM_Workplan_v5.md`,
-> which is the numbering authority. The standing rules in CLAUDE.md section 2 are
-> untouched by every proposal below.
+> **STATUS: ADOPTED IN FULL 2026-09-30.** D-A to D-G all RULED YES as Decisions 75
+> to 81 in `AIOM_Workplan_v5.md`, which is the numbering authority. Applies from
+> Chapter 3. Kept as written, with only this banner and section 7 changed, because
+> it carries the evidence the rulings were made on. The standing rules in CLAUDE.md
+> section 2 are untouched.
 
 # Process v4: one week per chapter
 
