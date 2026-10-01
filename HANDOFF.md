@@ -30,13 +30,11 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    `[REGISTRY PULL]` in the draft). Then tick Stage 0 and run G1.
 2. **Build the one review package** (Decision 77) before sitting 2: structure,
    teaching, voice and craft as three sections, plus the frequency-sweep
-   dispositions (checklist D3) and D7.
+   dispositions (checklist D3).
 3. Fix `copyedit_import.py` (continuation paragraphs) before the author pass.
 
 ## Waiting on Dan
 
-- **D7 (Chapter 3 checklist):** whether to amend locked Chapter 1's phrase "the AI
-  Operations Management registry", which this chapter's architecture contradicts.
 - **The registry bundle** (`dag.aiom` at `9d7ee50` or newer): the THM-004 trace,
   the craft section and P1 and P2 quote registry statements and cannot be drafted
   without it.

@@ -57,6 +57,7 @@ D4. Chapter 1's promise covers model internals, prompt engineering and use-case 
 D5. G3 caught gloss drift: the ledger's THM-004 gloss added verbatim in 3.2. The three unpaid promises are paid in 3.2 to 3.5 and are marked at lock.
 D6. Print render: 14 of 15 gates pass; gate 12 fails only on Figure 3.1, a registry gap. Production notes: page 10 short before Table 3.1; the table caption sets as body text.
 D7. For Dan: locked Chapter 1 says "the AI Operations Management registry"; under this chapter's architecture the registry belongs to AI Business Economics. A candidate amendment via amend.py, his call.
+D7 ruled 2026-10-01: Dan approved; Chapter 1 amended to "the AI Business Economics registry", commit d9e3922.
 
 ---
 
