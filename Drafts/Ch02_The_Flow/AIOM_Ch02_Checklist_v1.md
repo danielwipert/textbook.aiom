@@ -2776,3 +2776,14 @@ Chapter 3 unless the sweep changes.
 ## Chapter notes
 
 Open items, deferrals, and anything a later chapter needs to know.
+
+---
+
+## Amendments after lock
+
+Edits made after Stage 9 by Dan, the author and final editor, whose
+edit is approved by definition and supersedes. No step is reopened.
+The mechanical gates were run and passed on each one; nothing here
+was reviewed for editorial merit, because that judgment is Dan's and
+was already exercised. Written by `amend.py`.
+**2026-10-01.** Render THM-004 as the registry states it (panel was not faithful at 9d7ee50), and align three sentences that relied on the old wording (Ch3 checklist D9).
