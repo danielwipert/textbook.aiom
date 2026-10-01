@@ -32,7 +32,8 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    band); G1 passed. **NEXT: Dan runs the second-model prompt**
    (`02_Stage4_Review/AIOM_Ch03_Review_secondmodel_prompt.md`); Claude turns its
    findings into one short list; then Stage 4 closes and the author pass begins.
-3. Fix `copyedit_import.py` (continuation paragraphs) before the author pass.
+3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
+   its second half (fixed 2026-10-01 under the blocking exception).
 
 ## Waiting on Dan
 
@@ -69,8 +70,6 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   registry. Add a statement check (antecedents and consequent against the
   bundle) between chapters; highest value on this list.
 
-- **`copyedit_import.py` drops untagged continuation paragraphs.** Fix BEFORE
-  Chapter 3's author pass, which now carries Dan's whole rewrite.
 - Manual page reads are stale for Chapter 1 (since 2026-08-14) and Chapter 2
   (since the 2026-10-01 THM-004 amendment; its panel page WAS read).
 - `voicecheck.py` Part 5 rule 1 proxy counts fronted adverbials; do not quote it.

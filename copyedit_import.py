@@ -47,7 +47,20 @@ SOURCED_KINDS = {"FOOTNOTE"} | REGISTRY_BOUND
 
 
 def read_docx(path):
-    """(kind, sources, text) per tagged paragraph, in document order."""
+    """(kind, sources, text, continuations) per tagged paragraph, in order.
+
+    AN UNTAGGED PARAGRAPH AFTER THE FIRST TAG IS A CONTINUATION, NEVER FRONT
+    MATTER. Pressing Enter inside a paragraph in Word makes a new paragraph with
+    no "[TAG]" prefix. This function used to skip every untagged paragraph, so
+    the block kept only its first half and the diff read the second half as
+    DELETED, and --apply wrote the deletion into the chapter as an ordinary
+    edit. Booked 2026-08-08 at Chapter 1, fixed 2026-10-01 before Chapter 3's
+    author pass, which carries the author's whole rewrite. Front matter is only
+    what precedes the first tag. A continuation is attached to the block before
+    it and reported by main() as a split for a human: where to break the HTML,
+    with its inline markup and citations, is a guess, and this pass never
+    guesses.
+    """
     from docx import Document
     out = []
     for p in Document(path).paragraphs:
@@ -56,13 +69,15 @@ def read_docx(path):
             continue
         m = TAG_RE.match(t)
         if not m:
-            continue          # front matter: title line and the instructions
+            if out:
+                out[-1][3].append(t)
+            continue          # before the first tag: title line and instructions
         kind, rest, sources = m.group(1).strip(), m.group(2).strip(), ""
         if kind in SOURCED_KINDS:
             s = SOURCES_RE.match(rest)
             if s:
                 sources, rest = s.group(1).strip(), s.group(2).strip()
-        out.append((kind, sources, rest))
+        out.append((kind, sources, rest, []))
     return out
 
 
@@ -75,7 +90,7 @@ def align(returned, blocks):
     breaks, the pass stops at the break and reports rather than sliding every
     later block by one and calling it an edit.
     """
-    kinds_r = [k for k, _, _ in returned]
+    kinds_r = [r[0] for r in returned]
     kinds_b = [b["kind"] for b in blocks]
     if kinds_r == kinds_b:
         return list(zip(range(len(blocks)), returned)), []
@@ -198,8 +213,18 @@ def main():
     edits = []
     changed = 0
 
-    for i, (kind, _sources, text) in pairs:
+    for i, (kind, _sources, text, continued) in pairs:
         original = blocks[i]["text"]
+        if continued:
+            # A split, or a new untagged paragraph, after this block. Nothing in
+            # it is applied, and the block is not diffed: diffing its first half
+            # alone is exactly the silent deletion this refusal exists to stop.
+            refused.append((i, original, " / ".join([text] + continued),
+                            "SPLIT. The editor broke this block into %d "
+                            "paragraphs, or added untagged text after it. The "
+                            "HTML is unchanged; split or add it by hand"
+                            % (1 + len(continued))))
+            continue
         if text == original:
             continue
         # A theorem panel renders a locked registry statement (standing rule 6,
