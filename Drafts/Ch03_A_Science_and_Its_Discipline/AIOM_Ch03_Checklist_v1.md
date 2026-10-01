@@ -44,12 +44,19 @@ Status: [ ]        Date cleared:
 - [x] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
 - [x] Dan approved the plan (sitting 1)
 - [ ] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
-- [ ] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
+- [x] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
 
 Findings:
 
 P0. Plan written 2026-10-01 (`00_Stage0_Draft/AIOM_Ch03_Plan.md`); four decisions and one prerequisite (registry bundle) put to Dan for sitting 1.
 S1. Sitting 1, 2026-10-01: Dan accepted all four recommendations. (1) No registry counts in body prose; dated counts with the registry version in one dated box. (2) "Neither can most organizations on earth" replaced by the opener's sourced practitioner quote. (3) Part I cumulative case drafted inside Slot 6. (4) THM-002 for P2. Registry-dependent parts (3.2 trace, craft section, P1, P2) wait for the bundle; everything else drafts now.
+D1. Draft written 2026-10-01, about 5,100 words (Decision 33 measure). Four marked REGISTRY PULL gaps await the bundle: the 3.2 trace with Figure 3.1, craft steps 3 and 4, P1, P2. Stage 0 stays open until they are filled.
+D2. Four unsourced sentences rewritten before the sweep: "most management knowledge", "the commonest misuse", "much executive discussion", and why FinOps practitioners took on AI.
+D3. Frequency sweep, 10 listed, all kept, for Dan to confirm: F1 rests on the cited 98 percent; F2, F3, F4, F5, F7 are importance, logic or quantity, not frequency; F6 is a logical possibility; F8 to F10 sit in questions and problems.
+D4. Chapter 1's promise covers model internals, prompt engineering and use-case ideation as well as the spec's four neighbors; 3.5 pays both.
+D5. G3 caught gloss drift: the ledger's THM-004 gloss added verbatim in 3.2. The three unpaid promises are paid in 3.2 to 3.5 and are marked at lock.
+D6. Print render: 14 of 15 gates pass; gate 12 fails only on Figure 3.1, a registry gap. Production notes: page 10 short before Table 3.1; the table caption sets as body text.
+D7. For Dan: locked Chapter 1 says "the AI Operations Management registry"; under this chapter's architecture the registry belongs to AI Business Economics. A candidate amendment via amend.py, his call.
 
 ---
 

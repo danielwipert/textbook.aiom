@@ -8,11 +8,12 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- Working branch `claude/inspiring-bohr-4gquw9`, pushed, 10+ commits ahead of
-  `main` (`1af304d`), nothing behind. **Not yet merged.** It carries the Process
-  v4 adoption (Decisions 75 to 81) and its tooling.
+- Working branch `claude/inspiring-bohr-4gquw9`; `main` fast-forwarded to it on
+  2026-10-01 at `5d0fd66` (Process v4 adoption and tooling are on `main`). Later
+  commits on the branch carry Chapter 3 work.
 - Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  Chapters 3 to 15 not started. `chapter_check.py --all` green on 2026-09-30.
+  **Chapter 3 at Stage 0 (Process v4)**: plan approved at sitting 1, draft
+  written with four registry gaps. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -24,20 +25,18 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
-1. DONE: tooling (`gen_checklists.py` v4, `freqsweep.py`, folder migration,
-   session-start card, `voicecheck.py` label). Commit `c11377d`.
-2. DONE: this file cut to one page.
-3. DONE: CLAUDE.md cut to the rules (504 lines), narratives verbatim in
-   `LESSONS.md`, the old file in `archive/`, approved by Dan 2026-10-01. Workplan
-   per-chapter status refreshed.
-4. DONE: Chapter 3 checklist generated and its one-page plan written
-   (`Drafts/Ch03_A_Science_and_Its_Discipline/00_Stage0_Draft/AIOM_Ch03_Plan.md`).
-   **NEXT: Dan's sitting 1** rules the plan's four decisions; then drafting.
-5. Merge the branch to `main` (items 1 to 4 are committed); run `git_hygiene.py` first.
+1. **Fill the four registry gaps in Chapter 3** once Dan supplies the bundle:
+   the 3.2 trace and Figure 3.1, craft steps 3 and 4, P1, P2 (all marked
+   `[REGISTRY PULL]` in the draft). Then tick Stage 0 and run G1.
+2. **Build the one review package** (Decision 77) before sitting 2: structure,
+   teaching, voice and craft as three sections, plus the frequency-sweep
+   dispositions (checklist D3) and D7.
+3. Fix `copyedit_import.py` (continuation paragraphs) before the author pass.
 
 ## Waiting on Dan
 
-- **Sitting 1 for Chapter 3:** approve the plan and rule its four decisions.
+- **D7 (Chapter 3 checklist):** whether to amend locked Chapter 1's phrase "the AI
+  Operations Management registry", which this chapter's architecture contradicts.
 - **The registry bundle** (`dag.aiom` at `9d7ee50` or newer): the THM-004 trace,
   the craft section and P1 and P2 quote registry statements and cannot be drafted
   without it.

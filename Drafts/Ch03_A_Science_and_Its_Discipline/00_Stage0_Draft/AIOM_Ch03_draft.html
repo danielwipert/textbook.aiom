@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>AI Operations Management, Chapter 3</title>
+<link rel="stylesheet" href="AIOM_book.css">
+</head>
+<body>
+
+<p class="part-label">Part I · The Argument</p>
+<h1 class="chapter-title">A Science and Its Discipline</h1>
+
+<p class="slot-label">Opening case</p>
+<h2 class="case-title">The discipline that changed its mission</h2>
+<p class="provenance">Dated: February 2026. Found by search. Figures and the quotation agree across secondary coverage and have not yet been checked against the report itself. See the source register.</p>
+
+<p>In February 2026, the <span class="nb">FinOps</span> Foundation changed its mission statement. For years it had described its purpose as advancing the people who manage the value of cloud. The new statement replaced one word: the Foundation now advances the people who manage the value of technology.<cite src="finops-2026-mission"><span class="ckey">[finops-2026-mission]</span> The mission statement before and after the change.</cite></p>
+
+<p>The change was not a branding exercise. It followed the Foundation’s annual survey of its own practitioners, the people inside companies who manage cloud spending for a living. The 2026 survey reached 1,192 of them, responsible for more than $83 billion a year in cloud spending.<cite src="finops-2026-state"><span class="ckey">[finops-2026-state]</span> Survey size and the cloud spending its respondents manage.</cite> Its central finding concerned work the discipline had not been founded to do. Ninety-eight percent of respondents now managed spending on AI. Two years earlier, the figure had been 31 percent.<cite src="finops-2026-state"><span class="ckey">[finops-2026-state]</span> Share of practitioners managing AI spend, 2026 against 2024.</cite></p>
+
+<p><span class="nb">FinOps</span> was built for a specific problem. Cloud computing let engineers buy capacity with a few lines of code, and the bills arrived after the capacity had been used. The discipline grew up to make engineering, finance, and business teams jointly accountable for that spending.<cite src="finops-what-is"><span class="ckey">[finops-what-is]</span> The practice as the Foundation defines it.</cite> Nobody designed it to manage AI. Its practitioners took on AI spending anyway, and by 2026 nearly all of them were doing so.</p>
+
+<p>The survey also recorded what that work had not yet produced. Asked whether AI was providing value, one practitioner gave an answer the report chose to quote: “No one can answer that question yet.”<cite src="finops-2026-state"><span class="ckey">[finops-2026-state]</span> Practitioner quotation as reproduced in the report.</cite> The people closest to the AI bills could total what their organizations spent. They could not say what the spending returned.</p>
+
+<p>That is the gap Chapters 1 and 2 described, now reported by the people asked to fill it. The organization pays for a metered resource, and the cost arrives by default. The value arrives only if someone builds the means to measure it. A cloud cost discipline is a capable neighbor, and it has moved toward this territory because the territory was empty. A territory occupied by default is not the same as a territory with its own body of knowledge and its own practice.</p>
+
+<p>This chapter names both. The body of knowledge is a science, AI Business Economics, which states what is true about the economics of consuming AI. The practice is a discipline, AI Operations Management, which acts on what the science establishes. The <span class="nb">FinOps</span> case returns in Chapter 14, where the relationship between the two disciplines is worked out in full. Here it serves as evidence that the territory exists, that it is being claimed, and that the question at its center is still unanswered.</p>
+
+<h3 class="section"><span class="num">3.1</span>Why name a science</h3>
+
+<p>Managers act on claims about how their business works. A budget assumes that cost follows usage. A pricing negotiation assumes the provider has a reason to accept a lower price. A dashboard assumes that what it shows will change what someone does. When those claims are wrong, the management built on them fails, however carefully it is carried out.</p>
+
+<p>Claims of this kind can live informally: in experience, in rules of thumb, and in the slides of whoever presented last. Informal knowledge is useful, and it has a cost. Two managers can hold opposite beliefs about the same deployment, and neither can show the other where the disagreement lies. The argument then turns on confidence rather than on evidence.</p>
+
+<p>Chapters 1 and 2 each ended on a stated result rather than an opinion. Chapter 1 set out the conditions under which deployed AI is a resource the organization consumes. Chapter 2 set out the conditions under which a scaled deployment cannot be controlled without a governing apparatus. Each result appeared in a panel with an identifier, and each identifier points to a larger body of claims behind it.</p>
+
+<p>That body is AI Business Economics. It is a science in a specific and limited sense: an ordered collection of conditional claims about the business economics of consuming AI, each stated precisely enough to be checked. The word does not mean laboratory experiments, and it does not mean certainty. It means that every claim says when it applies, what it concludes, and which other claims it rests on.</p>
+
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">AI Business Economics</p>
+<p>The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on.</p>
+</aside>
+
+<p>The claims are kept in a registry. The registry is a structured record of every definition, assumption, and result in the science, with each result linked to the claims that support it. A definition fixes what a term means. An axiom states an assumption the science accepts without proof. A proposition states a single conditional claim. A lemma combines propositions into an intermediate result, and a theorem combines lemmas and propositions into a result with direct consequences for management.</p>
+
+<p>Those links are the registry’s most important feature. Every higher claim names the lower claims it depends on, and those claims name their own supports in turn. The result is a dependency graph: a map in which no claim can rest, directly or indirectly, on itself. A reader can start at any theorem and follow its supports downward until they reach definitions and axioms.</p>
+
+<p>The registry also records which claims are complete. A claim is certified when every claim it depends on is itself certified and its supporting argument has been checked. A claim with a gap below it carries a record of what is missing. This book renders and cites certified claims only. Presenting an uncertified claim as a theorem would claim more than the science claims.</p>
+
+<div class="dated">
+<p class="date">Dated: August 2026</p>
+<p>At the version this book was written against, the registry held 413 objects: 140 definitions, 35 axioms, 201 propositions, 21 lemmas, 11 theorems, and 5 records of evidence the science still needs. It recorded 1,777 dependency links among them, and 397 of the 413 objects were certified.<cite src="aibe-registry-2026"><span class="ckey">[aibe-registry-2026]</span> Object counts, links and certification at the pinned registry version.</cite> The registry is revised as the science develops, so these figures describe one version and not the science itself.</p>
+</div>
+
+<p>One rule governs how this book uses the registry. The registry justifies the book. It does not organize it. The chapters follow the order in which a manager needs to learn, which is not the order in which the science derives its results. The registry’s role is to stand behind each result the book teaches, so that a reader who doubts a claim can follow it to its support. Reversing the rule would produce a book that proved everything and taught nothing.</p>
+
+<h3 class="section"><span class="num">3.2</span>Tracing a result the reader already accepts</h3>
+
+<p>The way to learn the registry is to follow one result down through it. The result chosen here is the one Chapter 2 ended on. A reader who accepted Chapter 2’s argument already believes it, so the only new thing to learn is how the support behind it is arranged. Once a deployment reaches scale, economic control requires a governing apparatus. Diligence from the people running the deployment is no longer enough.</p>
+
+<div class="theorem">
+<p class="lab">Theorem 2 · THM-004</p>
+<p class="stmt">Scaled AI Deployment Requires Cost Governance for Economic Control</p>
+<p class="cond">Within a defined deployment and cost boundary, if:</p>
+<ol class="ante">
+<li><span class="mk">(i)</span>AI activity consumes resources and therefore accrues cost as it is used;</li>
+<li><span class="mk">(ii)</span>deployment has scaled beyond isolated or occasional use;</li>
+<li><span class="mk">(iii)</span>the resulting consumption varies with work rather than with headcount; and</li>
+<li><span class="mk">(iv)</span>no apparatus records, attributes, and constrains that consumption;</li>
+</ol>
+<p class="conseq">then the organization cannot exercise economic control over the deployment, whatever the diligence of the people operating it.</p>
+</div>
+
+<p>Each antecedent in the panel is a claim a manager can test against a deployment. The first says AI use costs money as it happens. The second says the deployment is past the pilot. The third says consumption follows the work rather than the number of people with access. The fourth says nothing records, assigns, or limits that consumption. When all four hold, the conclusion follows.</p>
+
+<p>THM-004 does not ask to be believed. It names the lemmas it rests on, and each lemma names its propositions. Following those links is the trace.</p>
+
+<p class="diagnostic">[REGISTRY PULL. Drafting waits for the registry bundle. This passage walks THM-004 to its direct supports, quoting each by ID and name exactly as the registry carries them, then walks one supporting lemma down to representative propositions. The pinned registry records LEM-020, “Visibility Enables Management Mechanisms,” as certified; whether it is a direct support of THM-004 is confirmed from the bundle’s edges, not assumed. Figure 3.1 sets the same chain as a tree, the theorem at the top and propositions at the leaves.]</p>
+
+<p>The trace changes what a manager can do with the theorem. Before it, THM-004 is a conclusion to accept or reject as a whole. After it, the theorem is a set of smaller claims, each of which can be examined on its own. A reader who doubts the conclusion can now say which supporting claim they doubt. A disagreement about a whole conclusion has no obvious way to end. A disagreement about one proposition can be settled.</p>
+
+<h3 class="section"><span class="num">3.3</span>How to read a formal claim</h3>
+
+<p>A formal claim is read in four parts: its conditions, its scope, its non-claims, and the evidence that would defeat it. A manager who can state all four can use the claim without being misled by it.</p>
+
+<p>The conditions say when the claim applies. In THM-004 they are the four antecedents. If a deployment fails any one of them, the theorem says nothing about it. A small pilot with a fixed monthly fee fails the second and third antecedents, so the theorem does not require a governing apparatus for it. Reading the conditions first prevents a basic misuse of a formal claim: applying it where it was never stated to hold.</p>
+
+<p>The scope says what the claim covers. THM-004 opens with its scope before the word “if”: a defined deployment and a defined cost boundary. The claim concerns one deployment inside one boundary, not an organization’s AI activity in general. A manager who applies it across a whole company must first show that each deployment meets the conditions.</p>
+
+<p>The non-claims say what the claim deliberately does not establish. THM-004 does not say how to build the apparatus, who should own it, or what it should cost. Nor does it establish the three flows. As Chapter 2 noted, the three flows are this book’s organizing framework. THM-004 formalizes the economic consequence of the third flow’s asymmetry, and it does not establish the taxonomy itself. A reader who cites the theorem as proof that a deployment has exactly three flows has read into it a claim it does not make.</p>
+
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">Non-claim</p>
+<p>A conclusion a formal claim deliberately does not establish, though a reader might be tempted to draw it. Stating the non-claims prevents a claim from being cited for more than it says.</p>
+</aside>
+
+<p>The falsifying evidence says what would show the claim to be wrong. For a conditional claim, the test is precise. Find a deployment that meets every condition and still lacks the conclusion. For THM-004, that would be an organization running a scaled, usage-varying deployment with no record, attribution, or constraint, which nonetheless controls its cost. A claim that names no such case cannot be wrong, and a claim that cannot be wrong tells a manager nothing.</p>
+
+<p>These four parts answer an objection the formal style invites. A skeptical reader may call the registry a set of word games: obvious points dressed in numbered clauses. The objection mistakes the purpose of the form. Formal statement is not decoration. It fixes in advance what would count as the claim being wrong. A claim about AI that never says when it applies or what would defeat it cannot be wrong in that sense. A claim that states its conditions can be tested, and a claim that can be tested can be improved.</p>
+
+<h3 class="section"><span class="num">3.4</span>The discipline that acts on the science</h3>
+
+<p>A science says what is true. It does not, by itself, change what an organization does. Medicine needs physiology, but a patient is treated by clinicians who apply it. Engineering needs physics, but a bridge is built by engineers working to codes and procedures. In each case a practice stands between the knowledge and the result, and that practice has its own methods, roles, and standards.</p>
+
+<p>AI Operations Management is that practice for AI consumption. It is the work an organization does week to week to manage what it consumes. It buys AI capacity, plans its use, and records and assigns that use. It decides what runs when capacity is short, and it holds the spending to account for what it returns. Chapter 1 described the problem as a category error. AI Operations Management is the discipline that resolves it.</p>
+
+<aside class="definition">
+<p class="lab">Definition</p>
+<p class="term">AI Operations Management</p>
+<p>The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI.</p>
+</aside>
+
+<p>The discipline is organized as five functions. Each is a capability an organization either has or lacks, and each is taught in its own chapter in Part III.</p>
+
+<p>The first function is sourcing. The organization must be able to buy AI capacity that matches what its work requires, neither paying for capability the work does not use nor starving work that needs more. Sourcing decides which models and providers serve which work, and on what terms.</p>
+
+<p>The second function is planning and budgeting. The organization must be able to state how much AI it expects to consume in the coming period and to notice when actual consumption departs from that expectation. A budget in this sense is a commitment made in advance, so that a deviation is visible when it happens rather than when the money is gone.</p>
+
+<p>The third function is metering and attribution. The organization must be able to record what was consumed and to assign each unit of consumption to the team, product, or purpose it served. Chapter 2 called this the record flow. Without it, the other functions have nothing to work from.</p>
+
+<p>The fourth function is allocation and routing. When capacity is limited, the organization must decide what runs first and send each piece of work to the capacity that suits it. Those decisions happen whether or not anyone makes them deliberately, so the function exists to make them by rule rather than by accident.</p>
+
+<p>The fifth function holds value to account at a boundary. The organization must be able to say where a deployment pays for itself, measured over a defined scope and period, and who is responsible for knowing. This is the hardest of the five, and it is the function the <span class="nb">FinOps</span> practitioners in the opening case could not yet perform.</p>
+
+<p>Figure 3.2 sets the two layers together. The science lies beneath. The discipline stands on it, and the five functions are what carry its weight.</p>
+
+<figure>
+<svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="118" width="360" height="26" fill="#E7DECB"/>
+<rect x="0" y="118" width="360" height="1.6" fill="#C0521A"/>
+<g font-family="Plex" font-size="6" fill="#6E6353" letter-spacing="1.1">
+<text x="8" y="12">AI OPERATIONS MANAGEMENT · THE DISCIPLINE</text>
+<text x="8" y="134">AI BUSINESS ECONOMICS · THE SCIENCE</text>
+</g>
+<rect x="0" y="18" width="360" height="1" fill="#6E6353"/>
+<g fill="none" stroke="#6E6353" stroke-width="0.7">
+<rect x="6" y="28" width="62" height="84"/>
+<rect x="77" y="28" width="62" height="84"/>
+<rect x="148" y="28" width="62" height="84"/>
+<rect x="219" y="28" width="62" height="84"/>
+<rect x="290" y="28" width="62" height="84"/>
+</g>
+<g font-family="Plex" font-size="6.6" fill="#2B2620">
+<text x="12" y="44">Sourcing</text>
+<text x="83" y="44">Planning and</text>
+<text x="83" y="53">budgeting</text>
+<text x="154" y="44">Metering and</text>
+<text x="154" y="53">attribution</text>
+<text x="225" y="44">Allocation</text>
+<text x="225" y="53">and routing</text>
+<text x="296" y="44">The value</text>
+<text x="296" y="53">boundary</text>
+</g>
+<g font-family="Plex" font-size="6" fill="#6E6353">
+<text x="12" y="104">Chapter 7</text>
+<text x="83" y="104">Chapter 10</text>
+<text x="154" y="104">Chapters 8, 9</text>
+<text x="225" y="104">Chapter 11</text>
+<text x="296" y="104">Chapter 12</text>
+</g>
+<text x="8" y="142" font-family="Plex" font-size="6.6" fill="#2B2620">definitions, axioms, propositions, lemmas, theorems, linked by dependency</text>
+</svg>
+<figcaption><span class="fignum">Figure 3.2</span>The two layers. AI Business Economics states what is true about consuming AI. AI Operations Management acts on it through five functions, each taught in its own chapter of Part III.</figcaption>
+</figure>
+
+<p>The two layers depend on each other in different ways. The discipline needs the science, because a practice built on wrong claims fails however well it is run. The science does not need the discipline in order to be true. It needs the discipline in order to matter. A result about governance changes nothing until an organization builds the apparatus the result describes.</p>
+
+<h3 class="section"><span class="num">3.5</span>Where the discipline ends</h3>
+
+<p>A new discipline is defined as much by what it leaves alone as by what it claims. Chapter 1 set aside three subjects that sit close to AI but outside this book. Each has its own purpose and literature, and each ends before AI Operations Management begins.</p>
+
+<p>The first is how models work: their architectures, training, and internal behavior. That subject belongs to computer science and machine learning engineering. It ends where a model becomes a service an organization can call. AI Operations Management begins at that call, where each use consumes resources and costs money.</p>
+
+<p>The second is prompt engineering, the craft of writing inputs that produce better outputs. It improves individual uses of AI. AI Operations Management governs the total of those uses: how many there are, what they cost, and what they return. A better prompt can lower the cost of one request. Only the discipline can say whether the organization’s requests, taken together, are worth what they cost.</p>
+
+<p>The third is finding uses for AI: deciding which business problems AI might solve. That work belongs to strategy and innovation, and it ends when a use is chosen and deployed. AI Operations Management begins with the deployment and manages it from then on.</p>
+
+<p>Four established disciplines sit closer still. Each manages something adjacent to AI consumption, and each lacks something this territory needs. Table 3.1 sets them side by side.</p>
+
+<table class="inv">
+<thead><tr><th>Neighbor</th><th>What it is for</th><th>What it manages</th><th>What it lacks for this territory</th></tr></thead>
+<tbody>
+<tr><td>AIOps</td><td>Applying machine learning to run IT operations: correlating events, detecting anomalies, finding causes<cite src="gartner-aiops"><span class="ckey">[gartner-aiops]</span> The originating definition of AIOps.</cite></td><td>The health and performance of IT systems</td><td>It uses AI to watch systems. It does not govern what consuming AI costs or returns</td></tr>
+<tr><td>MLOps</td><td>Building, deploying, and monitoring machine learning models in production<cite src="kreuzberger-2023-mlops"><span class="ckey">[kreuzberger-2023-mlops]</span> Definition and scope of MLOps.</cite></td><td>The lifecycle of models an organization builds</td><td>It ships models. It does not govern the consumption of capacity an organization buys</td></tr>
+<tr><td><span class="nb">FinOps</span></td><td>Financial accountability for technology spending, through collaboration among engineering, finance, and business teams<cite src="finops-what-is"><span class="ckey">[finops-what-is]</span> The Foundation’s own definition of the practice.</cite></td><td>Cloud and wider technology spending</td><td>It was built around cloud billing. Its practitioners report they cannot yet say whether AI returns value</td></tr>
+<tr><td>Regulatory AI governance</td><td>Ensuring that uses of AI are lawful, safe, and accountable to regulators</td><td>Risk and compliance</td><td>It asks whether a use is permitted, not whether it is economically managed</td></tr>
+</tbody>
+</table>
+<p class="caption">Table 3.1. The four neighboring disciplines. Each manages something adjacent to AI consumption, and none was built to govern its economics.</p>
+
+<p><span class="nb">FinOps</span> is the nearest neighbor and the hardest border to draw. It already manages spending, it has moved toward AI, and its own definition speaks of maximizing the business value of technology.<cite src="finops-what-is"><span class="ckey">[finops-what-is]</span> The Foundation’s definition, which names business value.</cite> The border does not lie in intent. It lies in the evidence of the opening case: the practice that reads the AI bills reports that it cannot yet say what the spending returns. The two disciplines share the cost side and part of the record. How they divide the rest is a question for Chapter 14.</p>
+
+<p>Regulatory governance needs only one sentence. It decides whether an organization may use AI in a given way, and this book takes that answer as given and asks how the permitted use is managed.</p>
+
+<h3 class="section"><span class="num">3.6</span>Five questions the discipline exists to answer</h3>
+
+<p>A discipline proves itself by answering questions its organization could not answer before. AI Operations Management exists to answer five. Each belongs to one of the five functions, and each is answered in the chapter that teaches that function.</p>
+
+<p>An organization that manages its AI consumption can answer these five questions from its own records:</p>
+
+<p class="diagnostic">Question 1. “Are you paying for capability you do not need, or starving work that needs more?” This is the sourcing question, answered in Chapter 7.</p>
+<p class="diagnostic">Question 2. “What do you expect the AI flow to consume next period, and how will you know when it deviates?” This is the planning and budgeting question, answered in Chapter 10.</p>
+<p class="diagnostic">Question 3. “Who consumed what last month, in service of which work?” This is the metering and attribution question, answered across Chapters 8 and 9.</p>
+<p class="diagnostic">Question 4. “When capacity is constrained, who decides what runs first, and by what rule?” This is the allocation question, answered in Chapter 11.</p>
+<p class="diagnostic">Question 5. “Where, exactly, does this AI flow pay for itself, and who is on the hook for knowing?” This is the value boundary question, answered in Chapter 12.</p>
+
+<p>These are the Founding Questions. The phrase that matters in each is “from its own records.” An organization can always produce an answer by asking the provider, estimating, or repeating the business case. Each of those produces a number, and none produces knowledge the organization holds and can check.</p>
+
+<p>After Part I, none of the five can yet be answered for a real deployment, and the opening case suggests this is not a gap peculiar to newcomers. The practitioners closest to AI spending reported that no one could yet say whether the AI was providing value. That is the fifth question, unanswered by the people best placed to answer it. Parts II through IV exist to change that. Part II establishes what is true. Part III builds the five functions. Part IV turns them into an institution.</p>
+
+<p class="slot-label">Craft section</p>
+<h2 class="case-title">The trace procedure</h2>
+
+<p>The <b>trace procedure</b> is how a manager reads a formal claim before relying on it. It turns a theorem from a conclusion to be accepted or rejected whole into a set of smaller claims, each of which can be checked. The procedure has six steps.</p>
+
+<p class="diagnostic">Step 1. Locate the claim in the registry by its identifier, and record its name exactly as the registry gives it.</p>
+
+<p class="diagnostic">Step 2. Restate its conditions in one sentence of ordinary business language, keeping every antecedent and adding none.</p>
+
+<p class="diagnostic">Step 3. List the claims it depends on, by identifier and name.</p>
+
+<p class="diagnostic">Step 4. Walk one level down. Restate each dependency in one sentence, and note any condition it adds that the claim above did not state.</p>
+
+<p class="diagnostic">Step 5. State what the claim establishes and, separately, what it does not.</p>
+
+<p class="diagnostic">Step 6. State what evidence would show the claim to be wrong: a case that meets every condition and still lacks the conclusion.</p>
+
+<p>Steps 2 and 6 do most of the work. A restatement that drops an antecedent produces a claim the registry does not make, and step 2 is where that error enters. Step 6 is the test of whether the reader has understood the claim at all. A reader who cannot describe the case that would defeat a claim cannot say what the claim rules out.</p>
+
+<p>Applied to THM-004, the procedure begins with what the panel in Section 3.2 already shows. Step 1 records THM-004, “Scaled AI Deployment Requires Cost Governance for Economic Control.” Step 2 restates it: within one deployment and its cost boundary, a scaled deployment whose consumption costs money as it is used and varies with the work cannot be economically controlled unless something records, assigns, and limits that consumption.</p>
+
+<p class="diagnostic">[REGISTRY PULL. Steps 3 and 4, worked on the same chain as Section 3.2: the dependencies of THM-004 by ID and name, then each restated in one sentence, with any condition it adds noted.]</p>
+
+<p>Step 5 separates the claim from its readings. THM-004 establishes that scale, usage-varying cost, and the absence of an apparatus together defeat economic control. It does not establish what the apparatus should look like, who should own it, what it should cost, or that a deployment has three flows. Step 6 names the defeating case: a scaled deployment with usage-varying cost and no record, attribution, or constraint, whose organization nonetheless keeps its cost under control. Finding one would show the theorem false.</p>
+
+<p>The procedure is deliberately slow. A trace of one theorem takes longer than reading the theorem and agreeing with it. The time is worth spending once for each claim a decision rests on, because it is the only way to know what the decision is resting on.</p>
+
+<section class="summary-sec">
+<h3 class="tail-head">Chapter summary</h3>
+<div class="summary">
+
+<p>AI Business Economics is the science of consuming AI. It is an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on. The claims are kept in a registry, linked by dependency, and this book renders and cites certified claims only.</p>
+
+<p>The registry justifies this book. It does not organize it. The chapters follow the order in which a manager needs to learn, and the registry stands behind each result so that a reader who doubts a claim can follow it to its support.</p>
+
+<p>A trace follows a claim down through the registry, from a theorem to the lemmas and propositions it rests on. It turns a conclusion into a set of smaller claims that can each be examined.</p>
+
+<p>A formal claim is read in four parts: its conditions, its scope, its non-claims, and the evidence that would defeat it. Formal statement is not decoration. It fixes in advance what would count as being wrong.</p>
+
+<p>AI Operations Management is the discipline that acts on the science, through five functions: sourcing, planning and budgeting, metering and attribution, allocation and routing, and holding value to account at a boundary. It begins where a model becomes a service an organization consumes, and it borders AIOps, MLOps, <span class="nb">FinOps</span>, and regulatory governance without being any of them.</p>
+
+<p>The Founding Questions are the five questions the discipline exists to answer from an organization’s own records. At the end of Part I, none of them can yet be answered for a real deployment.</p>
+</div>
+</section>
+
+<section class="keyterms">
+<h3 class="keyterms-head">Key terms</h3>
+<div class="kt-list">
+
+<div class="kt"><div class="kt-h"><span class="kt-t">AI Business Economics</span></div>
+<p>The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">AI Operations Management</span></div>
+<p>The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Registry</span></div>
+<p>The structured record of every definition, assumption, and result in AI Business Economics, with each result linked to the claims that support it.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Theorem</span></div>
+<p>A registry result built from lemmas and propositions, with direct consequences for management. The book sets each theorem it relies on in a numbered panel.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Lemma</span></div>
+<p>An intermediate registry result that combines propositions and supports one or more theorems.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Certified claim</span></div>
+<p>A registry claim whose supporting argument has been checked and whose every dependency is itself certified. The book renders and cites certified claims only.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Trace</span></div>
+<p>Following a registry claim down through the claims it depends on, from a theorem to its lemmas and from a lemma to its propositions.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Condition</span></div>
+<p>A requirement a deployment must meet for a formal claim to apply to it. A claim says nothing about a case that fails any of its conditions.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Non-claim</span></div>
+<p>A conclusion a formal claim deliberately does not establish, though a reader might be tempted to draw it. Stating the non-claims prevents a claim from being cited for more than it says.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Falsifying case</span></div>
+<p>A case that meets every condition of a formal claim and still lacks its conclusion. Finding one would show the claim to be wrong.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Founding Questions</span></div>
+<p>The five questions AI Operations Management exists to answer from an organization’s own records, one for each of its five functions.</p></div>
+
+<div class="kt"><div class="kt-h"><span class="kt-t">Trace procedure</span></div>
+<p>The six-step method for reading a formal claim before relying on it: locate it, restate its conditions, list its dependencies, walk one level down, separate what it establishes from what it does not, and name the case that would defeat it.</p></div>
+</div>
+</section>
+
+<section class="problems-sec">
+<h3 class="tail-head">Discussion questions and problems</h3>
+<p class="slot-label">Discussion questions</p>
+<div class="dq-list">
+
+<div class="dq"><div class="dq-n">1</div><div class="dq-b"><p>The book insists that the registry justifies it but does not organize it. Describe what a reader would lose if the chapters followed the registry’s order of derivation instead.</p></div></div>
+
+<div class="dq"><div class="dq-n">2</div><div class="dq-b"><p>Of the four borders in Table 3.1, which is hardest to defend, and why? State what evidence would move that border.</p></div></div>
+
+<div class="dq"><div class="dq-n">3</div><div class="dq-b"><p>Restate one Founding Question in the language your chief financial officer would use, without losing any of its content. Then say which part of the question the restatement was most tempted to drop.</p></div></div>
+
+<div class="dq"><div class="dq-n">4</div><div class="dq-b"><p>Chapter 2 diagnosed a deployment through its three flows. Match each flow to the function in Section 3.4 that manages it, and name the function that has no flow of its own.</p></div></div>
+
+</div>
+<p class="slot-label">Problems</p>
+
+<div class="problem">
+<p class="plab">P1 · Worked</p>
+<p class="ptitle">A full trace of THM-004</p>
+<p class="diagnostic">[REGISTRY PULL. The complete six-step trace of THM-004, worked as a model answer on the chain set out in Section 3.2 and the craft section.]</p>
+</div>
+
+<div class="problem">
+<p class="plab">P2 · Completion</p>
+<p class="ptitle">A trace with two steps left open</p>
+<p>THM-002 states a result that Part II is about to teach. Its trace below is complete except for steps 4 and 5. Complete both.</p>
+<p class="diagnostic">[REGISTRY PULL. THM-002, “AI Adoption Cost Is Underestimated When Access Price Is Treated as Total Cost,” set as a panel, with steps 1, 2, 3 and 6 worked and steps 4 and 5 left blank.]</p>
+</div>
+
+<div class="problem">
+<p class="plab">P3 · Independent</p>
+<p class="ptitle">A reply to the word-games objection</p>
+<p>A senior colleague reads THM-004 and says: “This is common sense in numbered clauses. Anyone who has run a large deployment knows you need controls. Formalizing it adds nothing.” Write a one-page reply. Use the four parts of a formal claim from Section 3.3, and name at least one thing the formal statement lets the colleague do that the common-sense version does not. Do not argue that the colleague is wrong about the conclusion.</p>
+<p class="pnote">Interleaving: question 4 requires Chapter 2’s three flows, and the cumulative case below requires both earlier chapters.</p>
+</div>
+
+<p class="slot-label">Part I cumulative case</p>
+
+<div class="problem">
+<p class="plab">Cumulative case · Part I</p>
+<p class="ptitle">One announcement, three readings</p>
+<p class="provenance">Dated: February 2024. The company’s own announcement, using its own figures. Only that announcement is used here.</p>
+<p>In February 2024, the payments company <span class="nb">Klarna</span> announced the results of the first month of an AI assistant built on <span class="nb">OpenAI</span>’s models. The company reported that the assistant had held 2.3 million conversations, two-thirds of its customer-service chats. By its own estimate, the assistant was doing the work of 700 full-time agents. Customers resolved their questions in under two minutes, against eleven before. The company estimated that the assistant would improve its profit by $40 million in 2024.<cite src="klarna-2024-assistant"><span class="ckey">[klarna-2024-assistant]</span> All figures in this case are the company’s own, as announced.</cite></p>
+<p>Work from the announcement alone, and do not use anything published afterward.</p>
+<p>First, apply Chapter 1’s consumption-event inventory. Identify the consumption events the announcement describes and where each is metered.</p>
+<p>Second, apply Chapter 2’s three-flow mapping. Diagnose the usage, record, and cost-and-value flows, and name the evidence behind each diagnosis.</p>
+<p>Third, pose each of the five Founding Questions against the announcement. For each, state whether the public record answers it from the organization’s own records, and what record would be needed to answer it.</p>
+<p>Keep your answers. The case returns in Chapter 6.</p>
+</div>
+
+</section>
+
+<section id="aiom-sources">
+<p class="slot-label">Sources for this chapter</p>
+<p>Every claim in this chapter cites a key listed below. This block travels with the draft so the chapter can be read and audited as a single file (Decision 51). It is replaced by numbered footnotes and a formatted source list when the chapter is built for print.</p>
+<pre id="aiom-sources-data">{
+  "_README": [
+    "SOURCES FOR THIS CHAPTER. Decision 51: sources live with the draft, never",
+    "separate. This block is the chapter’s complete source register.",
+    "",
+    "STATUS AT STAGE 0: every entry below is UNVERIFIED except the registry",
+    "entry. All were found by WebSearch on 2026-10-01. Claude read search result",
+    "summaries and did NOT read any source: WebFetch and curl are blocked by the",
+    "container’s egress proxy. Grade C until the Process v4 fact check (Decision",
+    "76) reads them. Check A must read each primary; the notes say what to verify.",
+    "",
+    "THE PROSE IS WRITTEN TO SURVIVE A DOWNGRADE where it can. The opening case",
+    "states only figures that converge across independent secondary coverage."
+  ],
+  "finops-2026-state": {
+    "type": "report",
+    "authors": [{"org": "FinOps Foundation"}],
+    "title": "State of FinOps 2026",
+    "date": "2026-02-19",
+    "url": "https://data.finops.org/",
+    "perishable": true,
+    "accessed": "2026-10-01",
+    "note": "STAGE 0, 2026-10-01, UNVERIFIED, GRADE C. Search coverage converges on: 1,192 respondents; more than $83 billion in annual cloud spend; 98 percent managing AI spend, against 31 percent two years earlier; the quotation ’Is your AI providing value? No one can answer that question yet.’ Check A must confirm each figure, that the quotation appears in the report itself and is attributed to a practitioner, and that the 31 percent figure is the 2024 survey’s. The spec also cites 63 percent for 2025; the chapter does not use it."
+  },
+  "finops-2026-mission": {
+    "type": "web",
+    "authors": [{"org": "FinOps Foundation"}],
+    "title": "State of FinOps Survey: AI Value and Skills Top Priorities as FinOps Matures Across Technology Value",
+    "date": "2026-02-19",
+    "url": "https://finance.yahoo.com/news/state-finops-survey-ai-value-160000371.html",
+    "perishable": true,
+    "accessed": "2026-10-01",
+    "upgrade": "The Foundation’s own release or mission page, if one states the before and after wording.",
+    "note": "STAGE 0, 2026-10-01, UNVERIFIED, GRADE C. Search coverage gives the old mission as advancing the people who manage the value of cloud and the new one as advancing the people who manage the value of technology, changed February 2026. Check A must confirm both wordings and the date. One summary says the change was the first in the Foundation’s history; the chapter does not claim that."
+  },
+  "finops-what-is": {
+    "type": "web",
+    "authors": [{"org": "FinOps Foundation"}],
+    "title": "What is FinOps?",
+    "url": "https://www.finops.org/introduction/what-is-finops/",
+    "perishable": true,
+    "accessed": "2026-10-01",
+    "note": "STAGE 0, 2026-10-01, UNVERIFIED, GRADE C. Search summary of the definition: an operational framework and cultural practice which maximizes the business value of technology, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams. Table 3.1 paraphrases it and section 3.5 says it names business value. Check A must confirm the wording on the live page."
+  },
+  "gartner-aiops": {
+    "type": "web",
+    "authors": [{"org": "Gartner"}],
+    "title": "AIOps (Artificial Intelligence for IT Operations)",
+    "container": "Gartner Information Technology Glossary",
+    "url": "https://www.gartner.com/en/information-technology/glossary/aiops-artificial-intelligence-operations",
+    "perishable": true,
+    "accessed": "2026-10-01",
+    "note": "STAGE 0, 2026-10-01, UNVERIFIED, GRADE C, AND THE URL IS A CANDIDATE. Search coverage attributes to the Gartner glossary: AIOps combines big data and machine learning to automate IT operations processes, including event correlation, anomaly detection and causality determination. Table 3.1 paraphrases it. Check A must find the live glossary page, confirm the wording, and correct the URL."
+  },
+  "kreuzberger-2023-mlops": {
+    "type": "article",
+    "authors": [
+      {"given": "Dominik", "family": "Kreuzberger"},
+      {"given": "Niklas", "family": "Kühl"},
+      {"given": "Sebastian", "family": "Hirschl"}
+    ],
+    "title": "Machine Learning Operations (MLOps): Overview, Definition, and Architecture",
+    "container": "IEEE Access",
+    "volume": "11",
+    "date": "2023",
+    "pages": "31866-31879",
+    "doi": "10.1109/ACCESS.2023.3262138",
+    "note": "STAGE 0, 2026-10-01, UNVERIFIED, GRADE C. Bibliographic details from search results. Table 3.1 paraphrases the scope of MLOps as building, deploying and monitoring machine learning models in production. Check A must confirm the paper’s own definition supports that paraphrase, and the volume, pages and DOI."
+  },
+  "klarna-2024-assistant": {
+    "type": "web",
+    "authors": [{"org": "Klarna"}],
+    "title": "Klarna AI assistant handles two-thirds of customer service chats in its first month",
+    "date": "2024-02-27",
+    "url": "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/",
+    "perishable": true,
+    "accessed": "2026-10-01",
+    "note": "STAGE 0, 2026-10-01, UNVERIFIED. Grade A in the case bank as a primary, but nobody on this project has read it from this container. Figures used: 2.3 million conversations; two-thirds of customer-service chats; work of 700 full-time agents; resolution under two minutes against eleven; estimated $40 million profit improvement in 2024. Check A must confirm each against the release. PROTECT THE CHAPTER 6 REVEAL: the case uses this announcement only and must not cite or allude to any later reporting."
+  },
+  "aibe-registry-2026": {
+    "type": "web",
+    "authors": [{"org": "AI Business Economics registry"}],
+    "title": "dag.aiom, commit 9d7ee50",
+    "date": "2026-08-21",
+    "note": "The registry version pinned in AIOM_Registry_Manifest.json. Counts in the dated box are read from the manifest’s counts, certified_counts and edge count, not from search. If the manifest is refreshed, the dated box is updated or left describing this version, never silently mixed."
+  }
+}</pre>
+</section>
+
+</body>
+</html>
