@@ -1,6 +1,6 @@
 # AI Operations Management: Textbook Workplan
 Owner: Dan (Chorus AI Systems)
-Last updated: 2026-08-02 (v5; currency sweep to Process v2 status)
+Last updated: 2026-10-01 (per-chapter status refreshed; Process v4 adopted, Decisions 75 to 81)
 Status legend: [x] done · [~] in progress · [ ] not started
 
 ---
@@ -162,10 +162,10 @@ and it comes out.
 
 | Ch  | Title                          | Step reached | Notes |
 |-----|--------------------------------|--------------|-------|
-| 1   | The Category Error             | Stage 6 done | 9 of 13 as of 2026-08-12, on a 25-page render with all FIFTEEN gates passing against CSS v7.1 and both MANUAL G2 checks performed, all 25 pages read. Only Dan's Stage 7 and Stage 8 remain, then G3 and Stage 9. Stage 6 closed 2026-08-12 on Dan's ruling after fourteen copy edits, CE1 to CE14; CE10 to CE14 were in the text but missing from the checklist and were reconstructed from the commit record before the tick. G2 was reopened and re-passed 2026-08-12 because its 2026-08-11 pass predated CE3 to CE6, and gate 15, typographic marks, ran against this chapter for the first time. Reopened at Stage 0 on 2026-08-05 (Decision 53), at Stage 5 on 2026-08-06 (Decisions 56 and 57), at Stage 2 on 2026-08-08 after three copy-edit rounds rewrote rather than corrected it, and at G2 twice since. Stage 3 cleared 2026-08-10 on Dan's executive ruling that the 2026-08-06 external checks carry it, after a diff against the audited render found three ruled claim narrowings silently reverted (SF8, SF9, SF10), all restored; FC2 repeated the shape a fourth time on a second vendor. Stage 4 closed with its second-model gut-check still open, so the craft verdict rests on one unverified read. Stage 5 raised DR6 and DR7, two proper nouns broken by automatic hyphenation, one across a page turn, neither visible to any gate; applied as Decision 58, CSS to v7.1. The craft baseline band is deliberately NOT set: it is booked to Stage 9 and no chapter is read against a band until then. |
-| 2   | The Flow                       | not started  | Unblocked. Next to draft. |
-| 3   | A Science and Its Discipline   | not started  | Build the THM-004 trace. |
-| 4   | The Playing Field              | not started  | Decision 24 revisited here. |
+| 1   | The Category Error             | LOCKED       | 13 of 13, locked 2026-08-13 under Process v2, amended 2026-08-14 via `amend.py`. Live. Its manual page read is stale since that amendment (HANDOFF fix-between-chapters list). Full record in its checklist. |
+| 2   | The Flow                       | LOCKED       | 13 of 13, locked 2026-08-31 under Process v3. Live. Its cost record is the evidence for Process v4. |
+| 3   | A Science and Its Discipline   | not started  | NEXT. First chapter under Process v4. Build the THM-004 trace. Opening case 14.1 needs a source. |
+| 4   | The Playing Field              | not started  | Decision 24's copy-edit placement is now settled by Decision 75. |
 | 5   | The Anatomy of Cost            | not started  | |
 | 6   | The Nature of Value            | not started  | CB2 value statements ready. |
 | 7   | Sourcing                       | not started  | |
@@ -178,7 +178,9 @@ and it comes out.
 | 14  | The Organized Buyer            | not started  | CB2 FinOps data ready. |
 | 15  | Standing Up the Discipline     | not started  | Final exam. |
 
-Cumulative cases (Part I, II, III) run the same lifecycle when drafted.
+Cumulative cases (Part I, II, III) run the same lifecycle when drafted, Process v4.
+
+`status_check.py` is the authority; this table mirrors it.
 
 ---
 

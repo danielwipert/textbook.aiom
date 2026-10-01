@@ -1,7 +1,7 @@
 # Session handoff
 
-Last updated: 2026-09-30. **One page, current state only (Decision 80).** The
-protocol is CLAUDE.md section 11. The full history to this date is
+Last updated: 2026-10-01. **One page, current state only (Decision 80).** The
+protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
 rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
@@ -27,20 +27,16 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 1. DONE: tooling (`gen_checklists.py` v4, `freqsweep.py`, folder migration,
    session-start card, `voicecheck.py` label). Commit `c11377d`.
 2. DONE: this file cut to one page.
-3. **NEXT: CLAUDE.md rewrite** to the rules only, target under 400 lines, with
-   the narratives moved to a new `LESSONS.md`. **Dan reviews the draft and a
-   table of where every rule went BEFORE it is committed.** Fold in: Decisions
-   run to 81 (it says 66); the process section rewritten for v4; the note that no
-   source host is reachable is true of Claude's container, not of an external
-   checker (old H3). Also refresh the stale Workplan tracker (it shows Chapter 1
-   at 9 of 13 and Chapter 2 not started).
-4. **Chapter 3 setup:** `python3 gen_checklists.py 3`, then the one-page plan in
+3. DONE: CLAUDE.md cut to the rules (504 lines), narratives verbatim in
+   `LESSONS.md`, the old file in `archive/`, approved by Dan 2026-10-01. Workplan
+   per-chapter status refreshed.
+4. **NEXT: Chapter 3 setup:** `python3 gen_checklists.py 3`, then the one-page plan in
    `00_Stage0_Draft/` for Dan's sitting 1.
 5. Merge the branch to `main` once items 3 and 4 are committed.
 
 ## Waiting on Dan
 
-- The CLAUDE.md draft review (item 3), once presented.
+- Sitting 1 for Chapter 3: approve the one-page plan, once presented.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).

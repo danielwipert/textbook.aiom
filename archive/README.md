@@ -35,3 +35,6 @@ Drafts tree.
   lines, archived word for word when Decision 80 cut `HANDOFF.md` to one page of
   current state. Read it for the history of a specific finding, never for the
   current state.
+- `CLAUDE_to_2026-09-30.md`: CLAUDE.md as it stood before Decision 80 cut it to
+  the rules, 1,664 lines, kept word for word. Its narrative sections also live,
+  verbatim, in `LESSONS.md` at the root.
