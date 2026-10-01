@@ -5120,3 +5120,4 @@ The mechanical gates were run and passed on each one; nothing here
 was reviewed for editorial merit, because that judgment is Dan's and
 was already exercised. Written by `amend.py`.
 **2026-08-14.** revise the light and heavy user paragraph in the opening case. Superseded fact-check ruling(s): CE11, SF2, SF8. See `AIOM_Claim_Ledger.md`.
+**2026-10-01.** Name the registry as AI Business Economics', not AI Operations Management's, matching Chapter 3's architecture (Ch3 checklist D7).
