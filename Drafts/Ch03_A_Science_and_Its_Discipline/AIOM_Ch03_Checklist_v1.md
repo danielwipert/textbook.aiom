@@ -116,6 +116,10 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+R0. Independent review 2026-10-01, 44 findings (02_Stage4_Review/AIOM_Ch03_Review_claude_findings.md). Applied: R-1, R-3 to R-8, R-11, R-13, R-17, R-18, R-21 to R-24, R-26, R-28 to R-33, R-35 to R-37, R-39 to R-43, R-15 wording; R-12, R-38 resolved by those; R-19, R-20, R-44 noise. Eleven decisions to Dan (AIOM_Ch03_Sitting2_decisions.md). Second-model review not yet run.
+R0a. Self-caught while applying: P1 paraphrases of PROP-039 and PROP-041 were written from names and overstated; corrected against the statements.
+R0b. Print after fixes: gate 4 now fails (one callout split) and page 13 runs 388pt short before Table 3.1. Both are pagination, left to the production step after the author pass.
+
 ---
 
 ## Stage 6. Author pass
