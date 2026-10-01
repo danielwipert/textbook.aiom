@@ -41,12 +41,14 @@ Status: [ ]        Date cleared:
 
 > v4 step 1 and 2. A one-page plan comes FIRST (Decision 77) and Dan approves it before a word is drafted, because a structural question is cheapest before the prose exists. Then Claude drafts against the fixed six-slot skeleton, with the craft standard binding from here, and clears the frequency sweep before anyone reads the draft (Decision 78). Sources verified live with an access date; no archival (Decision 48).
 
-- [ ] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
+- [x] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
 - [ ] Dan approved the plan (sitting 1)
 - [ ] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
 - [ ] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
 
 Findings:
+
+P0. Plan written 2026-10-01 (`00_Stage0_Draft/AIOM_Ch03_Plan.md`); four decisions and one prerequisite (registry bundle) put to Dan for sitting 1.
 
 ---
 

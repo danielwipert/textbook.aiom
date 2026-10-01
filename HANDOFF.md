@@ -30,13 +30,17 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 3. DONE: CLAUDE.md cut to the rules (504 lines), narratives verbatim in
    `LESSONS.md`, the old file in `archive/`, approved by Dan 2026-10-01. Workplan
    per-chapter status refreshed.
-4. **NEXT: Chapter 3 setup:** `python3 gen_checklists.py 3`, then the one-page plan in
-   `00_Stage0_Draft/` for Dan's sitting 1.
-5. Merge the branch to `main` once items 3 and 4 are committed.
+4. DONE: Chapter 3 checklist generated and its one-page plan written
+   (`Drafts/Ch03_A_Science_and_Its_Discipline/00_Stage0_Draft/AIOM_Ch03_Plan.md`).
+   **NEXT: Dan's sitting 1** rules the plan's four decisions; then drafting.
+5. Merge the branch to `main` (items 1 to 4 are committed); run `git_hygiene.py` first.
 
 ## Waiting on Dan
 
-- Sitting 1 for Chapter 3: approve the one-page plan, once presented.
+- **Sitting 1 for Chapter 3:** approve the plan and rule its four decisions.
+- **The registry bundle** (`dag.aiom` at `9d7ee50` or newer): the THM-004 trace,
+  the craft section and P1 and P2 quote registry statements and cannot be drafted
+  without it.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).
