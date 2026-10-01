@@ -35,8 +35,6 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Waiting on Dan
 
-- **Chapter 2's THM-004 panel** does not render the registry statement. Proposed
-  four-edit amendment awaits Dan's ruling (Chapter 3 checklist D9).
 - **Chapter 3 sitting 2:** eleven decisions in `02_Stage4_Review/AIOM_Ch03_Sitting2_decisions.md`,
   plus running the second-model prompt.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
@@ -73,7 +71,8 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
 
 - **`copyedit_import.py` drops untagged continuation paragraphs.** Fix BEFORE
   Chapter 3's author pass, which now carries Dan's whole rewrite.
-- Chapter 1's manual page read is stale since its 2026-08-14 amendment (old H2).
+- Manual page reads are stale for Chapter 1 (since 2026-08-14) and Chapter 2
+  (since the 2026-10-01 THM-004 amendment; its panel page WAS read).
 - `voicecheck.py` Part 5 rule 1 proxy counts fronted adverbials; do not quote it.
 - `place.py` leaves a `.bak` beside the chapter; delete it after every run.
 - Gate 4 does not guard the theorem callout; gaps G-I and G-II still open.

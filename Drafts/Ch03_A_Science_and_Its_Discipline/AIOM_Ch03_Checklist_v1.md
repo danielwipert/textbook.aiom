@@ -59,6 +59,7 @@ D6. Print render: 14 of 15 gates pass; gate 12 fails only on Figure 3.1, a regis
 D7. For Dan: locked Chapter 1 says "the AI Operations Management registry"; under this chapter's architecture the registry belongs to AI Business Economics. A candidate amendment via amend.py, his call.
 D8. Registry attached (danielwipert/dag.aiom at 9d7ee50, the pinned version); all four REGISTRY PULL gaps filled from it; Figure 3.1 drawn and read on the page. Draft 6,050 words.
 D9. FINDING: Chapter 2's THM-004 panel does not render the registry statement (antecedents i, iii and the consequent differ; Chapter 1's THM-009 panel is faithful). Chapter 3 renders the registry wording. Chapter 2 fix put to Dan.
+D9 ruled 2026-10-01: Dan approved. Chapter 2 amended (commit 0493409): panel now identical to Chapter 3's, three sentences aligned; all mechanical checks pass and the panel page was read on a raster.
 D10. Frequency sweep re-run after the gaps: 13 listed, 3 new (F2 "sometimes other lemmas", F5 and F10 "in practice"), all structural or logical, all kept.
 D7 ruled 2026-10-01: Dan approved; Chapter 1 amended to "the AI Business Economics registry", commit d9e3922.
 
