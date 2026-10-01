@@ -42,7 +42,7 @@
 <p>The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on.</p>
 </aside>
 
-<p>The claims are kept in a registry. The registry is a structured record of every definition, assumption, and result in the science, with each result linked to the claims that support it. A definition fixes what a term means. An axiom states an assumption the science accepts without proof. A proposition states a single conditional claim. A lemma combines propositions into an intermediate result, and a theorem combines lemmas and propositions into a result with direct consequences for management.</p>
+<p>The claims are kept in a registry. The registry is a structured record of every definition, assumption, and result in the science, with each result linked to the claims that support it. A definition fixes what a term means. An axiom states an assumption the science accepts without proof. A proposition states a single claim, accepted because of the definitions, axioms, or earlier claims it names as its support. A lemma combines propositions, and sometimes other lemmas, into an intermediate result. A theorem combines lemmas into a result with direct consequences for management.</p>
 
 <p>Those links are the registry’s most important feature. Every higher claim names the lower claims it depends on, and those claims name their own supports in turn. The result is a dependency graph: a map in which no claim can rest, directly or indirectly, on itself. A reader can start at any theorem and follow its supports downward until they reach definitions and axioms.</p>
 
@@ -59,36 +59,95 @@
 
 <p>The way to learn the registry is to follow one result down through it. The result chosen here is the one Chapter 2 ended on. A reader who accepted Chapter 2’s argument already believes it, so the only new thing to learn is how the support behind it is arranged. Once a deployment reaches scale, economic control requires a governing apparatus. Diligence from the people running the deployment is no longer enough.</p>
 
+<p>The registry states that result as THM-004:</p>
+
 <div class="theorem">
 <p class="lab">Theorem 2 · THM-004</p>
 <p class="stmt">Scaled AI Deployment Requires Cost Governance for Economic Control</p>
-<p class="cond">Within a defined deployment and cost boundary, if:</p>
+<p class="cond">Within the defined deployment and measurement boundary, if:</p>
 <ol class="ante">
-<li><span class="mk">(i)</span>AI activity consumes resources and therefore accrues cost as it is used;</li>
-<li><span class="mk">(ii)</span>deployment has scaled beyond isolated or occasional use;</li>
-<li><span class="mk">(iii)</span>the resulting consumption varies with work rather than with headcount; and</li>
-<li><span class="mk">(iv)</span>no apparatus records, attributes, and constrains that consumption;</li>
+<li><span class="mk">(i)</span>production scaling expands the usage surface of AI deployment;</li>
+<li><span class="mk">(ii)</span>measurement enables visibility into measurable cost-bearing activity;</li>
+<li><span class="mk">(iii)</span>visibility enables management mechanisms; and</li>
+<li><span class="mk">(iv)</span>buyer total cost extends beyond access price;</li>
 </ol>
-<p class="conseq">then the organization cannot exercise economic control over the deployment, whatever the diligence of the people operating it.</p>
+<p class="conseq">then scaled AI deployment requires cost governance for economic control.</p>
 </div>
 
-<p>Each antecedent in the panel is a claim a manager can test against a deployment. The first says AI use costs money as it happens. The second says the deployment is past the pilot. The third says consumption follows the work rather than the number of people with access. The fourth says nothing records, assigns, or limits that consumption. When all four hold, the conclusion follows.</p>
+<p>Each condition has a plain meaning a manager can check against a deployment. The first says the deployment has grown from a pilot into daily operations, so the places where usage happens have multiplied. The second says that recording usage makes the activity that costs money visible. The third says that what is visible can be monitored, limited, and assigned. The fourth says the organization pays more in total than the price of access. When all four hold, an organization that wants control over the deployment’s economics needs cost governance.</p>
 
-<p>THM-004 does not ask to be believed. It names the lemmas it rests on, and each lemma names its propositions. Following those links is the trace.</p>
+<p>THM-004 does not ask to be believed. It names four lemmas as its support, one for each condition, and all four are certified. LEM-016, “Production Scaling Expands Usage Surface,” supports the first. LEM-002, “Measurement Enables Visibility,” supports the second. LEM-020, “Visibility Enables Management Mechanisms,” supports the third. LEM-006, “Buyer Total Cost Extends Beyond Access Price,” supports the fourth.</p>
 
-<p class="diagnostic">[REGISTRY PULL. Drafting waits for the registry bundle. This passage walks THM-004 to its direct supports, quoting each by ID and name exactly as the registry carries them, then walks one supporting lemma down to representative propositions. The pinned registry records LEM-020, “Visibility Enables Management Mechanisms,” as certified; whether it is a direct support of THM-004 is confirmed from the bundle’s edges, not assumed. Figure 3.1 sets the same chain as a tree, the theorem at the top and propositions at the leaves.]</p>
+<p>The theorem’s own argument joins them in two pairs. The first and fourth lemmas give an exposure that grows with the deployment and cannot be read off the price. The second and third give the only route by which such an exposure becomes manageable: measurement makes it visible, and management mechanisms can be applied to what is visible. Control therefore requires the apparatus that does both, which the theorem calls cost governance.</p>
 
-<p>The trace changes what a manager can do with the theorem. Before it, THM-004 is a conclusion to accept or reject as a whole. After it, the theorem is a set of smaller claims, each of which can be examined on its own. A reader who doubts the conclusion can now say which supporting claim they doubt. A disagreement about a whole conclusion has no obvious way to end. A disagreement about one proposition can be settled.</p>
+<p>One level further down, each lemma rests on propositions. LEM-020 is a useful one to follow, because it shows how the registry is built. Its statement reads: “If economic exposure or usage activity is visible to the relevant actor, then monitoring, limits, attribution, or management mechanisms can be applied within the relevant scope.” It rests on seven propositions and on one other lemma.</p>
+
+<p>The propositions are small claims, each close to obvious on its own. PROP-043 states: “If activity is metered, records describing measured activity are generated or maintained.” PROP-053 states: “If economic exposure exists, monitoring mechanisms may be used to observe the sources or magnitude of that exposure.” PROP-085 states: “If usage information becomes visible, decisions regarding management, allocation, optimization, or monitoring may reference that information.” No manager would dispute any of them. The work lies in how they combine.</p>
+
+<p>The other lemma under LEM-020 is LEM-002, the same lemma that supports THM-004’s second condition directly. The registry is therefore not a tree, in which each claim has one parent. It is a graph, in which one claim can support several others. Figure 3.1 shows the branch through LEM-020, with the shared support visible.</p>
+
+<figure>
+<svg viewBox="0 0 360 184" xmlns="http://www.w3.org/2000/svg">
+<g font-family="Plex" font-size="6" fill="#6E6353" letter-spacing="1.1">
+<text x="0" y="8">THEOREM</text>
+<text x="0" y="62">LEMMAS</text>
+<text x="0" y="136">PROPOSITIONS</text>
+</g>
+<g stroke="#6E6353" stroke-width="0.7" fill="none">
+<path d="M180 40 L40 66"/><path d="M180 40 L133 66"/><path d="M180 40 L319 66"/>
+</g>
+<g stroke="#C0521A" stroke-width="1" fill="none">
+<path d="M180 40 L226 66"/>
+<path d="M226 102 L165 140"/><path d="M226 102 L236 140"/><path d="M226 102 L307 140"/>
+<path d="M200 102 L200 112 L133 112 L133 104"/><path d="M130 107 L133 103 L136 107"/>
+</g>
+<rect x="122" y="8" width="116" height="32" fill="#E7DECB"/>
+<rect x="122" y="8" width="116" height="1.6" fill="#C0521A"/>
+<g fill="#F4ECDD" stroke="#6E6353" stroke-width="0.7">
+<rect x="0" y="66" width="81" height="36"/>
+<rect x="93" y="66" width="81" height="36"/>
+<rect x="279" y="66" width="81" height="36"/>
+<rect x="131" y="140" width="68" height="38"/>
+<rect x="202" y="140" width="68" height="38"/>
+<rect x="273" y="140" width="68" height="38"/>
+</g>
+<rect x="186" y="66" width="81" height="36" fill="#F4ECDD" stroke="#C0521A" stroke-width="1"/>
+<g font-family="Plex" font-size="6.6" fill="#2B2620">
+<text x="128" y="20">THM-004</text>
+<text x="5" y="77">LEM-016</text>
+<text x="98" y="77">LEM-002</text>
+<text x="191" y="77">LEM-020</text>
+<text x="284" y="77">LEM-006</text>
+<text x="136" y="151">PROP-043</text>
+<text x="207" y="151">PROP-053</text>
+<text x="278" y="151">PROP-085</text>
+</g>
+<g font-family="Plex" font-size="5.2" fill="#6E6353">
+<text x="128" y="28">Scaled AI Deployment Requires Cost</text><text x="128" y="35">Governance for Economic Control</text>
+<text x="5" y="86">Production Scaling</text><text x="5" y="93">Expands Usage Surface</text>
+<text x="98" y="86">Measurement Enables</text><text x="98" y="93">Visibility</text>
+<text x="191" y="86">Visibility Enables</text><text x="191" y="93">Management Mechanisms</text>
+<text x="284" y="86">Buyer Total Cost Extends</text><text x="284" y="93">Beyond Access Price</text>
+<text x="136" y="160">Metered Activity</text><text x="136" y="167">Produces Usage</text><text x="136" y="174">Records</text>
+<text x="207" y="160">Economic Exposure</text><text x="207" y="167">Creates Incentives</text><text x="207" y="174">For Monitoring</text>
+<text x="278" y="160">Usage Visibility</text><text x="278" y="167">Enables Management</text><text x="278" y="174">Decisions</text>
+<text x="42" y="114" font-size="5.2" fill="#C0521A">LEM-020 also rests on LEM-002</text>
+</g>
+</svg>
+<figcaption><span class="fignum">Figure 3.1</span>One branch of the trace. THM-004 rests on four lemmas, one for each condition. LEM-020 rests in turn on LEM-002, which also supports the theorem directly, and on seven propositions, three of which are shown.</figcaption>
+</figure>
+
+<p>The trace changes what a manager can do with the theorem. Before it, THM-004 is a conclusion to accept or reject as a whole. After it, the theorem is a set of smaller claims, each of which can be examined on its own. A manager who doubts the conclusion can now say which supporting claim they doubt. A disagreement about a whole conclusion has no obvious way to end. A disagreement about one proposition can be settled.</p>
 
 <h3 class="section"><span class="num">3.3</span>How to read a formal claim</h3>
 
-<p>A formal claim is read in four parts: its conditions, its scope, its non-claims, and the evidence that would defeat it. A manager who can state all four can use the claim without being misled by it.</p>
+<p>A formal claim is read in four parts: its conditions, its scope, its non-claims, and the falsifying case that would defeat it. A manager who can state all four can use the claim without being misled by it.</p>
 
-<p>The conditions say when the claim applies. In THM-004 they are the four antecedents. If a deployment fails any one of them, the theorem says nothing about it. A small pilot with a fixed monthly fee fails the second and third antecedents, so the theorem does not require a governing apparatus for it. Reading the conditions first prevents a basic misuse of a formal claim: applying it where it was never stated to hold.</p>
+<p>The conditions say when the claim applies. In THM-004 they are the four numbered clauses. If a deployment fails any one of them, the theorem says nothing about it. A pilot used by one team for a few weeks has not been scaled into daily operations, so it fails the first condition. The theorem then neither requires governance for the pilot nor rules it out. Reading the conditions first prevents a basic misuse of a formal claim: applying it where it was never stated to hold.</p>
 
-<p>The scope says what the claim covers. THM-004 opens with its scope before the word “if”: a defined deployment and a defined cost boundary. The claim concerns one deployment inside one boundary, not an organization’s AI activity in general. A manager who applies it across a whole company must first show that each deployment meets the conditions.</p>
+<p>The scope says what the claim covers. THM-004 opens with its scope, before the word “if”: one defined deployment and its measurement boundary. The registry adds that the theorem applies where an organization seeks economic control over the resulting cost.<cite src="aibe-registry-2026"><span class="ckey">[aibe-registry-2026]</span> THM-004’s scope condition.</cite> The claim concerns one deployment inside one boundary, not an organization’s AI activity in general. A manager who applies it across a whole company must first show that each deployment meets the conditions.</p>
 
-<p>The non-claims say what the claim deliberately does not establish. THM-004 does not say how to build the apparatus, who should own it, or what it should cost. Nor does it establish the three flows. As Chapter 2 noted, the three flows are this book’s organizing framework. THM-004 formalizes the economic consequence of the third flow’s asymmetry, and it does not establish the taxonomy itself. A reader who cites the theorem as proof that a deployment has exactly three flows has read into it a claim it does not make.</p>
+<p>The non-claims say what the claim deliberately does not establish. The registry records them for every claim, so a reader does not have to guess. THM-004 asserts that governance is necessary for control, not that governance delivers control. It does not claim that governance is costless. It does not say at what scale the requirement begins to bind, and it asserts nothing about how large the exposure is.<cite src="aibe-registry-2026"><span class="ckey">[aibe-registry-2026]</span> THM-004’s recorded exclusions.</cite> The theorem also does not establish the three flows. As Chapter 2 noted, the three flows are this book’s organizing framework. THM-004 formalizes the economic consequence of the third flow’s asymmetry, and it does not establish the taxonomy itself.</p>
 
 <aside class="definition">
 <p class="lab">Definition</p>
@@ -96,7 +155,9 @@
 <p>A conclusion a formal claim deliberately does not establish, though a reader might be tempted to draw it. Stating the non-claims prevents a claim from being cited for more than it says.</p>
 </aside>
 
-<p>The falsifying evidence says what would show the claim to be wrong. For a conditional claim, the test is precise. Find a deployment that meets every condition and still lacks the conclusion. For THM-004, that would be an organization running a scaled, usage-varying deployment with no record, attribution, or constraint, which nonetheless controls its cost. A claim that names no such case cannot be wrong, and a claim that cannot be wrong tells a manager nothing.</p>
+<p>The distinction between necessary and sufficient matters most in practice. A manager who reads THM-004 as “governance produces control” will buy a dashboard and expect the costs to settle. The theorem promises nothing of the kind. It says only that without governance there is no route to control. LEM-020 makes the same limit explicit one level down: it does not claim that management mechanisms are automatically effective.<cite src="aibe-registry-2026"><span class="ckey">[aibe-registry-2026]</span> LEM-020’s recorded exclusions.</cite></p>
+
+<p>The falsifying case says what would show the claim to be wrong. For a conditional claim, the test is precise: a case that meets every condition and still lacks the conclusion. For THM-004, that would be a scaled deployment meeting all four conditions whose organization holds economic control over its cost with no measurement and management apparatus at all. A claim that names no such case cannot be wrong, and a claim that cannot be wrong tells a manager nothing.</p>
 
 <p>These four parts answer an objection the formal style invites. A skeptical reader may call the registry a set of word games: obvious points dressed in numbered clauses. The objection mistakes the purpose of the form. Formal statement is not decoration. It fixes in advance what would count as the claim being wrong. A claim about AI that never says when it applies or what would defeat it cannot be wrong in that sense. A claim that states its conditions can be tested, and a claim that can be tested can be improved.</p>
 
@@ -225,15 +286,25 @@
 
 <p class="diagnostic">Step 5. State what the claim establishes and, separately, what it does not.</p>
 
-<p class="diagnostic">Step 6. State what evidence would show the claim to be wrong: a case that meets every condition and still lacks the conclusion.</p>
+<p class="diagnostic">Step 6. Name the falsifying case: a case that meets every condition and still lacks the conclusion.</p>
 
 <p>Steps 2 and 6 do most of the work. A restatement that drops an antecedent produces a claim the registry does not make, and step 2 is where that error enters. Step 6 is the test of whether the reader has understood the claim at all. A reader who cannot describe the case that would defeat a claim cannot say what the claim rules out.</p>
 
-<p>Applied to THM-004, the procedure begins with what the panel in Section 3.2 already shows. Step 1 records THM-004, “Scaled AI Deployment Requires Cost Governance for Economic Control.” Step 2 restates it: within one deployment and its cost boundary, a scaled deployment whose consumption costs money as it is used and varies with the work cannot be economically controlled unless something records, assigns, and limits that consumption.</p>
+<p>Applied to THM-004, the procedure runs as follows.</p>
 
-<p class="diagnostic">[REGISTRY PULL. Steps 3 and 4, worked on the same chain as Section 3.2: the dependencies of THM-004 by ID and name, then each restated in one sentence, with any condition it adds noted.]</p>
+<p>Step 1 records THM-004, “Scaled AI Deployment Requires Cost Governance for Economic Control.”</p>
 
-<p>Step 5 separates the claim from its readings. THM-004 establishes that scale, usage-varying cost, and the absence of an apparatus together defeat economic control. It does not establish what the apparatus should look like, who should own it, what it should cost, or that a deployment has three flows. Step 6 names the defeating case: a scaled deployment with usage-varying cost and no record, attribution, or constraint, whose organization nonetheless keeps its cost under control. Finding one would show the theorem false.</p>
+<p>Step 2 restates its conditions. Within one deployment and its measurement boundary, the theorem applies when four things hold. Scaling has multiplied where usage happens. Recording makes the costly activity visible. What is visible can be managed. Total cost runs beyond the price of access.</p>
+
+<p>Step 3 lists its four dependencies: LEM-016, LEM-002, LEM-020, and LEM-006, one for each condition.</p>
+
+<p>Step 4 restates each one. LEM-016 says that moving from isolated use into repeated operations can increase the number of usage events and demand points. LEM-002 says that measured and recorded activity becomes observable enough to analyze, assign, and manage. LEM-020 says that visible usage or exposure can have monitoring, limits, and attribution applied to it. LEM-006 says that a buyer who incurs several kinds of cost pays more in total than the access price.</p>
+
+<p>Step 4 also asks what each dependency adds, and LEM-020 adds something. Its scope requires that the organization have reliable visibility and the authority to apply management mechanisms.<cite src="aibe-registry-2026"><span class="ckey">[aibe-registry-2026]</span> LEM-020’s scope condition.</cite> The third condition of THM-004, that visibility enables management mechanisms, therefore carries more than its words show. It holds only for someone with the authority to act. A team that can see its costs but cannot cap them does not meet it. The trace found what the condition requires in practice.</p>
+
+<p>Step 5 separates the claim from its readings. THM-004 establishes that cost governance is necessary for economic control of a scaled deployment. It does not establish that governance is sufficient or costless, at what scale the requirement binds, how large the exposure is, or that a deployment has three flows.</p>
+
+<p>Step 6 names the falsifying case: a scaled deployment meeting all four conditions whose organization controls its cost with no measurement and management apparatus. Finding one would show the theorem false.</p>
 
 <p>The procedure is deliberately slow. A trace of one theorem takes longer than reading the theorem and agreeing with it. The time is worth spending once for each claim a decision rests on, because it is the only way to know what the decision is resting on.</p>
 
@@ -315,15 +386,26 @@
 
 <div class="problem">
 <p class="plab">P1 · Worked</p>
-<p class="ptitle">A full trace of THM-004</p>
-<p class="diagnostic">[REGISTRY PULL. The complete six-step trace of THM-004, worked as a model answer on the chain set out in Section 3.2 and the craft section.]</p>
+<p class="ptitle">A trace of LEM-020</p>
+<p>The craft section traced a theorem. Trace one of its lemmas, LEM-020, with the same six steps, as a model for problem P2.</p>
+<p>Step 1. LEM-020, “Visibility Enables Management Mechanisms.” Its statement reads: “If economic exposure or usage activity is visible to the relevant actor, then monitoring, limits, attribution, or management mechanisms can be applied within the relevant scope.”</p>
+<p>Step 2. When the people responsible for a deployment can see its usage or its cost, they can apply monitoring, limits, and attribution to it.</p>
+<p>Step 3. Eight dependencies: the lemma LEM-002 and seven propositions, among them PROP-043, PROP-053, and PROP-085.</p>
+<p>Step 4. LEM-002 says recorded activity becomes observable enough to manage. PROP-043 says metering produces records of what was metered. PROP-053 says that where exposure exists, monitoring can be used to observe it. PROP-085 says that once usage is visible, management decisions can draw on it. Each restates a small part of the lemma. Together they explain why visibility opens the door to management.</p>
+<p>Step 5. LEM-020 establishes that visibility makes management mechanisms available. It does not claim the mechanisms work automatically, and it does not claim that visibility alone settles the right policy or price.<cite src="aibe-registry-2026"><span class="ckey">[aibe-registry-2026]</span> LEM-020’s recorded exclusions.</cite></p>
+<p>Step 6. The defeating case is an organization that can see a deployment’s usage, holds the authority to manage it, and still cannot apply any monitoring, limit, or attribution to it.</p>
 </div>
 
 <div class="problem">
 <p class="plab">P2 · Completion</p>
 <p class="ptitle">A trace with two steps left open</p>
-<p>THM-002 states a result that Part II is about to teach. Its trace below is complete except for steps 4 and 5. Complete both.</p>
-<p class="diagnostic">[REGISTRY PULL. THM-002, “AI Adoption Cost Is Underestimated When Access Price Is Treated as Total Cost,” set as a panel, with steps 1, 2, 3 and 6 worked and steps 4 and 5 left blank.]</p>
+<p>THM-002, “AI Adoption Cost Is Underestimated When Access Price Is Treated as Total Cost,” states a result Part II is about to teach. Its statement reads: “If buyer AI adoption cost includes cost categories beyond access price, and ROI evaluation requires a defined measurement boundary for cost and value, then treating access price as total adoption cost creates underestimation risk within the evaluation boundary.” Steps 1, 2, 3, and 6 are worked below. Complete steps 4 and 5.</p>
+<p>Step 1. THM-002, as named above.</p>
+<p>Step 2. When a buyer’s cost of adopting AI includes more than the access price, and judging the return requires a boundary that takes in both cost and value, treating the access price as the whole cost risks understating it.</p>
+<p>Step 3. Four dependencies: LEM-006, LEM-021, LEM-002, and LEM-020.</p>
+<p>Step 4. Restate each dependency in one sentence, and note any condition it adds.</p>
+<p>Step 5. State what THM-002 establishes and what it does not. Then explain why LEM-002 and LEM-020 support the theorem even though neither appears among its conditions.</p>
+<p>Step 6. The defeating case is a buyer whose adoption cost includes categories beyond the access price, who evaluates the return inside a boundary covering cost and value, who treats the access price as the total, and whose cost is not understated.</p>
 </div>
 
 <div class="problem">

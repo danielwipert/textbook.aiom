@@ -37,13 +37,13 @@ AIOM_Prose_Standard_v2.0.md bind from Stage 0 forward.
 
 Owner: Claude; Dan approves the plan (sitting 1)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-01
 
 > v4 step 1 and 2. A one-page plan comes FIRST (Decision 77) and Dan approves it before a word is drafted, because a structural question is cheapest before the prose exists. Then Claude drafts against the fixed six-slot skeleton, with the craft standard binding from here, and clears the frequency sweep before anyone reads the draft (Decision 78). Sources verified live with an access date; no archival (Decision 48).
 
 - [x] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
 - [x] Dan approved the plan (sitting 1)
-- [ ] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
+- [x] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
 - [x] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
 
 Findings:
@@ -57,6 +57,9 @@ D4. Chapter 1's promise covers model internals, prompt engineering and use-case 
 D5. G3 caught gloss drift: the ledger's THM-004 gloss added verbatim in 3.2. The three unpaid promises are paid in 3.2 to 3.5 and are marked at lock.
 D6. Print render: 14 of 15 gates pass; gate 12 fails only on Figure 3.1, a registry gap. Production notes: page 10 short before Table 3.1; the table caption sets as body text.
 D7. For Dan: locked Chapter 1 says "the AI Operations Management registry"; under this chapter's architecture the registry belongs to AI Business Economics. A candidate amendment via amend.py, his call.
+D8. Registry attached (danielwipert/dag.aiom at 9d7ee50, the pinned version); all four REGISTRY PULL gaps filled from it; Figure 3.1 drawn and read on the page. Draft 6,050 words.
+D9. FINDING: Chapter 2's THM-004 panel does not render the registry statement (antecedents i, iii and the consequent differ; Chapter 1's THM-009 panel is faithful). Chapter 3 renders the registry wording. Chapter 2 fix put to Dan.
+D10. Frequency sweep re-run after the gaps: 13 listed, 3 new (F2 "sometimes other lemmas", F5 and F10 "in practice"), all structural or logical, all kept.
 D7 ruled 2026-10-01: Dan approved; Chapter 1 amended to "the AI Business Economics registry", commit d9e3922.
 
 ---
@@ -69,19 +72,22 @@ Status: [ ]        Date cleared:
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
-- [ ] All six slots present, in order, correctly headed
-- [ ] Opening case carries a provenance line under its title
-- [ ] Every exit competency assigned to this chapter is addressed
-- [ ] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
-- [ ] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
-- [ ] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
-- [ ] Every Slot 5 key term appears defined in the body
-- [ ] Zero em dashes
+- [x] All six slots present, in order, correctly headed
+- [x] Opening case carries a provenance line under its title
+- [x] Every exit competency assigned to this chapter is addressed
+- [x] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
+- [x] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
+- [x] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
+- [x] Every Slot 5 key term appears defined in the body
+- [x] Zero em dashes
 - [ ] Word count inside the chapter target band
-- [ ] Gloss-less lemmas carry a book-authored gloss, marked as such
-- [ ] voicecheck.py mechanical bans clean before anyone reads the draft
+- [x] Gloss-less lemmas carry a book-authored gloss, marked as such
+- [x] voicecheck.py mechanical bans clean before anyone reads the draft
 
 Findings:
+
+G1-1. All boxes pass except the word band: Decision 33 sets 6,500 to 7,500 for Chapters 1 and 2 only. Chapter 3 is 6,050. Band put to Dan at sitting 2; G1 stays open until ruled.
+G1-2. Key term "Falsifying case" absent from the body; body aligned to the term.
 
 ---
 

@@ -25,9 +25,8 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
-1. **Fill the four registry gaps in Chapter 3** once Dan supplies the bundle:
-   the 3.2 trace and Figure 3.1, craft steps 3 and 4, P1, P2 (all marked
-   `[REGISTRY PULL]` in the draft). Then tick Stage 0 and run G1.
+1. DONE: registry attached (`/home/user/dag.aiom`, never committed here); the
+   four gaps filled; Stage 0 passed; G1 open only on the word band.
 2. **Build the one review package** (Decision 77) before sitting 2: structure,
    teaching, voice and craft as three sections, plus the frequency-sweep
    dispositions (checklist D3).
@@ -35,9 +34,9 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Waiting on Dan
 
-- **The registry bundle** (`dag.aiom` at `9d7ee50` or newer): the THM-004 trace,
-  the craft section and P1 and P2 quote registry statements and cannot be drafted
-  without it.
+- **Chapter 2's THM-004 panel** does not render the registry statement. Proposed
+  four-edit amendment awaits Dan's ruling (Chapter 3 checklist D9).
+- **Chapter 3 word band** (G1-1), at sitting 2.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).
@@ -63,8 +62,12 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Fix-between-chapters list (Decision 79)
 
-Nothing is in flight, so these may be worked now. During a chapter, add here,
-one line each, and fix only what blocks.
+Chapter 3 is in flight: add here, one line each, and fix only what blocks.
+
+- **`registry.py --check` compares a panel's NAME only, never its statement.**
+  That is how Chapter 2's THM-004 panel locked while not rendering the
+  registry. Add a statement check (antecedents and consequent against the
+  bundle) between chapters; highest value on this list.
 
 - **`copyedit_import.py` drops untagged continuation paragraphs.** Fix BEFORE
   Chapter 3's author pass, which now carries Dan's whole rewrite.
