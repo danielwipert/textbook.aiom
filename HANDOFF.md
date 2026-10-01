@@ -27,16 +27,16 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 1. DONE: registry attached (`/home/user/dag.aiom`, never committed here); the
    four gaps filled; Stage 0 passed; G1 open only on the word band.
-2. DONE: review package built and Claude's independent review applied (44
-   findings). **NEXT: Dan runs the second-model prompt**
-   (`02_Stage4_Review/AIOM_Ch03_Review_secondmodel_prompt.md`), then sitting 2
-   rules `AIOM_Ch03_Sitting2_decisions.md` plus the second model's findings.
+2. DONE: review package built; Claude's independent review applied (44
+   findings); Dan ruled all eleven sitting 2 items (Decision 82 sets the word
+   band); G1 passed. **NEXT: Dan runs the second-model prompt**
+   (`02_Stage4_Review/AIOM_Ch03_Review_secondmodel_prompt.md`); Claude turns its
+   findings into one short list; then Stage 4 closes and the author pass begins.
 3. Fix `copyedit_import.py` (continuation paragraphs) before the author pass.
 
 ## Waiting on Dan
 
-- **Chapter 3 sitting 2:** eleven decisions in `02_Stage4_Review/AIOM_Ch03_Sitting2_decisions.md`,
-  plus running the second-model prompt.
+- **Chapter 3:** run the second-model prompt and save its reply in `02_Stage4_Review/`.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).

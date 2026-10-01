@@ -735,6 +735,13 @@ Decisions 22 onward live here.
   in full and applies from Chapter 3**; Chapters 1 and 2 keep the process they were
   locked under.
 
+- **Decision 82. RULED 2026-10-01.** The word band for Chapters 3 to 15 is **6,000
+  to 7,500 words**, on Decision 33's measure (the whole rendered chapter less the
+  source register and SVG labels, as `voicecheck.py` prints it). Decision 33 set
+  6,500 to 7,500 for Chapters 1 and 2 only, and by its own account moved the band
+  to fit what those chapters became rather than to a target. Raised at Chapter 3's
+  G1 (finding G1-1) at 6,364 words. A chapter is not padded to reach the floor.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

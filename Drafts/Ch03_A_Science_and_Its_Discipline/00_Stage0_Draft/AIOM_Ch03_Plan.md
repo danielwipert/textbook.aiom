@@ -67,3 +67,7 @@ else can be drafted without it.
    it, which saves a whole extra round of steps.
 4. **P2's theorem.** **Recommend:** THM-002 (certified), the spec's candidate,
    so the completion problem previews Chapter 5.
+
+## Changes ruled after approval
+
+- 2026-10-01, sitting 2: problem P1 traces LEM-020 rather than THM-004, because the craft section already works THM-004 in full (R-16). A fourth discussion question, the interleaving question, is kept (R-15). The registry repository is private, so section 3.1 states that Appendix A reaches lemma level (R-2).

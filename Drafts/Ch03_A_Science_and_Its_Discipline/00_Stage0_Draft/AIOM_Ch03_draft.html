@@ -44,7 +44,7 @@
 
 <p>The claims are kept in a registry. The registry is a structured record of every definition, assumption, and result in the science, with each result linked to the claims that support it. A definition fixes what a term means. An axiom states an assumption the science accepts without proof. A proposition states a single claim, accepted because of the definitions, axioms, or earlier claims it names as its support. A lemma combines propositions, and sometimes other lemmas, into an intermediate result. A theorem combines lemmas into a result with direct consequences for management.</p>
 
-<p>Those links are the registry’s most important feature. Every higher claim names the lower claims it depends on, and those claims name their own supports in turn. The result is a dependency graph: a map in which no claim can rest, directly or indirectly, on itself. A reader can start at any theorem and follow its supports downward until they reach definitions and axioms. For a manager, that settles something practical: no conclusion is propped up by circular reasoning, so any doubt can be pushed down to a smaller claim that can be checked.</p>
+<p>Those links are the registry’s most important feature. Every higher claim names the lower claims it depends on, and those claims name their own supports in turn. The result is a dependency graph: a map in which no claim can rest, directly or indirectly, on itself. Anyone holding the registry can start at any theorem and follow its supports downward until they reach definitions and axioms. In this book, Appendix A reproduces every certified theorem and lemma, and propositions are cited by identifier, so a reader can trace any claim to lemma level unaided and below it wherever a chapter or an exercise supplies the propositions. For a manager, that settles something practical: no conclusion is propped up by circular reasoning, so any doubt can be pushed down to a smaller claim that can be checked.</p>
 
 <p>The registry also records which claims are complete. A claim is certified when every claim it depends on is itself certified and its supporting argument meets the registry’s fixed conditions. No one types that status in. The registry’s own validator computes it from the graph, version by version. A claim with a gap below it carries a record of what is missing. This book renders and cites certified claims only. Presenting an uncertified claim as a theorem would claim more than the science claims.</p>
 
@@ -179,7 +179,7 @@
 
 <p>The second function is planning and budgeting. The organization must be able to state how much AI it expects to consume in the coming period and to notice when actual consumption departs from that expectation. A budget in this sense is a commitment made in advance, so that a deviation is visible when it happens rather than when the money is gone. Chapter 2’s opening case showed what its absence costs.</p>
 
-<p>The third function is metering and attribution. The organization must be able to record what was consumed and to assign each unit of consumption to the team, product, or purpose it served. Chapter 2 called this the record flow. Without it, the other functions have nothing to work from.</p>
+<p>The third function is metering and attribution. The organization must be able to record what was consumed and to assign each unit of consumption to the team, product, or purpose it served. Chapter 2 called this the record flow.</p>
 
 <p>The fourth function is allocation and routing. When capacity is limited, the organization must decide what runs first and send each piece of work to the capacity that suits it. Those decisions happen whether or not anyone makes them deliberately. When two workflows draw on one provider account with a fixed rate limit, one of them waits whenever the other is busy. The function exists to make that choice by rule rather than by accident.</p>
 
@@ -257,7 +257,7 @@
 
 <h3 class="section"><span class="num">3.6</span>Five questions the discipline exists to answer</h3>
 
-<p>AI Operations Management exists to answer five questions an organization cannot answer without it. Each belongs to one of the five functions, and each is answered in the chapter that teaches that function.</p>
+<p>AI Operations Management exists to answer five questions an organization cannot answer without it. Each belongs to one of the five functions, and each is answered in the chapter that teaches that function. Part III takes them in a different order, for reasons given there.</p>
 
 <p>An organization that manages its AI consumption can answer these five questions from its own records:</p>
 
@@ -425,7 +425,7 @@
 <p class="ptitle">One announcement, three readings</p>
 <p class="provenance">Dated: February 2024. The company’s own announcement, using its own figures. Only that announcement is used here.</p>
 <p>In February 2024, the payments company <span class="nb">Klarna</span> announced the results of the first month of an AI assistant built on <span class="nb">OpenAI</span>’s models. The company reported that the assistant had held 2.3 million conversations, two-thirds of its customer-service chats. By its own estimate, the assistant was doing the work of 700 full-time agents. Customers resolved their questions in under two minutes, against eleven before. The company estimated that the assistant would improve its profit by $40 million in 2024.<cite src="klarna-2024-assistant"><span class="ckey">[klarna-2024-assistant]</span> All figures in this case are the company’s own, as announced.</cite></p>
-<p>Work from the announcement alone, and do not use anything published afterward.</p>
+<p>Work from this announcement alone.</p>
 <p>First, apply Chapter 1’s consumption-event inventory. Identify the consumption events the announcement describes and where each is metered.</p>
 <p>Second, apply Chapter 2’s three-flow mapping. Diagnose the usage, record, and cost-and-value flows, and name the evidence behind each diagnosis.</p>
 <p>Third, pose each of the five Founding Questions against the announcement. For each, state whether the public record answers it from the organization’s own records, and what record would be needed to answer it.</p>

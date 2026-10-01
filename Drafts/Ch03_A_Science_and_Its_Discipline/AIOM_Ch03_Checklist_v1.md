@@ -69,7 +69,7 @@ D7 ruled 2026-10-01: Dan approved; Chapter 1 amended to "the AI Business Economi
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-01
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
@@ -81,13 +81,14 @@ Status: [ ]        Date cleared:
 - [x] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
 - [x] Every Slot 5 key term appears defined in the body
 - [x] Zero em dashes
-- [ ] Word count inside the chapter target band
+- [x] Word count inside the chapter target band
 - [x] Gloss-less lemmas carry a book-authored gloss, marked as such
 - [x] voicecheck.py mechanical bans clean before anyone reads the draft
 
 Findings:
 
 G1-1. All boxes pass except the word band: Decision 33 sets 6,500 to 7,500 for Chapters 1 and 2 only. Chapter 3 is 6,050. Band put to Dan at sitting 2; G1 stays open until ruled.
+G1-1 ruled 2026-10-01 as Decision 82: band 6,000 to 7,500 for Chapters 3 to 15. Chapter 3 at 6,401 passes. G1 passed.
 G1-2. Key term "Falsifying case" absent from the body; body aligned to the term.
 
 ---
@@ -118,6 +119,7 @@ Status: [ ]        Date cleared:
 Findings:
 
 R0. Independent review 2026-10-01, 44 findings (02_Stage4_Review/AIOM_Ch03_Review_claude_findings.md). Applied: R-1, R-3 to R-8, R-11, R-13, R-17, R-18, R-21 to R-24, R-26, R-28 to R-33, R-35 to R-37, R-39 to R-43, R-15 wording; R-12, R-38 resolved by those; R-19, R-20, R-44 noise. Eleven decisions to Dan (AIOM_Ch03_Sitting2_decisions.md). Second-model review not yet run.
+S2. Sitting 2 (Claude's list), 2026-10-01: Dan accepted all eleven recommendations. Applied: band ruled (Decision 82); registry private, so 3.1 states Appendix A reaches lemma level; R-9 sentence cut; R-10 clause added; R-14 Klarna wording; P1 on LEM-020 and Q4 kept, recorded in the plan; R-25, R-27, R-34 kept; all 16 frequency hits kept. The second-model review is still outstanding, so Stage 4 stays open.
 R0a. Self-caught while applying: P1 paraphrases of PROP-039 and PROP-041 were written from names and overstated; corrected against the statements.
 R0b. Print after fixes: gate 4 now fails (one callout split) and page 13 runs 388pt short before Table 3.1. Both are pagination, left to the production step after the author pass.
 
