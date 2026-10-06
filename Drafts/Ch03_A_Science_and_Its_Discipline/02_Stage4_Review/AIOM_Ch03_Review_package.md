@@ -247,6 +247,13 @@ The third is finding uses for AI: deciding which business problems AI might solv
 
 Four established disciplines sit closer still. Each manages something adjacent to AI consumption, and each lacks something this territory needs. Table 3.1 sets them side by side.
 
+| Neighbor | What it is for | What it manages | What it lacks for this territory |
+|---|---|---|---|
+| AIOps | Applying machine learning to run IT operations: correlating events, detecting anomalies, finding causes | The health and performance of IT systems | It uses AI to watch systems. It does not govern what consuming AI costs or returns |
+| MLOps | Building, deploying, and monitoring machine learning models in production | The lifecycle of models an organization builds | It ships models. It does not govern the consumption of capacity an organization buys |
+| FinOps | Financial accountability for technology spending, through collaboration among engineering, finance, and business teams | Cloud and wider technology spending | It was built around cloud billing. A practitioner told its own survey that no one could yet say whether AI provides value |
+| Regulatory AI governance | Ensuring that uses of AI are lawful, safe, and accountable to regulators | Risk and compliance | It asks whether a use is permitted, not whether it is economically managed |
+
 Table 3.1. The four neighboring disciplines. Each manages something adjacent to AI consumption, and none was built to govern its economics.
 
 FinOps is the nearest neighbor and the hardest border to draw. It already manages spending, it has moved toward AI, and its own definition speaks of maximizing the business value of technology. How the two divide the work is a question for Chapter 14. The border does not lie in intent. It lies in the evidence of the opening case, where a practitioner of the discipline that reads the AI bills told its own survey that no one could yet say whether AI was providing value.

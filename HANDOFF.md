@@ -76,6 +76,10 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   between BEGIN/END markers. Ch3's was hand-assembled; write `review_package.py` so
   every chapter's package is generated the same way.
 
+- **`prose_extract.py` drops tables** (found 2026-10-06): Ch3 Table 3.1 never reached
+  the second-model reviewer, who then reported it empty (S-2). Patched into the Ch3
+  package by hand; fix the extractor and check the Ch1 exemplar for the same loss.
+
 - Manual page reads are stale for Chapter 1 (since 2026-08-14) and Chapter 2
   (since the 2026-10-01 THM-004 amendment; its panel page WAS read).
 - `voicecheck.py` Part 5 rule 1 proxy counts fronted adverbials; do not quote it.
