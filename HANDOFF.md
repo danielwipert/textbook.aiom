@@ -29,15 +29,16 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    four gaps filled; Stage 0 passed; G1 open only on the word band.
 2. DONE: review package built; Claude's independent review applied (44
    findings); Dan ruled all eleven sitting 2 items (Decision 82 sets the word
-   band); G1 passed. **NEXT: Dan runs the second-model prompt**
-   (`02_Stage4_Review/AIOM_Ch03_Review_secondmodel_prompt.md`); Claude turns its
+   band); G1 passed. **NEXT: Dan uploads the one-file package**
+   (`02_Stage4_Review/AIOM_Ch03_Review_package.md`); Claude turns its
    findings into one short list; then Stage 4 closes and the author pass begins.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
 ## Waiting on Dan
 
-- **Chapter 3:** run the second-model prompt and save its reply in `02_Stage4_Review/`.
+- **Chapter 3:** upload `02_Stage4_Review/AIOM_Ch03_Review_package.md` (one file) to a second model
+  and save its reply as `AIOM_Ch03_Review_secondmodel_review.md` in that folder.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).
@@ -69,6 +70,11 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   That is how Chapter 2's THM-004 panel locked while not rendering the
   registry. Add a statement check (antecedents and consequent against the
   bundle) between chapters; highest value on this list.
+
+- **Single-file review packages (Dan, 2026-10-06).** Every external review (content
+  or fact check) ships as ONE markdown file: instructions, output format, all material
+  between BEGIN/END markers. Ch3's was hand-assembled; write `review_package.py` so
+  every chapter's package is generated the same way.
 
 - Manual page reads are stale for Chapter 1 (since 2026-08-14) and Chapter 2
   (since the 2026-10-01 THM-004 amendment; its panel page WAS read).
