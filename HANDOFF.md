@@ -40,10 +40,10 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 - **Chapter 3:** the author pass: edit the .docx in Word, save it as
   `AIOM_Ch03_author_pass_DAN_EDIT.docx` in the same folder, and say so.
-- **Open question, not urgent:** the THM-004 gloss "Diligence from the people running
-  the deployment is no longer enough" (fixed by locked Ch2, checked by G3) was
-  flagged by a reviewer as going beyond the theorem. Removing it is a Ch2 amendment
-  plus a ledger update. Keep or amend?
+- **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
+  newer evidence and any conclusion that no longer holds, one package, a checker
+  with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
+  before then; the THM-004 "Diligence" gloss question (B8) waits for it.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).
