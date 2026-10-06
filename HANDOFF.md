@@ -29,16 +29,15 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    four gaps filled; Stage 0 passed; G1 open only on the word band.
 2. DONE: review package built; Claude's independent review applied (44
    findings); Dan ruled all eleven sitting 2 items (Decision 82 sets the word
-   band); G1 passed. **NEXT: Dan uploads the one-file package**
-   (`02_Stage4_Review/AIOM_Ch03_Review_package.md`); Claude turns its
-   findings into one short list; then Stage 4 closes and the author pass begins.
+   band); G1 passed. **NEXT: Dan rules sitting 2b**
+   (`02_Stage4_Review/AIOM_Ch03_Sitting2b_decisions.md`: the second-model and two
+   Sonnet reviews merged); Claude applies in one commit; Stage 4 closes; author pass.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
 ## Waiting on Dan
 
-- **Chapter 3:** upload `02_Stage4_Review/AIOM_Ch03_Review_package.md` (one file) to a second model
-  and save its reply as `AIOM_Ch03_Review_secondmodel_review.md` in that folder.
+- **Chapter 3:** rule sitting 2b (`02_Stage4_Review/AIOM_Ch03_Sitting2b_decisions.md`): five decisions plus one batch.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).
