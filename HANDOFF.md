@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-01. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-06. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -8,12 +8,12 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- Working branch `claude/inspiring-bohr-4gquw9`; `main` fast-forwarded to it on
+- Working branch `claude/happy-bardeen-hhct43` (this session; carries the Chapter 3
+  sitting 2b work); earlier branch `claude/inspiring-bohr-4gquw9`; `main` fast-forwarded to it on
   2026-10-01 at `5d0fd66` (Process v4 adoption and tooling are on `main`). Later
   commits on the branch carry Chapter 3 work.
 - Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  **Chapter 3 at Stage 0 (Process v4)**: plan approved at sitting 1, draft
-  written with four registry gaps. Chapters 4 to 15 not started.
+  **Chapter 3 (Process v4): Stage 4 passed 2026-10-06; author pass next.** Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -27,17 +27,23 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 1. DONE: registry attached (`/home/user/dag.aiom`, never committed here); the
    four gaps filled; Stage 0 passed; G1 open only on the word band.
-2. DONE: review package built; Claude's independent review applied (44
-   findings); Dan ruled all eleven sitting 2 items (Decision 82 sets the word
-   band); G1 passed. **NEXT: Dan rules sitting 2b**
-   (`02_Stage4_Review/AIOM_Ch03_Sitting2b_decisions.md`: the second-model and two
-   Sonnet reviews merged); Claude applies in one commit; Stage 4 closes; author pass.
+2. DONE: Stage 4 closed 2026-10-06. Three external reviews (second model, two
+   Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
+   **NEXT: Dan's author pass** on
+   `03_Stage6_Author_Pass/AIOM_Ch03_author_pass.docx` (round trip verified at zero
+   changes). Then `copyedit_import.py`, the mechanical checks, `freqsweep.py`, and
+   the fact-check package (one file, Dan's rule) for a checker with web access.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
 ## Waiting on Dan
 
-- **Chapter 3:** rule sitting 2b (`02_Stage4_Review/AIOM_Ch03_Sitting2b_decisions.md`): five decisions plus one batch.
+- **Chapter 3:** the author pass: edit the .docx in Word, save it as
+  `AIOM_Ch03_author_pass_DAN_EDIT.docx` in the same folder, and say so.
+- **Open question, not urgent:** the THM-004 gloss "Diligence from the people running
+  the deployment is no longer enough" (fixed by locked Ch2, checked by G3) was
+  flagged by a reviewer as going beyond the theorem. Removing it is a Ch2 amendment
+  plus a ledger update. Keep or amend?
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).

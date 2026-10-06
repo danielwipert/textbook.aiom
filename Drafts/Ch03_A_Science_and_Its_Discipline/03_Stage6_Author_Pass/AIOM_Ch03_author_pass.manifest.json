@@ -1,0 +1,4184 @@
+{
+ "source_html": "Drafts/Ch03_A_Science_and_Its_Discipline/00_Stage0_Draft/AIOM_Ch03_draft.html",
+ "source_pdf": "build/Ch03.pdf",
+ "block_count": 278,
+ "excluded": [
+  "<section id=\"aiom-sources\">, the Decision 51 source register: machine-read apparatus, deliberately not exposed to a copy edit"
+ ],
+ "figure_text_counts": [
+  31,
+  17
+ ],
+ "blocks": [
+  {
+   "i": 0,
+   "kind": "PART LABEL",
+   "class": "part-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    200,
+    221
+   ],
+   "sha1": "d1f306603f8d9170137939c56cc45f28956b0946",
+   "text": "Part I · The Argument"
+  },
+  {
+   "i": 1,
+   "kind": "CHAPTER TITLE",
+   "class": "chapter-title",
+   "tag": "h1",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    252,
+    280
+   ],
+   "sha1": "0fc29bfc4d7fcc8527bd3d3019d45220eec32189",
+   "text": "A Science and Its Discipline"
+  },
+  {
+   "i": 2,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    309,
+    321
+   ],
+   "sha1": "180538463d11c0f7ea1903cf657cb1a084bcfbd6",
+   "text": "Opening case"
+  },
+  {
+   "i": 3,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    349,
+    388
+   ],
+   "sha1": "2d444280e446cdcd0627b81717cbe2b8b2404092",
+   "text": "The discipline that changed its mission"
+  },
+  {
+   "i": 4,
+   "kind": "PROVENANCE",
+   "class": "provenance",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    416,
+    594
+   ],
+   "sha1": "78cc557ba7907597919fc362c957ed0db19c0aeb",
+   "text": "Dated: February 2026. Found by search. Figures and the quotation agree across secondary coverage and have not yet been checked against the report itself. See the source register."
+  },
+  {
+   "i": 5,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    603,
+    1040
+   ],
+   "sha1": "d7202429c641010839f2dce227258004a1b9325f",
+   "text": "In February 2026, the FinOps Foundation changed its mission statement. For years it had described its purpose as advancing the people who manage the value of cloud. The new statement replaced one word: the Foundation now advances the people who manage the value of technology."
+  },
+  {
+   "i": 6,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-mission",
+   "figure": null,
+   "string": null,
+   "span": [
+    935,
+    1033
+   ],
+   "sha1": "d724d0232ab74301f8fdbd68f896ac1ea6f0e78d",
+   "text": "The mission statement before and after the change."
+  },
+  {
+   "i": 7,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    1049,
+    1774
+   ],
+   "sha1": "f638adaa4c959e81ca3226b756b3d00784481cfe",
+   "text": "The change came with the Foundation’s annual survey of its own practitioners, the people inside companies who manage cloud spending for a living. The 2026 survey reached 1,192 of them, responsible for more than $83 billion a year in cloud spending. Its central finding concerned work the discipline had not been founded to do. Ninety-eight percent of respondents now managed spending on AI. Two years earlier, the figure had been 31 percent."
+  },
+  {
+   "i": 8,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-state",
+   "figure": null,
+   "string": null,
+   "span": [
+    1327,
+    1431
+   ],
+   "sha1": "1c746ee00719278483102edd44989fbc9659524f",
+   "text": "Survey size and the cloud spending its respondents manage."
+  },
+  {
+   "i": 9,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-state",
+   "figure": null,
+   "string": null,
+   "span": [
+    1661,
+    1767
+   ],
+   "sha1": "4b37432e9cc6e0976c9dfc2afc2b2b9675f45ce9",
+   "text": "Share of practitioners managing AI spend, 2026 against 2024."
+  },
+  {
+   "i": 10,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    1783,
+    2301
+   ],
+   "sha1": "fb4f1ed5e68721b754b4d9cd012163494fc7bc8a",
+   "text": "FinOps was built for a specific problem. Cloud computing let engineers buy capacity with a few lines of code, and the bills arrived after the capacity had been used. The discipline grew up to make engineering, finance, and business teams jointly accountable for that spending. Its practitioners later took on AI spending as well, and by 2026 nearly all of them were doing so."
+  },
+  {
+   "i": 11,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-what-is",
+   "figure": null,
+   "string": null,
+   "span": [
+    2110,
+    2195
+   ],
+   "sha1": "1df32e9fd672635c8e85772274681f3b80aeae2c",
+   "text": "The practice as the Foundation defines it."
+  },
+  {
+   "i": 12,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2310,
+    2641
+   ],
+   "sha1": "08092c21498966a5cbd4fb7f6515bc76febfd910",
+   "text": "The report also recorded what that work had not yet produced. Asked whether AI was providing value, one practitioner gave an answer the report chose to quote: “No one can answer that question yet.”"
+  },
+  {
+   "i": 13,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-state",
+   "figure": null,
+   "string": null,
+   "span": [
+    2537,
+    2634
+   ],
+   "sha1": "35ec02ad57815e9a1ddc68dca6389e3b96e63a9f",
+   "text": "Practitioner quotation as reproduced in the report."
+  },
+  {
+   "i": 14,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2650,
+    3084
+   ],
+   "sha1": "f44de6926dfa9fed1b266e3ca0922a59b0633e61",
+   "text": "That is the gap Chapters 1 and 2 described, now reported in the survey of the people asked to fill it. The organization pays for a metered resource, and the cost arrives by default. The value arrives only if someone builds the means to measure it. A cloud cost discipline is a capable neighbor, and it has moved toward work that no discipline was built to hold: managing the economics of what an organization consumes when it uses AI."
+  },
+  {
+   "i": 15,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3093,
+    3422
+   ],
+   "sha1": "9cbb402f92f3f028e142f760c4d1a58cdb2d44e8",
+   "text": "That work needs two things a neighbor cannot lend it: a body of knowledge about what is true, and a practice that acts on it. How FinOps and that practice divide the work is settled in Chapter 14. Until both exist, the question the practitioner could not answer, whether AI is providing value, stays open."
+  },
+  {
+   "i": 16,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3448,
+    3494
+   ],
+   "sha1": "61761b261b1e41b66b732589afaa4919d40f1cc3",
+   "text": "3.1 Why name a science"
+  },
+  {
+   "i": 17,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3504,
+    3853
+   ],
+   "sha1": "673477068b84a1c0ff61de69cf418854f67a7fc2",
+   "text": "Managers act on claims about how their business works. A budget assumes that cost follows usage. A pricing negotiation assumes the provider has a reason to accept a lower price. A dashboard assumes that what it shows will change what someone does. When those claims are wrong, the management built on them fails, however carefully it is carried out."
+  },
+  {
+   "i": 18,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3862,
+    4403
+   ],
+   "sha1": "092e4db2ad1ba4a85a92c9439c919f874d57f35e",
+   "text": "Claims of this kind can live informally: in experience, in rules of thumb, and in the slides of whoever presented last. Informal knowledge is useful, and it has a cost. Two managers can hold opposite beliefs about the same deployment, and neither can show the other where the disagreement lies. One could treat Chapter 1’s Cursor licenses as a fixed software expense, the other as metered consumption, and without a stated claim neither could name the fact that would settle it. The argument then turns on confidence rather than on evidence."
+  },
+  {
+   "i": 19,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    4412,
+    4814
+   ],
+   "sha1": "f66455fa89db6b39a110430a57bf9be819eb25e8",
+   "text": "Chapters 1 and 2 each ended on a stated result rather than an opinion. Chapter 1 set out the conditions under which deployed AI is a resource the organization consumes. Chapter 2 set out the conditions under which a scaled deployment cannot be controlled without a governing apparatus. Each result appeared in a panel with an identifier, and each identifier points to a larger body of claims behind it."
+  },
+  {
+   "i": 20,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    4823,
+    5220
+   ],
+   "sha1": "ff29cb80614a43869544fa2bab377835771d618b",
+   "text": "That body is AI Business Economics. It is a science in a specific and limited sense: a set of claims about the business economics of consuming AI, each saying when it holds and stated precisely enough to be checked. The word does not mean laboratory experiments, and it does not mean certainty. It means that every claim says when it applies, what it concludes, and which other claims it rests on."
+  },
+  {
+   "i": 21,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5268,
+    5278
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 22,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5299,
+    5320
+   ],
+   "sha1": "037e2490a1851247243f28ca53c7711b2cacb5f1",
+   "text": "AI Business Economics"
+  },
+  {
+   "i": 23,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5328,
+    5508
+   ],
+   "sha1": "ec1ed91e9a896935fdd16e9b9e2b9db918fef3c3",
+   "text": "The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on."
+  },
+  {
+   "i": 24,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5526,
+    6108
+   ],
+   "sha1": "60eefc450c4c120136ca60e01e0be3c08928e90a",
+   "text": "The claims are kept in a registry. The registry is a structured record of every definition, assumption, and result in the science, with each result linked to the claims that support it. A definition fixes what a term means. An axiom states an assumption the science accepts without proof. A proposition states a single claim, accepted because of the definitions, axioms, or earlier claims it names as its support. A lemma combines propositions, and sometimes other lemmas, into an intermediate result. A theorem combines lemmas into a result with direct consequences for management."
+  },
+  {
+   "i": 25,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    6117,
+    6774
+   ],
+   "sha1": "ef0d41d132f978df5ccb624e1afdcb8f2404262d",
+   "text": "Those links are the registry’s most important feature. Every higher claim names the lower claims it depends on, and those claims name their own supports in turn. The result is a dependency graph: a map in which no claim can rest, directly or indirectly, on itself. Anyone holding the registry can start at any theorem and follow its supports downward until they reach definitions and axioms. In this book, Appendix A reproduces every certified theorem and lemma, and propositions are cited by identifier. A reader can therefore trace any claim to lemma level unaided. Below that level, a reader works from the propositions a chapter or an exercise supplies."
+  },
+  {
+   "i": 26,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    6783,
+    7054
+   ],
+   "sha1": "2088fe5013f808c16a11e041e12af0089a13609c",
+   "text": "For a manager, the graph settles one practical matter. No conclusion is propped up by circular reasoning, so any doubt can be pushed down to a smaller claim that can be examined. Whether that smaller claim is true is a separate question, and the graph does not answer it."
+  },
+  {
+   "i": 27,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7063,
+    7980
+   ],
+   "sha1": "b00ca5e3817350a05b3750ffc56d2ec4c33ab28d",
+   "text": "The registry also records which claims are complete. A claim is certified when every claim it depends on is itself certified and its supporting argument meets the registry’s fixed conditions. No one types that status in. The registry’s own validator computes it from the graph at each version. It checks that every dependency is recorded and is itself certified, that no chain of support loops back on itself, that every claim marked empirical has evidence attached, and that a reviewer has signed off on the claim’s current wording. It checks the structure and the record of an argument, not its truth. A claim with a gap below it carries a record of what is missing. This book renders and cites certified claims only. Presenting an uncertified claim as a theorem would claim more than the science claims."
+  },
+  {
+   "i": 28,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    7627,
+    7700
+   ],
+   "sha1": "71f032795170a6357e1e409311a17b3a1d74e8db",
+   "text": "What the validator checks."
+  },
+  {
+   "i": 29,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7989,
+    8530
+   ],
+   "sha1": "be81c9111937d26977ab9b0238da6548f8615b5f",
+   "text": "One rule governs how this book uses the registry. The registry justifies the book. It does not organize it. The chapters follow the order in which a manager needs to learn, which is not the order in which the science derives its results. The registry’s role is to stand behind each result the book teaches, so that a reader who doubts a claim can follow it to its support. Reversing the rule would order the chapters by proof rather than by need, and a manager would meet definitions for many pages before reaching a decision they recognize."
+  },
+  {
+   "i": 30,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8556,
+    8627
+   ],
+   "sha1": "d856589736b1f16c9446565544d3ef1f24ea0388",
+   "text": "3.2 Tracing a result the reader already accepts"
+  },
+  {
+   "i": 31,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8637,
+    9060
+   ],
+   "sha1": "d75d8b9aeccaa5fad79b248cd01980c459686f19",
+   "text": "Once a deployment reaches scale, economic control requires a governing apparatus. Diligence from the people running the deployment is no longer enough. Chapter 2 ended on that result, and a reader who accepted its argument already believes it. Following it down through the registry is therefore the clearest way to learn how the registry works, because the only new thing to learn is how the support behind it is arranged."
+  },
+  {
+   "i": 32,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9069,
+    9112
+   ],
+   "sha1": "1db4e3ecb0a72849a2fc2e2423b9b504f9358065",
+   "text": "The registry states that result as THM-004:"
+  },
+  {
+   "i": 33,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9155,
+    9174
+   ],
+   "sha1": "fd7f70bdd2f44aa813863bd1ec0263e652410662",
+   "text": "Theorem 2 · THM-004"
+  },
+  {
+   "i": 34,
+   "kind": "THEOREM STATEMENT",
+   "class": "stmt",
+   "tag": "p",
+   "sources": "registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    9195,
+    9261
+   ],
+   "sha1": "6b8e4bcc7ccbf1b1f8ee72be8c1f04ff92c60654",
+   "text": "Scaled AI Deployment Requires Cost Governance for Economic Control"
+  },
+  {
+   "i": 35,
+   "kind": "THEOREM SCOPE",
+   "class": "cond",
+   "tag": "p",
+   "sources": "registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    9282,
+    9341
+   ],
+   "sha1": "4b29767bf5375c987cecaf892f361383b569036a",
+   "text": "Within the defined deployment and measurement boundary, if:"
+  },
+  {
+   "i": 36,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "i, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    9395,
+    9457
+   ],
+   "sha1": "35d57ed28c3a2996aa9c357494efb9dd712e13ca",
+   "text": "production scaling expands the usage surface of AI deployment;"
+  },
+  {
+   "i": 37,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "ii, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    9495,
+    9564
+   ],
+   "sha1": "f00fd173b429d6ddaec0a59ce1a01bb4644f894b",
+   "text": "measurement enables visibility into measurable cost-bearing activity;"
+  },
+  {
+   "i": 38,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "iii, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    9603,
+    9648
+   ],
+   "sha1": "719a059b20af1134dea254fe1b094a7fa5cafa9c",
+   "text": "visibility enables management mechanisms; and"
+  },
+  {
+   "i": 39,
+   "kind": "THEOREM ANTECEDENT",
+   "class": "",
+   "tag": "li",
+   "sources": "iv, registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    9686,
+    9731
+   ],
+   "sha1": "3f2e9f1ff99b5e838be0021553324752cfc5c2bc",
+   "text": "buyer total cost extends beyond access price;"
+  },
+  {
+   "i": 40,
+   "kind": "THEOREM CONSEQUENT",
+   "class": "conseq",
+   "tag": "p",
+   "sources": "registry verbatim, do not edit",
+   "figure": null,
+   "string": null,
+   "span": [
+    9761,
+    9833
+   ],
+   "sha1": "ac796116e1d3bff902d731352ba62e03aa1819d8",
+   "text": "then scaled AI deployment requires cost governance for economic control."
+  },
+  {
+   "i": 41,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9849,
+    10446
+   ],
+   "sha1": "27f6bc53cd83b3888e93a1fce99d00a6890828c3",
+   "text": "Each condition has a plain meaning a manager can check against a deployment. The first says the deployment has moved from a pilot into daily operations, which multiplies the places where usage can occur. The second says that measuring usage makes the activity that costs money visible. The third says that what is visible can have monitoring, limits, attribution, or other management mechanisms applied to it. The fourth says the organization pays more in total than the price of access. When all four hold, an organization that wants control over the deployment’s economics needs cost governance."
+  },
+  {
+   "i": 42,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    10455,
+    10836
+   ],
+   "sha1": "5184b5c9461b8e180383eb4241f8bf59d1040478",
+   "text": "THM-004 names four lemmas as its support, one for each condition, and all four are certified. LEM-016, “Production Scaling Expands Usage Surface,” supports the first. LEM-002, “Measurement Enables Visibility,” supports the second. LEM-020, “Visibility Enables Management Mechanisms,” supports the third. LEM-006, “Buyer Total Cost Extends Beyond Access Price,” supports the fourth."
+  },
+  {
+   "i": 43,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    10845,
+    11308
+   ],
+   "sha1": "e76159538e526a0865580218b6b761032b5f4d33",
+   "text": "The registry also records the theorem’s proof, which joins them in two pairs. The first and fourth lemmas give an exposure that grows with the deployment and cannot be read off the price. The second and third give the only route by which such an exposure becomes manageable: measurement makes it visible, and management mechanisms can be applied to what is visible. Control therefore requires the apparatus that does both, which the theorem calls cost governance."
+  },
+  {
+   "i": 44,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11317,
+    11653
+   ],
+   "sha1": "7486f4936b9cb155d96ee52fd0bf49b0b27cd92e",
+   "text": "This pairing is what Chapter 2 meant in saying that THM-004 formalizes the economic consequence of the third flow’s asymmetry. Cost arrives by default and grows with scale, which is what the first and fourth conditions say. Control over it can arrive only by design, through the measurement and management the second and third describe."
+  },
+  {
+   "i": 45,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11662,
+    12054
+   ],
+   "sha1": "d0f273ccc77869e544d20ae69b3acb22ac13c457",
+   "text": "One level further down, each lemma rests on propositions. LEM-020 is a useful one to follow, because it shows how the registry is built. Its statement reads: “If economic exposure or usage activity is visible to the relevant actor, then monitoring, limits, attribution, or management mechanisms can be applied within the relevant scope.” It rests on seven propositions and on one other lemma."
+  },
+  {
+   "i": 46,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    12063,
+    13187
+   ],
+   "sha1": "30e9dfbb85a45e0db5135fd20e2176291df6e359",
+   "text": "The propositions are small claims, each close to obvious on its own. PROP-043 states: “If activity is metered, records describing measured activity are generated or maintained.” PROP-053 states: “If economic exposure exists, monitoring mechanisms may be used to observe the sources or magnitude of that exposure.” PROP-085 states: “If usage information becomes visible, decisions regarding management, allocation, optimization, or monitoring may reference that information.” No manager would dispute any of them. The work lies in how they combine. PROP-043 makes metered activity leave a record. PROP-085 lets management decisions draw on whatever usage becomes visible. PROP-053 adds that where there is exposure, monitoring can be used to observe it. None of the three, taken alone, says that controls can be applied to what is visible. LEM-020 says it because it combines them with four further propositions and with LEM-002, and the registry records that combination as its proof."
+  },
+  {
+   "i": 47,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    13078,
+    13180
+   ],
+   "sha1": "4dfb419514e16b50e04c06a10fc11ac978e4a37e",
+   "text": "LEM-020’s proof record and its supporting propositions."
+  },
+  {
+   "i": 48,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    13196,
+    13517
+   ],
+   "sha1": "5360b4d7503a62e9e0a34b9db0cc7f8750b88293",
+   "text": "The other lemma under LEM-020 is LEM-002, the same lemma that supports THM-004’s second condition directly. Figure 3.1 shows the branch through LEM-020, with the shared support visible. The registry is therefore not a tree, in which each claim has one parent. It is a graph, in which one claim can support several others."
+  },
+  {
+   "i": 49,
+   "kind": "FIGURE CAPTION",
+   "class": "",
+   "tag": "figcaption",
+   "sources": null,
+   "figure": 1,
+   "string": null,
+   "span": [
+    16132,
+    16377
+   ],
+   "sha1": "d7e8bcc47e13632506cb08b7c57b5a3557bb9415",
+   "text": "Figure 3.1 One branch of the trace. THM-004 rests on four lemmas, one for each condition. LEM-020 rests in turn on LEM-002, which also supports the theorem directly, and on seven propositions, three of which are shown."
+  },
+  {
+   "i": 50,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 0,
+   "span": [
+    13686,
+    13693
+   ],
+   "sha1": "55d707bc1b639a8b1595dff3acffbdc7514a2e21",
+   "text": "THEOREM"
+  },
+  {
+   "i": 51,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 1,
+   "span": [
+    13720,
+    13726
+   ],
+   "sha1": "7d7fb6cdf30dc1b1f13b855690b88b4dc25d9abd",
+   "text": "LEMMAS"
+  },
+  {
+   "i": 52,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 2,
+   "span": [
+    13754,
+    13766
+   ],
+   "sha1": "4d17a5f54806b27ed1b31a332305e6f6a43c40a4",
+   "text": "PROPOSITIONS"
+  },
+  {
+   "i": 53,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 3,
+   "span": [
+    14803,
+    14810
+   ],
+   "sha1": "e3ccfafa9b1950c664002327528e2e9c04c12aa8",
+   "text": "THM-004"
+  },
+  {
+   "i": 54,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 4,
+   "span": [
+    14837,
+    14844
+   ],
+   "sha1": "3f4d59bc916fcc5c4eb9539931866a25d4703943",
+   "text": "LEM-016"
+  },
+  {
+   "i": 55,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 5,
+   "span": [
+    14872,
+    14879
+   ],
+   "sha1": "b4cfe634371dc336c1b588ecbbf0c5b97b606512",
+   "text": "LEM-002"
+  },
+  {
+   "i": 56,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 6,
+   "span": [
+    14908,
+    14915
+   ],
+   "sha1": "93cccd763abd6b396de9b01d1859d30ef5c70797",
+   "text": "LEM-020"
+  },
+  {
+   "i": 57,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 7,
+   "span": [
+    14944,
+    14951
+   ],
+   "sha1": "4e59a17f76d2fa4660c7b747ea00f8792c064bba",
+   "text": "LEM-006"
+  },
+  {
+   "i": 58,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 8,
+   "span": [
+    14981,
+    14989
+   ],
+   "sha1": "cfa354a5e61a51d54797df1744fef7d9089e4dae",
+   "text": "PROP-043"
+  },
+  {
+   "i": 59,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 9,
+   "span": [
+    15019,
+    15027
+   ],
+   "sha1": "b4fa9b809428a7cee1ebe80cbef99ec2fb6ef257",
+   "text": "PROP-053"
+  },
+  {
+   "i": 60,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 10,
+   "span": [
+    15057,
+    15065
+   ],
+   "sha1": "3459f9efccc366673d9386e119f6322b792b9cbb",
+   "text": "PROP-085"
+  },
+  {
+   "i": 61,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 11,
+   "span": [
+    15153,
+    15187
+   ],
+   "sha1": "275b378ddd5b44841ef84cf4c9e256ab4a5ea259",
+   "text": "Scaled AI Deployment Requires Cost"
+  },
+  {
+   "i": 62,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 12,
+   "span": [
+    15215,
+    15246
+   ],
+   "sha1": "45ec6f5e7d3a4c11b6485f4160c5e2df26c9e8d2",
+   "text": "Governance for Economic Control"
+  },
+  {
+   "i": 63,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 13,
+   "span": [
+    15273,
+    15291
+   ],
+   "sha1": "5fc98abfc28932c238e434b72222528c7a7a8ed4",
+   "text": "Production Scaling"
+  },
+  {
+   "i": 64,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 14,
+   "span": [
+    15317,
+    15338
+   ],
+   "sha1": "b7e03bcc393bb5553985d5c11392f09208864490",
+   "text": "Expands Usage Surface"
+  },
+  {
+   "i": 65,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 15,
+   "span": [
+    15366,
+    15385
+   ],
+   "sha1": "9b63e16590b3d7c761db43ce72d89ddf9f7f1bd1",
+   "text": "Measurement Enables"
+  },
+  {
+   "i": 66,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 16,
+   "span": [
+    15412,
+    15422
+   ],
+   "sha1": "7d9ff4f0de398581c4640bcbb6e536c355a391be",
+   "text": "Visibility"
+  },
+  {
+   "i": 67,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 17,
+   "span": [
+    15451,
+    15469
+   ],
+   "sha1": "419fc1bdeefa158bae6b13e37a564d1667d52cd2",
+   "text": "Visibility Enables"
+  },
+  {
+   "i": 68,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 18,
+   "span": [
+    15497,
+    15518
+   ],
+   "sha1": "a1409e9612af3cc0408d5e5bc23ccf42465c4f3e",
+   "text": "Management Mechanisms"
+  },
+  {
+   "i": 69,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 19,
+   "span": [
+    15547,
+    15571
+   ],
+   "sha1": "fceb75700cf297bb4782f5e1414746a7dbf10d6c",
+   "text": "Buyer Total Cost Extends"
+  },
+  {
+   "i": 70,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 20,
+   "span": [
+    15599,
+    15618
+   ],
+   "sha1": "6db7ba549b3d76382b90e825c4b98f19c76fd49b",
+   "text": "Beyond Access Price"
+  },
+  {
+   "i": 71,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 21,
+   "span": [
+    15648,
+    15664
+   ],
+   "sha1": "92ac0080beb12bf86f4540cc94b2ff69a8837ee4",
+   "text": "Metered Activity"
+  },
+  {
+   "i": 72,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 22,
+   "span": [
+    15693,
+    15707
+   ],
+   "sha1": "6480877a6a211a8875fc435daa058550313682b3",
+   "text": "Produces Usage"
+  },
+  {
+   "i": 73,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 23,
+   "span": [
+    15736,
+    15743
+   ],
+   "sha1": "e51c55255be9007d473b3c04b4553c2a27d6f03b",
+   "text": "Records"
+  },
+  {
+   "i": 74,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 24,
+   "span": [
+    15773,
+    15790
+   ],
+   "sha1": "0201d74d5739f6e101ecf1ff747b7956599f5473",
+   "text": "Economic Exposure"
+  },
+  {
+   "i": 75,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 25,
+   "span": [
+    15819,
+    15837
+   ],
+   "sha1": "993a728384548f9b16b6dde0d790509171542411",
+   "text": "Creates Incentives"
+  },
+  {
+   "i": 76,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 26,
+   "span": [
+    15866,
+    15880
+   ],
+   "sha1": "7b98d63d9d3253715137010f6e78e66bd9401d33",
+   "text": "For Monitoring"
+  },
+  {
+   "i": 77,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 27,
+   "span": [
+    15910,
+    15926
+   ],
+   "sha1": "1a36d44661492dbc9b2c1cef405dbed471511026",
+   "text": "Usage Visibility"
+  },
+  {
+   "i": 78,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 28,
+   "span": [
+    15955,
+    15973
+   ],
+   "sha1": "ec0d784c236ab149cce2cc414a422c8cffea0e50",
+   "text": "Enables Management"
+  },
+  {
+   "i": 79,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 29,
+   "span": [
+    16002,
+    16011
+   ],
+   "sha1": "af2f32cc9200c51fc9691ec8696610a75f220376",
+   "text": "Decisions"
+  },
+  {
+   "i": 80,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 30,
+   "span": [
+    16071,
+    16100
+   ],
+   "sha1": "d49e9ae1e7989fb18cf8f553aea77362cd6d9d74",
+   "text": "LEM-020 also rests on LEM-002"
+  },
+  {
+   "i": 81,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16405,
+    16824
+   ],
+   "sha1": "2c2c98291a509c5a7d1c67c412bf284c63a48912",
+   "text": "The trace changes what a manager can do with the theorem. Before it, THM-004 is a conclusion to accept or reject as a whole. After it, the theorem is a set of smaller claims, each of which can be examined on its own. A manager who doubts the conclusion can now say which supporting claim they doubt. A disagreement about a whole conclusion has no obvious way to end. A disagreement about one proposition can be settled."
+  },
+  {
+   "i": 82,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16866,
+    16884
+   ],
+   "sha1": "0390b57ed3e6ce7a3e5b45fc2c312e5e733890be",
+   "text": "Dated: August 2026"
+  },
+  {
+   "i": 83,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16892,
+    17449
+   ],
+   "sha1": "9f957781925d364239961e0c6d01ada88d24568a",
+   "text": "At the version this book was written against, the registry held 413 objects: 140 definitions, 35 axioms, 201 propositions, 21 lemmas, 11 theorems, and 5 records of evidence the science still needs. It recorded 1,777 dependency links among them, and 397 of the 413 objects were certified. The registry is revised as the science develops, so these figures describe one version and not the science itself."
+  },
+  {
+   "i": 84,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    17210,
+    17327
+   ],
+   "sha1": "f58133fb44f807f7fa25ac7c574e34f4aa94ff52",
+   "text": "Object counts, links and certification at the pinned registry version."
+  },
+  {
+   "i": 85,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17482,
+    17536
+   ],
+   "sha1": "82cdaead6126f9acec2df6e708012486c77390ee",
+   "text": "3.3 How to read a formal claim"
+  },
+  {
+   "i": 86,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17546,
+    17881
+   ],
+   "sha1": "ac8a73081a276658b6c79b65911921363b125e0d",
+   "text": "A manager who cites a formal claim for more than it says ends up resting a decision on something the claim never stated. The remedy is to read the claim in four parts: its conditions, its scope, its non-claims, and the falsifying case that would defeat it. A manager who can state all four can use the claim without being misled by it."
+  },
+  {
+   "i": 87,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17890,
+    18403
+   ],
+   "sha1": "ba0357c5911e7c43d1a34f49a5394c0d1f6205f8",
+   "text": "The conditions are the “if” clauses. Each is true or false of a given case, and in THM-004 they are the four numbered clauses. If a deployment fails any one of them, the theorem says nothing about it. A pilot used by one team for a few weeks has not been scaled into daily operations, so it fails the first condition. The theorem then neither requires governance for the pilot nor rules it out. Reading the conditions first prevents a basic misuse of a formal claim: applying it where it was never stated to hold."
+  },
+  {
+   "i": 88,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    18412,
+    19028
+   ],
+   "sha1": "de7e6de367d1c7cb6d43df2fcfe7071a4b216457",
+   "text": "The scope fixes which cases the claim talks about at all. As this book sets it, THM-004 opens with its scope, before the word “if”: one defined deployment and its measurement boundary. The registry adds that the theorem applies where an organization seeks economic control over the resulting cost. The claim concerns one deployment inside one boundary, not an organization’s AI activity in general. A manager who applies it across a whole company must first show that each deployment meets the conditions."
+  },
+  {
+   "i": 89,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    18740,
+    18813
+   ],
+   "sha1": "6ed6e895454016f0c1c8af07e3cc12ddcdf7db33",
+   "text": "THM-004’s scope condition."
+  },
+  {
+   "i": 90,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19037,
+    19831
+   ],
+   "sha1": "4ee2e385b78ab89bca38cd7f77eb1decd89d7388",
+   "text": "The non-claims say what the claim deliberately does not establish. THM-004 asserts that governance is necessary for control, not that governance delivers control. It does not claim that governance is costless. It does not say at what scale the requirement begins to bind, and it asserts nothing about how large the exposure is. Nor does it establish Chapter 2’s three flows, which are this book’s framework rather than the registry’s. The registry records the non-claims of every claim. A reader who holds only the statement can find most of them by asking whether the claim says a requirement is enough or only needed, whether it says how much, and whether it says at what cost."
+  },
+  {
+   "i": 91,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    19395,
+    19472
+   ],
+   "sha1": "e74ee3719d5849621afa93c0ea72083806be546d",
+   "text": "THM-004’s recorded exclusions."
+  },
+  {
+   "i": 92,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19879,
+    19889
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 93,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19910,
+    19919
+   ],
+   "sha1": "a5c4fed2316a6a7e104b1b1ef4e80ec67a84e349",
+   "text": "Non-claim"
+  },
+  {
+   "i": 94,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19927,
+    20112
+   ],
+   "sha1": "3d5dbe2ccd5e9bdb76a50f21e2130fe72da664d9",
+   "text": "A conclusion a formal claim deliberately does not establish, though a reader might be tempted to draw it. Stating the non-claims prevents a claim from being cited for more than it says."
+  },
+  {
+   "i": 95,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20130,
+    20658
+   ],
+   "sha1": "f746b51b134d636d19361bae46208298353d654d",
+   "text": "The most costly misreading confuses necessary with sufficient. A manager who read THM-004 as “governance produces control” could buy a dashboard and expect the costs to settle. The theorem promises nothing of the kind. It says only that without governance there is no route to control. LEM-020 makes the same limit explicit one level down: it does not claim that management mechanisms are automatically effective."
+  },
+  {
+   "i": 96,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    20574,
+    20651
+   ],
+   "sha1": "8fa71b87a7c7cc42e66975d03eecc0f56ea1106a",
+   "text": "LEM-020’s recorded exclusions."
+  },
+  {
+   "i": 97,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20667,
+    21565
+   ],
+   "sha1": "2cba3fae96d0b6dbcad6d0d89b0b8cddb9669518",
+   "text": "The falsifying case says what would show the claim to be wrong. For a conditional claim, the test is precise: a case that meets every condition and still lacks the conclusion. The second and third conditions describe what measurement and management would make possible, not apparatus already in place, so a deployment with no instruments installed can still meet all four. For THM-004, the falsifying case would be a scaled deployment meeting all four conditions whose organization holds economic control over its cost with no measurement and management apparatus at all. A flat-fee contract does not supply one. If the fee covers every cost, the fourth condition fails. If it does not, the costs beyond the fee are exactly what the organization would have to control without measuring them. A claim that names no such case cannot be wrong, and a claim that cannot be wrong tells a manager nothing."
+  },
+  {
+   "i": 98,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21574,
+    22446
+   ],
+   "sha1": "5299ce69f6d3f89c2d4f17848240b73b7f05d5ba",
+   "text": "These four parts answer an objection the formal style invites. A skeptical reader may call the registry a set of word games: obvious points dressed in numbered clauses. The common-sense version of THM-004 is that big deployments need cost controls. Put to the one-team pilot above, it gives no answer, because it never says how big is big. The formal version gives one: the pilot fails the first condition, so the theorem is silent about it, and the manager’s first task is to check whether the deployment has moved into daily operations. The common-sense version also slides easily from “needs controls” to “controls deliver control,” the misreading the non-claims rule out. Formal statement is not decoration. It fixes in advance what would count as the claim being wrong. A claim that states its conditions can be tested, and a claim that can be tested can be improved."
+  },
+  {
+   "i": 99,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22472,
+    22539
+   ],
+   "sha1": "c43daf00d0eb2d1b4c0a9387f27317db3b4e29eb",
+   "text": "3.4 The discipline that acts on the science"
+  },
+  {
+   "i": 100,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22549,
+    22929
+   ],
+   "sha1": "5725e145f434c500efe64282693e39da01ee0832",
+   "text": "Knowing what is true does not, by itself, change what an organization does. Medicine needs physiology, but a patient is treated by clinicians who apply it. Engineering needs physics, but a bridge is built by engineers working to codes and procedures. In each case a practice stands between the knowledge and the result, and that practice has its own methods, roles, and standards."
+  },
+  {
+   "i": 101,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22938,
+    23462
+   ],
+   "sha1": "72ab2e0d23bbc4c01b6dc7189f37a154847ccdc7",
+   "text": "AI Operations Management is that practice for AI consumption. It is the work an organization does week to week to manage what it consumes. It buys AI capacity, plans its use, and records and assigns that use. It decides what runs when capacity is short, and it holds the spending to account for what it returns. Chapter 1 described the problem as a category error. AI Operations Management is the discipline that resolves it, by managing AI as the consumed resource it is rather than as software the organization has bought."
+  },
+  {
+   "i": 102,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23510,
+    23520
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 103,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23541,
+    23565
+   ],
+   "sha1": "c6cf24fd9ec560e677064c15b0bd1f24a7c47b47",
+   "text": "AI Operations Management"
+  },
+  {
+   "i": 104,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23573,
+    23759
+   ],
+   "sha1": "d153a72a24d2e1fcebae5f043e2b9f4eee9a975f",
+   "text": "The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI."
+  },
+  {
+   "i": 105,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23777,
+    24141
+   ],
+   "sha1": "30e2d19641435d2747a3f1abbd38dae97847cc7a",
+   "text": "The discipline is organized as five functions. Between them they follow AI capacity through its life in the organization: it is bought, planned for, recorded and assigned, routed to work, and judged against what it returned. Each is a capability an organization either has or lacks, and Part III teaches each one, with metering and attribution taking two chapters."
+  },
+  {
+   "i": 106,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    24150,
+    24600
+   ],
+   "sha1": "51744a001a5faabafede57ab515f8b6499a5c996",
+   "text": "The first function is sourcing. The organization must be able to buy AI capacity that matches what its work requires, neither paying for capability the work does not use nor starving work that needs more. Sourcing decides which models and providers serve which work, and on what terms. A company that sends every request to its most capable model, including requests a smaller one would answer as well, is paying for capability its work does not use."
+  },
+  {
+   "i": 107,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    24609,
+    25017
+   ],
+   "sha1": "2c734d0272353ab5ffe44e581b0a5e9ad1f2f710",
+   "text": "The second function is planning and budgeting, and Chapter 2’s opening case showed what its absence costs. The organization must be able to state how much AI it expects to consume in the coming period and to notice when actual consumption departs from that expectation. A budget in this sense is a commitment made in advance, so that a deviation is visible when it happens rather than when the money is gone."
+  },
+  {
+   "i": 108,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25026,
+    25353
+   ],
+   "sha1": "2f6b4ed74bd7074f33c6354b7cb9d7807da5c757",
+   "text": "The third function is metering and attribution, which builds what Chapter 2 called the record flow. The organization must be able to record what was consumed and to assign each unit of consumption to the team, product, or purpose it served. Without that assignment, a cost can be seen but not traced to the work that caused it."
+  },
+  {
+   "i": 109,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25362,
+    25800
+   ],
+   "sha1": "3d60150b35eb9dcaf26865525403afc11771c2cc",
+   "text": "The fourth function is allocation and routing. When capacity is limited, the organization must decide what runs first and send each piece of work to the capacity that suits it. Those decisions happen whether or not anyone makes them deliberately. When two workflows draw on one provider account with a fixed rate limit, one of them waits whenever the other is busy. The function exists to make that choice by rule rather than by accident."
+  },
+  {
+   "i": 110,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25809,
+    26647
+   ],
+   "sha1": "1162d64893870ae483831f6686763464da61ed1d",
+   "text": "The fifth function is holding value to account. In a constructed example, a support team adds an AI assistant to its help desk. At the end of a quarter, the organization should be able to say whether the assistant paid for itself: what it cost, what it returned, over which months, and judged against which outcome. The registry’s LEM-021, “ROI Evaluation Requires Measurement Boundary,” states the requirement: “If ROI is evaluated for AI adoption, the evaluation requires a defined boundary for relevant costs, value, time period, and observed or expected outcomes.” The organization must be able to set that boundary for each deployment and to name who is responsible for knowing the answer. This book calls it the value boundary."
+  },
+  {
+   "i": 111,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    26408,
+    26475
+   ],
+   "sha1": "03d8fbcbc315043bdeed830386a1a3fae58a922f",
+   "text": "LEM-021’s statement."
+  },
+  {
+   "i": 112,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26656,
+    26783
+   ],
+   "sha1": "1ce6964f8514ea1d232f2b2ffa5e3eaedaee00c1",
+   "text": "Figure 3.2 sets the two layers together, with the science beneath and the discipline standing on it through its five functions."
+  },
+  {
+   "i": 113,
+   "kind": "FIGURE CAPTION",
+   "class": "",
+   "tag": "figcaption",
+   "sources": null,
+   "figure": 2,
+   "string": null,
+   "span": [
+    28370,
+    28569
+   ],
+   "sha1": "2cd06b34366c62c170b435fea3eb62d3f88d6196",
+   "text": "Figure 3.2 The two layers. AI Business Economics states what is true about consuming AI. AI Operations Management acts on it through five functions, all taught in Part III."
+  },
+  {
+   "i": 114,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 0,
+   "span": [
+    27076,
+    27117
+   ],
+   "sha1": "916084429c7674371996a20aec99c499f045b4a7",
+   "text": "AI OPERATIONS MANAGEMENT · THE DISCIPLINE"
+  },
+  {
+   "i": 115,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 1,
+   "span": [
+    27145,
+    27180
+   ],
+   "sha1": "93c768b8666f297259c45937145fce8bc2a6de9e",
+   "text": "AI BUSINESS ECONOMICS · THE SCIENCE"
+  },
+  {
+   "i": 116,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 2,
+   "span": [
+    27610,
+    27618
+   ],
+   "sha1": "5e72410c572162c22a50179c0665881e214b7441",
+   "text": "Sourcing"
+  },
+  {
+   "i": 117,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 3,
+   "span": [
+    27646,
+    27658
+   ],
+   "sha1": "8149b0ed67baff1719a12c8504ff255a3f3d9bc3",
+   "text": "Planning and"
+  },
+  {
+   "i": 118,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 4,
+   "span": [
+    27686,
+    27695
+   ],
+   "sha1": "b6a6023264bdf8140eef4be90276453ec77f09a5",
+   "text": "budgeting"
+  },
+  {
+   "i": 119,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 5,
+   "span": [
+    27724,
+    27736
+   ],
+   "sha1": "236201d3238994bbfb78fd400cdfc1edb608f36c",
+   "text": "Metering and"
+  },
+  {
+   "i": 120,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 6,
+   "span": [
+    27765,
+    27776
+   ],
+   "sha1": "eec3b038bd8d1458bd414f844f33cae3cfd44894",
+   "text": "attribution"
+  },
+  {
+   "i": 121,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 7,
+   "span": [
+    27805,
+    27815
+   ],
+   "sha1": "1b5c021aee14bea734803bc4262d3ac794a7f664",
+   "text": "Allocation"
+  },
+  {
+   "i": 122,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 8,
+   "span": [
+    27844,
+    27855
+   ],
+   "sha1": "b4baa4b17d33427c6ac5ff230efd65f704764fcb",
+   "text": "and routing"
+  },
+  {
+   "i": 123,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 9,
+   "span": [
+    27884,
+    27893
+   ],
+   "sha1": "e446494ebae458b5aea2681dfd535005a9fb5001",
+   "text": "The value"
+  },
+  {
+   "i": 124,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 10,
+   "span": [
+    27922,
+    27930
+   ],
+   "sha1": "2db8c22f75474a58cd13fa2d3425017015d392ce",
+   "text": "boundary"
+  },
+  {
+   "i": 125,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 11,
+   "span": [
+    28016,
+    28025
+   ],
+   "sha1": "9763d3df80e444ca384041924a6ee96d24885e04",
+   "text": "Chapter 7"
+  },
+  {
+   "i": 126,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 12,
+   "span": [
+    28054,
+    28064
+   ],
+   "sha1": "51878d23f86ffdf50a4475d1917c1e8744be06f9",
+   "text": "Chapter 10"
+  },
+  {
+   "i": 127,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 13,
+   "span": [
+    28094,
+    28107
+   ],
+   "sha1": "652514271d84cd9d6a54b378128bb03c3c229c04",
+   "text": "Chapters 8, 9"
+  },
+  {
+   "i": 128,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 14,
+   "span": [
+    28137,
+    28147
+   ],
+   "sha1": "5c8f725d32bc4b31d06a9d2fbe5f8de7a5419078",
+   "text": "Chapter 11"
+  },
+  {
+   "i": 129,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 15,
+   "span": [
+    28177,
+    28187
+   ],
+   "sha1": "bfe3b92a208684995bc25f61b64dd34ca5d1d52d",
+   "text": "Chapter 12"
+  },
+  {
+   "i": 130,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 2,
+   "string": 16,
+   "span": [
+    28270,
+    28343
+   ],
+   "sha1": "b19fcfffda22038e283dc6e56592402a4cce2b38",
+   "text": "definitions, axioms, propositions, lemmas, theorems, linked by dependency"
+  },
+  {
+   "i": 131,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28597,
+    28934
+   ],
+   "sha1": "2ce3995764dc79eac51be73807394778ca64e840",
+   "text": "The two layers depend on each other in different ways. A result about governance changes nothing until an organization builds the apparatus the result describes, so the science needs the discipline to have any effect. The discipline needs the science for a different reason: a practice built on wrong claims fails however well it is run."
+  },
+  {
+   "i": 132,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28960,
+    29013
+   ],
+   "sha1": "919aa438b24f5b0015ea357b53eb141c4753f73d",
+   "text": "3.5 Where the discipline ends"
+  },
+  {
+   "i": 133,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29023,
+    29259
+   ],
+   "sha1": "adac0c7b7912d5354ddbc5e68bc8d9d0e34a3824",
+   "text": "Three subjects sit close to AI and outside this book: how models work, prompt engineering, and finding uses for AI. Chapter 1 set them aside. Each has its own purpose and literature, and each ends before AI Operations Management begins."
+  },
+  {
+   "i": 134,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29268,
+    29589
+   ],
+   "sha1": "7df8354d2ddb83df732f525d339f83e01e2a4226",
+   "text": "The first is how models work: their architectures, training, and internal behavior. That subject belongs to computer science and machine learning engineering. It ends where a model becomes a service an organization can call. AI Operations Management begins at that call, where each use consumes resources and costs money."
+  },
+  {
+   "i": 135,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29598,
+    29997
+   ],
+   "sha1": "6b8d0b3bc2da0836c4da5a95e9dacba0e706282e",
+   "text": "The second is prompt engineering, the craft of writing inputs that produce better outputs. It improves individual uses of AI. AI Operations Management governs the total of those uses: how many there are, what they cost, and what they return. A better prompt can lower the cost of one request. Only the discipline can say whether the organization’s requests, taken together, are worth what they cost."
+  },
+  {
+   "i": 136,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30006,
+    30287
+   ],
+   "sha1": "1f7ddfc07bdaf54689c0f177be01258349362db4",
+   "text": "The third is finding uses for AI: deciding which business problems AI might solve. That work belongs to strategy and innovation, and it ends when a use is chosen. AI Operations Management begins there, with how the capacity for that use is bought, and manages the use from then on."
+  },
+  {
+   "i": 137,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30296,
+    30474
+   ],
+   "sha1": "50cb794738cc178ff786cf2078be9cf15d5ed5b6",
+   "text": "Four established disciplines sit closer still. Each manages something adjacent to AI consumption, and each lacks something this territory needs. Table 3.1 sets them side by side."
+  },
+  {
+   "i": 138,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30515,
+    30523
+   ],
+   "sha1": "1b0c8ab19f65ee98711f4d86d2eb2da9c8f35be3",
+   "text": "Neighbor"
+  },
+  {
+   "i": 139,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30532,
+    30546
+   ],
+   "sha1": "9d49f2ceba527eb5f93d71531b61ac9201139c35",
+   "text": "What it is for"
+  },
+  {
+   "i": 140,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30555,
+    30570
+   ],
+   "sha1": "09d23cf10d1a7c2916c6441cb48ced4b9e203bf5",
+   "text": "What it manages"
+  },
+  {
+   "i": 141,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30579,
+    30611
+   ],
+   "sha1": "ee5814f8203f69496584ff2a1c80023e32b28a4c",
+   "text": "What it lacks for this territory"
+  },
+  {
+   "i": 142,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30646,
+    30651
+   ],
+   "sha1": "c2b53024480759098e2b284ed9a7e3969ee466af",
+   "text": "AIOps"
+  },
+  {
+   "i": 143,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30660,
+    30874
+   ],
+   "sha1": "e45a5900d366ee307c4e938b754fe27bb7379010",
+   "text": "Applying machine learning to run IT operations: correlating events, detecting anomalies, finding causes"
+  },
+  {
+   "i": 144,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "gartner-aiops",
+   "figure": null,
+   "string": null,
+   "span": [
+    30789,
+    30867
+   ],
+   "sha1": "227c50b951408b39f1eaa9d65edce55667a7bf8d",
+   "text": "The originating definition of AIOps."
+  },
+  {
+   "i": 145,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30883,
+    30923
+   ],
+   "sha1": "8f2f581d8759d534f0ca4deaaf0f7dae240e2277",
+   "text": "The health and performance of IT systems"
+  },
+  {
+   "i": 146,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30932,
+    31014
+   ],
+   "sha1": "a214037a16d3bb037cd4f8f831c8b023f693ef67",
+   "text": "It uses AI to watch systems. It does not govern what consuming AI costs or returns"
+  },
+  {
+   "i": 147,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31033,
+    31038
+   ],
+   "sha1": "d9482180f59e79174eca8f187d2751487abbb564",
+   "text": "MLOps"
+  },
+  {
+   "i": 148,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31047,
+    31243
+   ],
+   "sha1": "cd4622d815fb10dfd02f299c127359cdbc69c56b",
+   "text": "Building, deploying, and monitoring machine learning models in production"
+  },
+  {
+   "i": 149,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "kreuzberger-2023-mlops",
+   "figure": null,
+   "string": null,
+   "span": [
+    31155,
+    31236
+   ],
+   "sha1": "f7e0f85fc594aeef6d1a3178a08c4c32ea8780f9",
+   "text": "Definition and scope of MLOps."
+  },
+  {
+   "i": 150,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31252,
+    31298
+   ],
+   "sha1": "6b457c362f2809f0c57f0a16484dac0b76229941",
+   "text": "The lifecycle of models an organization builds"
+  },
+  {
+   "i": 151,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31307,
+    31391
+   ],
+   "sha1": "1be072a38460d54616395b5a680afd5891d8e289",
+   "text": "It ships models. It does not govern the consumption of capacity an organization buys"
+  },
+  {
+   "i": 152,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31410,
+    31440
+   ],
+   "sha1": "584093c2d1d4a3734d946314d6128a7123cc852f",
+   "text": "FinOps"
+  },
+  {
+   "i": 153,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31449,
+    31692
+   ],
+   "sha1": "d683f4d2e2f3a4773d5db6842ee7442b19611cf5",
+   "text": "Financial accountability for technology spending, through collaboration among engineering, finance, and business teams"
+  },
+  {
+   "i": 154,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-what-is",
+   "figure": null,
+   "string": null,
+   "span": [
+    31594,
+    31685
+   ],
+   "sha1": "5a6a10e5bd6922d198fbe3fdaaceb87303a62651",
+   "text": "The Foundation’s own definition of the practice."
+  },
+  {
+   "i": 155,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31701,
+    31736
+   ],
+   "sha1": "d8d368a7eb7c4426f0a5f05c060b123ef0cc9c78",
+   "text": "Cloud and wider technology spending"
+  },
+  {
+   "i": 156,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31745,
+    31866
+   ],
+   "sha1": "07939fa33ff06f8f075646d4565db11c6db49044",
+   "text": "It was built around cloud billing. A practitioner told its own survey that no one could yet say whether AI provides value"
+  },
+  {
+   "i": 157,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31885,
+    31909
+   ],
+   "sha1": "28e0dd78e2ec988e76fe446b0b51245e8f31dd27",
+   "text": "Regulatory AI governance"
+  },
+  {
+   "i": 158,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31918,
+    31990
+   ],
+   "sha1": "6d267ffbf21c8f8507584675671de5de1bdb38a5",
+   "text": "Ensuring that uses of AI are lawful, safe, and accountable to regulators"
+  },
+  {
+   "i": 159,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31999,
+    32018
+   ],
+   "sha1": "311a8d642cb84a5c3ff162860483323c457f95b8",
+   "text": "Risk and compliance"
+  },
+  {
+   "i": 160,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32027,
+    32101
+   ],
+   "sha1": "19be3cf9ad2c3dfcfeeac4428aa25b546161f0d0",
+   "text": "It asks whether a use is permitted, not whether it is economically managed"
+  },
+  {
+   "i": 161,
+   "kind": "BODY",
+   "class": "caption",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32149,
+    32288
+   ],
+   "sha1": "b0cce8f9a2924d807a34f1b38f845a1535bf5a76",
+   "text": "Table 3.1. The four neighboring disciplines. Each manages something adjacent to AI consumption, and none was built to govern its economics."
+  },
+  {
+   "i": 162,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32297,
+    33025
+   ],
+   "sha1": "7bf65aacab15b1cb92d983e735cc75f746b7731c",
+   "text": "FinOps is the nearest neighbor and the hardest border to draw. It already manages spending, it has moved toward AI, and its own definition speaks of maximizing the business value of technology. How the two divide the work is a question for Chapter 14. The border does not lie in intent. It lies in what each was built to do. FinOps was built to make cloud bills accountable after the capacity had been used. AI Operations Management manages consumption metered by the request, and judges it against a value boundary set before the spending begins."
+  },
+  {
+   "i": 163,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-what-is",
+   "figure": null,
+   "string": null,
+   "span": [
+    32541,
+    32640
+   ],
+   "sha1": "dda3dff3123553829107df5446168b7dea45d273",
+   "text": "The Foundation’s definition, which names business value."
+  },
+  {
+   "i": 164,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33034,
+    33198
+   ],
+   "sha1": "bd7c6b0bc009cfe7c7fd8ccf35ce0754e16752d9",
+   "text": "Regulatory governance decides whether an organization may use AI in a given way, and this book takes that answer as given and asks how the permitted use is managed."
+  },
+  {
+   "i": 165,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33224,
+    33298
+   ],
+   "sha1": "bd83511b50c2ea10c10f2b6cb7af52f3837f2099",
+   "text": "3.6 Five questions the discipline exists to answer"
+  },
+  {
+   "i": 166,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33308,
+    33580
+   ],
+   "sha1": "9ca1593eb9516cfa669de0cfdd69d0198d01e280",
+   "text": "AI Operations Management exists to answer five questions an organization cannot answer without it. Each belongs to one of the five functions, and each is answered in the chapter that teaches that function. Part III takes them in a different order, for reasons given there."
+  },
+  {
+   "i": 167,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33589,
+    33690
+   ],
+   "sha1": "7f975334cee1b74294b886386db99c9c438b63ca",
+   "text": "An organization that manages its AI consumption can answer these five questions from its own records:"
+  },
+  {
+   "i": 168,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33718,
+    33866
+   ],
+   "sha1": "ee6044386e28e7a93b864e46cd892e11ea5e7b69",
+   "text": "Question 1. “Are you paying for capability you do not need, or starving work that needs more?” This is the sourcing question, answered in Chapter 7."
+  },
+  {
+   "i": 169,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33893,
+    34070
+   ],
+   "sha1": "fd99c0104226a72aac95bb4cbd8b40bb7fb98355",
+   "text": "Question 2. “What do you expect the AI flow to consume next period, and how will you know when it deviates?” This is the planning and budgeting question, answered in Chapter 10."
+  },
+  {
+   "i": 170,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34097,
+    34247
+   ],
+   "sha1": "5775cb4b76c744f0229ebb0ebc9783622ccbb7c8",
+   "text": "Question 3. “Who consumed what last month, in service of which work?” This is the metering and attribution question, answered across Chapters 8 and 9."
+  },
+  {
+   "i": 171,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34274,
+    34421
+   ],
+   "sha1": "49746e2c30011766bc390cc0d6c99b2ce8cd70a6",
+   "text": "Question 4. “When capacity is constrained, who decides what runs first, and by what rule?” This is the allocation question, answered in Chapter 11."
+  },
+  {
+   "i": 172,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34448,
+    34608
+   ],
+   "sha1": "41ee3e000d85557f66e6bb5cd3110ea514b49acb",
+   "text": "Question 5. “Where, exactly, does this AI flow pay for itself, and who is on the hook for knowing?” This is the value boundary question, answered in Chapter 12."
+  },
+  {
+   "i": 173,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34617,
+    34943
+   ],
+   "sha1": "32244b72107832298a75be3292140c5dbe8cba9d",
+   "text": "These are the Founding Questions. The phrase that matters is the one that introduces them: “from its own records.” An organization can always produce an answer by asking the provider, estimating, or repeating the business case. Each of those produces a number, and none produces knowledge the organization holds and can check."
+  },
+  {
+   "i": 174,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34952,
+    35194
+   ],
+   "sha1": "82ba54be48fd2ebb39681c11770d4b1cfeb2e75a",
+   "text": "A reader who has finished Part I has no method yet for answering any of them from records. Parts II through IV exist to change that. Part II establishes what is true. Part III builds the five functions. Part IV turns them into an institution."
+  },
+  {
+   "i": 175,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35222,
+    35235
+   ],
+   "sha1": "d487cd15437494b45d1fc396dd6ebc686ab6428c",
+   "text": "Craft section"
+  },
+  {
+   "i": 176,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35263,
+    35282
+   ],
+   "sha1": "a8cd03117167bb2ff64509a7fc1de90fa515a398",
+   "text": "The trace procedure"
+  },
+  {
+   "i": 177,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35292,
+    35537
+   ],
+   "sha1": "d496c9b16280b63874dd321820bcd646649bf70a",
+   "text": "The trace procedure is how a manager reads a formal claim before relying on it. It turns a theorem from a conclusion to be accepted or rejected whole into a set of smaller claims, each of which can be checked. The procedure has six steps."
+  },
+  {
+   "i": 178,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35565,
+    35678
+   ],
+   "sha1": "de7cc0bb95e1905eafd5ff80838151271ac363ed",
+   "text": "Step 1. Locate the claim in the registry by its identifier, and record its name exactly as the registry gives it."
+  },
+  {
+   "i": 179,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35706,
+    35831
+   ],
+   "sha1": "ff16e66600b66b7313ae5a9f37c4e74a5248d6cb",
+   "text": "Step 2. State its scope, then restate each condition in ordinary business language, keeping every antecedent and adding none."
+  },
+  {
+   "i": 180,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35859,
+    35921
+   ],
+   "sha1": "2d3a5d39bfeb4dd74f6453fcf62a3d1455af134d",
+   "text": "Step 3. List the claims it depends on, by identifier and name."
+  },
+  {
+   "i": 181,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35949,
+    36085
+   ],
+   "sha1": "191c9824872030589288a21cf3dba06d69e9464c",
+   "text": "Step 4. Walk one level down. Restate each dependency in one sentence, and note any condition it adds that the claim above did not state."
+  },
+  {
+   "i": 182,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36113,
+    36188
+   ],
+   "sha1": "1709faba1457c65a97967e153f5f822c60ccfd96",
+   "text": "Step 5. State what the claim establishes and, separately, what it does not."
+  },
+  {
+   "i": 183,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36216,
+    36315
+   ],
+   "sha1": "819ceb4deeafe36cfa8df59986dd7c23a8641369",
+   "text": "Step 6. Name the falsifying case: a case that meets every condition and still lacks the conclusion."
+  },
+  {
+   "i": 184,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36324,
+    36656
+   ],
+   "sha1": "2e6fd5e84180cddaeba6e26ffe7ca6552b17cf7f",
+   "text": "Steps 2 and 6 do most of the work. A restatement that drops an antecedent produces a claim the registry does not make, and step 2 is where that error enters. Step 6 is the test of whether the reader has understood the claim at all. A reader who cannot describe the case that would defeat a claim cannot say what the claim rules out."
+  },
+  {
+   "i": 185,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36665,
+    36806
+   ],
+   "sha1": "c18347119bff910b50c020fa24054b5c675f0397",
+   "text": "Applied to THM-004, the procedure finds one thing the theorem’s words do not show: at step 4, a requirement of authority. It runs as follows."
+  },
+  {
+   "i": 186,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36815,
+    36908
+   ],
+   "sha1": "4d770ea0187c1b73d900450b847d990394d2c60b",
+   "text": "Step 1 records THM-004, “Scaled AI Deployment Requires Cost Governance for Economic Control.”"
+  },
+  {
+   "i": 187,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36917,
+    37250
+   ],
+   "sha1": "86f56d1329909b8fa66af082cf74d60e2641f662",
+   "text": "Step 2 restates its conditions. Within one deployment and its measurement boundary, the theorem applies when four things hold. Scaling the deployment expands where usage can occur. Measurement makes the costly activity visible. What is visible can have management mechanisms applied to it. Total cost runs beyond the price of access."
+  },
+  {
+   "i": 188,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37259,
+    37571
+   ],
+   "sha1": "e3c10deec19bb4aa6bcc8946d93a913faf243fd8",
+   "text": "Step 3 lists its four dependencies: LEM-016, LEM-002, LEM-020, and LEM-006, one for each condition. The registry marks all four as required. Some claims also carry contextual dependencies, which bear on the claim without being conditions of it. Problem P2 works one. Step 3 records which kind each dependency is."
+  },
+  {
+   "i": 189,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37580,
+    38101
+   ],
+   "sha1": "526094195c84b6ff136c8c0649b4a10cd80c23e7",
+   "text": "Step 4 restates each one. LEM-016 says that moving from isolated use into repeated operations can increase the number of usage events and demand points. LEM-002 says that measured and recorded activity becomes observable enough to support analysis, attribution, monitoring, or management. LEM-020 says that visible usage or exposure can have monitoring, limits, attribution, or other management mechanisms applied to it. LEM-006 says that a buyer who incurs several kinds of cost pays more in total than the access price."
+  },
+  {
+   "i": 190,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38110,
+    38827
+   ],
+   "sha1": "26afd62d2d34f9e4460cf5c7c4343b44d5d20f4f",
+   "text": "Step 4 also asks what each dependency adds, and LEM-020 adds something. Its scope requires that the organization have reliable visibility and the authority to apply management mechanisms. That requirement belongs to the scope, not to the third condition. A team that can see its costs but has no authority to cap them sits outside LEM-020’s scope, so the support for THM-004’s third condition does not reach that team, and the theorem says nothing about it. The team is in the position of the pilot in Section 3.3 that fails the first condition. The trace found a limit the theorem’s own words do not show."
+  },
+  {
+   "i": 191,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    38328,
+    38401
+   ],
+   "sha1": "17e522af9823d5cb929d1cdae22cb5f557d54365",
+   "text": "LEM-020’s scope condition."
+  },
+  {
+   "i": 192,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38836,
+    39147
+   ],
+   "sha1": "aa163a753d664a5f56af7c5e24ecce96fdba55f6",
+   "text": "Step 5 separates the claim from its readings. THM-004 establishes that cost governance is necessary for economic control of a scaled deployment. It does not establish that governance is sufficient or costless, at what scale the requirement binds, how large the exposure is, or that a deployment has three flows."
+  },
+  {
+   "i": 193,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39156,
+    39362
+   ],
+   "sha1": "1252b117ff60b1fc20e1f7ca3b98e8c1b89fb3d7",
+   "text": "Step 6 names the falsifying case: a scaled deployment meeting all four conditions whose organization controls its cost with no measurement and management apparatus. Finding one would show the theorem false."
+  },
+  {
+   "i": 194,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39371,
+    39625
+   ],
+   "sha1": "c2615f9d071df8a34fe6fcc60a685599551c4dd0",
+   "text": "The procedure is deliberately slow. A trace of one theorem takes longer than reading the theorem and agreeing with it. The time is worth spending once for each claim a decision rests on, because it is how a manager learns what the decision is resting on."
+  },
+  {
+   "i": 195,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39683,
+    39698
+   ],
+   "sha1": "95c5839deff5a70961a66d3289da93102d108a3f",
+   "text": "Chapter summary"
+  },
+  {
+   "i": 196,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39730,
+    40027
+   ],
+   "sha1": "efdf82ba196b6a012a8227f5d62c2c463fc7e60f",
+   "text": "AI Business Economics is the science of consuming AI. It is an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on. The claims are kept in a registry, linked by dependency, and this book renders and cites certified claims only."
+  },
+  {
+   "i": 197,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40036,
+    40268
+   ],
+   "sha1": "93b1182a198f5038333176c1e0d25ee99581ccca",
+   "text": "The registry justifies this book. It does not organize it. The chapters follow the order in which a manager needs to learn, and the registry stands behind each result so that a reader who doubts a claim can follow it to its support."
+  },
+  {
+   "i": 198,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40277,
+    40464
+   ],
+   "sha1": "1cc14f0d562c0f870d4394c7ab21222f6c24cef5",
+   "text": "A trace follows a claim down through the registry, from a theorem to the lemmas and propositions it rests on. It turns a conclusion into a set of smaller claims that can each be examined."
+  },
+  {
+   "i": 199,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40473,
+    40688
+   ],
+   "sha1": "5e0626c2d8f3f0a1ff5310ed5b4b8c419e0a2ffb",
+   "text": "A formal claim is read in four parts: its conditions, its scope, its non-claims, and the falsifying case that would defeat it. Formal statement is not decoration. It fixes in advance what would count as being wrong."
+  },
+  {
+   "i": 200,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40697,
+    41099
+   ],
+   "sha1": "8e23b43491d0a4d3a23c53c68bd7685b27b793dd",
+   "text": "AI Operations Management is the discipline that acts on the science, through five functions: sourcing, planning and budgeting, metering and attribution, allocation and routing, and holding value to account at a boundary. It begins where a model becomes a service an organization consumes, and it borders AIOps, MLOps, FinOps, and regulatory governance without being any of them."
+  },
+  {
+   "i": 201,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41108,
+    41299
+   ],
+   "sha1": "be05105b29feda25c4b96713b0d2afa875c44149",
+   "text": "The Founding Questions are the five questions the discipline exists to answer from an organization’s own records. At the end of Part I, the reader has no method yet for answering any of them."
+  },
+  {
+   "i": 202,
+   "kind": "SECTION HEAD",
+   "class": "keyterms-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41376,
+    41385
+   ],
+   "sha1": "b1fd76d6a6f39d6b99354a8017678be77dbfab6d",
+   "text": "Key terms"
+  },
+  {
+   "i": 203,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41467,
+    41488
+   ],
+   "sha1": "037e2490a1851247243f28ca53c7711b2cacb5f1",
+   "text": "AI Business Economics"
+  },
+  {
+   "i": 204,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41505,
+    41685
+   ],
+   "sha1": "ec1ed91e9a896935fdd16e9b9e2b9db918fef3c3",
+   "text": "The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on."
+  },
+  {
+   "i": 205,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41750,
+    41774
+   ],
+   "sha1": "c6cf24fd9ec560e677064c15b0bd1f24a7c47b47",
+   "text": "AI Operations Management"
+  },
+  {
+   "i": 206,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    41791,
+    41977
+   ],
+   "sha1": "d153a72a24d2e1fcebae5f043e2b9f4eee9a975f",
+   "text": "The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI."
+  },
+  {
+   "i": 207,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42042,
+    42050
+   ],
+   "sha1": "1fd6a805dae745c87a8b89f1be1a738e608a1668",
+   "text": "Registry"
+  },
+  {
+   "i": 208,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42067,
+    42213
+   ],
+   "sha1": "795426cb976ce897468907df102c03675833f7ef",
+   "text": "The structured record of every definition, assumption, and result in AI Business Economics, with each result linked to the claims that support it."
+  },
+  {
+   "i": 209,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42278,
+    42285
+   ],
+   "sha1": "43b553b7142f2a0f07d75eee42009007619b2a51",
+   "text": "Theorem"
+  },
+  {
+   "i": 210,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42302,
+    42460
+   ],
+   "sha1": "0b3a5bb457f20c2dd45c0c5ffe5770d210d64b1b",
+   "text": "A registry result that combines lemmas into a conclusion with direct consequences for management. The book sets each theorem it relies on in a numbered panel."
+  },
+  {
+   "i": 211,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42525,
+    42530
+   ],
+   "sha1": "24114344c7a67fdd731676b5d08d560db995d6a4",
+   "text": "Lemma"
+  },
+  {
+   "i": 212,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42547,
+    42669
+   ],
+   "sha1": "0f427a56ee4fee53cc5022e1e79f008c6e35a438",
+   "text": "An intermediate registry result that combines propositions, and sometimes other lemmas, and supports one or more theorems."
+  },
+  {
+   "i": 213,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42734,
+    42745
+   ],
+   "sha1": "3e2cf2d20e75a29ffccd7b92a6786ce6a421f7d7",
+   "text": "Proposition"
+  },
+  {
+   "i": 214,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42762,
+    42903
+   ],
+   "sha1": "9cfa6d85fe41579511746e138e3ae357a99c7507",
+   "text": "A single registry claim, accepted because of the definitions, axioms, or earlier claims it names as its support. Lemmas combine propositions."
+  },
+  {
+   "i": 215,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42968,
+    42983
+   ],
+   "sha1": "20bcf8a72a50cd7b412b4bd0f6fa3052145ce923",
+   "text": "Certified claim"
+  },
+  {
+   "i": 216,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43000,
+    43159
+   ],
+   "sha1": "e2be1cfcfbe00b5acc34e2a0017f32fcbd9a977e",
+   "text": "A registry claim that passes the validator’s fixed conditions and whose every dependency is itself certified. The book renders and cites certified claims only."
+  },
+  {
+   "i": 217,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43224,
+    43229
+   ],
+   "sha1": "2f38169a712e499b917900e244feafc980a814f4",
+   "text": "Trace"
+  },
+  {
+   "i": 218,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43246,
+    43378
+   ],
+   "sha1": "d6224d426bbc9ed5a43b174be88ed2ca0714ce2f",
+   "text": "Following a registry claim down through the claims it depends on, from a theorem to its lemmas and from a lemma to its propositions."
+  },
+  {
+   "i": 219,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43443,
+    43453
+   ],
+   "sha1": "ce311abe7bbcb35898a8ac0bf7c2dca01106d8f6",
+   "text": "Dependency"
+  },
+  {
+   "i": 220,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43470,
+    43646
+   ],
+   "sha1": "395961ad3e4583f2b54fb942e692245ea45e3d9e",
+   "text": "A claim that another claim rests on. A required dependency is one the claim cannot hold without. A contextual dependency bears on the claim without being one of its conditions."
+  },
+  {
+   "i": 221,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43711,
+    43720
+   ],
+   "sha1": "2f4979324e03e4571b1d7eba701226670c2ee2da",
+   "text": "Condition"
+  },
+  {
+   "i": 222,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43737,
+    43876
+   ],
+   "sha1": "13203b441e951affea7d52413756068b0c83633d",
+   "text": "A requirement a deployment must meet for a formal claim to apply to it. A claim says nothing about a case that fails any of its conditions."
+  },
+  {
+   "i": 223,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43941,
+    43946
+   ],
+   "sha1": "4651a34e4df9619783ad372f905d6d3b84e9d76d",
+   "text": "Scope"
+  },
+  {
+   "i": 224,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43963,
+    44151
+   ],
+   "sha1": "f465a09a0b4ec05d8387a4a30d60e06e39f858ea",
+   "text": "The part of a formal claim that fixes which cases it talks about at all, such as one deployment inside one boundary. A case outside the scope is outside the claim, whatever its conditions."
+  },
+  {
+   "i": 225,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44216,
+    44225
+   ],
+   "sha1": "a5c4fed2316a6a7e104b1b1ef4e80ec67a84e349",
+   "text": "Non-claim"
+  },
+  {
+   "i": 226,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44242,
+    44427
+   ],
+   "sha1": "3d5dbe2ccd5e9bdb76a50f21e2130fe72da664d9",
+   "text": "A conclusion a formal claim deliberately does not establish, though a reader might be tempted to draw it. Stating the non-claims prevents a claim from being cited for more than it says."
+  },
+  {
+   "i": 227,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44492,
+    44507
+   ],
+   "sha1": "e211880bb0b65a12c1c4df206a6d997b4fd80da5",
+   "text": "Falsifying case"
+  },
+  {
+   "i": 228,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44524,
+    44653
+   ],
+   "sha1": "70de5c74e804b320b9783439b989aadb3aacaec9",
+   "text": "A case that meets every condition of a formal claim and still lacks its conclusion. Finding one would show the claim to be wrong."
+  },
+  {
+   "i": 229,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44718,
+    44732
+   ],
+   "sha1": "8335ac297114a4e684d0ac4c5be5944ad792d838",
+   "text": "Value boundary"
+  },
+  {
+   "i": 230,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44749,
+    45009
+   ],
+   "sha1": "85fc8d86d02f7096669ba2370025a4740677224b",
+   "text": "The line within which an organization judges whether a deployment pays for itself, fixed by the costs it counts, the value it counts, the period, and the outcomes it measures against. LEM-021 states that any evaluation of return on AI requires such a boundary."
+  },
+  {
+   "i": 231,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45074,
+    45092
+   ],
+   "sha1": "016c0c85de96b45a35c2d11c218bdcea529ba2ab",
+   "text": "Founding Questions"
+  },
+  {
+   "i": 232,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45109,
+    45241
+   ],
+   "sha1": "87846337f228833ca6d449f34d4e5f38864f8410",
+   "text": "The five questions AI Operations Management exists to answer from an organization’s own records, one for each of its five functions."
+  },
+  {
+   "i": 233,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45306,
+    45321
+   ],
+   "sha1": "6bd6bc66a4bb335cf1e6e6fbb8c1144cd1c6126f",
+   "text": "Trace procedure"
+  },
+  {
+   "i": 234,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45338,
+    45597
+   ],
+   "sha1": "8e5135ff69cc79085f7580eec73ad73fe0b633f7",
+   "text": "The six-step method for reading a formal claim before relying on it: locate it, state its scope and restate its conditions, list its dependencies, walk one level down, separate what it establishes from what it does not, and name the case that would defeat it."
+  },
+  {
+   "i": 235,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45680,
+    45713
+   ],
+   "sha1": "305252cb9f52bfd7e3ee3d0ed69183a8aa48861c",
+   "text": "Discussion questions and problems"
+  },
+  {
+   "i": 236,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45741,
+    45761
+   ],
+   "sha1": "ce7ea53b301fdc341bca7534134faebfa159a2e3",
+   "text": "Discussion questions"
+  },
+  {
+   "i": 237,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45851,
+    46027
+   ],
+   "sha1": "a237dd87ffa73e49d0124d4b85902182f2d840f1",
+   "text": "The book insists that the registry justifies it but does not organize it. Describe what a reader would lose if the chapters followed the registry’s order of derivation instead."
+  },
+  {
+   "i": 238,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46107,
+    46221
+   ],
+   "sha1": "e40765899b55a34a5f27d0d45e5140de9a57d0f7",
+   "text": "Of the four borders in Table 3.1, which is hardest to defend, and why? State what evidence would move that border."
+  },
+  {
+   "i": 239,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46301,
+    46499
+   ],
+   "sha1": "dcfced409bebc123917aff03f0edf8a488d21510",
+   "text": "Restate one Founding Question in the language your chief financial officer would use, without losing any of its content. Then say which part of the question the restatement was most tempted to drop."
+  },
+  {
+   "i": 240,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46579,
+    46772
+   ],
+   "sha1": "7de8de9a069532b3da963965a3d59b89d744351e",
+   "text": "Chapter 2 diagnosed a deployment through its three flows. Match each of the three flows to the functions in Section 3.4 that act on it. Then say which flow draws on the most functions, and why."
+  },
+  {
+   "i": 241,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46819,
+    46827
+   ],
+   "sha1": "8e6b86dce8c4fbace004e330925fe8345d92db90",
+   "text": "Problems"
+  },
+  {
+   "i": 242,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46871,
+    46882
+   ],
+   "sha1": "b138f859e3298a6caa319cc358057940b0dfdb22",
+   "text": "P1 · Worked"
+  },
+  {
+   "i": 243,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46905,
+    46923
+   ],
+   "sha1": "d9df16d684ff2712aa85b789932f451283c74724",
+   "text": "A trace of LEM-020"
+  },
+  {
+   "i": 244,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    46931,
+    47052
+   ],
+   "sha1": "c103dc51ae1c2b0a74e5001ec90fe5300477e31b",
+   "text": "The craft section traced a theorem. Trace one of its lemmas, LEM-020, with the same six steps, as a model for problem P2."
+  },
+  {
+   "i": 245,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47060,
+    47321
+   ],
+   "sha1": "7ff9442cb1c40f8cd76d7b1d36bc27e24766eb1e",
+   "text": "Step 1. LEM-020, “Visibility Enables Management Mechanisms.” Its statement reads: “If economic exposure or usage activity is visible to the relevant actor, then monitoring, limits, attribution, or management mechanisms can be applied within the relevant scope.”"
+  },
+  {
+   "i": 246,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47329,
+    47498
+   ],
+   "sha1": "8ba61cd5b1390c94b64b2e114f99d36da75a9b97",
+   "text": "Step 2. When the people responsible for a deployment can see its usage or its cost, they can apply monitoring, limits, attribution, or other management mechanisms to it."
+  },
+  {
+   "i": 247,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47506,
+    47663
+   ],
+   "sha1": "ff57b4d5a921aa5bc778b448ef95b0ed2f71ab07",
+   "text": "Step 3. Eight dependencies, all required: the lemma LEM-002 and seven propositions, PROP-032, PROP-039, PROP-041, PROP-042, PROP-043, PROP-053, and PROP-085."
+  },
+  {
+   "i": 248,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    47671,
+    48648
+   ],
+   "sha1": "be2616b794d41bf74d570a24518468a7af817b2a",
+   "text": "Step 4. LEM-002 says recorded activity becomes observable enough to support analysis, attribution, monitoring, or management. It adds a condition: the recording must be detailed enough for the relevant person to observe it. PROP-032 says compute use can be measured. PROP-039 says measured compute use can be used as an input to methods for assigning cost. PROP-041 says that metering a resource or activity records one or more measurements of it. PROP-042 says measured activity can be told apart by quantity. PROP-043 says metering produces records of what was metered. PROP-053 says that where economic exposure exists, monitoring can be used to observe it, which adds the condition that there is exposure to observe. PROP-085 says that once usage is visible, management decisions can draw on it. Together they explain why visibility opens the door to management."
+  },
+  {
+   "i": 249,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    47925,
+    47998
+   ],
+   "sha1": "e845eec4a6e931e15fe2b41a586ac4f2ac52fc5c",
+   "text": "LEM-002’s scope condition."
+  },
+  {
+   "i": 250,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    48656,
+    48985
+   ],
+   "sha1": "628be85b4bb73af492143469b0aec016505fd085",
+   "text": "Step 5. LEM-020 establishes that visibility makes management mechanisms available. It does not claim the mechanisms work automatically, and it does not claim that visibility alone settles the right policy or price."
+  },
+  {
+   "i": 251,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    48901,
+    48978
+   ],
+   "sha1": "8fa71b87a7c7cc42e66975d03eecc0f56ea1106a",
+   "text": "LEM-020’s recorded exclusions."
+  },
+  {
+   "i": 252,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    48993,
+    49175
+   ],
+   "sha1": "17f50834b0da8bdeab5c15d53135fcde4fe30e9e",
+   "text": "Step 6. The defeating case is an organization that can see a deployment’s usage, holds the authority to manage it, and still cannot apply any monitoring, limit, or attribution to it."
+  },
+  {
+   "i": 253,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49226,
+    49241
+   ],
+   "sha1": "6808f3be56c1eaf3c3b218ef2231da121e1bcdbc",
+   "text": "P2 · Completion"
+  },
+  {
+   "i": 254,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49264,
+    49296
+   ],
+   "sha1": "3e9e934cc1b7179a1fe916fd3fa221664540b5c7",
+   "text": "A trace with two steps left open"
+  },
+  {
+   "i": 255,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49304,
+    49784
+   ],
+   "sha1": "6e20705aa822e8a0c161da439d230ea0f72f4e38",
+   "text": "THM-002, “AI Adoption Cost Is Underestimated When Access Price Is Treated as Total Cost,” states a result Part II is about to teach. Its statement reads: “If buyer AI adoption cost includes cost categories beyond access price, and ROI evaluation requires a defined measurement boundary for cost and value, then treating access price as total adoption cost creates underestimation risk within the evaluation boundary.” Steps 1, 2, 3, and 6 are worked below. Complete steps 4 and 5."
+  },
+  {
+   "i": 256,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49792,
+    49824
+   ],
+   "sha1": "8d248f314e8f0e9901004217b78ff2e4d562e81c",
+   "text": "Step 1. THM-002, as named above."
+  },
+  {
+   "i": 257,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    49832,
+    50056
+   ],
+   "sha1": "6696c4c96274c5d99405244029d003c953bad17d",
+   "text": "Step 2. When a buyer’s cost of adopting AI includes more than the access price, and judging the return requires a boundary that takes in both cost and value, treating the access price as the whole cost risks understating it."
+  },
+  {
+   "i": 258,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50064,
+    50732
+   ],
+   "sha1": "3048050a22a81e0c6f5f744c87e975d993ccd60c",
+   "text": "Step 3. Four dependencies. LEM-006 and LEM-021 are required. LEM-002 and LEM-020 are contextual. LEM-006 appears in the craft section. LEM-021, “ROI Evaluation Requires Measurement Boundary,” reads: “If ROI is evaluated for AI adoption, the evaluation requires a defined boundary for relevant costs, value, time period, and observed or expected outcomes.” As a model for the contextual pair: LEM-020 bears on what a buyer can do about an understated cost once it is visible, but the claim that the cost is understated holds without it."
+  },
+  {
+   "i": 259,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "aibe-registry-2026",
+   "figure": null,
+   "string": null,
+   "span": [
+    50630,
+    50725
+   ],
+   "sha1": "b20db14890b7da110f5159c2b1024e2b0b00e7c0",
+   "text": "THM-002’s dependencies and their recorded roles."
+  },
+  {
+   "i": 260,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50740,
+    50820
+   ],
+   "sha1": "4cc0640589829d8def5ec1fa045163c79fca4ce8",
+   "text": "Step 4. Restate each dependency in one sentence, and note any condition it adds."
+  },
+  {
+   "i": 261,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    50828,
+    51012
+   ],
+   "sha1": "d69791b5ca379925909ede666badaed0378540b2",
+   "text": "Step 5. State what THM-002 establishes and what it does not. Then, on the model of LEM-020 in step 3, explain what LEM-002 contributes, given that the theorem is not conditioned on it."
+  },
+  {
+   "i": 262,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    51020,
+    51267
+   ],
+   "sha1": "f50ec47d12d473e0630986d02f030a29e692512a",
+   "text": "Step 6. The defeating case is a buyer whose adoption cost includes categories beyond the access price, who evaluates the return inside a boundary covering cost and value, who treats the access price as the total, and whose cost is not understated."
+  },
+  {
+   "i": 263,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    51318,
+    51334
+   ],
+   "sha1": "eb87b688da5e95a601fff8c0cfdb6fca613c6661",
+   "text": "P3 · Independent"
+  },
+  {
+   "i": 264,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    51357,
+    51392
+   ],
+   "sha1": "e18c5ee9774dbc61b110dd21bc638941c8a2aec0",
+   "text": "A reply to the word-games objection"
+  },
+  {
+   "i": 265,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    51400,
+    51831
+   ],
+   "sha1": "4bdb92c85c7716c6c9cbda5a0a60ceecc1d87102",
+   "text": "A senior colleague reads THM-004 and says: “This is common sense in numbered clauses. Anyone who has run a large deployment knows you need controls. Formalizing it adds nothing.” Write a one-page reply. Use the four parts of a formal claim from Section 3.3, and name at least one thing the formal statement lets the colleague do that the common-sense version does not. Do not argue that the colleague is wrong about the conclusion."
+  },
+  {
+   "i": 266,
+   "kind": "PROBLEM NOTE",
+   "class": "pnote",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    51853,
+    51973
+   ],
+   "sha1": "0f7cf521b7118ff4c9556c3cc92d82b3f5310c1e",
+   "text": "Interleaving: question 4 requires Chapter 2’s three flows, and the cumulative case below requires both earlier chapters."
+  },
+  {
+   "i": 267,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    52008,
+    52030
+   ],
+   "sha1": "32e9b2a83f335b2726fd8b9801f89231b58ce63d",
+   "text": "Part I cumulative case"
+  },
+  {
+   "i": 268,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    52074,
+    52098
+   ],
+   "sha1": "796ef53444b9c4c49e2aca357236d2174381a021",
+   "text": "Cumulative case · Part I"
+  },
+  {
+   "i": 269,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    52121,
+    52153
+   ],
+   "sha1": "8bcbd168289fe8fe7c94da756de6d6f2748c3137",
+   "text": "One announcement, three readings"
+  },
+  {
+   "i": 270,
+   "kind": "PROVENANCE",
+   "class": "provenance",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    52180,
+    52293
+   ],
+   "sha1": "c37d15e4e870cac011342598b5875e09d6aedf4a",
+   "text": "Dated: February 2024. The company’s own announcement, using its own figures. Only that announcement is used here."
+  },
+  {
+   "i": 271,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    52301,
+    52999
+   ],
+   "sha1": "b29ebdbb0414be988272fb5545cd9e1c64b261bb",
+   "text": "In February 2024, the payments company Klarna announced the results of the first month of an AI assistant built on OpenAI’s models. The company reported that the assistant had held 2.3 million conversations, two-thirds of its customer-service chats. By its own estimate, the assistant was doing the work of 700 full-time agents. Customers resolved their questions in under two minutes, against eleven before. The company estimated that the assistant would improve its profit by $40 million in 2024."
+  },
+  {
+   "i": 272,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "klarna-2024-assistant",
+   "figure": null,
+   "string": null,
+   "span": [
+    52881,
+    52992
+   ],
+   "sha1": "546b16f58197c23790738ec34ee56f9087c84722",
+   "text": "All figures in this case are the company’s own, as announced."
+  },
+  {
+   "i": 273,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    53007,
+    53041
+   ],
+   "sha1": "a3c66b77f479b9a2f0a083efcfd02265cc19e314",
+   "text": "Work from this announcement alone."
+  },
+  {
+   "i": 274,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    53049,
+    53188
+   ],
+   "sha1": "5de59cef2e38c9efe12bec1e996ab92229297b26",
+   "text": "First, apply Chapter 1’s consumption-event inventory. Identify the consumption events the announcement describes and where each is metered."
+  },
+  {
+   "i": 275,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    53196,
+    53340
+   ],
+   "sha1": "57b00ce19fef8f13f8798e45f3c1935e0d39ed7f",
+   "text": "Second, apply Chapter 2’s three-flow mapping. Diagnose the usage, record, and cost-and-value flows, and name the evidence behind each diagnosis."
+  },
+  {
+   "i": 276,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    53348,
+    53557
+   ],
+   "sha1": "9dae7fff4a5408b1dbe3e80f21a9163e85f15e56",
+   "text": "Third, pose each of the five Founding Questions against the announcement. For each, state whether the public record answers it from the organization’s own records, and what record would be needed to answer it."
+  },
+  {
+   "i": 277,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    53565,
+    53614
+   ],
+   "sha1": "0ca87e46eaed24f4906459b596badb79238465e7",
+   "text": "Keep your answers. The case returns in Chapter 6."
+  }
+ ]
+}
