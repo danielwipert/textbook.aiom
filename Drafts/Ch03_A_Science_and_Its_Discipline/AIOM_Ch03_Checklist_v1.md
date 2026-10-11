@@ -97,24 +97,24 @@ G1-2. Key term "Falsifying case" absent from the body; body aligned to the term.
 
 Owner: Claude; second model reads independently; Dan rules (sitting 2)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-06
 
 > v4 step 3, Decision 77. ONE pass replacing v3 Stages 1, 2 and 4: structure against AIOM_Structure_v1.md and AIOM_Exit_Competencies_v1.md, teaching quality, and voice and craft against AIOM_Prose_Standard_v2.0.md. Labelled Stage 4 because it owns voicecheck. Read ADVERSARIALLY: for each competency and each criterion quote the WEAKEST evidence and rule it, reading the per-section table rather than the chapter average. ONE second-model package carries the three questions as separate sections, read without Claude's findings, and is BUILT BEFORE the sitting (Decision 81). Claude applies what is not a judgment call and hands Dan ONE decision list; Dan rules every finding, Claude rules none, and the ruled list is applied in ONE commit.
 
-- [ ] Structure: every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
-- [ ] Structure: every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
-- [ ] Structure: the anchor theorem is the right one and is load-bearing in the argument rather than decorative
-- [ ] Structure: ledger obligations met, no earlier chapter's term redefined, promises owed are paid, nothing belonging to a later chapter front-run
-- [ ] Teaching: clarity, pacing, cognitive load, example fitness and transitions carry the target reader without a stall
-- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
-- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
-- [ ] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
-- [ ] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
-- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
-- [ ] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
-- [ ] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
-- [ ] Second-model package (one, three sections) returned and its findings recorded, one line each
-- [ ] Dan has ruled every finding (sitting 2), applied in one commit
+- [x] Structure: every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
+- [x] Structure: every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
+- [x] Structure: the anchor theorem is the right one and is load-bearing in the argument rather than decorative
+- [x] Structure: ledger obligations met, no earlier chapter's term redefined, promises owed are paid, nothing belonging to a later chapter front-run
+- [x] Teaching: clarity, pacing, cognitive load, example fitness and transitions carry the target reader without a stall
+- [x] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [x] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [x] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
+- [x] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
+- [x] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
+- [x] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
+- [x] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
+- [x] Second-model package (one, three sections) returned and its findings recorded, one line each
+- [x] Dan has ruled every finding (sitting 2), applied in one commit
 
 Findings:
 
@@ -123,6 +123,9 @@ S2. Sitting 2 (Claude's list), 2026-10-01: Dan accepted all eleven recommendatio
 T1. Tool fix under the blocking exception (Decision 79), 2026-10-01: copyedit_import.py read a Word paragraph split as deleting the second half and would have written it. Reproduced on this chapter's export, fixed to refuse the block as a SPLIT, verified: split refused, --apply writes nothing, clean round trip still zero.
 R0a. Self-caught while applying: P1 paraphrases of PROP-039 and PROP-041 were written from names and overstated; corrected against the statements.
 R0b. Print after fixes: gate 4 now fails (one callout split) and page 13 runs 388pt short before Table 3.1. Both are pagination, left to the production step after the author pass.
+S2b-0. External reviews 2026-10-06: one-file package (AIOM_Ch03_Review_package.md); second model 26 findings, Sonnet subagent 24 plus a second pass of 22. Table 3.1 findings (E-2, E-3, S-4) were extraction artifacts: prose_extract.py drops tables (fix-between list). Merged list AIOM_Ch03_Sitting2b_decisions.md.
+S2b. Sitting 2b, 2026-10-06: Dan accepted all recommendations (A1 to A5, B1 to B18). Applied in one commit, except B8: the "Diligence" sentence is the THM-004 gloss fixed by locked Chapter 2 and checked by G3, so it stays; removing it is a Chapter 2 amendment, put to Dan separately. B3 cut the 3.3 tail, and the Chapter 2 promise it paid (ledger, "formalizes the economic consequence of the third flow's asymmetry") moved to 3.2 beside the proof. B14 names the record flow and leaves the other mappings to question 4, reworded, so the question is not answered in 3.4. B15's worked contextual line sits in P2 (LEM-020), because the only other contextual edge in the registry is to THM-001, which is not certified. B13 trims not needed: 7,038 words. Freqsweep 18 hits, the 5 new ones logic or structure, kept.
+A4-note. Assessment 4 (THM-008, competency C4) must supply THM-008's propositions: the registry is private and Appendix A stops at lemma level (sitting 2, item 2).
 
 ---
 

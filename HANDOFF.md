@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-01. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-11. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -8,12 +8,11 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- Working branch `claude/inspiring-bohr-4gquw9`; `main` fast-forwarded to it on
-  2026-10-01 at `5d0fd66` (Process v4 adoption and tooling are on `main`). Later
-  commits on the branch carry Chapter 3 work.
+- `main` is level with `claude/sharp-dirac-ojfqqz` as of 2026-10-11: it carries
+  the Chapter 3 sitting 2b work (from `claude/happy-bardeen-hhct43`) and Decision
+  84. Both branches are merged; Dan deletes them (403 from the container).
 - Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  **Chapter 3 at Stage 0 (Process v4)**: plan approved at sitting 1, draft
-  written with four registry gaps. Chapters 4 to 15 not started.
+  **Chapter 3 (Process v4): Stage 4 passed 2026-10-06; author pass next.** Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -27,11 +26,12 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 1. DONE: registry attached (`/home/user/dag.aiom`, never committed here); the
    four gaps filled; Stage 0 passed; G1 open only on the word band.
-2. DONE: review package built; Claude's independent review applied (44
-   findings); Dan ruled all eleven sitting 2 items (Decision 82 sets the word
-   band); G1 passed. **NEXT: Dan runs the second-model prompt**
-   (`02_Stage4_Review/AIOM_Ch03_Review_secondmodel_prompt.md`); Claude turns its
-   findings into one short list; then Stage 4 closes and the author pass begins.
+2. DONE: Stage 4 closed 2026-10-06. Three external reviews (second model, two
+   Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
+   **NEXT: Dan's author pass** on
+   `03_Stage6_Author_Pass/AIOM_Ch03_author_pass.docx` (round trip verified at zero
+   changes). Then `copyedit_import.py`, the mechanical checks, `freqsweep.py`, and
+   the fact-check package (one file, Dan's rule) for a checker with web access.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -40,7 +40,12 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** run the second-model prompt and save its reply in `02_Stage4_Review/`.
+- **Chapter 3:** the author pass: edit the .docx in Word, save it as
+  `AIOM_Ch03_author_pass_DAN_EDIT.docx` in the same folder, and say so.
+- **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
+  newer evidence and any conclusion that no longer holds, one package, a checker
+  with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
+  before then; the THM-004 "Diligence" gloss question (B8) waits for it.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).
@@ -72,6 +77,15 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   That is how Chapter 2's THM-004 panel locked while not rendering the
   registry. Add a statement check (antecedents and consequent against the
   bundle) between chapters; highest value on this list.
+
+- **Single-file review packages (Dan, 2026-10-06).** Every external review (content
+  or fact check) ships as ONE markdown file: instructions, output format, all material
+  between BEGIN/END markers. Ch3's was hand-assembled; write `review_package.py` so
+  every chapter's package is generated the same way.
+
+- **`prose_extract.py` drops tables** (found 2026-10-06): Ch3 Table 3.1 never reached
+  the second-model reviewer, who then reported it empty (S-2). Patched into the Ch3
+  package by hand; fix the extractor and check the Ch1 exemplar for the same loss.
 
 - Manual page reads are stale for Chapter 1 (since 2026-08-14) and Chapter 2
   (since the 2026-10-01 THM-004 amendment; its panel page WAS read).

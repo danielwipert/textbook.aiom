@@ -742,6 +742,15 @@ Decisions 22 onward live here.
   to fit what those chapters became rather than to a target. Raised at Chapter 3's
   G1 (finding G1-1) at 6,364 words. A chapter is not padded to reach the floor.
 
+- **Decision 83. RULED 2026-10-06.** The book is a living document. **Every three locked
+  chapters, a holistic review** reads those chapters together (first: Chapters 1
+  to 3, once Chapter 3 locks), with a whole-book pass considered each time. It
+  asks two things: is there newer evidence the chapters should carry, and does any
+  conclusion no longer hold. It runs as a single-file package for a checker with
+  web access. Its changes to a locked chapter go through `amend.py`. Until then,
+  Chapters 1 and 2 are not edited; open questions about them (the THM-004
+  "Diligence" gloss, Chapter 3 finding B8) wait for that review.
+
 - **Decision 84. RULED 2026-10-11.** Every decision put to Dan is put as a series
   of **logic gates**: one decision per gate, three options labelled A, B and C,
   one marked recommended, each option one or two lines, the path of gates shown
