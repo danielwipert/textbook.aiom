@@ -35,6 +35,9 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
+**Decision 83 (2026-10-11): every decision goes to Dan as logic gates**, one at a
+time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
+
 ## Waiting on Dan
 
 - **Chapter 3:** run the second-model prompt and save its reply in `02_Stage4_Review/`.

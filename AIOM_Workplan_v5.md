@@ -742,6 +742,19 @@ Decisions 22 onward live here.
   to fit what those chapters became rather than to a target. Raised at Chapter 3's
   G1 (finding G1-1) at 6,364 words. A chapter is not padded to reach the floor.
 
+- **Decision 83. RULED 2026-10-11.** Every decision put to Dan is put as a series
+  of **logic gates**: one decision per gate, three options labelled A, B and C,
+  one marked recommended, each option one or two lines, the path of gates shown
+  first, each answer locked in one line before the next gate, and an adjusted
+  answer ("A, but ...") restated and accepted. Decisions are recorded here once
+  the gates are done. At a sitting the package is still built beforehand and the
+  rulings still applied in one commit (Decision 81); each item needing a choice
+  is put as one gate. Replaces the earlier protocol of presenting a decision with
+  options, a recommendation and its reasoning in one message. The rule is
+  CLAUDE.md section 5. The reason: one long answer with a large decision at the
+  end is slow to read and hard to act on, and small gates let Dan steer at every
+  step.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

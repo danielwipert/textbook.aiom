@@ -255,8 +255,8 @@ alternatives, no second opinion on the writing.
 
 ## 5. How to work here
 
-- **Present decisions one at a time**, with options, a recommendation, and the
-  reasoning. Do not proceed past an unruled decision.
+- **Present decisions as logic gates** (Decision 83). Do not proceed past an
+  unruled gate.
 - **Structure before content.**
 - **Verify programmatically before delivering.** Never report a build clean
   without running the gates.
@@ -264,6 +264,45 @@ alternatives, no second opinion on the writing.
 - **Protect pedagogical surprises.** Later chapters withhold things deliberately.
 - **Real cited evidence over constructed material,** every time it is available.
 - **Write a scope claim from what was done, never from what was intended.**
+
+### Logic gates: how to ask Dan for a decision (Decision 83)
+
+Never write one long answer with a big decision at the end. Break the decision
+into small **gates** and put them to Dan one at a time.
+
+- **One gate, one decision.** Never stack several decisions in one message.
+- **Three options, always, labelled A, B and C**, readable in about one minute.
+- **Mark one option recommended**, and say why in a few words.
+- **Each option is one or two lines:** what it means and what it leads to.
+- **Show the path first** when there are several gates: a numbered list with the
+  current gate marked ("4 gates: 1. Scope ← now, 2. Source, 3. ...").
+- **Lock in each answer in one line** before the next gate: "Locked in: B, ...".
+- **Accept a mixed or adjusted answer** ("A, but ..."). Restate it and move on.
+- **If no option fits, reframe the gate.** If a gate is too big, split it.
+- **Background goes in documents, not in the gate.**
+- **Record the decisions when the gates are done**: a numbered Decision in
+  `AIOM_Workplan_v5.md` for anything Decision-level, or one line per finding in
+  the checklist for a sitting ruling (Decision 81).
+
+**At a sitting** the package is still built beforehand (Decision 81). Each item
+needing a choice is put as one gate; the rulings are still applied in one commit.
+
+Format:
+
+```
+## Gate 2 of 4: <the one question>
+
+**A. <option>** *(recommended)*
+One or two lines: what it means and what it leads to.
+
+**B. <option>**
+One or two lines.
+
+**C. <option>**
+One or two lines.
+
+Reply A, B or C.
+```
 
 ### Git hygiene is Claude's job, not Dan's
 
@@ -473,7 +512,7 @@ Each rule below has its incident in `LESSONS.md`.
 | `renumber_stage_folders*.py` | One-time folder migrations (v2, v3, v4). |
 | `AIOM_Prose_Standard_v2.0.md` | THE prose standard. |
 | `AIOM_Process_v4_Proposal_v1.0.md` | The process in force and why. |
-| `AIOM_Workplan_v5.md` | Tracker and **the decision-numbering authority**. Decisions run to 82. |
+| `AIOM_Workplan_v5.md` | Tracker and **the decision-numbering authority**. Decisions run to 83. |
 | `AIOM_Consolidated_Spec_v1.md`, `AIOM_Structure_v1.md`, `AIOM_Exit_Competencies_v1.md` | Specification, structure, the twenty-four competencies. |
 | `AIOM_DESIGN_SPEC.md`, `AIOM_Design_QA_Spec_v1.md` | Design spec; gate spec. |
 | `AIOM_Continuity_Ledger.md`, `AIOM_Claim_Ledger.md`, `AIOM_Source_Ledger.md` | G3 record; W14 record; sources. |
