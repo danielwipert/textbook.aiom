@@ -742,7 +742,7 @@ Decisions 22 onward live here.
   to fit what those chapters became rather than to a target. Raised at Chapter 3's
   G1 (finding G1-1) at 6,364 words. A chapter is not padded to reach the floor.
 
-- **Decision 83. RULED 2026-10-11.** Every decision put to Dan is put as a series
+- **Decision 84. RULED 2026-10-11.** Every decision put to Dan is put as a series
   of **logic gates**: one decision per gate, three options labelled A, B and C,
   one marked recommended, each option one or two lines, the path of gates shown
   first, each answer locked in one line before the next gate, and an adjusted
