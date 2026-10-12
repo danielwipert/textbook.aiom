@@ -157,13 +157,15 @@ Status: [ ]        Date cleared:
 
 > v4 step 5, Decision 76. ONE external fact check replacing v3 Stages 3 and 7, on a fresh RENDER of the post-author-pass text, never the HTML. Two checks run in parallel on different prompts: A reads the sources, B reads only the render. THE CHECKER MUST HAVE WEB ACCESS: Chapter 2's first checker could not read, and its work was redone. Labelled Stage 3 because it owns W14. Rulings go into the register notes, with the condition that would reverse them, and into AIOM_Claim_Ledger.md.
 
-- [ ] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
+- [x] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
 - [ ] Check A (reads the sources, web access confirmed) returned
 - [ ] Check B (reads only the render) returned
 - [ ] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
 - [ ] Any empirical claim added after this check carries a source before lock (standing rule 2)
 
 Findings:
+
+FC0. Packages A and B built 2026-10-12 on a fresh render of 56c830c, one file each; Table 3.1's three citations added to the packet by hand. Commit: this one.
 
 ---
 

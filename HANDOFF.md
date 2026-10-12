@@ -31,9 +31,9 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. DONE: Stage 4 closed 2026-10-06. Three external reviews (second model, two
    Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
    DONE 2026-10-12: Dan's author pass imported (AP1 to AP3 in the checklist).
-   **NEXT: the fact-check package** (one file, Dan's rule) on a fresh render, for a
-   checker with web access; then sitting 3. Print gates 1, 4, 8 fail on reflow:
-   Stage 5's, not before.
+   DONE 2026-10-12: fact-check packages A and B built, one file each
+   (`04_Stage3_Fact_Check/README_Stage3.md`). **NEXT: Dan sends them**; then the
+   sitting 3 package. Print gates 1, 4, 8 fail on reflow: Stage 5's, not before.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -42,7 +42,8 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** nothing until the fact-check package is built; then sitting 3.
+- **Chapter 3:** send check A (web access) and check B (separate session), save
+  the replies in `04_Stage3_Fact_Check/`, and say so.
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
@@ -99,6 +100,8 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
 - Any new extractor over chapter HTML handles `span.nb` before the generic tag
   rule (the phantom-space defect, found in three tools).
 
+- `factcheck_packet.py` reads `<p>` only: Table 3.1's three citations were missed
+  and two keys called orphans. Patched into the Ch3 packet by hand.
 - `copyedit_import.py`: when Word joins a head to the paragraph above, the import
   carries the head text and tag into the body. Its all-or-nothing guard hides this.
 
