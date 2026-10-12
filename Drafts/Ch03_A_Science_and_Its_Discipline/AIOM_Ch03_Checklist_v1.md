@@ -133,19 +133,19 @@ A4-note. Assessment 4 (THM-008, competency C4) must supply THM-008's proposition
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-12
 
 > v4 step 4, Decision 75. Dan's own pass and rewrite, in Word, through `copyedit_export.py` and `copyedit_import.py`. It sits BEFORE the fact check so that every step after it checks the text Dan wants: on Chapter 2 this pass changed 104 of 195 blocks after three checks had run. Includes the whole-chapter read the old Stage 8 was.
 
 - [x] Unedited export round-trips at zero reported changes before the pair is trusted on this chapter
 - [x] Dan's pass imported; every block the importer refused resolved by hand
-- [ ] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
+- [x] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
 
 Findings:
 
 AP1. Import, 2026-10-12: 642 spans in 100 blocks applied; 14 refused (citation markup or a repeated phrase) applied by hand; Word joined the 3.1 head to the paragraph above, head kept in place. Re-export matches Dan's docx. Commit: this one.
-AP2. voicecheck: "the reader" in the teaching body (3.6, "At the end of Part I, the reader has no method yet"). Open, put to Dan.
-AP3. freqsweep, 18 listed: one new frequency claim, F3 "These claims often remain informal" (3.1). Open, put to Dan. The rest are rewordings of items kept at D3, D10 and S2b, or logic, not frequency.
+AP2. voicecheck: "the reader" in the teaching body (3.6, "At the end of Part I, the reader has no method yet"). Dan: A, opens "A reader who has finished Part I". Commit: this one.
+AP3. freqsweep, 18 listed: one new frequency claim, F3 "These claims often remain informal" (3.1). Dan: A, "can remain informal", a possibility, not a frequency. Commit: this one. The rest are rewordings of items kept at D3, D10 and S2b, or logic, not frequency.
 
 ---
 
