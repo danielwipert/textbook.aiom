@@ -287,7 +287,8 @@ wording that no shorter sentence would restore.
 ### FC3-R1 :: non-claims recorded for certified claims only :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: aibe-registry-2026
 - FORBIDDEN: The registry records every claim's non-claims.
-- REQUIRED: The registry records the non-claims of every certified claim.
+- REQUIRED: The registry records non-claims for every certified claim, but its lists are not exhaustive.
+- RESTATED 2026-10-13 at the scoped re-review (SR-4), on Dan's ruling: wording only; the narrowing to certified claims stands.
 - REVERSES-IF: a pinned registry version in which every claim, certified or not, carries exclusions.
 
 ### FC3-B4 :: certified count by type :: 2026-10-13 :: Stage 3
@@ -321,7 +322,8 @@ wording that no shorter sentence would restore.
 
 ### FC3-B26 :: the five questions :: 2026-10-13 :: Stage 3
 - FORBIDDEN: cannot answer without the discipline
-- REQUIRED: exists to answer five questions from an organization's own records.
+- REQUIRED: An organization that manages its AI consumption can answer five questions from its own records:
+- RESTATED 2026-10-13 at the scoped re-review (SR-2), on Dan's ruling: the 3.6 opening that repeated this was cut; the claim now rests on the next paragraph's sentence, and the withdrawn form stays FORBIDDEN.
 - REVERSES-IF: evidence that organizations cannot answer the questions without the discipline, cited.
 
 ### FC3-B35 :: no cost ranking :: 2026-10-13 :: Stage 3

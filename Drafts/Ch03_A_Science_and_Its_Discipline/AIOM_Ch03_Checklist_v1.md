@@ -126,6 +126,17 @@ R0b. Print after fixes: gate 4 now fails (one callout split) and page 13 runs 38
 S2b-0. External reviews 2026-10-06: one-file package (AIOM_Ch03_Review_package.md); second model 26 findings, Sonnet subagent 24 plus a second pass of 22. Table 3.1 findings (E-2, E-3, S-4) were extraction artifacts: prose_extract.py drops tables (fix-between list). Merged list AIOM_Ch03_Sitting2b_decisions.md.
 S2b. Sitting 2b, 2026-10-06: Dan accepted all recommendations (A1 to A5, B1 to B18). Applied in one commit, except B8: the "Diligence" sentence is the THM-004 gloss fixed by locked Chapter 2 and checked by G3, so it stays; removing it is a Chapter 2 amendment, put to Dan separately. B3 cut the 3.3 tail, and the Chapter 2 promise it paid (ledger, "formalizes the economic consequence of the third flow's asymmetry") moved to 3.2 beside the proof. B14 names the record flow and leaves the other mappings to question 4, reworded, so the question is not answered in 3.4. B15's worked contextual line sits in P2 (LEM-020), because the only other contextual edge in the registry is to THM-001, which is not certified. B13 trims not needed: 7,038 words. Freqsweep 18 hits, the 5 new ones logic or structure, kept.
 SR0. Scoped re-review (re-run matrix: body prose edited after the review), 2026-10-13: package `02_Stage4_Review/AIOM_Ch03_Review_scoped_package.md`, built by `build_scoped_review.py`, carries all 35 passages sitting 3 changed (Groups 1 to 3, not Group 3 alone), before and after, for one second model. Stage 4 stays ticked; findings go to Dan.
+SR1. Scoped re-review returned 2026-10-13, 13 findings (`02_Stage4_Review/AIOM_Ch03_Review_scoped_secondmodel.md`). Dan ruled A (accept all 9 fixes, keep 4). One line per finding:
+SR-1. Cut restated LEM-021 sentence (3.4). Accept.
+SR-2. 3.6 opening no longer repeats the next paragraph. Accept; ledger FC3-B26 restated.
+SR-4. 3.3 non-claims: provenance of the three-flows exclusion joined to it. Accept; ledger FC3-R1 restated.
+SR-5. Craft: "where the lemma's support stops". Accept.
+SR-6. 3.3 flat fee: a deployment under the contract is the falsifying case. Accept.
+SR-10. P2 step 3 split in two. Accept.
+SR-11. 3.4: Chapter 1's conditions lead the sentence. Accept.
+SR-12. Opening case: repeated "one practitioner" removed. Accept.
+SR-13. 3.4 two layers: opens on the business mechanism. Accept.
+SR-3, SR-7, SR-8, SR-9. Deliberate per reviewer. Keep.
 A4-note. Assessment 4 (THM-008, competency C4) must supply THM-008's propositions: the registry is private and Appendix A stops at lemma level (sitting 2, item 2).
 
 ---
