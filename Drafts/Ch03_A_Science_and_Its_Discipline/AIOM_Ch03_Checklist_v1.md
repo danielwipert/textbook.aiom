@@ -158,13 +158,14 @@ Status: [ ]        Date cleared:
 > v4 step 5, Decision 76. ONE external fact check replacing v3 Stages 3 and 7, on a fresh RENDER of the post-author-pass text, never the HTML. Two checks run in parallel on different prompts: A reads the sources, B reads only the render. THE CHECKER MUST HAVE WEB ACCESS: Chapter 2's first checker could not read, and its work was redone. Labelled Stage 3 because it owns W14. Rulings go into the register notes, with the condition that would reverse them, and into AIOM_Claim_Ledger.md.
 
 - [x] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
-- [ ] Check A (reads the sources, web access confirmed) returned
-- [ ] Check B (reads only the render) returned
+- [x] Check A (reads the sources, web access confirmed) returned
+- [x] Check B (reads only the render) returned
 - [ ] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
 - [ ] Any empirical claim added after this check carries a source before lock (standing rule 2)
 
 Findings:
 F0. Packages built 2026-10-13 from a fresh render (gate 8 fails on footnote 7, pagination, booked to Stage 5): one file each, A (render text + packet) and B (render text only), by `04_Stage3_Fact_Check/build_packages.py`. Table 3.1's three citations added by hand (packet tool skips tables). Registry passages checked by Claude against dag.aiom 9d7ee50: all match except R-1, "every claim's non-claims" (LEM-015, THM-003 empty, both uncertified), for Dan.
+F1. Checks returned 2026-10-13: A (web access yes) 13 findings, 6 verified, 6 partly supported, 1 cannot confirm (Gartner blocked, Cisco corroborates), none contradicted; B 36 findings. Sitting 3 list with recommendations: `04_Stage3_Fact_Check/AIOM_Ch03_Sitting3_rulings.md`.
 
 ---
 
