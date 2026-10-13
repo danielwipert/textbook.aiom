@@ -133,15 +133,19 @@ A4-note. Assessment 4 (THM-008, competency C4) must supply THM-008's proposition
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-13
 
 > v4 step 4, Decision 75. Dan's own pass and rewrite, in Word, through `copyedit_export.py` and `copyedit_import.py`. It sits BEFORE the fact check so that every step after it checks the text Dan wants: on Chapter 2 this pass changed 104 of 195 blocks after three checks had run. Includes the whole-chapter read the old Stage 8 was.
 
-- [ ] Unedited export round-trips at zero reported changes before the pair is trusted on this chapter
-- [ ] Dan's pass imported; every block the importer refused resolved by hand
-- [ ] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
+- [x] Unedited export round-trips at zero reported changes before the pair is trusted on this chapter
+- [x] Dan's pass imported; every block the importer refused resolved by hand
+- [x] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
 
 Findings:
+A1. Import 2026-10-12: 278/278 blocks, no splits, 106 edited; 674 spans placed, 9 refused (inline markup or entity) applied by hand verbatim; re-extract matches the docx in 0/278 differing blocks (control: 106). Commit 3c0afca.
+A2. voicecheck: new 'the reader' in 3.2. Dan: A, 'a reader'. Commit 8e7b4ff.
+A3. freqsweep: new 'often remain informal' in 3.1. Dan: A, 'can remain informal'. Commit e8fc636.
+A4. freqsweep: new 'a common objection' in 3.3. Dan: A, 'an objection'. This commit. Remaining 15 hits are rewordings of those kept at S2b.
 
 ---
 

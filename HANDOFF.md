@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-11. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-13. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -12,7 +12,7 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
   the Chapter 3 sitting 2b work (from `claude/happy-bardeen-hhct43`) and Decision
   84. Both branches are merged; Dan deletes them (403 from the container).
 - Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  **Chapter 3 (Process v4): Stage 4 passed 2026-10-06; author pass next.** Chapters 4 to 15 not started.
+  **Chapter 3 (Process v4): author pass (Stage 6) passed 2026-10-13; fact check next.** Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -28,10 +28,13 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    four gaps filled; Stage 0 passed; G1 open only on the word band.
 2. DONE: Stage 4 closed 2026-10-06. Three external reviews (second model, two
    Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
-   **NEXT: Dan's author pass** on
-   `03_Stage6_Author_Pass/AIOM_Ch03_author_pass.docx` (round trip verified at zero
-   changes). Then `copyedit_import.py`, the mechanical checks, `freqsweep.py`, and
-   the fact-check package (one file, Dan's rule) for a checker with web access.
+   DONE 2026-10-13: Dan's author pass imported (106 of 278 blocks), three new
+   hits put to him as gates and fixed (checklist A1 to A4). **NEXT: build the
+   fact-check package** (one file, Dan's rule) from a fresh RENDER of the
+   current text, for two checkers (A reads sources, B reads only the render)
+   with web access. New claims to flag: 3.1 "every empirical claim has
+   evidence attached" (validator description) and the two new "Chapter 14
+   explains" forward references (continuity ledger line 129).
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -40,8 +43,8 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** the author pass: edit the .docx in Word, save it as
-  `AIOM_Ch03_author_pass_DAN_EDIT.docx` in the same folder, and say so.
+- **Chapter 3:** nothing until the fact-check package is built; then Sitting 3
+  (rule fact-check findings A and B).
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
