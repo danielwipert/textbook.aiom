@@ -38,11 +38,22 @@ def analyse(pdf_path):
                         and (r["x1"] - r["x0"]) < 200], key=lambda r: r["top"])
         for r in boxes:
             frags += 1
-            term = "".join(c["text"] for c in sorted(
-                [c for c in page.chars
-                 if r["top"] - 2 < c["top"] < r["bottom"] and r["x0"] < c["x0"] < r["x1"]
-                 and "Plex-Semi-Bold" in c["fontname"] and round(c["size"], 1) == 11.0],
-                key=lambda c: c["x0"]))
+            # Read the term line by line, then left to right. Sorting on x0 alone
+            # interleaved a term that wraps: Chapter 3's "AI Operations /
+            # Management" read as "AMIa Onapgeeramteionnts", matched no callout,
+            # and the pass stopped with gate 4 still failing. Found at Stage 5,
+            # 2026-10-13; Chapters 1 and 2 had no wrapped term.
+            chars = [c for c in page.chars
+                     if r["top"] - 2 < c["top"] < r["bottom"] and r["x0"] < c["x0"] < r["x1"]
+                     and "Plex-Semi-Bold" in c["fontname"] and round(c["size"], 1) == 11.0]
+            rows = []
+            for c in sorted(chars, key=lambda c: c["top"]):
+                if rows and c["top"] - rows[-1][0]["top"] < 2:
+                    rows[-1].append(c)
+                else:
+                    rows.append([c])
+            term = " ".join("".join(c["text"] for c in sorted(row, key=lambda c: c["x0"]))
+                            for row in rows)
             if term:
                 last_term = term
             else:
