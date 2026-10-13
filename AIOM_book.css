@@ -429,6 +429,13 @@ h3.tail-head {
   text-align: left; break-after: avoid;
 }
 .problem > p { font-size: 10pt; line-height: 15pt; margin: 0 0 6pt 0; }
+/* v7.2, Dan 2026-10-13 at Ch3 Stage 5. A provenance line inside a problem
+   (the Part I cumulative case) matched .problem > p, which has the same
+   specificity as p.provenance and comes later, so it set at 10pt across three
+   lines instead of the 7pt line every opening case carries. This restores the
+   provenance size and spacing there. It matches nothing in Chapters 1 and 2;
+   their renders were rebuilt and compared page by page. */
+.problem > p.provenance { font-size: 7pt; line-height: 9pt; margin: 0 0 12.5pt 0; }
 .problem .pnote {
   font-size: 9pt; line-height: 12.5pt; font-style: italic;
   color: var(--axis); margin: 7pt 0 0 0; text-align: left; hyphens: none;
