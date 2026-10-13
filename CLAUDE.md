@@ -284,8 +284,10 @@ into small **gates** and put them to Dan one at a time.
   `AIOM_Workplan_v5.md` for anything Decision-level, or one line per finding in
   the checklist for a sitting ruling (Decision 81).
 
-**At a sitting** the package is still built beforehand (Decision 81). Each item
-needing a choice is put as one gate; the rulings are still applied in one commit.
+**At a sitting** the package is still built beforehand (Decision 81). Many
+findings go as GROUP gates (Dan, 2026-10-13): "accept every recommendation in
+this group", the full list in the package, any item pullable ("A, but not
+B-10"). Rulings are still applied in one commit. Keep the text around a gate short.
 
 Format:
 
