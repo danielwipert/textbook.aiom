@@ -237,3 +237,93 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Wording only. The sentence still refers to the case rather than asserting the fact independently, so it still carries no citation marker, and the REVIEW below still binds: if Stage 7 corrects the April timing, this sentence changes with it.
 - REVIEW: **THIS SENTENCE RESTATES A FIGURE THAT LIVES IN THE OPENING CASE**, added at Stage 4 to close the second model's C1 finding that section 2.3 ran entirely on placeholders while sitting one page from the chapter's best instance. It refers to the case rather than asserting the fact independently, which is why it carries no citation marker. **If the opening case's timing ever changes, this sentence changes with it**, and nothing mechanical will say so, because both forms are grammatical and neither is a forbidden string.
 - REVERSES-IF: the April timing is corrected at Stage 7. Dan verified it at Stage 3 as row A1.
+
+## Ch03
+
+**Ruled by Dan at sitting 3, 2026-10-13, in three groups, each accepted whole**
+(`Drafts/Ch03_A_Science_and_Its_Discipline/04_Stage3_Fact_Check/AIOM_Ch03_Sitting3_rulings.md`).
+Group 1 rests on external check A, which read the sources with live web access.
+Groups 2 and 3 rest on external check B, which read only the render, and Group 2
+was checked by Claude against the pinned registry, dag.aiom 9d7ee50. Entries
+below cover the narrowings a copy edit could silently undo; the rest are
+wording that no shorter sentence would restore.
+
+### FC3-A1 :: mission wording quoted exactly :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: finops-2026-mission
+- FORBIDDEN: who manage cloud value
+- FORBIDDEN: who manage technology value
+- REQUIRED: "advancing the people who manage the value of cloud."
+- REVERSES-IF: the Foundation's announcement gives a different wording.
+
+### FC3-A3 :: history not in the report :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: finops-2026-state
+- FORBIDDEN: work the discipline had not originally been created to do
+- REQUIRED: Its central finding concerned the expansion of FinOps into AI spending.
+- REVERSES-IF: a source states that FinOps was not created for AI spending, cited here.
+
+### FC3-A6 :: provisioning by code unsourced :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: finops-definition-2024
+- FORBIDDEN: a few lines of code
+- REQUIRED: cloud consumption varied with use, and the bills arrived after capacity had been used.
+- REVERSES-IF: a source describing provisioning by code is cited.
+
+### FC3-B10 :: survey population :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: finops-2026-state
+- FORBIDDEN: nearly all of them were managing it
+- REQUIRED: nearly all of the survey's respondents were managing it.
+- REVERSES-IF: a source covering all FinOps practitioners, not one survey's respondents.
+
+### FC3-B2 :: provenance banner after the check :: 2026-10-13 :: Stage 3
+- FORBIDDEN: have not yet been checked against the report itself
+- REQUIRED: Figures and the quotation checked against the Foundation's report and announcement, October 2026.
+- REVERSES-IF: a figure or the quotation is found to differ from the report.
+
+### FC3-A12 :: the release's own words :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: klarna-2024-assistant
+- FORBIDDEN: built on OpenAI's models
+- REQUIRED: an AI assistant powered by OpenAI
+- REVERSES-IF: none expected; the release is fixed.
+
+### FC3-R1 :: non-claims recorded for certified claims only :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: aibe-registry-2026
+- FORBIDDEN: The registry records every claim's non-claims.
+- REQUIRED: The registry records the non-claims of every certified claim.
+- REVERSES-IF: a pinned registry version in which every claim, certified or not, carries exclusions.
+
+### FC3-B4 :: certified count by type :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: aibe-registry-2026
+- REQUIRED: including 9 of the 11 theorems and 20 of the 21 lemmas.
+- REVIEW: the counts belong to the pinned version; if the manifest is refreshed, the dated box changes with it.
+- REVERSES-IF: the manifest is refreshed.
+
+### FC3-B13 :: value boundary is the book's practice, not LEM-021 :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: aibe-registry-2026
+- FORBIDDEN: The organization must set that boundary for each deployment
+- REQUIRED: This book adds two requirements of practice that the lemma does not state
+- REVERSES-IF: a certified registry claim requiring a per-deployment boundary set in advance.
+
+### FC3-B21 :: THM-002 claims a risk :: 2026-10-13 :: Stage 3
+- SOURCE-KEY: aibe-registry-2026
+- FORBIDDEN: yet the cost is not understated
+- REQUIRED: yet doing so creates no risk of understating the cost within the evaluation boundary.
+- REVERSES-IF: THM-002's statement changes upstream.
+
+### FC3-B1 :: certification is not truth :: 2026-10-13 :: Stage 3
+- FORBIDDEN: states what is true about consuming AI
+- FORBIDDEN: Part II establishes what is true
+- REQUIRED: AI Business Economics states conditional claims about consuming AI and records what each one rests on.
+- REVERSES-IF: none; 3.1 says the validator checks structure, not truth.
+
+### FC3-B27 :: wrong claims, careful execution :: 2026-10-13 :: Stage 3
+- FORBIDDEN: however carefully managers carry it out
+- FORBIDDEN: fails however well it is run
+- REVERSES-IF: none; the absolute form had no support.
+
+### FC3-B26 :: the five questions :: 2026-10-13 :: Stage 3
+- FORBIDDEN: cannot answer without the discipline
+- REQUIRED: exists to answer five questions from an organization's own records.
+- REVERSES-IF: evidence that organizations cannot answer the questions without the discipline, cited.
+
+### FC3-B35 :: no cost ranking :: 2026-10-13 :: Stage 3
+- FORBIDDEN: The most costly misreading
+- REVERSES-IF: evidence comparing the costs of misreadings, cited.
