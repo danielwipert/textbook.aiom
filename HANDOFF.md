@@ -29,12 +29,12 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. DONE: Stage 4 closed 2026-10-06. Three external reviews (second model, two
    Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
    DONE 2026-10-13: Dan's author pass imported (106 of 278 blocks), three new
-   hits put to him as gates and fixed (checklist A1 to A4). **NEXT: build the
-   fact-check package** (one file, Dan's rule) from a fresh RENDER of the
-   current text, for two checkers (A reads sources, B reads only the render)
-   with web access. New claims to flag: 3.1 "every empirical claim has
-   evidence attached" (validator description) and the two new "Chapter 14
-   explains" forward references (continuity ledger line 129).
+   hits put to him as gates and fixed (checklist A1 to A4). **NEXT: Dan runs
+   fact checks A and B** (packages built 2026-10-13 in `04_Stage3_Fact_Check/`,
+   one file each, to two different models with web access; A must disclose web
+   access). Outputs come back as `AIOM_Ch03_Stage3_externalcheck_A.md` and
+   `_B.md`; then Claude builds the sitting 3 rulings list, adding R-1 from
+   `AIOM_Ch03_Stage3_registry_check.md`.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -43,8 +43,8 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** nothing until the fact-check package is built; then Sitting 3
-  (rule fact-check findings A and B).
+- **Chapter 3:** run fact checks A and B (two packages in
+  `04_Stage3_Fact_Check/`), return both outputs; then Sitting 3.
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
@@ -86,6 +86,9 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   between BEGIN/END markers. Ch3's was hand-assembled; write `review_package.py` so
   every chapter's package is generated the same way.
 
+- **`factcheck_packet.py` skips citations inside tables** (found 2026-10-13):
+  Ch3 Table 3.1's three cited cells were missing from the packet; added by hand
+  in `build_packages.py`.
 - **`prose_extract.py` drops tables** (found 2026-10-06): Ch3 Table 3.1 never reached
   the second-model reviewer, who then reported it empty (S-2). Patched into the Ch3
   package by hand; fix the extractor and check the Ch1 exemplar for the same loss.
