@@ -12,7 +12,7 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
   the Chapter 3 sitting 2b work (from `claude/happy-bardeen-hhct43`) and Decision
   84. Both branches are merged; Dan deletes them (403 from the container).
 - Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  **Chapter 3 (Process v4): author pass (Stage 6) passed 2026-10-13; fact check next.** Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
+  **Chapter 3 (Process v4): fact check (Stage 3) passed 2026-10-13; scoped review, then production.** Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -29,12 +29,11 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. DONE: Stage 4 closed 2026-10-06. Three external reviews (second model, two
    Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
    DONE 2026-10-13: Dan's author pass imported (106 of 278 blocks), three new
-   hits put to him as gates and fixed (checklist A1 to A4). **NEXT: Dan runs
-   fact checks A and B** (packages built 2026-10-13 in `04_Stage3_Fact_Check/`,
-   one file each, to two different models with web access; A must disclose web
-   access). Outputs come back as `AIOM_Ch03_Stage3_externalcheck_A.md` and
-   `_B.md`; then Claude builds the sitting 3 rulings list, adding R-1 from
-   `AIOM_Ch03_Stage3_registry_check.md`.
+   hits put to him as gates and fixed (checklist A1 to A4). DONE 2026-10-13: fact check (Stage 3)
+   passed; sitting 3 rulings applied (checklist S3 lines). **NEXT: a scoped
+   review of the Group 3 passages** (teaching prose edited after the review;
+   re-run matrix), then Stage 5 design review (print gates 4 and 8 fail on
+   pagination: run place.py, then footnote 13), G2, G3, sign-off.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -43,8 +42,8 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** run fact checks A and B (two packages in
-  `04_Stage3_Fact_Check/`), return both outputs; then Sitting 3.
+- **Chapter 3:** nothing until the scoped review of the Group 3 passages is
+  built; then sign-off (Sitting 4) after production.
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
@@ -86,6 +85,9 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   between BEGIN/END markers. Ch3's was hand-assembled; write `review_package.py` so
   every chapter's package is generated the same way.
 
+- **`claimcheck.normalize` turns every tag into a space** (found 2026-10-13), so
+  "<span class=nb>OpenAI</span>." reads "OpenAI ." and a REQUIRED string cannot
+  end on an .nb word plus period (FC3-A12 recorded without it). The span.nb rule.
 - **`factcheck_packet.py` skips citations inside tables** (found 2026-10-13):
   Ch3 Table 3.1's three cited cells were missing from the packet; added by hand
   in `build_packages.py`.

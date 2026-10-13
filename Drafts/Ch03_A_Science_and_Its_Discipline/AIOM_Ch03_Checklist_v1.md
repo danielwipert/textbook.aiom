@@ -153,19 +153,56 @@ A4. freqsweep: new 'a common objection' in 3.3. Dan: A, 'an objection'. This com
 
 Owner: Dan, external (sitting 3)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-13
 
 > v4 step 5, Decision 76. ONE external fact check replacing v3 Stages 3 and 7, on a fresh RENDER of the post-author-pass text, never the HTML. Two checks run in parallel on different prompts: A reads the sources, B reads only the render. THE CHECKER MUST HAVE WEB ACCESS: Chapter 2's first checker could not read, and its work was redone. Labelled Stage 3 because it owns W14. Rulings go into the register notes, with the condition that would reverse them, and into AIOM_Claim_Ledger.md.
 
 - [x] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
 - [x] Check A (reads the sources, web access confirmed) returned
 - [x] Check B (reads only the render) returned
-- [ ] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
-- [ ] Any empirical claim added after this check carries a source before lock (standing rule 2)
+- [x] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
+- [x] Any empirical claim added after this check carries a source before lock (standing rule 2)
 
 Findings:
 F0. Packages built 2026-10-13 from a fresh render (gate 8 fails on footnote 7, pagination, booked to Stage 5): one file each, A (render text + packet) and B (render text only), by `04_Stage3_Fact_Check/build_packages.py`. Table 3.1's three citations added by hand (packet tool skips tables). Registry passages checked by Claude against dag.aiom 9d7ee50: all match except R-1, "every claim's non-claims" (LEM-015, THM-003 empty, both uncertified), for Dan.
 F1. Checks returned 2026-10-13: A (web access yes) 13 findings, 6 verified, 6 partly supported, 1 cannot confirm (Gartner blocked, Cisco corroborates), none contradicted; B 36 findings. Sitting 3 list with recommendations: `04_Stage3_Fact_Check/AIOM_Ch03_Sitting3_rulings.md`.
+S3. Sitting 3, 2026-10-13: Dan ruled Groups 1, 2 and 3 A (every recommendation). Applied commit 1eca9c9; para split (gate, A) in the next commit. One line per finding:
+S3-A1/B30. Mission wording quoted exactly ("the value of cloud/technology"). Accept. Ledger FC3-A1.
+S3-A2/A5. Survey figures and quotation verified in the report. Record. Register note.
+S3-A3. Central finding recast to the expansion of FinOps into AI. Accept. FC3-A3.
+S3-A4. Mission source replaced by the Foundation's own announcement. Accept. Register.
+S3-B2. Provenance banner now says checked against the report. Accept (banner, not body). FC3-B2.
+S3-B10. "nearly all of the survey's respondents"; gloss "respondents". Accept narrowed. FC3-B10.
+S3-A6/B12. "few lines of code" cut; new source finops-definition-2024; 3.5 matched. Accept narrowed. FC3-A6.
+S3-A7/A8/B11. Definition verified; table cell carries value purpose; opening "FinOps ... not built to govern". Accept.
+S3-A13/B9. Table "grew from managing cloud cost and usage"; one remark not generalized. Accept narrowed.
+S3-A9/B36. Gartner cannot confirm (Cisco corroborates); cell follows reproduced wording; gloss "Gartner's definition". Accept. Grade C.
+S3-A10. Kreuzberger verified. Record.
+S3-A11/B28. Klarna figures verified; resolution time attributed. Accept.
+S3-A12. "powered by OpenAI". Accept. FC3-A12.
+S3-B29. Case tasks: "the announcement"; "would be metered". Accept narrowed.
+S3-R1/B15. Non-claims of every certified claim; record not exhaustive. Accept. FC3-R1.
+S3-B4. Dated box: 9 of 11 theorems, 20 of 21 lemmas certified. Accept. FC3-B4.
+S3-B14. Status computed; no one enters the status by hand. Accept narrowed.
+S3-B17. "any certified theorem" (twice). Accept.
+S3-B18. "a circular chain of recorded support" (zero cycles in the registry). Accept narrowed.
+S3-B25. Disagreement over a proposition names the deciding fact. Accept.
+S3-B13. Value boundary: book's practice separated from LEM-021, key term matched. Accept. FC3-B13.
+S3-B21. P2 steps 3 and 6 state THM-002's risk. Accept. FC3-B21.
+S3-B23. P1 step 2 states LEM-020's scope. Accept.
+S3-B22. P1 "Its scope adds a requirement". Accept, P1 only.
+S3-B7. Craft section: cut "the theorem says nothing about it" and the pilot sentence. Accept narrowed.
+S3-B19. Flat-fee case recast. Accept. Para over 150 words, split (gate, A).
+S3-B24. Procedure step 1: a name is a label. Accept (gloss, name untouched).
+S3-B6, B8, B5, B16. Keep: proof record, scope and locked Ch2 wording support the text.
+S3-B1. Caption and 3.6 no longer say the science establishes what is true. Accept. FC3-B1.
+S3-B3. "each formal result the book presents" (3.1, summary). Accept narrowed.
+S3-B27. "careful execution does not repair" (3.1, 3.4). Accept. FC3-B27.
+S3-B31, B32, B33, B34. Practice not presented as fact; Chapter 1 conditions; example labelled; start of the discipline. Accept.
+S3-B35. "A costly misreading". Accept. FC3-B35.
+S3-B26. Five questions "from an organization's own records" (3.6). Accept. FC3-B26.
+S3-B20. Keep: the book's argument.
+S3-NEXT. Group 3 edited teaching prose after the review: scoped matrix re-runs the review for those passages before Stage 5.
 
 ---
 
