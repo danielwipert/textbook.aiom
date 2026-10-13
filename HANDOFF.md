@@ -30,9 +30,10 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
    DONE 2026-10-13: Dan's author pass imported (106 of 278 blocks), three new
    hits put to him as gates and fixed (checklist A1 to A4). DONE 2026-10-13: fact check (Stage 3)
-   passed; sitting 3 rulings applied (checklist S3 lines). **NEXT: a scoped
-   review of the Group 3 passages** (teaching prose edited after the review;
-   re-run matrix), then Stage 5 design review (print gates 4 and 8 fail on
+   passed; sitting 3 rulings applied (checklist S3 lines). **NEXT: Dan runs the
+   scoped review** (`02_Stage4_Review/AIOM_Ch03_Review_scoped_package.md`, all 35
+   sitting 3 passages, one second model) and returns it; Claude lists findings,
+   Dan rules; then Stage 5 design review (print gates 4 and 8 fail on
    pagination: run place.py, then footnote 13), G2, G3, sign-off.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
@@ -42,8 +43,8 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** nothing until the scoped review of the Group 3 passages is
-  built; then sign-off (Sitting 4) after production.
+- **Chapter 3:** run the scoped review package on a second model and return
+  its output; then sign-off (Sitting 4) after production.
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
