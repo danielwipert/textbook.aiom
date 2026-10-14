@@ -32,9 +32,8 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    hits put to him as gates and fixed (checklist A1 to A4). DONE 2026-10-13: fact check (Stage 3)
    passed; sitting 3 rulings applied (checklist S3 lines). Scoped re-review done 2026-10-13
    (checklist SR lines). Production done 2026-10-14 (checklist P,
-   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). **NEXT:
-   build the sign-off package** (Sitting 4): fresh render plus a diff since the
-   author pass; Dan approves the whole or names one structural reason; then
+   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). Sign-off package built
+   2026-10-14 (`08_Stage8_Sign_Off/`). **NEXT: Dan, Sitting 4**: he approves the whole or names one structural reason; then
    Stage 9 lock (continuity.py --update, glosses by hand).
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
@@ -44,7 +43,8 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** Sitting 4, sign-off, once Claude has built the package.
+- **Chapter 3:** Sitting 4, sign-off: read `08_Stage8_Sign_Off/` (render and
+  diff), approve the whole or name one structural reason.
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited

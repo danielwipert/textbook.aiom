@@ -301,6 +301,7 @@ Status: [ ]        Date cleared:
 > v4 step 7. Claude sends the render plus a short diff of everything that changed since the author pass. Dan approves the whole, or names ONE structural reason and the chapter returns to the step that owns it. The full read already happened in the author pass.
 
 Findings:
+SO0. Package built 2026-10-14 in `08_Stage8_Sign_Off/` by `build_signoff.py`: the final render (27 pp, fifteen print gates pass) and a diff since the author pass (b56819c), 45 changes by step (Sitting 3: 34, scoped re-review: 9, production: 2), plus one move with no words changed.
 
 ---
 
