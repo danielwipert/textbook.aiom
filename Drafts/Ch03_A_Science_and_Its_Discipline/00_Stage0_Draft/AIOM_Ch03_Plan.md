@@ -1,73 +1,72 @@
-# Chapter 3 plan: A Science and Its Discipline
+# Chapter 3 plan, version 2: A Science and Its Discipline
 
-Process v4, step 1 (Decision 77). For Dan's sitting 1: approve, or redirect.
-Source of the outline: Consolidated Spec, "CHAPTER 3" (lines 647 to 684). This
-plan does not restate the outline; it adds what drafting needs and the decisions
-only Dan can make.
+Process v4, step 1 (Decision 77), for Dan's sitting 1: approve, or redirect.
+Replaces the 2026-10-01 plan, which is in git history. It implements
+**Decision 85** (2026-10-14), Dan's seven gates: the registry stays behind the
+scenes; competency C4 becomes the discipline itself; four tight teaching
+sections; one dated box of real reporting per function; the function audit as
+the craft section; the full cycle runs again.
 
 ## The chapter in one line
 
 AI Business Economics is the science; AI Operations Management is the discipline
-that acts on it. Competency C4 (read a formal claim). No anchor theorem; the THM-004
-trace is the set piece. Closes Part I.
+that acts on it, through five functions, inside borders that separate it from
+its neighbors. Competency C4, rewritten (decision 1 below). No anchor theorem and
+no new panel. Closes Part I.
 
 ## Slots
 
 | Slot | Content | Source or object |
 |---|---|---|
-| 1 Opening case | FinOps Foundation rewrites its mission, Feb 19, 2026: "value of cloud" to "value of technology"; 98% of practitioners manage AI spend, up from 31% two years earlier; 1,192 practitioners surveyed; practitioner quote "Is your AI providing value? No one can answer that question yet." Mission rewrite and arc only; the full FinOps treatment stays in Ch14. Dated. | State of FinOps 2026 report (data.finops.org) and the Foundation's Feb 19, 2026 press release. **Grade C**: search coverage converges on every figure; no primary read yet. Fact check A must read both. |
-| 2 Teaching body | 3.1 why name a science; 3.2 the THM-004 trace (Figure 3.1, a tree); 3.3 how to read a formal claim (conditions, scope, non-claims, falsification; the "word games" objection); 3.4 the discipline and the five functions (Figure 3.2, two layers); 3.5 the four borders as a table; 3.6 the five Founding Questions, verbatim from the Workplan's canonical table | Registry: THM-004 (certified) and its parents, LEM-020 among them. Borders: each neighbor's own definition, cited (candidates below). |
-| 3 Craft section | The trace procedure, six numbered steps, fully worked on the THM-004 chain | Registry statements, verbatim |
-| 4 Summary | As the spec lists | none |
-| 5 Key terms | As the spec lists; AI Business Economics terms come from `AIOM_Inherited_Vocabulary.md`, never re-explained | Registry definitions |
-| 6 Questions and problems | Three discussion questions; P1 worked trace on THM-004; P2 completion trace (decision 4); P3 the "word games" reply; then the Part I cumulative case on Klarna, Feb 2024 announcement only | Klarna/OpenAI announcement, Feb 2024, primary, Grade A in the case bank |
+| 1 Opening case | KEPT as locked and fact-checked: the FinOps Foundation's mission change, February 2026; the 2026 survey; the practitioner quotation | Verified at the 2026-10-13 fact check (finops-2026-mission, -state, -what-is, -definition-2024) |
+| 2 Teaching body | **3.1 The science and the practice** (about 900 words): the business problem first; AI Business Economics as an ordered body of conditional claims; one short passage on how the book shows them (numbered panels such as Chapter 2's THM-004, each with a plain-English reading; the full statements are in Appendix A); how the two layers depend on each other; Figure 3.1, the two layers (the old Figure 3.2). **3.2 The five functions** (about 2,400): the definition of AI Operations Management, then each function in timeless prose followed by **one dated box of real reporting** (five boxes). **3.3 Where the discipline ends** (about 900): KEPT, the three subjects Chapter 1 set aside and Table 3.1, the four neighbors. **3.4 Five questions the discipline exists to answer** (about 700): KEPT, the Founding Questions verbatim | Dated boxes: candidates in `AIOM_Ch03_Redesign_examples.md`, all Grade C until read. Neighbors: the verified table sources |
+| 3 Craft section | **The function audit**, six steps: (1) list the deployment's AI activities (Chapter 1's inventory); (2) for each, ask which question it answers and assign it to a function; (3) assign anything that answers a neighbor's question to that neighbor; (4) mark each function no activity performs; (5) name who performs each function, or "no one"; (6) state the first gap to close and the record it needs. Worked in full on one real deployment (decision 2) | Case per decision 2 |
+| 4 Summary | The two layers; the five functions; the borders; the Founding Questions, unanswered | none |
+| 5 Key terms | AI Business Economics; AI Operations Management; the five functions, each named; the value boundary; the Founding Questions; the function audit. Dropped: registry, theorem, lemma, proposition, certified claim, trace, dependency, condition, scope, non-claim, falsifying case, trace procedure | Inherited vocabulary for AI Business Economics terms |
+| 6 Questions and problems | Discussion: the hardest border to defend (kept); a Founding Question in a CFO's language (kept); Chapter 2's flows mapped to the functions (kept); NEW, one dated box: what would the organization have to record to answer that function's question. Problems: **P1 worked** function audit; **P2 completion** audit, steps 4 to 6 open; **P3** an ownership dispute between FinOps and AI Operations Management over one named activity, argued in a page. Then the **Part I cumulative case, KEPT** (Klarna, February 2024 announcement only) | Cases per decision 2; Klarna verified 2026-10-13 |
 
-**Border sources, to confirm at drafting (all Grade C until read):** AIOps, the
-Gartner glossary definition; MLOps, Kreuzberger, Kühl and Hirschl, "Machine
-Learning Operations (MLOps): Overview, Definition, and Architecture," *IEEE
-Access* (2023); FinOps, the FinOps Foundation's own definition and framework;
-regulatory AI governance, one fence sentence with no claim needing a source.
+**Removed:** the THM-004 trace (old 3.2) and Figure 3.1; how to read a formal
+claim (old 3.3); the trace procedure; the dated registry-counts box; problems P1
+and P2 on LEM-020 and THM-002; the four lemma and seven proposition citations.
 
 **Continuity promises this chapter pays** (`AIOM_Continuity_Ledger.md`):
-- Ch1 to Ch3: where each neighboring subject ends and AIOM begins. Paid by 3.5.
-- Ch2 to Ch3: THM-004 formalizes the economic consequence of the third flow's
-  asymmetry and does not establish the taxonomy itself. Paid by 3.2 and 3.3.
+- Ch1 to Ch3: where each neighboring subject ends. Paid by 3.3, unchanged.
+- Ch2 to Ch3: "As Chapter 3 explains, the theorem formalizes the economic
+  consequence of the third flow's asymmetry; it does not establish the taxonomy
+  itself." See decision 3.
 - Ch2 to Ch3: Chapter 3 names the discipline that resolves the category error.
-  Paid by 3.4.
+  Paid by 3.2.
 
-**Promises it makes:** each Founding Question to its answering chapter (7, 8 and
-9, 10, 11, 12); the FinOps treaty to Ch14; the THM-008 unseen trace to Ch7's
-assessment; the Klarna reveal to Ch6.
+**Promises it makes:** each Founding Question to its answering chapter; the
+FinOps treaty to Chapter 14; the Klarna reveal to Chapter 6. **Withdrawn:** the
+THM-008 trace in Chapter 7's assessment (C4 no longer asks for a trace).
 
-**Length:** in line with Chapters 1 and 2, about 7,000 to 7,500 words. Two
-figures and one table.
+**Ledgers, from the first lock:** Chapter 3's 14 claim-ledger rulings are
+re-ruled at the new fact check (kept where the sentence survives, superseded
+where it is cut); Chapter 3's continuity-ledger rows (16 terms, 21 forward
+references, 13 glosses) are reconciled at the new lock, removing what the new
+text no longer carries.
 
-## Prerequisite from Dan before drafting
+**Length:** 6,000 to 7,500 words (Decision 82). One figure, one table, five
+dated boxes.
 
-**The registry bundle.** The repository holds only the manifest (names and
-hashes), never the statements or the edges. The trace in 3.2, the craft section
-and P1 and P2 quote registry statements verbatim (rule 4a), so drafting those
-parts needs the bundle at `dag.aiom` commit `9d7ee50` or a newer one. Everything
-else can be drafted without it.
+## Decisions for Dan at sitting 1, one gate each
 
-## Decisions for Dan, each with a recommendation
-
-1. **Registry counts in the prose.** The spec says "200 propositions, 20 lemmas,
-   8 theorems"; the registry now holds 201, 21 and 11 (194, 20 and 9 certified),
-   and will move again. **Recommend:** describe the structure in body prose with
-   no counts (fifty-year rule), and put the dated counts, with the registry
-   version, in one dated box.
-2. **"Neither can most organizations on earth" (spec, 3.6).** An unsourced
-   frequency claim (Decision 78). **Recommend:** replace with the opener's own
-   evidence, the practitioner line "No one can answer that question yet," which
-   is sourced and says the same thing more strongly.
-3. **The Part I cumulative case lives in Chapter 3's Slot 6**, as the spec
-   places it, rather than running a separate lifecycle in `Case_Part_I/`.
-   **Recommend:** yes. It is one page of evidence and the same fact check covers
-   it, which saves a whole extra round of steps.
-4. **P2's theorem.** **Recommend:** THM-002 (certified), the spec's candidate,
-   so the completion problem previews Chapter 5.
-
-## Changes ruled after approval
-
-- 2026-10-01, sitting 2: problem P1 traces LEM-020 rather than THM-004, because the craft section already works THM-004 in full (R-16). A fourth discussion question, the interleaving question, is kept (R-15). The registry repository is private, so section 3.1 states that Appendix A reaches lemma level (R-2).
+1. **The wording of C4 and Assessment 4.** Proposed C4: "Place an
+   organization's AI work in the discipline: assign each activity to one of the
+   five functions, name the functions no one performs, and tell AI Operations
+   Management apart from FinOps, MLOps, AIOps and regulatory governance."
+   Proposed Assessment 4: "Function audit on a cited real deployment not worked
+   in the book: list its AI activities, assign each to a function or a
+   neighboring discipline, mark the functions no one performs, and defend one
+   contested border in a paragraph a CFO would accept." Also: C4 moves from
+   Group 1 (thinking) to Group 2 (doing), or stays.
+2. **Which real deployments carry the craft example, P1 and P2.** Candidates:
+   Lindy.ai (small company, Anthropic bill above payroll, all traffic moved to
+   DeepSeek, NPR, July 2026); Microsoft's Copilot routing to its own models
+   (Bloomberg, July 2026); JPMorgan's stated AI value (2024 to 2025). A case used
+   for a problem must not repeat a dated box.
+3. **Chapter 2's promise about THM-004.** Keep one sentence in 3.1 that pays it,
+   or leave it unpaid and amend Chapter 2 at the holistic review.
+4. **The function names in the key terms**: five separate entries, or one entry
+   naming all five.
