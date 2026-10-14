@@ -33,20 +33,45 @@ AIOM_Prose_Standard_v2.0.md bind from Stage 0 forward.
 
 ---
 
+
+## REOPENED 2026-10-14: Stage 0 and everything after it
+
+Grounds: Dan, 2026-10-14: Chapter 3 redesigned and rewritten (Decision 85)
+
+Every step from Stage 0 forward is reset to not-run. Their sub-checkboxes are cleared and their findings are archived in place, marked superseded. Steps before the reopen point are untouched and keep their passes.
+
+Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step from the one that owns the change, and no chapter is Locked until every step is complete again.
+
+| Step | Name | Was | Sub-boxes cleared |
+|---|---|---|---|
+| Stage 0 | Plan and draft | passed | 4 |
+| Gate G1 | Structural gate | passed | 11 |
+| Stage 4 | Review | passed | 14 |
+| Stage 6 | Author pass | passed | 3 |
+| Stage 3 | Fact check | passed | 5 |
+| Stage 5 | Design review | passed | 0 |
+| Gate G2 | Production gate | passed | 18 |
+| Gate G3 | Continuity gate | passed | 8 |
+| Stage 8 | Sign-off | passed | 0 |
+| Stage 9 | Locked | passed | 0 |
+
+---
 ## Stage 0. Plan and draft
 
 Owner: Claude; Dan approves the plan (sitting 1)
 
-Status: [x]        Date cleared: 2026-10-01
+Status: [ ]        Date cleared: 
 
 > v4 step 1 and 2. A one-page plan comes FIRST (Decision 77) and Dan approves it before a word is drafted, because a structural question is cheapest before the prose exists. Then Claude drafts against the fixed six-slot skeleton, with the craft standard binding from here, and clears the frequency sweep before anyone reads the draft (Decision 78). Sources verified live with an access date; no archival (Decision 48).
 
-- [x] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
-- [x] Dan approved the plan (sitting 1)
-- [x] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
-- [x] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
+- [ ] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
+- [ ] Dan approved the plan (sitting 1)
+- [ ] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
+- [ ] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 P0. Plan written 2026-10-01 (`00_Stage0_Draft/AIOM_Ch03_Plan.md`); four decisions and one prerequisite (registry bundle) put to Dan for sitting 1.
 S1. Sitting 1, 2026-10-01: Dan accepted all four recommendations. (1) No registry counts in body prose; dated counts with the registry version in one dated box. (2) "Neither can most organizations on earth" replaced by the opener's sourced practitioner quote. (3) Part I cumulative case drafted inside Slot 6. (4) THM-002 for P2. Registry-dependent parts (3.2 trace, craft section, P1, P2) wait for the bundle; everything else drafts now.
@@ -69,23 +94,25 @@ D7 ruled 2026-10-01: Dan approved; Chapter 1 amended to "the AI Business Economi
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-10-01
+Status: [ ]        Date cleared: 
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
-- [x] All six slots present, in order, correctly headed
-- [x] Opening case carries a provenance line under its title
-- [x] Every exit competency assigned to this chapter is addressed
-- [x] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
-- [x] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
-- [x] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
-- [x] Every Slot 5 key term appears defined in the body
-- [x] Zero em dashes
-- [x] Word count inside the chapter target band
-- [x] Gloss-less lemmas carry a book-authored gloss, marked as such
-- [x] voicecheck.py mechanical bans clean before anyone reads the draft
+- [ ] All six slots present, in order, correctly headed
+- [ ] Opening case carries a provenance line under its title
+- [ ] Every exit competency assigned to this chapter is addressed
+- [ ] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
+- [ ] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
+- [ ] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
+- [ ] Every Slot 5 key term appears defined in the body
+- [ ] Zero em dashes
+- [ ] Word count inside the chapter target band
+- [ ] Gloss-less lemmas carry a book-authored gloss, marked as such
+- [ ] voicecheck.py mechanical bans clean before anyone reads the draft
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 G1-1. All boxes pass except the word band: Decision 33 sets 6,500 to 7,500 for Chapters 1 and 2 only. Chapter 3 is 6,050. Band put to Dan at sitting 2; G1 stays open until ruled.
 G1-1 ruled 2026-10-01 as Decision 82: band 6,000 to 7,500 for Chapters 3 to 15. Chapter 3 at 6,401 passes. G1 passed.
@@ -97,26 +124,28 @@ G1-2. Key term "Falsifying case" absent from the body; body aligned to the term.
 
 Owner: Claude; second model reads independently; Dan rules (sitting 2)
 
-Status: [x]        Date cleared: 2026-10-06
+Status: [ ]        Date cleared: 
 
 > v4 step 3, Decision 77. ONE pass replacing v3 Stages 1, 2 and 4: structure against AIOM_Structure_v1.md and AIOM_Exit_Competencies_v1.md, teaching quality, and voice and craft against AIOM_Prose_Standard_v2.0.md. Labelled Stage 4 because it owns voicecheck. Read ADVERSARIALLY: for each competency and each criterion quote the WEAKEST evidence and rule it, reading the per-section table rather than the chapter average. ONE second-model package carries the three questions as separate sections, read without Claude's findings, and is BUILT BEFORE the sitting (Decision 81). Claude applies what is not a judgment call and hands Dan ONE decision list; Dan rules every finding, Claude rules none, and the ruled list is applied in ONE commit.
 
-- [x] Structure: every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
-- [x] Structure: every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
-- [x] Structure: the anchor theorem is the right one and is load-bearing in the argument rather than decorative
-- [x] Structure: ledger obligations met, no earlier chapter's term redefined, promises owed are paid, nothing belonging to a later chapter front-run
-- [x] Teaching: clarity, pacing, cognitive load, example fitness and transitions carry the target reader without a stall
-- [x] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
-- [x] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
-- [x] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
-- [x] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
-- [x] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
-- [x] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
-- [x] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
-- [x] Second-model package (one, three sections) returned and its findings recorded, one line each
-- [x] Dan has ruled every finding (sitting 2), applied in one commit
+- [ ] Structure: every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
+- [ ] Structure: every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
+- [ ] Structure: the anchor theorem is the right one and is load-bearing in the argument rather than decorative
+- [ ] Structure: ledger obligations met, no earlier chapter's term redefined, promises owed are paid, nothing belonging to a later chapter front-run
+- [ ] Teaching: clarity, pacing, cognitive load, example fitness and transitions carry the target reader without a stall
+- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [ ] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
+- [ ] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
+- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
+- [ ] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
+- [ ] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
+- [ ] Second-model package (one, three sections) returned and its findings recorded, one line each
+- [ ] Dan has ruled every finding (sitting 2), applied in one commit
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 R0. Independent review 2026-10-01, 44 findings (02_Stage4_Review/AIOM_Ch03_Review_claude_findings.md). Applied: R-1, R-3 to R-8, R-11, R-13, R-17, R-18, R-21 to R-24, R-26, R-28 to R-33, R-35 to R-37, R-39 to R-43, R-15 wording; R-12, R-38 resolved by those; R-19, R-20, R-44 noise. Eleven decisions to Dan (AIOM_Ch03_Sitting2_decisions.md). Second-model review not yet run.
 S2. Sitting 2 (Claude's list), 2026-10-01: Dan accepted all eleven recommendations. Applied: band ruled (Decision 82); registry private, so 3.1 states Appendix A reaches lemma level; R-9 sentence cut; R-10 clause added; R-14 Klarna wording; P1 on LEM-020 and Q4 kept, recorded in the plan; R-25, R-27, R-34 kept; all 16 frequency hits kept. The second-model review is still outstanding, so Stage 4 stays open.
@@ -145,15 +174,18 @@ A4-note. Assessment 4 (THM-008, competency C4) must supply THM-008's proposition
 
 Owner: Dan
 
-Status: [x]        Date cleared: 2026-10-13
+Status: [ ]        Date cleared: 
 
 > v4 step 4, Decision 75. Dan's own pass and rewrite, in Word, through `copyedit_export.py` and `copyedit_import.py`. It sits BEFORE the fact check so that every step after it checks the text Dan wants: on Chapter 2 this pass changed 104 of 195 blocks after three checks had run. Includes the whole-chapter read the old Stage 8 was.
 
-- [x] Unedited export round-trips at zero reported changes before the pair is trusted on this chapter
-- [x] Dan's pass imported; every block the importer refused resolved by hand
-- [x] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
+- [ ] Unedited export round-trips at zero reported changes before the pair is trusted on this chapter
+- [ ] Dan's pass imported; every block the importer refused resolved by hand
+- [ ] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 A1. Import 2026-10-12: 278/278 blocks, no splits, 106 edited; 674 spans placed, 9 refused (inline markup or entity) applied by hand verbatim; re-extract matches the docx in 0/278 differing blocks (control: 106). Commit 3c0afca.
 A2. voicecheck: new 'the reader' in 3.2. Dan: A, 'a reader'. Commit 8e7b4ff.
 A3. freqsweep: new 'often remain informal' in 3.1. Dan: A, 'can remain informal'. Commit e8fc636.
@@ -165,17 +197,20 @@ A4. freqsweep: new 'a common objection' in 3.3. Dan: A, 'an objection'. This com
 
 Owner: Dan, external (sitting 3)
 
-Status: [x]        Date cleared: 2026-10-13
+Status: [ ]        Date cleared: 
 
 > v4 step 5, Decision 76. ONE external fact check replacing v3 Stages 3 and 7, on a fresh RENDER of the post-author-pass text, never the HTML. Two checks run in parallel on different prompts: A reads the sources, B reads only the render. THE CHECKER MUST HAVE WEB ACCESS: Chapter 2's first checker could not read, and its work was redone. Labelled Stage 3 because it owns W14. Rulings go into the register notes, with the condition that would reverse them, and into AIOM_Claim_Ledger.md.
 
-- [x] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
-- [x] Check A (reads the sources, web access confirmed) returned
-- [x] Check B (reads only the render) returned
-- [x] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
-- [x] Any empirical claim added after this check carries a source before lock (standing rule 2)
+- [ ] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
+- [ ] Check A (reads the sources, web access confirmed) returned
+- [ ] Check B (reads only the render) returned
+- [ ] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
+- [ ] Any empirical claim added after this check carries a source before lock (standing rule 2)
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 F0. Packages built 2026-10-13 from a fresh render (gate 8 fails on footnote 7, pagination, booked to Stage 5): one file each, A (render text + packet) and B (render text only), by `04_Stage3_Fact_Check/build_packages.py`. Table 3.1's three citations added by hand (packet tool skips tables). Registry passages checked by Claude against dag.aiom 9d7ee50: all match except R-1, "every claim's non-claims" (LEM-015, THM-003 empty, both uncertified), for Dan.
 F1. Checks returned 2026-10-13: A (web access yes) 13 findings, 6 verified, 6 partly supported, 1 cannot confirm (Gartner blocked, Cisco corroborates), none contradicted; B 36 findings. Sitting 3 list with recommendations: `04_Stage3_Fact_Check/AIOM_Ch03_Sitting3_rulings.md`.
 S3. Sitting 3, 2026-10-13: Dan ruled Groups 1, 2 and 3 A (every recommendation). Applied commit 1eca9c9; para split (gate, A) in the next commit. One line per finding:
@@ -222,11 +257,14 @@ S3-NEXT. Group 3 edited teaching prose after the review: scoped matrix re-runs t
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-10-14
+Status: [ ]        Date cleared: 
 
 > v4 step 6, with G2 and G3 in the same session. Once, after the text is final, NEVER EARLY: Chapter 2 ran it early and ran it twice. Rasterize EVERY page and read it at the size it ships at: figures, callout placement, page fill, slot openings, running heads, key-term register, against the locked design system.
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 P1. Gate 4: place.py could not name the split callout (wrapped term read interleaved). Fixed under the blocking exception: term read line by line. Callout moved one paragraph earlier, no text change. Commit 307d5a9.
 P2. Gate 8: footnote 6 off page 2. Four glosses built and measured; footnote 5's gloss shortened to "The Foundation's definition." clears it. Commit 307d5a9.
 P3. Page fill measured directly (the build advisory reports only page 15): pages 7, 13, 15 short before Figure 3.1, Figure 3.2 and Table 3.1. Figure 3.1 later splits the AI Business Economics callout, no fix in section; Figure 3.2 later strands the table caption. Kept: 7 at 207pt, 13 at 266pt, 15 at 353pt (DR3a, short page before a whole table).
@@ -241,30 +279,33 @@ P7. Observation, not fixed: the "Craft section" slot label sits close under the 
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-10-14
+Status: [ ]        Date cleared: 
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fifteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [x] Renders under WeasyPrint without error or warning
-- [x] Gate 1, zero right-margin overflow
-- [x] Gate 2, zero em and en dashes in the rendered text
-- [x] Gate 3, running heads and folios correct and correctly sided
-- [x] Gate 4, callout placement: no splits, ordering correct after place.py
-- [x] Gate 5, font faces: expected set only, none stray inside SVG
-- [x] Gate 6, key-term register renders with correct rule and tint alternation
-- [x] Gate 7, opening-case provenance line present on page 1
-- [x] Gate 8, footnotes on the calling page, numbering sequential
-- [x] Gate 9, dated evidence boxes labelled and ruled
-- [x] Gate 10, problem labels present with their titles
-- [x] Gate 11, theorem panel intact, labelled, ruled, not split
-- [x] Gate 12, figures captioned, numbered in order, each referenced in text
-- [x] Gate 13, no text below the bottom margin, folio excluded
-- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [x] Gate 15, typographic marks: zero straight quotes or apostrophes
-- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [ ] Renders under WeasyPrint without error or warning
+- [ ] Gate 1, zero right-margin overflow
+- [ ] Gate 2, zero em and en dashes in the rendered text
+- [ ] Gate 3, running heads and folios correct and correctly sided
+- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
+- [ ] Gate 5, font faces: expected set only, none stray inside SVG
+- [ ] Gate 6, key-term register renders with correct rule and tint alternation
+- [ ] Gate 7, opening-case provenance line present on page 1
+- [ ] Gate 8, footnotes on the calling page, numbering sequential
+- [ ] Gate 9, dated evidence boxes labelled and ruled
+- [ ] Gate 10, problem labels present with their titles
+- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
+- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
+- [ ] Gate 13, no text below the bottom margin, folio excluded
+- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [ ] Gate 15, typographic marks: zero straight quotes or apostrophes
+- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 G2-1. AIOM_build.py on the final text: QA PASSED, fifteen of fifteen, 27 pages, 22 footnotes all on the calling page. Web preview W1 to W17 passed, none skipped (W6, W15, W16 ran in a browser). Site build and both self-tests passed (print 23/23 controls). MANUAL items done: figure geometry read on the raster, every page read, figure legibility checked (P6).
 
 ---
@@ -273,20 +314,23 @@ G2-1. AIOM_build.py on the final text: QA PASSED, fifteen of fifteen, 27 pages, 
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-10-14
+Status: [ ]        Date cleared: 
 
 > Mechanical, against the running continuity ledger. Catches chapter to chapter drift here rather than at manuscript integration, where the fix would mean reopening a locked chapter. Run `python3 continuity.py <chapter.html> --chapter N`. The ledger is the authority: when a chapter and the ledger disagree the gate fails and Dan rules, and the gate never edits the ledger to make itself pass. At Stage 9, and only then, `--update` appends this chapter's terms, forward references, and registry objects, and `--pay N` marks promises the chapter has now kept.
 
-- [x] Check 1, no term redefined that an earlier chapter already owns
-- [x] Check 2, every forward reference this chapter makes is logged
-- [x] Check 3, every forward reference assigned to this chapter is paid
-- [x] Check 4, registry IDs logged; recurring glosses worded identically
-- [x] Check 5, Founding Question references match the canonical table exactly
-- [x] Check 6, maturity ladder language consistent with the locked five stages
-- [x] Check 7, Northmoor figures diffed against generator output
-- [x] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
+- [ ] Check 1, no term redefined that an earlier chapter already owns
+- [ ] Check 2, every forward reference this chapter makes is logged
+- [ ] Check 3, every forward reference assigned to this chapter is paid
+- [ ] Check 4, registry IDs logged; recurring glosses worded identically
+- [ ] Check 5, Founding Question references match the canonical table exactly
+- [ ] Check 6, maturity ladder language consistent with the locked five stages
+- [ ] Check 7, Northmoor figures diffed against generator output
+- [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 G3-1. Three promises owed to Ch3 verified kept in substance (Ch1: 3.5 says where each subject ends; Ch2: 3.2 and 3.3 on the third flow; Ch2: 3.4 names the discipline, now "addresses" the error after B-32) and marked paid with continuity.py --pay 3.
 G3-2. THM-004 gloss drift: the author pass rewrote the gloss locked Chapter 2 fixed. Dan: A, ledger wording restored in 3.2; the B8 question stays with the holistic review (Decision 83). G3 PASSED. The eighth box stays open for Stage 9.
 G3-3. Lock: continuity.py --update appended 16 terms, 21 forward references, 13 registry objects; the 13 glosses written by hand from the chapter's own restatements (craft section step 4, P1 step 4, P2 step 2, key terms). G3 re-run: 0 drifted, PASSED.
@@ -298,11 +342,14 @@ G3-4. Lock: the update logged Ch3's 14 back-references to Ch1 (5) and Ch2 (9) as
 
 Owner: Dan (sitting 4)
 
-Status: [x]        Date cleared: 2026-10-14
+Status: [ ]        Date cleared: 
 
 > v4 step 7. Claude sends the render plus a short diff of everything that changed since the author pass. Dan approves the whole, or names ONE structural reason and the chapter returns to the step that owns it. The full read already happened in the author pass.
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 SO0. Package built 2026-10-14 in `08_Stage8_Sign_Off/` by `build_signoff.py`: the final render (27 pp, fifteen print gates pass) and a diff since the author pass (b56819c), 45 changes by step (Sitting 3: 34, scoped re-review: 9, production: 2), plus one move with no words changed.
 SO1. Sitting 4, 2026-10-14: Dan approved the whole (gate, A).
 
@@ -312,11 +359,14 @@ SO1. Sitting 4, 2026-10-14: Dan approved the whole (gate, A).
 
 Owner: Claude
 
-Status: [x]        Date cleared: 2026-10-14
+Status: [ ]        Date cleared: 
 
 > Frozen. Continuity ledger committed. After lock the only path is `amend.py` (CLAUDE.md section 8).
 
 Findings:
+
+ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
+
 L1. Locked 2026-10-14. Ledger committed; final checks in the lock commit message.
 
 ---

@@ -764,6 +764,30 @@ Decisions 22 onward live here.
   end is slow to read and hard to act on, and small gates let Dan steer at every
   step.
 
+- **Decision 85. RULED 2026-10-14.** Chapter 3 is redesigned and rewritten, ruled by
+  Dan in seven gates after it locked. (1) **The registry stays behind the scenes**:
+  no walkthrough of it in the book; theorem panels with their IDs stay as in
+  Chapters 1 and 2, and Chapter 3 explains them in one short passage. (2)
+  **Competency C4 changes** to the discipline itself: place an organization's AI
+  work in the five functions and tell it apart from FinOps, MLOps, AIOps and
+  regulatory governance; Assessment 4 is rewritten to match (exact wording in
+  the new plan). (3) **The teaching body is four tight sections**: the science and
+  the practice, the five functions, the borders, the Founding Questions, with no
+  new set piece. (3b) **Real reporting, one dated box per function**, in the
+  five-functions section (fifty-year rule). (4) **The craft section is the
+  function audit**: list a deployment's AI activities, assign each to a function
+  or a neighboring discipline, mark any function nobody performs; P1 worked, P2
+  completion, P3 an ownership dispute; the Part I cumulative case stays. (5)
+  **The chapter reopens to Stage 0 and runs the full Process v4 cycle**; the site
+  keeps serving the 2026-10-14 lock until the new version locks. Kept from the
+  locked text: the opening case, the borders, the Founding Questions and the
+  Klarna case. The reason: the registry is the book's justification, not its
+  subject, and the walkthrough taught a skill managers do not need. Consequences
+  to settle in the plan: Chapter 2's locked promise that "Chapter 3 explains"
+  what THM-004 formalizes; Chapter 3's 14 rulings in the claim ledger, re-ruled
+  at the new fact check; Chapter 3's continuity-ledger rows from the first lock,
+  reconciled at the new lock.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 
