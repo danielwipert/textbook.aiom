@@ -284,11 +284,13 @@ Status: [x]        Date cleared: 2026-10-14
 - [x] Check 5, Founding Question references match the canonical table exactly
 - [x] Check 6, maturity ladder language consistent with the locked five stages
 - [x] Check 7, Northmoor figures diffed against generator output
-- [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
+- [x] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
 G3-1. Three promises owed to Ch3 verified kept in substance (Ch1: 3.5 says where each subject ends; Ch2: 3.2 and 3.3 on the third flow; Ch2: 3.4 names the discipline, now "addresses" the error after B-32) and marked paid with continuity.py --pay 3.
 G3-2. THM-004 gloss drift: the author pass rewrote the gloss locked Chapter 2 fixed. Dan: A, ledger wording restored in 3.2; the B8 question stays with the holistic review (Decision 83). G3 PASSED. The eighth box stays open for Stage 9.
+G3-3. Lock: continuity.py --update appended 16 terms, 21 forward references, 13 registry objects; the 13 glosses written by hand from the chapter's own restatements (craft section step 4, P1 step 4, P2 step 2, key terms). G3 re-run: 0 drifted, PASSED.
+G3-4. Lock: the update logged Ch3's 14 back-references to Ch1 (5) and Ch2 (9) as open, which failed G3 on both locked chapters. All 14 are references back to locked text; spot-checked the two flagged by check B (Ch2's budget case, Ch1's Cursor licenses). Marked paid with --pay 1 and --pay 2, as Ch2 did at its lock. No other open rows pointed at Ch1 or Ch2.
 
 ---
 
@@ -296,12 +298,13 @@ G3-2. THM-004 gloss drift: the author pass rewrote the gloss locked Chapter 2 fi
 
 Owner: Dan (sitting 4)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-14
 
 > v4 step 7. Claude sends the render plus a short diff of everything that changed since the author pass. Dan approves the whole, or names ONE structural reason and the chapter returns to the step that owns it. The full read already happened in the author pass.
 
 Findings:
 SO0. Package built 2026-10-14 in `08_Stage8_Sign_Off/` by `build_signoff.py`: the final render (27 pp, fifteen print gates pass) and a diff since the author pass (b56819c), 45 changes by step (Sitting 3: 34, scoped re-review: 9, production: 2), plus one move with no words changed.
+SO1. Sitting 4, 2026-10-14: Dan approved the whole (gate, A).
 
 ---
 
@@ -309,11 +312,12 @@ SO0. Package built 2026-10-14 in `08_Stage8_Sign_Off/` by `build_signoff.py`: th
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-14
 
 > Frozen. Continuity ledger committed. After lock the only path is `amend.py` (CLAUDE.md section 8).
 
 Findings:
+L1. Locked 2026-10-14. Ledger committed; final checks in the lock commit message.
 
 ---
 
