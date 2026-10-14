@@ -333,6 +333,14 @@ figcaption {
   font-size: 9pt; line-height: 12.2pt; margin-top: 9pt;
   text-align: left; font-style: italic;
 }
+/* v7.2, Dan 2026-10-13 at Ch3 Stage 5. A table caption (Table 3.1, the first
+   in the book) had no rule, so it set as body text, and with no break rule a
+   repagination stranded it at the head of the next page, away from its table.
+   It now matches the figure caption and is held to the table it follows. */
+p.caption {
+  font-size: 9pt; line-height: 12.2pt; margin: 6pt 0 14pt 0;
+  text-align: left; font-style: italic; break-before: avoid;
+}
 figcaption .fignum {
   font-family: "Jost"; font-weight: 600; font-style: normal;
   color: var(--amber); letter-spacing: 0.04em; margin-right: 4pt;

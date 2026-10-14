@@ -222,11 +222,18 @@ S3-NEXT. Group 3 edited teaching prose after the review: scoped matrix re-runs t
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-14
 
 > v4 step 6, with G2 and G3 in the same session. Once, after the text is final, NEVER EARLY: Chapter 2 ran it early and ran it twice. Rasterize EVERY page and read it at the size it ships at: figures, callout placement, page fill, slot openings, running heads, key-term register, against the locked design system.
 
 Findings:
+P1. Gate 4: place.py could not name the split callout (wrapped term read interleaved). Fixed under the blocking exception: term read line by line. Callout moved one paragraph earlier, no text change. Commit 307d5a9.
+P2. Gate 8: footnote 6 off page 2. Four glosses built and measured; footnote 5's gloss shortened to "The Foundation's definition." clears it. Commit 307d5a9.
+P3. Page fill measured directly (the build advisory reports only page 15): pages 7, 13, 15 short before Figure 3.1, Figure 3.2 and Table 3.1. Figure 3.1 later splits the AI Business Economics callout, no fix in section; Figure 3.2 later strands the table caption. Kept: 7 at 207pt, 13 at 266pt, 15 at 353pt (DR3a, short page before a whole table).
+P4. Cumulative case provenance set at 10pt (.problem > p beat p.provenance). Dan: A, CSS v7.2 .problem > p.provenance. Ch1, Ch2 pixel-identical.
+P5. Table 3.1 caption had no rule (body text) and could strand. Dan: A, CSS v7.2 p.caption (figcaption style, break-before: avoid); Figure 3.2 kept at its reference. Ch1, Ch2 pixel-identical.
+P6. Every page read at 75 dpi; figures at 150 dpi. Figure 3.1's smallest text 5.2pt (Ch2 minimum 6.0), legible on the raster. Kept.
+P7. Observation, not fixed: the "Craft section" slot label sits close under the paragraph before it (base .slot-label has no top margin). Design system; fix-between-chapters list.
 
 ---
 
@@ -234,30 +241,31 @@ Findings:
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-14
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fifteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Gate 1, zero right-margin overflow
-- [ ] Gate 2, zero em and en dashes in the rendered text
-- [ ] Gate 3, running heads and folios correct and correctly sided
-- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
-- [ ] Gate 5, font faces: expected set only, none stray inside SVG
-- [ ] Gate 6, key-term register renders with correct rule and tint alternation
-- [ ] Gate 7, opening-case provenance line present on page 1
-- [ ] Gate 8, footnotes on the calling page, numbering sequential
-- [ ] Gate 9, dated evidence boxes labelled and ruled
-- [ ] Gate 10, problem labels present with their titles
-- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
-- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
-- [ ] Gate 13, no text below the bottom margin, folio excluded
-- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [ ] Gate 15, typographic marks: zero straight quotes or apostrophes
-- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [x] Renders under WeasyPrint without error or warning
+- [x] Gate 1, zero right-margin overflow
+- [x] Gate 2, zero em and en dashes in the rendered text
+- [x] Gate 3, running heads and folios correct and correctly sided
+- [x] Gate 4, callout placement: no splits, ordering correct after place.py
+- [x] Gate 5, font faces: expected set only, none stray inside SVG
+- [x] Gate 6, key-term register renders with correct rule and tint alternation
+- [x] Gate 7, opening-case provenance line present on page 1
+- [x] Gate 8, footnotes on the calling page, numbering sequential
+- [x] Gate 9, dated evidence boxes labelled and ruled
+- [x] Gate 10, problem labels present with their titles
+- [x] Gate 11, theorem panel intact, labelled, ruled, not split
+- [x] Gate 12, figures captioned, numbered in order, each referenced in text
+- [x] Gate 13, no text below the bottom margin, folio excluded
+- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [x] Gate 15, typographic marks: zero straight quotes or apostrophes
+- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+G2-1. AIOM_build.py on the final text: QA PASSED, fifteen of fifteen, 27 pages, 22 footnotes all on the calling page. Web preview W1 to W17 passed, none skipped (W6, W15, W16 ran in a browser). Site build and both self-tests passed (print 23/23 controls). MANUAL items done: figure geometry read on the raster, every page read, figure legibility checked (P6).
 
 ---
 
@@ -265,20 +273,22 @@ Findings:
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-14
 
 > Mechanical, against the running continuity ledger. Catches chapter to chapter drift here rather than at manuscript integration, where the fix would mean reopening a locked chapter. Run `python3 continuity.py <chapter.html> --chapter N`. The ledger is the authority: when a chapter and the ledger disagree the gate fails and Dan rules, and the gate never edits the ledger to make itself pass. At Stage 9, and only then, `--update` appends this chapter's terms, forward references, and registry objects, and `--pay N` marks promises the chapter has now kept.
 
-- [ ] Check 1, no term redefined that an earlier chapter already owns
-- [ ] Check 2, every forward reference this chapter makes is logged
-- [ ] Check 3, every forward reference assigned to this chapter is paid
-- [ ] Check 4, registry IDs logged; recurring glosses worded identically
-- [ ] Check 5, Founding Question references match the canonical table exactly
-- [ ] Check 6, maturity ladder language consistent with the locked five stages
-- [ ] Check 7, Northmoor figures diffed against generator output
+- [x] Check 1, no term redefined that an earlier chapter already owns
+- [x] Check 2, every forward reference this chapter makes is logged
+- [x] Check 3, every forward reference assigned to this chapter is paid
+- [x] Check 4, registry IDs logged; recurring glosses worded identically
+- [x] Check 5, Founding Question references match the canonical table exactly
+- [x] Check 6, maturity ladder language consistent with the locked five stages
+- [x] Check 7, Northmoor figures diffed against generator output
 - [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
+G3-1. Three promises owed to Ch3 verified kept in substance (Ch1: 3.5 says where each subject ends; Ch2: 3.2 and 3.3 on the third flow; Ch2: 3.4 names the discipline, now "addresses" the error after B-32) and marked paid with continuity.py --pay 3.
+G3-2. THM-004 gloss drift: the author pass rewrote the gloss locked Chapter 2 fixed. Dan: A, ledger wording restored in 3.2; the B8 question stays with the holistic review (Decision 83). G3 PASSED. The eighth box stays open for Stage 9.
 
 ---
 

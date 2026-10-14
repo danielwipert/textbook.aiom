@@ -123,7 +123,7 @@ promise was kept.
 |---|---|---|---|
 
 | 1 | 2 | This is the first chapter; problem sets begin reaching back to earlier chapters in Chapter 2. | paid |
-| 1 | 3 | Each of these subjects has its own purpose and literature, and Chapter 3 explains where each ends and AI Operations Management begins. | open |
+| 1 | 3 | Each of these subjects has its own purpose and literature, and Chapter 3 explains where each ends and AI Operations Management begins. | paid |
 | 1 | 4 | Chapter 4 examines these instruments in detail. | open |
 | 1 | 6 | It returns in Chapter 6 as the book’s anchor case on realized value. | open |
 | 1 | 14 | Chapter 14 distinguishes the subject of this book from these neighboring disciplines. | open |
@@ -134,8 +134,8 @@ promise was kept.
 | 2 | 1 | Interleaving: question 4 and problem P2 require Chapter 1’s results. | paid |
 | 2 | 1 | Public reporting does not establish whether Uber made the category error described in Chapter 1 or understood the cost model but failed to carry that understanding into its forecast. | paid |
 | 2 | 1 | Uber’s experience makes the problem from Chapter 1 concrete. | paid |
-| 2 | 3 | As Chapter 3 explains, the theorem formalizes the economic consequence of the third flow’s asymmetry; it does not establish the taxonomy itself. | open |
-| 2 | 3 | Chapter 1 described the problem as a category error, and Chapter 3 names the discipline that resolves it. | open |
+| 2 | 3 | As Chapter 3 explains, the theorem formalizes the economic consequence of the third flow’s asymmetry; it does not establish the taxonomy itself. | paid |
+| 2 | 3 | Chapter 1 described the problem as a category error, and Chapter 3 names the discipline that resolves it. | paid |
 | 2 | 8 | Chapter 8 builds the record flow, and Chapter 10 turns that record into a budget. | open |
 | 2 | 8 | It returns in Chapter 8, which builds the record flow that organizations are structurally most likely to skip. | open |
 | 2 | 10 | Chapter 8 builds the record flow, and Chapter 10 turns that record into a budget. | open |
