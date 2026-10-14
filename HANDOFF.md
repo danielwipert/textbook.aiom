@@ -12,7 +12,7 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
   the Chapter 3 sitting 2b work (from `claude/happy-bardeen-hhct43`) and Decision
   84. Both branches are merged; Dan deletes them (403 from the container).
 - Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  **Chapter 3 (Process v4): production (Stage 5, G2, G3) passed 2026-10-14; sign-off (Sitting 4) next.** Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
+  **Chapter 3 (Process v4): LOCKED 2026-10-14** (commit be55e84), on branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`, so not yet published. Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -32,9 +32,9 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    hits put to him as gates and fixed (checklist A1 to A4). DONE 2026-10-13: fact check (Stage 3)
    passed; sitting 3 rulings applied (checklist S3 lines). Scoped re-review done 2026-10-13
    (checklist SR lines). Production done 2026-10-14 (checklist P,
-   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). Sign-off package built
-   2026-10-14 (`08_Stage8_Sign_Off/`). **NEXT: Dan, Sitting 4**: he approves the whole or names one structural reason; then
-   Stage 9 lock (continuity.py --update, glosses by hand).
+   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). Sign-off approved and chapter
+   LOCKED 2026-10-14. **NEXT: merge to `main` to publish** (Dan's call, put as a
+   gate), then the holistic review of Chapters 1 to 3 (Decision 83).
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -43,8 +43,7 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** Sitting 4, sign-off: read `08_Stage8_Sign_Off/` (render and
-  diff), approve the whole or name one structural reason.
+- **Chapter 3:** locked; whether to merge to `main` (publishes it on the site).
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
@@ -108,8 +107,6 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
 - `place.py` leaves a `.bak` beside the chapter; delete it after every run.
 - Gate 4 does not guard the theorem callout; gaps G-I and G-II still open.
 - `reopen.py` resets by position, not by the re-run matrix; check what it clears.
-- Self-test controls that name which chapters exist break when one locks; expect
-  it at Chapter 3's lock and prefer derived expectations.
 - Any new extractor over chapter HTML handles `span.nb` before the generic tag
   rule (the phantom-space defect, found in three tools).
 
