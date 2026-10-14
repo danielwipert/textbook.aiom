@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-13. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-14. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -12,7 +12,7 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
   the Chapter 3 sitting 2b work (from `claude/happy-bardeen-hhct43`) and Decision
   84. Both branches are merged; Dan deletes them (403 from the container).
 - Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  **Chapter 3 (Process v4): fact check (Stage 3) passed 2026-10-13; scoped review, then production.** Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
+  **Chapter 3 (Process v4): production (Stage 5, G2, G3) passed 2026-10-14; sign-off (Sitting 4) next.** Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -31,8 +31,11 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    DONE 2026-10-13: Dan's author pass imported (106 of 278 blocks), three new
    hits put to him as gates and fixed (checklist A1 to A4). DONE 2026-10-13: fact check (Stage 3)
    passed; sitting 3 rulings applied (checklist S3 lines). Scoped re-review done 2026-10-13
-   (checklist SR lines). **NEXT: Stage 5** design review (print gates 4 and 8 fail on
-   pagination: run place.py, then footnote 13), G2, G3, sign-off.
+   (checklist SR lines). Production done 2026-10-14 (checklist P,
+   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). **NEXT:
+   build the sign-off package** (Sitting 4): fresh render plus a diff since the
+   author pass; Dan approves the whole or names one structural reason; then
+   Stage 9 lock (continuity.py --update, glosses by hand).
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -41,8 +44,7 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** nothing until production (Stage 5, G2, G3) is done; then
-  sign-off (Sitting 4).
+- **Chapter 3:** Sitting 4, sign-off, once Claude has built the package.
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
@@ -84,6 +86,12 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   between BEGIN/END markers. Ch3's was hand-assembled; write `review_package.py` so
   every chapter's package is generated the same way.
 
+- **`place.py` read a wrapped callout term interleaved** (fixed 2026-10-14
+  under the blocking exception; Ch3 P1). Add a negative control for it.
+- **The build's page-fill advisory missed pages 7 and 13** of Ch3 (256 and
+  266pt unused); it reported only page 15. Measure fill from body text bottom.
+- **The "Craft section" slot label has no top margin** (base .slot-label);
+  it sits close under the paragraph before it. Design system, every chapter.
 - **`claimcheck.normalize` turns every tag into a space** (found 2026-10-13), so
   "<span class=nb>OpenAI</span>." reads "OpenAI ." and a REQUIRED string cannot
   end on an .nb word plus period (FC3-A12 recorded without it). The span.nb rule.
