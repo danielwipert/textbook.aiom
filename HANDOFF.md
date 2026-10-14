@@ -8,11 +8,12 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- `main` is level with `claude/sharp-dirac-ojfqqz` as of 2026-10-11: it carries
-  the Chapter 3 sitting 2b work (from `claude/happy-bardeen-hhct43`) and Decision
-  84. Both branches are merged; Dan deletes them (403 from the container).
-- Chapter 1 LOCKED (Process v2). Chapter 2 LOCKED (Process v3). Both live.
-  **Chapter 3 (Process v4): LOCKED 2026-10-14** (commit be55e84), on branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`, so not yet published. Branch `claude/inspiring-galileo-9hba1g`, not yet merged to `main`. Chapters 4 to 15 not started.
+- `main` is level with `claude/inspiring-galileo-9hba1g` as of 2026-10-14
+  (fast-forward to 569b2e5). Merged and safe to delete (Dan, 403 from the
+  container): `claude/happy-bardeen-hhct43`, `claude/inspiring-bohr-4gquw9`,
+  `claude/sharp-dirac-ojfqqz`, and now `claude/inspiring-galileo-9hba1g`.
+- Chapters 1 (Process v2), 2 (v3) and 3 (v4) LOCKED and on `main`. Chapter 3
+  locked 2026-10-14, commit be55e84. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -32,9 +33,9 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
    hits put to him as gates and fixed (checklist A1 to A4). DONE 2026-10-13: fact check (Stage 3)
    passed; sitting 3 rulings applied (checklist S3 lines). Scoped re-review done 2026-10-13
    (checklist SR lines). Production done 2026-10-14 (checklist P,
-   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). Sign-off approved and chapter
-   LOCKED 2026-10-14. **NEXT: merge to `main` to publish** (Dan's call, put as a
-   gate), then the holistic review of Chapters 1 to 3 (Decision 83).
+   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). Sign-off approved, chapter
+   LOCKED and merged to `main` 2026-10-14. **NEXT: the holistic review of
+   Chapters 1 to 3** (Decision 83), then Chapter 4.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -43,7 +44,10 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 ## Waiting on Dan
 
-- **Chapter 3:** locked; whether to merge to `main` (publishes it on the site).
+- **Stray branch `claude/dazzling-franklin-1v5arn`** (3 commits, 2026-10-12): a
+  parallel Ch3 session that imported the author pass and built fact-check
+  packages. Superseded by the locked chapter on `main`; nothing in it is
+  needed. Dan decides whether to delete it (403 from the container).
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
