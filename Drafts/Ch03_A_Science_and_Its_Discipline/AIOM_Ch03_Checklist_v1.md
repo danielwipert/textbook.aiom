@@ -108,7 +108,7 @@ D7 ruled 2026-10-01: Dan approved; Chapter 1 amended to "the AI Business Economi
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-15
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
@@ -120,13 +120,14 @@ Status: [ ]        Date cleared:
 - [x] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
 - [x] Every Slot 5 key term appears defined in the body
 - [x] Zero em dashes
-- [ ] Word count inside the chapter target band
+- [x] Word count inside the chapter target band
 - [x] Gloss-less lemmas carry a book-authored gloss, marked as such
 - [x] voicecheck.py mechanical bans clean before anyone reads the draft
 
 Findings:
 
 V2-G1. 2026-10-15: ten of eleven boxes pass. Open: the word count, 5,637 against the 6,000 to 7,500 band (Decision 82), put to Dan. Tier rules hold with no theorem callout, by design (Decision 85).
+V2-G1-1. Word band. Dan: A, 2026-10-15, accept 5,637 below the floor; Decision 82 forbids padding, and words added later come from a teaching gap the review finds. G1 passed.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

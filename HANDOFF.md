@@ -28,9 +28,9 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 1. Chapter 3 was LOCKED and published 2026-10-14, then reopened the same day.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
-   **Drafted 2026-10-15**: Stage 0 passed; G1 ten of eleven boxes, open ONLY on
+   **Drafted 2026-10-15**: Stage 0 passed; G1 PASSED (Dan: A, accept below the floor) on
    the word band (5,637 words against 6,000 to 7,500, Decision 82). **NEXT:
-   the word-band gate to Dan**, then the Stage 4 second-model review package.
+   build** the Stage 4 second-model review package.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
