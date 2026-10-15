@@ -64,12 +64,22 @@ Status: [ ]        Date cleared:
 
 > v4 step 1 and 2. A one-page plan comes FIRST (Decision 77) and Dan approves it before a word is drafted, because a structural question is cheapest before the prose exists. Then Claude drafts against the fixed six-slot skeleton, with the craft standard binding from here, and clears the frequency sweep before anyone reads the draft (Decision 78). Sources verified live with an access date; no archival (Decision 48).
 
-- [ ] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
-- [ ] Dan approved the plan (sitting 1)
+- [x] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
+- [x] Dan approved the plan (sitting 1)
 - [ ] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
 - [ ] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
 
 Findings:
+
+V2-P0. Redesign, Decision 85 (2026-10-14): plan version 2 written (`00_Stage0_Draft/AIOM_Ch03_Plan.md`), real-news candidates in `AIOM_Ch03_Redesign_examples.md`.
+V2-S1. Sitting 1, 2026-10-15, one gate each, all A:
+V2-S1-1. C4 reworded to the discipline itself and moved to Group 2 (Doing), number kept. Exit competencies updated.
+V2-S1-1b. Assessment 4 becomes a function audit on a cited real deployment plus one defended border.
+V2-S1-2. Craft example on Lindy.ai; P1 audits Uber, P2 the Australian Copilot trial (both Chapter 2 cases, already fact-checked).
+V2-S1-3. Chapter 2's THM-004 promise kept by one or two sentences in 3.1, beside the passage on theorem panels.
+V2-S1-4. Five key-term entries, one per function.
+V2-S1-5. Planning documents updated to match: structure entry, exit competencies (four places), Consolidated Spec's Chapter 3 outline replaced by a pointer to the plan.
+
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

@@ -646,42 +646,20 @@ Problems: (P1, worked) three-flow mapping per the craft section; (P2, worked) as
 
 ### CHAPTER 3: A Science and Its Discipline
 
-**Big idea:** AI Business Economics is the science; AI Operations Management is the discipline that acts on it.
-**Competency:** C4. No single anchor theorem; contains the trace set piece.
-**Prepares assessment:** 4 (registry literacy, tested later on THM-008 unseen). Poses the Founding Questions; draws the borders; closes Part I with the cumulative case.
+**SUPERSEDED BY DECISION 85 (2026-10-14).** The outline that stood here (the
+THM-004 trace set piece, how to read a formal claim, the trace procedure, and
+Assessment 4 as registry literacy on THM-008) is withdrawn; it is in git
+history. The operative outline is the approved Chapter 3 plan, version 2:
+`Drafts/Ch03_A_Science_and_Its_Discipline/00_Stage0_Draft/AIOM_Ch03_Plan.md`.
 
-#### Slot 1: Opening case
-Case 14.1 excerpted for this chapter's purpose: in February 2026 the FinOps Foundation, a discipline built for cloud cost, formally rewrote its mission from managing the value of cloud to managing the value of technology, with 98% of its practitioners now managing AI spend (up from 31% two years earlier) and its practitioners telling the survey that no one can yet answer whether the AI is providing value. The case dramatizes the vacancy: adjacent disciplines are being pulled toward territory none was built for, and the pull is measurable. The territory needs its own science and its own discipline, named. (The full FinOps treatment, including the boundary treaty, remains Ch14's; this opener uses only the mission rewrite and the arc.)
-
-#### Slot 2: Teaching body
-3.1 Why name a science. What "science" claims here: an ordered body of conditional, testable propositions about the business economics of AI consumption, not a metaphor. The registry introduced: 200 propositions, 20 lemmas, 8 theorems, arranged as a dependency graph in which every higher claim rests on stated lower ones. The governing relationship stated plainly: the registry justifies this book; it does not organize it. Pedagogy ordered the chapters; the registry proves the claims.
-
-3.2 The trace set piece. Subject: THM-004, the theorem the reader accepted one chapter ago. Walk it down: theorem to its supporting lemmas to representative propositions [REGISTRY PULL for the exact chain; the maturity model's grounding section indicates THM-004 rests on territory including LEM-020]. The reasoning for this choice: the trace is performed on a claim the reader already believes, so the only new cognitive load is the machinery itself; assessment 4 then tests the machinery cold on THM-008, which the reader will not have seen traced. FIGURE 3.1: the dependency trace as a tree, theorem at top, propositions at the leaves.
-
-3.3 How to read a formal claim. Conditions (when the claim applies); scope (what it quantifies over); non-claims (what it deliberately does not establish); falsification (what evidence would defeat it). The "word games" objection answered: formalization is not decoration; it is the commitment that fixes what would count as being wrong, which is precisely what executive discourse about AI currently lacks.
-
-3.4 The discipline. AI Operations Management defined: the practice that acts on the science. The five functions previewed, each in one paragraph, as what an organization must be able to DO: source the capacity, plan and budget its consumption, meter and attribute the usage, allocate under constraint, and hold value accountable at a boundary. (Function ordering pedagogy is deliberately absent here; the Part III introduction owns that one-paragraph teaching point.) FIGURE 3.2: the two-layer architecture, science below, discipline above, five functions as the load-bearing columns.
-
-3.5 The borders. Four neighbors, each treated with the same two sentences: what it is for, and what it lacks for this territory. AIOps (IT operations telemetry: watches systems, not economics). MLOps (model lifecycle engineering: ships models, does not govern their consumption). FinOps (cloud cost management: the nearest neighbor, mid-expansion per the opener; owns spend plumbing, lacks the value side; the full treaty is Chapter 14's). Regulatory AI governance (one fence sentence, per the standing one-sentence policy). Presented as a table rather than a figure, per Mayer coherence: the content is categorical, not spatial.
-
-3.6 The Founding Questions posed. The five questions stated verbatim [REGISTRY PULL / manifesto pull], each paired with the function that will earn its answer and the chapter where that happens. Then the part's closing move, stated without drama: the reader cannot currently answer any of them with records, and neither can most organizations on earth; Parts II through IV exist to change that. Part I ends.
-
-#### Slot 3: Craft section
-The trace procedure. Numbered steps: (1) locate the claim in the registry; (2) restate its conditions in one sentence; (3) list its stated dependencies; (4) walk one level down and restate each dependency; (5) state what the claim establishes and, separately, what it does not; (6) state what evidence would falsify it. Fully worked on the THM-004 chain from 3.2.
-
-#### Slot 4: Chapter summary
-The two-layer architecture; the registry and its role; the trace machinery; the five functions previewed; the borders drawn; the Founding Questions on the table, unanswered.
-
-#### Slot 5: Key terms
-AI Business Economics; AI Operations Management; registry; theorem, lemma, proposition; dependency; condition; non-claim; falsification; the Founding Questions; the five functions (each named).
-
-#### Slot 6: Discussion questions and problems, plus the Part I cumulative case
-Discussion: why does the book insist the registry justifies but does not organize it, and what would go wrong under the reverse; which border is hardest to defend and why; restate one Founding Question in your CFO's language without losing its content.
-Problems: (P1, worked) full trace on THM-004 per the craft section; (P2, completion) trace on a second theorem with steps 4 and 5 blank [theorem choice at drafting; candidate THM-002, which Part II is about to teach, making the completion problem double as a preview]; (P3) the "word games" objection assigned as a one-page reply.
-
-**PART I CUMULATIVE CASE.** Subject: Klarna, February 2024 public record only (the announcement, before the correction). The reader performs, in sequence, the consumption-event inventory (Ch1), the three-flow mapping with per-flow diagnosis (Ch2), and then poses all five Founding Questions against the public record, documenting that not one is answerable from it (Ch3). Payoff engineered for Chapter 6: when the correction arc is revealed there, the reader has already discovered its predictability from the flows alone. The cumulative case thereby teaches Part I's whole argument on one page of evidence and sets the Klarna reprise without narrative apparatus. CONSEQUENCE FOR CH6: Chapter 6's opener presents the Klarna arc as the completion of the reader's own Part I analysis (the reveal framing), not as a fresh case.
-
----
+**Big idea:** AI Business Economics is the science; AI Operations Management is
+the discipline that acts on it, through five functions, inside borders that
+separate it from its neighbors.
+**Competency:** C4, place an organization's AI work in the discipline.
+**Prepares assessment:** 4, a function audit on a cited real deployment.
+Poses the Founding Questions; draws the borders; closes Part I with the
+cumulative case (Klarna, February 2024 announcement only; the Chapter 6 reveal
+framing is unchanged).
 
 ## D.2 Part II: The Science
 

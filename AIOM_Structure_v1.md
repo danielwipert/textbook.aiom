@@ -18,9 +18,9 @@ Purpose: the reader learns why the discipline must exist. Founding Questions pos
    - Craft section: the three-flow mapping (recurring diagnostic used across the book).
 3. A Science and Its Discipline
    - Big idea: AI Business Economics is the science; AI Operations Management is the practice that acts on it.
-   - Competency: C4. No single anchor; contains the trace set piece (walk one theorem down through lemmas to propositions).
+   - Competency: C4 (place an organization’s AI work in the five functions; tell the discipline from its neighbors). No single anchor, no set piece (Decision 85, 2026-10-14).
    - Also: five functions previewed; Founding Questions posed; borders drawn (not AIOps, not FinOps, not MLOps, not regulatory governance).
-   - Craft section: the trace procedure (how to read a formal claim).
+   - Craft section: the function audit (assign a deployment’s AI activities to the five functions or a neighboring discipline; mark the functions no one performs).
 
 ### Part II: The Science
 Purpose: what is true, before what to do. Fully worked examples throughout.

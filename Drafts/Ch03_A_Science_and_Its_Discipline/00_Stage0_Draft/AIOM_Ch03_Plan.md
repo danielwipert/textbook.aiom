@@ -50,7 +50,14 @@ text no longer carries.
 **Length:** 6,000 to 7,500 words (Decision 82). One figure, one table, five
 dated boxes.
 
-## Decisions for Dan at sitting 1, one gate each
+## Rulings at sitting 1, 2026-10-15 (all A)
+
+1. C4 and Assessment 4 take the wording below; C4 moves to Group 2 (Doing).
+2. Craft example: Lindy.ai. P1: Uber. P2: the Australian Copilot trial.
+3. Chapter 2's THM-004 promise is kept by one or two sentences in 3.1.
+4. Five key-term entries, one per function.
+
+## Decisions as put to Dan at sitting 1
 
 1. **The wording of C4 and Assessment 4.** Proposed C4: "Place an
    organization's AI work in the discipline: assign each activity to one of the

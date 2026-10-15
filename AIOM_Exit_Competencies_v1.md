@@ -16,7 +16,7 @@ Rules of use:
 2. Two-layer architecture, both named: AI Business Economics is the science; AI Operations Management is the discipline that acts on it.
 3. Primary reader: MBA-level graduate student; must translate to C-suite. University-press standard. Fifty-year founding-document ambition: body prose written to outlive its examples; perishable market specifics quarantined inside dated case studies.
 4. Buyer-side spine. Provider economics appears once, early, as "the playing field."
-5. Registry objects tiered: theorems as chapter-anchoring callouts; lemmas quoted where load-bearing; propositions cited by ID; full registry as back-of-book appendix; one early trace set piece teaching registry literacy.
+5. Registry objects tiered: theorems as chapter-anchoring callouts; lemmas quoted where load-bearing; propositions cited by ID; full registry as back-of-book appendix. The registry stays behind the scenes: the book does not walk the reader through it (Decision 85, 2026-10-14, which withdrew the early trace set piece).
 6. Evidence policy: straight spine. Every empirical claim cited, formalized as conditional, or cut. Limitations stated once, plainly. No hedging.
 7. Many real cited case studies; no single narrative case. ONE recurring constructed DATASET (the capstone dataset, clearly labeled as constructed) threads the problem sets: its budget appears in budgeting problems, its actuals in variance problems, its records in attribution problems, culminating in the final netting. Cumulative practice without storybook narrative.
 8. Fixed chapter skeleton, identical in every chapter: (1) Opening case, (2) Teaching body, (3) Craft section, (4) Chapter summary, (5) Key terms, (6) Discussion questions and problems.
@@ -31,12 +31,12 @@ Rules of use:
 1. Explain why deployed AI use is resource consumption rather than software access; defend against the flat-rate objection.
 2. Identify the three flows (usage, records, cost-and-value) in any real deployment; diagnose which are unmanaged.
 3. State the central asymmetry (cost by default, value by design) and derive its consequence: all of the cost, an unknown fraction of the value.
-4. Read a formal claim: parse conditions, trace dependencies, state what it does and does not establish.
 5. Model the provider side: why fixed revenue against variable cost is unstable; predict the rational mechanisms (meters, tiers, limits, priority pricing).
 6. Distinguish claimed value, realized value, productivity, ROI; why a productivity claim never establishes ROI.
 7. Distinguish technical capability from economic suitability; why the frontier model is not automatically correct.
 
 ### Group 2: Doing (practice layer, the five functions)
+4. Place an organization’s AI work in the discipline: assign each activity to one of the five functions, name the functions no one performs, and tell AI Operations Management apart from FinOps, MLOps, AIOps and regulatory governance. (Moved from Group 1 and reworded by Decision 85, 2026-10-14; it keeps the number C4. Was: "Read a formal claim: parse conditions, trace dependencies, state what it does and does not establish.")
 8. Decompose a task into performance requirements; evaluate models economically, not by benchmark rank.
 9. Compute TCO beyond access price: integration, operation, review, error, governance.
 10. Evaluate a switching decision: functional adequacy gate, transition costs, payback.
@@ -70,7 +70,7 @@ Register: MBA-final-exam caliber, numerically real, no gentle versions (fading p
 1. CIO memo reply: defend consumption economics against the strongest flat-rate objection.
 2. Three-flow mapping on a cited real deployment; marked-up flow diagram plus per-flow diagnosis. Recurs across the book (interleaving).
 3. Prose derivation of the asymmetry consequence (why "unknown" is the damning word). SPOT-THE-ERROR MOVED TO C6, ruled by Dan 2026-08-21 at Chapter 2 Stage 1 (finding S1-1, Decision 74): the exercise needs three real cited statements, C6 already runs a sort-and-repair over cited statements, and running two similar exercises four chapters apart split a single skill across two sourcing efforts.
-4. Registry literacy on THM-008: restate conditions; state non-claims; trace one lemma to propositions; answer the "word games" objection. Requires the trace set piece earlier in the book.
+4. Function audit on a cited real deployment not worked in the book: list its AI activities, assign each to a function or a neighboring discipline, mark the functions no one performs, and defend one contested border in a paragraph a CFO would accept. (Decision 85, 2026-10-14. Was: registry literacy on THM-008, which needed the trace set piece.)
 5. Stylized provider model: compute unprofitable subscribers under flat rate given a skewed usage distribution; predict next three mechanisms ranked; map one documented episode (cited, dated) onto the mechanism menu.
 6. Sort-and-repair: classify eight real cited statements (claimed/realized/productivity claim/measurement/ROI); rewrite two into true ROI claims by supplying boundary elements. ABSORBS C3's SPOT-THE-ERROR (Decision 74, 2026-08-21): the eight statements must now include at least one of each of claimed-as-realized, netting-against-access-price, and adoption-as-value. NOTE FOR WHOEVER BUILDS CHAPTER 6: claimed-as-realized and adoption-as-value sit inside the value taxonomy this assessment already tests, and NETTING-AGAINST-ACCESS-PRICE DOES NOT. It is a cost error, of setting a return against the subscription price while ignoring consumption cost. It is kept here so the skill is taught once, and it may need Chapter 5's cost anatomy or Chapter 12's boundary discipline to be answerable. Raise it when Chapter 6 is planned.
 7. Essay pair: the category error explained to a board member; then the reversal test (construct the scenario where frontier IS economically correct, and state the conditions).
@@ -122,4 +122,4 @@ Generated by Stage 2; these are the book's original contributions, to be named a
 
 ## Next: Stage 3
 
-Derive the chapter structure as the shortest well-sequenced path through the competencies, honoring: institutional layer last; trace set piece early; metering-before-budgeting logic; worked-example fading; cumulative part-level cases; the summit (C18/C19) as the structural climax.
+Derive the chapter structure as the shortest well-sequenced path through the competencies, honoring: institutional layer last; trace set piece early (withdrawn by Decision 85); metering-before-budgeting logic; worked-example fading; cumulative part-level cases; the summit (C18/C19) as the structural climax.

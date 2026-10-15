@@ -12,8 +12,9 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
   (fast-forward to 569b2e5). Merged and safe to delete (Dan, 403 from the
   container): `claude/happy-bardeen-hhct43`, `claude/inspiring-bohr-4gquw9`,
   `claude/sharp-dirac-ojfqqz`, and now `claude/inspiring-galileo-9hba1g`.
-- Chapters 1 (Process v2), 2 (v3) and 3 (v4) LOCKED and on `main`. Chapter 3
-  locked 2026-10-14, commit be55e84. Chapters 4 to 15 not started.
+- Chapters 1 (Process v2) and 2 (v3) LOCKED. **Chapter 3 REOPENED to Stage 0 on
+  2026-10-14 for a redesign (Decision 85)**; the site still serves its lock at
+  be55e84 until the new version locks. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -25,17 +26,11 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
-1. DONE: registry attached (`/home/user/dag.aiom`, never committed here); the
-   four gaps filled; Stage 0 passed; G1 open only on the word band.
-2. DONE: Stage 4 closed 2026-10-06. Three external reviews (second model, two
-   Sonnet passes) merged into sitting 2b; Dan accepted all; applied in one commit.
-   DONE 2026-10-13: Dan's author pass imported (106 of 278 blocks), three new
-   hits put to him as gates and fixed (checklist A1 to A4). DONE 2026-10-13: fact check (Stage 3)
-   passed; sitting 3 rulings applied (checklist S3 lines). Scoped re-review done 2026-10-13
-   (checklist SR lines). Production done 2026-10-14 (checklist P,
-   G2, G3 lines; CSS v7.2: provenance in a problem, table caption). Sign-off approved, chapter
-   LOCKED and merged to `main` 2026-10-14. **NEXT: the holistic review of
-   Chapters 1 to 3** (Decision 83), then Chapter 4.
+1. Chapter 3 was LOCKED and published 2026-10-14, then reopened the same day.
+2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15
+   (checklist V2 lines). **NEXT: draft** the redesigned chapter from the plan,
+   reusing the kept sections verbatim (opening case, 3.3 borders, 3.4 Founding
+   Questions, Klarna case), then G1 and the self-checks, then the review.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 
@@ -68,8 +63,6 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
   it only as a research target. WebSearch can find it; nothing here can read it,
   so it enters at Grade C until an external reader confirms it.
 - Part I cumulative case: Klarna, February 2024, Grade A in the case bank.
-- The THM-004 trace set piece is generable from the registry's edges. THM-004,
-  THM-008 and THM-002 are certified.
 - Three continuity promises are owed to Chapter 3 (`AIOM_Continuity_Ledger.md`
   lines 126, 137, 138).
 - Consolidated Spec section 3.1 quotes stale registry counts (now 201
