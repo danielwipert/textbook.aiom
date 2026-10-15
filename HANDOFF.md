@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-14. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-15. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -27,10 +27,14 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 ## Next actions, in order
 
 1. Chapter 3 was LOCKED and published 2026-10-14, then reopened the same day.
-2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15
-   (checklist V2 lines). **NEXT: draft** the redesigned chapter from the plan,
-   reusing the kept sections verbatim (opening case, 3.3 borders, 3.4 Founding
-   Questions, Klarna case), then G1 and the self-checks, then the review.
+2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
+   **Drafted 2026-10-15**: Stage 0 passed; G1 ten of eleven boxes, open ONLY on
+   the word band (5,637 words against 6,000 to 7,500, Decision 82). **NEXT:
+   the word-band gate to Dan**, then the Stage 4 second-model review package.
+   Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
+   space after "Google," in the Airbnb box) is a Stage 5 item; production is
+   never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
+   check; Ch3 continuity rows are reconciled at relock.
 3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
    its second half (fixed 2026-10-01 under the blocking exception).
 

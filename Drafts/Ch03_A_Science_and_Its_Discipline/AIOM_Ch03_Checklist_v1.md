@@ -60,14 +60,14 @@ Reopened by `reopen.py`. Per CLAUDE.md section 8, a reopen re-runs every step fr
 
 Owner: Claude; Dan approves the plan (sitting 1)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-15
 
 > v4 step 1 and 2. A one-page plan comes FIRST (Decision 77) and Dan approves it before a word is drafted, because a structural question is cheapest before the prose exists. Then Claude drafts against the fixed six-slot skeleton, with the craft standard binding from here, and clears the frequency sweep before anyone reads the draft (Decision 78). Sources verified live with an access date; no archival (Decision 48).
 
 - [x] Plan written, one page, in 00_Stage0_Draft: opening case and its source, teaching sections, craft artifact, registry objects rendered, continuity promises paid and made, and a source for every empirical claim the chapter intends to make
 - [x] Dan approved the plan (sitting 1)
-- [ ] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
-- [ ] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
+- [x] Drafted against the SEVEN craft criteria in AIOM_Prose_Standard_v2.0.md, read BEFORE drafting rather than after. The voice is Concrete Management Prose
+- [x] Frequency sweep cleared (Decision 78): `freqsweep.py` lists every frequency sentence and each is cited, rewritten as a formal conditional, or cut, or kept as qualification for Dan to rule; the dispositions go in the review package
 
 Findings:
 
@@ -79,6 +79,10 @@ V2-S1-2. Craft example on Lindy.ai; P1 audits Uber, P2 the Australian Copilot tr
 V2-S1-3. Chapter 2's THM-004 promise kept by one or two sentences in 3.1, beside the passage on theorem panels.
 V2-S1-4. Five key-term entries, one per function.
 V2-S1-5. Planning documents updated to match: structure entry, exit competencies (four places), Consolidated Spec's Chapter 3 outline replaced by a pointer to the plan.
+V2-D1. Draft written 2026-10-15, 5,637 words. Kept verbatim from the locked text (checked block by block): the opening case, the borders (now 3.3), the Founding Questions (now 3.4, one phrase changed from "the certified claims" to "the science"), discussion questions 2 to 4 (question 4 points to Section 3.2), the Klarna case. New: 3.1, 3.2 with five dated boxes (Airbnb, Pigment, DoiT, Microsoft, JPMorgan), the function audit worked on Lindy, P1 on Uber, P2 on the Australian trial, P3, the summary, nine key terms. Figure 3.1 is the old two-layer figure.
+V2-D2. Sources: eight new entries, all Grade C (search only); four Chapter 2 entries carried with their verified notes; the registry entry dropped (THM-004 is named, not cited). A 36 percent DoiT figure was not used: no primary found.
+V2-D3. Frequency sweep, 8 listed. F4 made exact ("at least 8 percent", from 55 plus 53); F7 made conditional ("can arrive"). Kept, 6: F1 cited and ruled; F2, F8 superlatives; F3 a quantity; F5 a logical possibility ruled at sitting 2b; F6 a statement about the procedure.
+V2-D4. Print, for Stage 5 and not before (production is never run early): gate 1 flags a trailing space after "Google," in the Airbnb box; the two adjacent citations in the JPMorgan and Lindy boxes were separated, and gate 8 now passes.
 
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
@@ -108,19 +112,21 @@ Status: [ ]        Date cleared:
 
 > Mechanical. Runs before Dan sees the chapter, so no reading time is spent on a draft with a defect a script could find.
 
-- [ ] All six slots present, in order, correctly headed
-- [ ] Opening case carries a provenance line under its title
-- [ ] Every exit competency assigned to this chapter is addressed
-- [ ] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
-- [ ] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
-- [ ] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
-- [ ] Every Slot 5 key term appears defined in the body
-- [ ] Zero em dashes
+- [x] All six slots present, in order, correctly headed
+- [x] Opening case carries a provenance line under its title
+- [x] Every exit competency assigned to this chapter is addressed
+- [x] Every registry ID cited resolves in AIOM_Registry_Manifest.json AND is certified (Decision 72): run registry.py --check
+- [x] Tier rules hold: one theorem callout, lemmas by ID, propositions by ID
+- [x] Every empirical claim carries a citation; every source carries an access date (Decision 48, no archival)
+- [x] Every Slot 5 key term appears defined in the body
+- [x] Zero em dashes
 - [ ] Word count inside the chapter target band
-- [ ] Gloss-less lemmas carry a book-authored gloss, marked as such
-- [ ] voicecheck.py mechanical bans clean before anyone reads the draft
+- [x] Gloss-less lemmas carry a book-authored gloss, marked as such
+- [x] voicecheck.py mechanical bans clean before anyone reads the draft
 
 Findings:
+
+V2-G1. 2026-10-15: ten of eleven boxes pass. Open: the word count, 5,637 against the 6,000 to 7,500 band (Decision 82), put to Dan. Tier rules hold with no theorem callout, by design (Decision 85).
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
