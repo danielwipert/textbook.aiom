@@ -1,0 +1,3313 @@
+{
+ "source_html": "Drafts/Ch03_A_Science_and_Its_Discipline/00_Stage0_Draft/AIOM_Ch03_draft.html",
+ "source_format": "markdown",
+ "block_count": 220,
+ "excluded": [
+  "<section id=\"aiom-sources\">, the Decision 51 source register: machine-read apparatus, deliberately not exposed to a copy edit"
+ ],
+ "figure_text_counts": [
+  17
+ ],
+ "blocks": [
+  {
+   "i": 0,
+   "kind": "PART LABEL",
+   "class": "part-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    200,
+    221
+   ],
+   "sha1": "d1f306603f8d9170137939c56cc45f28956b0946",
+   "text": "Part I · The Argument"
+  },
+  {
+   "i": 1,
+   "kind": "CHAPTER TITLE",
+   "class": "chapter-title",
+   "tag": "h1",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    252,
+    280
+   ],
+   "sha1": "0fc29bfc4d7fcc8527bd3d3019d45220eec32189",
+   "text": "A Science and Its Discipline"
+  },
+  {
+   "i": 2,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    309,
+    321
+   ],
+   "sha1": "180538463d11c0f7ea1903cf657cb1a084bcfbd6",
+   "text": "Opening case"
+  },
+  {
+   "i": 3,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    349,
+    388
+   ],
+   "sha1": "2d444280e446cdcd0627b81717cbe2b8b2404092",
+   "text": "The discipline that changed its mission"
+  },
+  {
+   "i": 4,
+   "kind": "PROVENANCE",
+   "class": "provenance",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    416,
+    535
+   ],
+   "sha1": "36f9a436148bade68a72cb308236c69c599caca5",
+   "text": "Dated: February 2026. Figures and the quotation checked against the Foundation’s report and announcement, October 2026."
+  },
+  {
+   "i": 5,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    544,
+    968
+   ],
+   "sha1": "17f43de99d65a9adec959f11bdc0c5b542186a71",
+   "text": "In February 2026, the FinOps Foundation changed its mission statement. For years, it had described its purpose as “advancing the people who manage the value of cloud.” The new statement replaced one word: “advancing the people who manage the value of technology.”"
+  },
+  {
+   "i": 6,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-mission",
+   "figure": null,
+   "string": null,
+   "span": [
+    863,
+    961
+   ],
+   "sha1": "d724d0232ab74301f8fdbd68f896ac1ea6f0e78d",
+   "text": "The mission statement before and after the change."
+  },
+  {
+   "i": 7,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    977,
+    1717
+   ],
+   "sha1": "9d35726b455ce2519dafad2f33247f7b88a5433f",
+   "text": "The change accompanied the Foundation’s annual survey of its practitioners, the people inside companies who manage cloud spending for a living. The 2026 survey reached 1,192 respondents responsible for more than $83 billion in annual cloud spending. Its central finding concerned the expansion of FinOps into AI spending. Ninety-eight percent of respondents now managed AI spending, up from 31 percent two years earlier."
+  },
+  {
+   "i": 8,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-state",
+   "figure": null,
+   "string": null,
+   "span": [
+    1256,
+    1360
+   ],
+   "sha1": "1c746ee00719278483102edd44989fbc9659524f",
+   "text": "Survey size and the cloud spending its respondents manage."
+  },
+  {
+   "i": 9,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-state",
+   "figure": null,
+   "string": null,
+   "span": [
+    1592,
+    1710
+   ],
+   "sha1": "3de8036ac0679bc0bc2fea0314225659f2f7eaa2",
+   "text": "Share of respondents managing AI spend, 2026 survey against 2024 survey."
+  },
+  {
+   "i": 10,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    1726,
+    2366
+   ],
+   "sha1": "f1011aee0f3f6832c85fbc0a42b6b882df32699e",
+   "text": "FinOps was built to address a specific problem: cloud consumption varied with use, and the bills arrived after capacity had been used. The discipline developed to make engineering, finance, and business teams jointly accountable for that spending. Its practitioners later took on AI spending, and by 2026 nearly all of the survey’s respondents were managing it."
+  },
+  {
+   "i": 11,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-definition-2024",
+   "figure": null,
+   "string": null,
+   "span": [
+    1919,
+    2027
+   ],
+   "sha1": "0b46a96a4e9287e7090209367e1317721426ebcf",
+   "text": "Cloud consumption as variable and tracked after the fact."
+  },
+  {
+   "i": 12,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-what-is",
+   "figure": null,
+   "string": null,
+   "span": [
+    2174,
+    2245
+   ],
+   "sha1": "a6e85e5a2fce703eda4b5102fb90c95efc51a00e",
+   "text": "The Foundation’s definition."
+  },
+  {
+   "i": 13,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2375,
+    2670
+   ],
+   "sha1": "e6a3351417b4ab2f4c2004c5b69e3e9fd8667b8c",
+   "text": "Asked whether AI was providing value, one practitioner stated what remained unknown. The report chose to quote the answer: “No one can answer that question yet.”"
+  },
+  {
+   "i": 14,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-2026-state",
+   "figure": null,
+   "string": null,
+   "span": [
+    2566,
+    2663
+   ],
+   "sha1": "35ec02ad57815e9a1ddc68dca6389e3b96e63a9f",
+   "text": "Practitioner quotation as reproduced in the report."
+  },
+  {
+   "i": 15,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    2679,
+    3091
+   ],
+   "sha1": "4d5e3f5eb2eb12430954a7f70f8524ac4acfddeb",
+   "text": "The quotation names the gap Chapters 1 and 2 described, in the words of someone asked to close it. When an organization pays for a metered resource, costs accrue with use, but someone must build the means to measure the value it receives. FinOps is a capable neighboring discipline that has expanded into work it was not built to govern: the economics of an organization’s AI consumption."
+  },
+  {
+   "i": 16,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3100,
+    3433
+   ],
+   "sha1": "91c2ed43476100efe68bf9dee406bc4224efbfdb",
+   "text": "That work requires both a body of knowledge about what is true and a practice that turns that knowledge into action. This book sets out both. Chapter 14 explains how FinOps and that practice divide the work. Until both exist, the practitioner’s question about whether AI is providing value remains unanswered."
+  },
+  {
+   "i": 17,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3459,
+    3515
+   ],
+   "sha1": "9ad0af6ebbed21723cad99f731d0a1c36acfb56e",
+   "text": "3.1 The science and the practice"
+  },
+  {
+   "i": 18,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3525,
+    3885
+   ],
+   "sha1": "9265ed9f5fe50fc04e102ed52d1eebc52632cda9",
+   "text": "Managers act on claims about how their business works. A budget assumes that costs follow usage. A pricing negotiation assumes that the provider has a reason to accept a lower price. A dashboard assumes that the information it displays will change someone’s decisions. When those claims are wrong, careful execution does not repair the decisions built on them."
+  },
+  {
+   "i": 19,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    3894,
+    4439
+   ],
+   "sha1": "e7070eb2f797124ebc35dae1c88585876c2ee179",
+   "text": "Claims like these can remain informal, held in experience, rules of thumb, or the slides of the last person to present. That knowledge is useful, but it has a cost: two managers can hold opposing beliefs about the same deployment without being able to identify where they disagree. One might treat Chapter 1’s Cursor licenses as a fixed software expense and the other as metered consumption. Without stating their claims, neither can identify the fact that would settle the disagreement, so the argument turns on confidence rather than evidence."
+  },
+  {
+   "i": 20,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    4448,
+    4736
+   ],
+   "sha1": "833e4fedd3d683be655b7cee9abf7f24f7e7bdd6",
+   "text": "Chapters 1 and 2 each ended with an explicit result rather than an opinion. Chapter 1 stated the conditions under which deployed AI is a resource the organization consumes. Chapter 2 stated the conditions under which a scaled deployment cannot be controlled without a governing apparatus."
+  },
+  {
+   "i": 21,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    4745,
+    5145
+   ],
+   "sha1": "a79491b8ff8ceb35bf44a52903782bfb1b1b9abf",
+   "text": "AI Business Economics is that body of knowledge. It is a science in a specific, limited sense: a set of claims about the business economics of consuming AI, each stating when it holds and expressed precisely enough to be checked. Here, science does not imply laboratory experiments or certainty. It means that every claim states when it applies, what it concludes, and which other claims it rests on."
+  },
+  {
+   "i": 22,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5193,
+    5203
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 23,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5224,
+    5245
+   ],
+   "sha1": "037e2490a1851247243f28ca53c7711b2cacb5f1",
+   "text": "AI Business Economics"
+  },
+  {
+   "i": 24,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5253,
+    5433
+   ],
+   "sha1": "ec1ed91e9a896935fdd16e9b9e2b9db918fef3c3",
+   "text": "The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on."
+  },
+  {
+   "i": 25,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5451,
+    5921
+   ],
+   "sha1": "37f566aeee5b177160fcf89156e08d465d4e85b5",
+   "text": "A stated condition is what makes such a claim useful to a manager. Chapter 1’s result does not say that every use of AI is consumption. It says when deployed AI behaves as a resource the organization consumes, so a manager can check whether a given deployment meets those conditions before relying on the result. A claim that states when it applies can also be shown not to apply. That is what lets two managers who disagree find the fact that would settle the question."
+  },
+  {
+   "i": 26,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    5930,
+    6726
+   ],
+   "sha1": "af0933d608b587b841630d866cc7b27350e624e1",
+   "text": "Chapter 1’s Cursor licenses show the check at work. Two of the result’s conditions are that the buyer’s cost extends beyond the access price and that measurement makes resource use visible. After June 2025, each request drew down a twenty-dollar monthly credit at the model provider’s rate, and further use was priced at the same rates, so both conditions held for a team on that plan. A manager who still budgeted the licenses as a fixed software expense was relying on a price the conditions said no longer described the cost. Two conditions settled what confidence could not."
+  },
+  {
+   "i": 27,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "truell-2025-pricing",
+   "figure": null,
+   "string": null,
+   "span": [
+    6371,
+    6526
+   ],
+   "sha1": "080341bc502e239ad47f0554383bb629496867d1",
+   "text": "The Cursor post describing the plan change of June 16, 2025, as cited in Chapter 1."
+  },
+  {
+   "i": 28,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    6735,
+    7171
+   ],
+   "sha1": "ea9f0c7e8c24b90032be1e7e6acdba19fd211b4a",
+   "text": "The book shows the results of this science in numbered panels, as Chapters 1 and 2 did. Each panel states a result in its exact form and carries an identifier. A reading in plain business language follows each panel, and the reading is enough to use the result. The identifier lets a reader who doubts a result find its full statement and its supporting claims in Appendix A. A manager needs nothing more than the panel and its reading."
+  },
+  {
+   "i": 29,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7180,
+    7649
+   ],
+   "sha1": "6925458d74c51d7c95bcf7ae9e8e36b768eb87d2",
+   "text": "Chapter 2’s panel, THM-004, shows what such a result settles and what it leaves open. It formalizes the economic consequence of the third flow’s asymmetry. Once a deployment reaches scale, economic control requires a governing apparatus. Diligence from the people running the deployment is no longer enough. The theorem does not establish the three flows themselves. They are this book’s way of looking at a deployment, and the theorem’s conditions do not mention them."
+  },
+  {
+   "i": 30,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7675,
+    7721
+   ],
+   "sha1": "50bb3cffc540d5a3e478bd5fc0c97a1233058495",
+   "text": "3.2 The five functions"
+  },
+  {
+   "i": 31,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    7731,
+    8114
+   ],
+   "sha1": "4e063b3a3db3f97f0d0c49312798f7867d85a2e9",
+   "text": "A manager can know that consumption drives cost and still have no forecast of next month’s use, no owner for the bill, and no record of which team used what. Knowledge alone does not change what an organization does. A practice connects knowledge to results through its own methods, roles, and standards, as clinical practice does for physiology and engineering codes do for physics."
+  },
+  {
+   "i": 32,
+   "kind": "LABEL",
+   "class": "lab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8162,
+    8172
+   ],
+   "sha1": "bf1be2b7ad07bae2fe92475d10173eb638774def",
+   "text": "Definition"
+  },
+  {
+   "i": 33,
+   "kind": "TERM",
+   "class": "term",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8193,
+    8217
+   ],
+   "sha1": "c6cf24fd9ec560e677064c15b0bd1f24a7c47b47",
+   "text": "AI Operations Management"
+  },
+  {
+   "i": 34,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8225,
+    8411
+   ],
+   "sha1": "d153a72a24d2e1fcebae5f043e2b9f4eee9a975f",
+   "text": "The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI."
+  },
+  {
+   "i": 35,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    8428,
+    8993
+   ],
+   "sha1": "6e2812c6156834a924c0d86950bb389b9faadfa1",
+   "text": "Chapter 1 described the problem as a category error. Wherever that chapter’s conditions hold, AI Operations Management addresses the error by managing AI as a resource the organization consumes. The discipline has five functions that follow AI capacity through the organization: buying it, planning its use, recording and assigning consumption, routing it to work, and judging the value it returns. Each function is a capability an organization either has or lacks. An organization that lacks one does not stop consuming. It consumes without that function’s answer."
+  },
+  {
+   "i": 36,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9002,
+    9474
+   ],
+   "sha1": "2eecf4bd81017240dea3e6eb7994316a29041c4d",
+   "text": "The first function, sourcing, matches the AI capacity an organization buys to the requirements of its work. It determines which models and providers serve which work, and on what terms, so that the organization neither pays for capability it does not need nor deprives work of capability it requires. A company that sends every request to its most capable model, including requests a smaller model would answer just as well, is paying for capability its work does not use."
+  },
+  {
+   "i": 37,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9483,
+    9948
+   ],
+   "sha1": "8b34e7f88e3f1ace76559a584fa2b44306806763",
+   "text": "Sourcing decides more than the provider. A requirement can be accuracy, speed, cost per request, or how easily a model connects to the systems that feed it, and different pieces of work weigh these differently. Customer messages may need a fast, inexpensive model, while a contract review may need the most capable one available. An organization that buys one model for all of its work has still made a sourcing decision, whether or not anyone made it deliberately."
+  },
+  {
+   "i": 38,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    9990,
+    10009
+   ],
+   "sha1": "bcaa2b52446e8bde8a85238ae27594c106b98ec2",
+   "text": "Dated: October 2025"
+  },
+  {
+   "i": 39,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    10017,
+    10764
+   ],
+   "sha1": "01f5ff9203db6a42447218e6f777e7ef596a1a06",
+   "text": "In October 2025, Airbnb’s chief executive, Brian Chesky, said the company’s customer-service agent was built on 13 models, from OpenAI, Google, Alibaba, and open-source providers. He said the company relied heavily on Alibaba’s Qwen models, which he called “very good” and “also fast and cheap.” He also said OpenAI’s tools for connecting its models to Airbnb’s systems were not yet ready for the company’s needs."
+  },
+  {
+   "i": 40,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "airbnb-2025-qwen",
+   "figure": null,
+   "string": null,
+   "span": [
+    10651,
+    10757
+   ],
+   "sha1": "bc18e732af0b1dc4616fa5e70efcbe3c1d8ce239",
+   "text": "The chief executive’s account of the models behind the agent."
+  },
+  {
+   "i": 41,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    10780,
+    11189
+   ],
+   "sha1": "423f2f42bad2dbc481ae570568d0f178a0064c25",
+   "text": "The second function is planning and budgeting, whose absence proved costly in Chapter 2’s opening case. The organization must state how much AI it expects to consume in the coming period and detect when actual consumption departs from that expectation. A budget is a commitment made in advance. When someone compares it with recorded consumption as the period runs, a deviation shows before the money is gone."
+  },
+  {
+   "i": 42,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11198,
+    11539
+   ],
+   "sha1": "49e4f2599333ebc75377414b02f9151a614a6f4f",
+   "text": "A budget for AI differs from a budget for licenses because the quantity is not fixed when the budget is set. The plan must therefore state the drivers it assumes, such as how many people or workflows will use the system and how heavily. A change in spending can then be traced to a change in a driver, while there is still time to act on it."
+  },
+  {
+   "i": 43,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11581,
+    11600
+   ],
+   "sha1": "c1b2675b813b8069d62c7827477dfd2f4453b8db",
+   "text": "Dated: October 2026"
+  },
+  {
+   "i": 44,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    11608,
+    12262
+   ],
+   "sha1": "15de1c803a6eb2336d93584836479ec14cfc6d48",
+   "text": "Pigment, a company that sells financial planning software, surveyed about 2,000 finance leaders in the United States, the United Kingdom, France, and Germany for a report released in October 2026. Eighty-three percent said consumption-based pricing had pushed their AI spending above expectations. Thirteen percent said they had stayed within budget, and the average overrun was about 27 percent. The figures describe the survey’s respondents, reported by a vendor of planning software."
+  },
+  {
+   "i": 45,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "pigment-2026-cfo-index",
+   "figure": null,
+   "string": null,
+   "span": [
+    12153,
+    12255
+   ],
+   "sha1": "6c6da0d9fc79b717ebc5d5acef5f0d2d99b4a5f0",
+   "text": "Survey size, overruns, and the share within budget."
+  },
+  {
+   "i": 46,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    12278,
+    12593
+   ],
+   "sha1": "f597ca7324e7e55a64d9676a7815cf8d9bf03a7e",
+   "text": "The third function, metering and attribution, builds what Chapter 2 called the record flow. The organization must record what was consumed and assign each unit of consumption to the team, product, or purpose it served. Without that assignment, managers can see a cost but cannot trace it to the work that caused it."
+  },
+  {
+   "i": 47,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    12602,
+    13105
+   ],
+   "sha1": "fd4e21193b02f9cd243e2bc7d16152927c7f24d9",
+   "text": "The record has two parts. Metering counts what was consumed, request by request. Attribution assigns each count to the work that caused it. An invoice priced by use supplies the first part in total. An invoice priced by seat supplies neither part. Only the organization can supply the second, because only the organization knows which team, product, or customer a request served. Without that record, no one can say whose work caused a cost, so responsibility for it can sit with several groups at once."
+  },
+  {
+   "i": 48,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    13147,
+    13167
+   ],
+   "sha1": "529e80e2f298748876e5d435c0807136ae230a15",
+   "text": "Dated: February 2026"
+  },
+  {
+   "i": 49,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    13175,
+    13811
+   ],
+   "sha1": "de91506e47537038c346cfa0e9b67e665bc8d1d8",
+   "text": "DoiT, a company that sells cloud cost-management services, commissioned a survey of 500 finance leaders at organizations in the United States and the United Kingdom with 1,000 or more employees. Sapio Research conducted it in February 2026. Seventy-nine percent reported AI-related cost overruns in the previous twelve months. Asked who was accountable for AI spending, 55 percent named technology leadership and 53 percent named finance, so at least 8 percent named both."
+  },
+  {
+   "i": 50,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "doit-2026-ai-spend",
+   "figure": null,
+   "string": null,
+   "span": [
+    13702,
+    13804
+   ],
+   "sha1": "2f9cc024c2edc845a524134ec14435455bb11c25",
+   "text": "Survey size, overruns, and the split of accountability."
+  },
+  {
+   "i": 51,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    13827,
+    14318
+   ],
+   "sha1": "8ce12f38040d2550c8459500929b4d45b5f57200",
+   "text": "The fourth function is allocation and routing. When capacity is limited, the organization must decide what runs first and send each piece of work to suitable capacity. These choices occur even when no one makes them deliberately. Consider a constructed example: two workflows share a provider account with a fixed rate limit. When their combined demand exceeds the limit, one of them waits, and no one has decided which. Allocation and routing make that choice deliberate by applying a rule."
+  },
+  {
+   "i": 52,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14327,
+    14689
+   ],
+   "sha1": "e64b0a1fc241a958a5b19895461e9362cdbcfd04",
+   "text": "Routing and allocation are two sides of one decision. Routing sends each piece of work to suitable capacity, such as a smaller model for routine requests and a larger one for difficult cases. Allocation decides who goes first when capacity is not enough for everyone. Both need a stated rule, because a stated rule can be checked against its results and changed."
+  },
+  {
+   "i": 53,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14731,
+    14747
+   ],
+   "sha1": "da75b0fde4d9193e123a2e95fe8e464f82f2b88d",
+   "text": "Dated: July 2026"
+  },
+  {
+   "i": 54,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    14755,
+    15628
+   ],
+   "sha1": "8748d80e8b2dc85250b4d1505978772e75f43a33",
+   "text": "In July 2026, Bloomberg reported that Microsoft had begun sending some prompts from Copilot in Excel and Outlook to its own MAI models instead of models from OpenAI and Anthropic, citing the cost of the outside models. Reports put the volume at tens of thousands of prompts a week. Routine tasks moved to the in-house models, while complex reasoning tasks could still go to the outside models. The company’s head of AI, Mustafa Suleyman, said its goal was to reduce and ultimately eliminate what it paid Anthropic."
+  },
+  {
+   "i": 55,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "microsoft-2026-mai",
+   "figure": null,
+   "string": null,
+   "span": [
+    15516,
+    15621
+   ],
+   "sha1": "cd5ed0dca0c4c96484649fac53a09eb62d665f70",
+   "text": "The routing change, its scale, and the stated cost motive."
+  },
+  {
+   "i": 56,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    15644,
+    16276
+   ],
+   "sha1": "b2becfdf65b9f51f64f03aed6cbebfeda91d25f6",
+   "text": "The fifth function is holding value to account. Consider a constructed example in which a support team adds an AI assistant to its help desk. At the end of a quarter, the organization should be able to say whether the assistant paid for itself, identifying what it cost and returned, over which months, and against which outcome. That requires a boundary: the costs and value the evaluation counts, the period it covers, and the outcomes it measures against. The organization sets the boundary for each deployment before spending begins and names one person responsible for knowing the answer. This book calls it the value boundary."
+  },
+  {
+   "i": 57,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16285,
+    16696
+   ],
+   "sha1": "7447fe3cd0e9d0506ac9a370bd6368a10539739d",
+   "text": "The boundary matters because the choice of what to count changes the return. An evaluation that counts the assistant’s subscription but not the staff time spent checking its answers reports a higher return than one that counts both. So can an evaluation that measures only its best month instead of the whole quarter. Setting the boundary in advance prevents the evaluation from choosing the version it prefers."
+  },
+  {
+   "i": 58,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16738,
+    16778
+   ],
+   "sha1": "62cb94ea12e7d7fabb78f6edd01e37f638149ea0",
+   "text": "Dated: October 2025, with a later update"
+  },
+  {
+   "i": 59,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    16786,
+    17732
+   ],
+   "sha1": "11558bdd5d82fee0c3a87e4a54975cd86cd52a5e",
+   "text": "In October 2025, JPMorgan Chase’s chief executive, Jamie Dimon, told Bloomberg Television that the bank spent about $2 billion a year on AI and received about the same in benefits: “We have shown that for $2 billion of expense, we have about $2 billion of benefit.” When later asked for updated figures, the bank’s chief financial officer put annual AI spending closer to $700 million and called the earlier figure “a little stale.” The same report said the benefits were not yet visible in the bank’s quarterly earnings. The published accounts do not say which costs, benefits, or period either figure covered."
+  },
+  {
+   "i": 60,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "jpmorgan-2025-dimon",
+   "figure": null,
+   "string": null,
+   "span": [
+    17155,
+    17233
+   ],
+   "sha1": "bb8a8604152c0728609586cba203d3b5d841826b",
+   "text": "The chief executive’s figures."
+  },
+  {
+   "i": 61,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "jpmorgan-cfo-ai-spend",
+   "figure": null,
+   "string": null,
+   "span": [
+    17620,
+    17725
+   ],
+   "sha1": "3343b7f35726686687906dfd133acf0d297ed76c",
+   "text": "The later spending figure and the earnings observation."
+  },
+  {
+   "i": 62,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    17748,
+    17878
+   ],
+   "sha1": "b3d2214607e00aacf84b1a4ad2a8e73efdcb65cd",
+   "text": "Figure 3.1 shows the relationship between the two layers: the science provides the foundation for the discipline’s five functions."
+  },
+  {
+   "i": 63,
+   "kind": "FIGURE CAPTION",
+   "class": "",
+   "tag": "figcaption",
+   "sources": null,
+   "figure": 1,
+   "string": null,
+   "span": [
+    19446,
+    19686
+   ],
+   "sha1": "e5bbb592cb594a5025dada7244cf531a7cd818cd",
+   "text": "Figure 3.1 The two layers. AI Business Economics states conditional claims about consuming AI and records what each one rests on. AI Operations Management acts on it through five functions, all taught in Part III."
+  },
+  {
+   "i": 64,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 0,
+   "span": [
+    18171,
+    18212
+   ],
+   "sha1": "916084429c7674371996a20aec99c499f045b4a7",
+   "text": "AI OPERATIONS MANAGEMENT · THE DISCIPLINE"
+  },
+  {
+   "i": 65,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 1,
+   "span": [
+    18240,
+    18275
+   ],
+   "sha1": "93c768b8666f297259c45937145fce8bc2a6de9e",
+   "text": "AI BUSINESS ECONOMICS · THE SCIENCE"
+  },
+  {
+   "i": 66,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 2,
+   "span": [
+    18705,
+    18713
+   ],
+   "sha1": "5e72410c572162c22a50179c0665881e214b7441",
+   "text": "Sourcing"
+  },
+  {
+   "i": 67,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 3,
+   "span": [
+    18741,
+    18753
+   ],
+   "sha1": "8149b0ed67baff1719a12c8504ff255a3f3d9bc3",
+   "text": "Planning and"
+  },
+  {
+   "i": 68,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 4,
+   "span": [
+    18781,
+    18790
+   ],
+   "sha1": "b6a6023264bdf8140eef4be90276453ec77f09a5",
+   "text": "budgeting"
+  },
+  {
+   "i": 69,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 5,
+   "span": [
+    18819,
+    18831
+   ],
+   "sha1": "236201d3238994bbfb78fd400cdfc1edb608f36c",
+   "text": "Metering and"
+  },
+  {
+   "i": 70,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 6,
+   "span": [
+    18860,
+    18871
+   ],
+   "sha1": "eec3b038bd8d1458bd414f844f33cae3cfd44894",
+   "text": "attribution"
+  },
+  {
+   "i": 71,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 7,
+   "span": [
+    18900,
+    18910
+   ],
+   "sha1": "1b5c021aee14bea734803bc4262d3ac794a7f664",
+   "text": "Allocation"
+  },
+  {
+   "i": 72,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 8,
+   "span": [
+    18939,
+    18950
+   ],
+   "sha1": "b4baa4b17d33427c6ac5ff230efd65f704764fcb",
+   "text": "and routing"
+  },
+  {
+   "i": 73,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 9,
+   "span": [
+    18979,
+    18988
+   ],
+   "sha1": "e446494ebae458b5aea2681dfd535005a9fb5001",
+   "text": "The value"
+  },
+  {
+   "i": 74,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 10,
+   "span": [
+    19017,
+    19025
+   ],
+   "sha1": "2db8c22f75474a58cd13fa2d3425017015d392ce",
+   "text": "boundary"
+  },
+  {
+   "i": 75,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 11,
+   "span": [
+    19111,
+    19120
+   ],
+   "sha1": "9763d3df80e444ca384041924a6ee96d24885e04",
+   "text": "Chapter 7"
+  },
+  {
+   "i": 76,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 12,
+   "span": [
+    19149,
+    19159
+   ],
+   "sha1": "51878d23f86ffdf50a4475d1917c1e8744be06f9",
+   "text": "Chapter 10"
+  },
+  {
+   "i": 77,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 13,
+   "span": [
+    19189,
+    19202
+   ],
+   "sha1": "652514271d84cd9d6a54b378128bb03c3c229c04",
+   "text": "Chapters 8, 9"
+  },
+  {
+   "i": 78,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 14,
+   "span": [
+    19232,
+    19242
+   ],
+   "sha1": "5c8f725d32bc4b31d06a9d2fbe5f8de7a5419078",
+   "text": "Chapter 11"
+  },
+  {
+   "i": 79,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 15,
+   "span": [
+    19272,
+    19282
+   ],
+   "sha1": "bfe3b92a208684995bc25f61b64dd34ca5d1d52d",
+   "text": "Chapter 12"
+  },
+  {
+   "i": 80,
+   "kind": "FIGURE TEXT",
+   "class": "svg-text",
+   "tag": "text",
+   "sources": null,
+   "figure": 1,
+   "string": 16,
+   "span": [
+    19365,
+    19419
+   ],
+   "sha1": "9b00ef928fb94cccd3185e69ea41f70c37d82270",
+   "text": "conditional claims about the economics of consuming AI"
+  },
+  {
+   "i": 81,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    19714,
+    20012
+   ],
+   "sha1": "cdd1b61ea99c9749759a6bb2db6e943d5c707a03",
+   "text": "A result about governance changes nothing until an organization builds the apparatus it describes. The science therefore depends on the discipline to put its findings into practice. The discipline depends on the science because careful practice cannot repair a decision built on an incorrect claim."
+  },
+  {
+   "i": 82,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20038,
+    20091
+   ],
+   "sha1": "ea29f9c81dafeb539d577c54be07947ed7b6f3a2",
+   "text": "3.3 Where the discipline ends"
+  },
+  {
+   "i": 83,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20101,
+    20301
+   ],
+   "sha1": "3e488172ce96e189a589d90b40674f4573d1ccf2",
+   "text": "Chapter 1 set aside three related subjects: how models work, prompt engineering, and finding uses for AI. Each has its own purpose and literature, and each ends before AI Operations Management begins."
+  },
+  {
+   "i": 84,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20310,
+    20642
+   ],
+   "sha1": "a0df7084d3f18f9363c36111262f07273983a098",
+   "text": "The first subject concerns how models work, including their architectures, training, and internal behavior. It belongs to computer science and machine learning engineering, and ends where a model becomes a service an organization can call. AI Operations Management begins where a model is a service an organization can buy and call."
+  },
+  {
+   "i": 85,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    20651,
+    21024
+   ],
+   "sha1": "5186b9048b2fb5483d975d3704fbbdacdba597c9",
+   "text": "The second is prompt engineering, the craft of writing inputs that produce better outputs. It improves individual uses of AI, while AI Operations Management governs their combined consumption, cost, and value. A better prompt can lower the cost of one request. Only the discipline can determine whether the organization’s requests, taken together, are worth what they cost."
+  },
+  {
+   "i": 86,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21033,
+    21314
+   ],
+   "sha1": "3553a9fd2a292dfff619def7637264c6debe6499",
+   "text": "The third subject is finding uses for AI: deciding which business problems it might solve. That work belongs to strategy and innovation, and ends when a use is chosen. AI Operations Management begins with buying capacity for the chosen use and manages its consumption from then on."
+  },
+  {
+   "i": 87,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21323,
+    21531
+   ],
+   "sha1": "9a0e219a87adc574f3e995b70b94addfc6ceef9e",
+   "text": "Four established disciplines sit closer to AI Operations Management. Each manages an aspect of work related to AI consumption, but each lacks something needed to govern its economics. Table 3.1 compares them."
+  },
+  {
+   "i": 88,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21572,
+    21580
+   ],
+   "sha1": "1b0c8ab19f65ee98711f4d86d2eb2da9c8f35be3",
+   "text": "Neighbor"
+  },
+  {
+   "i": 89,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21589,
+    21603
+   ],
+   "sha1": "9d49f2ceba527eb5f93d71531b61ac9201139c35",
+   "text": "What it is for"
+  },
+  {
+   "i": 90,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21612,
+    21627
+   ],
+   "sha1": "09d23cf10d1a7c2916c6441cb48ced4b9e203bf5",
+   "text": "What it manages"
+  },
+  {
+   "i": 91,
+   "kind": "TABLE HEADING",
+   "class": "",
+   "tag": "th",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21636,
+    21668
+   ],
+   "sha1": "ee5814f8203f69496584ff2a1c80023e32b28a4c",
+   "text": "What it lacks for this territory"
+  },
+  {
+   "i": 92,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21703,
+    21708
+   ],
+   "sha1": "c2b53024480759098e2b284ed9a7e3969ee466af",
+   "text": "AIOps"
+  },
+  {
+   "i": 93,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21717,
+    21987
+   ],
+   "sha1": "09a01007c9b67b88a3fb4313b586f8293d779bcf",
+   "text": "Applying big data and machine learning to automate IT operations, including event correlation, anomaly detection, and causality determination"
+  },
+  {
+   "i": 94,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "gartner-aiops",
+   "figure": null,
+   "string": null,
+   "span": [
+    21884,
+    21980
+   ],
+   "sha1": "e10a3a0000969f29b7865b9d48f192dd695a4963",
+   "text": "Gartner’s definition of AIOps."
+  },
+  {
+   "i": 95,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    21996,
+    22036
+   ],
+   "sha1": "8f2f581d8759d534f0ca4deaaf0f7dae240e2277",
+   "text": "The health and performance of IT systems"
+  },
+  {
+   "i": 96,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22045,
+    22127
+   ],
+   "sha1": "a214037a16d3bb037cd4f8f831c8b023f693ef67",
+   "text": "It uses AI to watch systems. It does not govern what consuming AI costs or returns"
+  },
+  {
+   "i": 97,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22146,
+    22151
+   ],
+   "sha1": "d9482180f59e79174eca8f187d2751487abbb564",
+   "text": "MLOps"
+  },
+  {
+   "i": 98,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22160,
+    22356
+   ],
+   "sha1": "cd4622d815fb10dfd02f299c127359cdbc69c56b",
+   "text": "Building, deploying, and monitoring machine learning models in production"
+  },
+  {
+   "i": 99,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "kreuzberger-2023-mlops",
+   "figure": null,
+   "string": null,
+   "span": [
+    22268,
+    22349
+   ],
+   "sha1": "f7e0f85fc594aeef6d1a3178a08c4c32ea8780f9",
+   "text": "Definition and scope of MLOps."
+  },
+  {
+   "i": 100,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22365,
+    22411
+   ],
+   "sha1": "6b457c362f2809f0c57f0a16484dac0b76229941",
+   "text": "The lifecycle of models an organization builds"
+  },
+  {
+   "i": 101,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22420,
+    22504
+   ],
+   "sha1": "1be072a38460d54616395b5a680afd5891d8e289",
+   "text": "It ships models. It does not govern the consumption of capacity an organization buys"
+  },
+  {
+   "i": 102,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22523,
+    22553
+   ],
+   "sha1": "584093c2d1d4a3734d946314d6128a7123cc852f",
+   "text": "FinOps"
+  },
+  {
+   "i": 103,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22562,
+    22828
+   ],
+   "sha1": "0a001786011b9e9ac48ce3199c7f01c22d60d2f8",
+   "text": "Maximizing the business value of technology through financial accountability and collaboration among engineering, finance, and business teams"
+  },
+  {
+   "i": 104,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-what-is",
+   "figure": null,
+   "string": null,
+   "span": [
+    22730,
+    22821
+   ],
+   "sha1": "5a6a10e5bd6922d198fbe3fdaaceb87303a62651",
+   "text": "The Foundation’s own definition of the practice."
+  },
+  {
+   "i": 105,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22837,
+    22872
+   ],
+   "sha1": "d8d368a7eb7c4426f0a5f05c060b123ef0cc9c78",
+   "text": "Cloud and wider technology spending"
+  },
+  {
+   "i": 106,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    22881,
+    23026
+   ],
+   "sha1": "0cbbb5b499c3eda106abcab7959a469fc4f14447",
+   "text": "It grew from managing cloud cost and usage. Its 2026 report quotes a practitioner saying that no one can yet answer whether AI is providing value"
+  },
+  {
+   "i": 107,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23045,
+    23069
+   ],
+   "sha1": "28e0dd78e2ec988e76fe446b0b51245e8f31dd27",
+   "text": "Regulatory AI governance"
+  },
+  {
+   "i": 108,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23078,
+    23150
+   ],
+   "sha1": "6d267ffbf21c8f8507584675671de5de1bdb38a5",
+   "text": "Ensuring that uses of AI are lawful, safe, and accountable to regulators"
+  },
+  {
+   "i": 109,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23159,
+    23178
+   ],
+   "sha1": "311a8d642cb84a5c3ff162860483323c457f95b8",
+   "text": "Risk and compliance"
+  },
+  {
+   "i": 110,
+   "kind": "TABLE CELL",
+   "class": "",
+   "tag": "td",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23187,
+    23261
+   ],
+   "sha1": "19be3cf9ad2c3dfcfeeac4428aa25b546161f0d0",
+   "text": "It asks whether a use is permitted, not whether it is economically managed"
+  },
+  {
+   "i": 111,
+   "kind": "BODY",
+   "class": "caption",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23309,
+    23442
+   ],
+   "sha1": "80a0405b926856c3e5f2e8b6cae83dc1b6660c96",
+   "text": "Table 3.1. The four neighboring disciplines. Each manages work related to AI consumption, but none was built to govern its economics."
+  },
+  {
+   "i": 112,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    23451,
+    24245
+   ],
+   "sha1": "7529ba67ff192b65637fee6f056d7bd11506ebe4",
+   "text": "FinOps is the closest neighboring discipline, making its boundary with AI Operations Management the hardest to define. It already manages spending, has expanded into AI, and defines its purpose in terms of maximizing the business value of technology. Chapter 14 explains how the two divide the work. Their distinction concerns what each was built to do, rather than its intent. FinOps was built to make cloud spending accountable when bills arrived after capacity had been used. AI Operations Management manages consumption metered by the request and judges it against a value boundary set before spending begins."
+  },
+  {
+   "i": 113,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "finops-what-is",
+   "figure": null,
+   "string": null,
+   "span": [
+    23752,
+    23851
+   ],
+   "sha1": "dda3dff3123553829107df5446168b7dea45d273",
+   "text": "The Foundation’s definition, which names business value."
+  },
+  {
+   "i": 114,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    24254,
+    25190
+   ],
+   "sha1": "a2834549245b1f57309c0c779304b7a66cc0c58d",
+   "text": "Until Chapter 14 draws the full border, a provisional rule decides where an activity sits. An activity belongs to FinOps when it answers a question about the bill, and to AI Operations Management when it answers a Founding Question about the work the consumption served. Consider a constructed case. A company’s monthly AI invoice arrives at three times its forecast. Reconciling the invoice against the contract and charging it to cost centers answers a question about the bill, so it sits with FinOps. Tracing the increase to the workflow whose requests grew, and deciding whether that workflow’s output justifies its new cost, answers the third and fifth Founding Questions, so it sits with AI Operations Management. Both draw on the same record. Evidence that the FinOps team already traces consumption to work would move the second activity across the border."
+  },
+  {
+   "i": 115,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25199,
+    25374
+   ],
+   "sha1": "a4631d51b1c8282c78f327072b18a6a1f23ff286",
+   "text": "Regulatory governance determines whether an organization may use AI in a particular way. This book takes that determination as given and asks how the permitted use is managed."
+  },
+  {
+   "i": 116,
+   "kind": "SECTION HEAD",
+   "class": "section",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25400,
+    25474
+   ],
+   "sha1": "cb89d48c799748d48afbb1bc20364abf5d1dc704",
+   "text": "3.4 Five questions the discipline exists to answer"
+  },
+  {
+   "i": 117,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25484,
+    25690
+   ],
+   "sha1": "6c1375eb01ae9287e9ac724a34c27e1e4f3800c3",
+   "text": "Each of the five questions corresponds to one of the discipline’s functions and is answered in the chapter that teaches that function. Part III covers them in a different order, for reasons explained there."
+  },
+  {
+   "i": 118,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25699,
+    25794
+   ],
+   "sha1": "102e651aba21d3862484f23c6bfc5287271ac7e0",
+   "text": "An organization that manages its AI consumption can answer five questions from its own records:"
+  },
+  {
+   "i": 119,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25822,
+    25970
+   ],
+   "sha1": "ee6044386e28e7a93b864e46cd892e11ea5e7b69",
+   "text": "Question 1. “Are you paying for capability you do not need, or starving work that needs more?” This is the sourcing question, answered in Chapter 7."
+  },
+  {
+   "i": 120,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    25997,
+    26174
+   ],
+   "sha1": "fd99c0104226a72aac95bb4cbd8b40bb7fb98355",
+   "text": "Question 2. “What do you expect the AI flow to consume next period, and how will you know when it deviates?” This is the planning and budgeting question, answered in Chapter 10."
+  },
+  {
+   "i": 121,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26201,
+    26351
+   ],
+   "sha1": "5775cb4b76c744f0229ebb0ebc9783622ccbb7c8",
+   "text": "Question 3. “Who consumed what last month, in service of which work?” This is the metering and attribution question, answered across Chapters 8 and 9."
+  },
+  {
+   "i": 122,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26378,
+    26525
+   ],
+   "sha1": "49746e2c30011766bc390cc0d6c99b2ce8cd70a6",
+   "text": "Question 4. “When capacity is constrained, who decides what runs first, and by what rule?” This is the allocation question, answered in Chapter 11."
+  },
+  {
+   "i": 123,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26552,
+    26712
+   ],
+   "sha1": "41ee3e000d85557f66e6bb5cd3110ea514b49acb",
+   "text": "Question 5. “Where, exactly, does this AI flow pay for itself, and who is on the hook for knowing?” This is the value boundary question, answered in Chapter 12."
+  },
+  {
+   "i": 124,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    26721,
+    27107
+   ],
+   "sha1": "cc626a74d06499e51fe8bf7f9a8e95e2f5da0d81",
+   "text": "These are the Founding Questions, which an organization must answer “from its own records.” It can always produce an answer by asking the provider, estimating, or repeating the business case. Such an answer counts only when the organization keeps the evidence behind it and can check it: a provider’s figures reconciled against its own, or an estimate with its assumptions written down."
+  },
+  {
+   "i": 125,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27116,
+    27378
+   ],
+   "sha1": "c845656e1226d8c62e833f718bbbd927e22243ba",
+   "text": "At the end of Part I, readers do not yet have a method for answering these questions from records. Parts II through IV provide it: Part II presents the science the functions rest on, Part III builds the five functions, and Part IV turns them into an institution."
+  },
+  {
+   "i": 126,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27406,
+    27419
+   ],
+   "sha1": "d487cd15437494b45d1fc396dd6ebc686ab6428c",
+   "text": "Craft section"
+  },
+  {
+   "i": 127,
+   "kind": "CASE TITLE",
+   "class": "case-title",
+   "tag": "h2",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27447,
+    27465
+   ],
+   "sha1": "b96bbc41284b2721966032bcc9747455e21a836a",
+   "text": "The function audit"
+  },
+  {
+   "i": 128,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27475,
+    27902
+   ],
+   "sha1": "502bf3fb6169846cc41e3b3019428d879ef48d05",
+   "text": "The function audit finds which of the five functions an organization performs for one deployment, and which the evidence does not show anyone performing. It builds on the two methods of Part I. Chapter 1’s consumption-event inventory lists what a deployment consumes, and Chapter 2’s three-flow mapping shows which flows are managed. The audit asks who does each job the discipline requires. The procedure has six steps."
+  },
+  {
+   "i": 129,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    27930,
+    28144
+   ],
+   "sha1": "834cb04a1173188899f1edd8c369ac82db36a6bb",
+   "text": "Step 1. List the deployment’s AI activities: buying capacity, choosing models, forecasting spending, recording use, assigning costs, routing work, and judging the return. Start from the consumption-event inventory."
+  },
+  {
+   "i": 130,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28171,
+    28297
+   ],
+   "sha1": "bcd649ca74e814f2280432dd41dbf76f7121e176",
+   "text": "Step 2. For each activity, name the Founding Question it helps to answer, and assign the activity to that question’s function."
+  },
+  {
+   "i": 131,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28324,
+    28440
+   ],
+   "sha1": "6e4bcd092839cdbf8e3a099b96b4e09f633120f5",
+   "text": "Step 3. Assign to a neighboring discipline any activity that answers a neighbor’s question instead, using Table 3.1."
+  },
+  {
+   "i": 132,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28467,
+    28738
+   ],
+   "sha1": "04626abff1cdb30736e29d3597b4f3b11bf2eed6",
+   "text": "Step 4. Mark each function as performed, partly performed, or not shown. A public record shows only what a company chose to report, so a function missing from it is not shown, not proven absent. Only an organization’s own records can show that no one performs a function."
+  },
+  {
+   "i": 133,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28765,
+    28894
+   ],
+   "sha1": "e9b60121c65fee686c5748a7007898a9e5ad0339",
+   "text": "Step 5. For each function performed or partly performed, name who performs it. Write “not named” where the evidence names no one."
+  },
+  {
+   "i": 134,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    28921,
+    29115
+   ],
+   "sha1": "12d76ef866953a75331788788157301fb4496280",
+   "text": "Step 6. State the first gap to close and the record that closing it requires. Close first the gap where the largest cost goes unwatched, starting with the records the organization already holds."
+  },
+  {
+   "i": 135,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29124,
+    29323
+   ],
+   "sha1": "4ca2667e7d088515b0d5120a5207be99865423e1",
+   "text": "Steps 2 and 4 do most of the work. Step 2 turns a list of activities into a map of the discipline. Step 4 shows what the map leaves empty: the functions where cost can arrive with no one watching it."
+  },
+  {
+   "i": 136,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29332,
+    29582
+   ],
+   "sha1": "3d6c82dcf9c5003efe2746426dbc4e7348210902",
+   "text": "Two rules keep the assignment consistent. Choosing what capacity to buy is sourcing, even when one model serves all the work. Allocation and routing begins only when a stated rule sends different work to different capacity or decides what runs first."
+  },
+  {
+   "i": 137,
+   "kind": "DATED",
+   "class": "date",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29624,
+    29649
+   ],
+   "sha1": "08ffec35275ecf4433491fd05402a464be793e6c",
+   "text": "Dated: April to July 2026"
+  },
+  {
+   "i": 138,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    29657,
+    30668
+   ],
+   "sha1": "f629b6c4ba9780a29fdad751d83487f53287d3ba",
+   "text": "Lindy is a company of about 25 people that sells AI assistants for email and calendars. In 2026 its founder, Flo Crivello, said the company’s largest expense was the AI models it bought from Anthropic: “Like, more than payroll.” In June 2026 he announced that Lindy had moved all of its traffic to DeepSeek V4, a model from a Chinese developer, and said the move would save millions of dollars. He called the switch “100x more work than we thought.” He said he would consider returning to Anthropic’s models if their prices fell, and he expected the company to keep spending more on AI than on payroll."
+  },
+  {
+   "i": 139,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "npr-2026-lindy",
+   "figure": null,
+   "string": null,
+   "span": [
+    30229,
+    30341
+   ],
+   "sha1": "481d5aca007a6b233092245eda0e37b086867ad4",
+   "text": "The founder’s statements on cost, payroll, and the work of switching."
+  },
+  {
+   "i": 140,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "cnbc-2026-lindy",
+   "figure": null,
+   "string": null,
+   "span": [
+    30553,
+    30661
+   ],
+   "sha1": "6892f365020a32c17f20dd2e4ac9f2913877051e",
+   "text": "Company size, expected savings, and the outlook for AI spending."
+  },
+  {
+   "i": 141,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30684,
+    30778
+   ],
+   "sha1": "c0be0a2423dd7bf8758ae92f6f25f6d78b424d15",
+   "text": "Applied to Lindy on the public record, the procedure works as follows."
+  },
+  {
+   "i": 142,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    30806,
+    31092
+   ],
+   "sha1": "0f2a44e75b5917d0dce294c0219b20a318ee93ee",
+   "text": "Step 1. The record shows five activities: running the assistants that customers use; choosing a model provider; knowing the total cost of the models well enough to compare it with payroll; sending all traffic to one model; and keeping the former provider under review against its price."
+  },
+  {
+   "i": 143,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31119,
+    31470
+   ],
+   "sha1": "54dbfa7f9fe3464aa4d3ee37eb286764090fe891",
+   "text": "Step 2. Choosing a provider and keeping it under review answer the sourcing question. Sending all traffic to one model is part of that sourcing choice: no rule sends different work to different capacity. Knowing the total cost answers part of the metering and attribution question. The record does not show that cost assigned to customers or products."
+  },
+  {
+   "i": 144,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31497,
+    31699
+   ],
+   "sha1": "c232174fa324194beccce53692605a53cc72c545",
+   "text": "Step 3. No activity in the record belongs to a neighbor. Whether a company may use a model from a particular developer or country is a question for regulatory governance, which this book takes as given."
+  },
+  {
+   "i": 145,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    31726,
+    32016
+   ],
+   "sha1": "d7f595ed262375533e5db9209946ec4feaccba3e",
+   "text": "Step 4. Metering and attribution is partly performed. Planning and budgeting, allocation and routing, and holding value to account are not shown. Nothing reported shows a forecast of consumption, a rule for which work runs where, or a measure of whether each customer’s use pays for itself."
+  },
+  {
+   "i": 146,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32043,
+    32140
+   ],
+   "sha1": "433c0f9d586aa381d8eb832773b34ec086432c09",
+   "text": "Step 5. The founder performs sourcing in public. The record names no one for the other functions."
+  },
+  {
+   "i": 147,
+   "kind": "BODY",
+   "class": "diagnostic",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32167,
+    32458
+   ],
+   "sha1": "b5a8dd0ba6c42d08aeee85a48d254bf67aa1f4a4",
+   "text": "Step 6. The first gap is attribution. A company whose largest cost is AI consumption needs that consumption recorded by customer account, so that it can compare each customer’s use with what that customer pays. The same record supplies the raw material for a budget and for a value boundary."
+  },
+  {
+   "i": 148,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    32467,
+    32991
+   ],
+   "sha1": "41b53a91f9792d9fe57002c1784e7fef5d54fa37",
+   "text": "The audit took six steps and a few public facts. It showed a company changing its entire supply of AI capacity on grounds of cost, while the public record showed no answer to three of the five Founding Questions and only part of an answer to a fourth. The switch was a sourcing decision made on cost. Whether it was made well depends on the new model’s quality and the cost of the move, which the record shows only in part. The audit shows what the switch could not tell the company: which customers its new costs belong to."
+  },
+  {
+   "i": 149,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33049,
+    33064
+   ],
+   "sha1": "95c5839deff5a70961a66d3289da93102d108a3f",
+   "text": "Chapter summary"
+  },
+  {
+   "i": 150,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33074,
+    33253
+   ],
+   "sha1": "332d778b2c3bf234f65d44cc0e521fc844881cc3",
+   "text": "AI Business Economics is the science of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on."
+  },
+  {
+   "i": 151,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33262,
+    33444
+   ],
+   "sha1": "f636352aa3d3d55043146cd56043c1de9d1b11a1",
+   "text": "The book presents the results of the science in numbered panels. Each panel carries an identifier and a reading in plain business language, and the full statements are in Appendix A."
+  },
+  {
+   "i": 152,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33453,
+    33854
+   ],
+   "sha1": "30b7540ef9ce67d5c4bea2e6a3439506d0ded870",
+   "text": "AI Operations Management applies the science through five functions: sourcing, planning and budgeting, metering and attribution, allocation and routing, and holding value to account at a boundary. It begins when a model becomes a service an organization consumes. It shares boundaries with AIOps, MLOps, FinOps, and regulatory governance, while remaining a distinct discipline."
+  },
+  {
+   "i": 153,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    33863,
+    34116
+   ],
+   "sha1": "f80b67ef0479cf12f519a2333e03f7a7f094b82e",
+   "text": "The function audit assigns a deployment’s AI activities to the five functions or to a neighboring discipline and marks each function performed, partly performed, or not shown. Its first output is the gap to close and the record that closing it requires."
+  },
+  {
+   "i": 154,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34125,
+    34342
+   ],
+   "sha1": "0347b2036d6b5c6ba89031aa04ce0cd16a0e1785",
+   "text": "The Founding Questions are the five questions the discipline exists to answer from an organization’s own records. By the end of Part I, readers understand the questions but do not yet have a method for answering them."
+  },
+  {
+   "i": 155,
+   "kind": "SECTION HEAD",
+   "class": "keyterms-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34412,
+    34421
+   ],
+   "sha1": "b1fd76d6a6f39d6b99354a8017678be77dbfab6d",
+   "text": "Key terms"
+  },
+  {
+   "i": 156,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34481,
+    34502
+   ],
+   "sha1": "037e2490a1851247243f28ca53c7711b2cacb5f1",
+   "text": "AI Business Economics"
+  },
+  {
+   "i": 157,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34519,
+    34699
+   ],
+   "sha1": "ec1ed91e9a896935fdd16e9b9e2b9db918fef3c3",
+   "text": "The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on."
+  },
+  {
+   "i": 158,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34764,
+    34788
+   ],
+   "sha1": "c6cf24fd9ec560e677064c15b0bd1f24a7c47b47",
+   "text": "AI Operations Management"
+  },
+  {
+   "i": 159,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    34805,
+    34991
+   ],
+   "sha1": "d153a72a24d2e1fcebae5f043e2b9f4eee9a975f",
+   "text": "The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI."
+  },
+  {
+   "i": 160,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35056,
+    35064
+   ],
+   "sha1": "5e72410c572162c22a50179c0665881e214b7441",
+   "text": "Sourcing"
+  },
+  {
+   "i": 161,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35081,
+    35240
+   ],
+   "sha1": "8b5e4415505823357d83b2e0f70813e7fbaa7884",
+   "text": "The function that matches the AI capacity an organization buys to the requirements of its work: which models and providers serve which work, and on what terms."
+  },
+  {
+   "i": 162,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35305,
+    35327
+   ],
+   "sha1": "011f91707fa74f798f7662b25ec0b5de77c72c89",
+   "text": "Planning and budgeting"
+  },
+  {
+   "i": 163,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35344,
+    35494
+   ],
+   "sha1": "1e755465748a296e9625100dc38831e142eabd3a",
+   "text": "The function that states how much AI an organization expects to consume in a period and detects when actual consumption departs from that expectation."
+  },
+  {
+   "i": 164,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35559,
+    35583
+   ],
+   "sha1": "a21d6f4f6a979860059c7b249a31fa54edd7f206",
+   "text": "Metering and attribution"
+  },
+  {
+   "i": 165,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35600,
+    35724
+   ],
+   "sha1": "f25bfaac7fa801bf4c4df40aacfc1edd8e172942",
+   "text": "The function that records what was consumed and assigns each unit of consumption to the team, product, or purpose it served."
+  },
+  {
+   "i": 166,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35789,
+    35811
+   ],
+   "sha1": "1229e58b09b61f173214e2bb98d302b735e279ac",
+   "text": "Allocation and routing"
+  },
+  {
+   "i": 167,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    35828,
+    35963
+   ],
+   "sha1": "05a16d974c12ce9c61f51619923bd1651f8fabb7",
+   "text": "The function that decides what runs first when capacity is limited and sends each piece of work to suitable capacity, by a stated rule."
+  },
+  {
+   "i": 168,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36028,
+    36052
+   ],
+   "sha1": "57e7ebf09110346953944060639c395b34c4c167",
+   "text": "Holding value to account"
+  },
+  {
+   "i": 169,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36069,
+    36226
+   ],
+   "sha1": "3553b7c9cb1f6cb4110138d28fad6ac971482d7f",
+   "text": "The function that judges, at a value boundary set before spending begins, whether a deployment pays for itself, and names one person responsible for knowing."
+  },
+  {
+   "i": 170,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36291,
+    36305
+   ],
+   "sha1": "8335ac297114a4e684d0ac4c5be5944ad792d838",
+   "text": "Value boundary"
+  },
+  {
+   "i": 171,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36322,
+    36510
+   ],
+   "sha1": "9091f260dda3c420a83cb0b0ebdaf05dc7a60fad",
+   "text": "The boundary within which an organization judges whether a deployment pays for itself, defined by the costs and value it counts, the period it covers, and the outcomes it measures against."
+  },
+  {
+   "i": 172,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36575,
+    36593
+   ],
+   "sha1": "016c0c85de96b45a35c2d11c218bdcea529ba2ab",
+   "text": "Founding Questions"
+  },
+  {
+   "i": 173,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36610,
+    36742
+   ],
+   "sha1": "87846337f228833ca6d449f34d4e5f38864f8410",
+   "text": "The five questions AI Operations Management exists to answer from an organization’s own records, one for each of its five functions."
+  },
+  {
+   "i": 174,
+   "kind": "KEY TERM",
+   "class": "kt-t",
+   "tag": "span",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36807,
+    36821
+   ],
+   "sha1": "b958270a4c2823068090977c9ce89db6f4581f51",
+   "text": "Function audit"
+  },
+  {
+   "i": 175,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    36838,
+    37139
+   ],
+   "sha1": "cad52f3e5dcb9d56b0cc8085df05952d86f83b55",
+   "text": "The six-step method for finding which of the five functions an organization performs for a deployment: list its AI activities; assign each to a function or a neighboring discipline; mark each function performed, partly performed, or not shown; name who performs each; and state the first gap to close."
+  },
+  {
+   "i": 176,
+   "kind": "SECTION HEAD",
+   "class": "tail-head",
+   "tag": "h3",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37215,
+    37248
+   ],
+   "sha1": "305252cb9f52bfd7e3ee3d0ed69183a8aa48861c",
+   "text": "Discussion questions and problems"
+  },
+  {
+   "i": 177,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37276,
+    37296
+   ],
+   "sha1": "ce7ea53b301fdc341bca7534134faebfa159a2e3",
+   "text": "Discussion questions"
+  },
+  {
+   "i": 178,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37385,
+    37589
+   ],
+   "sha1": "3f9b9570ee99b7fd5cfc7d8ef31fe6eb6cd3e8db",
+   "text": "Choose one of the five dated boxes in Section 3.2. What would the organization in it have to record, in its own systems, to answer that function’s Founding Question? Name the record and who would keep it."
+  },
+  {
+   "i": 179,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37669,
+    37783
+   ],
+   "sha1": "e40765899b55a34a5f27d0d45e5140de9a57d0f7",
+   "text": "Of the four borders in Table 3.1, which is hardest to defend, and why? State what evidence would move that border."
+  },
+  {
+   "i": 180,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    37863,
+    38026
+   ],
+   "sha1": "b47ea51df6fac0419e39ec51c0ba672a515e6f3a",
+   "text": "Restate one Founding Question in language your chief financial officer would use, preserving all its content. Then identify the part you were most tempted to omit."
+  },
+  {
+   "i": 181,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38106,
+    38288
+   ],
+   "sha1": "325b5286997e15ce4953bef928a7029bf2cbf2b3",
+   "text": "Chapter 2 diagnosed a deployment through its three flows. Match each flow to the functions in Section 3.2 that act on it, then explain which flow draws on the most functions and why."
+  },
+  {
+   "i": 182,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38335,
+    38343
+   ],
+   "sha1": "8e6b86dce8c4fbace004e330925fe8345d92db90",
+   "text": "Problems"
+  },
+  {
+   "i": 183,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38387,
+    38398
+   ],
+   "sha1": "b138f859e3298a6caa319cc358057940b0dfdb22",
+   "text": "P1 · Worked"
+  },
+  {
+   "i": 184,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38421,
+    38456
+   ],
+   "sha1": "44e2d9049e6fd507fd2cfacf52fef9a56a556e5f",
+   "text": "An audit of the budget that ran out"
+  },
+  {
+   "i": 185,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38464,
+    38721
+   ],
+   "sha1": "7def34f139691cef5d8dfb3ee066f5db6e02b643",
+   "text": "Chapter 2’s opening case described Uber’s deployment of Claude Code, which consumed the company’s annual AI budget by April 2026. Using only the facts reported there, apply the six steps of the function audit."
+  },
+  {
+   "i": 186,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    38729,
+    39638
+   ],
+   "sha1": "53569b6ca93e90e77d846aca5b2b7700e7bf3e77",
+   "text": "Step 1. The reported activities are: buying access to Claude Code; rolling it out to roughly 5,000 engineers from December 2025; setting an annual AI budget; tracking adoption, which reached 32 percent of the engineering organization in February and 84 percent in March; and totaling spending. Reported spending ran from $150 to $250 a month for the average engineer and from $500 to $2,000 for the heaviest users. A sixth activity is a question. The president and chief operating officer said the company could not yet connect its growing use of the tool to the consumer features it was producing: “That link is not there yet.”"
+  },
+  {
+   "i": 187,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "uber-2026-budget",
+   "figure": null,
+   "string": null,
+   "span": [
+    39196,
+    39286
+   ],
+   "sha1": "a3707615c441bf8fdd5fbf2816ac22914bc1c310",
+   "text": "Rollout, adoption, and the cost per engineer."
+  },
+  {
+   "i": 188,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "fortune-2026-uber-coo",
+   "figure": null,
+   "string": null,
+   "span": [
+    39541,
+    39631
+   ],
+   "sha1": "86ce3ddb0d2be866211a2eeac4518a7bba659cfe",
+   "text": "The chief operating officer’s statement."
+  },
+  {
+   "i": 189,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39646,
+    39966
+   ],
+   "sha1": "b5f63a2a099910ac31225fdb6355962879683e6c",
+   "text": "Step 2. Buying access to one tool for all engineers is sourcing. Setting the annual budget is planning and budgeting. Tracking adoption and totaling spending are part of metering and attribution. The chief operating officer’s question belongs to holding value to account: it was asked, and the reporting shows no answer."
+  },
+  {
+   "i": 190,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    39974,
+    40060
+   ],
+   "sha1": "c1a93750bc1bb08fccdb18a1e0ce4f84dce91a93",
+   "text": "Step 3. Nothing reported places any of these activities with a neighboring discipline."
+  },
+  {
+   "i": 191,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40068,
+    40318
+   ],
+   "sha1": "9e9f08c1bf099862851a1a60f64720b45fe48c0c",
+   "text": "Step 4. Allocation and routing is not shown: nothing reported shows a rule for which work went to the tool or a limit on its heaviest users. Metering and attribution is partly performed: spending was totaled, but nothing reported assigns it to teams."
+  },
+  {
+   "i": 192,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40326,
+    40542
+   ],
+   "sha1": "17601ba22be06bfefce0220c4b99b29fd4ffca6e",
+   "text": "Step 5. Engineering ran the rollout, and someone set the budget. The public account does not show anyone comparing spending with that budget before it ran out, so the audit writes “not named” against that comparison."
+  },
+  {
+   "i": 193,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40550,
+    40799
+   ],
+   "sha1": "d08e3ed427a3edecf7ff575d1f10f73da6d29be1",
+   "text": "Step 6. The first gap is a monthly comparison of total consumption with the plan. The spending totals already reported make that comparison possible without a new record. Recording consumption by team comes next, to show where a deviation came from."
+  },
+  {
+   "i": 194,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40850,
+    40865
+   ],
+   "sha1": "6808f3be56c1eaf3c3b218ef2231da121e1bcdbc",
+   "text": "P2 · Completion"
+  },
+  {
+   "i": 195,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40888,
+    40923
+   ],
+   "sha1": "c2cce5fb72ddfbab6b03f960e6750ba42d53d056",
+   "text": "An audit with three steps left open"
+  },
+  {
+   "i": 196,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    40931,
+    42026
+   ],
+   "sha1": "125322809b2731e1706f5b8cbbbab58cee92b3e0",
+   "text": "Chapter 2’s problem P3 described the Australian Government’s whole-of-government trial of Microsoft 365 Copilot, from January to June 2024. Around sixty agencies took part. Each agency nominated or approved the employees who would receive licences, and the government issued several thousand. The product was priced per seat rather than by unit of use. The Digital Transformation Agency commissioned an evaluation, delivered it jointly with an external firm, and published the full report. Participants reported using the tool a few times a week or less and saving time when they used it. They assessed those effects themselves, and the published methodology reports no objective measure of task time or output from before the trial. Steps 1 to 3 are worked below. Complete steps 4 to 6."
+  },
+  {
+   "i": 197,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "microsoft-2024-copilot-pricing",
+   "figure": null,
+   "string": null,
+   "span": [
+    41350,
+    41441
+   ],
+   "sha1": "ee14e2e8f9633d7befd13ce76de0a3882a640221",
+   "text": "Per-seat pricing of the product."
+  },
+  {
+   "i": 198,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "dta-copilot-2024",
+   "figure": null,
+   "string": null,
+   "span": [
+    41858,
+    41965
+   ],
+   "sha1": "c1abddfed79b0bdffedadb5a3065b9fe9caa5364",
+   "text": "The trial, its evaluation, and the evaluation’s stated limits."
+  },
+  {
+   "i": 199,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42034,
+    42289
+   ],
+   "sha1": "f671850229fbaabc3f74758c14fca24a014c6ee3",
+   "text": "Step 1. The activities are: buying several thousand per-seat licences; agencies choosing which employees receive them; commissioning an independent evaluation; publishing it in full; and collecting participants’ reports of their use and the time it saved."
+  },
+  {
+   "i": 200,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42297,
+    42738
+   ],
+   "sha1": "f9559a13dac36039de2edd3f812253e48ffff33a",
+   "text": "Step 2. Buying per-seat licences is sourcing. Choosing which employees receive a licence is allocation: it decides who gets capacity, by agency nomination. Commissioning and publishing the evaluation is holding value to account, within a boundary the evaluation stated, including its own limits. Collecting participants’ reports of their use is a partial record of consumption, part of metering and attribution, without a record of each use."
+  },
+  {
+   "i": 201,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42746,
+    42878
+   ],
+   "sha1": "f76105200b937075fa36db380e20e12cb72be5be",
+   "text": "Step 3. Any review of whether agencies were permitted to use the tool belongs to regulatory governance, and the audit sets it aside."
+  },
+  {
+   "i": 202,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    42886,
+    43030
+   ],
+   "sha1": "54dde8d7f7f1234aa6b855d930a0ad2fba7d9c7f",
+   "text": "Step 4. Mark each function as performed, partly performed, or not shown. Consider how per-seat pricing changes which functions the trial needed."
+  },
+  {
+   "i": 203,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43038,
+    43150
+   ],
+   "sha1": "fb6df4fbd82cb2b4041bab28210ce6516831531e",
+   "text": "Step 5. Name who performed each function, from the facts above. Write “not named” where the facts name no owner."
+  },
+  {
+   "i": 204,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43158,
+    43286
+   ],
+   "sha1": "d0af92e4e1e2256623a50a1ddb0d17ccdf0861e5",
+   "text": "Step 6. State the first gap you would close if the trial became a permanent deployment, and the record that closing it requires."
+  },
+  {
+   "i": 205,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43337,
+    43353
+   ],
+   "sha1": "eb87b688da5e95a601fff8c0cfdb6fca613c6661",
+   "text": "P3 · Independent"
+  },
+  {
+   "i": 206,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43376,
+    43396
+   ],
+   "sha1": "ada2e908bf0e9d3cb3b0f1c4454b3cd57d9dadc3",
+   "text": "Whose decision is it"
+  },
+  {
+   "i": 207,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    43404,
+    43989
+   ],
+   "sha1": "021f3693147d33a52453b51b0792bcbb1faaf160",
+   "text": "Consider a constructed situation. A company’s FinOps lead and its new head of AI operations both claim the decision to commit to an annual volume contract with a model provider. The FinOps lead argues that the commitment is a spending decision, like reserving cloud capacity. The head of AI operations argues that it fixes which work the company can afford to run. Write one page assigning each part of the decision to one discipline, using Table 3.1 and the five functions. State the evidence that would move one part across the border."
+  },
+  {
+   "i": 208,
+   "kind": "PROBLEM NOTE",
+   "class": "pnote",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44011,
+    44175
+   ],
+   "sha1": "76eab00d5f620e9f03e5ef7af3ad6ee01446a0b0",
+   "text": "Interleaving: question 4 requires Chapter 2’s three flows, problems P1 and P2 audit Chapter 2’s cases, and the cumulative case below requires both earlier chapters."
+  },
+  {
+   "i": 209,
+   "kind": "SLOT",
+   "class": "slot-label",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44210,
+    44232
+   ],
+   "sha1": "32e9b2a83f335b2726fd8b9801f89231b58ce63d",
+   "text": "Part I cumulative case"
+  },
+  {
+   "i": 210,
+   "kind": "PROBLEM LABEL",
+   "class": "plab",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44276,
+    44300
+   ],
+   "sha1": "796ef53444b9c4c49e2aca357236d2174381a021",
+   "text": "Cumulative case · Part I"
+  },
+  {
+   "i": 211,
+   "kind": "PROBLEM TITLE",
+   "class": "ptitle",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44323,
+    44355
+   ],
+   "sha1": "8bcbd168289fe8fe7c94da756de6d6f2748c3137",
+   "text": "One announcement, three readings"
+  },
+  {
+   "i": 212,
+   "kind": "PROVENANCE",
+   "class": "provenance",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44382,
+    44495
+   ],
+   "sha1": "c37d15e4e870cac011342598b5875e09d6aedf4a",
+   "text": "Dated: February 2024. The company’s own announcement, using its own figures. Only that announcement is used here."
+  },
+  {
+   "i": 213,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    44503,
+    45268
+   ],
+   "sha1": "0c457f8677771db01ee068d7e91949ea860ea28c",
+   "text": "In February 2024, the payments company Klarna announced results from the first month of an AI assistant powered by OpenAI. The company reported that the assistant had handled 2.3 million conversations, accounting for two-thirds of its customer-service chats. It estimated that the assistant was doing the work of 700 full-time agents. The company reported that, in that first month, customers resolved their questions in under two minutes, compared with eleven minutes previously. Klarna estimated that the assistant would improve its profit by $40 million in 2024."
+  },
+  {
+   "i": 214,
+   "kind": "FOOTNOTE",
+   "class": "cite",
+   "tag": "cite",
+   "sources": "klarna-2024-assistant",
+   "figure": null,
+   "string": null,
+   "span": [
+    45150,
+    45261
+   ],
+   "sha1": "546b16f58197c23790738ec34ee56f9087c84722",
+   "text": "All figures in this case are the company’s own, as announced."
+  },
+  {
+   "i": 215,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45276,
+    45310
+   ],
+   "sha1": "a3c66b77f479b9a2f0a083efcfd02265cc19e314",
+   "text": "Work from this announcement alone."
+  },
+  {
+   "i": 216,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45318,
+    45520
+   ],
+   "sha1": "d09ae14a6d4fcfbdb43c9e5852a8af8561929ce6",
+   "text": "First, apply Chapter 1’s consumption-event inventory. Identify the consumption events the announcement implies and where each would be metered, marking what the announcement reports and what you assume."
+  },
+  {
+   "i": 217,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45528,
+    45675
+   ],
+   "sha1": "f78b944446dd4b6667689ef0727e16e930d34bd4",
+   "text": "Second, apply Chapter 2’s three-flow mapping. Diagnose the usage, record, and cost-and-value flows, identifying the evidence behind each diagnosis."
+  },
+  {
+   "i": 218,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45683,
+    45903
+   ],
+   "sha1": "fc04b7a56c6518623c706ad60f570a04eeaa836d",
+   "text": "Third, apply each of the five Founding Questions to the announcement. For each question, state whether the announcement provides an answer from the organization’s own records and what record would be needed to answer it."
+  },
+  {
+   "i": 219,
+   "kind": "BODY",
+   "class": "",
+   "tag": "p",
+   "sources": null,
+   "figure": null,
+   "string": null,
+   "span": [
+    45911,
+    45960
+   ],
+   "sha1": "0ca87e46eaed24f4906459b596badb79238465e7",
+   "text": "Keep your answers. The case returns in Chapter 6."
+  }
+ ]
+}

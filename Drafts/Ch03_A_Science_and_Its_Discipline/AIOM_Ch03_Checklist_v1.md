@@ -224,6 +224,8 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+V2-A0. 2026-10-17, Dan: A, the author pass in markdown, not Word. Chapter-local wrapper 03_Stage6_Author_Pass/md_author_pass.py (shared pair unchanged, Decision 79): same blocks, same manifest, copyedit_import's matcher with a markdown reader. Unedited round trip: 220 blocks, 0 changes. Controls: a one-word edit applied (1 span); hard-wrapped lines 0 changes; a split refused; a deleted tag refused as a structure change. Files sent: AIOM_Ch03_v2_author_pass.md and _render.pdf (reading copy; print gates 1, 4, 8 flag layout, Stage 5 items).
+
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 A1. Import 2026-10-12: 278/278 blocks, no splits, 106 edited; 674 spans placed, 9 refused (inline markup or entity) applied by hand verbatim; re-extract matches the docx in 0/278 differing blocks (control: 106). Commit 3c0afca.
