@@ -113,6 +113,12 @@ not appear here; only the owner does.
 | AI Operations Management | 3 | The management discipline that acts on AI Business Economics: the practice by which an organization buys AI capacity, plans its use, records and assigns consumption, allocates capacity, and holds that consumption to account. |
 | Value boundary | 3 | The boundary within which an organization judges whether a deployment pays for itself, defined by the costs and value it counts, the period it covers, and the outcomes against which it measures performance. |
 | Founding Questions | 3 | The five questions AI Operations Management exists to answer from an organization’s own records, one for each of its five functions. |
+| Sourcing | 3 | The function that matches the AI capacity an organization buys to the requirements of its work: which models and providers serve which work, and on what terms. |
+| Planning and budgeting | 3 | The function that states how much AI an organization expects to consume in a period and detects when actual consumption departs from that expectation. |
+| Metering and attribution | 3 | The function that records what was consumed and assigns each unit of consumption to the team, product, or purpose it served. |
+| Allocation and routing | 3 | The function that uses a stated rule to decide what runs first when capacity is limited and to send each piece of work to suitable capacity. |
+| Holding value to account | 3 | The function that judges whether a deployment pays for itself within a value boundary set before spending begins and names one person responsible for knowing the answer. |
+| Function audit | 3 | The six-step method for finding which of the five functions an organization performs for a deployment: list its AI activities; assign each to a function or a neighboring discipline; mark each function as performed, partly performed, or not shown; name who performs each; and state the first gap to close. |
 <!-- CONTINUITY:TERMS -->
 
 ---
@@ -159,6 +165,17 @@ promise was kept.
 | 3 | 12 | “Where, exactly, does this AI flow pay for itself, and who is on the hook for knowing?” This is the value boundary question, answered in Chapter 12. | open |
 | 3 | 14 | Chapter 14 explains how FinOps and that practice divide the work. | open |
 | 3 | 14 | Chapter 14 explains how the two divide the work. | open |
+| 3 | 1 | 3.3 Where the discipline ends Chapter 1 set aside three related subjects: how models work, prompt engineering, and finding uses for AI. | paid |
+| 3 | 1 | Chapter 1’s Cursor licenses show this check in practice. | paid |
+| 3 | 1 | Chapter 1’s result does not say that every use of AI is consumption. | paid |
+| 3 | 1 | It builds on Part I’s two earlier methods: Chapter 1’s consumption-event inventory lists what a deployment consumes, and Chapter 2’s three-flow mapping shows which flows are managed. | paid |
+| 3 | 1 | [truell-2025-pricing] The Cursor post describing the plan change of June 16, 2025, as cited in Chapter 1. | paid |
+| 3 | 2 | Chapter 2’s panel, THM-004, shows what such a result settles and what it leaves open. | paid |
+| 3 | 2 | Interleaving: question 4 requires Chapter 2’s three flows, problems P1 and P2 audit Chapter 2’s cases, and the cumulative case below requires both earlier chapters. | paid |
+| 3 | 2 | It builds on Part I’s two earlier methods: Chapter 1’s consumption-event inventory lists what a deployment consumes, and Chapter 2’s three-flow mapping shows which flows are managed. | paid |
+| 3 | 2 | P2 · Completion An audit with three steps left open Chapter 2’s problem P3 described the Australian Government’s whole-of-government trial of Microsoft 365 Copilot, which ran from January to June 2024. | paid |
+| 3 | 2 | Problems P1 · Worked An audit of the budget that ran out Chapter 2’s opening case described Uber’s deployment of Claude Code, which consumed the company’s annual AI budget by April 2026. | paid |
+| 3 | 14 | Until Chapter 14 defines the full boundary, a provisional rule assigns activities to the two disciplines. | open |
 <!-- CONTINUITY:FORWARD -->
 
 ---
@@ -202,4 +219,5 @@ One line per chapter as it locks, so the ledger's own currency is visible.
 | 1 | 2026-08-13 | 8 | 5 | 1 |
 | 2 | 2026-08-31 | 6 | 12 | 1 |
 | 3 | 2026-10-14 | 16 | 21 | 14 |
+| 3 | 2026-10-17 | 6 | 11 | 1 |
 <!-- CONTINUITY:LOG -->

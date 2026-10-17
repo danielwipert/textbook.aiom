@@ -392,7 +392,7 @@ Status: [x]        Date cleared: 2026-10-17
 - [x] Check 5, Founding Question references match the canonical table exactly
 - [x] Check 6, maturity ladder language consistent with the locked five stages
 - [x] Check 7, Northmoor figures diffed against generator output
-- [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
+- [x] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
 
@@ -411,11 +411,13 @@ G3-4. Lock: the update logged Ch3's 14 back-references to Ch1 (5) and Ch2 (9) as
 
 Owner: Dan (sitting 4)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > v4 step 7. Claude sends the render plus a short diff of everything that changed since the author pass. Dan approves the whole, or names ONE structural reason and the chapter returns to the step that owns it. The full read already happened in the author pass.
 
 Findings:
+
+V2-SO1. Sitting 4, 2026-10-17: Dan approved the whole (gate, A).
 
 V2-SO0. Package built 2026-10-17 in 08_Stage8_Sign_Off/ by build_signoff_v2.py: the final render (24 pp, fifteen print gates pass) and a diff since the author-pass import (d9246f4), 18 changes by step (THM-004 reading: 1, Sitting 3: 17, production: 0), plus 2 passages moved with no words changed.
 
@@ -430,11 +432,13 @@ SO1. Sitting 4, 2026-10-14: Dan approved the whole (gate, A).
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > Frozen. Continuity ledger committed. After lock the only path is `amend.py` (CLAUDE.md section 8).
 
 Findings:
+
+V2-L1. Locked 2026-10-17 (redesign, Decision 85). continuity.py --update: 6 terms, 11 forward references; back-references to Chapters 1 and 2 spot-checked and paid (--pay 1, --pay 2), as at the first lock. Final checks in the lock commit message.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
