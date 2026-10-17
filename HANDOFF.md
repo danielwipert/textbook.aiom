@@ -8,13 +8,14 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- `main` is level with `claude/inspiring-galileo-9hba1g` as of 2026-10-14
-  (fast-forward to 569b2e5). Merged and safe to delete (Dan, 403 from the
-  container): `claude/happy-bardeen-hhct43`, `claude/inspiring-bohr-4gquw9`,
-  `claude/sharp-dirac-ojfqqz`, and now `claude/inspiring-galileo-9hba1g`.
-- Chapters 1 (Process v2) and 2 (v3) LOCKED. **Chapter 3 REOPENED to Stage 0 on
-  2026-10-14 for a redesign (Decision 85)**; the site still serves its lock at
-  be55e84 until the new version locks. Chapters 4 to 15 not started.
+- `main` was last merged from `claude/inspiring-galileo-9hba1g` on 2026-10-14
+  (569b2e5); the branch is now ahead with the whole redesign. Merged and safe to
+  delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
+  `claude/inspiring-bohr-4gquw9`, `claude/sharp-dirac-ojfqqz`.
+- Chapters 1 (Process v2) and 2 (v3) LOCKED. **Chapter 3 RE-LOCKED 2026-10-17
+  (redesign, Decision 85, Process v4) at 17f7960**, on this branch only: `main`
+  still serves the first lock until this branch is merged. Chapters 4 to 15 not
+  started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -26,17 +27,10 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
-1. Chapter 3 was LOCKED and published 2026-10-14, then reopened the same day.
-2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
-   Drafted 2026-10-15 (G1 passed, band accepted). **Stage 4 PASSED 2026-10-17**:
-   second-model review, 21 findings, Sitting 2 all A, applied (now 6,066 words).
-   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **Stage 3 PASSED 2026-10-17** (Sitting 3, six gates all A; claim ledger updated). **Production PASSED 2026-10-17** (Stage 5, G2, G3). **Sign-off package BUILT** (08_Stage8_Sign_Off, v2 files); waiting on Dan, then Stage 9 lock (continuity --update for the six new terms). **Do NOT merge to main before the relock**: the site serves Ch3's last lock, which fails W14 against the new rulings.
-   Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
-   space after "Google," in the Airbnb box) is a Stage 5 item; production is
-   never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
-   check; Ch3 continuity rows are reconciled at relock.
-3. DONE: `copyedit_import.py` now refuses a split paragraph instead of deleting
-   its second half (fixed 2026-10-01 under the blocking exception).
+1. **NEXT: merge this branch to `main`** (git_hygiene.py first; a gate to Dan),
+   which publishes the redesigned Chapter 3. The site build and the web
+   self-test (115/115) pass on the locked tree.
+2. Then the holistic review of Chapters 1 to 3 (Decision 83), below.
 
 **Decision 84 (2026-10-11): every decision goes to Dan as logic gates**, one at a
 time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
