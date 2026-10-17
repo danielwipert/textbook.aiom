@@ -210,6 +210,10 @@ def analyse(path):
 
         if not in_register[i]:
             for m in CONTRACTION.finditer(text):
+                # "Part I’s" is the possessive of a part label, not "I is".
+                # Found 2026-10-17 in Chapter 3's author pass.
+                if m.group(1) == "I" and text[:m.start()].endswith("Part "):
+                    continue
                 findings["contraction"].append((i, m.group(0), text[:90]))
 
         if ("?" in text and not inside[i] and not in_register[i]

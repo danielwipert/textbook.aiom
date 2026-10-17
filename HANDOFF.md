@@ -30,7 +30,7 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
    Drafted 2026-10-15 (G1 passed, band accepted). **Stage 4 PASSED 2026-10-17**:
    second-model review, 21 findings, Sitting 2 all A, applied (now 6,066 words).
-   **NEXT: Stage 6, Dan's author pass IN MARKDOWN** (03_Stage6_Author_Pass/md_author_pass.py; file sent 2026-10-17). Import with `md_author_pass.py import`, then re-run the checks.
+   **NEXT: Stage 6, Dan's author pass IN MARKDOWN** imported 2026-10-17; one gate open (THM-004 gloss, G3). Then the fact check, which re-rules FC3-A3, A6, B10.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
@@ -88,6 +88,7 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   between BEGIN/END markers. Ch3's was hand-assembled; write `review_package.py` so
   every chapter's package is generated the same way.
 
+- **voicecheck read "Part I’s" as a contraction** (fixed 2026-10-17 under the blocking exception, Ch3 V2-A2). Add the case to a voicecheck control.
 - **`place.py` read a wrapped callout term interleaved** (fixed 2026-10-14
   under the blocking exception; Ch3 P1). Add a negative control for it.
 - **The build's page-fill advisory missed pages 7 and 13** of Ch3 (256 and
