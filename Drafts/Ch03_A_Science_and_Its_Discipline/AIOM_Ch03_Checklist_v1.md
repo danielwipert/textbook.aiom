@@ -417,6 +417,8 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+V2-SO0. Package built 2026-10-17 in 08_Stage8_Sign_Off/ by build_signoff_v2.py: the final render (24 pp, fifteen print gates pass) and a diff since the author-pass import (d9246f4), 18 changes by step (THM-004 reading: 1, Sitting 3: 17, production: 0), plus 2 passages moved with no words changed.
+
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 SO0. Package built 2026-10-14 in `08_Stage8_Sign_Off/` by `build_signoff.py`: the final render (27 pp, fifteen print gates pass) and a diff since the author pass (b56819c), 45 changes by step (Sitting 3: 34, scoped re-review: 9, production: 2), plus one move with no words changed.

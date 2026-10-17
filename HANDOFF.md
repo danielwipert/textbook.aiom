@@ -30,7 +30,7 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
    Drafted 2026-10-15 (G1 passed, band accepted). **Stage 4 PASSED 2026-10-17**:
    second-model review, 21 findings, Sitting 2 all A, applied (now 6,066 words).
-   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **Stage 3 PASSED 2026-10-17** (Sitting 3, six gates all A; claim ledger updated). **Production PASSED 2026-10-17** (Stage 5, G2, G3). **NEXT: Sitting 4 sign-off package**, then Stage 9 lock (continuity --update for the six new terms). **Do NOT merge to main before the relock**: the site serves Ch3's last lock, which fails W14 against the new rulings.
+   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **Stage 3 PASSED 2026-10-17** (Sitting 3, six gates all A; claim ledger updated). **Production PASSED 2026-10-17** (Stage 5, G2, G3). **Sign-off package BUILT** (08_Stage8_Sign_Off, v2 files); waiting on Dan, then Stage 9 lock (continuity --update for the six new terms). **Do NOT merge to main before the relock**: the site serves Ch3's last lock, which fails W14 against the new rulings.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
