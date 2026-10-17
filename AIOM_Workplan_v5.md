@@ -787,6 +787,15 @@ Decisions 22 onward live here.
   what THM-004 formalizes; Chapter 3's 14 rulings in the claim ledger, re-ruled
   at the new fact check; Chapter 3's continuity-ledger rows from the first lock,
   reconciled at the new lock.
+- **Decision 86. RULED 2026-10-17.** On the web edition, wherever the margin
+  cannot hold a sidenote (below 1420px), notes are hidden until the reader taps
+  the note number; the note opens under its line, a second tap closes it, and
+  several may stay open (gate 1, A). The notes are hidden only by the chapter
+  script, so with no script every note shows inline as before (gate 2, A); a
+  link to a note still shows it, and print shows every note. Desktop margin
+  notes and the print book are unchanged. The reason: inline notes cut the
+  paragraphs up on a phone and broke the reading flow (Dan). Implemented in
+  AIOM_web.css section 17 and the chapter template; text unchanged (W1).
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.

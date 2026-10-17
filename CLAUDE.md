@@ -460,6 +460,8 @@ Plan in `AIOM_Web_Edition_Plan_v1.0.md`, Decisions 60 to 67 and 70. Domain
   quotes the book and never paraphrases it** (W9a).
 - **No analytics and no CDN** (W11). Fonts are self-hosted.
 - **Marks are chrome only, never in a chapter** (W4g), and each means something.
+- **Below 1420px a sidenote is hidden until its number is tapped** (Decision 86);
+  the chapter script hides them, so with no script every note shows inline.
 - **Print palette values are the values of record**; the web carries WCAG AA
   derivatives, and W13 enforces the floor in both themes.
 - **The web body face is Archivo; print keeps Plex Sans Text.** Verify a face by
@@ -514,7 +516,7 @@ Each rule below has its incident in `LESSONS.md`.
 | `renumber_stage_folders*.py` | One-time folder migrations (v2, v3, v4). |
 | `AIOM_Prose_Standard_v2.0.md` | THE prose standard. |
 | `AIOM_Process_v4_Proposal_v1.0.md` | The process in force and why. |
-| `AIOM_Workplan_v5.md` | Tracker and **the decision-numbering authority**. Decisions run to 84. |
+| `AIOM_Workplan_v5.md` | Tracker and **the decision-numbering authority**. Decisions run to 86. |
 | `AIOM_Consolidated_Spec_v1.md`, `AIOM_Structure_v1.md`, `AIOM_Exit_Competencies_v1.md` | Specification, structure, the twenty-four competencies. |
 | `AIOM_DESIGN_SPEC.md`, `AIOM_Design_QA_Spec_v1.md` | Design spec; gate spec. |
 | `AIOM_Continuity_Ledger.md`, `AIOM_Claim_Ledger.md`, `AIOM_Source_Ledger.md` | G3 record; W14 record; sources. |
