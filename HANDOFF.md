@@ -30,7 +30,7 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
    **Drafted 2026-10-15**: Stage 0 passed; G1 PASSED (Dan: A, accept below the floor) on
    the word band (5,637 words against 6,000 to 7,500, Decision 82). **NEXT:
-   build** the Stage 4 second-model review package.
+   Dan runs** the Stage 4 package (02_Stage4_Review/AIOM_Ch03_Review_v2_package.md) on another model and uploads the reply; then Sitting 2.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact

@@ -162,6 +162,8 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+V2-R0. Second-model package built 2026-10-17 by 02_Stage4_Review/build_review_v2.py: AIOM_Ch03_Review_v2_package.md, one file, three sections (structure, teaching, voice and craft), the chapter with Table 3.1 patched in, the reference extract (structure, C4, plan v2, craft criteria) and the Chapter 1 exemplar. No Claude findings in it (Dan: A). Waiting on Dan to run it.
+
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 R0. Independent review 2026-10-01, 44 findings (02_Stage4_Review/AIOM_Ch03_Review_claude_findings.md). Applied: R-1, R-3 to R-8, R-11, R-13, R-17, R-18, R-21 to R-24, R-26, R-28 to R-33, R-35 to R-37, R-39 to R-43, R-15 wording; R-12, R-38 resolved by those; R-19, R-20, R-44 noise. Eleven decisions to Dan (AIOM_Ch03_Sitting2_decisions.md). Second-model review not yet run.
