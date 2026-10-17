@@ -30,7 +30,7 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
    Drafted 2026-10-15 (G1 passed, band accepted). **Stage 4 PASSED 2026-10-17**:
    second-model review, 21 findings, Sitting 2 all A, applied (now 6,066 words).
-   **NEXT: Stage 6, Dan's author pass IN MARKDOWN** imported 2026-10-17; one gate open (THM-004 gloss, G3). Then the fact check, which re-rules FC3-A3, A6, B10.
+   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **NEXT: Stage 3 fact check**: packages A (reads sources) and B (render only) from a fresh render; re-rule FC3-A3, A6, B10 and supersede R1, B4, B13, B21.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact

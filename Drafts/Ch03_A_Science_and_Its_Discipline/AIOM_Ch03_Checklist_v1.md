@@ -214,13 +214,13 @@ A4-note. Assessment 4 (THM-008, competency C4) must supply THM-008's proposition
 
 Owner: Dan
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > v4 step 4, Decision 75. Dan's own pass and rewrite, in Word, through `copyedit_export.py` and `copyedit_import.py`. It sits BEFORE the fact check so that every step after it checks the text Dan wants: on Chapter 2 this pass changed 104 of 195 blocks after three checks had run. Includes the whole-chapter read the old Stage 8 was.
 
 - [x] Unedited export round-trips at zero reported changes before the pair is trusted on this chapter
 - [x] Dan's pass imported; every block the importer refused resolved by hand
-- [ ] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
+- [x] After import, `voicecheck.py`, `claimcheck.py` and `freqsweep.py` re-run, and every new hit fixed or put to Dan
 
 Findings:
 
@@ -229,7 +229,7 @@ V2-A1. 2026-10-17, Dan's pass imported (03_Stage6_Author_Pass/AIOM_Ch03_v2_autho
 V2-A2. voicecheck failed a correct chapter: "Part I’s" read as a contraction. Fixed at once under the blocking exception (voicecheck.py, possessive of a part label skipped); negative control "I’m" still fails; Ch01, Ch02, Ch03 chapter_check 0 broken.
 V2-A3. freqsweep 7: new F2 "in practice" is an idiom, not a frequency claim; the other 6 as at V2-D3.
 V2-A4. claimcheck: FC3-A3, A6, B10 REQUIRED strings reworded by Dan; each keeps its narrowing and none carries its FORBIDDEN text. Re-ruled at the fact check. FC3-R1, B4, B13, B21: their sentences were cut in the redesign; superseded at the fact check.
-V2-A5. G3: THM-004 gloss drift (Dan merged the two locked gloss sentences). Put to Dan.
+V2-A5. G3: THM-004 gloss drift (Dan merged the two locked gloss sentences). Dan: A, Chapter 2's two sentences restored; any improvement waits for the Chapters 1 to 3 review (Decision 83). G3 passes. Stage 6 passed.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
