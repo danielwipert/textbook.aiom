@@ -24,7 +24,7 @@
 
 <p>The quotation names the gap Chapters 1 and 2 described, in the words of someone asked to close it. When an organization pays for a metered resource, costs accrue with use, but someone must build the means to measure the value it receives. <span class="nb">FinOps</span> is a capable neighboring discipline that has expanded into work it was not built to govern: the economics of an organization’s AI consumption.</p>
 
-<p>That work requires both a body of knowledge about what is true and a practice that turns that knowledge into action. A neighboring discipline cannot supply either on its behalf. Chapter 14 explains how <span class="nb">FinOps</span> and that practice divide the work. Until both exist, the practitioner’s question about whether AI is providing value remains unanswered.</p>
+<p>That work requires both a body of knowledge about what is true and a practice that turns that knowledge into action. This book sets out both. Chapter 14 explains how <span class="nb">FinOps</span> and that practice divide the work. Until both exist, the practitioner’s question about whether AI is providing value remains unanswered.</p>
 
 <h3 class="section"><span class="num">3.1</span>The science and the practice</h3>
 
@@ -44,22 +44,22 @@
 
 <p>A stated condition is what makes such a claim useful to a manager. Chapter 1’s result does not say that every use of AI is consumption. It says when deployed AI behaves as a resource the organization consumes, so a manager can check whether a given deployment meets those conditions before relying on the result. A claim that states when it applies can also be shown not to apply. That is what lets two managers who disagree find the fact that would settle the question.</p>
 
+<p>Chapter 1’s <span class="nb">Cursor</span> licenses show the check at work. Two of the result’s conditions are that the buyer’s cost extends beyond the access price and that measurement makes resource use visible. After June 2025, each request drew down a twenty-dollar monthly credit at the model provider’s rate, and further use was priced at the same rates, so both conditions held for a team on that plan.<cite src="truell-2025-pricing"><span class="ckey">[truell-2025-pricing]</span> The <span class="nb">Cursor</span> post describing the plan change of June 16, 2025, as cited in Chapter 1.</cite> A manager who still budgeted the licenses as a fixed software expense was relying on a price the conditions said no longer described the cost. Two conditions settled what confidence could not.</p>
+
 <p>The book shows the results of this science in numbered panels, as Chapters 1 and 2 did. Each panel states a result in its exact form and carries an identifier. A reading in plain business language follows each panel, and the reading is enough to use the result. The identifier lets a reader who doubts a result find its full statement and its supporting claims in Appendix A. A manager needs nothing more than the panel and its reading.</p>
 
 <p>Chapter 2’s panel, THM-004, shows what such a result settles and what it leaves open. It formalizes the economic consequence of the third flow’s asymmetry. Once a deployment reaches scale, economic control requires a governing apparatus. Diligence from the people running the deployment is no longer enough. The theorem does not establish the three flows themselves. They are this book’s way of looking at a deployment, and the theorem’s conditions do not mention them.</p>
 
 <h3 class="section"><span class="num">3.2</span>The five functions</h3>
 
-<p>Knowledge alone does not change what an organization does. Medicine draws on physiology, but clinicians treat patients by applying that knowledge. Engineering draws on physics, but engineers build bridges using codes and procedures. In each case, a practice connects the knowledge to the result through its own methods, roles, and standards.</p>
+<p>A manager can know that consumption drives cost and still have no forecast of next month’s use, no owner for the bill, and no record of which team used what. Knowledge alone does not change what an organization does. A practice connects knowledge to results through its own methods, roles, and standards, as clinical practice does for physiology and engineering codes do for physics.</p>
 
 <aside class="definition">
 <p class="lab">Definition</p>
 <p class="term">AI Operations Management</p>
 <p>The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI.</p>
 </aside>
-<p>AI Operations Management is the practice of managing an organization’s AI consumption from week to week. An organization that practices it buys AI capacity, plans its use, records consumption, and assigns it to the work it serves. It decides what runs when capacity is limited and holds spending accountable for the value it returns. Chapter 1 described the problem as a category error. Wherever that chapter’s conditions hold, AI Operations Management addresses the error by managing AI as a resource the organization consumes.</p>
-
-<p>The discipline has five functions that follow AI capacity through the organization: buying it, planning its use, recording and assigning consumption, routing it to work, and judging the value it returns. Each function is a capability an organization either has or lacks. Part III teaches all five, with metering and attribution covered in two chapters.</p>
+<p>Chapter 1 described the problem as a category error. Wherever that chapter’s conditions hold, AI Operations Management addresses the error by managing AI as a resource the organization consumes. The discipline has five functions that follow AI capacity through the organization: buying it, planning its use, recording and assigning consumption, routing it to work, and judging the value it returns. Each function is a capability an organization either has or lacks. An organization that lacks one does not stop consuming. It consumes without that function’s answer.</p>
 
 <p>The first function, sourcing, matches the AI capacity an organization buys to the requirements of its work. It determines which models and providers serve which work, and on what terms, so that the organization neither pays for capability it does not need nor deprives work of capability it requires. A company that sends every request to its most capable model, including requests a smaller model would answer just as well, is paying for capability its work does not use.</p>
 
@@ -70,7 +70,7 @@
 <p>In October 2025, <span class="nb">Airbnb</span>’s chief executive, <span class="nb">Brian Chesky</span>, said the company’s customer-service agent was built on 13 models, from <span class="nb">OpenAI</span>, <span class="nb">Google</span>, <span class="nb">Alibaba</span>, and open-source providers. He said the company relied heavily on <span class="nb">Alibaba</span>’s Qwen models, which he called “very good” and “also fast and cheap.” He also said <span class="nb">OpenAI</span>’s tools for connecting its models to <span class="nb">Airbnb</span>’s systems were not yet ready for the company’s needs.<cite src="airbnb-2025-qwen"><span class="ckey">[airbnb-2025-qwen]</span> The chief executive’s account of the models behind the agent.</cite></p>
 </div>
 
-<p>The second function is planning and budgeting, whose absence proved costly in Chapter 2’s opening case. The organization must state how much AI it expects to consume in the coming period and detect when actual consumption departs from that expectation. A budget is a commitment made in advance that makes deviations visible as they happen, before the money is gone.</p>
+<p>The second function is planning and budgeting, whose absence proved costly in Chapter 2’s opening case. The organization must state how much AI it expects to consume in the coming period and detect when actual consumption departs from that expectation. A budget is a commitment made in advance. When someone compares it with recorded consumption as the period runs, a deviation shows before the money is gone.</p>
 
 <p>A budget for AI differs from a budget for licenses because the quantity is not fixed when the budget is set. The plan must therefore state the drivers it assumes, such as how many people or workflows will use the system and how heavily. A change in spending can then be traced to a change in a driver, while there is still time to act on it.</p>
 
@@ -81,7 +81,7 @@
 
 <p>The third function, metering and attribution, builds what Chapter 2 called the record flow. The organization must record what was consumed and assign each unit of consumption to the team, product, or purpose it served. Without that assignment, managers can see a cost but cannot trace it to the work that caused it.</p>
 
-<p>The record has two parts. Metering counts what was consumed, request by request. Attribution assigns each count to the work that caused it. A provider’s invoice supplies the first part in total. Only the organization can supply the second, because only the organization knows which team, product, or customer a request served.</p>
+<p>The record has two parts. Metering counts what was consumed, request by request. Attribution assigns each count to the work that caused it. An invoice priced by use supplies the first part in total. An invoice priced by seat supplies neither part. Only the organization can supply the second, because only the organization knows which team, product, or customer a request served. Without that record, no one can say whose work caused a cost, so responsibility for it can sit with several groups at once.</p>
 
 <div class="dated">
 <p class="date">Dated: February 2026</p>
@@ -99,7 +99,7 @@
 
 <p>The fifth function is holding value to account. Consider a constructed example in which a support team adds an AI assistant to its help desk. At the end of a quarter, the organization should be able to say whether the assistant paid for itself, identifying what it cost and returned, over which months, and against which outcome. That requires a boundary: the costs and value the evaluation counts, the period it covers, and the outcomes it measures against. The organization sets the boundary for each deployment before spending begins and names one person responsible for knowing the answer. This book calls it the value boundary.</p>
 
-<p>The boundary matters because the choice of what to count changes the return. An evaluation that counts the assistant’s subscription but not the staff time spent checking its answers reports a higher return than one that counts both. So does an evaluation that measures the busiest month instead of the whole quarter. Setting the boundary in advance prevents the evaluation from choosing the version it prefers.</p>
+<p>The boundary matters because the choice of what to count changes the return. An evaluation that counts the assistant’s subscription but not the staff time spent checking its answers reports a higher return than one that counts both. So can an evaluation that measures only its best month instead of the whole quarter. Setting the boundary in advance prevents the evaluation from choosing the version it prefers.</p>
 
 <div class="dated">
 <p class="date">Dated: October 2025, with a later update</p>
@@ -174,6 +174,8 @@
 
 <p><span class="nb">FinOps</span> is the closest neighboring discipline, making its boundary with AI Operations Management the hardest to define. It already manages spending, has expanded into AI, and defines its purpose in terms of maximizing the business value of technology.<cite src="finops-what-is"><span class="ckey">[finops-what-is]</span> The Foundation’s definition, which names business value.</cite> Chapter 14 explains how the two divide the work. Their distinction concerns what each was built to do, rather than its intent. <span class="nb">FinOps</span> was built to make cloud spending accountable when bills arrived after capacity had been used. AI Operations Management manages consumption metered by the request and judges it against a value boundary set before spending begins.</p>
 
+<p>Until Chapter 14 draws the full border, a provisional rule decides where an activity sits. An activity belongs to <span class="nb">FinOps</span> when it answers a question about the bill, and to AI Operations Management when it answers a Founding Question about the work the consumption served. Consider a constructed case. A company’s monthly AI invoice arrives at three times its forecast. Reconciling the invoice against the contract and charging it to cost centers answers a question about the bill, so it sits with <span class="nb">FinOps</span>. Tracing the increase to the workflow whose requests grew, and deciding whether that workflow’s output justifies its new cost, answers the third and fifth Founding Questions, so it sits with AI Operations Management. Both draw on the same record. Evidence that the <span class="nb">FinOps</span> team already traces consumption to work would move the second activity across the border.</p>
+
 <p>Regulatory governance determines whether an organization may use AI in a particular way. This book takes that determination as given and asks how the permitted use is managed.</p>
 
 <h3 class="section"><span class="num">3.4</span>Five questions the discipline exists to answer</h3>
@@ -188,23 +190,25 @@
 <p class="diagnostic">Question 4. “When capacity is constrained, who decides what runs first, and by what rule?” This is the allocation question, answered in Chapter 11.</p>
 <p class="diagnostic">Question 5. “Where, exactly, does this AI flow pay for itself, and who is on the hook for knowing?” This is the value boundary question, answered in Chapter 12.</p>
 
-<p>These are the Founding Questions, which an organization must answer “from its own records.” It can always produce an answer by asking the provider, estimating, or repeating the business case, but none of those methods produces knowledge the organization holds and can check.</p>
+<p>These are the Founding Questions, which an organization must answer “from its own records.” It can always produce an answer by asking the provider, estimating, or repeating the business case. Such an answer counts only when the organization keeps the evidence behind it and can check it: a provider’s figures reconciled against its own, or an estimate with its assumptions written down.</p>
 
 <p>At the end of Part I, readers do not yet have a method for answering these questions from records. Parts II through IV provide it: Part II presents the science the functions rest on, Part III builds the five functions, and Part IV turns them into an institution.</p>
 
 <p class="slot-label">Craft section</p>
 <h2 class="case-title">The function audit</h2>
 
-<p>The <b>function audit</b> finds which of the five functions an organization performs for one deployment, and which no one performs. It builds on the two methods of Part I. Chapter 1’s consumption-event inventory lists what a deployment consumes, and Chapter 2’s three-flow mapping shows which flows are managed. The audit asks who does each job the discipline requires. The procedure has six steps.</p>
+<p>The <b>function audit</b> finds which of the five functions an organization performs for one deployment, and which the evidence does not show anyone performing. It builds on the two methods of Part I. Chapter 1’s consumption-event inventory lists what a deployment consumes, and Chapter 2’s three-flow mapping shows which flows are managed. The audit asks who does each job the discipline requires. The procedure has six steps.</p>
 
 <p class="diagnostic">Step 1. List the deployment’s AI activities: buying capacity, choosing models, forecasting spending, recording use, assigning costs, routing work, and judging the return. Start from the consumption-event inventory.</p>
 <p class="diagnostic">Step 2. For each activity, name the Founding Question it helps to answer, and assign the activity to that question’s function.</p>
 <p class="diagnostic">Step 3. Assign to a neighboring discipline any activity that answers a neighbor’s question instead, using Table 3.1.</p>
-<p class="diagnostic">Step 4. Mark each function that no activity performs.</p>
-<p class="diagnostic">Step 5. For each function that is performed, name who performs it. Write “no one” where the evidence shows no owner.</p>
-<p class="diagnostic">Step 6. State the first gap to close and the record that closing it requires.</p>
+<p class="diagnostic">Step 4. Mark each function as performed, partly performed, or not shown. A public record shows only what a company chose to report, so a function missing from it is not shown, not proven absent. Only an organization’s own records can show that no one performs a function.</p>
+<p class="diagnostic">Step 5. For each function performed or partly performed, name who performs it. Write “not named” where the evidence names no one.</p>
+<p class="diagnostic">Step 6. State the first gap to close and the record that closing it requires. Close first the gap where the largest cost goes unwatched, starting with the records the organization already holds.</p>
 
 <p>Steps 2 and 4 do most of the work. Step 2 turns a list of activities into a map of the discipline. Step 4 shows what the map leaves empty: the functions where cost can arrive with no one watching it.</p>
+
+<p>Two rules keep the assignment consistent. Choosing what capacity to buy is sourcing, even when one model serves all the work. Allocation and routing begins only when a stated rule sends different work to different capacity or decides what runs first.</p>
 
 <div class="dated">
 <p class="date">Dated: April to July 2026</p>
@@ -214,24 +218,24 @@
 <p>Applied to <span class="nb">Lindy</span> on the public record, the procedure works as follows.</p>
 
 <p class="diagnostic">Step 1. The record shows five activities: running the assistants that customers use; choosing a model provider; knowing the total cost of the models well enough to compare it with payroll; sending all traffic to one model; and keeping the former provider under review against its price.</p>
-<p class="diagnostic">Step 2. Choosing a provider and keeping it under review answer the sourcing question. Sending all traffic to one model is a routing rule, so allocation and routing is performed by a single decision. Knowing the total cost answers part of the metering and attribution question. The record does not show that cost assigned to customers or products.</p>
+<p class="diagnostic">Step 2. Choosing a provider and keeping it under review answer the sourcing question. Sending all traffic to one model is part of that sourcing choice: no rule sends different work to different capacity. Knowing the total cost answers part of the metering and attribution question. The record does not show that cost assigned to customers or products.</p>
 <p class="diagnostic">Step 3. No activity in the record belongs to a neighbor. Whether a company may use a model from a particular developer or country is a question for regulatory governance, which this book takes as given.</p>
-<p class="diagnostic">Step 4. Planning and budgeting, and holding value to account, show no activity. Nothing reported shows a forecast of consumption, a comparison of spending against a plan, or a measure of whether each customer’s use pays for itself.</p>
-<p class="diagnostic">Step 5. The founder performs sourcing in public. The record names no one for the other functions. A public record cannot show work a company does without announcing it, so “no one” here means “not shown.”</p>
+<p class="diagnostic">Step 4. Metering and attribution is partly performed. Planning and budgeting, allocation and routing, and holding value to account are not shown. Nothing reported shows a forecast of consumption, a rule for which work runs where, or a measure of whether each customer’s use pays for itself.</p>
+<p class="diagnostic">Step 5. The founder performs sourcing in public. The record names no one for the other functions.</p>
 <p class="diagnostic">Step 6. The first gap is attribution. A company whose largest cost is AI consumption needs that consumption recorded by customer account, so that it can compare each customer’s use with what that customer pays. The same record supplies the raw material for a budget and for a value boundary.</p>
 
-<p>The audit took six steps and a few public facts. It showed a company changing its entire supply of AI capacity on grounds of cost, while the public record showed no one answering three of the five Founding Questions. The switch itself was sourcing done well. The audit shows what the switch could not tell the company: which customers its new costs belong to.</p>
+<p>The audit took six steps and a few public facts. It showed a company changing its entire supply of AI capacity on grounds of cost, while the public record showed no answer to three of the five Founding Questions and only part of an answer to a fourth. The switch was a sourcing decision made on cost. Whether it was made well depends on the new model’s quality and the cost of the move, which the record shows only in part. The audit shows what the switch could not tell the company: which customers its new costs belong to.</p>
 
 <section class="summary-sec">
 <h3 class="tail-head">Chapter summary</h3>
 
-<p>AI Business Economics is the science of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on. The claims are kept in a registry and linked by dependency. This book renders and cites only certified claims.</p>
+<p>AI Business Economics is the science of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on.</p>
 
 <p>The book presents the results of the science in numbered panels. Each panel carries an identifier and a reading in plain business language, and the full statements are in Appendix A.</p>
 
 <p>AI Operations Management applies the science through five functions: sourcing, planning and budgeting, metering and attribution, allocation and routing, and holding value to account at a boundary. It begins when a model becomes a service an organization consumes. It shares boundaries with AIOps, MLOps, <span class="nb">FinOps</span>, and regulatory governance, while remaining a distinct discipline.</p>
 
-<p>The function audit assigns a deployment’s AI activities to the five functions or to a neighboring discipline and marks the functions no one performs. Its first output is the gap to close and the record that closing it requires.</p>
+<p>The function audit assigns a deployment’s AI activities to the five functions or to a neighboring discipline and marks each function performed, partly performed, or not shown. Its first output is the gap to close and the record that closing it requires.</p>
 
 <p>The Founding Questions are the five questions the discipline exists to answer from an organization’s own records. By the end of Part I, readers understand the questions but do not yet have a method for answering them.</p>
 </section>
@@ -257,14 +261,17 @@
 <div class="kt"><div class="kt-h"><span class="kt-t">Allocation and routing</span></div>
 <p>The function that decides what runs first when capacity is limited and sends each piece of work to suitable capacity, by a stated rule.</p></div>
 
+<div class="kt"><div class="kt-h"><span class="kt-t">Holding value to account</span></div>
+<p>The function that judges, at a value boundary set before spending begins, whether a deployment pays for itself, and names one person responsible for knowing.</p></div>
+
 <div class="kt"><div class="kt-h"><span class="kt-t">Value boundary</span></div>
-<p>The boundary within which an organization judges whether a deployment pays for itself, defined by the costs and value it counts, the period it covers, and the outcomes it measures against. Holding value to account at this boundary is the fifth function.</p></div>
+<p>The boundary within which an organization judges whether a deployment pays for itself, defined by the costs and value it counts, the period it covers, and the outcomes it measures against.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Founding Questions</span></div>
 <p>The five questions AI Operations Management exists to answer from an organization’s own records, one for each of its five functions.</p></div>
 
 <div class="kt"><div class="kt-h"><span class="kt-t">Function audit</span></div>
-<p>The six-step method for finding which of the five functions an organization performs for a deployment: list its AI activities; assign each to a function or a neighboring discipline; mark the functions no activity performs; name who performs each; and state the first gap to close.</p></div>
+<p>The six-step method for finding which of the five functions an organization performs for a deployment: list its AI activities; assign each to a function or a neighboring discipline; mark each function performed, partly performed, or not shown; name who performs each; and state the first gap to close.</p></div>
 </section>
 
 <section class="problems-sec">
@@ -289,9 +296,9 @@
 <p>Step 1. The reported activities are: buying access to <span class="nb">Claude Code</span>; rolling it out to roughly 5,000 engineers from December 2025; setting an annual AI budget; tracking adoption, which reached 32 percent of the engineering organization in February and 84 percent in March; and totaling spending. Reported spending ran from $150 to $250 a month for the average engineer and from $500 to $2,000 for the heaviest users.<cite src="uber-2026-budget"><span class="ckey">[uber-2026-budget]</span> Rollout, adoption, and the cost per engineer.</cite> A sixth activity is a question. The president and chief operating officer said the company could not yet connect its growing use of the tool to the consumer features it was producing: “That link is not there yet.”<cite src="fortune-2026-uber-coo"><span class="ckey">[fortune-2026-uber-coo]</span> The chief operating officer’s statement.</cite></p>
 <p>Step 2. Buying access to one tool for all engineers is sourcing. Setting the annual budget is planning and budgeting. Tracking adoption and totaling spending are part of metering and attribution. The chief operating officer’s question belongs to holding value to account: it was asked, and the reporting shows no answer.</p>
 <p>Step 3. Nothing reported places any of these activities with a neighboring discipline.</p>
-<p>Step 4. Allocation and routing shows no activity. Nothing reported shows a rule for which work went to the tool or a limit on its heaviest users. Attribution shows none either: nothing reported assigns the consumption to teams.</p>
-<p>Step 5. Engineering ran the rollout, and someone set the budget. The public account does not show anyone comparing spending with that budget before it ran out, so the audit writes “no one” against that comparison.</p>
-<p>Step 6. The first gap is a monthly comparison of actual consumption with the plan. It requires consumption recorded by team, which is the metering and attribution function the audit found incomplete.</p>
+<p>Step 4. Allocation and routing is not shown: nothing reported shows a rule for which work went to the tool or a limit on its heaviest users. Metering and attribution is partly performed: spending was totaled, but nothing reported assigns it to teams.</p>
+<p>Step 5. Engineering ran the rollout, and someone set the budget. The public account does not show anyone comparing spending with that budget before it ran out, so the audit writes “not named” against that comparison.</p>
+<p>Step 6. The first gap is a monthly comparison of total consumption with the plan. The spending totals already reported make that comparison possible without a new record. Recording consumption by team comes next, to show where a deviation came from.</p>
 </div>
 
 <div class="problem">
@@ -301,8 +308,8 @@
 <p>Step 1. The activities are: buying several thousand per-seat licences; agencies choosing which employees receive them; commissioning an independent evaluation; publishing it in full; and collecting participants’ reports of their use and the time it saved.</p>
 <p>Step 2. Buying per-seat licences is sourcing. Choosing which employees receive a licence is allocation: it decides who gets capacity, by agency nomination. Commissioning and publishing the evaluation is holding value to account, within a boundary the evaluation stated, including its own limits. Collecting participants’ reports of their use is a partial record of consumption, part of metering and attribution, without a record of each use.</p>
 <p>Step 3. Any review of whether agencies were permitted to use the tool belongs to regulatory governance, and the audit sets it aside.</p>
-<p>Step 4. Mark the functions that no activity performs. Consider how per-seat pricing changes which functions the trial needed.</p>
-<p>Step 5. Name who performed each function, from the facts above. Write “no one” where the facts show no owner.</p>
+<p>Step 4. Mark each function as performed, partly performed, or not shown. Consider how per-seat pricing changes which functions the trial needed.</p>
+<p>Step 5. Name who performed each function, from the facts above. Write “not named” where the facts name no owner.</p>
 <p>Step 6. State the first gap you would close if the trial became a permanent deployment, and the record that closing it requires.</p>
 </div>
 
@@ -321,7 +328,7 @@
 <p class="provenance">Dated: February 2024. The company’s own announcement, using its own figures. Only that announcement is used here.</p>
 <p>In February 2024, the payments company <span class="nb">Klarna</span> announced results from the first month of an AI assistant powered by <span class="nb">OpenAI</span>. The company reported that the assistant had handled 2.3 million conversations, accounting for two-thirds of its customer-service chats. It estimated that the assistant was doing the work of 700 full-time agents. The company reported that, in that first month, customers resolved their questions in under two minutes, compared with eleven minutes previously. Klarna estimated that the assistant would improve its profit by $40 million in 2024.<cite src="klarna-2024-assistant"><span class="ckey">[klarna-2024-assistant]</span> All figures in this case are the company’s own, as announced.</cite></p>
 <p>Work from this announcement alone.</p>
-<p>First, apply Chapter 1’s consumption-event inventory. Identify the consumption events described in the announcement and where each would be metered.</p>
+<p>First, apply Chapter 1’s consumption-event inventory. Identify the consumption events the announcement implies and where each would be metered, marking what the announcement reports and what you assume.</p>
 <p>Second, apply Chapter 2’s three-flow mapping. Diagnose the usage, record, and cost-and-value flows, identifying the evidence behind each diagnosis.</p>
 <p>Third, apply each of the five Founding Questions to the announcement. For each question, state whether the announcement provides an answer from the organization’s own records and what record would be needed to answer it.</p>
 <p>Keep your answers. The case returns in Chapter 6.</p>
@@ -337,7 +344,7 @@
     "separate. This block is the chapter’s complete source register.",
     "",
     "REDESIGN, 2026-10-15 (Decision 85). Entries verified at the 2026-10-13 fact check",
-    "keep their notes. Four entries come from Chapter 2, with that chapter’s verified",
+    "keep their notes. Four entries come from Chapter 2 and one from Chapter 1, with their verified",
     "notes. Entries marked STAGE 0, 2026-10-15 were found by WebSearch only: Claude read",
     "search summaries and did NOT read any source. Grade C until the fact check reads them."
   ],
@@ -432,6 +439,23 @@
     "pages": "31866-31879",
     "doi": "10.1109/ACCESS.2023.3262138",
     "note": "STAGE 3, 2026-10-13: EXTERNAL CHECK A READ THE SOURCE WITH LIVE WEB ACCESS (04_Stage3_Fact_Check/AIOM_Ch03_Stage3_externalcheck_A.md). VERIFIED (A-10): the paper defines MLOps as including ‘end-to-end conceptualization, implementation, monitoring, deployment, and scalability of machine learning products’, ‘aimed at productionizing machine learning systems’, so Table 3.1’s paraphrase is supported; IEEE Access 11, 31866-31879, 2023, and the DOI are correct. Read at epub.uni-bayreuth.de/7577/. REVERSES-IF: none expected; the paper is a fixed publication."
+  },
+  "truell-2025-pricing": {
+    "type": "blog",
+    "authors": [
+      {
+        "family": "Truell",
+        "given": "Michael"
+      }
+    ],
+    "title": "Clarifying Our Pricing",
+    "container": "Cursor",
+    "date": "2025-07-04",
+    "url": "https://cursor.com/blog/june-2025-pricing",
+    "perishable": true,
+    "accessed": "2026-07-29",
+    "upgrade": null,
+    "note": "FROM CHAPTER 1, verified there (note follows). Chapter 3 uses it for the plan change only, in the ruled form: further use was PRICED at the same rates; no billing mechanism is asserted (SF2, SF8). NOTE ADDED 2026-07-29 (Stage 2, items A5, A6, A7). This entry previously carried no note despite being the most load-bearing source in the chapter. Verified by direct reading on the access date. DATE: July 4, 2025, stated on the page and corroborated by the post's own timeline, which reads June 16 for the original change, June 30 for a clarity revision to that post and the pricing page, and July 4 for the apology. Three fact-check rounds have proposed July 3; all three are wrong. Do not change it. REQUEST ARITHMETIC: for external models Cursor had previously charged by request count, with a limit of 500 requests per month and Sonnet models costing two requests, which is why the chapter says five hundred requests against external models rather than 'fast requests'. The phrase 'fast requests' is TechCrunch's gloss, not Cursor's term, and must not be reintroduced. NEW PLAN TERMS: unlimited use of Tab and of models in Auto, 20 dollars of frontier model usage per month at API pricing, and the option to purchase more at cost. ORDER OF MAGNITUDE: the post states verbatim that although most users' costs stayed fairly constant, the hardest requests cost an order of magnitude more than simple ones. A raise calling this unsupported has been rejected once and should be rejected again. COVERAGE: the post gives median Pro coverage as roughly 225 Sonnet 4 requests and states that the vast majority of Pro users do not exhaust the allowance, so the chapter's depletion sentence is scoped to a labelled composite team's heaviest users on long-horizon frontier work, not to Pro users generally. REFUNDS: offered for unexpected usage between June 16 and July 4, 2025. BYLINE: the post is bylined Michael Truell with no role stated on the page; his role as chief executive of Anysphere rests on techcrunch-2025-cursor-apology, not on this post. CLAIM NARROWED 2026-08-06 (Stage 3, SF2). The chapter formerly said the allowance was consumed 'after which usage continued to bill against real rates', which asserts that billing continued automatically. This entry does not establish that. What it establishes is the price of further use: twenty dollars of frontier-model usage per month at API pricing, with the option to purchase more at cost. Whether continuation was the default or required usage-based pricing or a spend limit to have been enabled is not settled here, and no Claude session can reach the post to settle it. RULED by Dan: state the price and assert no mechanism. The sentence now reads 'after which additional usage was priced at the same rates'. Do not restore a mechanism claim without a passage from this post that describes the default billing behaviour on exhaustion. The sentence that follows, that charges arrived which no one had planned for, is scoped to the labelled composite team and is separately supported by the refund offer for unexpected usage between June 16 and July 4, 2025. MECHANISM AND SCOPE BOTH REGRESSED AND ARE RESTORED 2026-08-10 (Stage 3, SF8 and SF9). The Stage 6 copy-edit rounds of 2026-08-08 rewrote this paragraph and undid both rulings while leaving every date and figure intact, so no check on values could see it. SF8: the chapter had come to read 'Once the credit ran out, Cursor billed each additional request at API rates', which is the automatic-continuation mechanism the SF2 ruling removed, restored in different words and with no new passage from the post to support it. SF9: the depletion claim had been generalized from the case team to 'Heavy users', dropping the scoping the COVERAGE entry above exists to require, since the post states that the vast majority of Pro users do not exhaust the allowance. The sentence read, as ruled on 2026-08-10, 'For the team's heaviest users, the people getting the most value, the credit was consumed in a handful of prompts, after which additional usage was priced at the same rates.' Both halves were the ruled form. UPDATED 2026-08-12 (CE11). That sentence was restructured to remove a mid-clause interrupter, per prose style guide Part 5 rule 3, and now reads 'The credit was consumed in a handful of prompts for the team's heaviest users, the people getting the most value. Additional usage was then priced at the same rates.' THE SF9 SCOPING SURVIVES: the depletion is still scoped to the team's heaviest users and is still not a claim about Pro users generally, which is the whole point of the COVERAGE entry above. Only the clause order changed; no value, date or claim moved. Recorded here rather than left to a later checker because this note's quotation of the exact sentence is what caught SF8 to SF10, and a quotation that silently goes stale is the failure SF7 and SF11 already are. What would reverse SF8 is unchanged and stated above: a passage from this post describing the default billing behaviour on exhaustion. What would reverse SF9: a passage scoping exhaustion to Pro users generally, which this post contradicts. CARRY TO EVERY LATER CHAPTER: a ruled claim narrowing does not survive a copy edit on its own. This one was recoverable only because the ruled sentence was quoted here and could be diffed against the render the external checks audited. CLAIM CUT 2026-08-13 (Stage 7, external check 2, FC9). The chapter formerly closed the paragraph with 'Cursor had been paying the difference, but the difference had become too expensive to absorb.' This entry does not carry it: the words absorb, paying the difference and too expensive appear nowhere in this note, and what the post supplies is the order-of-magnitude spread between hardest and simple requests plus the statement that most users' costs stayed fairly constant. The sentence was an inferred economic mechanism presented as Truell's explanation, which is the SF2 shape a second time. Cut. The supported sentence before it now carries the point alone: 'The newest models consumed far more tokens on long-horizon tasks than a flat monthly price could cover.' REVERSING CONDITION: a passage in which Cursor states it had been absorbing the difference would license restoring it."
   },
   "klarna-2024-assistant": {
     "type": "web",

@@ -141,29 +141,49 @@ G1-2. Key term "Falsifying case" absent from the body; body aligned to the term.
 
 Owner: Claude; second model reads independently; Dan rules (sitting 2)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > v4 step 3, Decision 77. ONE pass replacing v3 Stages 1, 2 and 4: structure against AIOM_Structure_v1.md and AIOM_Exit_Competencies_v1.md, teaching quality, and voice and craft against AIOM_Prose_Standard_v2.0.md. Labelled Stage 4 because it owns voicecheck. Read ADVERSARIALLY: for each competency and each criterion quote the WEAKEST evidence and rule it, reading the per-section table rather than the chapter average. ONE second-model package carries the three questions as separate sections, read without Claude's findings, and is BUILT BEFORE the sitting (Decision 81). Claude applies what is not a judgment call and hands Dan ONE decision list; Dan rules every finding, Claude rules none, and the ruled list is applied in ONE commit.
 
-- [ ] Structure: every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
-- [ ] Structure: every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
-- [ ] Structure: the anchor theorem is the right one and is load-bearing in the argument rather than decorative
-- [ ] Structure: ledger obligations met, no earlier chapter's term redefined, promises owed are paid, nothing belonging to a later chapter front-run
-- [ ] Teaching: clarity, pacing, cognitive load, example fitness and transitions carry the target reader without a stall
-- [ ] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
-- [ ] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
-- [ ] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
-- [ ] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
-- [ ] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
-- [ ] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
-- [ ] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
-- [ ] Second-model package (one, three sections) returned and its findings recorded, one line each
-- [ ] Dan has ruled every finding (sitting 2), applied in one commit
+- [x] Structure: every slot serves the chapter's stated purpose in AIOM_Structure_v1.md
+- [x] Structure: every assigned exit competency is DELIVERED, not merely discussed: a reader could perform it
+- [x] Structure: the anchor theorem is the right one and is load-bearing in the argument rather than decorative
+- [x] Structure: ledger obligations met, no earlier chapter's term redefined, promises owed are paid, nothing belonging to a later chapter front-run
+- [x] Teaching: clarity, pacing, cognitive load, example fitness and transitions carry the target reader without a stall
+- [x] C1 concrete particular: every abstraction carrying argumentative weight is anchored to a named, specific instance
+- [x] C2 context and stakes: every mechanism states the conditions that made it available and what it settles, not only what it does
+- [x] C3 claim first: the main point of a paragraph is visible in its first sentence or two, qualifications subordinate, no throat clearing
+- [x] C4 deliberate rhythm: sentence length varies, mostly 12 to 24 words, a short sentence after a long explanation, no long stretch at a uniform length
+- [x] C5 paragraph close: paragraphs end on the load-bearing clause, not a trailing qualifier and not a cross-reference
+- [x] C6 the guard holds in BOTH directions: no hero or villain framing, no populist register, no character-driven causation where a structural account is available, and no false sophistication, no abstraction where an ordinary word serves, no aphorism standing in for an explanation
+- [x] C7 business reality first: no paragraph opens on a framework, category or conceptual distinction where a business statement is available, and every coined term arrives after the mechanism it names
+- [x] Second-model package (one, three sections) returned and its findings recorded, one line each
+- [x] Dan has ruled every finding (sitting 2), applied in one commit
 
 Findings:
 
 V2-R0. Second-model package built 2026-10-17 by 02_Stage4_Review/build_review_v2.py: AIOM_Ch03_Review_v2_package.md, one file, three sections (structure, teaching, voice and craft), the chapter with Table 3.1 patched in, the reference extract (structure, C4, plan v2, craft criteria) and the Chapter 1 exemplar. No Claude findings in it (Dan: A). Waiting on Dan to run it.
 V2-R1. Second-model review received 2026-10-17 (AIOM_Ch03_Review_v2_secondmodel.md): 21 findings, every quote verified against the text. Six group gates for Sitting 2 in AIOM_Ch03_Sitting2_v2_decisions.md.
+V2-S2. Sitting 2, 2026-10-17, six group gates, Dan: A on all six. Applied in this commit (32 edits); rulings file AIOM_Ch03_Sitting2_v2_decisions.md.
+S-1 "no one" from a silent record: three marks (performed, partly performed, not shown), "not named". Accept. This commit.
+S-4 Lindy routing vs Uber sourcing: one rule, buying capacity is sourcing. Accept. This commit.
+S-14 first-gap rule; P1 comparison needs no team record. Accept. This commit.
+S-2 opening case overclaim: "This book sets out both." Accept. This commit.
+S-13 worked border case and provisional rule in 3.3 (constructed). Accept. This commit.
+S-3, S-15 Cursor check paragraph in 3.1, Chapter 1 facts, truell-2025-pricing in the ruled SF2/SF8 form ("priced", no billing mechanism). Accept. This commit.
+S-21 3.2 opens on a manager. Accept. This commit.
+S-16 budget sentence names the comparison. Accept. This commit.
+S-5 one body sentence before the DoiT box. Accept. This commit.
+S-8 Klarna case marks reported versus assumed. Accept. This commit.
+S-9 provider figures count when kept and checkable. Accept. This commit.
+S-10 invoice by use versus by seat. Accept. This commit.
+S-11 "can", best month. Accept. This commit.
+S-20 "sourcing done well" withdrawn. Accept. This commit.
+S-6 registry sentences cut from the summary. Accept. This commit.
+S-7 key term "Holding value to account" added. Accept. This commit.
+S-12, S-19 overview paragraphs merged, close on consequence. Accept. This commit.
+S-17, S-18 deliberate. Keep. No change.
+V2-S2-1. Post-sitting checks: voicecheck clean; freqsweep 7, the new "settles most cases" (3.3) reworded to "decides where an activity sits"; 6 kept as at V2-D3. chapter_check 0 broken. Word count 6,066, now inside the band. Anchor-theorem box ticked as not applicable: no anchor by design (Decision 85).
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

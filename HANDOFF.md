@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-15. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-17. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -28,9 +28,9 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 1. Chapter 3 was LOCKED and published 2026-10-14, then reopened the same day.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
-   **Drafted 2026-10-15**: Stage 0 passed; G1 PASSED (Dan: A, accept below the floor) on
-   the word band (5,637 words against 6,000 to 7,500, Decision 82). **NEXT:
-   Dan runs** the Stage 4 package (02_Stage4_Review/AIOM_Ch03_Review_v2_package.md) on another model and uploads the reply; then Sitting 2.
+   Drafted 2026-10-15 (G1 passed, band accepted). **Stage 4 PASSED 2026-10-17**:
+   second-model review, 21 findings, Sitting 2 all A, applied (now 6,066 words).
+   **NEXT: Stage 6, Dan's author pass**: render, copyedit_export, Dan edits in Word.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
@@ -50,7 +50,9 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 - **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
   newer evidence and any conclusion that no longer holds, one package, a checker
   with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
-  before then; the THM-004 "Diligence" gloss question (B8) waits for it.
+  before then; the THM-004 "Diligence" gloss question (B8) waits for it. Also for it:
+  Chapter 1 now reads "additional usage was billed at the underlying API rates",
+  the mechanism its own truell-2025-pricing note ruled out (SF2, SF8); Ch3 uses "priced".
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).
