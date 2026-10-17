@@ -100,6 +100,11 @@ def qa(path, expected_footnotes=None, source_html=None):
     for i, p in enumerate(pdf.pages):
         limit = 428.4 if (i + 1) % 2 == 1 else 417.6
         for c in p.chars:
+            # A space left hanging at a line end draws nothing. WeasyPrint keeps
+            # one between two inline spans ("Google</span>, <span"), and the
+            # gate failed Chapter 3's correct page 6 on it (2026-10-17).
+            if not c["text"].strip():
+                continue
             if 60 < c["top"] < 640 and c["x1"] > limit + 1.5:
                 overflow.append((i + 1, round(c["x1"], 1), c["text"]))
     print(f"1. right-margin overflow ... {len(overflow)}")
