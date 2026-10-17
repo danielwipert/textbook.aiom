@@ -8,13 +8,12 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- `main` was last merged from `claude/inspiring-galileo-9hba1g` on 2026-10-14
-  (569b2e5); the branch is now ahead with the whole redesign. Merged and safe to
+- `main` is level with `claude/inspiring-galileo-9hba1g` as of 2026-10-17
+  (fast-forward to 35e519f); web run 131 published it, success. Merged and safe to
   delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
   `claude/inspiring-bohr-4gquw9`, `claude/sharp-dirac-ojfqqz`.
 - Chapters 1 (Process v2) and 2 (v3) LOCKED. **Chapter 3 RE-LOCKED 2026-10-17
-  (redesign, Decision 85, Process v4) at 17f7960**, on this branch only: `main`
-  still serves the first lock until this branch is merged. Chapters 4 to 15 not
+  (redesign, Decision 85, Process v4) at 17f7960 and PUBLISHED.** Chapters 4 to 15 not
   started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
@@ -27,10 +26,8 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
-1. **NEXT: merge this branch to `main`** (git_hygiene.py first; a gate to Dan),
-   which publishes the redesigned Chapter 3. The site build and the web
-   self-test (115/115) pass on the locked tree.
-2. Then the holistic review of Chapters 1 to 3 (Decision 83), below.
+1. **NEXT: the holistic review of Chapters 1 to 3 (Decision 83)**, below, then
+   Chapter 4. Fix-between-chapters items first if Dan wants them.
 
 **Decision 84 (2026-10-11): every decision goes to Dan as logic gates**, one at a
 time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
