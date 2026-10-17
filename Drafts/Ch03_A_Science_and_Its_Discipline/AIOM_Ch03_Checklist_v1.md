@@ -163,6 +163,7 @@ Status: [ ]        Date cleared:
 Findings:
 
 V2-R0. Second-model package built 2026-10-17 by 02_Stage4_Review/build_review_v2.py: AIOM_Ch03_Review_v2_package.md, one file, three sections (structure, teaching, voice and craft), the chapter with Table 3.1 patched in, the reference extract (structure, C4, plan v2, craft criteria) and the Chapter 1 exemplar. No Claude findings in it (Dan: A). Waiting on Dan to run it.
+V2-R1. Second-model review received 2026-10-17 (AIOM_Ch03_Review_v2_secondmodel.md): 21 findings, every quote verified against the text. Six group gates for Sitting 2 in AIOM_Ch03_Sitting2_v2_decisions.md.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
