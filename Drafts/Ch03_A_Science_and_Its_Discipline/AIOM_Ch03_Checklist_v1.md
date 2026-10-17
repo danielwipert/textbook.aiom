@@ -257,6 +257,7 @@ Status: [ ]        Date cleared:
 Findings:
 
 V2-FC0. 2026-10-17, packages built in markdown (Dan) by 04_Stage3_Fact_Check/build_packages_v2.py from a fresh render of the post-author-pass text: AIOM_Ch03_v2_Stage3_package_A.md (reads sources: the six Grade C boxes first, then the four rewritten sentences, carried sources, Table 3.1 added from the live text) and _B.md (render only; leak control passes). The register's _README key, renamed _comment by the redesign script, was restored so factcheck_packet.py could read it.
+V2-FC1. 2026-10-17, check A (web access: yes) 55 findings: 35 verified, 9 partly, 3 contradicted, 8 cannot confirm. Check B 19 findings. Six group gates for Sitting 3 in 04_Stage3_Fact_Check/AIOM_Ch03_v2_Sitting3_decisions.md.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
