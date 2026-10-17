@@ -244,20 +244,30 @@ A4. freqsweep: new 'a common objection' in 3.3. Dan: A, 'an objection'. This com
 
 Owner: Dan, external (sitting 3)
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > v4 step 5, Decision 76. ONE external fact check replacing v3 Stages 3 and 7, on a fresh RENDER of the post-author-pass text, never the HTML. Two checks run in parallel on different prompts: A reads the sources, B reads only the render. THE CHECKER MUST HAVE WEB ACCESS: Chapter 2's first checker could not read, and its work was redone. Labelled Stage 3 because it owns W14. Rulings go into the register notes, with the condition that would reverse them, and into AIOM_Claim_Ledger.md.
 
-- [ ] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
-- [ ] Check A (reads the sources, web access confirmed) returned
-- [ ] Check B (reads only the render) returned
-- [ ] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
-- [ ] Any empirical claim added after this check carries a source before lock (standing rule 2)
+- [x] Packet built with `factcheck_packet.py` against a fresh render, BEFORE the sitting
+- [x] Check A (reads the sources, web access confirmed) returned
+- [x] Check B (reads only the render) returned
+- [x] Dan has ruled both sets in one sitting (sitting 3); register notes and AIOM_Claim_Ledger.md updated; applied in one commit
+- [x] Any empirical claim added after this check carries a source before lock (standing rule 2)
 
 Findings:
 
 V2-FC0. 2026-10-17, packages built in markdown (Dan) by 04_Stage3_Fact_Check/build_packages_v2.py from a fresh render of the post-author-pass text: AIOM_Ch03_v2_Stage3_package_A.md (reads sources: the six Grade C boxes first, then the four rewritten sentences, carried sources, Table 3.1 added from the live text) and _B.md (render only; leak control passes). The register's _README key, renamed _comment by the redesign script, was restored so factcheck_packet.py could read it.
 V2-FC1. 2026-10-17, check A (web access: yes) 55 findings: 35 verified, 9 partly, 3 contradicted, 8 cannot confirm. Check B 19 findings. Six group gates for Sitting 3 in 04_Stage3_Fact_Check/AIOM_Ch03_v2_Sitting3_decisions.md.
+V2-S3. Sitting 3, 2026-10-17, six group gates, Dan: A on all six; applied in this commit (24 prose edits).
+G1 A-21 JPMorgan "stale" was the CFO's own estimate. Accept. This commit.
+G1 A-26, A-52 Lindy moved most traffic, Sonnet kept: audit reworked (routing partly performed; 2 and 2 of the Founding Questions); new source lindy-2026-migration. Accept. This commit.
+G1 A-45 P2 "independent" evaluation, reintroduced by Claude: now jointly delivered. Accept. This commit.
+G2 A-3 Airbnb, A-16 and B-18 Microsoft, A-23 JPMorgan, A-38 and B-2 Cursor, A-46 Australian trial: narrowed. Accept. This commit.
+G3 A-28 to A-31, A-24, A-25 Lindy: 100x, return, future spend and April cut; NPR's size and role; cnbc-2026-lindy dropped. Accept. This commit.
+G4 A-13, B-11 DoiT; B-12 Pigment; A-53 cite; A-54 invoices; B-1 allocation rule widened; B-3 table cite; B-15 Klarna; B-16 Uber. Accept. This commit.
+G5 B-5, B-6, B-7, B-8, B-9, B-13, B-14, B-17, B-19, A-4, A-49. No change, reasons in the decisions file.
+G6 Ledger: FC3-A3, A6, B10 re-ruled; R1, B4, B13, B21 superseded; eight FC3V2 rulings added; register notes record check A. Accept. This commit.
+V2-S3-1. Post-sitting checks: claimcheck PASSED (18 rulings); W14 control (restoring "independent") fails as it must; voicecheck clean; G3 passes; freqsweep 11, new F7, F8, F9, F11 are the ruled cited wording; chapter_check 0 broken; 6,118 words. Ch2 P3 "a few times a week or less" and Ch1 Cursor wording join the Ch1 to 3 review list.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

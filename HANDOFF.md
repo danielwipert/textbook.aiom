@@ -30,7 +30,7 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
    Drafted 2026-10-15 (G1 passed, band accepted). **Stage 4 PASSED 2026-10-17**:
    second-model review, 21 findings, Sitting 2 all A, applied (now 6,066 words).
-   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **NEXT: Stage 3 fact check**: packages A (reads sources) and B (render only) from a fresh render; re-rule FC3-A3, A6, B10 and supersede R1, B4, B13, B21. Packages A and B BUILT 2026-10-17 (markdown, 04_Stage3_Fact_Check); waiting on Dan to run them with a web-enabled model.
+   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **Stage 3 PASSED 2026-10-17** (Sitting 3, six gates all A; claim ledger updated). **NEXT: production**: place.py for the split callout, Stage 5 page read, G2, G3, then the sign-off package.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
@@ -53,6 +53,8 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
   before then; the THM-004 "Diligence" gloss question (B8) waits for it. Also for it:
   Chapter 1 now reads "additional usage was billed at the underlying API rates",
   the mechanism its own truell-2025-pricing note ruled out (SF2, SF8); Ch3 uses "priced".
+  And Chapter 2's P3 says participants used the tool "a few times a week or less"; check A
+  (Ch3 A-46) found that describes most survey respondents, not every participant.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
   (Part III build).

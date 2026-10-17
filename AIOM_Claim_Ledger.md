@@ -258,20 +258,26 @@ wording that no shorter sentence would restore.
 ### FC3-A3 :: history not in the report :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: finops-2026-state
 - FORBIDDEN: work the discipline had not originally been created to do
-- REQUIRED: Its central finding concerned the expansion of FinOps into AI spending.
+- SUPERSEDED-REQUIRED: Its central finding concerned the expansion of FinOps into AI spending.
 - REVERSES-IF: a source states that FinOps was not created for AI spending, cited here.
+- REQUIRED: Its central finding was how far FinOps had expanded into AI spending:
+- RE-RULED 2026-10-17 at sitting 3 of the redesign: Dan's author-pass wording, verified by external check A (A-34); it states no history of the discipline. The FORBIDDEN form stays enforced.
 
 ### FC3-A6 :: provisioning by code unsourced :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: finops-definition-2024
 - FORBIDDEN: a few lines of code
-- REQUIRED: cloud consumption varied with use, and the bills arrived after capacity had been used.
+- SUPERSEDED-REQUIRED: cloud consumption varied with use, and the bills arrived after capacity had been used.
 - REVERSES-IF: a source describing provisioning by code is cited.
+- REQUIRED: cloud bills varied with use and arrived after capacity had been consumed.
+- RE-RULED 2026-10-17 at sitting 3 of the redesign: Dan's author-pass wording, verified by external check A (A-35); no provisioning-by-code mechanism. The FORBIDDEN form stays enforced.
 
 ### FC3-B10 :: survey population :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: finops-2026-state
 - FORBIDDEN: nearly all of them were managing it
-- REQUIRED: nearly all of the survey's respondents were managing it.
+- SUPERSEDED-REQUIRED: nearly all of the survey's respondents were managing it.
 - REVERSES-IF: a source covering all FinOps practitioners, not one survey's respondents.
+- REQUIRED: nearly all respondents to the Foundation's survey were managing it.
+- RE-RULED 2026-10-17 at sitting 3 of the redesign: Dan's author-pass wording, verified by external check A (A-37); still scoped to the survey's respondents. The FORBIDDEN form stays enforced.
 
 ### FC3-B2 :: provenance banner after the check :: 2026-10-13 :: Stage 3
 - FORBIDDEN: have not yet been checked against the report itself
@@ -286,28 +292,32 @@ wording that no shorter sentence would restore.
 
 ### FC3-R1 :: non-claims recorded for certified claims only :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: aibe-registry-2026
-- FORBIDDEN: The registry records every claim's non-claims.
-- REQUIRED: The registry records non-claims for every certified claim, but its lists are not exhaustive.
+- SUPERSEDED-FORBIDDEN: The registry records every claim's non-claims.
+- SUPERSEDED-REQUIRED: The registry records non-claims for every certified claim, but its lists are not exhaustive.
 - RESTATED 2026-10-13 at the scoped re-review (SR-4), on Dan's ruling: wording only; the narrowing to certified claims stands.
 - REVERSES-IF: a pinned registry version in which every claim, certified or not, carries exclusions.
+- SUPERSEDED 2026-10-17: Retired by Dan at sitting 3 of the redesign (Decision 85): the sentence was cut when the registry walk-through left the chapter. The lines above are kept as history and are no longer enforced by W14.
 
 ### FC3-B4 :: certified count by type :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: aibe-registry-2026
-- REQUIRED: including 9 of the 11 theorems and 20 of the 21 lemmas.
-- REVIEW: the counts belong to the pinned version; if the manifest is refreshed, the dated box changes with it.
+- SUPERSEDED-REQUIRED: including 9 of the 11 theorems and 20 of the 21 lemmas.
+- SUPERSEDED-REVIEW: the counts belong to the pinned version; if the manifest is refreshed, the dated box changes with it.
 - REVERSES-IF: the manifest is refreshed.
+- SUPERSEDED 2026-10-17: Retired by Dan at sitting 3 of the redesign (Decision 85): the sentence was cut when the registry walk-through left the chapter. The lines above are kept as history and are no longer enforced by W14.
 
 ### FC3-B13 :: value boundary is the book's practice, not LEM-021 :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: aibe-registry-2026
-- FORBIDDEN: The organization must set that boundary for each deployment
-- REQUIRED: This book adds two requirements of practice that the lemma does not state
+- SUPERSEDED-FORBIDDEN: The organization must set that boundary for each deployment
+- SUPERSEDED-REQUIRED: This book adds two requirements of practice that the lemma does not state
 - REVERSES-IF: a certified registry claim requiring a per-deployment boundary set in advance.
+- SUPERSEDED 2026-10-17: Retired by Dan at sitting 3 of the redesign (Decision 85): the sentence was cut when the registry walk-through left the chapter. The lines above are kept as history and are no longer enforced by W14.
 
 ### FC3-B21 :: THM-002 claims a risk :: 2026-10-13 :: Stage 3
 - SOURCE-KEY: aibe-registry-2026
-- FORBIDDEN: yet the cost is not understated
-- REQUIRED: yet doing so creates no risk of understating the cost within the evaluation boundary.
+- SUPERSEDED-FORBIDDEN: yet the cost is not understated
+- SUPERSEDED-REQUIRED: yet doing so creates no risk of understating the cost within the evaluation boundary.
 - REVERSES-IF: THM-002's statement changes upstream.
+- SUPERSEDED 2026-10-17: Retired by Dan at sitting 3 of the redesign (Decision 85): the sentence was cut when the registry walk-through left the chapter. The lines above are kept as history and are no longer enforced by W14.
 
 ### FC3-B1 :: certification is not truth :: 2026-10-13 :: Stage 3
 - FORBIDDEN: states what is true about consuming AI
@@ -329,3 +339,57 @@ wording that no shorter sentence would restore.
 ### FC3-B35 :: no cost ranking :: 2026-10-13 :: Stage 3
 - FORBIDDEN: The most costly misreading
 - REVERSES-IF: evidence comparing the costs of misreadings, cited.
+
+**Redesign, ruled by Dan at sitting 3, 2026-10-17, six group gates, all A**
+(`Drafts/Ch03_A_Science_and_Its_Discipline/04_Stage3_Fact_Check/AIOM_Ch03_v2_Sitting3_decisions.md`).
+External check A read the sources with live web access; check B read only the
+render. FC3-A3, A6 and B10 are re-ruled above; R1, B4, B13 and B21 retired.
+
+### FC3V2-A21 :: "stale" was the CFO's own estimate :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: jpmorgan-cfo-ai-spend
+- FORBIDDEN: called the earlier figure
+- REQUIRED: million, while calling that estimate "a little stale at this point."
+- REVERSES-IF: a transcript shows "stale" referred to Dimon's $2 billion figure.
+
+### FC3V2-A26 :: Lindy moved most traffic, not all :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: lindy-2026-migration
+- FORBIDDEN: had moved all its traffic
+- FORBIDDEN: Sending all traffic to one model
+- REQUIRED: own technical account says most of its managed-agent traffic moved, while selected uses stayed on
+- REVERSES-IF: the post is revised to say all traffic moved.
+
+### FC3V2-A28 :: unconfirmed Lindy statements cut :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: npr-2026-lindy
+- FORBIDDEN: 100x more work than we thought
+- FORBIDDEN: consider returning to
+- FORBIDDEN: a company of about 25 people
+- REVERSES-IF: a readable source carries the statement, cited here.
+
+### FC3V2-A45 :: the evaluation was joint, not independent :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: dta-copilot-2024
+- FORBIDDEN: commissioning an independent evaluation
+- REQUIRED: commissioning an evaluation delivered jointly with an outside firm
+- REVERSES-IF: none expected; the methodology names the DTA and Nous Group.
+
+### FC3V2-A38 :: Cursor plan scope, priced not billed :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: truell-2025-pricing
+- FORBIDDEN: Both conditions therefore held for a team on that plan.
+- FORBIDDEN: each request drew down
+- REQUIRED: and further use was priced at the same rates.
+- REVERSES-IF: as SF2, a passage from the post describing billing on exhaustion.
+
+### FC3V2-A13 :: no overlap inferred from two percentages :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: doit-2026-ai-spend
+- FORBIDDEN: at least 8 percent named both
+- REVERSES-IF: the questionnaire shows a multi-select question on a common base.
+
+### FC3V2-A16 :: no task-selection rule reported for Microsoft :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: microsoft-2026-mai
+- FORBIDDEN: Routine tasks moved to the in-house models
+- REQUIRED: The reporting did not say how the tasks that moved were chosen.
+- REVERSES-IF: a report documents the task-selection rule.
+
+### FC3V2-A3 :: Airbnb's integration remark :: 2026-10-17 :: Stage 3
+- SOURCE-KEY: airbnb-2025-qwen
+- FORBIDDEN: tools for connecting its models to
+- REVERSES-IF: the interview shows he meant connecting OpenAI's models to Airbnb's systems.
