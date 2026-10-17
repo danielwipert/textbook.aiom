@@ -256,6 +256,8 @@ Status: [ ]        Date cleared:
 
 Findings:
 
+V2-FC0. 2026-10-17, packages built in markdown (Dan) by 04_Stage3_Fact_Check/build_packages_v2.py from a fresh render of the post-author-pass text: AIOM_Ch03_v2_Stage3_package_A.md (reads sources: the six Grade C boxes first, then the four rewritten sentences, carried sources, Table 3.1 added from the live text) and _B.md (render only; leak control passes). The register's _README key, renamed _comment by the redesign script, was restored so factcheck_packet.py could read it.
+
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
 F0. Packages built 2026-10-13 from a fresh render (gate 8 fails on footnote 7, pagination, booked to Stage 5): one file each, A (render text + packet) and B (render text only), by `04_Stage3_Fact_Check/build_packages.py`. Table 3.1's three citations added by hand (packet tool skips tables). Registry passages checked by Claude against dag.aiom 9d7ee50: all match except R-1, "every claim's non-claims" (LEM-015, THM-003 empty, both uncertified), for Dan.
