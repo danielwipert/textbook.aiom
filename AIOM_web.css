@@ -1213,6 +1213,15 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
     margin: 0.8rem 0 1.1rem; padding: 0.6rem 0 0.2rem 0.9rem;
     border-top: 0; border-left: 2px solid var(--hairline);
   }
+  /* Decision 86 (Dan, 2026-10-17): inline notes were cutting the paragraphs
+     up on a phone. Here they stay hidden until their number is tapped. The
+     class comes from the chapter script, so with no script every note still
+     shows inline: a source the reader cannot reach is one the book lacks. */
+  .notes-tucked #chapter-text .note { display: none; }
+  .notes-tucked #chapter-text .note.open,
+  .notes-tucked #chapter-text .note:target { display: block; }
+  .notes-tucked #chapter-text .fnref { padding: 0.35em 0.2em; margin: -0.35em -0.2em; }
+  .notes-tucked #chapter-text .fnref[aria-expanded="true"] sup { color: var(--navy); }
 }
 @media (max-width: 1100px) {
   .parts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1282,7 +1291,7 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   [data-chrome] { display: none !important; }
   .layout, .reading { display: block; }
   #chapter-text { max-width: none; }
-  .note { float: none; width: auto; margin: 0.5rem 0; }
+  .note { float: none; width: auto; margin: 0.5rem 0; display: block !important; }
   .reveal { opacity: 1; transform: none; }
 }
 

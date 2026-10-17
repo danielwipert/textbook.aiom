@@ -187,6 +187,43 @@
     if (partner) { partner.classList.add('lit'); }
   });
 
+  /* ---- notes tucked away where the margin cannot hold them (Decision 86) ----
+     Below the margin-note width a note is hidden until its number is tapped,
+     then opens under the line; a second tap closes it, and several may stay
+     open. The class that hides them is set LAST, after the handlers are in
+     place, so a page whose script fails shows every note inline as before. */
+  var narrow = window.matchMedia('(max-width: 1420px)');
+  var refs = Array.prototype.slice.call(art.querySelectorAll('a.fnref'));
+  function syncRefs() {
+    refs.forEach(function (r) {
+      var note = document.getElementById(r.getAttribute('href').slice(1));
+      if (narrow.matches) {
+        r.setAttribute('aria-controls', note ? note.id : '');
+        r.setAttribute('aria-expanded', note && note.classList.contains('open') ? 'true' : 'false');
+      } else {
+        r.removeAttribute('aria-controls');
+        r.removeAttribute('aria-expanded');
+      }
+    });
+  }
+  art.addEventListener('click', function (e) {
+    if (!narrow.matches) { return; }
+    var a = e.target.closest ? e.target.closest('a.fnref, a.note-n') : null;
+    if (!a) { return; }
+    var ref = a.classList.contains('fnref') ? a
+      : document.getElementById(a.getAttribute('href').slice(1));
+    var note = ref && document.getElementById(ref.getAttribute('href').slice(1));
+    if (!note) { return; }
+    e.preventDefault();
+    var open = !note.classList.contains('open');
+    note.classList.toggle('open', open);
+    ref.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open && a !== ref) { ref.focus(); }
+  });
+  if (narrow.addEventListener) { narrow.addEventListener('change', syncRefs); }
+  syncRefs();
+  document.documentElement.classList.add('notes-tucked');
+
   /* ---- rail toggle ---- */
   var toggle = document.getElementById('rail-toggle');
   var rail = document.getElementById('rail');
