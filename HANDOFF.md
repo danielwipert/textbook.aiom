@@ -9,7 +9,8 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 ## Repository state
 
 - `main` is level with `claude/inspiring-galileo-9hba1g` as of 2026-10-17
-  (fast-forward to 35e519f); web run 131 published it, success. Merged and safe to
+  (7568af9, published, success): the redesigned Chapter 3, then Decision 86
+  (web notes hidden behind their number below 1420px). Merged and safe to
   delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
   `claude/inspiring-bohr-4gquw9`, `claude/sharp-dirac-ojfqqz`.
 - Chapters 1 (Process v2) and 2 (v3) LOCKED. **Chapter 3 RE-LOCKED 2026-10-17
