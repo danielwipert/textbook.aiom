@@ -110,21 +110,9 @@ not appear here; only the owner does.
 | Cost-value asymmetry | 2 | The condition in which metering records a deployment’s cost automatically, while its value is measured only when the organization has deliberately built a way to measure it. As a result, the organization may know precisely what the deployment costs without knowing what that spending produces. |
 | Three-flow mapping | 2 | The diagnostic that establishes the condition of the usage, record, and cost-and-value flows in a named deployment. The mapping also identifies the evidence that would change each diagnosis. |
 | AI Business Economics | 3 | The science of the business economics of consuming AI: an ordered body of conditional claims, each stating when it applies, what it concludes, and which other claims it depends on. |
-| AI Operations Management | 3 | The management discipline that acts on AI Business Economics: the practice by which an organization buys, plans, records, assigns, allocates, and holds accountable its consumption of AI. |
-| Registry | 3 | The structured record of every definition, assumption, and result in AI Business Economics, with each result linked to the claims that support it. |
-| Theorem | 3 | A registry result that combines lemmas into a conclusion with direct consequences for management. The book presents each theorem it relies on in a numbered panel. |
-| Lemma | 3 | An intermediate registry result that combines propositions, and sometimes other lemmas, to support one or more theorems. |
-| Proposition | 3 | A single registry claim, accepted because of the definitions, axioms, or earlier claims it names as its support. Lemmas combine propositions. |
-| Certified claim | 3 | A registry claim that meets the validator’s fixed conditions and whose dependencies are all certified. The book renders and cites only certified claims. |
-| Trace | 3 | The process of following a registry claim through its supporting claims, from a theorem to its lemmas and from a lemma to its propositions. |
-| Dependency | 3 | A claim that another claim rests on. A required dependency is one without which the claim cannot hold. A contextual dependency bears on the claim without being one of its conditions. |
-| Condition | 3 | A requirement a deployment must meet for a formal claim to apply to it. A claim says nothing about a case that fails any of its conditions. |
-| Scope | 3 | The part of a formal claim that defines which cases it covers, such as one deployment within one boundary. A case outside that scope is not covered, regardless of whether it meets the conditions. |
-| Non-claim | 3 | A conclusion a formal claim deliberately does not establish, though a reader might be tempted to draw it. Stating non-claims prevents a claim from being cited for more than it says. |
-| Falsifying case | 3 | A case that meets every condition of a formal claim but lacks its conclusion. Finding such a case would show the claim to be wrong. |
-| Value boundary | 3 | The boundary within which an organization judges whether a deployment pays for itself, defined by the costs and value it counts, the period it covers, and the outcomes it measures against. LEM-021 requires such a boundary whenever return on AI is evaluated. Setting one for each deployment before spending begins is this book’s practice. |
+| AI Operations Management | 3 | The management discipline that acts on AI Business Economics: the practice by which an organization buys AI capacity, plans its use, records and assigns consumption, allocates capacity, and holds that consumption to account. |
+| Value boundary | 3 | The boundary within which an organization judges whether a deployment pays for itself, defined by the costs and value it counts, the period it covers, and the outcomes against which it measures performance. |
 | Founding Questions | 3 | The five questions AI Operations Management exists to answer from an organization’s own records, one for each of its five functions. |
-| Trace procedure | 3 | The six-step method for examining a formal claim before relying on it: locate the claim; state its scope and restate its conditions; list its dependencies; follow them one level down; separate what the claim establishes from what it does not; and name the case that would defeat it. |
 <!-- CONTINUITY:TERMS -->
 
 ---
@@ -155,20 +143,15 @@ promise was kept.
 | 2 | 8 | Chapter 8 builds the record flow, and Chapter 10 turns that record into a budget. | open |
 | 2 | 8 | It returns in Chapter 8, which builds the record flow that organizations are structurally most likely to skip. | open |
 | 2 | 10 | Chapter 8 builds the record flow, and Chapter 10 turns that record into a budget. | open |
-| 3 | 1 | 3.5 Where the discipline ends Chapter 1 set aside three related subjects: how models work, prompt engineering, and finding uses for AI. | paid |
 | 3 | 1 | Chapter 1 described the problem as a category error. | paid |
 | 3 | 1 | Chapter 1 stated the conditions under which deployed AI is a resource the organization consumes. | paid |
 | 3 | 1 | First, apply Chapter 1’s consumption-event inventory. | paid |
 | 3 | 1 | One might treat Chapter 1’s Cursor licenses as a fixed software expense and the other as metered consumption. | paid |
 | 3 | 2 | 4 Chapter 2 diagnosed a deployment through its three flows. | paid |
-| 3 | 2 | Chapter 2 ended with that result, which a reader who accepted its argument already believes. | paid |
 | 3 | 2 | Chapter 2 stated the conditions under which a scaled deployment cannot be controlled without a governing apparatus. | paid |
-| 3 | 2 | Interleaving: question 4 requires Chapter 2’s three flows, and the cumulative case below requires both earlier chapters. | paid |
 | 3 | 2 | Second, apply Chapter 2’s three-flow mapping. | paid |
-| 3 | 2 | THM-004 also does not establish Chapter 2’s three flows; that exclusion comes from this book’s framework, rather than the registry. | paid |
 | 3 | 2 | The second function is planning and budgeting, whose absence proved costly in Chapter 2’s opening case. | paid |
 | 3 | 2 | The third function, metering and attribution, builds what Chapter 2 called the record flow. | paid |
-| 3 | 2 | This pairing explains Chapter 2’s statement that THM-004 formalizes the economic consequence of the third flow’s asymmetry. | paid |
 | 3 | 6 | The case returns in Chapter 6. | open |
 | 3 | 7 | “Are you paying for capability you do not need, or starving work that needs more?” This is the sourcing question, answered in Chapter 7. | open |
 | 3 | 10 | “What do you expect the AI flow to consume next period, and how will you know when it deviates?” This is the planning and budgeting question, answered in Chapter 10. | open |
@@ -193,19 +176,6 @@ tracks the surrounding prose gloss.
 
 | THM-009 | Ch1 | deployed AI is a resource-consuming operating activity, not merely software access |
 | THM-004 | Ch2 | Once a deployment reaches scale, economic control requires a governing apparatus. Diligence from the people running the deployment is no longer enough. |
-| LEM-002 | Ch3 | measured and recorded activity becomes observable enough to support analysis, attribution, monitoring, or management |
-| LEM-006 | Ch3 | a buyer who incurs several kinds of cost pays more in total than the access price |
-| LEM-016 | Ch3 | moving from isolated use into repeated operations can increase the number of usage events and demand points |
-| LEM-020 | Ch3 | monitoring, limits, attribution, or other management mechanisms can be applied to visible usage or exposure |
-| LEM-021 | Ch3 | requires such a boundary whenever return on AI is evaluated |
-| PROP-032 | Ch3 | compute use can be measured |
-| PROP-039 | Ch3 | measured compute use can inform methods for assigning cost |
-| PROP-041 | Ch3 | metering a resource or activity records one or more measurements of it |
-| PROP-042 | Ch3 | measured activity can be distinguished by quantity |
-| PROP-043 | Ch3 | metering produces records of what was metered |
-| PROP-053 | Ch3 | monitoring can be used to observe economic exposure |
-| PROP-085 | Ch3 | management decisions can draw on visible usage |
-| THM-002 | Ch3 | When a buyer’s cost of adopting AI includes more than the access price, and evaluating the return requires a boundary that includes both cost and value, treating the access price as the whole cost risks understating it. |
 <!-- CONTINUITY:REGISTRY -->
 
 ---

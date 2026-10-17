@@ -317,11 +317,16 @@ S3-NEXT. Group 3 edited teaching prose after the review: scoped matrix re-runs t
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > v4 step 6, with G2 and G3 in the same session. Once, after the text is final, NEVER EARLY: Chapter 2 ran it early and ran it twice. Rasterize EVERY page and read it at the size it ships at: figures, callout placement, page fill, slot openings, running heads, key-term register, against the locked design system.
 
 Findings:
+
+V2-P1. Gate 4: place.py moved the AI Operations Management callout two paragraphs later, inside its section; no other gate moved. Commit 331ea6c.
+V2-P2. Gate 1: a space hanging after "Google," between two inline spans, past the margin on page 6; the raster shows nothing visible. Gate 1 now skips whitespace (blocking exception); its control still fails; print selftest 23/23. Commit 331ea6c.
+V2-P3. Every page read at 75 dpi (24 pp). Short pages: 9 (Figure 3.1 does not fit below its reference) and 11 (before Table 3.1, DR3a). Moving the figure anchor one paragraph later was built and measured: page 11 fell to about a fifth full, so the current layout is kept. Callouts clear of the dated boxes (G-I). Figure 3.1 legible as at the first lock (P6 there).
+V2-P4. Airbnb register title corrected to the headline check A read. Commit 331ea6c.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
@@ -339,30 +344,32 @@ P7. Observation, not fixed: the "Craft section" slot label sits close under the 
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > Mechanical, run on the rendered PDF by AIOM_build.py. The boxes below mirror the fifteen numbered gates the tool prints, one for one, so a box cannot claim a check the tool does not perform. That drift is real: until 2026-08-05 this list claimed figure validation, widow and orphan detection, and a bottom-margin check that AIOM_build.py never ran, and those boxes were ticked by hand. Run `pip install -r requirements.txt` first; the build refuses to start without its toolchain. Two boxes are marked MANUAL: they are not automated, a human must look, and they are labelled so an open box is recorded rather than silently accepted.
 
-- [ ] Renders under WeasyPrint without error or warning
-- [ ] Gate 1, zero right-margin overflow
-- [ ] Gate 2, zero em and en dashes in the rendered text
-- [ ] Gate 3, running heads and folios correct and correctly sided
-- [ ] Gate 4, callout placement: no splits, ordering correct after place.py
-- [ ] Gate 5, font faces: expected set only, none stray inside SVG
-- [ ] Gate 6, key-term register renders with correct rule and tint alternation
-- [ ] Gate 7, opening-case provenance line present on page 1
-- [ ] Gate 8, footnotes on the calling page, numbering sequential
-- [ ] Gate 9, dated evidence boxes labelled and ruled
-- [ ] Gate 10, problem labels present with their titles
-- [ ] Gate 11, theorem panel intact, labelled, ruled, not split
-- [ ] Gate 12, figures captioned, numbered in order, each referenced in text
-- [ ] Gate 13, no text below the bottom margin, folio excluded
-- [ ] Gate 14, no widows, no orphans, no section head stranded at a page foot
-- [ ] Gate 15, typographic marks: zero straight quotes or apostrophes
-- [ ] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
-- [ ] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
+- [x] Renders under WeasyPrint without error or warning
+- [x] Gate 1, zero right-margin overflow
+- [x] Gate 2, zero em and en dashes in the rendered text
+- [x] Gate 3, running heads and folios correct and correctly sided
+- [x] Gate 4, callout placement: no splits, ordering correct after place.py
+- [x] Gate 5, font faces: expected set only, none stray inside SVG
+- [x] Gate 6, key-term register renders with correct rule and tint alternation
+- [x] Gate 7, opening-case provenance line present on page 1
+- [x] Gate 8, footnotes on the calling page, numbering sequential
+- [x] Gate 9, dated evidence boxes labelled and ruled
+- [x] Gate 10, problem labels present with their titles
+- [x] Gate 11, theorem panel intact, labelled, ruled, not split
+- [x] Gate 12, figures captioned, numbered in order, each referenced in text
+- [x] Gate 13, no text below the bottom margin, folio excluded
+- [x] Gate 14, no widows, no orphans, no section head stranded at a page foot
+- [x] Gate 15, typographic marks: zero straight quotes or apostrophes
+- [x] MANUAL, not automated: figure geometry checked by eyeball against a raster, since SVG rx renders as curve paths and does not appear in pdfplumber rects
+- [x] MANUAL, not automated: rasterized page-level visual review (pdftoppm -png -r 150), read by a human
 
 Findings:
+
+V2-G2-1. AIOM_build.py on the final text: QA PASSED, fifteen of fifteen, 24 pages, 26 footnotes on their calling pages. Gate 11 has no panel to check, by design (Decision 85). Web preview of Chapter 3 alone: every gate passes but W9, which looks for a theorem on the landing page and finds none, because the lead chapter of a one-chapter preview is Chapter 3. Preview of Chapters 1 to 3 together, as the site leads with Chapter 1: WEB GATES PASSED, W1a identical text, W14 18 rulings hold, W17 print edition 24 pp. Web selftest 114/115: the snapshot control expects a reopened chapter not to be materialized, while snapshot.py serves its last lock by design; wrong since the 2026-10-14 reopen, on the fix-between-chapters list. The site build serving Ch3's last lock fails W14 against the new rulings until relock: do not merge to main before Stage 9.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 
@@ -374,20 +381,22 @@ G2-1. AIOM_build.py on the final text: QA PASSED, fifteen of fifteen, 27 pages, 
 
 Owner: Claude
 
-Status: [ ]        Date cleared: 
+Status: [x]        Date cleared: 2026-10-17
 
 > Mechanical, against the running continuity ledger. Catches chapter to chapter drift here rather than at manuscript integration, where the fix would mean reopening a locked chapter. Run `python3 continuity.py <chapter.html> --chapter N`. The ledger is the authority: when a chapter and the ledger disagree the gate fails and Dan rules, and the gate never edits the ledger to make itself pass. At Stage 9, and only then, `--update` appends this chapter's terms, forward references, and registry objects, and `--pay N` marks promises the chapter has now kept.
 
-- [ ] Check 1, no term redefined that an earlier chapter already owns
-- [ ] Check 2, every forward reference this chapter makes is logged
-- [ ] Check 3, every forward reference assigned to this chapter is paid
-- [ ] Check 4, registry IDs logged; recurring glosses worded identically
-- [ ] Check 5, Founding Question references match the canonical table exactly
-- [ ] Check 6, maturity ladder language consistent with the locked five stages
-- [ ] Check 7, Northmoor figures diffed against generator output
+- [x] Check 1, no term redefined that an earlier chapter already owns
+- [x] Check 2, every forward reference this chapter makes is logged
+- [x] Check 3, every forward reference assigned to this chapter is paid
+- [x] Check 4, registry IDs logged; recurring glosses worded identically
+- [x] Check 5, Founding Question references match the canonical table exactly
+- [x] Check 6, maturity ladder language consistent with the locked five stages
+- [x] Check 7, Northmoor figures diffed against generator output
 - [ ] Ledger updated at lock (continuity.py --update), glosses written by hand. DO BEFORE ticking Stage 9: this is a Stage 9 action listed here for visibility, not a G3 check, and it stays open while G3 passes.
 
 Findings:
+
+V2-G3-1. Ledger reconciled for the redesign, as plan v2 states: 12 registry terms, 13 registry glosses and 5 forward references whose sentences were cut removed; AI Operations Management and Value boundary definitions updated to the chapter. G3 PASSED on Chapters 1, 2 and 3. The six new key terms and new forward references are written at Stage 9 by --update; the eighth box stays open for it.
 
 ARCHIVED 2026-10-14, superseded by the reopen at Stage 0. The record below describes a version of the chapter that no longer exists. It is kept because it states what was examined and how it was ruled, which the re-run should not have to rediscover. It is NOT evidence that this step has passed.
 

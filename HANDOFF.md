@@ -30,7 +30,7 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 2. Chapter 3 redesign (Decision 85): plan v2 approved at sitting 1, 2026-10-15.
    Drafted 2026-10-15 (G1 passed, band accepted). **Stage 4 PASSED 2026-10-17**:
    second-model review, 21 findings, Sitting 2 all A, applied (now 6,066 words).
-   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **Stage 3 PASSED 2026-10-17** (Sitting 3, six gates all A; claim ledger updated). **NEXT: production**: place.py for the split callout, Stage 5 page read, G2, G3, then the sign-off package.
+   **Stage 6 PASSED 2026-10-17** (markdown author pass imported; THM-004 gloss restored, Dan: A). **Stage 3 PASSED 2026-10-17** (Sitting 3, six gates all A; claim ledger updated). **Production PASSED 2026-10-17** (Stage 5, G2, G3). **NEXT: Sitting 4 sign-off package**, then Stage 9 lock (continuity --update for the six new terms). **Do NOT merge to main before the relock**: the site serves Ch3's last lock, which fails W14 against the new rulings.
    Eight new sources are Grade C until the fact check. Print gate 1 (a trailing
    space after "Google," in the Airbnb box) is a Stage 5 item; production is
    never run early. The 14 Ch03 claim-ledger rulings are re-ruled at the fact
@@ -91,6 +91,8 @@ Chapter 3 is in flight: add here, one line each, and fix only what blocks.
   every chapter's package is generated the same way.
 
 - **voicecheck read "Part I’s" as a contraction** (fixed 2026-10-17 under the blocking exception, Ch3 V2-A2). Add the case to a voicecheck control.
+- **web_gates_selftest snapshot control** expects a reopened chapter not to be materialized; snapshot.py serves its last lock by design. Derive the expected set from lock_commit, not current Stage 9 (Ch3 G2, 2026-10-17).
+- **chapter_check preview now leads with the locked chapters before it** (fixed 2026-10-17 under the blocking exception: W9 failed Ch3, which has no theorem panel). **Gate 1 skips whitespace** (same day, a hanging space after an inline span). Add controls for both.
 - **`place.py` read a wrapped callout term interleaved** (fixed 2026-10-14
   under the blocking exception; Ch3 P1). Add a negative control for it.
 - **The build's page-fill advisory missed pages 7 and 13** of Ch3 (256 and

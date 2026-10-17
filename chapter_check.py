@@ -169,7 +169,22 @@ def build_commands(live, chapter, locked, no_print, checklist):
         # A site build SKIPS an unlocked chapter (gate W2 refuses it), so it
         # would report a clean pass having never read this chapter at all.
         # --preview is the unlocked path: noindex, local only.
-        cmds["web"] = ["python3", "web_build.py", live, "--preview",
+        # The locked chapters before this one lead the preview, as they lead
+        # the site. Alone, a chapter becomes the landing page's lead, and W9
+        # failed Chapter 3, which has no theorem panel by design (Decision 85),
+        # for a theorem the site takes from Chapter 1. Found 2026-10-17.
+        lead = []
+        for d in sorted(glob.glob(os.path.join("Drafts", "Ch*"))):
+            if os.path.abspath(d) == os.path.dirname(os.path.dirname(
+                    os.path.abspath(live))):
+                break
+            try:
+                l, cl, _ = resolve(os.path.basename(d))
+            except SystemExit:
+                continue
+            if is_locked(cl):
+                lead.append(l)
+        cmds["web"] = ["python3", "web_build.py"] + lead + [live, "--preview",
                        "--out", "build/web-preview"]
     return cmds
 
