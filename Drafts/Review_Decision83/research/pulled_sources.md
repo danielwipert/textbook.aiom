@@ -1,0 +1,31 @@
+# Sources Dan pulled, read in full by Claude
+
+Each entry: what was read, and the exact sentences that carry the facts. The
+full article text is not committed (copyright); the upload stays with Dan.
+
+## Pull list #1. Financial Times, read in full 2026-10-19
+
+"Corporate America embraces cheaper 'open' AI models", Ryan McMorrow and George
+Hammond, San Francisco, published September 27, 2026 (17:00 UTC).
+https://www.ft.com/content/d9de4776-1fc9-4f2b-aaaf-9961c35d8acd (uploaded as an
+archive.is capture).
+
+- "Corporate America is turning to lower-cost "open" AI models, as spiralling IT expenses push executives to look for alternatives to Anthropic and OpenAI's frontier systems."
+- "Executive mentions of "open weight" or "open source" models in earnings calls and investor conferences surged sixfold in August and September compared with the same two-month period last year, according to data from AlphaSense, the research platform."
+- "a cross-industry swath, including PNC Financial Services, logistics group CH Robinson and industrial giant Siemens, have discussed using open-weight models in recent weeks."
+- "For now, the two frontier AI labs capture the bulk of AI spending"
+- "In August, open-weight models accounted for 56 per cent of all tokens processed through Vercel's AI Gateway, up from 7 per cent in December."
+- Tinder CTO Vinay Kuruvila: "had begun routing some queries from non-technical users to open-weight models as the app worked to get control of rising AI costs." "In January we were spending at the rate of $1mn per year and by July it had climbed to $10mn . . . I don't want another 10X increase,"
+- "AT&T now runs about 40 per cent of its AI workloads on open models and aims to reach 70 per cent within a year, according to Andy Markus, the telecom group's chief data and AI officer."
+- Markus: "We're doing 45bn tokens a day," "At that scale, costs become super important. If we can move that traffic from a super expensive closed-source model to an open model that we can often serve at [a fraction] of the cost, and still maintain the accuracy, then we'll do that."
+- Markus: AT&T "took open models and tuned them using the company's proprietary data so they performed as well as, or better than, closed alternatives for specific tasks."
+- Digital Realty (Scott Wallace): "used a mix of open and proprietary systems depending on the sensitivity and complexity of the task." "Any customer data, never, never, never goes into a frontier."
+
+Corrections to the pull-list summary: the quote is "costs become super
+important", not "extremely important". The Tinder figures are an annualized
+spending RATE ($1mn a year in January, $10mn by July). Digital Realty is new:
+sourcing on sensitivity, not only cost.
+Supports: Ch1 (cost grows with use at scale: Tinder tenfold, AT&T 45bn tokens a
+day); Ch3 sourcing and allocation and routing (AT&T, Tinder, Digital Realty).
+Caution: "the two frontier AI labs capture the bulk of AI spending", so the
+shift shows in tokens more than dollars.
