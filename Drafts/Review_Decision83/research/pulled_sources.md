@@ -193,3 +193,27 @@ Chapter 3 dated box, or for a problem set.
 Related, NOT read (possible counterpoint): The Information, "Anthropic Models Can
 Be Cheaper to Use Than Chinese Ones, Study Finds", Laura Bratton, about August
 13, 2026.
+
+## Pull list #8. The Information, read in full 2026-10-19
+
+"Meta's AI Incubator Is Developing an OpenRouter Rival to Cut Coding Costs",
+Jyoti Mann, July 21, 2026, 3:36pm PDT.
+https://www.theinformation.com/articles/metas-ai-incubator-developing-openrouter-rival-cut-coding-costs
+
+- "Meta Platforms internal incubator for AI-powered products and tools is developing a version of the OpenRouter service that would help cut costs by sending some AI tasks to lower-cost models."
+- "The AI model router, dubbed Switchboard, is among those projects. It would determine which models should handle each request from a human user or AI agent by scoring tasks by difficulty. It would send simpler requests to smaller, cheaper models"
+- "Switchboard is an early-stage effort and may never be launched as a product, according to a person familiar with the matter."
+- Internal Meta document: "We pay top-model prices for every coding request, including the easy ones." "Today everything goes to one model, so we overpay on easy work or underperform on hard work," "Cost is what limits how widely we can run agents,"
+- "Most coding-agent tasks can be handled by smaller models, while only a minority require the capabilities of more expensive frontier models, according to the project proposal rationale outlined in the document."
+- "Meta also has been looking for ways to rein in the billions of dollars it is spending on AI tools for its coders and other employees." (the reporter's characterization, citing the June memo)
+- "Meta declined to comment."
+
+Notes: the words are from an internal proposal reviewed by the reporter, not a
+Meta statement; Switchboard is early-stage and may never launch. Use as "an
+internal Meta document described the problem as", never as Meta's policy.
+Supports: Ch3 sourcing almost word for word ("A company that sends every
+request to its most capable model, including requests a smaller model would
+answer just as well, is paying for capability that work does not need": Meta's
+own engineers wrote "we overpay on easy work or underperform on hard work");
+Ch3 allocation and routing (a router scoring difficulty: a stated rule, at the
+proposal stage); Ch1 (cost limits how widely the work can run).
