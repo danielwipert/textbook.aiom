@@ -394,3 +394,19 @@ Treats Claude's reading as the check. Not consistent with the standing rule.
 3. Claude rasterizes and reads every page that moved, because new boxes reflow
    the chapter.
 4. A push to `main` publishes the new locks.
+
+---
+
+## Rulings (Dan, 2026-10-19)
+
+| Gate | Ruling | What it means |
+|---|---|---|
+| 1 Red flags | A | R-1, R-2, R-3 approved |
+| 2 Chapter 1 | A | 1-A and 1-B approved |
+| 3 Chapter 2 | A | 2-A, 2-B and 2-C approved |
+| 4 Chapter 3 | A | 3-A and 3-B approved |
+| 5 Held back | A | N-1 to N-7 stay out |
+| 6 Outside check | A | One outside check on the approved wording, then apply in one batch |
+
+Outside check package: `AIOM_Review_Outside_Check_package.md`, built by
+`build_check_package.py` from `check_prompt.md`.
