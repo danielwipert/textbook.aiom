@@ -217,3 +217,35 @@ answer just as well, is paying for capability that work does not need": Meta's
 own engineers wrote "we overpay on easy work or underperform on hard work");
 Ch3 allocation and routing (a router scoring difficulty: a stated rule, at the
 proposal stage); Ch1 (cost limits how widely the work can run).
+
+## Pull list #9. The Information, read in full 2026-10-19
+
+"Meta and Microsoft Work to Wean Staff Off Anthropic's Claude", Aaron Holmes,
+Jyoti Mann and Kevin McLaughlin, October 5, 2026, 11:14am PDT.
+https://www.theinformation.com/articles/meta-microsoft-work-wean-staff-anthropics-claude
+(Dashes inside quoted text are shown as [...].)
+
+- "Microsoft executives earlier this year projected that the company was on track to spend at least $1 billion on its own internal use of Anthropic's technology, according to two people with knowledge of the spending. Microsoft has since lowered that figure by more than a third, after it asked staff to use less Claude to save on costs and spend more time using Microsoft's homegrown AI tools, one of the people said."
+- "At Meta, the number of employees using Anthropic's coding assistant, Claude Code, has dropped sharply, to about 30,000 recently [...] down from about 60,000 users earlier this year, according to internal data reviewed by The Information. Part of the decline stemmed from layoffs in the spring"
+- "The internal data show that in a recent 28-day period, Meta spent more than $105 million on Claude Code."
+- "Meta's usage of Claude spiked this spring as staffers engaged in "tokenmaxxing" [...] That helped prompt a leadership pledge in June to introduce tighter controls on AI usage, including budgets and limits on employees' token consumption and a central dashboard to monitor for excessive usage of Claude Code and other external AI tools."
+- "Leaders cut back on the company's Claude Code subscriptions, instead instructing employees to access Claude models through Microsoft's GitHub Copilot tool. That tool lets users choose which AI model to use, but also includes an "auto" mode that routes queries to OpenAI models by default in most cases. That's a lot cheaper for Microsoft to run because it doesn't pay for OpenAI models due to its commercial relationship with the AI developer."
+- "Microsoft executives also now have access to data showing what individual employees are spending per day on AI and the specific models they are using through GitHub Copilot, according to a current Microsoft employee."
+- Jay Parikh, August memo: "Internally, shifting more workloads to OpenAI models helps us get greater value from our token investment," "This fiscal year, each division is managing a token budget, so we all need to keep learning and optimizing."
+- "in its cloud and AI group that employs over 60,000 people, each employee previously could spend $100,000 per month on AI models apiece. The cloud division recently lowered that budget to around $10,000 per month in most cases, according to someone with knowledge of the change."
+- "A Microsoft spokesperson confirmed that the company recently made OpenAI's models the default for internal AI coding, but said engineers can still opt to use Claude models."
+- Microsoft spokesperson, statement: "Each Microsoft division is responsible for managing AI usage thoughtfully and efficiently based on its business priorities, consistent with standard engineering and operational discipline,"
+
+Notes: much rests on unnamed people; the on-record parts are the Parikh memo
+(reviewed copy) and the Microsoft spokesperson. Microsoft's case is special: it
+pays nothing for OpenAI models, so its routing reflects its own commercial
+position, not a general price comparison. Meta's drop in users is partly from
+layoffs. The Anthropic revenue and IPO material belongs to Chapter 4; not used.
+Supports: Ch3 planning and budgeting ("each division is managing a token
+budget"), metering and attribution (per-employee, per-day, per-model spending
+data), allocation and routing (a default model with opt-out), sourcing (moving
+work to in-house and other models on cost); Ch2 the governing apparatus after
+scale (Meta's June pledge, Microsoft's division budgets and caps); Ch1 scale of
+consumption (Meta over $105 million on one tool in 28 days; Microsoft on track
+for at least $1 billion of internal use). Possible link to Ch3's Microsoft MAI
+box: Microsoft routes internally by default too.
