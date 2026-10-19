@@ -5122,3 +5122,4 @@ was already exercised. Written by `amend.py`.
 **2026-08-14.** revise the light and heavy user paragraph in the opening case. Superseded fact-check ruling(s): CE11, SF2, SF8. See `AIOM_Claim_Ledger.md`.
 **2026-10-01.** Name the registry as AI Business Economics', not AI Operations Management's, matching Chapter 3's architecture (Ch3 checklist D7).
 **2026-10-19.** Review of Chapters 1 to 3 (Decision 87): two dated boxes added, Meta and Tinder in section 1.4, Duolingo in section 1.3, with four new sources; wording as checked by the outside check and ruled at the sitting of 2026-10-19.
+**2026-10-19.** Layout only: the Meta and Tinder dated box in section 1.4 moved one paragraph later, after the contact-center paragraph, so it no longer leaves page 15 a third empty (166pt unused); no wording changed.
