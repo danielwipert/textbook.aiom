@@ -27,8 +27,10 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
-1. **NEXT: the holistic review of Chapters 1 to 3 (Decision 83)**, below, then
-   Chapter 4. Fix-between-chapters items first if Dan wants them.
+1. **Holistic review of Chapters 1 to 3 (Decisions 83, 87)**: red-flag sweep and
+   major new sources, one external package, built 2026-10-19 in
+   `Drafts/Review_Decision83/`; **waiting on Dan to run it** with a web-enabled
+   model. Then a decision package, and amend.py per chapter. Then Chapter 4.
 
 **Decision 84 (2026-10-11): every decision goes to Dan as logic gates**, one at a
 time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.

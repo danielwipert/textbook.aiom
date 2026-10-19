@@ -796,6 +796,22 @@ Decisions 22 onward live here.
   notes and the print book are unchanged. The reason: inline notes cut the
   paragraphs up on a phone and broke the reading flow (Dan). Implemented in
   AIOM_web.css section 17 and the chapter template; text unchanged (W1).
+- **Decision 87. RULED 2026-10-19.** The holistic review of Chapters 1 to 3
+  (Decision 83) has two jobs, run at once in one package: (1) a red-flag check,
+  whether any claim has been disproven in a major way since it was written (no
+  nitpicking), and (2) stronger evidence, major new reporting on large
+  companies that supports a claim, or that cuts against it, in which case the
+  claim is narrowed or revised. An outside checker with web access reads every
+  source (gate 1, A). Only major outlets (Financial Times, Wall Street Journal,
+  Bloomberg, Reuters, The Information, New York Times, The Economist) and
+  first-party company material (earnings calls, filings, announcements) are
+  cited; trade press may locate a story, never support it (gate 2, A). New
+  evidence enters as dated boxes beside the claim it supports, or as an added
+  citation on an existing sentence; body prose stays timeless (gate 3, A).
+  Edits reach the locked chapters through amend.py, chapters staying locked,
+  every changed page read; a red flag needing an argument rewritten, not just
+  narrowed, comes back as its own gate (gate 4, A). Cases the case bank
+  reserves for later chapters are not used.
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
