@@ -108,3 +108,27 @@ Supports: Ch3 sourcing (provider choice on cost, capability and data protection,
 avoiding being "beholden to any one solution") and allocation and routing (the
 "smart router", a stated rule); Ch1 consumption at scale (45 billion tokens a
 day); Ch3 planning ("we feel like we can manage").
+
+## Pull list #5. The Information, read in full 2026-10-19
+
+"Uber CTO Shows How Claude Code Can Blow Up AI Budgets", Laura Bratton, Applied
+AI newsletter, April 14, 2026, 10:33am PDT.
+https://www.theinformation.com/newsletters/applied-ai/uber-cto-shows-claude-code-can-blow-ai-budgets
+(Dashes inside quoted text are shown as [...].)
+
+- "Uber's surging use of AI coding tools, particularly Anthropic's Claude Code, has maxed out its full year AI budget just a few months into 2026, according to chief technology officer Praveen Neppalli Naga."
+- Neppalli Naga: "I'm back to the drawing board because the budget I thought I would need is blown away already,"
+- "Uber is one of a number of companies that say they have encouraged employees to use AI as much as possible, creating internal "leader boards" ranking software engineers who use the most AI."
+- "since the end of last year, Uber's Claude Code usage has soared, while usage of Cursor has "kind of plateaued," though still high."
+- "He wouldn't disclose exact figures of the company's software budget or what it spends on AI coding tools."
+- "about 11% of real, live updates to the code in its backend systems are being written by AI agents built primarily with Claude Code, up from just a fraction of a percent three months ago."
+
+This is the primary behind Chapter 2's opening case (which cites Forbes and
+Fortune). Timing: the budget was gone by April 14, 2026, "just a few months
+into 2026"; the chapter's "by April 2026" holds. Macdonald's "middle of March"
+(podcast) is consistent with it. Uber did not disclose the budget's size, which
+the chapter already avoids stating.
+Supports: Ch2 opening case and its planning point ("the budget I thought I
+would need"); Ch1 (use soared, the budget set in advance did not hold); Ch2's
+leaderboards point beside Meta's (usage rewarded without a value test).
+Possible upgrade: cite this primary beside Forbes in Ch2's opening case.
