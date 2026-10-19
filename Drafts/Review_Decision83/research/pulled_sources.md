@@ -274,3 +274,21 @@ usage rewarded consumption and raised cost; Amazon moved to an output measure,
 "normalised deployments", rather than token counts); Ch2 cost accrues by default
 (needless agent activity raised computing costs). Third large company with the
 same pattern as Meta and Uber.
+
+## Pull list #13. New York Times, read in full 2026-10-19 (original)
+
+"Corporate America Is Getting Hooked on Open-Source A.I.", Eli Tan, published
+September 4, 2026 (14:55 UTC).
+https://www.nytimes.com/2026/09/04/technology/open-source-ai-anthropic-openai.html
+Confirms the reprint read earlier. NYT house style spells "A.I." and "percent".
+
+- "AT&T turned to artificial intelligence models from Anthropic and OpenAI in recent years to help with customer service, call transcription and coding." "This year, AT&T changed course."
+- "As A.I. costs skyrocketed, Andy Markus, the company's chief data and A.I. officer, looked for cheaper alternatives."
+- "By May, open models accounted for 20 percent of AT&T's A.I. use. That has since risen to 40 percent and may jump to 60 percent in the coming months, Mr. Markus said in an interview."
+- "We believe it could go much, much higher," he said, adding that AT&T was saving up to 80 percent on A.I. costs compared with earlier this year.
+- "companies such as Airbnb and Deloitte are also turning to open A.I. models that are easy to customize and cheaper to use."
+- "Most U.S. companies still use a combination of open and closed models." (attributed in context to Mr. Tang of Atlas Cloud, a start-up: not an allowed source on its own)
+- "AT&T researches Chinese models but is not using them, Mr. Markus said. Instead, it is working with popular alternatives made by American companies such as the Gemma A.I. model from Google and the Llama A.I. models from Meta."
+
+Supports: Ch3 sourcing (a deliberate change of supplier on cost, with a
+risk test); Ch1 (costs "skyrocketed" with use).
