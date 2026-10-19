@@ -418,11 +418,12 @@ parts are parts. Re-derive counts from tool output, never copy them forward.
 
 ## 9. Sourcing, registry, and continuity
 
-- **WebSearch works; WebFetch and curl do not reach sources from this
-  container.** Claude can find candidates, and cannot read a primary, verify a
-  quotation or check a figure. **The fact check is therefore external**, and an
-  external checker CAN read. A case found by search is filed at Grade C with a
-  provenance line saying no article was read.
+- **WebSearch works. WebFetch reads open pages (tested 2026-10-19 on
+  finops.org) but not paywalled outlets (ft.com refused).** Claude verifies what
+  it can open and lists paywalled major-outlet stories for Dan to pull, never
+  dropping one for being paywalled (Dan, 2026-10-19). A source found by search
+  and not read stays Grade C. **The fact check stays external**: the checker
+  reads what Claude cannot, and Claude does not fact-check its own draft.
 - **Feed an external check a render, never HTML.** HTML extraction produced both
   phantom flags on Chapter 1's first check.
 - **A ruled claim narrowing does not survive an edit on its own.** W14 and
