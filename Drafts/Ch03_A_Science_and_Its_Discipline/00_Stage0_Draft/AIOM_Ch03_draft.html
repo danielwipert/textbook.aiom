@@ -88,7 +88,18 @@
 <p><span class="nb">DoiT</span>, a company that sells cloud cost-management services, commissioned a survey of 500 finance leaders at organizations with at least 1,000 employees in the United States and the United Kingdom. Sapio Research conducted it in February 2026. Seventy-nine percent reported AI-related cost overruns in the twelve months before the survey. Asked who was accountable for AI spending, 55 percent named technology leadership and 53 percent named finance.<cite src="doit-2026-ai-spend"><span class="ckey">[doit-2026-ai-spend]</span> Survey size, overruns, and the split of accountability.</cite></p>
 </div>
 
+<div class="dated">
+<p class="date">Dated: May 2026</p>
+<p>In May 2026, <span class="nb">ServiceNow</span> said it had already used up its full-year budget for <span class="nb">Anthropic</span>’s AI tools. Its chief digital information officer, <span class="nb">Kellie Romack</span>, said the provider did not automatically show customers which of their users consumed which tools, or how much. <span class="nb">ServiceNow</span> tracked its employees’ daily use of the tools through its own monitoring application and assigned a member of her team to watch the data. “I want more transparency,” she said.<cite src="theinformation-2026-servicenow"><span class="ckey">[theinformation-2026-servicenow]</span> The budget, the missing usage detail, the monitoring, and the quotation.</cite></p>
+</div>
+
 <p>The fourth function is allocation and routing. When capacity is limited, the organization must decide what runs first and send each piece of work to suitable capacity. These choices occur even when no one makes them deliberately. Consider a constructed example: two workflows share a provider account with a fixed rate limit. When their combined demand exceeds the limit, one must wait, even though no one has decided which should take priority. Allocation and routing make that choice deliberate by applying a rule.</p>
+
+<div class="dated">
+<p class="date">Dated: August to September 2026</p>
+<p>In August 2026, a vice president of <span class="nb">AT&amp;T</span>, <span class="nb">Mark Austin</span>, said the company’s internal AI service, <span class="nb">Ask AT&amp;T</span>, processed about 45 billion tokens a day and that open models powered 40 percent of employees’ AI queries. He said <span class="nb">AT&amp;T</span> planned to keep its employees’ spending on <span class="nb">Anthropic</span> and <span class="nb">OpenAI</span> models flat in the coming years and that developers’ spending was capped. He said that after <span class="nb">AT&amp;T</span> began using <span class="nb">LiteLLM</span> to route employees’ queries to cheaper models based on task complexity, the cost of some advanced AI tasks, including coding, fell by as much as 56 percent, while AI performance fell 2 percent.<cite src="theinformation-2026-att; att-2026-tokenomics"><span class="ckey">[theinformation-2026-att + att-2026-tokenomics]</span> The vice president’s account; the daily token figure also appears in the company’s own post.</cite></p>
+<p>In September 2026, the <span class="nb">Financial Times</span> reported that <span class="nb">AT&amp;T</span> was using open models tuned on its own data to perform specific tasks at lower cost, and the company’s chief data and AI officer, <span class="nb">Andy Markus</span>, said <span class="nb">AT&amp;T</span> aimed to run 70 percent of its AI workloads on open models within a year.<cite src="ft-2026-open-models"><span class="ckey">[ft-2026-open-models]</span> The tuned models and the target, as reported.</cite></p>
+</div>
 
 <p>Routing and allocation are two sides of one decision. Routing sends each piece of work to suitable capacity, such as a smaller model for routine requests and a larger one for difficult cases. Allocation decides who goes first when capacity is insufficient for everyone. Both require a stated rule that managers can check against the results and change.</p>
 
@@ -641,6 +652,78 @@
     "perishable": true,
     "accessed": "2026-10-17",
     "note": "STAGE 3, 2026-10-17: EXTERNAL CHECK A READ THIS SOURCE WITH LIVE WEB ACCESS (04_Stage3_Fact_Check/AIOM_Ch03_v2_Stage3_externalcheck_A.md). Added at sitting 3 (A-26, A-52). Displayed as last updated June 9, 2026. The company's technical account says 'most managed-agent model traffic' moved to DeepSeek and that 'Sonnet can still run' on a 'higher-intelligence path'. Supports the box's last sentence and the audit's 'partly performed' verdict for allocation and routing. REVERSES-IF: the post is revised to say all traffic moved."
+  },
+  "theinformation-2026-att": {
+    "type": "news",
+    "authors": [
+      {
+        "given": "Aaron",
+        "family": "Holmes"
+      }
+    ],
+    "title": "AT&T is Using Open Source Models to Curb Anthropic Bills",
+    "container": "The Information",
+    "date": "2026-08-20",
+    "url": "https://www.theinformation.com/newsletters/applied-ai/t-using-open-source-models-curb-anthropic-bills",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: Dan pulled this source; Claude read it in full (Drafts/Review_Decision83/research/pulled_sources.md). An outside check with live web access read it against the approved wording (Drafts/Review_Decision83/check_results/06_S6_Information_ATT.md) and Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED, all attributed to vice president Mark Austin: Ask AT&T processes 45 billion tokens a day; open models power 40 percent of employees' AI QUERIES (never merge with the FT's 40 percent of AI workloads); spending on Anthropic and OpenAI to be held flat (a plan); developers' spending capped; after LiteLLM routing by task complexity, the cost of SOME advanced tasks such as coding fell by AS MUCH AS 56 percent, quality fell 2 percent (no metric or period given; not 'percentage points'). Open-model use rose 'over the past year', so no start date is implied. REVERSES IF the article is corrected."
+  },
+  "att-2026-tokenomics": {
+    "type": "blog",
+    "authors": [
+      {
+        "given": "Andy",
+        "family": "Markus"
+      }
+    ],
+    "title": "The tokenomics equation",
+    "container": "AT&T",
+    "date": "2026-07-23",
+    "url": "https://about.att.com/blogs/2026/the-tokenomics-equation.html",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: open first-party source, read by Claude and by an outside check with live web access (Drafts/Review_Decision83/check_results/07_S8_S9_S10_S11_and_sweep.md); Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED: 'an average of 45 billion tokens per day'. Corroborates the figure only. The post's cache-aware gateway and savings of up to 90 percent are a DIFFERENT scope from the LiteLLM 56 percent and are not used. REVERSES IF the post is withdrawn."
+  },
+  "ft-2026-open-models": {
+    "type": "news",
+    "authors": [
+      {
+        "given": "Ryan",
+        "family": "McMorrow"
+      },
+      {
+        "given": "George",
+        "family": "Hammond"
+      }
+    ],
+    "title": "Corporate America embraces cheaper ‘open’ AI models",
+    "container": "Financial Times",
+    "date": "2026-09-27",
+    "url": "https://www.ft.com/content/d9de4776-1fc9-4f2b-aaaf-9961c35d8acd",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: Dan pulled this source; Claude read it in full (Drafts/Review_Decision83/research/pulled_sources.md). An outside check with live web access read it against the approved wording (Drafts/Review_Decision83/check_results/01_S1_FT_open_models.md) and Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED: Tinder's chief technology officer, Vinay Kuruvila: spending 'at the rate of $1mn per year' in January, $10mn by July (annual rates); the FT does not date the interview, so the chapter says the FT reported it. AT&T: about 40 percent of AI WORKLOADS on open models, aiming for 70 percent within a year (a target), per Andy Markus; open models tuned on proprietary data. Never merge with the 40 percent of employees' AI QUERIES in theinformation-2026-att. The FT also says the two frontier labs capture the bulk of AI spending; no chapter claims otherwise. REVERSES IF the article is corrected."
+  },
+  "theinformation-2026-servicenow": {
+    "type": "news",
+    "authors": [
+      {
+        "given": "Laura",
+        "family": "Bratton"
+      }
+    ],
+    "title": "Why Anthropic Costs Are Unpredictable",
+    "container": "The Information",
+    "date": "2026-05-14",
+    "url": "https://www.theinformation.com/newsletters/applied-ai/anthropic-costs-unpredictable",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: Dan pulled this source; Claude read it in full (Drafts/Review_Decision83/research/pulled_sources.md). An outside check with live web access read it against the approved wording (Drafts/Review_Decision83/check_results/08_S5_S7.md) and Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED: ServiceNow 'says it already blew through its full-year budget for Anthropic AI tools' (by May 14); chief digital information officer Kellie Romack on the missing per-user detail; daily tracking through AI Control Tower, which ServiceNow also sells; a team member assigned; 'I want more transparency' exact. RULED: 'early in the year' dropped, because this source does not give the timing. The provider-pricing material in the same article belongs to Chapter 4 and is not used. REVERSES IF the article is corrected."
   }
 }</pre>
 </section>

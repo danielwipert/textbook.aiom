@@ -449,3 +449,14 @@ L1. Locked 2026-10-14. Ledger committed; final checks in the lock commit message
 ## Chapter notes
 
 Open items, deferrals, and anything a later chapter needs to know.
+
+---
+
+## Amendments after lock
+
+Edits made after Stage 9 by Dan, the author and final editor, whose
+edit is approved by definition and supersedes. No step is reopened.
+The mechanical gates were run and passed on each one; nothing here
+was reviewed for editorial merit, because that judgment is Dan's and
+was already exercised. Written by `amend.py`.
+**2026-10-19.** Review of Chapters 1 to 3 (Decision 87): two dated boxes added in section 3.2, ServiceNow at metering and attribution, AT&T at allocation and routing, with four new sources; wording as checked by the outside check and ruled at the sitting of 2026-10-19.
