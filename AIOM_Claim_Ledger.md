@@ -129,6 +129,23 @@ chapter when it was written.
 
 ---
 
+### RV87-1A :: Meta's figure stays a projection :: 2026-10-19 :: Review D87
+- SOURCE-KEY: meta-2026-memo
+- REQUIRED: the company was "tracking to spend billions on internal use alone in 2026."
+- REVERSES-IF: the article is corrected, or Meta reports a realized figure for 2026.
+
+### RV87-1A2 :: Tinder's figures credited to the FT :: 2026-10-19 :: Review D87
+- SOURCE-KEY: ft-2026-open-models
+- REQUIRED: In September 2026, the Financial Times reported that Tinder
+- REQUIRED: from an annual rate of $1 million in January to $10 million by July
+- REVERSES-IF: the FT dates the interview, or corrects the figures.
+
+### RV87-1B :: Duolingo's margin decline has two causes :: 2026-10-19 :: Review D87
+- SOURCE-KEY: duolingo-2024-q4
+- REQUIRED: and to lower advertising margins, partly offset by a greater subscription share of revenue
+- REVIEW: the box must never make the whole quarterly decline AI-driven.
+- REVERSES-IF: the filing is amended.
+
 ## Ch02
 
 **All eight are the same ruling applied eight times, made by Dan on 2026-08-29 at
@@ -237,6 +254,38 @@ present one, so REVERSES-IF names the evidence that would let the claim return.
 - RESTATED 2026-08-30 at Stage 6, on Dan's ruling. Wording only. The sentence still refers to the case rather than asserting the fact independently, so it still carries no citation marker, and the REVIEW below still binds: if Stage 7 corrects the April timing, this sentence changes with it.
 - REVIEW: **THIS SENTENCE RESTATES A FIGURE THAT LIVES IN THE OPENING CASE**, added at Stage 4 to close the second model's C1 finding that section 2.3 ran entirely on placeholders while sitting one page from the chapter's best instance. It refers to the case rather than asserting the fact independently, which is why it carries no citation marker. **If the opening case's timing ever changes, this sentence changes with it**, and nothing mechanical will say so, because both forms are grammatical and neither is a forbidden string.
 - REVERSES-IF: the April timing is corrected at Stage 7. Dan verified it at Stage 3 as row A1.
+
+### RV87-G3 :: opening sentence timing :: 2026-10-19 :: Review D87
+- SOURCE-KEY: theinformation-2026-uber-cto
+- FORBIDDEN: just four months into the year
+- REQUIRED: By April 2026, only a few months into the year
+- REVIEW: the case title and section 2.4's "consumed the annual budget in April" still say IN April; the sources say BY April. Not ruled; listed for Dan.
+- REVERSES-IF: a source dates the exhaustion exactly.
+
+### RV87-R1 :: control-and-return sentence narrowed :: 2026-10-19 :: Review D87
+- SOURCE-KEY: uber-2026-q1-call
+- FORBIDDEN: or a measure that connected the use to a return
+- REQUIRED: changed the course of the spending before the budget was gone, or quantifies the net return on that spending
+- REVERSES-IF: Uber publishes a quantified net return for the period, or a source shows a control that changed spending before the budget was gone.
+
+### RV87-2A :: leaderboard figures credited to the publication :: 2026-10-19 :: Review D87
+- SOURCE-KEY: meta-2026-memo
+- REQUIRED: The Information reported that a copy of an internal leaderboard it reviewed in April showed
+- REVERSES-IF: Meta confirms the figures on the record.
+
+### RV87-2B :: Amazon workers tried, and Treadwell is reported speech :: 2026-10-19 :: Review D87
+- SOURCE-KEY: ft-2026-amazon-leaderboard
+- REQUIRED: after workers tried to boost their scores
+- REQUIRED: told staff not to use AI just for the sake of using AI
+- REVIEW: the direct quotation was replaced by reported speech because voicecheck bans contractions inside quotations (Dan, 2026-10-19).
+- REVERSES-IF: the article is corrected.
+
+### RV87-2C :: only the cap is Uber's own statement :: 2026-10-19 :: Review D87
+- SOURCE-KEY: bloomberg-2026-uber-caps
+- FORBIDDEN: Uber told Bloomberg News
+- REQUIRED: An Uber spokesperson confirmed that all employees were limited to $1,500 a month
+- REQUIRED: Bloomberg also reported that every employee had a dashboard
+- REVERSES-IF: Uber confirms the dashboard and exception process on the record.
 
 ## Ch03
 
@@ -393,3 +442,16 @@ render. FC3-A3, A6 and B10 are re-ruled above; R1, B4, B13 and B21 retired.
 - SOURCE-KEY: airbnb-2025-qwen
 - FORBIDDEN: tools for connecting its models to
 - REVERSES-IF: the interview shows he meant connecting OpenAI's models to Airbnb's systems.
+
+### RV87-3A :: AT&T figures kept to their scope :: 2026-10-19 :: Review D87
+- SOURCE-KEY: theinformation-2026-att
+- REQUIRED: fell by as much as 56 percent
+- REQUIRED: open models powered 40 percent of employees' AI queries
+- REVIEW: never merge this 40 percent of QUERIES with the FT's 40 percent of AI WORKLOADS, and never imply the move to open models began in August or September.
+- REVERSES-IF: the article is corrected.
+
+### RV87-3B :: ServiceNow timing dropped :: 2026-10-19 :: Review D87
+- SOURCE-KEY: theinformation-2026-servicenow
+- FORBIDDEN: tools early in the year
+- REQUIRED: In May 2026, ServiceNow said it had already used up its full-year budget
+- REVERSES-IF: ServiceNow dates the exhaustion itself.
