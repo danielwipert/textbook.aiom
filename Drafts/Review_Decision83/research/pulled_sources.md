@@ -77,3 +77,34 @@ value-by-design point (Macdonald, a second quotation beside "That link is not
 there yet"). Ch3 metering (per-employee dashboard) and allocation (caps).
 Note: Bloomberg titles Macdonald "Chief Operating Officer"; Ch2 says "president
 and chief operating officer" (Fortune). Both are true.
+
+## Pull list #4. Wall Street Journal, read in full 2026-10-19
+
+"Why AT&T Is Betting Big on Open-Weight AI", Belle Lin, CIO Journal, published
+August 12, 2026 (11:00 UTC). Standfirst: "The telecom company is staking its
+future on open models, both to control token cost and protect its proprietary
+data". https://www.wsj.com/cio-journal/why-at-t-is-betting-big-on-open-weight-ai-a0ea03b1
+(Dashes inside quoted text are shown as [...].)
+
+- "Corporate America's AI playbook is changing as more businesses substitute proprietary AI models in favor of open alternatives to save on costs."
+- "Such open models currently power about 25% of the telecommunications company's overall AI usage, including helping manage its network, said AT&T Chief Data and AI Officer Andy Markus, "and we believe we can get way higher than that." Over time, he expects open models to power 70% to 80% of the company's total AI usage."
+- Open models "help prevent AT&T from becoming "beholden to any one solution," he said."
+- "The company's focus on using open models comes at a time when U.S. companies are starting to put tighter controls around their AI spending."
+- "Because AT&T uses an average of 45 billion AI tokens each day, directing user prompts toward cheaper models makes an impact, Markus said. The company built what it calls a "smart router" to automatically pick the most cost-effective model for a specific task."
+- "Switching from closed, proprietary AI models to open models has already resulted in savings of 80% to 90% for AT&T in certain applications, he said."
+- Markus: "You hear the stories of the 'token apocalypse,' and we're not scared of the token future," "It's something that we feel like we can manage."
+- "AT&T has over a thousand internal uses for AI"
+- "Summarizing and analyzing customer service call transcripts [...] is supported entirely by open models, he said."
+- Open models "can be run on AT&T's own data centers rather than rented infrastructure from a cloud-computing provider [...] a setup that trims AI costs even further."
+- Markus: "We have to keep our information safe and protected, and we have to control the inputs and the outputs of the models," "The enterprise data is the gold mine, and the tools are just a way to mine the gold."
+- Reported Gartner view (Chirag Dekate): enterprises "soon reach an inflection point where the costs of such models become unsustainable". Gartner is not an allowed source on its own; this is the WSJ reporting it.
+
+AT&T's open-model share by date and source (never merge): about 25% (WSJ, Aug
+12, 2026); 20% "by May", since risen to 40%, may reach 60% (NYT, Sept 4, 2026);
+about 40%, aiming for 70% within a year (FT, Sept 27, 2026). Savings: 80% to 90%
+"in certain applications" (WSJ); "up to 80%" (NYT); "as much as 80%" (AMD);
+"as much as 90%" (AT&T blog). Tokens: 45 billion a day (all sources).
+Supports: Ch3 sourcing (provider choice on cost, capability and data protection,
+avoiding being "beholden to any one solution") and allocation and routing (the
+"smart router", a stated rule); Ch1 consumption at scale (45 billion tokens a
+day); Ch3 planning ("we feel like we can manage").
