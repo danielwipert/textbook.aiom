@@ -29,3 +29,28 @@ Supports: Ch1 (cost grows with use at scale: Tinder tenfold, AT&T 45bn tokens a
 day); Ch3 sourcing and allocation and routing (AT&T, Tinder, Digital Realty).
 Caution: "the two frontier AI labs capture the bulk of AI spending", so the
 shift shows in tokens more than dollars.
+
+## Pull list #2. The Information, read in full 2026-10-19
+
+"Tokenminimizing: Meta Moves to Curb Employee AI Usage as AI Costs Reach
+Billions", Jyoti Mann, Exclusive, June 12, 2026, 11:57am PDT.
+https://www.theinformation.com/articles/tokenminimizing-meta-moves-to-curb-employee-ai-usage-as-ai-costs-reach-billions
+(Dashes inside quoted memo text are shown as [...].)
+
+- "Meta Platforms plans to clamp down on skyrocketing AI costs inside the company by imposing limits on employees' token usage, the company told staff in a memo on Tuesday, just weeks after it pushed them to adopt AI tools in their work."
+- "The company is building an internal platform to track employee AI usage and spending in real time, set budgets and establish limits on employees' token spend, according to an internal memo reviewed by The Information, which Meta shared with about 6,000 staffers earlier this week."
+- Memo: "We've seen an exponential increase in AI usage and [we] are tracking to spend billions on internal use alone in 2026," "At the same time, individuals and teams have limited visibility into and control over how they use AI. In 2027, we expect Meta will move toward managing AI tokens in a more structured way [...] with budgets, allocation decisions, and supporting tools."
+- "a team of product developers and engineers has created a central dashboard called AI Gateway to monitor usage and spending in one place." "Meta will also roll out automated alerts for unusual spending spikes. The group is also keeping track of current costs to forecast future spending so it can plan computing capacity and negotiate with vendors."
+- "In November, Meta told employees that demonstrating "AI-driven impact" would become a "core expectation" this year"
+- "employees had burned through 60.2 trillion tokens in a 30-day period. Usage later climbed to 73.7 trillion tokens before the leaderboard was taken down"
+- Bosworth (April memo): "Nobody should be using AI tools just for the sake of using them," "All motion is not progress and token usage alone is not a measure of impact of any kind. We will be using these tools because they'll genuinely allow us to do better work, faster."
+- "Uber and ServiceNow used up their entire annual budgets for Anthropic's tools in just the first few months of 2026. ServiceNow is also monitoring employees' daily usage in a bid to track and reduce its costs."
+
+Corrections: K5 confirmed; the "billions" is a 2026 projection for internal use
+("tracking to spend"), not a realized figure; budgets and allocation are planned
+for 2027, not in force. The ServiceNow budget fact (K6) is now confirmed in an
+allowed source, in this article.
+Supports: Ch1 (exponential usage, cost to billions); Ch2 THM-004 almost word for
+word (scale, "limited visibility into and control over", then budgets,
+allocation and tools: the governing apparatus); Ch2 value by design (Bosworth);
+Ch3 metering (AI Gateway), planning (forecast to plan capacity), allocation.
