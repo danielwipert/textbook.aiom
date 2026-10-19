@@ -54,3 +54,26 @@ Supports: Ch1 (exponential usage, cost to billions); Ch2 THM-004 almost word for
 word (scale, "limited visibility into and control over", then budgets,
 allocation and tools: the governing apparatus); Ch2 value by design (Bosworth);
 Ch3 metering (AI Gateway), planning (forecast to plan capacity), allocation.
+
+## Pull list #3. Bloomberg, read in full 2026-10-19
+
+"Uber Caps Usage of AI Tools Like Claude Code to Manage Costs", Natalie Lung,
+June 2, 2026, 5:00 PM UTC (updated 8:09 PM UTC).
+https://www.bloomberg.com/news/articles/2026-06-02/uber-caps-usage-of-ai-tools-like-claude-code-to-cut-costs
+
+- "Uber Technologies Inc. has set usage caps on some artificial intelligence-powered tools used by its staff, a move meant to manage costs after the company blew through its AI budget earlier this year."
+- "The rideshare giant is limiting all employees to $1,500 in monthly token spending per AI coding tool, an Uber spokesperson said in response to a Bloomberg News inquiry. That means spending on one tool doesn't have a bearing on the budget for another. The limits, which have been instituted in recent months, only apply to agentic coding software such as Cursor or Anthropic PBC's Claude Code."
+- "Every employee has a dashboard where they can track their usage across various tools. The company has also implemented a process by which individuals can seek permission to exceed their normal cap."
+- Spokesperson: "We think this is all a pretty straightforward way to responsibly encourage agentic AI adoption and experimentation at scale across the company,"
+- "Chief Technology Officer Praveen Neppalli Naga told the Information in April that the company had already maxed out its full-year AI budget."
+- "Walmart Inc. has capped staffers' use of an in-house AI agent that helps with workplace tasks, according to people familiar with the decision."
+- "Uber said last month that it will moderate the overall pace of hiring relative to its plans entering the year, as a result of the benefits from using AI internally."
+- Macdonald (Rapid Response podcast): "It's very hard to draw a line between one of those stats and 'OK, now we're actually producing like 25% more useful consumer features,'" "Over the coming quarters and years, maybe that will become clearer, but I think today it's hard even if some of the underlying metrics are trending in a really astronomical direction,"
+
+Confirms in full what the Bloomberg Law copy cut off: the usage dashboard and the
+exceptions process. Supports Ch2 (the governing apparatus after an overrun: a cap
+per person per tool, a record for each employee, an exception path) and Ch2's
+value-by-design point (Macdonald, a second quotation beside "That link is not
+there yet"). Ch3 metering (per-employee dashboard) and allocation (caps).
+Note: Bloomberg titles Macdonald "Chief Operating Officer"; Ch2 says "president
+and chief operating officer" (Fortune). Both are true.
