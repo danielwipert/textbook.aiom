@@ -159,3 +159,37 @@ customer a request served": here the buyer had to build its own record because
 the provider's invoice gave no per-user breakdown, and assigned a person to
 watch it); Ch3 planning (cannot predict the bill); Ch2 record flow (the record
 the buyer lacked). K6 confirmed in full.
+
+## Pull list #7. The Information, read in full 2026-10-19
+
+"AT&T is Using Open Source Models to Curb Anthropic Bills", Aaron Holmes,
+Applied AI newsletter, August 20, 2026, 11:55am PDT.
+https://www.theinformation.com/newsletters/applied-ai/t-using-open-source-models-curb-anthropic-bills
+(Dashes inside quoted text are shown as [...].)
+
+- "The telecommunications firm plans to keep its employees' spending on Anthropic and OpenAI models flat in the coming years by using more open-source models such as Nvidia's Nemotron, according to Mark Austin, an AT&T vice president."
+- "Austin oversees AI used by the company's 100,000 employees for everything from coding and financial analysis to tools for HR and customer support staff."
+- "Over the past year, he said, AT&T boosted its use of open-source models to the point where such models now power 40% of employees' AI queries. AT&T plans to raise that figure to between 60% and 70% in the coming years, he said."
+- "AT&T's software developers still rely on cutting-edge models for complex tasks like generating code, but can use cheaper open source models for less intense tasks like generating summaries of previously submitted code, he said."
+- "AT&T also has gotten savings from using so-called model routers that automatically route employees' queries to cheaper models based on the complexity of the task. After the company began using router provider LiteLLM, the costs of some advanced AI tasks such as coding fell by as much as 56% while the quality of the AI's performance fell just 2%, Austin said."
+- "AT&T started developing its primary internal AI system, Ask AT&T, in 2023 which initially relied entirely on OpenAI models the company purchased through Microsoft's cloud, Austin said."
+- "Software developers using Ask AT&T can choose a specific model or AI agent such as GitHub Copilot, Devin, Claude Code or Codex, but their spending is capped, Austin said."
+- "The Ask AT&T service now processes 45 billion tokens [...] per day, Austin said."
+- "AT&T also is analyzing Chinese open source models from DeepSeek and Moonshot but isn't currently using them for work. The company is still evaluating potential risks from using them, he said."
+- "open source models have typically been around six to 10 months behind frontier models in terms of capabilities, but the gap seems to be narrowing."
+
+Notes: the speaker here is Mark Austin (VP), not Markus; the 40% here is "of
+employees' AI queries" (scope differs from the FT's "AI workloads"). The 45
+billion tokens a day is the Ask AT&T service. The reporter's "at least hundreds
+of millions annually" is an estimate from list prices, not an AT&T figure: do
+not use it.
+Supports ALL FIVE Ch3 functions in one organization: sourcing (single provider
+in 2023, now several, with a risk test before adopting a model); planning and
+budgeting (provider spending held flat for years ahead); metering (tokens per
+day through one internal service); allocation and routing (a router by task
+complexity: cost down as much as 56%, quality down 2%; complex coding kept on
+frontier models; developer spending capped). Strongest single candidate for a
+Chapter 3 dated box, or for a problem set.
+Related, NOT read (possible counterpoint): The Information, "Anthropic Models Can
+Be Cheaper to Use Than Chinese Ones, Study Finds", Laura Bratton, about August
+13, 2026.
