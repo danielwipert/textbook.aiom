@@ -132,3 +132,30 @@ Supports: Ch2 opening case and its planning point ("the budget I thought I
 would need"); Ch1 (use soared, the budget set in advance did not hold); Ch2's
 leaderboards point beside Meta's (usage rewarded without a value test).
 Possible upgrade: cite this primary beside Forbes in Ch2's opening case.
+
+## Pull list #6. The Information, read in full 2026-10-19
+
+"Why Anthropic Costs Are Unpredictable", Laura Bratton, Applied AI newsletter,
+May 14, 2026, 12:08pm PDT.
+https://www.theinformation.com/newsletters/applied-ai/anthropic-costs-unpredictable
+(Dashes inside quoted text are shown as [...]. The opening line on Anthropic's
+price increases belongs to Chapter 4 and is NOT used.)
+
+- "Anthropic customers like PagerDuty and ServiceNow [...] which says it already blew through its full-year budget for Anthropic AI tools [...] can't predict what they'll pay this year."
+- "One reason Anthropic costs are tough to predict, ServiceNow chief digital information officer Kellie Romack told me, is that Anthropic doesn't automatically show customers the kind of granular data that allows them to see which of its users consume which tools; how much they use the tools, and how they're using them."
+- "Having that data from Anthropic would make it easier to cut off employees who are "tokenmaxxing" or using the tools inefficiently."
+- "Customers can monitor staffers' usage of Anthropic's tools to some extent by connecting their Claude accounts to an external analysis tool through standard application programming interfaces. But this requires customers to have access to such a tool to make sense of all that data."
+- "ServiceNow uses this method to track employees' daily use of Claude tools through AI Control Tower, an application ServiceNow also sells to its own customers to monitor AI usage across their workforces, she said. Romack has assigned a member of her team to monitor the data through that app."
+- National Life Group CIO Nimesh Mehta: the lack of granular usage data makes Anthropic "great for consumer usage but not great for companies" that want to monitor individuals' usage.
+- Romack: "I want more transparency."
+- Reporter's analysis (not a source fact): "customers can theoretically turn off such spending at the drop of a hat if they absolutely need to"
+
+Corrections: Romack's title is chief digital information officer (CDIO). The
+AI Control Tower internal use is now CONFIRMED (Ch3 research P4 had it as
+unconfirmed).
+Supports: Ch3 metering and attribution almost exactly ("Only the organization
+can attribute consumption, because only it knows which team, product, or
+customer a request served": here the buyer had to build its own record because
+the provider's invoice gave no per-user breakdown, and assigned a person to
+watch it); Ch3 planning (cannot predict the bill); Ch2 record flow (the record
+the buyer lacked). K6 confirmed in full.
