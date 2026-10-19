@@ -249,3 +249,28 @@ scale (Meta's June pledge, Microsoft's division budgets and caps); Ch1 scale of
 consumption (Meta over $105 million on one tool in 28 days; Microsoft on track
 for at least $1 billion of internal use). Possible link to Ch3's Microsoft MAI
 box: Microsoft routes internally by default too.
+
+## Pull list #10. Financial Times, read in full 2026-10-19
+
+"Amazon scraps AI leaderboard to stop workers chasing usage scores", Rafe
+Rosner-Uddin, San Francisco, published May 28, 2026 (20:31 UTC). Uploaded as an
+archive capture; the article's own ft.com URL was not identified in the capture.
+(Dashes inside quoted text are shown as [...]. The paragraph on providers'
+pricing models belongs to Chapter 4 and is NOT used.)
+
+- "Amazon has shut down an internal leaderboard that tracked employees' use of AI tools after workers tried to boost their scores with unnecessary activity that increased the company's computing costs."
+- "its "Kirorank" service [...] which scored users of Amazon's Kiro developer platform based on their AI activity [...] had been taken offline, according to two people familiar with the matter."
+- Treadwell (SVP), as reported: the result had been "additional costs for Amazon due to employees "tokenmaxxing" or inflating their consumption of AI tokens"; "Please don't use AI just for the sake of using AI," he told staff.
+- Amazon statement: "the beta dashboard was not a formal or approved tool, and has since been deprecated".
+- "The behaviour comes amid growing pressure on staff to adopt the technology after Amazon introduced targets for more than 80 per cent of developers to use AI each week."
+- Amazon: the leaderboard "was created by a group of employees who wanted to drive awareness for how AI can accelerate work", and the company was focused on "operational efficiency".
+- "Amazon had started to use a metric called "normalised deployments", evidence of engineers regularly using AI to create useful code, to measure the success of its AI tools and adoption of the technology rather than outright token consumption, the people added."
+- "Treadwell told staff that he did not want workers to focus on token use and instead instructed them to focus on building better products."
+
+Notes: Amazon's own statement frames the leaderboard as unofficial ("not a
+formal or approved tool"); the metric change rests on unnamed people.
+Supports: Ch2 value only by design and Ch3 holding value to account (measuring
+usage rewarded consumption and raised cost; Amazon moved to an output measure,
+"normalised deployments", rather than token counts); Ch2 cost accrues by default
+(needless agent activity raised computing costs). Third large company with the
+same pattern as Meta and Uber.
