@@ -12,15 +12,15 @@
 
 <p class="slot-label">Opening case</p>
 <h2 class="case-title">The budget that ran out in April</h2>
-<p class="provenance">Dated: December 2025 to May 2026. Figures and dates were checked against the cited reporting. The primary account behind that reporting remains paywalled. See the source register.</p>
+<p class="provenance">Dated: December 2025 to May 2026. Figures and dates were checked against the cited reporting, and the timing against the primary interview, read in October 2026. See the source register.</p>
 
-<p>By April 2026, just four months into the year, <span class="nb">Uber</span> had already exhausted its annual AI budget.<cite src="uber-2026-budget"><span class="ckey">[uber-2026-budget]</span> Reported timing of the budget exhaustion.</cite> Nothing had broken. No contract had been renegotiated, and no vendor had raised its prices. Engineers were simply doing the work the company had asked them to do by using the tool it had given them.</p>
+<p>By April 2026, only a few months into the year, <span class="nb">Uber</span> had already exhausted its annual AI budget.<cite src="uber-2026-budget; theinformation-2026-uber-cto"><span class="ckey">[uber-2026-budget + theinformation-2026-uber-cto]</span> Reported timing of the budget exhaustion; the second is the primary interview.</cite> Nothing had broken. No contract had been renegotiated, and no vendor had raised its prices. Engineers were simply doing the work the company had asked them to do by using the tool it had given them.</p>
 
 <p>The tool was <span class="nb">Claude</span> Code, an AI assistant that writes and edits software. <span class="nb">Uber</span> had begun rolling it out to roughly 5,000 engineers in December 2025.<cite src="uber-2026-budget"><span class="ckey">[uber-2026-budget]</span> Engineer count and rollout timing.</cite> Adoption was rapid. By February, 32 percent of the engineering organization was using it. By March, that share had reached 84 percent.<cite src="uber-2026-budget"><span class="ckey">[uber-2026-budget]</span> Reported adoption in February and March.</cite></p>
 
 <p>By adoption measures, the rollout looked like a success. Engineers adopted the tool quickly and used it heavily. Macdonald said that a quarter of the company’s code commits in the previous quarter had come through <span class="nb">Claude</span> Code.<cite src="rapidresponse-2026-macdonald"><span class="ckey">[rapidresponse-2026-macdonald]</span> Share of code commits, in the executive’s own words.</cite> But those measures establish adoption, not value. That distinction is central to this chapter.</p>
 
-<p>Public reporting does not explain how <span class="nb">Uber</span> calculated its AI budget. The outcome, however, is consistent with the way companies have long budgeted for software: multiply the annual price per user by the expected number of users and treat that total as the year’s cost. For conventional software, that method generally works.</p>
+<p>Public reporting does not explain how <span class="nb">Uber</span> calculated its AI budget. On the company’s earnings call in May 2026, its chief financial officer, <span class="nb">Balaji Krishnamurthy</span>, said that when <span class="nb">Uber</span> set its 2026 budgets in November, it had “underestimated the amount of impact the AI tools could have,” and that the company had since “re-upped” its investment.<cite src="uber-2026-q1-call"><span class="ckey">[uber-2026-q1-call]</span> The chief financial officer’s words, page 11 of the transcript.</cite> The outcome, however, is consistent with the way companies have long budgeted for software: multiply the annual price per user by the expected number of users and treat that total as the year’s cost. For conventional software, that method generally works.</p>
 
 <p>This method endured because the assumptions behind a seat-based forecast can be checked before the year begins. The annual price is known, and the HR system already holds the headcount. Multiply one by the other, and finance has a number it can explain and defend in a planning meeting.</p>
 
@@ -32,7 +32,7 @@
 
 <p>This episode turns on a distinction that is easy to miss. <span class="nb">Uber</span> could see what it was spending, but it could not say what that spending had produced. The charges accumulated until they consumed the annual budget in April. Yet president and chief operating officer Andrew Macdonald said the company still could not connect its growing use of <span class="nb">Claude</span> Code to the consumer features it was producing. “That link is not there yet,” he said. His statement says the link between that use and the consumer features was not yet available to senior leadership.<cite src="fortune-2026-uber-coo"><span class="ckey">[fortune-2026-uber-coo]</span> Reported executive commentary on whether the spending was justified.</cite></p>
 
-<p><span class="nb">Uber</span>’s experience makes the problem from Chapter 1 concrete. The company was buying a resource priced by use while budgeting for a cost it expected to remain fixed per person. Public reporting does not establish whether <span class="nb">Uber</span> made the category error described in Chapter 1 or understood the cost model but failed to carry that understanding into its forecast. It does show that nothing in the public account identifies a control that changed the course of the spending, or a measure that connected the use to a return.</p>
+<p><span class="nb">Uber</span>’s experience makes the problem from Chapter 1 concrete. The company was buying a resource priced by use while budgeting for a cost it expected to remain fixed per person. Public reporting does not establish whether <span class="nb">Uber</span> made the category error described in Chapter 1 or understood the cost model but failed to carry that understanding into its forecast. It does show that nothing in the public account identifies a control that changed the course of the spending before the budget was gone, or quantifies the net return on that spending.</p>
 
 <p>Public reporting does not reveal enough to determine where responsibility lies between <span class="nb">Uber</span> and its provider. The public account does not establish the contract’s specific terms, what consumption data <span class="nb">Uber</span> could see or when it became available, or whether the provider offered spending limits or alerts that the company declined. That question must remain open. The argument that follows does not depend on the answer. Whatever controls a provider offers, an organization must be able to govern its own consumption.</p>
 
@@ -42,13 +42,13 @@
 
 <p>AI consumption behaves the same way. Chapter 1 defined its basic unit: the consumption event, a single use of an AI system that consumes metered computing resources. One event is a transaction. Thousands of events across many people and systems form a stream whose volume and cost change with the work being done. That stream requires a different kind of management.</p>
 
-<p>Transactions and streams require different forms of control. A transaction can be governed through approval: someone with authority reviews it and says yes or no. Approval, however, is limited by the approver’s attention. It works for a purchase order. It cannot scale to 5,000 engineers, each deciding every few minutes whether to ask an AI system for help.</p>
-
 <aside class="definition">
 <p class="lab">Definition</p>
 <p class="term">Flow</p>
 <p>A continuous stream of related activity within a deployment, described by its rate, direction, and the records kept about it. An organization manages a flow by governing it over time rather than approving the deployment once.</p>
 </aside>
+<p>Transactions and streams require different forms of control. A transaction can be governed through approval: someone with authority reviews it and says yes or no. Approval, however, is limited by the approver’s attention. It works for a purchase order. It cannot scale to 5,000 engineers, each deciding every few minutes whether to ask an AI system for help.</p>
+
 
 <p>The distinction is practical, not merely semantic. A person with the proper authority can review and approve a single transaction. No one can do the same for every event generated by 5,000 engineers as they work. A flow must instead be managed over time: the organization decides in advance what is allowed to run, records what actually runs, and compares actual consumption with the plan.</p>
 
@@ -131,6 +131,11 @@
 
 <p>An unmanaged usage flow expands wherever the tool makes work easier. This is not a criticism of the people using it. A coding assistant that drafts code well will be used more than one that drafts code badly, which is exactly what the organization wanted. Rising usage is evidence of adoption, but it is not proof of success. Success depends on what that usage produces.</p>
 
+<div class="dated">
+<p class="date">Dated: June 2026</p>
+<p>In June 2026, <span class="nb">Meta</span> told employees in a memo that “individuals and teams have limited visibility into and control over how they use AI.” The memo said the company was building an internal platform to track employee AI use and spending in real time, set budgets, and establish limits on employees’ token spending. It expected to manage AI tokens “in a more structured way” in 2027, “with budgets, allocation decisions, and supporting tools.”<cite src="meta-2026-memo"><span class="ckey">[meta-2026-memo]</span> The memo, as reviewed and reported by The Information.</cite> <span class="nb">The Information</span> reported that a copy of an internal leaderboard it reviewed in April showed employees had consumed 60.2 trillion tokens in a 30-day period. The publication reported that usage later reached 73.7 trillion tokens before the leaderboard was taken down.<cite src="meta-2026-memo"><span class="ckey">[meta-2026-memo]</span> The publication’s own reporting, not the memo.</cite></p>
+</div>
+
 <p>An unmanaged record flow does not simply remain incomplete. It deteriorates because the information needed to build the record becomes harder to recover over time. If a request is not attributed to a team when it is made, the organization usually cannot reconstruct that attribution six months later. The provider’s invoice will show what the organization spent in March, but not which product line produced the cost. The provider cannot report information it never collected.</p>
 
 <p>In an unmanaged cost-and-value flow, cost accumulates but evidence of value does not. This is the central asymmetry of the chapter. The organization receives cost figures automatically because the meter is already running and the invoice already has an owner. Evidence of value requires deliberate work. Someone must define what the deployment is supposed to improve, measure the starting point and the later result, and determine how much of the change came from the deployment. The tool does none of this work, and the invoice will never supply the answer.</p>
@@ -207,6 +212,11 @@
 
 <p>The substitution is easy to spot once it has a name. Whenever a value claim rests on a number describing how much the tool was used, usage data has answered the value question. That substitution is rarely dishonest. It happens because the only complete measurement available answers the wrong question.</p>
 
+<div class="dated">
+<p class="date">Dated: May 2026</p>
+<p>In May 2026, the <span class="nb">Financial Times</span> reported that <span class="nb">Amazon</span> had shut down an internal leaderboard that scored users of its <span class="nb">Kiro</span> developer platform on their AI activity, after workers tried to boost their scores with unnecessary activity that increased the company’s computing costs. <span class="nb">Amazon</span> said “the beta dashboard was not a formal or approved tool, and has since been deprecated.” According to people familiar with his remarks, senior vice president <span class="nb">Dave Treadwell</span> told staff not to use AI just for the sake of using AI. According to people familiar with the matter, <span class="nb">Amazon</span> had begun measuring the success of its AI tools and their adoption with “normalised deployments,” described as evidence of engineers regularly using AI to create useful code, rather than token consumption.<cite src="ft-2026-amazon-leaderboard"><span class="ckey">[ft-2026-amazon-leaderboard]</span> The shutdown and the company’s statement, as reported; the remarks and the new measure, from people familiar with the matter.</cite></p>
+</div>
+
 <p>The disciplined response is not to guess what the other three workflows produced. It is to attach the scope to the comparison: four hundred thousand dollars of return from two measured workflows, compared with the share of the one-million-dollar cost attributable to those same workflows. That statement is longer and less quotable, but it is the only comparison a manager can act on.</p>
 
 <p><span class="nb">Uber</span>’s position in the opening case shows this first error in practice. The company could total what it had spent, while its president and chief operating officer publicly asked what it had received in return. Both conditions could exist at once because the organization produced the two figures in different ways, not because its engineers had done anything wrong.</p>
@@ -240,6 +250,11 @@
 <p>A governing apparatus for a deployment must contain three elements. Without all three, the organization does not have economic control.</p>
 
 <p>The first element is a record: a system that records what the deployment consumed at a level of detail finer than the invoice. The second is attribution: a rule that assigns each unit of consumption to a team, product, or purpose. A record without attribution tells the organization how much it spent but not who or what produced the cost. The third is a constraint: a limit, budget, alert, or approval that can stop or slow consumption when it departs from the plan.</p>
+
+<div class="dated">
+<p class="date">Dated: June 2026</p>
+<p>In June 2026, <span class="nb">Bloomberg News</span> reported that <span class="nb">Uber</span> had set usage caps on some AI tools after exhausting its AI budget earlier in the year. An <span class="nb">Uber</span> spokesperson confirmed that all employees were limited to $1,500 a month in token spending per AI coding tool. The limits applied only to agentic coding software, such as <span class="nb">Cursor</span> and <span class="nb">Claude</span> Code. <span class="nb">Bloomberg</span> also reported that every employee had a dashboard showing their own use across tools and could request permission to exceed the cap.<cite src="bloomberg-2026-uber-caps"><span class="ckey">[bloomberg-2026-uber-caps]</span> The cap, from the spokesperson; the rest, from the reporting.</cite></p>
+</div>
 
 <p>These elements are separable. An organization can have a record without attribution, or a record and attribution without a constraint. A dashboard that no one acts on is a record flow with no constraint attached. It may reveal the problem earlier, but it cannot change the activity producing it. Visibility is an improvement. It is not control.</p>
 
@@ -457,7 +472,7 @@
     "perishable": true,
     "accessed": "2026-08-30",
     "upgrade": "The Information’s original report, which carries the CTO confirmation. Paywalled.",
-    "note": "STAGE 7, 2026-08-30: EXTERNAL CHECK A READ THE PRIMARY DOCUMENTS. It is the first check on this book with live web access, so this is the first entry here verified against the source rather than against a summary of it. THE COST RANGE WAS WRONG AND STAGE 3 PASSED IT. The article gives an average of $150 to $250 and heavy-user spending of $500 to $2,000. The chapter said ’several hundred to several thousand’ and, before the Stage 6 copy edit, ’a few thousand’: BOTH endpoints were unsupported in both forms, so the copy edit did not cause this. The looseness was deliberate, recorded here as protection against a corrected figure, and it concealed the error from every checker who could not read the article. THE RATIONALE FOR LOOSENESS IS RETIRED and the chapter now carries the exact figures, which the fifty-year rule permits because the opening case is dated. THE COMPLEXITY CLAUSE IS CUT: the article does not attribute the range to the complexity of the work, and the workload mechanism is already carried by the two sentences after it. THE ADOPTION PERCENTAGES NOW LIVE HERE, 32 per cent in February and 84 per cent in March, which retires uber-2026-adoption and with it rulings S3-1 and S3-2. BYLINE CORRECTED to its published form, Janakiram MSV, which the register had inverted. STILL SECONDARY, and the upgrade is unchanged: The Information’s original carries the CTO confirmation and stayed paywalled to check A as well. REVERSES IF the article is corrected or withdrawn. PRIOR NOTE, KEPT AS HISTORY: VERIFIED BY DAN 2026-08-29 AT STAGE 3, ROWS A1 TO A6 OF THE VERIFICATION SHEET, ALL PASS. That covers the budget exhaustion and its April timing, that no contract was renegotiated and no vendor raised a price, the roughly five thousand engineers from December 2025, the per-engineer monthly cost range, the attribution of the variation to workload, and the usage-based commercial terms. A2 AND A5 WERE CHECKED SEPARATELY FROM THE FIGURES AND BOTH HOLD, which matters because each could have been the chapter’s inference rather than the article’s statement, and that is the shape of Chapter 1’s FC9. STILL SECONDARY. The chapter’s cost range remains deliberately loose, and the upgrade is unchanged: The Information’s original report carries the CTO confirmation and is paywalled. Verifying Forbes establishes that the reporting says what the chapter says it says, not that the underlying facts hold. REVERSES IF the article is corrected or withdrawn. PRIOR NOTE, KEPT AS HISTORY: UNVERIFIED. Found by WebSearch 2026-08-21; the article itself has not been read by Claude, and the container cannot fetch it. Carries the budget exhaustion timing, the engineer count, the rollout date, and the per-engineer monthly cost range. Grade C until a primary is read. The chapter states the cost range as ’several hundred to a few thousand dollars’ rather than as exact bounds, deliberately, so that a corrected figure does not invalidate the sentence."
+    "note": "REVIEW, DECISION 87, 2026-10-19: THE PRIMARY HAS NOW BEEN READ. The Information's original (theinformation-2026-uber-cto) is cited beside this entry for the timing. PRIOR NOTE, KEPT AS HISTORY: STAGE 7, 2026-08-30: EXTERNAL CHECK A READ THE PRIMARY DOCUMENTS. It is the first check on this book with live web access, so this is the first entry here verified against the source rather than against a summary of it. THE COST RANGE WAS WRONG AND STAGE 3 PASSED IT. The article gives an average of $150 to $250 and heavy-user spending of $500 to $2,000. The chapter said ’several hundred to several thousand’ and, before the Stage 6 copy edit, ’a few thousand’: BOTH endpoints were unsupported in both forms, so the copy edit did not cause this. The looseness was deliberate, recorded here as protection against a corrected figure, and it concealed the error from every checker who could not read the article. THE RATIONALE FOR LOOSENESS IS RETIRED and the chapter now carries the exact figures, which the fifty-year rule permits because the opening case is dated. THE COMPLEXITY CLAUSE IS CUT: the article does not attribute the range to the complexity of the work, and the workload mechanism is already carried by the two sentences after it. THE ADOPTION PERCENTAGES NOW LIVE HERE, 32 per cent in February and 84 per cent in March, which retires uber-2026-adoption and with it rulings S3-1 and S3-2. BYLINE CORRECTED to its published form, Janakiram MSV, which the register had inverted. STILL SECONDARY, and the upgrade is unchanged: The Information’s original carries the CTO confirmation and stayed paywalled to check A as well. REVERSES IF the article is corrected or withdrawn. PRIOR NOTE, KEPT AS HISTORY: VERIFIED BY DAN 2026-08-29 AT STAGE 3, ROWS A1 TO A6 OF THE VERIFICATION SHEET, ALL PASS. That covers the budget exhaustion and its April timing, that no contract was renegotiated and no vendor raised a price, the roughly five thousand engineers from December 2025, the per-engineer monthly cost range, the attribution of the variation to workload, and the usage-based commercial terms. A2 AND A5 WERE CHECKED SEPARATELY FROM THE FIGURES AND BOTH HOLD, which matters because each could have been the chapter’s inference rather than the article’s statement, and that is the shape of Chapter 1’s FC9. STILL SECONDARY. The chapter’s cost range remains deliberately loose, and the upgrade is unchanged: The Information’s original report carries the CTO confirmation and is paywalled. Verifying Forbes establishes that the reporting says what the chapter says it says, not that the underlying facts hold. REVERSES IF the article is corrected or withdrawn. PRIOR NOTE, KEPT AS HISTORY: UNVERIFIED. Found by WebSearch 2026-08-21; the article itself has not been read by Claude, and the container cannot fetch it. Carries the budget exhaustion timing, the engineer count, the rollout date, and the per-engineer monthly cost range. Grade C until a primary is read. The chapter states the cost range as ’several hundred to a few thousand dollars’ rather than as exact bounds, deliberately, so that a corrected figure does not invalidate the sentence."
   },
   "fortune-2026-uber-coo": {
     "type": "news",
@@ -549,6 +564,89 @@
     "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2024/01/15/expanding-copilot-for-microsoft-365-to-businesses-of-all-sizes/",
     "note": "STAGE 7, 2026-08-30: EXTERNAL CHECK A READ THE PRIMARY DOCUMENTS. It is the first check on this book with live web access, so this is the first entry here verified against the source rather than against a summary of it. ADDED BECAUSE THE DTA EVALUATION DOES NOT ESTABLISH THE PRICING CONTRAST. It records agencies purchasing licences; it does not state that the product is priced per seat rather than by unit of use, which is the sentence problem P3 rests on. Microsoft’s own announcement prices it at $30 per user per month, which settles it. Check A raised the gap and it is closed here rather than by leaving one source carrying two claims.",
     "upgrade": "Nothing outstanding. This is the vendor’s own announcement."
+  },
+  "theinformation-2026-uber-cto": {
+    "type": "news",
+    "authors": [
+      {
+        "given": "Laura",
+        "family": "Bratton"
+      }
+    ],
+    "title": "Uber CTO Shows How Claude Code Can Blow Up AI Budgets",
+    "container": "The Information",
+    "date": "2026-04-14",
+    "url": "https://www.theinformation.com/newsletters/applied-ai/uber-cto-shows-claude-code-can-blow-ai-budgets",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: Dan pulled this source; Claude read it in full (Drafts/Review_Decision83/research/pulled_sources.md). An outside check with live web access read it against the approved wording (Drafts/Review_Decision83/check_results/04_S4_Information_Uber_CTO.md) and Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). This is THE PRIMARY behind the opening case, paywalled until now. VERIFIED: the full-year AI budget was maxed out 'just a few months into 2026', per chief technology officer Praveen Neppalli Naga; reported April 14, 2026. Cited for TIMING ONLY; it does not carry the engineer count or the adoption percentages. RULED: 'just four months into the year' replaced by 'only a few months into the year', the source's own phrase. REVERSES IF the article is corrected."
+  },
+  "uber-2026-q1-call": {
+    "type": "report",
+    "authors": [
+      {
+        "org": "Uber Technologies, Inc."
+      }
+    ],
+    "title": "Q1 2026 Earnings Call, corrected transcript",
+    "date": "2026-05-06",
+    "url": "https://s23.q4cdn.com/407969754/files/doc_financials/2026/q1/Uber-Q1-26-Earnings-Call-Transcript.pdf",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: open first-party source, read by Claude and by an outside check with live web access (Drafts/Review_Decision83/check_results/07_S8_S9_S10_S11_and_sweep.md); Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED, page 11: chief financial officer Balaji Krishnamurthy, 'when we set our budgets for 2026 in November, we underestimated the amount of impact the AI tools could have' and 'So we’ve re-upped our investment here.' RULED (R-1): the call links AI investment to slower headcount growth ('we are trading that off against incremental head count growth'), so the case no longer says no measure connected the use to a return; it says nothing in the public account quantifies the net return. REVERSES IF Uber publishes a quantified net return for the period."
+  },
+  "meta-2026-memo": {
+    "type": "news",
+    "authors": [
+      {
+        "given": "Jyoti",
+        "family": "Mann"
+      }
+    ],
+    "title": "Tokenminimizing: Meta Moves to Curb Employee AI Usage as AI Costs Reach Billions",
+    "container": "The Information",
+    "date": "2026-06-12",
+    "url": "https://www.theinformation.com/articles/tokenminimizing-meta-moves-to-curb-employee-ai-usage-as-ai-costs-reach-billions",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: Dan pulled this source; Claude read it in full (Drafts/Review_Decision83/research/pulled_sources.md). An outside check with live web access read it against the approved wording (Drafts/Review_Decision83/check_results/02_S2_Information_Meta.md) and Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED: the memo was shared with about 6,000 staffers; the quotations are exact; 'tracking to spend billions on internal use alone in 2026' is a PROJECTION and is reported as one. The leaderboard figures (60.2 trillion tokens in a 30-day period, later 73.7 trillion) are The Information's own reporting from a dashboard copy it reviewed in April, not the memo's, and the chapter credits them so. No period is given for 73.7 trillion. REVERSES IF the article is corrected or Meta disputes the memo text."
+  },
+  "bloomberg-2026-uber-caps": {
+    "type": "news",
+    "authors": [
+      {
+        "given": "Natalie",
+        "family": "Lung"
+      }
+    ],
+    "title": "Uber Caps Usage of AI Tools Like Claude Code to Manage Costs",
+    "container": "Bloomberg News",
+    "date": "2026-06-02",
+    "url": "https://www.bloomberg.com/news/articles/2026-06-02/uber-caps-usage-of-ai-tools-like-claude-code-to-cut-costs",
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": null,
+    "note": "REVIEW, DECISION 87, 2026-10-19: Dan pulled this source; Claude read it in full (Drafts/Review_Decision83/research/pulled_sources.md). An outside check with live web access read it against the approved wording (Drafts/Review_Decision83/check_results/03_S3_Bloomberg_Uber_caps.md) and Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED: only the $1,500 monthly cap per AI coding tool is attributed to an Uber spokesperson; the budget exhaustion, the per-employee dashboard and the exception process are Bloomberg's reporting, and the chapter credits them so. The caps applied only to agentic coding software. The caps were 'instituted in recent months': no start date, so the case does not sequence them. REVERSES IF the article is corrected."
+  },
+  "ft-2026-amazon-leaderboard": {
+    "type": "news",
+    "authors": [
+      {
+        "given": "Rafe",
+        "family": "Rosner-Uddin"
+      }
+    ],
+    "title": "Amazon scraps AI leaderboard to stop workers chasing usage scores",
+    "container": "Financial Times",
+    "date": "2026-05-28",
+    "url": null,
+    "perishable": true,
+    "accessed": "2026-10-19",
+    "upgrade": "The article's ft.com URL, not identified in the archive capture Dan pulled.",
+    "note": "REVIEW, DECISION 87, 2026-10-19: Dan pulled this source; Claude read it in full (Drafts/Review_Decision83/research/pulled_sources.md). An outside check with live web access read it against the approved wording (Drafts/Review_Decision83/check_results/08_S5_S7.md) and Dan ruled the result at the sitting of 2026-10-19 (AIOM_Review_Sitting_Package.md). VERIFIED: workers TRIED to boost their scores with unnecessary activity that increased computing costs (the chapter must not say they succeeded); Amazon's statement quoted in full; Treadwell's remarks and the 'normalised deployments' measure come from people familiar with the matter and are credited so. REVERSES IF the article is corrected or Amazon disputes the account."
   }
 }</pre>
 </section>

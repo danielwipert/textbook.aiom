@@ -2787,3 +2787,4 @@ The mechanical gates were run and passed on each one; nothing here
 was reviewed for editorial merit, because that judgment is Dan's and
 was already exercised. Written by `amend.py`.
 **2026-10-01.** Render THM-004 as the registry states it (panel was not faithful at 9d7ee50), and align three sentences that relied on the old wording (Ch3 checklist D9).
+**2026-10-19.** Review of Chapters 1 to 3 (Decision 87): opening case narrowed and better sourced (the first sentence now reads only a few months into the year; the CFO's earnings-call account added; the control-and-return sentence narrowed; the primary interview cited), three dated boxes added (Meta in 2.4, Amazon in 2.6, Uber's caps in 2.7), five new sources; the definition callout in 2.2 moved one paragraph earlier by place.py after the reflow; wording as checked by the outside check and ruled at the sitting of 2026-10-19.
