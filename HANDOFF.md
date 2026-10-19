@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-17. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-19. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -8,14 +8,14 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- `main` is level with `claude/inspiring-galileo-9hba1g` as of 2026-10-17
-  (7568af9, published, success): the redesigned Chapter 3, then Decision 86
-  (web notes hidden behind their number below 1420px). Merged and safe to
+- Branch `claude/inspiring-galileo-9hba1g` carries the Decision 87 review of
+  Chapters 1 to 3, applied 2026-10-19 by amend.py (Ch01 90a10d7 and edec77a,
+  Ch02 d02c8eb, Ch03 c759b3e; claim ledger RV87-*). Merged to `main` to publish
+  on the same day; check `git log origin/main` before assuming. Merged and safe to
   delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
   `claude/inspiring-bohr-4gquw9`, `claude/sharp-dirac-ojfqqz`.
-- Chapters 1 (Process v2) and 2 (v3) LOCKED. **Chapter 3 RE-LOCKED 2026-10-17
-  (redesign, Decision 85, Process v4) at 17f7960 and PUBLISHED.** Chapters 4 to 15 not
-  started.
+- Chapters 1 (Process v2), 2 (v3) and 3 (v4) LOCKED and PUBLISHED; each now
+  carries the review's amendments. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.
 
 ## Process v4, adopted 2026-09-30
@@ -27,10 +27,10 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
-1. **Holistic review of Chapters 1 to 3 (Decisions 83, 87)**: red-flag sweep and
-   major new sources, one external package, built 2026-10-19 in
-   `Drafts/Review_Decision83/`; **waiting on Dan to run it** with a web-enabled
-   model. Then a decision package, and amend.py per chapter. Then Chapter 4.
+1. **Chapter 4.** The review of Chapters 1 to 3 (Decisions 83, 87) is DONE:
+   eleven sources checked by an outside model, no major red flags, ten
+   additions applied. Record: `Drafts/Review_Decision83/` (decision package,
+   check results, sitting package).
 
 **Decision 84 (2026-10-11): every decision goes to Dan as logic gates**, one at a
 time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
@@ -41,13 +41,13 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
   parallel Ch3 session that imported the author pass and built fact-check
   packages. Superseded by the locked chapter on `main`; nothing in it is
   needed. Dan decides whether to delete it (403 from the container).
-- **After Chapter 3 locks: the holistic review of Chapters 1 to 3** (Decision 83):
-  newer evidence and any conclusion that no longer holds, one package, a checker
-  with web access, a whole-book pass considered. Chapters 1 and 2 are NOT edited
-  before then; the THM-004 "Diligence" gloss question (B8) waits for it. Also for it:
-  Chapter 1 now reads "additional usage was billed at the underlying API rates",
-  the mechanism its own truell-2025-pricing note ruled out (SF2, SF8); Ch3 uses "priced".
-  And Chapter 2's P3 says participants used the tool "a few times a week or less"; check A
+- **Left open by the review, for a later sitting (not ruled):** Chapter 2's case
+  title "The budget that ran out in April" and its sentence "consumed the annual
+  budget in April" say IN April; the sources say BY April (Macdonald: about
+  mid-March). The THM-004 "Diligence" gloss question (B8). Chapter 1 reads
+  "additional usage was billed at the underlying API rates", the mechanism its
+  own truell-2025-pricing note ruled out (SF2, SF8); Ch3 uses "priced". Chapter
+  2's P3 says participants used the tool "a few times a week or less"; check A
   (Ch3 A-46) found that describes most survey respondents, not every participant.
 - Not needed yet: Decision 28 (Northmoor properties G, H, I; gates Chapters 9,
   12, 13) and which Northmoor CSVs are student inputs versus worked exhibits
@@ -74,6 +74,12 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 
 Chapter 3 is in flight: add here, one line each, and fix only what blocks.
 
+- **voicecheck bans contractions inside quotations; CLAUDE.md section 2 says they
+  are permitted in case dialogue.** Found 2026-10-19 (Amazon box, Ch2); Dan ruled
+  reported speech. Align the rule and the tool.
+- **claimcheck's normalizer turns markup into a space**, so a REQUIRED string with
+  a possessive or comma right after a `.nb` name never matches ("Tinder 's").
+  Found 2026-10-19; worked around by shortening the ledger line.
 - **`registry.py --check` compares a panel's NAME only, never its statement.**
   That is how Chapter 2's THM-004 panel locked while not rendering the
   registry. Add a statement check (antecedents and consequent against the
