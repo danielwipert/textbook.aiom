@@ -812,6 +812,16 @@ Decisions 22 onward live here.
   every changed page read; a red flag needing an argument rewritten, not just
   narrowed, comes back as its own gate (gate 4, A). Cases the case bank
   reserves for later chapters are not used.
+- **Decision 88. RULED 2026-10-21.** The homepage is refreshed, not redesigned
+  (gate 1, A). The hero headline and lede stay word for word; the buttons offer
+  Chapter 1 and the newest published chapter (gate 2, A). All six sections stay;
+  the "thirteen steps" text, stale since Process v4, now names the checks every
+  published chapter passed, with no number (gate 3, A). Visual polish is small
+  and homepage-only: a phone legend for the hero chart, the band meta line under
+  its heading on a phone, unpublished chapter numbers in the folio colour
+  (gate 4, B). The hero count line and the editions PDF links cover every
+  published chapter, computed by the build. Ruled from before-and-after
+  screenshots, all items accepted (gate 5, A).
 
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.

@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-19. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-21. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -8,12 +8,12 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- Branch `claude/inspiring-galileo-9hba1g` carries the Decision 87 review of
-  Chapters 1 to 3, applied 2026-10-19 by amend.py (Ch01 90a10d7 and edec77a,
-  Ch02 d02c8eb, Ch03 c759b3e; claim ledger RV87-*). Merged to `main` to publish
-  on the same day; check `git log origin/main` before assuming. Merged and safe to
-  delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
-  `claude/inspiring-bohr-4gquw9`, `claude/sharp-dirac-ojfqqz`.
+- Branch `claude/vibrant-babbage-bf2hv7` carries the homepage refresh
+  (Decision 88, 2026-10-21): template, builder and homepage-only CSS. Pull
+  request open for Dan to merge (the container may not push to `main`); check
+  `git log origin/main` before assuming it landed. Merged and safe to delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
+  `claude/inspiring-bohr-4gquw9`, `claude/inspiring-galileo-9hba1g`,
+  `claude/sharp-dirac-ojfqqz`, and this branch once merged.
 - Chapters 1 (Process v2), 2 (v3) and 3 (v4) LOCKED and PUBLISHED; each now
   carries the review's amendments. Chapters 4 to 15 not started.
 - Run `python3 git_hygiene.py` before merging and before closing.

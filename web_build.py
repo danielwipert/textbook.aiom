@@ -2758,10 +2758,24 @@ def render_index(outdir, meta, metas=()):
         built = {int(m["chapter_number"]): m for m in metas
                  if m.get("chapter_number")}
         first = dict(first, pdf=built.get(first["number"], {}).get("pdf"))
+    else:
+        built = {}
+    # Every published chapter in book order, each with its PDF if one was
+    # rendered. The hero's count line is summed from the chapters' own counts,
+    # never stated by hand, so it moves when the next chapter locks.
+    published = [dict(c, pdf=built.get(c["number"], {}).get("pdf"))
+                 for p in meta["book"] for c in p["chapters"] if c["locked"]]
+    counted = [built[c["number"]]["counts"] for c in published
+               if c["number"] in built]
+    totals = {"chapters": len(published),
+              "minutes": sum(c["minutes"] for c in counted),
+              "key_terms": sum(c["key_terms"] for c in counted),
+              "figures": sum(c["figures"] for c in counted)}
     out = _env().get_template("index.html.j2").render(
         book=meta["book"], locked_count=meta["locked_count"],
         chapter_count=sum(len(p["chapters"]) for p in meta["book"]),
-        first_locked=first, spec=meta["spec"], counts=meta["counts"])
+        first_locked=first, newest=published[-1] if published else None,
+        published=published, totals=totals, spec=meta["spec"])
     open(os.path.join(outdir, "index.html"), "w", encoding="utf-8").write(out)
     return os.path.join(outdir, "index.html")
 
