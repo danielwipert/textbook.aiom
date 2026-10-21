@@ -9,9 +9,9 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 ## Repository state
 
 - Branch `claude/vibrant-babbage-bf2hv7` carries the homepage refresh
-  (Decision 88, 2026-10-21): template, builder and homepage-only CSS. Merged to
-  `main` the same day; check `git log origin/main` before assuming. Merged and
-  safe to delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
+  (Decision 88, 2026-10-21): template, builder and homepage-only CSS. Pull
+  request open for Dan to merge (the container may not push to `main`); check
+  `git log origin/main` before assuming it landed. Merged and safe to delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
   `claude/inspiring-bohr-4gquw9`, `claude/inspiring-galileo-9hba1g`,
   `claude/sharp-dirac-ojfqqz`, and this branch once merged.
 - Chapters 1 (Process v2), 2 (v3) and 3 (v4) LOCKED and PUBLISHED; each now
