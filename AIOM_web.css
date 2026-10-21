@@ -914,6 +914,19 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   color: var(--axis); transition: color 0.3s;
 }
 .fig-say.over { color: var(--amber); }
+/* The phone legend. Hidden here and shown below 620px, where the SVG's own
+   gutter labels shrink past reading size and are hidden instead. */
+.fig-legend { display: none; gap: 1.2rem; margin: 0.5rem 0 0; }
+.fig-legend .lg {
+  font-family: "Jost", sans-serif; font-weight: 600; font-size: 0.78rem;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+}
+.fig-legend .lg::before {
+  content: ""; display: inline-block; width: 1.1rem; height: 2.5px;
+  background: currentColor;
+}
+.lg-seat { color: var(--navy); }
+.lg-ev { color: var(--amber); }
 .hero-fig figcaption {
   font-size: 0.75rem; line-height: 1.5; color: var(--folio);
   margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px solid var(--hairline);
@@ -1046,7 +1059,7 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   font-family: "Jost", sans-serif; font-weight: 600; color: var(--amber);
   font-variant-numeric: tabular-nums;
 }
-.part-chapters .soon .ch-n { color: var(--hairline); }
+.part-chapters .soon .ch-n { color: var(--folio); }
 
 .note-line { margin: calc(var(--step) * 1.2) 0 0; color: var(--axis); font-size: 0.86rem; max-width: 44rem; }
 
@@ -1060,6 +1073,7 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   margin: 0 !important;
 }
 .edition-cta { margin: 1.1rem 0 0 !important; }
+.edition-pdfs { margin: 0.9rem 0 0 !important; font-size: 0.86rem !important; }
 
 /* ---------- 16. THE REFERENCE LAYER ---------- */
 .ref main { padding: 0 1.5rem; }
@@ -1260,6 +1274,10 @@ a.rail-ch:hover { color: var(--amber); border-left-color: var(--amber); }
   .gl-row { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
   .ref main { padding-inline: 1.15rem; }
   .home main { padding-inline: 1.15rem; }
+  .hero-fig .gutter-lab { display: none; }
+  .hero-fig .axis-lab { font-size: 20px; }
+  .fig-legend { display: flex; }
+  .home .band-meta { margin: 0.4rem 0 0; flex-basis: 100%; }
   .cta { font-size: 0.68rem; padding: 0.4rem 0.7rem; }
   /* The chapter bar already carries a brand and a Contents button, and a third
      item overflowed the row at 320px. Gate W6 found it. The CTA is not lost: the

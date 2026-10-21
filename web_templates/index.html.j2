@@ -73,14 +73,23 @@
         what it actually is, not how it is priced today.
       </p>
       <p class="hero-actions">
+        {# A reader who arrives after more than one chapter has locked is
+           offered both ends: where the argument starts, and what is new. With
+           one chapter published the second button falls back to the contents. #}
         {% if first_locked %}
-        <a class="btn" href="{{ first_locked.slug }}/">Read Chapter {{ first_locked.number }}, {{ first_locked.title }}</a>
+        <a class="btn" href="{{ first_locked.slug }}/">Start with Chapter {{ first_locked.number }}, {{ first_locked.title }}</a>
         {% endif %}
+        {% if newest and first_locked and newest.number != first_locked.number %}
+        <a class="btn btn-quiet" href="{{ newest.slug }}/">Newest: Chapter {{ newest.number }}, {{ newest.title }}</a>
+        {% else %}
         <a class="btn btn-quiet" href="#contents">See the structure</a>
+        {% endif %}
       </p>
-      <p class="hero-meta">Free to read. {{ counts.minutes }} minutes.
-         {{ counts.key_terms }} key terms, {{ counts.figures }} figures,
-         every claim sourced.</p>
+      {# Counted across every published chapter by render_index(), never kept
+         by hand, so the line cannot go stale when the next chapter locks. #}
+      <p class="hero-meta">Free to read. {{ totals.chapters }} chapter{{ "s" if totals.chapters != 1 }}
+         published, about {{ totals.minutes }} minutes. {{ totals.key_terms }}
+         key terms, {{ totals.figures }} figures, every claim sourced.</p>
     </div>
 
     <figure class="hero-fig" id="model">
@@ -95,8 +104,8 @@
           </defs>
           <line x1="56" y1="272" x2="470" y2="272" stroke="var(--axis)" stroke-width="1"/>
           <line x1="56" y1="32" x2="56" y2="272" stroke="var(--axis)" stroke-width="1"/>
-          <text x="56" y="300" fill="var(--axis)" font-size="12" font-family="Jost, sans-serif">Usage</text>
-          <text x="56" y="22" fill="var(--axis)" font-size="12" font-family="Jost, sans-serif">Cost to serve</text>
+          <text class="axis-lab" x="56" y="300" fill="var(--axis)" font-size="12" font-family="Jost, sans-serif">Usage</text>
+          <text class="axis-lab" x="56" y="22" fill="var(--axis)" font-size="12" font-family="Jost, sans-serif">Cost to serve</text>
           <path id="ev-area" fill="url(#evfill)" d=""/>
           <path id="ev-line" fill="none" stroke="var(--amber)" stroke-width="2.5" d=""/>
           <line id="seat-line" x1="56" y1="212" x2="470" y2="212"
@@ -107,11 +116,18 @@
           <circle id="seat-dot" cx="56" cy="212" r="4.5" fill="var(--navy)"/>
           <!-- Labels sit in their own gutter beyond the plot, so the moving
                markers can never run underneath them. -->
-          <text x="482" y="216" fill="var(--navy)"
+          <text class="gutter-lab" x="482" y="216" fill="var(--navy)"
                 font-size="12" font-family="Jost, sans-serif" font-weight="600">Seat model</text>
-          <text id="ev-lab" x="482" y="60" fill="var(--amber)"
+          <text class="gutter-lab" id="ev-lab" x="482" y="60" fill="var(--amber)"
                 font-size="12" font-family="Jost, sans-serif" font-weight="600">Event model</text>
         </svg>
+        {# On a phone the SVG scales to about half size and the gutter labels
+           set at about six pixels, so they are hidden there and this legend
+           names the two lines instead. Hidden above the phone breakpoint. #}
+        <p class="fig-legend" aria-hidden="true">
+          <span class="lg lg-seat">Seat model</span>
+          <span class="lg lg-ev">Event model</span>
+        </p>
         <p class="fig-control">
           <label for="usage">Usage</label>
           <input id="usage" type="range" min="0" max="100" value="34" step="1">
@@ -196,10 +212,10 @@
            it describes does not yet have a standard curriculum, a shared
            vocabulary, or an agreed set of measurements, and this book is an
            attempt to supply all three.</p>
-        <p>The method is deliberately slow. A chapter passes thirteen steps before
-           it is published here, including a developmental edit, two independent
-           source and fact checks, a voice and craft pass, a design review, and a
-           continuity gate against every chapter already locked.</p>
+        <p>The method is deliberately slow. Before a chapter is published here
+           it passes an independent review, two separate fact checks against its
+           sources, a voice and craft pass, a design review of every page, and a
+           continuity check against every chapter already published.</p>
       </div>
     </div>
   </section>
@@ -234,8 +250,8 @@
       {% endfor %}
     </div>
     <p class="note-line">A chapter appears here when it locks, and it locks only
-       after all thirteen steps pass. Chapters are published in order, and nothing
-       is published early to fill the page.</p>
+       after every one of those checks passes. Chapters are published in order,
+       and nothing is published early to fill the page.</p>
   </section>
 
   <!-- 6. CONVERSION. -->
@@ -258,10 +274,12 @@
            is set from.</p>
         <p class="price">Free</p>
         {% if first_locked %}
-        <p class="edition-cta"><a class="btn" href="{{ first_locked.slug }}/">Start reading</a>
-        {% if first_locked.pdf %}
-        <a class="btn btn-quiet" href="{{ first_locked.slug }}/{{ first_locked.pdf.file }}">Chapter {{ first_locked.number }} as a PDF</a>
+        <p class="edition-cta"><a class="btn" href="{{ first_locked.slug }}/">Start reading</a></p>
         {% endif %}
+        {% set pdfs = published | selectattr("pdf") | list %}
+        {% if pdfs %}
+        <p class="edition-pdfs">Typeset PDF:
+          {% for c in pdfs %}<a href="{{ c.slug }}/{{ c.pdf.file }}">Chapter {{ c.number }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}
         </p>
         {% endif %}
       </div>
