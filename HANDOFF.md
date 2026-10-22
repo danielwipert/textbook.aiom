@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-21. **One page, current state only (Decision 80).** The
+Last updated: 2026-10-22. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -8,10 +8,9 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
-- Branch `claude/vibrant-babbage-bf2hv7` carries the homepage refresh
-  (Decision 88, 2026-10-21): template, builder and homepage-only CSS. Pull
-  request open for Dan to merge (the container may not push to `main`); check
-  `git log origin/main` before assuming it landed. Merged and safe to delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
+- Branch `claude/vibrant-babbage-bf2hv7` carried the homepage refresh
+  (Decision 88, merged 2026-10-21) and then the Table 3.1 sidenote fix
+  (2026-10-22), each through a pull request Dan asked Claude to merge. Merged and safe to delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
   `claude/inspiring-bohr-4gquw9`, `claude/inspiring-galileo-9hba1g`,
   `claude/sharp-dirac-ojfqqz`, and this branch once merged.
 - Chapters 1 (Process v2), 2 (v3) and 3 (v4) LOCKED and PUBLISHED; each now
@@ -73,6 +72,11 @@ time, options A, B and C, one recommended. Rule and format: CLAUDE.md section 5.
 ## Fix-between-chapters list (Decision 79)
 
 Chapter 3 is in flight: add here, one line each, and fix only what blocks.
+
+- **No web gate sees a sidenote spilling out of a table cell.** Ch3 Table 3.1's
+  notes 17 to 20 floated across the next columns at 1420px and up, live until
+  Dan saw it (fixed 2026-10-22 in AIOM_web.css section 9). Add a gate with a
+  negative control: every `td .note` box inside its cell at every width.
 
 - **voicecheck bans contractions inside quotations; CLAUDE.md section 2 says they
   are permitted in case dialogue.** Found 2026-10-19 (Amazon box, Ch2); Dan ruled
