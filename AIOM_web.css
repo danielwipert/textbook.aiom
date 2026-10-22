@@ -611,6 +611,18 @@ a.termlink:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px;
 }
 .note i { font-style: italic; }
 .note.lit, .note:target { background: var(--tint-thm); }
+/* A NOTE INSIDE A TABLE CELL HAS NO MARGIN TO FLOAT INTO. The negative margin
+   above pulls a note out of the text column into the page margin, but inside a
+   cell it pulls the note across the neighbouring columns instead, over their
+   text: Chapter 3's Table 3.1 at every width from 1420px up (Dan, 2026-10-22).
+   In a cell the note sits under its text, ruled as it is below 1420px. More
+   specific than the media-query rule, so it holds at every width; the tucked
+   display rules are separate and still apply. */
+#chapter-text td .note, #chapter-text th .note {
+  float: none; width: auto;
+  margin: 0.6rem 0 0.2rem; padding: 0.4rem 0 0.1rem 0.7rem;
+  border-top: 0; border-left: 2px solid var(--hairline);
+}
 
 /* ---------- 10. APPARATUS ---------- */
 .definition {
