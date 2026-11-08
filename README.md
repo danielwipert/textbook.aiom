@@ -16,12 +16,13 @@ argument is not restated in this file.
 
 ## What state this is in
 
-**Chapter 1 is locked. The other fourteen are not written yet.**
+**The book is published as it is written, one locked chapter at a time.** Which
+chapters are locked is answered below, by a command, not by this file.
 
-That is why the site publishes one chapter. Publication is not an editorial
-choice made per chapter: a chapter reaches the site only after it passes all
-thirteen steps of the lifecycle and is marked Locked, and gate W2 fails the
-build for any chapter `status_check.py` does not report at that stage. A chapter
+Publication is not an editorial choice made per chapter: a chapter reaches the
+site only after it passes every step of its lifecycle and is marked Locked, and
+gate W2 fails the build for any chapter `status_check.py` does not report at
+that stage. A chapter
 in progress builds to a local preview that carries `noindex` and that CI never
 publishes.
 
@@ -33,7 +34,7 @@ python3 status_check.py
 
 This file deliberately does not carry a chapter count. A number written here
 would be a second answer to a question the repository already answers in one
-place, and it would be wrong the day Chapter 2 locks.
+place, and it would be wrong the day the next chapter locks.
 
 ## Licensing, which is not uniform
 
@@ -78,7 +79,7 @@ python3 AIOM_build.py _ch01_build.html --out build/Ch1.pdf
 rm -f _ch01_build.html _ch01_build.print.html
 ```
 
-**The website and its gates, W1 through W16.** `--site` publishes each chapter's
+**The website and its gates, W1 through W17.** `--site` publishes each chapter's
 last locked state rather than the working tree, so a chapter can be under
 revision without affecting what is live:
 
@@ -89,9 +90,10 @@ python3 web_gates_selftest.py           # negative controls for every web gate
 ```
 
 The build refuses to start without its toolchain and exits 2 rather than
-skipping gates, because a gate that did not run is not a gate that passed. One
-gate is optional and says so loudly: W6 needs a headless browser, and it prints
-`SKIPPED` and appends `W6 NOT RUN` to the verdict rather than passing quietly.
+skipping gates, because a gate that did not run is not a gate that passed. The
+browser gates are optional and say so loudly: W6, W15, W16b and W16c need a
+headless browser, and without one each prints `SKIPPED` and the verdict names
+them as NOT RUN rather than passing quietly.
 CI installs a browser so it actually runs there.
 
 `web_gates_selftest.py` is worth explaining, because it is the least obvious
@@ -101,11 +103,12 @@ fire, and every one of those was a fault in the control rather than in the gate.
 Without the controls, a green gate suite would have been evidence of nothing.
 
 Everything runs on every push through `.github/workflows/web.yml`, which
-publishes to GitHub Pages from `main`.
+publishes to GitHub Pages from `main` at
+`textbook.aioperationsmanagement.ai`.
 
 ## What lives where
 
-`CLAUDE.md` section 4 carries the repository map and is kept current. It is not
+`CLAUDE.md` section 12 carries the repository map and is kept current. It is not
 duplicated here, for the same reason the chapter count is not.
 
 In short: build and QA tooling at the root, chapter working directories under
