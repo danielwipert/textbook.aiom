@@ -445,7 +445,8 @@ parts are parts. Re-derive counts from tool output, never copy them forward.
 ## 10. The web edition
 
 Plan in `AIOM_Web_Edition_Plan_v1.0.md`, Decisions 60 to 67 and 70. Domain
-`aioperationsmanagement.ai`, served at the root from `main` by GitHub Pages.
+`textbook.aioperationsmanagement.ai` (Decision 89), served at the root from `main`
+by GitHub Pages. The bare domain is a separate homepage repository.
 
 - **The web is a second PRESENTATION, never a second text.** W1 requires web body
   text character-identical to print. Figures and bold terms are transformed by
