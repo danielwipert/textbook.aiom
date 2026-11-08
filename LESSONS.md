@@ -1140,6 +1140,9 @@ rulings. What binds outside that document:
   are deliberately exempt, because a link a reader chooses to follow is not a
   request the page makes for them, and the sources page exists to link out.
 - **Hosted on GitHub Pages, published from `main`. Decision 65.**
+- **Superseded 2026-11-08 by Decision 89:** the book is now at
+  `textbook.aioperationsmanagement.ai`; the bare domain is a separate homepage
+  repository. The entry below is the history.
 - **THE DOMAIN IS `aioperationsmanagement.ai`, ruled by Dan 2026-08-19 as Decision
   70, AND THE SITE THEREFORE SERVES AT THE ROOT.** `web.yml` passes
   `--base-url https://aioperationsmanagement.ai` and NO `--base-path`, which is

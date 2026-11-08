@@ -711,7 +711,7 @@ def require_site_build():
             print(f"  {m}")
         print("\n  Build the site first, which is what CI does:\n")
         print("    python3 web_build.py --site --out build/web \\")
-        print("      --base-url https://aioperationsmanagement.ai\n")
+        print("      --base-url https://textbook.aioperationsmanagement.ai\n")
         print("  A stale build/web does not fail cleanly: it makes the W9a")
         print("  baseline report a MISS that looks like a gate defect.")
         return False

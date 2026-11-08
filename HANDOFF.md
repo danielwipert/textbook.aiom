@@ -1,6 +1,6 @@
 # Session handoff
 
-Last updated: 2026-10-22. **One page, current state only (Decision 80).** The
+Last updated: 2026-11-08. **One page, current state only (Decision 80).** The
 protocol is CLAUDE.md section 13. The full history to this date is
 `archive/HANDOFF_history_to_2026-09-30.md`: read it for the story of a specific
 finding, never for the current state. Keep this file under 150 lines; a durable
@@ -8,6 +8,10 @@ rule goes to CLAUDE.md, a lesson to LESSONS.md, and a closed item is deleted.
 
 ## Repository state
 
+- Branch `claude/blissful-noether-xpxddb` (2026-11-08) carries the domain move,
+  Decision 89: the book to `textbook.aioperationsmanagement.ai`. **Do not merge
+  until the `textbook` DNS record exists and the placeholder homepage repository
+  is up**, or the book goes dark. Delete this branch once merged.
 - Branch `claude/vibrant-babbage-bf2hv7` carried the homepage refresh
   (Decision 88, merged 2026-10-21) and then the Table 3.1 sidenote fix
   (2026-10-22), each through a pull request Dan asked Claude to merge. Merged and safe to delete (Dan, 403 from the container): `claude/happy-bardeen-hhct43`,
@@ -26,6 +30,10 @@ checklist keeps v3 step LABELS so the tools bind unchanged; see its preamble.
 
 ## Next actions, in order
 
+0. **Domain move (Decision 89), Dan's steps outside the repo:** create the
+   homepage repository with the placeholder; add a CNAME DNS record `textbook`
+   to `danielwipert.github.io`; set this repo's Pages custom domain to the
+   subdomain; then merge the branch and check both addresses load.
 1. **Chapter 4.** The review of Chapters 1 to 3 (Decisions 83, 87) is DONE:
    eleven sources checked by an outside model, no major red flags, ten
    additions applied. Record: `Drafts/Review_Decision83/` (decision package,

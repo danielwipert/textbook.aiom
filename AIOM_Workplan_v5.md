@@ -823,6 +823,18 @@ Decisions 22 onward live here.
   published chapter, computed by the build. Ruled from before-and-after
   screenshots, all items accepted (gate 5, A).
 
+- **Decision 89. RULED 2026-11-08.** The book moves to
+  `textbook.aioperationsmanagement.ai`, superseding the domain half of
+  Decision 70 (gate 1, A). It still serves at the root, so W15 and the
+  no-`--base-path` rule are unchanged; `web.yml` passes only the new
+  `--base-url`. The bare domain `aioperationsmanagement.ai` becomes a separate
+  homepage in its own repository, because one Pages repository serves one
+  address (gate 2, C). The book moves now and that repository goes up at the
+  same time with a placeholder page linking to the textbook, so the bare
+  domain is never blank (reframed gate 2, A). Recorded as a new Decision, with
+  Decision 70 kept as history (gate 3, A). The merge waits on the `textbook`
+  DNS record.
+
 Also settled, not numbered: theorem panels are labeled "Theorem n" while prose
 cites registry IDs.
 

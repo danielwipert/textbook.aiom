@@ -92,7 +92,7 @@ jobs:
         # what would catch a prefix left behind here.
         run: |
           python3 web_build.py --site --out build/web \
-            --base-url https://aioperationsmanagement.ai
+            --base-url https://textbook.aioperationsmanagement.ai
 
       - name: Prove the gates still measure what they claim
         run: python3 web_gates_selftest.py

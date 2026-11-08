@@ -445,7 +445,8 @@ parts are parts. Re-derive counts from tool output, never copy them forward.
 ## 10. The web edition
 
 Plan in `AIOM_Web_Edition_Plan_v1.0.md`, Decisions 60 to 67 and 70. Domain
-`aioperationsmanagement.ai`, served at the root from `main` by GitHub Pages.
+`textbook.aioperationsmanagement.ai` (Decision 89), served at the root from `main`
+by GitHub Pages. The bare domain is a separate homepage repository.
 
 - **The web is a second PRESENTATION, never a second text.** W1 requires web body
   text character-identical to print. Figures and bold terms are transformed by
@@ -517,7 +518,7 @@ Each rule below has its incident in `LESSONS.md`.
 | `renumber_stage_folders*.py` | One-time folder migrations (v2, v3, v4). |
 | `AIOM_Prose_Standard_v2.0.md` | THE prose standard. |
 | `AIOM_Process_v4_Proposal_v1.0.md` | The process in force and why. |
-| `AIOM_Workplan_v5.md` | Tracker and **the decision-numbering authority**. Decisions run to 88. |
+| `AIOM_Workplan_v5.md` | Tracker and **the decision-numbering authority**. Decisions run to 89. |
 | `AIOM_Consolidated_Spec_v1.md`, `AIOM_Structure_v1.md`, `AIOM_Exit_Competencies_v1.md` | Specification, structure, the twenty-four competencies. |
 | `AIOM_DESIGN_SPEC.md`, `AIOM_Design_QA_Spec_v1.md` | Design spec; gate spec. |
 | `AIOM_Continuity_Ledger.md`, `AIOM_Claim_Ledger.md`, `AIOM_Source_Ledger.md` | G3 record; W14 record; sources. |
