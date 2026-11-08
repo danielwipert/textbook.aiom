@@ -9,7 +9,7 @@ The book itself is on the website. This repository is where it is made.
 
 ## Read it
 
-**https://danielwipert.github.io/textbook.aiom/**
+**https://textbook.aioperationsmanagement.ai/**
 
 The site is the reading surface. Nothing here is a substitute for it, and the
 argument is not restated in this file.
