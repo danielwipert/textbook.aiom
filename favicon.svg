@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- favicon.svg | the browser-tab icon for the web edition | 2026-11-11
+       An open book on the navy of the topbar, in the print palette's paper and
+       amber, with a bookmark ribbon. Chrome only: no chapter references it. -->
+  <rect width="64" height="64" rx="13" fill="#16314F"/>
+  <path d="M32 19 C25 14.5 16 14.5 9 17 V47 C16 44.5 25 44.5 32 49 Z" fill="#F4ECDD"/>
+  <path d="M32 19 C39 14.5 48 14.5 55 17 V47 C48 44.5 39 44.5 32 49 Z" fill="#F4ECDD"/>
+  <path d="M32 19 V49" stroke="#16314F" stroke-width="2"/>
+  <path d="M14 24.5 C19 23 24 23 28 25 M14 30.5 C19 29 24 29 28 31 M14 36.5 C19 35 24 35 28 37"
+        stroke="#16314F" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.55"/>
+  <path d="M41 16.6 V35 L44.5 31.5 L48 35 V16" fill="#C0521A"/>
+</svg>

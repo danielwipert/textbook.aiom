@@ -2450,6 +2450,7 @@ def render(chapter_path, outdir, preview=False, pdf=True):
     os.makedirs(os.path.join(outdir, "assets", "fonts"), exist_ok=True)
     open(os.path.join(chdir, "index.html"), "w", encoding="utf-8").write(web_html)
     shutil.copyfile("AIOM_web.css", os.path.join(outdir, "assets", "aiom_web.css"))
+    shutil.copyfile("favicon.svg", os.path.join(outdir, "assets", "favicon.svg"))
     for f in glob.glob(os.path.join(FONT_SRC, "*.ttf")):
         shutil.copyfile(f, os.path.join(outdir, "assets", "fonts",
                                         os.path.basename(f)))
